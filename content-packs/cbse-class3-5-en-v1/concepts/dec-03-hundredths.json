@@ -1,0 +1,473 @@
+{
+  "id": "dec-03-hundredths",
+  "name": "Decimals — Hundredths, the Second Seat",
+  "grade": 5,
+  "strand": "fractions",
+  "prerequisites": [
+    "dec-02-money-decimals"
+  ],
+  "whatIsIt": "Cut a tenth into ten tinier pieces and you get HUNDREDTHS — a whole cut into 100 equal parts. The dot's SECOND seat counts them: 0.25 = 25/100 (25 hundredths). You've been using hundredths all along — paise ARE hundredths of a rupee, and centimetres are hundredths of a metre!",
+  "whyNeeded": "Tenths are too chunky for precise things: heights (1.37 m), race timings (10.85 seconds), test percentages, cricket averages! Hundredths give measurement its fine grain — and they unlock comparing decimals of different lengths without falling for tricks.",
+  "realLifeUses": [
+    "Height: 1.37 metres = 1 m and 37 hundredths (37 cm!)",
+    "Money: ₹4.05 = 4 rupees and 5 paise (hundredths of a rupee)",
+    "Sports: a 100 m race won by 10.85 vs 10.9 seconds",
+    "Batting average: 52.75 runs per innings"
+  ],
+  "vocabulary": [
+    {
+      "term": "hundredth",
+      "meaning": "One piece of a whole cut into 100 equal parts: 1/100 = 0.01."
+    },
+    {
+      "term": "hundredths place",
+      "meaning": "The SECOND seat right of the dot: in 0.25, the 5 counts hundredths."
+    },
+    {
+      "term": "equivalent decimals",
+      "meaning": "0.5 = 0.50 — same amount! (5 tenths = 50 hundredths — equivalent fractions in disguise!)"
+    }
+  ],
+  "story": {
+    "title": "Squares of the Hundred-Bar",
+    "characters": [
+      "Ravi",
+      "Anu",
+      "the halwai"
+    ],
+    "text": "The halwai's big chikki is scored into 100 tiny squares. Ravi holds 25 squares, Anu holds 3. 'Write each as a decimal,' says the halwai. 'Ravi has 25 hundredths — 25/100 = 0.25. Anu has 3 hundredths — 3/100 = 0.03. See how the zero guards the tenths seat so the 3 stays in the hundredths place!'",
+    "extractedProblem": "Ravi holds 25 squares of a 100-square bar; Anu holds 3. Write each as a decimal.",
+    "answerInStory": "Ravi: 25/100 = 0.25. Anu: 3/100 = 0.03 — the zero guards the tenths seat!"
+  },
+  "visual": {
+    "component": "FractionStrip",
+    "props": {
+      "strips": [
+        {
+          "parts": 10,
+          "shaded": 2,
+          "label": "0.2 = 2 tenths = 20 hundredths"
+        },
+        {
+          "parts": 10,
+          "shaded": 3,
+          "label": "0.25 sits between 0.2 and 0.3"
+        }
+      ]
+    },
+    "caption": "Each tenth splits into 10 hundredths: 0.25 = 2 tenths + 5 hundredths = 25/100. And 0.5 = 0.50 — same amount!"
+  },
+  "teachingGallery": [
+    {
+      "title": "Hundredths — the second place after the dot",
+      "note": "Cut a tenth into 10 again: 0.01. Two digits after the dot = hundredths.",
+      "examples": [
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 3,
+                "label": "0.30 = 3/10 = 30/100"
+              }
+            ]
+          },
+          "caption": "0.30 = 3 tenths = 30 hundredths."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 7,
+                "label": "0.70 = 70/100"
+              }
+            ]
+          },
+          "caption": "0.7 and 0.70 are the same amount."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 2,
+                "label": "0.25 is between 0.2 and 0.3",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "0.25 sits halfway between 0.2 and 0.3."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 5,
+                "label": "0.50 = 50/100 = half"
+              }
+            ]
+          },
+          "caption": "0.50 = 50 hundredths = a half."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 9,
+                "label": "0.99 ≈ almost 1"
+              }
+            ]
+          },
+          "caption": "0.99 is just one hundredth short of 1."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Two seats after the dot: tenths then hundredths. Read the pair as 'hundredths'.",
+    "steps": [
+      "First seat = tenths, second seat = hundredths.",
+      "0.25 = 2 tenths + 5 hundredths = 25 hundredths = 25/100.",
+      "Zeros guard seats: 0.03 = 3 hundredths (no tenths!); 0.30 = 0.3 (trailing zero adds nothing).",
+      "Compare seat by seat from the left: 0.4 vs 0.35 → tenths 4 > 3 → 0.4 wins!"
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Money translation",
+      "whenToUse": "Whenever hundredths feel abstract — coins make them real!",
+      "steps": [
+        "Think of the number as rupees: hundredths = paise.",
+        "0.25 = 25 paise; 0.03 = 3 paise; 0.30 = 30 paise.",
+        "Which is more, 0.3 or 0.25? → 30 paise vs 25 paise. Done!"
+      ],
+      "example": "1.37 m = ₹1.37 imagined as money → 1 rupee 37 paise — the pattern is identical."
+    },
+    {
+      "name": "Hundred-grid picture",
+      "whenToUse": "To SEE hundredths and equivalent decimals.",
+      "steps": [
+        "Draw a 10×10 grid = one whole.",
+        "Shade squares: each = 0.01; each full row = 0.1.",
+        "0.30 = 3 full rows = 0.3 — the grid PROVES they're equal!"
+      ],
+      "example": "0.25 = 2 full rows + 5 squares."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Write 7/100 as a decimal.",
+      "steps": [
+        "7 hundredths — but NO tenths.",
+        "The tenths seat needs its zero guard.",
+        "7/100 = 0.07 (not 0.7, which is 70/100!)."
+      ],
+      "answer": "0.07"
+    },
+    {
+      "problem": "Race timings: Anu 10.9 seconds, Ravi 10.85 seconds. Ravi cheers 'I took LONGER — 85 beats 9!' Who was actually faster?",
+      "steps": [
+        "Compare seat by seat: whole seconds tie (10).",
+        "Tenths: Anu 9, Ravi 8 → Ravi's time is SMALLER (10.85 < 10.90).",
+        "Smaller time = faster runner — Ravi WON but read it backwards! Longer decimals aren't bigger."
+      ],
+      "answer": "Ravi — 10.85 < 10.9, so he finished quicker."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Hundredths = two places",
+    "intro": "Out of a hundred? Fill exactly two spots after the dot — pad with a zero if you must.",
+    "questions": [
+      {
+        "id": "dec03-trick-37",
+        "type": "number",
+        "q": "Write 37/100 as a decimal.",
+        "answer": "0.37",
+        "hintLadder": [
+          "Hundredths fill TWO places after the dot.",
+          "Write the number in those two places (add a leading 0 if needed).",
+          "37/100 = 0.37."
+        ],
+        "explain": "37/100 = 0.37."
+      },
+      {
+        "id": "dec03-trick-5",
+        "type": "number",
+        "q": "Write 5/100 as a decimal.",
+        "answer": "0.05",
+        "hintLadder": [
+          "Hundredths fill TWO places after the dot.",
+          "Write the number in those two places (add a leading 0 if needed).",
+          "5/100 = 0.05."
+        ],
+        "explain": "5/100 = 0.05."
+      },
+      {
+        "id": "dec03-trick-60",
+        "type": "number",
+        "q": "Write 60/100 as a decimal.",
+        "answer": "0.60",
+        "hintLadder": [
+          "Hundredths fill TWO places after the dot.",
+          "Write the number in those two places (add a leading 0 if needed).",
+          "60/100 = 0.60."
+        ],
+        "explain": "60/100 = 0.60."
+      },
+      {
+        "id": "dec03-trick-25",
+        "type": "number",
+        "q": "Write 25/100 as a decimal.",
+        "answer": "0.25",
+        "hintLadder": [
+          "Hundredths fill TWO places after the dot.",
+          "Write the number in those two places (add a leading 0 if needed).",
+          "25/100 = 0.25."
+        ],
+        "explain": "25/100 = 0.25."
+      },
+      {
+        "id": "dec03-trick-9",
+        "type": "number",
+        "q": "Write 9/100 as a decimal.",
+        "answer": "0.09",
+        "hintLadder": [
+          "Hundredths fill TWO places after the dot.",
+          "Write the number in those two places (add a leading 0 if needed).",
+          "9/100 = 0.09."
+        ],
+        "explain": "9/100 = 0.09."
+      },
+      {
+        "id": "dec03-trick-80",
+        "type": "number",
+        "q": "Write 80/100 as a decimal.",
+        "answer": "0.80",
+        "hintLadder": [
+          "Hundredths fill TWO places after the dot.",
+          "Write the number in those two places (add a leading 0 if needed).",
+          "80/100 = 0.80."
+        ],
+        "explain": "80/100 = 0.80."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "tenths-guard-dropped",
+      "mistake": "Writing 3 hundredths as 0.3 instead of 0.03.",
+      "fix": "The zero GUARDS the tenths seat! 3/100 has no tenths → 0.03. Money check: 3 paise is ₹0.03, never ₹0.30."
+    },
+    {
+      "mistakeTag": "longer-decimal-bigger",
+      "mistake": "Judging 0.35 > 0.4 'because 35 > 4'.",
+      "fix": "Compare seat by seat from the left! Tenths first: 4 beats 3, so 0.4 > 0.35. Or money: 40 paise beats 35 paise."
+    },
+    {
+      "mistakeTag": "trailing-zero-feared",
+      "mistake": "Thinking 0.5 and 0.50 are different amounts.",
+      "fix": "5 tenths = 50 hundredths — equivalent fractions in decimal clothes! A trailing zero after the last decimal digit changes NOTHING: 0.5 = 0.50. (The grid shows 5 rows either way!)"
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "A 100-square chocolate bar: you take 25 squares. Write your share as a decimal.",
+        "answer": "0.25",
+        "hintLadder": [
+          "Each square is one hundredth.",
+          "25 hundredths.",
+          "Zero wholes, then 25 in the two seats."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "Write 3/100 as a decimal:",
+        "options": [
+          {
+            "label": "0.03"
+          },
+          {
+            "label": "0.3",
+            "mistakeTag": "tenths-guard-dropped"
+          }
+        ],
+        "answer": "0.03",
+        "hintLadder": [
+          "Are there any TENTHS in 3 hundredths?",
+          "No — so the tenths seat needs its guard.",
+          "Money check: 3 paise = ₹0.03."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "mcq",
+        "q": "Which is bigger: 0.4 or 0.35?",
+        "options": [
+          {
+            "label": "0.4 — four tenths beat three tenths"
+          },
+          {
+            "label": "0.35 — because 35 > 4",
+            "mistakeTag": "longer-decimal-bigger"
+          }
+        ],
+        "answer": "0.4 — four tenths beat three tenths",
+        "hintLadder": [
+          "Compare the TENTHS seat first.",
+          "4 vs 3 — decided!",
+          "Money: 40 paise vs 35 paise."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "0.5 and 0.50 are…",
+        "options": [
+          {
+            "label": "The same amount — 5 tenths = 50 hundredths"
+          },
+          {
+            "label": "Different — 50 is more",
+            "mistakeTag": "trailing-zero-feared"
+          }
+        ],
+        "answer": "The same amount — 5 tenths = 50 hundredths",
+        "hintLadder": [
+          "Draw both on a hundred-grid.",
+          "5 full rows either way!",
+          "Equivalent fractions: 5/10 = 50/100."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "number",
+        "q": "Your height is 1 metre and 37 centimetres. A centimetre is a hundredth of a metre — write your height in metres as a decimal.",
+        "answer": "1.37",
+        "hintLadder": [
+          "1 whole metre left of the dot.",
+          "37 hundredths of a metre after it.",
+          "One point three seven."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "Order these race times, FASTEST first: 10.9, 10.85, 11.02",
+        "options": [
+          {
+            "label": "10.85, 10.9, 11.02"
+          },
+          {
+            "label": "10.9, 10.85, 11.02",
+            "mistakeTag": "longer-decimal-bigger"
+          }
+        ],
+        "answer": "10.85, 10.9, 11.02",
+        "hintLadder": [
+          "Fastest = smallest time!",
+          "10.85 vs 10.9: tenths 8 < 9.",
+          "10.85 is smallest, 11.02 largest."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "Write 9/100 as a decimal.",
+        "answer": "0.09",
+        "hintLadder": [
+          "Nine hundredths, zero tenths.",
+          "Guard the tenths seat!",
+          "0 point 0 9."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "fraction",
+        "q": "Write 0.25 as a fraction (over 100).",
+        "answer": "25/100",
+        "hintLadder": [
+          "Two seats = hundredths.",
+          "25 of them.",
+          "Top 25, bottom 100."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "Which is smaller: 0.09 or 0.1?",
+        "options": [
+          {
+            "label": "0.09 — nine hundredths is less than ten hundredths"
+          },
+          {
+            "label": "0.1 — one is less than nine",
+            "mistakeTag": "longer-decimal-bigger"
+          }
+        ],
+        "answer": "0.09 — nine hundredths is less than ten hundredths",
+        "hintLadder": [
+          "Rename 0.1 in hundredths: 0.10.",
+          "9 vs 10 hundredths.",
+          "Money: 9 paise vs 10 paise."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "number",
+        "q": "₹5 and 8 paise, written as a decimal amount:",
+        "answer": "5.08",
+        "hintLadder": [
+          "Paise take TWO seats.",
+          "8 paise = 08.",
+          "Five point zero eight."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach the second seat! Draw a 10×10 grid for someone at home, shade 0.25 and 0.03, and explain why the zero in 0.03 can never be skipped — use paise if it helps!",
+  "revisionCard": {
+    "summary": "Second seat = hundredths: 0.25 = 25/100. Zero guards seats (3/100 = 0.03, NOT 0.3!). Trailing zeros change nothing (0.5 = 0.50). Compare seat by seat from the left (0.4 > 0.35). Money = built-in hundredths practice!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Fraction Kitchen (Ganita Grove)",
+    "title": "The Hundred-Crumb Heist",
+    "brief": "The legendary 100-square chocolate is being shared — but decimal labels keep getting scrambled! Write each share correctly, spot the guard-zero fakes (0.3 vs 0.03!), and rank the race-time trophies.",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "Measure your family: heights in metres as decimals (1.37 m!), using a tape. Then check a shop receipt for paise amounts — find one price whose hundredths seat is doing real work.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 5 (decimals: hundredths)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

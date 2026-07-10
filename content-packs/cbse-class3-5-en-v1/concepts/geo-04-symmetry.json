@@ -1,0 +1,531 @@
+{
+  "id": "geo-04-symmetry",
+  "name": "Symmetry — The Perfect Fold",
+  "grade": 4,
+  "strand": "geometry",
+  "prerequisites": [
+    "geo-01-shapes"
+  ],
+  "whatIsIt": "A shape has symmetry when you can FOLD it along a line and the two halves match EXACTLY — like closing a book where both pages are twins. That fold line is the LINE OF SYMMETRY. Some shapes have one (a heart), some have many (a square has 4!), some have none (the letter F).",
+  "whyNeeded": "Symmetry is everywhere nature and artists work: butterfly wings, human faces, rangoli patterns, the Taj Mahal! Designers use it to make things beautiful and balanced. Spotting symmetry sharpens your eye for patterns — a superpower for all of math.",
+  "realLifeUses": [
+    "Rangoli and kolam designs are built on symmetry",
+    "Butterflies: the left wing mirrors the right",
+    "Letters: A, H, M, O have mirror lines; F, G, J don't!",
+    "Architecture: the Taj Mahal is famous for its perfect symmetry"
+  ],
+  "vocabulary": [
+    {
+      "term": "symmetry",
+      "meaning": "Two halves matching exactly when folded."
+    },
+    {
+      "term": "line of symmetry",
+      "meaning": "The fold line where halves become twins — the mirror line."
+    },
+    {
+      "term": "mirror half",
+      "meaning": "One side is the reflection of the other — flipped, not slid!"
+    }
+  ],
+  "story": {
+    "title": "The Folded Rangoli Butterfly",
+    "characters": [
+      "Anu",
+      "her mother"
+    ],
+    "text": "Anu paints just one wing of a butterfly on a folded sheet, then presses the two halves together. When she opens it — two perfectly matching wings! 'How did the other wing appear?' 'You folded along the LINE OF SYMMETRY,' says her mother. 'The wet paint printed a mirror copy, so both halves match exactly. Our rangolis use this same trick!'",
+    "extractedProblem": "How did Anu get two perfectly matching wings from painting only one?",
+    "answerInStory": "She folded along the line of symmetry — the wet paint printed a mirror copy, so both halves match exactly."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        {
+          "kind": "square",
+          "w": 3,
+          "mirrorLine": true,
+          "label": "square: this fold matches!"
+        },
+        {
+          "kind": "triangle",
+          "mirrorLine": true,
+          "label": "this triangle: fold matches"
+        },
+        {
+          "kind": "circle",
+          "mirrorLine": true,
+          "label": "circle: EVERY fold matches!"
+        }
+      ]
+    },
+    "caption": "The dashed line is a line of symmetry — fold there and the halves become twins. A circle has endless fold lines!"
+  },
+  "teachingGallery": [
+    {
+      "title": "Lines of symmetry — the perfect fold",
+      "note": "A fold line where both halves match exactly is a line of symmetry.",
+      "examples": [
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 4,
+                "label": "square: 4 lines"
+              }
+            ]
+          },
+          "caption": "A square folds 4 ways → 4 lines of symmetry."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "rect",
+                "w": 6,
+                "h": 3,
+                "label": "rectangle: 2 lines"
+              }
+            ]
+          },
+          "caption": "A rectangle → 2 lines."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "triangle",
+                "label": "equilateral triangle: 3 lines"
+              }
+            ]
+          },
+          "caption": "An equal triangle → 3 lines."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "circle",
+                "label": "circle: endless lines"
+              }
+            ]
+          },
+          "caption": "A circle folds through the centre any way → countless lines."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "pentagon",
+                "label": "regular pentagon: 5 lines"
+              }
+            ]
+          },
+          "caption": "A regular pentagon → 5 lines."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "The fold test: imagine (or really do) a fold — do the halves match exactly?",
+    "steps": [
+      "Draw or imagine a fold line through the shape.",
+      "Fold: does EVERY point on one side land on a matching point on the other?",
+      "Match → it's a line of symmetry. Any mismatch → it's not.",
+      "Count all the fold lines that work: square 4, rectangle 2, circle endless, letter F none!"
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Mirror test",
+      "whenToUse": "When you can't fold (walls, buildings, screens!).",
+      "steps": [
+        "Stand a small mirror upright on the possible symmetry line.",
+        "Look: does the mirror's reflection rebuild the SAME whole shape?",
+        "Yes → symmetry line found!"
+      ],
+      "example": "Mirror on the middle of the letter A: the reflection completes the A perfectly."
+    },
+    {
+      "name": "Ink-blot method",
+      "whenToUse": "For CREATING symmetric designs.",
+      "steps": [
+        "Drop paint on one half of a paper.",
+        "Fold, press, open.",
+        "Instant symmetry — the fold line did the mirroring for you!"
+      ],
+      "example": "Anu's butterfly! Also great for rangoli design drafts."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "How many lines of symmetry does a square have?",
+      "steps": [
+        "Fold top-to-bottom: match ✓. Fold left-to-right: match ✓.",
+        "Fold corner-to-corner: match ✓ — and the OTHER diagonal too ✓.",
+        "Count: 2 straight + 2 diagonal = 4 lines of symmetry."
+      ],
+      "answer": "4"
+    },
+    {
+      "problem": "Ravi says a rectangle (not a square) also has 4 lines of symmetry, 'because it's square-ish'. Test his diagonal fold!",
+      "steps": [
+        "Straight folds (top-bottom, left-right): both match ✓ — that's 2.",
+        "Diagonal fold corner-to-corner: the halves overhang — long side lands on short side. NO match!",
+        "A non-square rectangle has only 2 lines of symmetry. The diagonals only work when all sides are equal."
+      ],
+      "answer": "2 — the diagonal folds fail on a rectangle."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Fold and match",
+    "intro": "If a fold makes the two halves land exactly on each other, that's a line of symmetry.",
+    "questions": [
+      {
+        "id": "geo04-trick-sq",
+        "type": "mcq",
+        "q": "How many lines of symmetry does a SQUARE have?",
+        "answer": "4",
+        "options": [
+          {
+            "label": "4"
+          },
+          {
+            "label": "2"
+          },
+          {
+            "label": "1"
+          }
+        ],
+        "hintLadder": [
+          "Fold it in different ways so halves match.",
+          "Across the middle both ways, and both diagonals.",
+          "4 lines."
+        ],
+        "explain": "square → 4."
+      },
+      {
+        "id": "geo04-trick-rect",
+        "type": "mcq",
+        "q": "How many lines of symmetry does a RECTANGLE (not square) have?",
+        "answer": "2",
+        "options": [
+          {
+            "label": "2"
+          },
+          {
+            "label": "4"
+          },
+          {
+            "label": "1"
+          }
+        ],
+        "hintLadder": [
+          "Fold across the middle each way.",
+          "The diagonals do NOT match for a rectangle.",
+          "2 lines."
+        ],
+        "explain": "rectangle → 2."
+      },
+      {
+        "id": "geo04-trick-tri",
+        "type": "mcq",
+        "q": "A triangle with all equal sides has how many lines of symmetry?",
+        "answer": "3",
+        "options": [
+          {
+            "label": "3"
+          },
+          {
+            "label": "1"
+          },
+          {
+            "label": "0"
+          }
+        ],
+        "hintLadder": [
+          "One fold through each corner.",
+          "3 corners → 3 folds.",
+          "3 lines."
+        ],
+        "explain": "equal triangle → 3."
+      },
+      {
+        "id": "geo04-trick-circ",
+        "type": "mcq",
+        "q": "How many lines of symmetry does a CIRCLE have?",
+        "answer": "countless",
+        "options": [
+          {
+            "label": "countless"
+          },
+          {
+            "label": "4"
+          },
+          {
+            "label": "1"
+          }
+        ],
+        "hintLadder": [
+          "Any fold through the centre matches.",
+          "There is no limit.",
+          "Countless."
+        ],
+        "explain": "circle → countless."
+      },
+      {
+        "id": "geo04-trick-h",
+        "type": "mcq",
+        "q": "A shape looks the same on both sides of a fold. It has…",
+        "answer": "a line of symmetry",
+        "options": [
+          {
+            "label": "a line of symmetry"
+          },
+          {
+            "label": "no symmetry"
+          },
+          {
+            "label": "3 sides"
+          }
+        ],
+        "hintLadder": [
+          "Both halves match on the fold.",
+          "That fold is a line of symmetry.",
+          "Yes."
+        ],
+        "explain": "matching halves → symmetry."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "any-middle-line-counted",
+      "mistake": "Calling any line through the middle a 'line of symmetry' without the fold test (like a rectangle's diagonal).",
+      "fix": "Middle isn't enough — the halves must MATCH when folded! Always run the fold (or mirror) test. A rectangle's diagonal cuts it in half, but the halves don't fold onto each other."
+    },
+    {
+      "mistakeTag": "slide-confused-with-mirror",
+      "mistake": "Thinking two identical side-by-side copies (a slide/pattern) is symmetry.",
+      "fix": "Symmetry needs a FLIP, not a slide! The right half must be the left half's mirror — like your two hands, not like two left hands in a row."
+    },
+    {
+      "mistakeTag": "circle-given-few-lines",
+      "mistake": "Saying a circle has just 1 or 2 lines of symmetry.",
+      "fix": "Every line through a circle's centre is a fold that matches — a circle has COUNTLESS lines of symmetry. That's what makes it the roundest, fairest shape!"
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "mcq",
+        "q": "Which capital letter has a vertical line of symmetry?",
+        "options": [
+          {
+            "label": "A"
+          },
+          {
+            "label": "F",
+            "mistakeTag": "any-middle-line-counted"
+          }
+        ],
+        "answer": "A",
+        "hintLadder": [
+          "Imagine folding each letter down the middle.",
+          "Do F's arms match when folded? Does A's?",
+          "A folds onto itself perfectly."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "number",
+        "q": "How many lines of symmetry does a (non-square) rectangle have?",
+        "answer": "2",
+        "hintLadder": [
+          "Try the straight folds: top-bottom and left-right.",
+          "Now try a diagonal — do the halves match?",
+          "Only the two straight folds work."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "How many lines of symmetry does a square have? (Don't forget the diagonals!)",
+        "answer": "4",
+        "hintLadder": [
+          "Two straight folds work...",
+          "...and on a SQUARE, both diagonals work too!",
+          "2 + 2."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "Ravi draws two identical fish swimming the SAME direction, side by side, and calls it symmetric. Geo shakes her neck. Why?",
+        "options": [
+          {
+            "label": "Symmetry needs a mirror flip — the second fish should face the opposite way"
+          },
+          {
+            "label": "The fish are too small",
+            "mistakeTag": "any-middle-line-counted"
+          },
+          {
+            "label": "It is symmetric",
+            "mistakeTag": "slide-confused-with-mirror"
+          }
+        ],
+        "answer": "Symmetry needs a mirror flip — the second fish should face the opposite way",
+        "hintLadder": [
+          "Fold between the two fish — do they land on each other?",
+          "Nose lands on tail — mismatch!",
+          "Mirror halves face each other, like butterfly wings."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "How many lines of symmetry does a circle have?",
+        "options": [
+          {
+            "label": "Countless — every line through the centre works"
+          },
+          {
+            "label": "Exactly 2",
+            "mistakeTag": "circle-given-few-lines"
+          }
+        ],
+        "answer": "Countless — every line through the centre works",
+        "hintLadder": [
+          "Fold a paper circle any way through the middle.",
+          "Did it ever NOT match?",
+          "Every centre fold is perfect — endless lines!"
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "An equilateral triangle (all 3 sides equal) — how many lines of symmetry?",
+        "answer": "3",
+        "hintLadder": [
+          "Fold from each corner to the middle of the opposite side.",
+          "How many corners are there?",
+          "One working fold per corner."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "mcq",
+        "q": "A line of symmetry is a line where…",
+        "options": [
+          {
+            "label": "Folding makes the two halves match exactly"
+          },
+          {
+            "label": "The shape is cut into any two halves",
+            "mistakeTag": "any-middle-line-counted"
+          }
+        ],
+        "answer": "Folding makes the two halves match exactly",
+        "hintLadder": [
+          "Remember the butterfly fold.",
+          "Halves must be...?",
+          "Twins — exact mirror matches."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "Lines of symmetry in a square?",
+        "answer": "4",
+        "hintLadder": [
+          "Straight folds plus...",
+          "...diagonals!",
+          "2 + 2."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "The two wings of a symmetric butterfly are…",
+        "options": [
+          {
+            "label": "Mirror images — flipped copies of each other"
+          },
+          {
+            "label": "Identical copies facing the same way",
+            "mistakeTag": "slide-confused-with-mirror"
+          }
+        ],
+        "answer": "Mirror images — flipped copies of each other",
+        "hintLadder": [
+          "Like your left and right hands.",
+          "Flip, not slide!",
+          "Each wing reflects the other."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "Which shape has the MOST lines of symmetry?",
+        "options": [
+          {
+            "label": "Circle"
+          },
+          {
+            "label": "Square",
+            "mistakeTag": "circle-given-few-lines"
+          }
+        ],
+        "answer": "Circle",
+        "hintLadder": [
+          "Square has 4...",
+          "...but the circle?",
+          "Endless centre folds!"
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Do Anu's paint trick (or a paper-cut version) with someone at home: fold a paper, cut or paint half a shape at the fold, open it — and explain why the fold line made perfect twins.",
+  "revisionCard": {
+    "summary": "Symmetry = fold and the halves MATCH (mirror twins, not side-by-side copies!). Line counts: letter F → 0, heart → 1, rectangle → 2, equilateral triangle → 3, square → 4, circle → countless. Always run the fold test — middle lines can lie!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Geometry City (Ganita Grove)",
+    "title": "The Rangoli Repair Squad",
+    "brief": "The festival rangolis of Shape City are half-erased! Complete each design's missing mirror half, count symmetry lines to unlock bonus colours, and reject Ravi's slide-copies masquerading as mirrors.",
+    "character": "Geo Giraffe"
+  },
+  "realLifeProject": "Symmetry hunt with a mirror: test 5 things at home (letters on a cereal box, a leaf, a rangoli, your face in a photo!). Report each one's symmetry lines — and make one fold-and-cut paper design for the fridge.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4 (symmetry)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

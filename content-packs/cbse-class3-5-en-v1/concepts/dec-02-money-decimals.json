@@ -1,0 +1,505 @@
+{
+  "id": "dec-02-money-decimals",
+  "name": "Money as Decimals — Rupees and Paise",
+  "grade": 4,
+  "strand": "fractions",
+  "prerequisites": [
+    "dec-01-decimal-tenths"
+  ],
+  "whatIsIt": "Money is the decimal system you already use every day! One rupee = 100 paise, so paise are HUNDREDTHS of a rupee. ₹2.50 means 2 whole rupees and 50 paise (50/100 of a rupee). The price tag's dot is a real decimal point.",
+  "whyNeeded": "Every shop bill, price tag, and pocket-money count uses decimal money. Master it and you can add bills, give change, compare prices, and never be confused at a shop again. Money also makes decimals FEEL real — hundredths you can hold in your hand!",
+  "realLifeUses": [
+    "Reading price tags: ₹35.50 for the notebook",
+    "Adding a bill: ₹12.50 + ₹8.25 at the school canteen",
+    "Checking change: paid ₹50 for a ₹42.75 toy — how much back?",
+    "Comparing: which juice is cheaper, ₹22.50 or ₹22.05?"
+  ],
+  "vocabulary": [
+    {
+      "term": "paise",
+      "meaning": "Hundredths of a rupee: 100 paise = ₹1, so 1 paisa = ₹0.01."
+    },
+    {
+      "term": "hundredths place",
+      "meaning": "The SECOND seat right of the dot — money always uses two seats."
+    },
+    {
+      "term": "amount",
+      "meaning": "Money written as rupees.paise, like ₹12.75."
+    }
+  ],
+  "story": {
+    "title": "Change at the Stationery Shop",
+    "characters": [
+      "Anu",
+      "the shopkeeper"
+    ],
+    "text": "Anu buys a pencil for ₹2.50 and pays with a ₹5 note. 'How much change?' The shopkeeper counts up: 'From ₹2.50, fifty paise makes ₹3, then ₹2 more makes ₹5. So your change is ₹2.50.' Anu sees how the dot keeps rupees and paise each in their own seat.",
+    "extractedProblem": "A pencil costs ₹2.50. Anu pays with ₹5. How much change does she get?",
+    "answerInStory": "₹2.50 — count up: ₹2.50 + 0.50 → ₹3, then + ₹2 → ₹5."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        {
+          "label": "₹5 paid",
+          "parts": [
+            {
+              "value": 2.5,
+              "label": "cost ₹2.50"
+            },
+            {
+              "value": 2.5,
+              "label": "change ₹2.50"
+            }
+          ],
+          "showTotal": false
+        }
+      ]
+    },
+    "caption": "The money you pay splits into two parts: what the item COSTS and the CHANGE you get back. Cost + change = paid."
+  },
+  "teachingGallery": [
+    {
+      "title": "Money — rupees and paise",
+      "note": "₹ before the dot are rupees; the 2 digits after are paise (out of 100).",
+      "examples": [
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "₹2.50",
+                "parts": [
+                  {
+                    "value": 2,
+                    "label": "₹2"
+                  },
+                  {
+                    "value": 0.5,
+                    "label": "50 paise"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "₹2.50 = 2 rupees and 50 paise."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "₹5.75",
+                "parts": [
+                  {
+                    "value": 5,
+                    "label": "₹5"
+                  },
+                  {
+                    "value": 0.75,
+                    "label": "75 paise"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "₹5.75 = 5 rupees 75 paise."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "₹0.50",
+                "parts": [
+                  {
+                    "value": 0.5,
+                    "label": "50 paise = half a rupee"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "50 paise = ₹0.50."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "₹10.05",
+                "parts": [
+                  {
+                    "value": 10,
+                    "label": "₹10"
+                  },
+                  {
+                    "value": 0.05,
+                    "label": "5 paise"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "₹10.05 = 10 rupees and 5 paise (note the 0!)."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 5,
+                "label": "₹0.50 = 5/10 of a rupee"
+              }
+            ]
+          },
+          "caption": "Half a rupee shaded."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Write money with TWO digits after the dot, line up the dots, then add or subtract like normal numbers.",
+    "steps": [
+      "Always give paise two seats: ₹2.5 is written ₹2.50, ₹7 is ₹7.00.",
+      "To add or subtract: line the DOTS under each other — that lines up every place.",
+      "Add/subtract right to left as usual (paise first), regrouping just like before.",
+      "Put the dot straight down into the answer: ₹12.50 + ₹8.25 = ₹20.75."
+    ]
+  },
+  "mentalMathMethod": {
+    "name": "Shopkeeper's count-up change",
+    "whenToUse": "Giving or checking change without paper — the real-shop way.",
+    "steps": [
+      "Start at the price and climb to the money paid.",
+      "Climb to the next whole rupee first, then jump whole rupees.",
+      "₹42.75 → ₹43 is 25 paise; ₹43 → ₹50 is ₹7. Change = ₹7.25."
+    ],
+    "example": "Paid ₹20 for a ₹16.50 tiffin: 16.50→17 is 0.50, 17→20 is 3 → change ₹3.50."
+  },
+  "alternateMethods": [
+    {
+      "name": "Coins-and-notes method",
+      "whenToUse": "To make any money problem touchable.",
+      "steps": [
+        "Build each amount with play notes (₹10, ₹1) and coins (50p, 25p, 10p).",
+        "Combine or remove the physical money.",
+        "Count what remains — notes first, then coins."
+      ],
+      "example": "₹2.50 + ₹1.75: combine → ₹3 in notes + 125 paise = ₹4.25."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Canteen bill: a sandwich for ₹12.50 and juice for ₹8.25. What is the total?",
+      "steps": [
+        "Write with dots lined up: 12.50 over 8.25.",
+        "Paise: 50 + 25 = 75.",
+        "Rupees: 12 + 8 = 20.",
+        "Total: ₹20.75."
+      ],
+      "answer": "20.75"
+    },
+    {
+      "problem": "Ravi pays ₹50 for a toy costing ₹42.75. He computes change as ₹8.75 'because 50 − 42 = 8 and keep the 75'. Check him with the count-up method!",
+      "steps": [
+        "Count up from ₹42.75: to reach ₹43 needs 25 paise.",
+        "From ₹43 to ₹50 needs ₹7.",
+        "True change: ₹7.25 — not ₹8.75!",
+        "Ravi forgot: the 75 paise must be climbed OVER, not copied over."
+      ],
+      "answer": "7.25"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Two places for paise",
+    "intro": "Rupees before the dot, paise after — and paise always fill two decimal places.",
+    "questions": [
+      {
+        "id": "dec02-trick-2-50",
+        "type": "number",
+        "q": "Write ₹2 and 50 paise as rupees.",
+        "answer": "2.50",
+        "hintLadder": [
+          "Rupees go BEFORE the dot.",
+          "Paise go after the dot — always 2 digits (out of 100).",
+          "= ₹2.50."
+        ],
+        "explain": "₹2 50p = ₹2.50."
+      },
+      {
+        "id": "dec02-trick-5-75",
+        "type": "number",
+        "q": "Write ₹5 and 75 paise as rupees.",
+        "answer": "5.75",
+        "hintLadder": [
+          "Rupees go BEFORE the dot.",
+          "Paise go after the dot — always 2 digits (out of 100).",
+          "= ₹5.75."
+        ],
+        "explain": "₹5 75p = ₹5.75."
+      },
+      {
+        "id": "dec02-trick-3-25",
+        "type": "number",
+        "q": "Write ₹3 and 25 paise as rupees.",
+        "answer": "3.25",
+        "hintLadder": [
+          "Rupees go BEFORE the dot.",
+          "Paise go after the dot — always 2 digits (out of 100).",
+          "= ₹3.25."
+        ],
+        "explain": "₹3 25p = ₹3.25."
+      },
+      {
+        "id": "dec02-trick-10-5",
+        "type": "number",
+        "q": "Write ₹10 and 5 paise as rupees.",
+        "answer": "10.05",
+        "hintLadder": [
+          "Rupees go BEFORE the dot.",
+          "Paise go after the dot — always 2 digits (out of 100).",
+          "= ₹10.05."
+        ],
+        "explain": "₹10 5p = ₹10.05."
+      },
+      {
+        "id": "dec02-trick-0-50",
+        "type": "number",
+        "q": "Write ₹0 and 50 paise as rupees.",
+        "answer": "0.50",
+        "hintLadder": [
+          "Rupees go BEFORE the dot.",
+          "Paise go after the dot — always 2 digits (out of 100).",
+          "= ₹0.50."
+        ],
+        "explain": "₹0 50p = ₹0.50."
+      },
+      {
+        "id": "dec02-trick-7-60",
+        "type": "number",
+        "q": "Write ₹7 and 60 paise as rupees.",
+        "answer": "7.60",
+        "hintLadder": [
+          "Rupees go BEFORE the dot.",
+          "Paise go after the dot — always 2 digits (out of 100).",
+          "= ₹7.60."
+        ],
+        "explain": "₹7 60p = ₹7.60."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "paise-copied-not-subtracted",
+      "mistake": "Subtracting only rupees and copying the paise: ₹50 − ₹42.75 = ₹8.75.",
+      "fix": "Paise subtract too! ₹50.00 − ₹42.75 needs borrowing, or use the shopkeeper's count-up: 42.75 → 43 → 50 gives ₹7.25."
+    },
+    {
+      "mistakeTag": "dots-not-aligned",
+      "mistake": "Adding ₹12.50 + ₹8.25 with the digits misaligned, mixing paise with rupees.",
+      "fix": "Line up the DOTS first — dot under dot puts rupees under rupees and paise under paise. Then it's ordinary column adding."
+    },
+    {
+      "mistakeTag": "single-paise-digit",
+      "mistake": "Writing two rupees fifty paise as ₹2.5 or even ₹2.05.",
+      "fix": "Money always wears TWO paise digits: fifty paise = .50, five paise = .05. ₹2.50 and ₹2.05 are very different amounts!"
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "A chocolate costs ₹5.50 and a toffee ₹2.25. Total bill? (Write like 7.75)",
+        "answer": "7.75",
+        "hintLadder": [
+          "Line up the dots: 5.50 over 2.25.",
+          "Paise: 50 + 25 = ?",
+          "Rupees: 5 + 2 = ? Put the dot straight down."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "How do you write 'two rupees and five paise' as a decimal?",
+        "options": [
+          {
+            "label": "₹2.05"
+          },
+          {
+            "label": "₹2.5",
+            "mistakeTag": "single-paise-digit"
+          },
+          {
+            "label": "₹2.50",
+            "mistakeTag": "dots-not-aligned"
+          }
+        ],
+        "answer": "₹2.05",
+        "hintLadder": [
+          "Paise get TWO seats after the dot.",
+          "Five paise is 05, not 50!",
+          "2 rupees, dot, zero-five."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "You pay ₹20 for a tiffin costing ₹16.50. Count up like a shopkeeper — how much change? (Write like 3.50)",
+        "answer": "3.50",
+        "hintLadder": [
+          "Climb from 16.50 to the next whole rupee: how much?",
+          "16.50 → 17 is 0.50. Now 17 → 20?",
+          "Add your climbs: 0.50 + 3."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "Which juice is cheaper: ₹22.50 or ₹22.05?",
+        "options": [
+          {
+            "label": "₹22.05"
+          },
+          {
+            "label": "₹22.50, because 5 is less than 50",
+            "mistakeTag": "single-paise-digit"
+          }
+        ],
+        "answer": "₹22.05",
+        "hintLadder": [
+          "Rupees tie at 22 — compare the paise.",
+          "50 paise vs 05 paise.",
+          "Five paise is far less than fifty!"
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "number",
+        "q": "Ravi strikes again: he says ₹50 − ₹42.75 = ₹8.75. Count up and give the TRUE change. (Write like 7.25)",
+        "answer": "7.25",
+        "hintLadder": [
+          "42.75 → 43 needs how many paise?",
+          "43 → 50 needs how many rupees?",
+          "0.25 + 7 = ?"
+        ],
+        "explain": "The paise must be climbed over, not copied: change is ₹7.25."
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "Pocket money maths: you have ₹15.50, earn ₹10.25 more, then spend ₹12.00. How much is left? (Write like 13.75)",
+        "answer": "13.75",
+        "hintLadder": [
+          "First add: 15.50 + 10.25 (line up the dots!).",
+          "That gives 25.75. Now subtract 12.00.",
+          "Only the rupees change: 25 − 12."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "₹7.25 + ₹2.50 = ? (Write like 9.75)",
+        "answer": "9.75",
+        "hintLadder": [
+          "Dots lined up? Paise first: 25 + 50.",
+          "Rupees: 7 + 2.",
+          "Dot straight down."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "One rupee equals how many paise?",
+        "options": [
+          {
+            "label": "100"
+          },
+          {
+            "label": "10",
+            "mistakeTag": "single-paise-digit"
+          }
+        ],
+        "answer": "100",
+        "hintLadder": [
+          "That's why paise take TWO seats after the dot.",
+          "Hundredths need a hundred to make a whole.",
+          "100 paise = ₹1."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "number",
+        "q": "Change check: paid ₹10 for a ₹6.50 juice. How much back? (Write like 3.50)",
+        "answer": "3.50",
+        "hintLadder": [
+          "Count up: 6.50 → 7 is 0.50.",
+          "7 → 10 is 3.",
+          "Add the climbs."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "Before adding two money amounts on paper, the golden setup rule is…",
+        "options": [
+          {
+            "label": "Line up the dots — dot under dot"
+          },
+          {
+            "label": "Line up the last digits, whatever they are",
+            "mistakeTag": "dots-not-aligned"
+          }
+        ],
+        "answer": "Line up the dots — dot under dot",
+        "hintLadder": [
+          "What keeps rupees under rupees and paise under paise?",
+          "The decimal points in a straight column.",
+          "Dots aligned = places aligned."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "You're the Grove Shop cashier today! Teach someone at home the shopkeeper's count-up trick for change (use ₹50 paid for ₹42.75), and explain why ₹2.50 and ₹2.05 are different amounts.",
+  "revisionCard": {
+    "summary": "Money = decimals you can hold! ₹1 = 100 paise, paise are hundredths, always TWO digits after the dot (₹2.50 ≠ ₹2.05). Adding: line up the DOTS. Change: count UP like a shopkeeper (42.75→43→50 = ₹7.25).",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Fraction Kitchen (Ganita Grove)",
+    "title": "The Grove Shop Counter",
+    "brief": "You're on the till! Total the bills, count up the change, and spot Ravi's copied-paise trick before customers get short-changed. Serve 10 happy customers to earn the Golden Coin.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Be the family cashier: at the next shop visit (or a pretend home shop), check the change using count-up BEFORE the shopkeeper hands it over. Report back: was it correct?",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4-5 (money as decimals)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

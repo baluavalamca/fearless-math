@@ -1,0 +1,651 @@
+{
+  "id": "frac-01-equal-parts",
+  "name": "Equal Parts and the Meaning of a Fraction",
+  "grade": 3,
+  "strand": "fractions",
+  "prerequisites": [
+    "num-02-comparing",
+    "ops-13-division-sharing"
+  ],
+  "whatIsIt": "A fraction tells us about equal parts of a whole. When we cut something into equal pieces, a fraction names how many of those pieces we are talking about. In 3/4, the bottom number (4) says the whole is cut into 4 equal parts, and the top number (3) says we are talking about 3 of them.",
+  "whyNeeded": "Numbers like 1, 2, 3 can count whole things, but life is full of pieces! Half a roti, quarter of an hour, part of a chocolate bar. Without fractions we cannot say how much of something we have when it is not a whole. Fractions give names to pieces.",
+  "realLifeUses": [
+    "Sharing food fairly: cutting a dosa, pizza, or chocolate bar so everyone gets an equal share",
+    "Time: 'half an hour' is 1/2 of 60 minutes; 'quarter past' is 1/4 of the way around the clock",
+    "Money: 50 paise is 1/2 of one rupee",
+    "Cricket: a bowler has bowled 1/2 of the overs; the team has finished 3/4 of the match",
+    "Measuring: half a cup of milk, quarter kg of sugar in Amma's recipe"
+  ],
+  "vocabulary": [
+    {
+      "term": "whole",
+      "meaning": "The complete thing before cutting — the full roti, the full bar, the full hour."
+    },
+    {
+      "term": "equal parts",
+      "meaning": "Pieces that are all exactly the same size."
+    },
+    {
+      "term": "fraction",
+      "meaning": "A number that names equal parts of a whole, written like 3/4."
+    },
+    {
+      "term": "numerator",
+      "meaning": "The TOP number — how many parts we are talking about."
+    },
+    {
+      "term": "denominator",
+      "meaning": "The BOTTOM number — how many equal parts the whole is cut into. D for Down!"
+    }
+  ],
+  "story": {
+    "title": "The Wise Myna and the Diwali Barfi",
+    "characters": [
+      "Chatur the myna",
+      "three sparrow friends"
+    ],
+    "text": "It is Diwali. Three little sparrows find one square barfi left on the sweet-shop tray. 'Mine!' 'No, mine!' they chirp, tugging at it. Chatur the wise old myna flies down. 'Friends, share it — but FAIRLY. For fair sharing, every piece must be EQUAL, exactly the same size.' She helps them cut the barfi into 3 equal pieces, one for each sparrow. 'Each of you gets one part out of three equal parts — that is one-third, written 1/3.' The sparrows stop squabbling and share happily.",
+    "extractedProblem": "One Diwali barfi is cut into 3 equal pieces and shared by 3 sparrows. What fraction of the barfi does each sparrow get?",
+    "answerInStory": "Each sparrow gets 1/3 (one-third) of the barfi — one equal piece out of three."
+  },
+  "visual": {
+    "component": "FractionStrip",
+    "props": {
+      "strips": [
+        {
+          "parts": 1,
+          "shaded": 1,
+          "label": "1 whole"
+        },
+        {
+          "parts": 2,
+          "shaded": 1,
+          "label": "1/2"
+        },
+        {
+          "parts": 3,
+          "shaded": 1,
+          "label": "1/3"
+        },
+        {
+          "parts": 4,
+          "shaded": 3,
+          "label": "3/4"
+        }
+      ],
+      "interaction": "tap-to-shade"
+    },
+    "caption": "Same whole, different equal parts. Tap to shade parts and read the fraction: shaded parts on top, total equal parts on the bottom."
+  },
+  "teachingGallery": [
+    {
+      "title": "A fraction = shaded parts out of equal parts",
+      "note": "The whole is cut into EQUAL parts. Top = shaded, bottom = total parts.",
+      "examples": [
+        {
+          "component": "PizzaSlices",
+          "props": {
+            "pies": [
+              {
+                "parts": 2,
+                "shaded": 1,
+                "label": "1/2"
+              }
+            ]
+          },
+          "caption": "1 of 2 equal parts = 1/2."
+        },
+        {
+          "component": "PizzaSlices",
+          "props": {
+            "pies": [
+              {
+                "parts": 4,
+                "shaded": 1,
+                "label": "1/4"
+              }
+            ]
+          },
+          "caption": "1 of 4 equal parts = 1/4."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 3,
+                "shaded": 1,
+                "label": "1/3"
+              }
+            ]
+          },
+          "caption": "1 of 3 equal parts = 1/3."
+        },
+        {
+          "component": "PizzaSlices",
+          "props": {
+            "pies": [
+              {
+                "parts": 8,
+                "shaded": 3,
+                "label": "3/8"
+              }
+            ]
+          },
+          "caption": "3 of 8 equal parts = 3/8."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 5,
+                "shaded": 2,
+                "label": "2/5"
+              }
+            ]
+          },
+          "caption": "2 of 5 equal parts = 2/5."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To write a fraction: count the total equal parts (bottom number), count the parts you are talking about (top number).",
+    "steps": [
+      "Check: are ALL the parts equal? If not, it is not a fraction yet.",
+      "Count the total number of equal parts. Write it as the BOTTOM number (denominator).",
+      "Count the parts you want (shaded, eaten, chosen). Write it as the TOP number (numerator).",
+      "Read it: 3/4 is 'three-fourths' — 3 parts out of 4 equal parts."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Paper folding (concrete method)",
+      "whenToUse": "When learning a new fraction for the first time, or when a picture is not enough.",
+      "steps": [
+        "Take a sheet of paper — this is the whole.",
+        "Fold it once: 2 equal parts. Each part is 1/2.",
+        "Fold again: 4 equal parts. Each part is 1/4.",
+        "Color some parts and say the fraction: colored parts over total parts."
+      ],
+      "example": "Fold a paper twice, color 3 of the 4 parts: the colored part is 3/4."
+    },
+    {
+      "name": "Sharing method (division connection)",
+      "whenToUse": "When something is shared equally among friends.",
+      "steps": [
+        "Count the friends sharing — that is the bottom number.",
+        "One fair share for one friend is 1 over that number."
+      ],
+      "example": "1 dosa shared equally by 4 friends: each gets 1/4 of the dosa."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A chocolate bar is divided into 6 equal pieces. Meena eats 2 pieces. What fraction of the bar did Meena eat?",
+      "steps": [
+        "Are the parts equal? Yes — 6 equal pieces.",
+        "Total equal parts = 6, so the bottom number is 6.",
+        "Meena ate 2 parts, so the top number is 2.",
+        "Meena ate 2/6 of the chocolate bar."
+      ],
+      "answer": "2/6",
+      "visual": {
+        "component": "FractionStrip",
+        "props": {
+          "strips": [
+            {
+              "parts": 6,
+              "shaded": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem": "A circle is cut into 4 parts, but the parts are NOT the same size. Rahul shades 1 part and says 'I shaded 1/4.' Is he right?",
+      "steps": [
+        "First rule of fractions: the parts must be EQUAL.",
+        "These 4 parts are not the same size.",
+        "So the shaded part is NOT 1/4 of the circle.",
+        "Rahul must cut the circle into 4 EQUAL parts before he can say 1/4."
+      ],
+      "answer": "No — the parts are not equal, so it is not 1/4."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Shaded over total",
+    "intro": "Count the shaded parts on top, the total equal parts on the bottom — that's the fraction.",
+    "questions": [
+      {
+        "id": "frac01-trick-3-4",
+        "type": "fraction",
+        "q": "A shape has 4 equal parts, 3 are shaded. Write the fraction.",
+        "answer": "3/4",
+        "hintLadder": [
+          "Bottom number = total EQUAL parts.",
+          "Top number = how many are shaded.",
+          "Fraction = 3/4."
+        ],
+        "explain": "3 of 4 = 3/4.",
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 4,
+                "shaded": 3,
+                "label": "3/4"
+              }
+            ]
+          },
+          "caption": "3/4"
+        }
+      },
+      {
+        "id": "frac01-trick-1-2",
+        "type": "fraction",
+        "q": "A shape has 2 equal parts, 1 are shaded. Write the fraction.",
+        "answer": "1/2",
+        "hintLadder": [
+          "Bottom number = total EQUAL parts.",
+          "Top number = how many are shaded.",
+          "Fraction = 1/2."
+        ],
+        "explain": "1 of 2 = 1/2.",
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 2,
+                "shaded": 1,
+                "label": "1/2"
+              }
+            ]
+          },
+          "caption": "1/2"
+        }
+      },
+      {
+        "id": "frac01-trick-2-3",
+        "type": "fraction",
+        "q": "A shape has 3 equal parts, 2 are shaded. Write the fraction.",
+        "answer": "2/3",
+        "hintLadder": [
+          "Bottom number = total EQUAL parts.",
+          "Top number = how many are shaded.",
+          "Fraction = 2/3."
+        ],
+        "explain": "2 of 3 = 2/3.",
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 3,
+                "shaded": 2,
+                "label": "2/3"
+              }
+            ]
+          },
+          "caption": "2/3"
+        }
+      },
+      {
+        "id": "frac01-trick-5-8",
+        "type": "fraction",
+        "q": "A shape has 8 equal parts, 5 are shaded. Write the fraction.",
+        "answer": "5/8",
+        "hintLadder": [
+          "Bottom number = total EQUAL parts.",
+          "Top number = how many are shaded.",
+          "Fraction = 5/8."
+        ],
+        "explain": "5 of 8 = 5/8.",
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 8,
+                "shaded": 5,
+                "label": "5/8"
+              }
+            ]
+          },
+          "caption": "5/8"
+        }
+      },
+      {
+        "id": "frac01-trick-2-5",
+        "type": "fraction",
+        "q": "A shape has 5 equal parts, 2 are shaded. Write the fraction.",
+        "answer": "2/5",
+        "hintLadder": [
+          "Bottom number = total EQUAL parts.",
+          "Top number = how many are shaded.",
+          "Fraction = 2/5."
+        ],
+        "explain": "2 of 5 = 2/5.",
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 5,
+                "shaded": 2,
+                "label": "2/5"
+              }
+            ]
+          },
+          "caption": "2/5"
+        }
+      },
+      {
+        "id": "frac01-trick-3-6",
+        "type": "fraction",
+        "q": "A shape has 6 equal parts, 3 are shaded. Write the fraction.",
+        "answer": "3/6",
+        "hintLadder": [
+          "Bottom number = total EQUAL parts.",
+          "Top number = how many are shaded.",
+          "Fraction = 3/6."
+        ],
+        "explain": "3 of 6 = 3/6.",
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 6,
+                "shaded": 3,
+                "label": "3/6"
+              }
+            ]
+          },
+          "caption": "3/6"
+        }
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "unequal-parts-counted",
+      "mistake": "Counting parts that are not equal in size and still writing a fraction (calling 1 big piece out of 3 unequal pieces '1/3').",
+      "fix": "Always check EQUAL first. If parts are different sizes, redraw or refold until every part matches. No equal parts, no fraction!"
+    },
+    {
+      "mistakeTag": "top-bottom-swapped",
+      "mistake": "Writing the total parts on top and the chosen parts on the bottom (writing 4/3 instead of 3/4).",
+      "fix": "Remember: Denominator is Down — the total equal parts go DOWN at the bottom. The parts you talk about go on top."
+    },
+    {
+      "mistakeTag": "counted-unshaded",
+      "mistake": "Counting the unshaded parts instead of the shaded parts for the top number.",
+      "fix": "Read the question again: which parts is it asking about? Point and count ONLY those parts for the top number."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "mcq",
+        "q": "A roti is cut into 2 equal parts. You eat 1 part. What fraction did you eat?",
+        "options": [
+          {
+            "label": "1/2"
+          },
+          {
+            "label": "2/1",
+            "mistakeTag": "top-bottom-swapped"
+          },
+          {
+            "label": "2/2",
+            "mistakeTag": "counted-unshaded"
+          }
+        ],
+        "answer": "1/2",
+        "hintLadder": [
+          "How many equal parts is the roti cut into? That number goes on the bottom.",
+          "You ate 1 part. Where does the 1 go — top or bottom?",
+          "1 part eaten, 2 equal parts in total: one number on top of the other."
+        ],
+        "explain": "1 part out of 2 equal parts = 1/2 (one-half)."
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "Which picture shows equal parts?",
+        "options": [
+          {
+            "label": "A square cut into 4 same-size small squares"
+          },
+          {
+            "label": "A square cut into 1 big piece and 2 small pieces",
+            "mistakeTag": "unequal-parts-counted"
+          }
+        ],
+        "answer": "A square cut into 4 same-size small squares",
+        "hintLadder": [
+          "Equal means every piece is exactly the same size.",
+          "Look at each piece — could you swap any two pieces and see no difference?",
+          "In one picture the pieces match perfectly. That one shows equal parts."
+        ]
+      },
+      {
+        "id": "e3",
+        "type": "fraction",
+        "q": "A strip is cut into 3 equal parts and 2 parts are shaded. Write the fraction for the shaded parts.",
+        "answer": "2/3",
+        "hintLadder": [
+          "Count ALL the equal parts first — that is the bottom number.",
+          "Now count only the SHADED parts — that is the top number.",
+          "Shaded 2, total 3. Write top over bottom."
+        ],
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 3,
+                "shaded": 2
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "fraction",
+        "q": "A chocolate bar has 8 equal pieces. Ravi eats 3 pieces. What fraction of the bar did Ravi eat?",
+        "answer": "3/8",
+        "hintLadder": [
+          "Total equal pieces = 8. Where does 8 go?",
+          "Ravi ate 3 pieces. Where does 3 go?",
+          "Parts eaten on top, total equal parts below: 3 over 8."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "A cake is cut into 5 equal slices. 4 slices are eaten. What fraction of the cake is LEFT?",
+        "options": [
+          {
+            "label": "1/5"
+          },
+          {
+            "label": "4/5",
+            "mistakeTag": "counted-unshaded"
+          },
+          {
+            "label": "5/1",
+            "mistakeTag": "top-bottom-swapped"
+          }
+        ],
+        "answer": "1/5",
+        "hintLadder": [
+          "Careful — the question asks what is LEFT, not what was eaten.",
+          "5 slices in total, 4 eaten. How many slices remain?",
+          "1 slice left out of 5 equal slices. Write that as a fraction."
+        ],
+        "explain": "4 eaten means 1 slice remains: 1/5 of the cake is left."
+      },
+      {
+        "id": "m3",
+        "type": "fraction",
+        "q": "One hour has 60 minutes. Half an hour is 1 part when the hour is cut into how many equal parts? Write 'half an hour' as a fraction of one hour.",
+        "answer": "1/2",
+        "hintLadder": [
+          "Half means the whole is cut into 2 equal parts.",
+          "Half an hour is 1 of those 2 equal parts.",
+          "1 part out of 2 equal parts — write it as a fraction."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Anu cut her square barfi into 4 pieces: one BIG piece and three small pieces. She gave the big piece to Ravi and says 'Ravi got 1/4.' What is wrong?",
+        "options": [
+          {
+            "label": "The parts are not equal, so 1/4 is not correct"
+          },
+          {
+            "label": "Nothing is wrong, 1 piece out of 4 is always 1/4",
+            "mistakeTag": "unequal-parts-counted"
+          },
+          {
+            "label": "She should write 4/1",
+            "mistakeTag": "top-bottom-swapped"
+          }
+        ],
+        "answer": "The parts are not equal, so 1/4 is not correct",
+        "hintLadder": [
+          "What is the FIRST rule before writing any fraction?",
+          "Is the big piece the same size as each small piece?",
+          "1/4 only works when all 4 parts are exactly equal. Are they?"
+        ],
+        "explain": "Fractions need equal parts. Ravi's big piece is MORE than 1/4 of the barfi."
+      },
+      {
+        "id": "c2",
+        "type": "fraction",
+        "q": "A dosa is shared equally among 4 friends. Two friends give their full shares to Fraction Fox. Along with his own share, what fraction of the dosa does Fraction Fox have now?",
+        "answer": "3/4",
+        "hintLadder": [
+          "Each friend's share is 1 part out of 4 equal parts — 1/4 each.",
+          "Fox has his own share plus shares from 2 friends. Count the parts: 1 + 1 + 1.",
+          "Fox has 3 parts out of 4 equal parts."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "mcq",
+        "q": "In the fraction 3/8, what does the 8 tell us?",
+        "options": [
+          {
+            "label": "The whole is cut into 8 equal parts"
+          },
+          {
+            "label": "We are talking about 8 parts",
+            "mistakeTag": "top-bottom-swapped"
+          }
+        ],
+        "answer": "The whole is cut into 8 equal parts",
+        "hintLadder": [
+          "8 is at the bottom — the denominator.",
+          "D for Down, D for 'divided into'.",
+          "The bottom number counts the total equal parts."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "fraction",
+        "q": "A strip has 5 equal parts; 4 are shaded. Write the fraction for the shaded part.",
+        "answer": "4/5",
+        "hintLadder": [
+          "Count total equal parts for the bottom.",
+          "Count shaded parts for the top.",
+          "4 shaded out of 5 equal parts."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "Which of these can be called 1/3?",
+        "options": [
+          {
+            "label": "1 piece out of 3 EQUAL pieces of a bar"
+          },
+          {
+            "label": "The smallest of 3 different-sized pieces",
+            "mistakeTag": "unequal-parts-counted"
+          }
+        ],
+        "answer": "1 piece out of 3 EQUAL pieces of a bar",
+        "hintLadder": [
+          "The first rule of fractions is about the size of parts.",
+          "Can unequal pieces make a fraction?",
+          "Only equal parts can be named by a fraction."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "fraction",
+        "q": "A pizza has 6 equal slices. 5 slices are eaten. What fraction of the pizza is left?",
+        "answer": "1/6",
+        "hintLadder": [
+          "The question asks about what is LEFT.",
+          "6 slices total, 5 eaten — how many remain?",
+          "1 slice left out of 6 equal slices."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "fraction",
+        "q": "One rupee = 100 paise. 50 paise is what fraction of one rupee? (Think: 100 cut into two equal parts of 50.)",
+        "answer": "1/2",
+        "hintLadder": [
+          "How many 50-paise parts make one full rupee?",
+          "Two equal parts of 50 make 100.",
+          "50 paise is 1 part out of 2 equal parts of a rupee."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Fraction Fox forgot what a fraction is! Explain to Fox in your own words: what must be true about the parts, what the top number means, and what the bottom number means. Use a roti, chocolate, or anything you like as your example.",
+  "revisionCard": {
+    "summary": "A fraction names EQUAL parts of a whole. Bottom number (denominator) = total equal parts (D for Down/Divided). Top number (numerator) = parts we talk about. 3/4 = 3 parts out of 4 equal parts. No equal parts, no fraction!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Fraction Kitchen (Ganita Grove)",
+    "title": "The Fair-Share Feast",
+    "brief": "Guests are arriving at the Fraction Kitchen! Cut each dish into equal parts, serve the right fraction to each guest, and spot the sneaky unequal cuts before Ravi serves them.",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "At snack time today, take one roti or chapati. Fold-and-cut it into 4 equal parts with a parent. Give parts to family members and say each person's share as a fraction ('Appa got 1/4... now Appa has 2/4!'). Draw what you did in your math notebook.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3 (Maths Mela - fractions readiness)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

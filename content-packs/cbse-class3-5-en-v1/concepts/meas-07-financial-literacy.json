@@ -1,0 +1,169 @@
+{
+  "id": "meas-07-financial-literacy",
+  "name": "Money Sense — Profit, Loss, Interest and Budgets",
+  "grade": 7,
+  "strand": "measurement",
+  "prerequisites": ["meas-05-money", "dec-06-percentages"],
+  "whatIsIt": "Everyday money maths. PROFIT = selling price − cost price (when you sell for more than you paid); LOSS is the opposite. A BUDGET plans money: income − expenses = savings. SIMPLE INTEREST is what a bank pays (or a loan costs): Interest = Principal × Rate × Time ÷ 100. These turn percentages and subtraction into real financial decisions.",
+  "whyNeeded": "Managing money is a life skill everyone needs: running a small stall, saving pocket money, understanding a bank account, or not overspending. It's also the foundation of commerce, economics and business studies.",
+  "realLifeUses": [
+    "A shopkeeper working out profit on items sold",
+    "Planning pocket money: spend some, save some",
+    "Interest earned on money kept in a bank",
+    "Deciding if a 'sale' price is really a good deal"
+  ],
+  "vocabulary": [
+    { "term": "cost price / selling price", "meaning": "What you paid (CP) and what you sell for (SP)." },
+    { "term": "profit / loss", "meaning": "Profit = SP − CP (gain); Loss = CP − SP (when SP is lower)." },
+    { "term": "simple interest", "meaning": "Interest = Principal × Rate × Time ÷ 100." }
+  ],
+  "story": {
+    "title": "Anaya's Lemonade Stall",
+    "characters": ["Anaya", "Papa"],
+    "text": "Anaya spends ₹120 on lemons and sugar (her cost price) and sells all the lemonade for ₹200. 'Did you make money?' asks Papa. She works out: 200 − 120 = ₹80. 'I made ₹80 profit!' Papa adds, 'and if you save it in the bank at interest, it can even grow.' Anaya decides to save half and reinvest half.",
+    "extractedProblem": "Anaya's cost price is ₹120 and she sells for ₹200. What is her profit?",
+    "answerInStory": "₹80 — because profit = selling price − cost price = 200 − 120."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "sell ₹200 = cost ₹120 + profit ₹80", "parts": [ { "value": 120 }, { "value": 80 } ], "showTotal": true }
+      ]
+    },
+    "caption": "Selling price splits into cost price plus profit: 120 + 80 = 200. Profit = SP − CP."
+  },
+  "teachingGallery": [
+    {
+      "title": "Profit, budget, interest",
+      "note": "Profit = SP − CP; savings = income − expenses; SI = P×R×T/100.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "loss: CP ₹100, SP ₹80", "parts": [ { "value": 80 }, { "value": 20 } ], "showTotal": true } ] }, "caption": "SP 80 < CP 100 → loss of ₹20." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "budget: income ₹500", "parts": [ { "value": 300 }, { "value": 200 } ], "showTotal": true } ] }, "caption": "Spend ₹300, save ₹200 → income − expenses." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "₹1000 at 5% for 1 yr", "parts": [ { "value": 1000 }, { "value": 50 } ], "showTotal": true } ] }, "caption": "Interest = 1000×5×1÷100 = ₹50." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Compare selling and cost prices for profit/loss; plan a budget as income − expenses; use Interest = P×R×T÷100 for simple interest.",
+    "steps": [
+      "Profit or loss: compare SP and CP. Profit = SP − CP; Loss = CP − SP.",
+      "Budget: savings = income − total expenses (spend less than you earn).",
+      "Simple interest: Interest = Principal × Rate × Time ÷ 100.",
+      "Total amount back = Principal + Interest."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A trader buys a bag for ₹250 and sells it for ₹300. Profit or loss, and how much?",
+      "steps": ["SP ₹300 > CP ₹250, so it's a profit.", "Profit = SP − CP = 300 − 250.", "= ₹50 profit."],
+      "answer": "₹50 profit"
+    },
+    {
+      "problem": "Find the simple interest on ₹2000 at 5% per year for 2 years.",
+      "steps": ["Interest = P × R × T ÷ 100.", "= 2000 × 5 × 2 ÷ 100.", "= 20000 ÷ 100 = ₹200."],
+      "answer": "₹200"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "profit-loss-direction",
+      "mistake": "Calling it a profit when the selling price is LOWER than the cost price.",
+      "fix": "Profit only when SP > CP. If SP < CP it's a LOSS. Compare the two prices first."
+    },
+    {
+      "mistakeTag": "interest-forgot-divide-100",
+      "mistake": "Forgetting to divide by 100 in the simple interest formula.",
+      "fix": "Rate is a percentage, so divide by 100: Interest = P × R × T ÷ 100."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "m07-e1", "type": "number",
+        "q": "Cost price ₹80, selling price ₹100. What is the profit (in ₹)?",
+        "answer": "20",
+        "hintLadder": ["Profit = SP − CP.", "100 − 80.", "Twenty."]
+      },
+      {
+        "id": "m07-e2", "type": "mcq",
+        "q": "If selling price is LESS than cost price, it is a…",
+        "options": [ { "label": "Loss" }, { "label": "Profit", "mistakeTag": "profit-loss-direction" } ],
+        "answer": "Loss",
+        "hintLadder": ["You got back less than you paid.", "That's a loss.", "Loss."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m07-m1", "type": "number",
+        "q": "Income ₹600, expenses ₹450. How much is saved (in ₹)?",
+        "answer": "150",
+        "hintLadder": ["Savings = income − expenses.", "600 − 450.", "150."]
+      },
+      {
+        "id": "m07-m2", "type": "number",
+        "q": "Simple interest on ₹1000 at 10% for 1 year (in ₹)?",
+        "answer": "100",
+        "hintLadder": ["P × R × T ÷ 100.", "1000 × 10 × 1 ÷ 100.", "100."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "m07-c1", "type": "number",
+        "q": "A cycle costs ₹2000 and is sold for ₹1700. What is the loss (in ₹)?",
+        "answer": "300",
+        "hintLadder": ["Loss = CP − SP.", "2000 − 1700.", "300."]
+      },
+      {
+        "id": "m07-c2", "type": "number",
+        "q": "Simple interest on ₹5000 at 4% for 2 years (in ₹)?",
+        "answer": "400",
+        "hintLadder": ["P × R × T ÷ 100.", "5000 × 4 × 2 ÷ 100.", "40000 ÷ 100 = 400."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "m07-x1", "type": "number",
+        "q": "CP ₹150, SP ₹200. Profit (in ₹)?",
+        "answer": "50",
+        "hintLadder": ["Profit = SP − CP.", "200 − 150.", "Fifty."]
+      },
+      {
+        "id": "m07-x2", "type": "number",
+        "q": "Income ₹1000, expenses ₹700. Savings (in ₹)?",
+        "answer": "300",
+        "hintLadder": ["Income − expenses.", "1000 − 700.", "300."]
+      },
+      {
+        "id": "m07-x3", "type": "number",
+        "q": "Simple interest on ₹2000 at 5% for 1 year (in ₹)?",
+        "answer": "100",
+        "hintLadder": ["P × R × T ÷ 100.", "2000 × 5 × 1 ÷ 100.", "100."]
+      },
+      {
+        "id": "m07-x4", "type": "mcq",
+        "q": "The simple interest formula is…",
+        "options": [ { "label": "P × R × T ÷ 100" }, { "label": "P × R × T", "mistakeTag": "interest-forgot-divide-100" } ],
+        "answer": "P × R × T ÷ 100",
+        "hintLadder": ["Rate is a percentage.", "So divide by 100.", "P × R × T ÷ 100."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Plan a tiny budget with a grown-up: imagine ₹200 pocket money, decide what to spend and what to save, and explain income − expenses = savings. Then work out the profit if you bought a snack for ₹10 and 'sold' it to a sibling for ₹15.",
+  "revisionCard": {
+    "summary": "Profit = SP − CP (only when SP > CP); Loss = CP − SP. Budget: savings = income − expenses. Simple interest = Principal × Rate × Time ÷ 100 (don't forget ÷100). Amount back = principal + interest.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 7 (money maths — profit/loss, simple interest, budgeting)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

@@ -1,0 +1,519 @@
+{
+  "id": "ops-14-long-division",
+  "name": "Long Division — Share the Big, Then the Small",
+  "grade": 5,
+  "strand": "operations",
+  "prerequisites": [
+    "ops-13-division-sharing",
+    "ops-08-subtraction-regrouping"
+  ],
+  "whatIsIt": "Long division shares BIG numbers fairly by dealing out the biggest place first: share the tens, trade any leftovers into ones, then share the ones. 72 ÷ 3: share 7 tens → 2 tens each (1 ten left); trade it → 12 ones; share → 4 each. Answer: 24 each. Sometimes a REMAINDER stays — the bit that can't be shared fairly.",
+  "whyNeeded": "Divya's card-dealing works for 12 laddus, but for 72 — or 728 — dealing one at a time takes all day! Long division is the grown-up fairness machine: it shares hundreds, then tens, then ones, using nothing but tables and subtraction you already own.",
+  "realLifeUses": [
+    "₹72 pocket money shared among 3 siblings",
+    "96 students into 4 equal houses for sports day",
+    "85 laddus packed 6 to a box — with some left over!",
+    "125 pages to read equally over 5 days"
+  ],
+  "vocabulary": [
+    {
+      "term": "long division",
+      "meaning": "Sharing place by place: biggest place first, trade leftovers down."
+    },
+    {
+      "term": "remainder",
+      "meaning": "What's left when the total won't share evenly: 85 ÷ 6 = 14 remainder 1."
+    },
+    {
+      "term": "trade down",
+      "meaning": "Leftover tens become ones (1 ten → 10 ones) — regrouping again!"
+    }
+  ],
+  "story": {
+    "title": "Birbal Divides the Reward",
+    "characters": [
+      "Birbal",
+      "three helpers"
+    ],
+    "text": "Three helpers earned ₹72 together and asked wise Birbal to split it fairly. Birbal shared the TENS first: 7 ten-rupee coins among 3 is 2 tens each, with 1 ten left over. He traded that leftover ten for 10 one-rupee coins, making 12 ones, and shared those: 4 each. 'So each helper gets ₹24. Share the big first, then trade down to the small.'",
+    "extractedProblem": "Share ₹72 (7 tens + 2 ones) equally among 3 helpers.",
+    "answerInStory": "₹24 each — 2 tens each with 1 ten left, traded to 12 ones, then 4 ones each."
+  },
+  "visual": {
+    "component": "PlaceValueBlocks",
+    "props": {
+      "sets": [
+        {
+          "tens": 7,
+          "ones": 2,
+          "label": "72 to share among 3"
+        },
+        {
+          "tens": 6,
+          "ones": 12,
+          "label": "after trading 1 ten → 12 ones"
+        },
+        {
+          "tens": 2,
+          "ones": 4,
+          "label": "each gets 24"
+        }
+      ]
+    },
+    "caption": "Share tens first (2 each, 1 left) → trade the leftover ten into 10 ones → share ones (4 each). 72 ÷ 3 = 24."
+  },
+  "teachingGallery": [
+    {
+      "title": "Long division — biggest part first",
+      "note": "Share the tens first, then bring down the ones and share again.",
+      "examples": [
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  1
+                ],
+                "colParts": [
+                  80,
+                  4
+                ],
+                "label": "84 ÷ 4 = 21 (share 80→20, 4→1)"
+              }
+            ]
+          },
+          "caption": "84 ÷ 4: 80 shares to 20, 4 shares to 1 → 21."
+        },
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  1
+                ],
+                "colParts": [
+                  60,
+                  9
+                ],
+                "label": "69 ÷ 3 = 23"
+              }
+            ]
+          },
+          "caption": "69 ÷ 3: 60→20, 9→3 → 23."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 6,
+                "cols": 8,
+                "asGroups": false
+              }
+            ]
+          },
+          "caption": "48 ÷ 6 = 8 (a 6×8 array)."
+        },
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  1
+                ],
+                "colParts": [
+                  90,
+                  6
+                ],
+                "label": "96 ÷ 6 = 16"
+              }
+            ]
+          },
+          "caption": "96 ÷ 6: 90→15, 6→1 → 16."
+        },
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  1
+                ],
+                "colParts": [
+                  70,
+                  5
+                ],
+                "label": "75 ÷ 5 = 15"
+              }
+            ]
+          },
+          "caption": "75 ÷ 5: 50→10, 25→5 → 15."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Divide, multiply, subtract, bring down — place by place from the left.",
+    "steps": [
+      "DIVIDE the tens: 7 ÷ 3 → 2 (write 2 above the tens).",
+      "MULTIPLY & SUBTRACT: 2×3 = 6; 7−6 = 1 ten left.",
+      "BRING DOWN the ones: leftover 1 ten + 2 ones = 12.",
+      "DIVIDE again: 12 ÷ 3 = 4. Answer 24. Check: 24 × 3 = 72 ✓"
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Note-and-coin sharing (concrete)",
+      "whenToUse": "To SEE what every step of the ladder means.",
+      "steps": [
+        "Build the number with ten-notes and one-coins.",
+        "Deal notes equally; trade any leftover note into 10 coins.",
+        "Deal the coins. What each person holds IS the answer."
+      ],
+      "example": "96 ÷ 4: nine notes → 2 each (1 left) → trade → 16 coins → 4 each → 24."
+    },
+    {
+      "name": "Chunking (repeated friendly jumps)",
+      "whenToUse": "Mental division with comfy numbers.",
+      "steps": [
+        "Grab big friendly chunks of the divisor.",
+        "72 ÷ 3: take 3×20 = 60 (chunk of 20 each), 12 remains.",
+        "12 ÷ 3 = 4 more each. 20 + 4 = 24."
+      ],
+      "example": "125 ÷ 5: 5×20=100 (20 each), 25 left → 5 more each → 25."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "96 students form 4 equal sports houses. How many per house?",
+      "steps": [
+        "Tens: 9 ÷ 4 → 2 each (write 2), 2×4=8, 9−8 = 1 ten left.",
+        "Trade & bring down: 1 ten + 6 ones = 16.",
+        "Ones: 16 ÷ 4 = 4. Answer: 24 per house.",
+        "Check: 24 × 4 = 96 ✓"
+      ],
+      "answer": "24"
+    },
+    {
+      "problem": "85 laddus are packed 6 to a box. Boxes filled, and laddus left over?",
+      "steps": [
+        "Tens: 8 ÷ 6 → 1 (1×6=6, 8−6=2 left). Bring down 5 → 25.",
+        "Ones: 25 ÷ 6 → 4 (4×6=24), remainder 1.",
+        "14 boxes filled, 1 laddu left over — the remainder!",
+        "Check: 14×6 + 1 = 85 ✓ (quotient × divisor + remainder = total)"
+      ],
+      "answer": "14 boxes, remainder 1"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Share the big, then the small",
+    "intro": "Divide the tens first, carry what's left to the ones — the number never overwhelms you.",
+    "questions": [
+      {
+        "id": "ops14-trick-84/4",
+        "type": "number",
+        "q": "84 ÷ 4 = ?",
+        "answer": "21",
+        "hintLadder": [
+          "Share the TENS of 84 first among 4.",
+          "Then bring down the ones and share again.",
+          "84 ÷ 4 = 21."
+        ],
+        "explain": "84 ÷ 4 = 21."
+      },
+      {
+        "id": "ops14-trick-69/3",
+        "type": "number",
+        "q": "69 ÷ 3 = ?",
+        "answer": "23",
+        "hintLadder": [
+          "Share the TENS of 69 first among 3.",
+          "Then bring down the ones and share again.",
+          "69 ÷ 3 = 23."
+        ],
+        "explain": "69 ÷ 3 = 23."
+      },
+      {
+        "id": "ops14-trick-96/6",
+        "type": "number",
+        "q": "96 ÷ 6 = ?",
+        "answer": "16",
+        "hintLadder": [
+          "Share the TENS of 96 first among 6.",
+          "Then bring down the ones and share again.",
+          "96 ÷ 6 = 16."
+        ],
+        "explain": "96 ÷ 6 = 16."
+      },
+      {
+        "id": "ops14-trick-75/5",
+        "type": "number",
+        "q": "75 ÷ 5 = ?",
+        "answer": "15",
+        "hintLadder": [
+          "Share the TENS of 75 first among 5.",
+          "Then bring down the ones and share again.",
+          "75 ÷ 5 = 15."
+        ],
+        "explain": "75 ÷ 5 = 15."
+      },
+      {
+        "id": "ops14-trick-92/4",
+        "type": "number",
+        "q": "92 ÷ 4 = ?",
+        "answer": "23",
+        "hintLadder": [
+          "Share the TENS of 92 first among 4.",
+          "Then bring down the ones and share again.",
+          "92 ÷ 4 = 23."
+        ],
+        "explain": "92 ÷ 4 = 23."
+      },
+      {
+        "id": "ops14-trick-78/6",
+        "type": "number",
+        "q": "78 ÷ 6 = ?",
+        "answer": "13",
+        "hintLadder": [
+          "Share the TENS of 78 first among 6.",
+          "Then bring down the ones and share again.",
+          "78 ÷ 6 = 13."
+        ],
+        "explain": "78 ÷ 6 = 13."
+      },
+      {
+        "id": "ops14-trick-85/5",
+        "type": "number",
+        "q": "85 ÷ 5 = ?",
+        "answer": "17",
+        "hintLadder": [
+          "Share the TENS of 85 first among 5.",
+          "Then bring down the ones and share again.",
+          "85 ÷ 5 = 17."
+        ],
+        "explain": "85 ÷ 5 = 17."
+      },
+      {
+        "id": "ops14-trick-72/3",
+        "type": "number",
+        "q": "72 ÷ 3 = ?",
+        "answer": "24",
+        "hintLadder": [
+          "Share the TENS of 72 first among 3.",
+          "Then bring down the ones and share again.",
+          "72 ÷ 3 = 24."
+        ],
+        "explain": "72 ÷ 3 = 24."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "leftover-ten-dropped",
+      "mistake": "Sharing the tens, then IGNORING the leftover ten (72÷3 = '2 tens each and 2÷3... umm 0' → 20).",
+      "fix": "Leftover tens never vanish — they TRADE DOWN! 1 leftover ten = 10 ones joins the ones queue: 10+2 = 12 ones to share. Divya never wastes a note!"
+    },
+    {
+      "mistakeTag": "remainder-bigger-than-divisor",
+      "mistake": "Leaving a remainder bigger than the divisor (85 ÷ 6 = 13 remainder 7).",
+      "fix": "If the remainder is ≥ the divisor, another full share is hiding in it! 7 holds one more 6 → quotient 14, remainder 1. The remainder must always be SMALLER than the divisor."
+    },
+    {
+      "mistakeTag": "check-skipped",
+      "mistake": "Never verifying with the twin multiplication.",
+      "fix": "Division's bodyguard: quotient × divisor (+ remainder) must rebuild the start. 24×3 = 72 ✓. Ten seconds, total certainty."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "₹48 shared equally between 2 siblings. How much each?",
+        "answer": "24",
+        "hintLadder": [
+          "Tens first: 4 ÷ 2 = 2 tens each.",
+          "Ones: 8 ÷ 2 = 4 each.",
+          "2 tens + 4 ones."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "number",
+        "q": "72 ÷ 3 = ? (Share tens, trade the leftover!)",
+        "answer": "24",
+        "hintLadder": [
+          "7 tens ÷ 3 → 2 each, 1 ten LEFT.",
+          "Trade: 1 ten + 2 ones = 12 ones.",
+          "12 ÷ 3 = 4 → answer 24."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "96 mangoes shared among 4 baskets. How many per basket?",
+        "answer": "24",
+        "hintLadder": [
+          "9 tens ÷ 4 → 2 each, 1 left.",
+          "Trade down: 16 ones.",
+          "16 ÷ 4 = 4."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "85 laddus, 6 per box. How many FULL boxes? (Watch the remainder!)",
+        "answer": "14",
+        "hintLadder": [
+          "8 ÷ 6 → 1, leftover 2 tens → 25 ones.",
+          "25 ÷ 6 → 4, remainder 1.",
+          "1 ten + 4 = 14 boxes (1 laddu spare)."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Ravi answered 85 ÷ 6 = '13 remainder 7'. Divya frowns instantly. Why?",
+        "options": [
+          {
+            "label": "A remainder of 7 still holds a whole 6 — it must be smaller than the divisor"
+          },
+          {
+            "label": "Nothing wrong — big remainders are fine",
+            "mistakeTag": "remainder-bigger-than-divisor"
+          },
+          {
+            "label": "He should have no remainder at all",
+            "mistakeTag": "leftover-ten-dropped"
+          }
+        ],
+        "answer": "A remainder of 7 still holds a whole 6 — it must be smaller than the divisor",
+        "hintLadder": [
+          "Can 7 leftover laddus fill another 6-box?",
+          "Yes — one more box!",
+          "14 remainder 1. Check: 14×6+1 = 85 ✓"
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "125 pages over 5 days, equal reading. Pages per day? (Try chunking: 5×20 first.)",
+        "answer": "25",
+        "hintLadder": [
+          "Chunk: 5 × 20 = 100, so 20 each with 25 left.",
+          "25 ÷ 5 = 5 more.",
+          "20 + 5."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "84 ÷ 4 = ?",
+        "answer": "21",
+        "hintLadder": [
+          "8 tens ÷ 4 = 2 tens.",
+          "4 ones ÷ 4 = 1.",
+          "Check: 21×4 = 84."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "75 ÷ 3 = ? (a leftover ten to trade!)",
+        "answer": "25",
+        "hintLadder": [
+          "7 ÷ 3 → 2, leftover 1 ten.",
+          "Trade: 15 ones.",
+          "15 ÷ 3 = 5."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "The remainder must always be…",
+        "options": [
+          {
+            "label": "Smaller than the divisor"
+          },
+          {
+            "label": "Any size at all",
+            "mistakeTag": "remainder-bigger-than-divisor"
+          }
+        ],
+        "answer": "Smaller than the divisor",
+        "hintLadder": [
+          "If it's bigger, what's hiding inside it?",
+          "Another full share!",
+          "Keep sharing until it's smaller."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "The bodyguard check for 96 ÷ 4 = 24 is…",
+        "options": [
+          {
+            "label": "24 × 4 = 96 — the twin rebuilds the start"
+          },
+          {
+            "label": "No check needed",
+            "mistakeTag": "check-skipped"
+          }
+        ],
+        "answer": "24 × 4 = 96 — the twin rebuilds the start",
+        "hintLadder": [
+          "Division and multiplication are twins.",
+          "Quotient × divisor should give…?",
+          "The number you started with."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Run Divya's money machine for someone at home: share ₹72 among 3 with real (or paper) notes and coins — deal the tens, TRADE the leftover note, deal the coins — then show the same steps written as long division.",
+  "revisionCard": {
+    "summary": "Long division = share the BIG place first, TRADE leftovers down, share again. 72÷3: tens (2 each, 1 left) → trade → 12 ones → 4 each = 24. Remainder always SMALLER than the divisor. Bodyguard: quotient×divisor(+remainder) = start!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Multiplication Farm (Ganita Grove)",
+    "title": "The Money Machine Marathon",
+    "brief": "Grandma's gift envelopes keep arriving — ₹72, ₹96, ₹85! Run each through Divya's machine: deal, trade, deal, and box up remainders. One oversized remainder and the machine jams — keep it purring!",
+    "character": "Divya Divider"
+  },
+  "realLifeProject": "Share a real pile: take 50-80 small things (buttons, beans) and share among 3 or 4 family members using deal-trade-deal with tens-bundles. Write the long division that matches what your hands did — including any remainder!",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 5 (long division)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "mentalMathMethod": {
+    "name": "Chunking (subtract big chunks)",
+    "whenToUse": "For bigger divisions in your head.",
+    "steps": [
+      "Subtract easy big chunks of the divisor (like 10× or 5×).",
+      "Keep track of how many groups you took.",
+      "Add the chunks to get the quotient."
+    ],
+    "example": "96 ÷ 4: 4×20=80 (20 groups), 16 left, 4×4=16 (4 more) → 24."
+  }
+}

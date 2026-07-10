@@ -1,0 +1,654 @@
+{
+  "id": "found-07-add-sub-within-100",
+  "name": "Adding and Subtracting to 100 — Tens and Ones Together",
+  "grade": 2,
+  "strand": "operations",
+  "prerequisites": [
+    "num-00-counting-to-100",
+    "found-06-add-sub-within-20"
+  ],
+  "whatIsIt": "To add or subtract two-digit numbers, work with TENS and ONES separately: add the ones, add the tens, then put them together. 34 + 25 → ones 4+5=9, tens 30+20=50, together 59. (Here the ones stay under ten — no regrouping needed yet.)",
+  "whyNeeded": "This is the first real two-digit arithmetic — the step between adding small numbers and full column addition with carrying. Splitting into tens and ones makes big-looking sums feel simple and builds the place-value habit.",
+  "realLifeUses": [
+    "Adding two prices under ₹100 at a shop",
+    "Totalling points or runs across two innings",
+    "Working out how many pages are left in a book",
+    "Adding two groups of children in a school event"
+  ],
+  "vocabulary": [
+    {
+      "term": "tens",
+      "meaning": "The tens digit — how many whole tens (30 means 3 tens)."
+    },
+    {
+      "term": "ones",
+      "meaning": "The ones digit — the loose units."
+    },
+    {
+      "term": "add in parts",
+      "meaning": "Adding tens with tens and ones with ones, then combining."
+    },
+    {
+      "term": "two-digit number",
+      "meaning": "A number from 10 to 99, made of tens and ones."
+    }
+  ],
+  "story": {
+    "title": "Meena's Two Marble Jars",
+    "characters": [
+      "Meena",
+      "her uncle Mama"
+    ],
+    "text": "Meena has 34 marbles in one jar and 25 in another. 'Too many to count one by one!' Mama smiles: 'Split into TENS and ONES. Ones first: 4 and 5 make 9. Then tens: 30 and 20 make 50. Put them together — 59!' Meena checks the bundles of ten on her fingers. 'Splitting the number makes a big sum easy.'",
+    "extractedProblem": "Meena has 34 marbles and 25 marbles. How many altogether?",
+    "answerInStory": "59 — ones 4+5=9, tens 30+20=50, together 59."
+  },
+  "visual": {
+    "component": "PlaceValueBlocks",
+    "props": {
+      "sets": [
+        {
+          "tens": 3,
+          "ones": 4,
+          "label": "34"
+        },
+        {
+          "tens": 2,
+          "ones": 5,
+          "label": "+ 25"
+        },
+        {
+          "tens": 5,
+          "ones": 9,
+          "label": "= 59"
+        }
+      ]
+    },
+    "caption": "Add ones with ones (4+5=9) and tens with tens (30+20=50): together 59."
+  },
+  "teachingGallery": [
+    {
+      "title": "Tens and ones together",
+      "note": "Add the tens, add the ones, then join them.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "box",
+                  "box",
+                  "box"
+                ],
+                "label": "3 tens = 30"
+              },
+              {
+                "items": [
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin"
+                ],
+                "label": "4 ones"
+              }
+            ]
+          },
+          "caption": "34 = 3 tens and 4 ones."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "box",
+                  "box"
+                ],
+                "label": "2 tens = 20"
+              },
+              {
+                "items": [
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin"
+                ],
+                "label": "5 ones"
+              }
+            ]
+          },
+          "caption": "25 = 2 tens and 5 ones."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  20,
+                  30,
+                  40,
+                  50,
+                  "?"
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "Add tens first: 20, 30, 40, 50…"
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  45,
+                  55,
+                  65,
+                  "?"
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "45 + 10 + 10 = 65."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "box",
+                  "box",
+                  "box",
+                  "box",
+                  "box"
+                ],
+                "label": "5 tens"
+              },
+              {
+                "items": [
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin"
+                ],
+                "label": "9 ones"
+              }
+            ]
+          },
+          "caption": "34 + 25 → 5 tens and 9 ones = 59."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Split both numbers into tens and ones. Add (or subtract) the ones, then the tens, then combine.",
+    "steps": [
+      "Split each number into TENS and ONES.",
+      "Add the ONES together (here they stay under ten).",
+      "Add the TENS together.",
+      "Combine the tens and ones to get the answer. Subtraction works the same way."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Add the tens, then the ones",
+      "whenToUse": "For quick mental adding.",
+      "steps": [
+        "Start with the first number.",
+        "Add the other number's tens.",
+        "Then add its ones."
+      ],
+      "example": "34 + 25: 34 + 20 = 54, then + 5 = 59."
+    },
+    {
+      "name": "Column line-up",
+      "whenToUse": "When writing it down.",
+      "steps": [
+        "Write one number above the other, tens over tens, ones over ones.",
+        "Add the ones column, then the tens column.",
+        "Read the answer."
+      ],
+      "example": "34 over 25: ones 9, tens 5 → 59."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Add 42 + 36.",
+      "steps": [
+        "Ones: 2 + 6 = 8.",
+        "Tens: 40 + 30 = 70.",
+        "Put together: 70 and 8.",
+        "42 + 36 = 78."
+      ],
+      "answer": "78",
+      "visual": {
+        "component": "PlaceValueBlocks",
+        "props": {
+          "sets": [
+            {
+              "tens": 4,
+              "ones": 2,
+              "label": "42"
+            },
+            {
+              "tens": 3,
+              "ones": 6,
+              "label": "+36"
+            },
+            {
+              "tens": 7,
+              "ones": 8,
+              "label": "=78"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem": "Subtract 57 − 23.",
+      "steps": [
+        "Ones: 7 − 3 = 4.",
+        "Tens: 50 − 20 = 30.",
+        "Put together: 30 and 4.",
+        "57 − 23 = 34."
+      ],
+      "answer": "34"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Add tens, then ones",
+    "intro": "Break each number into tens and ones, add each part, then join.",
+    "questions": [
+      {
+        "id": "f07-trick-34+25",
+        "type": "number",
+        "q": "34 + 25 = ?",
+        "answer": "59",
+        "hintLadder": [
+          "Add the tens: 30 + 20 = 50.",
+          "Add the ones: 4 + 5 = 9.",
+          "Join them: 50 + 9 = 59."
+        ],
+        "explain": "Tens 50 + ones 9 = 59."
+      },
+      {
+        "id": "f07-trick-42+36",
+        "type": "number",
+        "q": "42 + 36 = ?",
+        "answer": "78",
+        "hintLadder": [
+          "Add the tens: 40 + 30 = 70.",
+          "Add the ones: 2 + 6 = 8.",
+          "Join them: 70 + 8 = 78."
+        ],
+        "explain": "Tens 70 + ones 8 = 78."
+      },
+      {
+        "id": "f07-trick-53+28",
+        "type": "number",
+        "q": "53 + 28 = ?",
+        "answer": "81",
+        "hintLadder": [
+          "Add the tens: 50 + 20 = 70.",
+          "Add the ones: 3 + 8 = 11.",
+          "Join them: 70 + 11 = 81."
+        ],
+        "explain": "Tens 70 + ones 11 = 81."
+      },
+      {
+        "id": "f07-trick-46+37",
+        "type": "number",
+        "q": "46 + 37 = ?",
+        "answer": "83",
+        "hintLadder": [
+          "Add the tens: 40 + 30 = 70.",
+          "Add the ones: 6 + 7 = 13.",
+          "Join them: 70 + 13 = 83."
+        ],
+        "explain": "Tens 70 + ones 13 = 83."
+      },
+      {
+        "id": "f07-trick-21+58",
+        "type": "number",
+        "q": "21 + 58 = ?",
+        "answer": "79",
+        "hintLadder": [
+          "Add the tens: 20 + 50 = 70.",
+          "Add the ones: 1 + 8 = 9.",
+          "Join them: 70 + 9 = 79."
+        ],
+        "explain": "Tens 70 + ones 9 = 79."
+      },
+      {
+        "id": "f07-trick-35+44",
+        "type": "number",
+        "q": "35 + 44 = ?",
+        "answer": "79",
+        "hintLadder": [
+          "Add the tens: 30 + 40 = 70.",
+          "Add the ones: 5 + 4 = 9.",
+          "Join them: 70 + 9 = 79."
+        ],
+        "explain": "Tens 70 + ones 9 = 79."
+      },
+      {
+        "id": "f07-trick-27+46",
+        "type": "number",
+        "q": "27 + 46 = ?",
+        "answer": "73",
+        "hintLadder": [
+          "Add the tens: 20 + 40 = 60.",
+          "Add the ones: 7 + 6 = 13.",
+          "Join them: 60 + 13 = 73."
+        ],
+        "explain": "Tens 60 + ones 13 = 73."
+      },
+      {
+        "id": "f07-trick-52+39",
+        "type": "number",
+        "q": "52 + 39 = ?",
+        "answer": "91",
+        "hintLadder": [
+          "Add the tens: 50 + 30 = 80.",
+          "Add the ones: 2 + 9 = 11.",
+          "Join them: 80 + 11 = 91."
+        ],
+        "explain": "Tens 80 + ones 11 = 91."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "mixed-tens-ones",
+      "mistake": "Adding a ones digit to a tens digit (like 3 + 5 across the columns).",
+      "fix": "Keep the columns apart: ONES add with ones, TENS add with tens. In 34 + 25, add 4+5 and 30+20 separately, never 4+2."
+    },
+    {
+      "mistakeTag": "forgot-a-part",
+      "mistake": "Adding the tens but forgetting to add the ones (or the reverse).",
+      "fix": "Do BOTH parts: ones AND tens, then combine. Don't stop after one column."
+    },
+    {
+      "mistakeTag": "add-sub-mixed",
+      "mistake": "Adding when the problem says take away.",
+      "fix": "'Altogether/total' → add. 'Left/how many more' as removal → subtract. Check the answer size makes sense."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "found-07-e1",
+        "type": "number",
+        "q": "20 + 30 = ?",
+        "answer": "50",
+        "hintLadder": [
+          "Add the tens: 2 tens + 3 tens.",
+          "No ones here.",
+          "Fifty."
+        ],
+        "explain": "50.",
+        "visual": {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "tens": 2,
+                "ones": 0,
+                "label": "20"
+              },
+              {
+                "tens": 3,
+                "ones": 0,
+                "label": "+30"
+              },
+              {
+                "tens": 5,
+                "ones": 0,
+                "label": "=50"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-07-e2",
+        "type": "number",
+        "q": "23 + 14 = ?",
+        "answer": "37",
+        "hintLadder": [
+          "Ones: 3 + 4 = 7.",
+          "Tens: 20 + 10 = 30.",
+          "Together."
+        ],
+        "explain": "37."
+      }
+    ],
+    "medium": [
+      {
+        "id": "found-07-m1",
+        "type": "number",
+        "q": "45 + 32 = ?",
+        "answer": "77",
+        "hintLadder": [
+          "Ones: 5 + 2 = 7.",
+          "Tens: 40 + 30 = 70.",
+          "Together."
+        ],
+        "explain": "77.",
+        "visual": {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "tens": 4,
+                "ones": 5,
+                "label": "45"
+              },
+              {
+                "tens": 3,
+                "ones": 2,
+                "label": "+32"
+              },
+              {
+                "tens": 7,
+                "ones": 7,
+                "label": "=77"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-07-m2",
+        "type": "number",
+        "q": "68 − 25 = ?",
+        "answer": "43",
+        "hintLadder": [
+          "Ones: 8 − 5 = 3.",
+          "Tens: 60 − 20 = 40.",
+          "Together."
+        ],
+        "explain": "43."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "found-07-c1",
+        "type": "number",
+        "q": "54 + 43 = ?",
+        "answer": "97",
+        "hintLadder": [
+          "Ones: 4 + 3 = 7.",
+          "Tens: 50 + 40 = 90.",
+          "Together."
+        ],
+        "explain": "97."
+      },
+      {
+        "id": "found-07-c2",
+        "type": "number",
+        "q": "79 − 36 = ?",
+        "answer": "43",
+        "hintLadder": [
+          "Ones: 9 − 6 = 3.",
+          "Tens: 70 − 30 = 40.",
+          "Together."
+        ],
+        "explain": "43."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "found-07-x1",
+        "type": "number",
+        "q": "31 + 27 = ?",
+        "answer": "58",
+        "hintLadder": [
+          "Ones 1+7=8.",
+          "Tens 30+20=50.",
+          "Together."
+        ],
+        "explain": "58.",
+        "visual": {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "tens": 3,
+                "ones": 1,
+                "label": "31"
+              },
+              {
+                "tens": 2,
+                "ones": 7,
+                "label": "+27"
+              },
+              {
+                "tens": 5,
+                "ones": 8,
+                "label": "=58"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-07-x2",
+        "type": "number",
+        "q": "40 + 50 = ?",
+        "answer": "90",
+        "hintLadder": [
+          "Tens 4+5.",
+          "No ones.",
+          "Ninety."
+        ],
+        "explain": "90."
+      },
+      {
+        "id": "found-07-x3",
+        "type": "number",
+        "q": "36 + 22 = ?",
+        "answer": "58",
+        "hintLadder": [
+          "Ones 6+2=8.",
+          "Tens 30+20=50.",
+          "Together."
+        ],
+        "explain": "58."
+      },
+      {
+        "id": "found-07-x4",
+        "type": "number",
+        "q": "58 − 34 = ?",
+        "answer": "24",
+        "hintLadder": [
+          "Ones 8−4=4.",
+          "Tens 50−30=20.",
+          "Together."
+        ],
+        "explain": "24."
+      },
+      {
+        "id": "found-07-x5",
+        "type": "number",
+        "q": "87 − 45 = ?",
+        "answer": "42",
+        "hintLadder": [
+          "Ones 7−5=2.",
+          "Tens 80−40=40.",
+          "Together."
+        ],
+        "explain": "42."
+      }
+    ]
+  },
+  "teachBackPrompt": "Use bundles of ten straws and loose ones to teach someone at home how to add 34 + 25 by joining the tens and the ones separately. Explain why you never mix a ones digit with a tens digit.",
+  "revisionCard": {
+    "summary": "Two-digit add/subtract: split into TENS and ONES. Add ones with ones, tens with tens, then combine. 34 + 25 → 9 ones + 50 = 59. Keep the columns apart.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Adding Orchard (Little Sprouts)",
+    "title": "Adding the Marble Jars",
+    "brief": "Join two-digit numbers by adding tens with tens and ones with ones up to 100.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Add two prices under ₹100 from a shop bill by splitting each into tens and ones. Check against the total on the bill.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  },
+  "mentalMathMethod": {
+    "name": "Add the tens, then the ones",
+    "whenToUse": "For quick two-digit adding.",
+    "steps": [
+      "Start with the first number.",
+      "Add the other number's tens.",
+      "Then add its ones."
+    ],
+    "example": "34 + 25: 34 + 20 = 54, then + 5 = 59."
+  },
+  "abacusMethod": {
+    "name": "Tens rod and ones rod",
+    "whenToUse": "To add two-digit numbers on the abacus.",
+    "steps": [
+      "Set the first number across the tens and ones rods.",
+      "Add the ones on the ones rod, the tens on the tens rod.",
+      "Read both rods together."
+    ],
+    "example": "42 + 36: ones 2+6, tens 4+3 → 78.",
+    "visual": {
+      "component": "Abacus",
+      "props": {
+        "abaci": [
+          {
+            "value": 78,
+            "label": "42 + 36 = 78"
+          }
+        ]
+      },
+      "caption": "Add ones on one rod, tens on the next."
+    }
+  }
+}

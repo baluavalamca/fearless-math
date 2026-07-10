@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FearlessMath — Master-List Coverage Audit (27 sections)</title>
+<style>
+  :root{ --ink:#22314f; --muted:#5c6a86; --line:#e2e9fb; --bg:#fbfcff; --ok:#129d6b; --okbg:#e5f8ef;
+         --tool:#6a4bd0; --toolbg:#efeaff; --part:#c98a12; --partbg:#fff6e0; --miss:#d6455d; --missbg:#fdeaee; --blue:#2f6bff; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--bg); color:var(--ink); font:14.5px/1.5 -apple-system,Segoe UI,Roboto,system-ui,sans-serif; }
+  .wrap{ max-width:1120px; margin:0 auto; padding:30px 26px 60px; }
+  h1{ font-size:26px; margin:0 0 4px; }
+  .sub{ color:var(--muted); margin:0 0 14px; }
+  .legend{ display:flex; gap:8px; flex-wrap:wrap; margin:12px 0; }
+  .pill{ display:inline-flex; align-items:center; gap:6px; padding:5px 12px; border-radius:999px; font-weight:700; font-size:12.5px; }
+  .p-ok{ background:var(--okbg); color:var(--ok); } .p-tool{ background:var(--toolbg); color:var(--tool); }
+  .p-part{ background:var(--partbg); color:var(--part); } .p-miss{ background:var(--missbg); color:var(--miss); }
+  .note{ background:#eef3ff; border:1px solid #cfdcff; border-radius:12px; padding:12px 16px; color:#2b3a5c; margin:14px 0; }
+  .scoreboard{ display:flex; gap:12px; flex-wrap:wrap; margin:12px 0; }
+  .card{ flex:1 1 150px; border:1px solid var(--line); border-radius:12px; padding:12px 14px; background:#fff; text-align:center; }
+  .card b{ display:block; font-size:24px; }
+  table{ width:100%; border-collapse:collapse; margin:6px 0; font-size:13.5px; }
+  th,td{ text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th{ color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.02em; background:#f4f7ff; }
+  td.st{ white-space:nowrap; font-weight:700; }
+  .s-ok{ color:var(--ok); } .s-tool{ color:var(--tool); } .s-part{ color:var(--part); } .s-miss{ color:var(--miss); }
+  td.sec{ font-weight:700; white-space:nowrap; }
+  .miss{ color:#8a2433; }
+  .foot{ color:var(--muted); font-size:12.5px; margin-top:22px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Master-List Coverage Audit</h1>
+  <p class="sub">Every one of the 27 sections in <i>foundation_concepts_of_mathematics_master_list.md</i>, checked against the 75 taught lessons and the 17 Advanced tools. Honest verdict: the early foundations are strong; the middle band is partial; the upper band is mostly tools-not-lessons or missing.</p>
+
+  <div class="legend">
+    <span class="pill p-ok">✅ Taught as lesson(s)</span>
+    <span class="pill p-part">🟡 Partly taught</span>
+    <span class="pill p-tool">🧰 Tool only (not a taught lesson)</span>
+    <span class="pill p-miss">❌ Not present</span>
+  </div>
+
+  <div class="scoreboard">
+    <div class="card"><b style="color:var(--ok)">5</b>fully covered</div>
+    <div class="card"><b style="color:var(--part)">10</b>partly covered</div>
+    <div class="card"><b style="color:var(--tool)">6</b>tool-only</div>
+    <div class="card"><b style="color:var(--miss)">6</b>missing</div>
+  </div>
+
+  <div class="note">
+    <b>One-line answer:</b> No, not everything. The chain <b>number sense → place value → operations → fractions → decimals → percentages → ratio → measurement → basic geometry → data/probability intro → pre-algebra</b> is well taught. The clearest <span class="miss">gaps</span> are: <b>order of operations (BODMAS)</b>, <b>properties of operations</b>, <b>number-theory depth</b> (primes, HCF/LCM, squares/roots), <b>number systems</b> (irrationals, exponents, scientific notation), <b>geometry relationships</b> (lines/angles types, circles, congruence, Pythagoras, coordinates), <b>full algebra &amp; functions</b>, <b>trigonometry</b>, <b>sets/logic/discrete</b>, and <b>modeling &amp; computational thinking</b>. Several of these exist as Advanced <i>tools</i> but not as taught lessons.
+  </div>
+
+  <table>
+    <tr><th>#</th><th>Section</th><th>Status</th><th>Covered in app</th><th>Missing / next</th></tr>
+
+    <tr><td>1</td><td class="sec">Thinking foundations</td><td class="st s-part">🟡</td><td>Patterns, estimation; Polya problem-solving &amp; representation are embedded in the AI coach &amp; every lesson</td><td class="miss">Explicit logical reasoning, precision, proof mindset lessons</td></tr>
+    <tr><td>2</td><td class="sec">Pre-number readiness</td><td class="st s-ok">✅</td><td>Sorting, comparing, ordering, patterning, shapes, quantity sense (<code>found-01</code>, <code>pp1-02</code>, <code>found-04/10/12/13</code>)</td><td>Spatial/direction words could be deeper</td></tr>
+    <tr><td>3</td><td class="sec">Counting &amp; number sense</td><td class="st s-ok">✅</td><td>Forward/back/skip counting, cardinality, ordinals, sequence, compare, number line, odd/even, estimation, rounding</td><td>—</td></tr>
+    <tr><td>4</td><td class="sec">Place value &amp; base-ten</td><td class="st s-ok">✅</td><td>Place/digit value, bundling, regrouping, compare large numbers, decimal place value (<code>num-01/04/19</code>, <code>dec-01/03</code>)</td><td>Expanded/word form could be explicit</td></tr>
+    <tr><td>5</td><td class="sec">Basic operations</td><td class="st s-ok">✅</td><td>+ − × ÷, symbols, vocabulary, fact fluency, mental math, long division, word problems</td><td>—</td></tr>
+    <tr><td>6</td><td class="sec">Properties of operations</td><td class="st s-miss">❌</td><td>Distributive is implied in break-apart multiply; inverse ops in algebra intro</td><td class="miss">Commutative/associative/identity/zero as lessons, and ORDER OF OPERATIONS (BODMAS)</td></tr>
+    <tr><td>7</td><td class="sec">Factors, multiples, number theory</td><td class="st s-part">🟡</td><td>Factors &amp; multiples (<code>num-16</code>); HCF/LCM via 🧰 Number Theory tool</td><td class="miss">Primes/composite, divisibility rules, prime factorization, squares/cubes, square/cube roots</td></tr>
+    <tr><td>8</td><td class="sec">Fractions</td><td class="st s-part">🟡</td><td>Meaning, numerator/denominator, equivalent, comparing, adding like, on number line, fraction-of-quantity</td><td class="miss">Improper/mixed numbers, simplifying, multiply/divide fractions</td></tr>
+    <tr><td>9</td><td class="sec">Decimals &amp; percentages</td><td class="st s-ok">✅</td><td>Decimal place value/ops, decimal↔fraction, percentages, discount, profit/loss, simple interest (<code>dec-01…06</code>, <code>meas-07</code>)</td><td class="miss">Tax (GST), compound interest</td></tr>
+    <tr><td>10</td><td class="sec">Integers &amp; rational numbers</td><td class="st s-part">🟡</td><td>Positive/negative/zero, integer number line, add via line (<code>num-21</code>)</td><td class="miss">Absolute value, full integer ×/÷, rational numbers, terminating/repeating decimals, density</td></tr>
+    <tr><td>11</td><td class="sec">Number systems</td><td class="st s-miss">❌</td><td>Natural/whole/integers implicitly; complex via 🧰 tool</td><td class="miss">Irrationals (√2, π), real numbers, hierarchy, scientific notation, exponents &amp; radicals</td></tr>
+    <tr><td>12</td><td class="sec">Ratio, rate, proportion</td><td class="st s-part">🟡</td><td>Ratio, equivalent ratios, unit rate, proportion, scale, maps (<code>num-22</code>, <code>meas-03</code>)</td><td class="miss">Inverse proportion, speed–distance–time</td></tr>
+    <tr><td>13</td><td class="sec">Measurement</td><td class="st s-ok">✅</td><td>Length/mass/capacity, time, money, unit conversion, perimeter, area, volume (<code>meas-01…07</code>, <code>geo-02/03/08</code>)</td><td class="miss">Temperature (as a measure), surface area</td></tr>
+    <tr><td>14</td><td class="sec">Geometry: shapes &amp; space</td><td class="st s-part">🟡</td><td>2D shapes, angles, 3D solids &amp; nets, symmetry (<code>geo-01/04/05/06/07</code>)</td><td class="miss">Point/line/ray/segment, parallel/perpendicular, triangle &amp; quadrilateral types, polygons, circles</td></tr>
+    <tr><td>15</td><td class="sec">Geometry: relationships &amp; theorems</td><td class="st s-miss">❌</td><td>Coordinate plotting via 🧰 Graphing tool</td><td class="miss">Congruence, similarity, triangle/circle theorems, Pythagoras, coordinate geometry, slope, distance/midpoint, proof</td></tr>
+    <tr><td>16</td><td class="sec">Mensuration</td><td class="st s-part">🟡</td><td>Rectangle/square perimeter &amp; area, cuboid volume, unit-square idea, real-life (<code>geo-02/03/08</code>, <code>meas-04</code>); 🧰 Mensuration tool</td><td class="miss">Triangle/parallelogram/circle area, circumference, surface areas, cylinder/cone/sphere volume, composite shapes</td></tr>
+    <tr><td>17</td><td class="sec">Data handling &amp; statistics</td><td class="st s-part">🟡</td><td>Collection, tally, tables, pictographs, bar graphs, mean, mode, interpretation (<code>data-01…05</code>); 🧰 Statistics tool</td><td class="miss">Line graphs, pie charts, median, range, variability, misleading graphs</td></tr>
+    <tr><td>18</td><td class="sec">Probability</td><td class="st s-part">🟡</td><td>Chance, likelihood, outcomes, event, probability fraction, theoretical (<code>data-05</code>); 🧰 Probability tool</td><td class="miss">Sample space depth, experimental probability, independent/dependent, compound events</td></tr>
+    <tr><td>19</td><td class="sec">Patterns &amp; pre-algebra</td><td class="st s-ok">✅</td><td>Number/shape/growing patterns, rules, unknowns, variables, position rules (<code>found-12</code>, <code>num-17/18/20/23</code>)</td><td>Expressions/substitution could go deeper</td></tr>
+    <tr><td>20</td><td class="sec">Algebra</td><td class="st s-tool">🧰</td><td>A letter for the unknown &amp; simple equations taught (<code>num-23</code>); 🧰 Equation Solver tool</td><td class="miss">Like terms, coefficients, inequalities, linear/simultaneous, polynomials, identities, factorization, quadratics</td></tr>
+    <tr><td>21</td><td class="sec">Functions &amp; graphs</td><td class="st s-tool">🧰</td><td>🧰 Graphing tool (plot functions)</td><td class="miss">Input-output, function rule, domain/range, f(x), linear/quadratic/exponential/inverse/piecewise, transformations</td></tr>
+    <tr><td>22</td><td class="sec">Trigonometry</td><td class="st s-tool">🧰</td><td>🧰 Trigonometry tool (unit circle, sin/cos/tan)</td><td class="miss">Right-triangle ratios, heights &amp; distances, identities, trig graphs — as taught lessons</td></tr>
+    <tr><td>23</td><td class="sec">Sets, logic &amp; discrete</td><td class="st s-part">🟡</td><td>Sorting (<code>found-13</code>); 🧰 Sets &amp; Venn tool</td><td class="miss">Elements/subsets/union/intersection lessons, logic &amp; if-then, counterexamples, counting principle, permutations/combinations, graph theory</td></tr>
+    <tr><td>24</td><td class="sec">Mathematical modeling</td><td class="st s-part">🟡</td><td>Word problems &amp; real-life projects in most lessons</td><td class="miss">Explicit modeling: assumptions, constraints, optimization, validation, interpretation</td></tr>
+    <tr><td>25</td><td class="sec">Computational &amp; algorithmic thinking</td><td class="st s-miss">❌</td><td>—</td><td class="miss">Algorithms, decomposition, abstraction, flowcharts, pseudocode, iteration, conditional logic, debugging (a CS-leaning module)</td></tr>
+    <tr><td>26</td><td class="sec">Financial &amp; everyday math</td><td class="st s-part">🟡</td><td>Money, profit/loss, discount, simple interest, budgeting, comparison shopping (<code>meas-05/07</code>, <code>dec-06</code>, <code>num-22</code>); 🧰 Finance tool</td><td class="miss">Tax, compound interest, EMI, inflation</td></tr>
+    <tr><td>27</td><td class="sec">Advanced bridge</td><td class="st s-tool">🧰</td><td>🧰 Tools for calculus, matrices, complex numbers, sequences, statistics, probability</td><td class="miss">Taught lessons for any of these; plus differential equations, numerical methods, abstract algebra, real analysis (not present at all)</td></tr>
+  </table>
+
+  <h2 style="font-size:19px;margin:28px 0 6px;border-top:2px solid var(--line);padding-top:14px;">Recommended fill order (biggest foundation value first)</h2>
+  <table>
+    <tr><th>#</th><th>Add as taught lesson</th><th>Why it's high priority</th></tr>
+    <tr><td>1</td><td><b>Order of operations (BODMAS)</b> + properties (commutative/associative/distributive)</td><td>Core to every later calculation; currently a real hole in section 6</td></tr>
+    <tr><td>2</td><td><b>Primes, HCF/LCM, divisibility, squares &amp; roots</b></td><td>Completes number theory; needed for fractions, algebra, and the Number-Theory tool</td></tr>
+    <tr><td>3</td><td><b>Fraction operations</b> — improper/mixed, simplifying, ×/÷</td><td>Finishes the fractions strand the app already starts well</td></tr>
+    <tr><td>4</td><td><b>Lines &amp; angles, triangles, quadrilaterals, circles</b></td><td>The geometry "objects" layer under the shapes already taught</td></tr>
+    <tr><td>5</td><td><b>Mensuration depth</b> — circle area/circumference, surface areas, more volumes</td><td>Pairs with the Mensuration tool; heavy real-life use</td></tr>
+    <tr><td>6</td><td><b>Statistics depth</b> — median, mode, range, line &amp; pie charts</td><td>Pairs with the Statistics tool; completes data literacy</td></tr>
+    <tr><td>7</td><td><b>Integers depth + number systems</b> — abs value, integer ×/÷, irrationals, exponents, scientific notation</td><td>Bridge into secondary maths &amp; science</td></tr>
+    <tr><td>8</td><td><b>Algebra &amp; coordinate geometry</b> — expressions, equations, inequalities, plotting, slope, Pythagoras</td><td>The gateway band for higher study; pairs with Graphing/Equation tools</td></tr>
+    <tr><td>9</td><td><b>Sets, logic &amp; reasoning; trigonometry</b> lessons</td><td>Pairs with the Sets and Trig tools; supports proof &amp; CS</td></tr>
+    <tr><td>10</td><td><b>Financial completion + modeling</b> — tax, compound interest, EMI, inflation; explicit modeling</td><td>Rounds out everyday &amp; applied maths</td></tr>
+  </table>
+
+  <p class="foot">
+    Audit basis: the app's 75 authored lessons (PP1 → Class 7 bridge) and the 17 Advanced (Class 6→JEE) tools. Note: sections 24–25 (modeling, computational thinking) lean toward applied/CS skills; they're reasonable to treat as a later, optional module for a maths app. Every "missing" item can be authored with the same fear-free lesson methodology (and the new "Create a Lesson" AI feature can draft them, grounded &amp; answer-checked).
+  </p>
+</div>
+</body>
+</html>

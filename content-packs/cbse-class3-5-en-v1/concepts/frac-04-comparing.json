@@ -1,0 +1,681 @@
+{
+  "id": "frac-04-comparing",
+  "name": "Comparing Fractions — Which Is Bigger?",
+  "grade": 4,
+  "strand": "fractions",
+  "prerequisites": [
+    "frac-03-equivalent"
+  ],
+  "whatIsIt": "Comparing fractions means finding which fraction is a bigger amount. The trick: a bigger BOTTOM number means SMALLER pieces! 1/8 is smaller than 1/2 because cutting into 8 parts makes tiny pieces. To compare fairly, we make the pieces the same size first — using equivalent fractions.",
+  "whyNeeded": "Life is full of 'which is more?' questions with pieces: who got more cake, which bottle has more juice, which discount is bigger, which team finished more of the match. Without comparing fractions, Ravi will keep choosing 1/8 of the pizza thinking 8 means more!",
+  "realLifeUses": [
+    "Food: is 3/4 of a chocolate bar more than 2/3 of the same bar?",
+    "Cricket: one team finished 3/4 of its overs, another 4/5 — who is further along?",
+    "Water bottles: 1/2 full vs 1/3 full — which has more water?",
+    "Homework: finishing 5/6 of your sums vs your friend's 7/8 — who is closer to done?"
+  ],
+  "vocabulary": [
+    {
+      "term": "compare",
+      "meaning": "Decide which amount is bigger, smaller, or if they are equal."
+    },
+    {
+      "term": "greater than (>)",
+      "meaning": "The open mouth eats the BIGGER number: 3/4 > 1/4."
+    },
+    {
+      "term": "benchmark",
+      "meaning": "A friendly reference point, like 1/2, to judge other fractions against."
+    }
+  ],
+  "story": {
+    "title": "The Sly Jackal's Thin Little Slice",
+    "characters": [
+      "a sly jackal",
+      "a trusting deer",
+      "Chatur the myna"
+    ],
+    "text": "A sly jackal and a trusting deer found one big amla-and-jaggery poli. 'Let's be fair,' said the jackal slyly. 'YOU take one piece out of EIGHT — eight is such a big number! I'll take just one piece out of two.' The deer almost agreed — until Chatur the myna called from the tree: 'Careful, friend! The MORE cuts you make, the SMALLER each piece becomes. One out of eight is a thin little sliver; one out of two is half the whole poli. 1/2 is far more than 1/8!' The jackal slunk away, caught out.",
+    "extractedProblem": "Which is more of the same poli: 1/2 or 1/8?",
+    "answerInStory": "1/2 is more. More cuts (a bigger bottom number) make smaller pieces, so 1/8 is a thin little slice."
+  },
+  "visual": {
+    "component": "PizzaSlices",
+    "props": {
+      "pies": [
+        {
+          "parts": 2,
+          "shaded": 1,
+          "label": "1/2"
+        },
+        {
+          "parts": 4,
+          "shaded": 1,
+          "label": "1/4"
+        },
+        {
+          "parts": 8,
+          "shaded": 1,
+          "label": "1/8"
+        }
+      ]
+    },
+    "caption": "Same pizza, one slice each. The bigger the bottom number, the smaller the slice: 1/2 > 1/4 > 1/8."
+  },
+  "teachingGallery": [
+    {
+      "title": "Comparing fractions",
+      "note": "Same bottom? Bigger top wins. Same top? Smaller bottom wins (bigger slices).",
+      "examples": [
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 5,
+                "shaded": 3,
+                "label": "3/5"
+              },
+              {
+                "parts": 5,
+                "shaded": 2,
+                "label": "2/5"
+              }
+            ]
+          },
+          "caption": "Same bottom → 3/5 > 2/5."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 3,
+                "shaded": 1,
+                "label": "1/3"
+              },
+              {
+                "parts": 6,
+                "shaded": 1,
+                "label": "1/6"
+              }
+            ]
+          },
+          "caption": "Same top → 1/3 > 1/6 (thirds are bigger)."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 4,
+                "shaded": 3,
+                "label": "3/4"
+              },
+              {
+                "parts": 4,
+                "shaded": 1,
+                "label": "1/4"
+              }
+            ]
+          },
+          "caption": "3/4 > 1/4."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 2,
+                "shaded": 1,
+                "label": "1/2"
+              },
+              {
+                "parts": 8,
+                "shaded": 1,
+                "label": "1/8"
+              }
+            ]
+          },
+          "caption": "1/2 > 1/8."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 8,
+                "shaded": 5,
+                "label": "5/8"
+              },
+              {
+                "parts": 8,
+                "shaded": 7,
+                "label": "7/8"
+              }
+            ]
+          },
+          "caption": "7/8 > 5/8."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Make the bottoms the same (using equivalent fractions), then compare the tops.",
+    "steps": [
+      "If bottoms are already the same: bigger top = bigger fraction (4/5 > 2/5).",
+      "If bottoms differ: rename one or both as equivalent fractions with the SAME bottom.",
+      "Example: compare 2/3 and 3/4 → rename as 8/12 and 9/12.",
+      "Now compare tops: 9 > 8, so 3/4 > 2/3."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Same-top shortcut",
+      "whenToUse": "When the TOP numbers are the same, like 3/4 vs 3/8.",
+      "steps": [
+        "Same number of pieces taken from each whole.",
+        "The fraction with the SMALLER bottom has BIGGER pieces.",
+        "So the smaller bottom wins: 3/4 > 3/8."
+      ],
+      "example": "3 big quarter-pieces beat 3 tiny eighth-pieces: 3/4 > 3/8."
+    },
+    {
+      "name": "Benchmark-half method",
+      "whenToUse": "For a quick estimate — is each fraction more or less than 1/2?",
+      "steps": [
+        "Ask for each fraction: is the top more than half the bottom?",
+        "5/8: half of 8 is 4, and 5 > 4, so 5/8 is MORE than 1/2.",
+        "3/8: 3 < 4, so 3/8 is LESS than 1/2.",
+        "A more-than-half fraction beats a less-than-half fraction instantly."
+      ],
+      "example": "Compare 5/8 and 2/5: 5/8 > 1/2 and 2/5 < 1/2, so 5/8 > 2/5 — no renaming needed!"
+    },
+    {
+      "name": "Strip or number line check",
+      "whenToUse": "To SEE the comparison and verify your answer.",
+      "steps": [
+        "Draw both fractions on equal strips (or one number line).",
+        "The shading that reaches further is the bigger fraction."
+      ],
+      "example": "Shade 2/3 and 3/4 on equal strips: 3/4 reaches further."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Which is bigger: 2/5 or 4/5?",
+      "steps": [
+        "The bottoms are the SAME (5) — the pieces are the same size.",
+        "Compare tops: 4 > 2.",
+        "So 4/5 > 2/5."
+      ],
+      "answer": "4/5",
+      "visual": {
+        "component": "FractionStrip",
+        "props": {
+          "strips": [
+            {
+              "parts": 5,
+              "shaded": 2,
+              "label": "2/5"
+            },
+            {
+              "parts": 5,
+              "shaded": 4,
+              "label": "4/5"
+            }
+          ]
+        },
+        "caption": "Same-size parts — the longer bar wins: 4/5 is bigger than 2/5."
+      }
+    },
+    {
+      "problem": "Which is bigger: 2/3 or 3/4?",
+      "steps": [
+        "Bottoms differ (3 and 4) — make them the same. A common bottom is 12.",
+        "2/3 = 8/12 (multiply top and bottom by 4).",
+        "3/4 = 9/12 (multiply top and bottom by 3).",
+        "Compare tops: 9 > 8, so 3/4 > 2/3."
+      ],
+      "answer": "3/4",
+      "visual": {
+        "component": "PizzaSlices",
+        "props": {
+          "pies": [
+            {
+              "parts": 3,
+              "shaded": 2,
+              "label": "2/3"
+            },
+            {
+              "parts": 4,
+              "shaded": 3,
+              "label": "3/4"
+            }
+          ]
+        },
+        "caption": "Different cuts — 3/4 of the pizza is a little more than 2/3."
+      }
+    }
+  ],
+  "trickPractice": {
+    "trick": "Same bottom or same top",
+    "intro": "Match one part: same bottom → biggest top; same top → smallest bottom.",
+    "questions": [
+      {
+        "id": "frac04-trick-3_5-2_5",
+        "type": "mcq",
+        "q": "Which is BIGGER: 3/5 or 2/5?",
+        "answer": "3/5",
+        "options": [
+          {
+            "label": "3/5"
+          },
+          {
+            "label": "2/5"
+          }
+        ],
+        "hintLadder": [
+          "Same BOTTOM? The bigger top wins. Same TOP? The smaller bottom wins.",
+          "Picture the slices.",
+          "3/5 is bigger."
+        ],
+        "explain": "3/5 is bigger."
+      },
+      {
+        "id": "frac04-trick-1_3-1_6",
+        "type": "mcq",
+        "q": "Which is BIGGER: 1/3 or 1/6?",
+        "answer": "1/3",
+        "options": [
+          {
+            "label": "1/3"
+          },
+          {
+            "label": "1/6"
+          }
+        ],
+        "hintLadder": [
+          "Same BOTTOM? The bigger top wins. Same TOP? The smaller bottom wins.",
+          "Picture the slices.",
+          "1/3 is bigger."
+        ],
+        "explain": "1/3 is bigger."
+      },
+      {
+        "id": "frac04-trick-3_4-1_4",
+        "type": "mcq",
+        "q": "Which is BIGGER: 3/4 or 1/4?",
+        "answer": "3/4",
+        "options": [
+          {
+            "label": "3/4"
+          },
+          {
+            "label": "1/4"
+          }
+        ],
+        "hintLadder": [
+          "Same BOTTOM? The bigger top wins. Same TOP? The smaller bottom wins.",
+          "Picture the slices.",
+          "3/4 is bigger."
+        ],
+        "explain": "3/4 is bigger."
+      },
+      {
+        "id": "frac04-trick-1_2-1_8",
+        "type": "mcq",
+        "q": "Which is BIGGER: 1/2 or 1/8?",
+        "answer": "1/2",
+        "options": [
+          {
+            "label": "1/2"
+          },
+          {
+            "label": "1/8"
+          }
+        ],
+        "hintLadder": [
+          "Same BOTTOM? The bigger top wins. Same TOP? The smaller bottom wins.",
+          "Picture the slices.",
+          "1/2 is bigger."
+        ],
+        "explain": "1/2 is bigger."
+      },
+      {
+        "id": "frac04-trick-7_8-5_8",
+        "type": "mcq",
+        "q": "Which is BIGGER: 7/8 or 5/8?",
+        "answer": "7/8",
+        "options": [
+          {
+            "label": "7/8"
+          },
+          {
+            "label": "5/8"
+          }
+        ],
+        "hintLadder": [
+          "Same BOTTOM? The bigger top wins. Same TOP? The smaller bottom wins.",
+          "Picture the slices.",
+          "7/8 is bigger."
+        ],
+        "explain": "7/8 is bigger."
+      },
+      {
+        "id": "frac04-trick-2_3-2_5",
+        "type": "mcq",
+        "q": "Which is BIGGER: 2/3 or 2/5?",
+        "answer": "2/3",
+        "options": [
+          {
+            "label": "2/3"
+          },
+          {
+            "label": "2/5"
+          }
+        ],
+        "hintLadder": [
+          "Same BOTTOM? The bigger top wins. Same TOP? The smaller bottom wins.",
+          "Picture the slices.",
+          "2/3 is bigger."
+        ],
+        "explain": "2/3 is bigger."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "bigger-bottom-means-bigger",
+      "mistake": "Thinking a bigger bottom number means a bigger fraction (choosing 1/8 over 1/2 'because 8 > 2').",
+      "fix": "Remember Ravi's thin pizza slice! The bottom counts the CUTS — more cuts, smaller pieces. For the same top, the bigger bottom is the SMALLER fraction."
+    },
+    {
+      "mistakeTag": "compared-tops-only",
+      "mistake": "Comparing only the top numbers when the bottoms are different (saying 3/8 > 2/3 because 3 > 2).",
+      "fix": "Tops can only be compared when the pieces are the same size. Make the bottoms equal first (equivalent fractions), THEN compare tops."
+    },
+    {
+      "mistakeTag": "added-instead-of-multiplied",
+      "mistake": "Renaming wrongly while making bottoms equal (2/3 'equals' 3/4 by adding 1 to both).",
+      "fix": "Renaming uses MULTIPLY-both or DIVIDE-both only. Check your renamed fraction on strips before comparing."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "mcq",
+        "q": "Same pizza. Which is MORE: 1/2 or 1/4?",
+        "options": [
+          {
+            "label": "1/2"
+          },
+          {
+            "label": "1/4",
+            "mistakeTag": "bigger-bottom-means-bigger"
+          },
+          {
+            "label": "They are equal",
+            "mistakeTag": "compared-tops-only"
+          }
+        ],
+        "answer": "1/2",
+        "hintLadder": [
+          "Both take 1 piece — but from wholes cut differently.",
+          "Which cutting makes bigger pieces: 2 cuts or 4 cuts?",
+          "Fewer cuts = bigger pieces. 1 of 2 big pieces beats 1 of 4 smaller ones."
+        ],
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 2,
+                "shaded": 1,
+                "label": "1/2"
+              },
+              {
+                "parts": 4,
+                "shaded": 1,
+                "label": "1/4"
+              }
+            ]
+          }
+        },
+        "explain": "1/2 > 1/4 — the bigger bottom made smaller pieces."
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "Same bottoms! Which is bigger: 2/5 or 4/5?",
+        "options": [
+          {
+            "label": "4/5"
+          },
+          {
+            "label": "2/5",
+            "mistakeTag": "bigger-bottom-means-bigger"
+          }
+        ],
+        "answer": "4/5",
+        "hintLadder": [
+          "The bottoms are the same, so all pieces are the same size.",
+          "Now just count the pieces: 2 pieces or 4 pieces?",
+          "More same-size pieces = bigger fraction."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "mcq",
+        "q": "Same tops! Which is bigger: 3/4 or 3/8?",
+        "options": [
+          {
+            "label": "3/4"
+          },
+          {
+            "label": "3/8",
+            "mistakeTag": "bigger-bottom-means-bigger"
+          },
+          {
+            "label": "They are equal",
+            "mistakeTag": "compared-tops-only"
+          }
+        ],
+        "answer": "3/4",
+        "hintLadder": [
+          "Both take 3 pieces — but which pieces are bigger?",
+          "Quarters or eighths — which cut makes bigger pieces?",
+          "3 big quarter-pieces beat 3 small eighth-pieces."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "Ravi says 3/8 is bigger than 2/3 'because 3 is more than 2.' What did he forget?",
+        "options": [
+          {
+            "label": "The pieces are different sizes — make the bottoms equal first"
+          },
+          {
+            "label": "Nothing, he is right",
+            "mistakeTag": "compared-tops-only"
+          },
+          {
+            "label": "He should compare the bottoms only",
+            "mistakeTag": "bigger-bottom-means-bigger"
+          }
+        ],
+        "answer": "The pieces are different sizes — make the bottoms equal first",
+        "hintLadder": [
+          "Can you compare 3 tiny pieces with 2 big pieces just by counting?",
+          "Check with the half benchmark: is 3/8 more or less than 1/2? And 2/3?",
+          "3/8 < 1/2 but 2/3 > 1/2 — so 2/3 is bigger. Tops alone can lie!"
+        ],
+        "explain": "2/3 = 16/24 and 3/8 = 9/24, so 2/3 is much bigger."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Which is bigger: 2/3 or 3/4?",
+        "options": [
+          {
+            "label": "3/4"
+          },
+          {
+            "label": "2/3",
+            "mistakeTag": "compared-tops-only"
+          },
+          {
+            "label": "They are equal",
+            "mistakeTag": "added-instead-of-multiplied"
+          }
+        ],
+        "answer": "3/4",
+        "hintLadder": [
+          "Rename both with the same bottom. Try 12.",
+          "2/3 = 8/12 and 3/4 = 9/12 (multiply both parts).",
+          "Now compare tops: 9 > 8."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "Quick benchmark thinking: which is bigger, 5/8 or 2/5?",
+        "options": [
+          {
+            "label": "5/8, because it is more than 1/2 while 2/5 is less"
+          },
+          {
+            "label": "2/5, because 5 is a smaller bottom",
+            "mistakeTag": "bigger-bottom-means-bigger"
+          }
+        ],
+        "answer": "5/8, because it is more than 1/2 while 2/5 is less",
+        "hintLadder": [
+          "Compare each fraction with the friendly benchmark 1/2.",
+          "Half of 8 is 4 — is 5 more? Half of 5 is 2.5 — is 2 more?",
+          "5/8 is above half, 2/5 is below half. Above beats below!"
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "mcq",
+        "q": "Same chocolate bar: which is MORE, 1/3 or 1/6?",
+        "options": [
+          {
+            "label": "1/3"
+          },
+          {
+            "label": "1/6",
+            "mistakeTag": "bigger-bottom-means-bigger"
+          }
+        ],
+        "answer": "1/3",
+        "hintLadder": [
+          "One piece each — from 3 cuts or from 6 cuts.",
+          "Which cutting gives bigger pieces?",
+          "Fewer cuts, bigger piece: 1/3 > 1/6."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "Which is bigger: 5/7 or 3/7?",
+        "options": [
+          {
+            "label": "5/7"
+          },
+          {
+            "label": "3/7",
+            "mistakeTag": "bigger-bottom-means-bigger"
+          }
+        ],
+        "answer": "5/7",
+        "hintLadder": [
+          "The bottoms match — same-size pieces.",
+          "Just count the pieces now.",
+          "5 pieces beat 3 pieces of the same size."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "Which is bigger: 1/2 or 3/8?",
+        "options": [
+          {
+            "label": "1/2"
+          },
+          {
+            "label": "3/8",
+            "mistakeTag": "compared-tops-only"
+          }
+        ],
+        "answer": "1/2",
+        "hintLadder": [
+          "Rename 1/2 with 8 at the bottom.",
+          "1/2 = 4/8. Now compare with 3/8.",
+          "4 pieces beat 3 pieces of the same size."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "The one rule to remember before comparing tops:",
+        "options": [
+          {
+            "label": "The bottoms (piece sizes) must be the same first"
+          },
+          {
+            "label": "The bigger bottom always wins",
+            "mistakeTag": "bigger-bottom-means-bigger"
+          },
+          {
+            "label": "Add 1 to both fractions first",
+            "mistakeTag": "added-instead-of-multiplied"
+          }
+        ],
+        "answer": "The bottoms (piece sizes) must be the same first",
+        "hintLadder": [
+          "Can you compare counts of different-sized pieces?",
+          "What did we use equivalent fractions for?",
+          "Equal bottoms = equal piece sizes = fair comparison."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Tell the pizza story in YOUR words to someone at home: why did Ravi's choice of 1/8 go wrong, and what are the two ways to compare fractions fairly (same bottoms, or the 1/2 benchmark)?",
+  "revisionCard": {
+    "summary": "Bigger bottom = SMALLER pieces (1/8 < 1/2 — remember Ravi's thin slice!). Same bottoms → compare tops. Different bottoms → rename with equivalent fractions first, or use the 1/2 benchmark for a quick check.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Fraction Kitchen (Ganita Grove)",
+    "title": "The Pizza Duel",
+    "brief": "Hungry guests keep choosing slices by the biggest bottom number! Rescue their dinners: pick the truly bigger fraction each round, using strips, renaming, or the half benchmark. Beat Ravi's 'big number' trick 8 times to win the Golden Slice.",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "At dinner, cut one roti into halves and another into eighths. Ask a family member Ravi's question: '1/2 or 1/8 — which will you take?' Then show them why with the real pieces, and write down who fell for the trick!",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4 (comparing fractions)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

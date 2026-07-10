@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FearlessMath — Life-Skills & Higher-Education Math Review</title>
+<style>
+  :root{ --ink:#22314f; --muted:#5c6a86; --line:#e2e9fb; --bg:#fbfcff; --ok:#129d6b; --okbg:#e5f8ef;
+         --tool:#6a4bd0; --toolbg:#efeaff; --part:#c98a12; --partbg:#fff6e0; --miss:#d6455d; --missbg:#fdeaee; --blue:#2f6bff; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--bg); color:var(--ink); font:15px/1.55 -apple-system,Segoe UI,Roboto,system-ui,sans-serif; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:32px 28px 64px; }
+  h1{ font-size:27px; margin:0 0 4px; }
+  h2{ font-size:20px; margin:34px 0 8px; padding-top:12px; border-top:2px solid var(--line); }
+  .sub{ color:var(--muted); margin:0 0 16px; }
+  .legend{ display:flex; gap:8px; flex-wrap:wrap; margin:14px 0 6px; }
+  .pill{ display:inline-flex; align-items:center; gap:6px; padding:5px 12px; border-radius:999px; font-weight:700; font-size:12.5px; }
+  .p-ok{ background:var(--okbg); color:var(--ok); } .p-tool{ background:var(--toolbg); color:var(--tool); }
+  .p-part{ background:var(--partbg); color:var(--part); } .p-miss{ background:var(--missbg); color:var(--miss); }
+  .note{ background:#eef3ff; border:1px solid #cfdcff; border-radius:12px; padding:12px 16px; color:#2b3a5c; margin:14px 0; }
+  table{ width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:14px; }
+  th,td{ text-align:left; padding:9px 11px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th{ color:var(--muted); font-size:12.5px; text-transform:uppercase; letter-spacing:.02em; background:#f4f7ff; }
+  td.status{ white-space:nowrap; font-weight:700; }
+  .s-ok{ color:var(--ok); } .s-tool{ color:var(--tool); } .s-part{ color:var(--part); } .s-miss{ color:var(--miss); }
+  code{ background:#eef2fc; padding:1px 6px; border-radius:5px; font-size:12.5px; color:#1f3b8c; }
+  .foot{ color:var(--muted); font-size:13px; margin-top:26px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Life-Skills &amp; Higher-Education Math Review</h1>
+  <p class="sub">Not "does it match the NCERT chapter list" — but "does it build the maths a person actually uses in daily life, and the thinking that higher study is built on." Reviewed against the 69 lessons and the Advanced-tools popup. July 2026.</p>
+
+  <div class="legend">
+    <span class="pill p-ok">✅ Taught as a lesson</span>
+    <span class="pill p-tool">🧰 Exists as an Advanced tool (not a taught lesson)</span>
+    <span class="pill p-part">🟡 Partly covered</span>
+    <span class="pill p-miss">❌ Not present</span>
+  </div>
+
+  <div class="note">
+    <b>Headline.</b> The everyday "survival maths" is strong: money &amp; change, time &amp; calendar, measuring &amp; unit conversion, estimation &amp; rounding, reading graphs, averages, and mental-maths shortcuts are all taught properly. The gaps are the <b>bridge topics</b> that power both daily decisions and higher study: <b>percentages &amp; discounts, ratio &amp; proportion, probability/chance, speed–distance–time, financial literacy (profit/loss, simple interest, budgeting), integers (negative numbers), and pre-algebra (a letter for an unknown)</b>. Several of these exist as <span style="color:var(--tool)">🧰 Advanced calculator tools</span> for Class 6+ but are <i>not yet taught as lessons</i> for the younger learner.
+  </div>
+
+  <!-- DAILY LIFE -->
+  <h2>A. Everyday-life maths</h2>
+  <table>
+    <tr><th>Life skill</th><th>Why it matters day-to-day</th><th>Status</th><th>In FearlessMath</th></tr>
+    <tr><td>Counting, number sense, place value</td><td>Reading prices, phone numbers, quantities</td><td class="status s-ok">✅</td><td><code>found-01…num-19</code> across all classes</td></tr>
+    <tr><td>Money &amp; making change</td><td>Shopping, pocket money, checking a bill</td><td class="status s-ok">✅</td><td><code>found-08</code> · <code>meas-05-money</code></td></tr>
+    <tr><td>Time, clocks &amp; calendar</td><td>Schedules, buses, deadlines, planning a day</td><td class="status s-ok">✅</td><td><code>meas-02-time</code> · <code>found-09-calendar</code></td></tr>
+    <tr><td>Measuring &amp; unit conversion</td><td>Cooking, cloth, travel, height/weight</td><td class="status s-ok">✅</td><td><code>meas-01-units</code> · <code>meas-06-unit-conversion</code> · <code>found-11-measure</code></td></tr>
+    <tr><td>Estimation &amp; rounding</td><td>"Roughly how much / how many / how long"</td><td class="status s-ok">✅</td><td><code>num-03-rounding</code></td></tr>
+    <tr><td>Reading charts, graphs &amp; averages</td><td>News, sports, weather, marksheets</td><td class="status s-ok">✅</td><td><code>data-01…04</code> (incl. average in <code>data-04</code>)</td></tr>
+    <tr><td>Mental-maths shortcuts</td><td>Quick sums without a calculator</td><td class="status s-ok">✅</td><td>mental/abacus/vedic methods across operations</td></tr>
+    <tr><td>Fractions &amp; decimals in real use</td><td>Half a litre, quarter kilo, ₹12.50</td><td class="status s-ok">✅</td><td>fractions &amp; decimals strands</td></tr>
+    <tr><td><b>Percentages &amp; discounts</b></td><td>"20% off", exam marks, phone battery, tips</td><td class="status s-tool">🧰 tool only</td><td>Advanced <code>Fraction↔%</code> tool; no taught lesson</td></tr>
+    <tr><td><b>Ratio, proportion &amp; unit rate</b></td><td>Scaling a recipe, best-value pack, mixing</td><td class="status s-part">🟡 partial</td><td>scale in <code>meas-03-maps-scale</code>; no ratio lesson</td></tr>
+    <tr><td><b>Probability / chance</b></td><td>"Likely / unlikely", weather, games, risk</td><td class="status s-tool">🧰 tool only</td><td>Advanced <code>Probability</code> tool; no taught lesson</td></tr>
+    <tr><td><b>Speed, distance &amp; time</b></td><td>Travel time, "will we make it", pace</td><td class="status s-miss">❌</td><td>—</td></tr>
+    <tr><td><b>Financial literacy</b> — budgeting, profit/loss, simple interest</td><td>Saving, spending, small business, bank basics</td><td class="status s-tool">🧰 tool only</td><td>Advanced <code>Finance</code> tool; no taught lesson</td></tr>
+    <tr><td><b>Negative numbers (integers)</b></td><td>Temperature below zero, owing money, floors below ground</td><td class="status s-miss">❌</td><td>number line is positive-only so far</td></tr>
+  </table>
+
+  <!-- HIGHER ED -->
+  <h2>B. Foundations for higher education (the thinking, not just the sums)</h2>
+  <table>
+    <tr><th>Foundation</th><th>What it unlocks later</th><th>Status</th><th>In FearlessMath</th></tr>
+    <tr><td>Place value &amp; number magnitude</td><td>Everything numeric; scientific notation later</td><td class="status s-ok">✅</td><td>strong, PP1 → 6-digit</td></tr>
+    <tr><td>Spatial &amp; geometric reasoning</td><td>Geometry, mensuration, engineering, design</td><td class="status s-ok">✅</td><td>2D, symmetry, angles, 3D solids &amp; nets, area/boundary</td></tr>
+    <tr><td>Patterns &amp; rules</td><td>The seed of algebra &amp; functions</td><td class="status s-ok">✅</td><td><code>found-12</code> · <code>num-18</code> · <code>num-20</code> · <code>num-17</code></td></tr>
+    <tr><td>Data literacy &amp; average</td><td>Statistics, research, evidence-based thinking</td><td class="status s-ok">✅</td><td>data strand incl. mean</td></tr>
+    <tr><td>Word problems &amp; Polya problem-solving</td><td>Applying maths to unfamiliar situations</td><td class="status s-ok">✅</td><td><code>ops-15-word-problems</code> + AI Socratic coach (understand→plan→do→check)</td></tr>
+    <tr><td>Factors, multiples, primes</td><td>Fractions, LCM/HCF, number theory</td><td class="status s-ok">✅</td><td><code>num-16-factors-multiples</code> (+ Advanced <code>Number Theory</code>)</td></tr>
+    <tr><td><b>Pre-algebra — a letter for an unknown</b></td><td>Algebra, equations, all of higher maths</td><td class="status s-tool">🧰 tool only</td><td>Advanced <code>Equation Solver</code>; no bridging lesson (□ / a‑box → x)</td></tr>
+    <tr><td><b>Ratio &amp; proportion</b></td><td>Algebra, trigonometry, chemistry, scale</td><td class="status s-part">🟡 partial</td><td>only via maps/scale; no core concept</td></tr>
+    <tr><td><b>Percentage as a bridge</b> (fraction↔decimal↔%)</td><td>Interest, statistics, data, science</td><td class="status s-part">🟡 partial</td><td>fraction↔decimal taught; % link not</td></tr>
+    <tr><td><b>Integers &amp; the full number line</b></td><td>Algebra, coordinates, physics</td><td class="status s-miss">❌</td><td>—</td></tr>
+    <tr><td><b>Logical reasoning — sets, Venn, if/then</b></td><td>Proof, computer science, logic</td><td class="status s-part">🟡 partial</td><td>sorting in <code>found-13</code>; Advanced <code>Sets &amp; Venn</code> tool; no reasoning lesson</td></tr>
+    <tr><td><b>Basic probability reasoning</b></td><td>Statistics, ML, decision-making</td><td class="status s-tool">🧰 tool only</td><td>Advanced tool only</td></tr>
+    <tr><td>Coordinate/graph sense</td><td>Graphs, functions, data plots</td><td class="status s-tool">🧰 tool only</td><td>Advanced <code>Graphing</code> tool; no taught intro</td></tr>
+  </table>
+
+  <!-- PRIORITY -->
+  <h2>Recommended additions (highest life + study value first)</h2>
+  <table>
+    <tr><th>#</th><th>Add as a taught lesson</th><th>Daily-life payoff</th><th>Higher-study payoff</th></tr>
+    <tr><td>1</td><td><b>Percentages &amp; discounts</b> (Class 5–6)</td><td>Sales, marks, tips, battery, offers</td><td>Interest, statistics, science</td></tr>
+    <tr><td>2</td><td><b>Ratio, proportion &amp; unit rate</b> (Class 5–6)</td><td>Recipes, best-value shopping, mixing, maps</td><td>Algebra, trig, chemistry</td></tr>
+    <tr><td>3</td><td><b>Probability &amp; chance</b> (Class 5–6, intuitive)</td><td>Games, weather, fairness, risk</td><td>Statistics, data science</td></tr>
+    <tr><td>4</td><td><b>Money &amp; financial literacy</b> — budgeting, profit/loss, simple interest</td><td>Saving, spending wisely, small business</td><td>Commerce, economics</td></tr>
+    <tr><td>5</td><td><b>Integers</b> — negative numbers &amp; the two-way number line</td><td>Temperature, debt, lifts/floors</td><td>Algebra, coordinates, physics</td></tr>
+    <tr><td>6</td><td><b>Speed, distance &amp; time</b></td><td>Travel planning, pace, "will we make it"</td><td>Rates, physics, calculus intuition</td></tr>
+    <tr><td>7</td><td><b>Pre-algebra bridge</b> — a box/letter for the unknown</td><td>"What number makes this true?"</td><td>Algebra &amp; all higher maths</td></tr>
+    <tr><td>8</td><td><b>Logical reasoning</b> — sorting, sets, if/then, simple Venn</td><td>Organising, decisions, puzzles</td><td>Proof, computer science</td></tr>
+  </table>
+
+  <div class="note">
+    <b>Note on the Advanced tools.</b> Percentage, probability, finance, sets, ratios, graphing and equation-solving already exist as interactive <i>tools</i> in the "Advanced Math (Class 6 → JEE)" popup. That's great for exploring, but a tool lets you <i>compute</i> — it doesn't <i>teach the idea</i> with a story, pictures, worked examples, practice and a mastery check the way the main lessons do. Turning the top items above into taught lessons (with the same fear-free methodology) would close the loop between "can play with it" and "understands and owns it".
+  </div>
+
+  <p class="foot">
+    Reviewed against the current 69 authored lessons and the Advanced-tools inventory. Status key: ✅ taught lesson · 🧰 tool only · 🟡 partial · ❌ missing. Grade bands are suggestions aligned to when the idea first becomes useful, not strict NCERT placement.
+  </p>
+</div>
+</body>
+</html>

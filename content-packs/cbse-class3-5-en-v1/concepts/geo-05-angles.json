@@ -1,0 +1,629 @@
+{
+  "id": "geo-05-angles",
+  "name": "Angles — Measuring the Turn",
+  "grade": 5,
+  "strand": "geometry",
+  "prerequisites": [
+    "geo-01-shapes"
+  ],
+  "whatIsIt": "An ANGLE is the amount of TURN between two arms that meet at a point (the vertex). A quarter turn is a RIGHT ANGLE (90°, a perfect corner). Smaller than a right angle is ACUTE; bigger (but less than a straight line) is OBTUSE; a straight line is 180°.",
+  "whyNeeded": "Angles are everywhere a direction changes: the corner of a book, the hands of a clock, a ramp, a road turning, the tilt of a see-saw. Naming and comparing angles lets us describe shapes, read clocks, and give directions precisely.",
+  "realLifeUses": [
+    "The hands of a clock make different angles through the day",
+    "The corners of a book, table, or window are right angles",
+    "Opening a door or a pair of scissors makes a growing angle",
+    "A road sign showing a sharp (acute) or gentle bend"
+  ],
+  "vocabulary": [
+    {
+      "term": "angle",
+      "meaning": "The amount of turn between two arms meeting at a point."
+    },
+    {
+      "term": "vertex",
+      "meaning": "The corner point where the two arms meet."
+    },
+    {
+      "term": "right angle",
+      "meaning": "A quarter turn — a perfect square corner, 90 degrees."
+    },
+    {
+      "term": "acute angle",
+      "meaning": "Smaller than a right angle (less than 90°)."
+    },
+    {
+      "term": "obtuse angle",
+      "meaning": "Bigger than a right angle but less than a straight line (between 90° and 180°)."
+    },
+    {
+      "term": "straight angle",
+      "meaning": "A half turn — a straight line, 180 degrees."
+    }
+  ],
+  "story": {
+    "title": "The Old Clock Hands' Dance",
+    "characters": [
+      "Ravi",
+      "Thatha (grandfather)"
+    ],
+    "text": "Ravi watches the old wall clock. At 3 o'clock the two hands stand apart in a perfect square corner. 'That is a RIGHT ANGLE — a quarter turn, 90 degrees,' says Thatha. As time passes the hands squeeze closer (acute), then open wide past the corner (obtuse), then line up straight at half past six (a straight angle). 'The clock is teaching angles all day long!'",
+    "extractedProblem": "At 3 o'clock the clock hands form a perfect corner. What kind of angle is that, and how many degrees?",
+    "answerInStory": "A right angle — a quarter turn of 90 degrees."
+  },
+  "visual": {
+    "component": "ClockFace",
+    "props": {
+      "clocks": [
+        {
+          "hour": 3,
+          "minute": 0,
+          "label": "3 o'clock"
+        }
+      ]
+    },
+    "caption": "At 3 o'clock the hands make a RIGHT ANGLE — a quarter turn, 90°."
+  },
+  "teachingGallery": [
+    {
+      "title": "Angles — the amount of turn",
+      "note": "A square corner is a right angle = 90°. Compare other angles to it.",
+      "examples": [
+        {
+          "component": "ClockFace",
+          "props": {
+            "clocks": [
+              {
+                "hour": 3,
+                "minute": 0,
+                "label": "3 o'clock = right angle 90°"
+              }
+            ]
+          },
+          "caption": "3 o'clock: hands make a right angle (90°)."
+        },
+        {
+          "component": "ClockFace",
+          "props": {
+            "clocks": [
+              {
+                "hour": 6,
+                "minute": 0,
+                "label": "6 o'clock = straight angle 180°"
+              }
+            ]
+          },
+          "caption": "6 o'clock: a straight line = 180°."
+        },
+        {
+          "component": "ClockFace",
+          "props": {
+            "clocks": [
+              {
+                "hour": 12,
+                "minute": 0,
+                "label": "12 o'clock = 0° (together)"
+              }
+            ]
+          },
+          "caption": "12 o'clock: hands together = 0°."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 3,
+                "label": "square corner = 90°"
+              }
+            ]
+          },
+          "caption": "Every corner of a square is a right angle."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "triangle",
+                "label": "sharp corner < 90° (acute)"
+              }
+            ]
+          },
+          "caption": "A sharp corner smaller than a square's is acute."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Compare an angle to a right-angle corner: equal = right, smaller = acute, bigger (under a straight line) = obtuse.",
+    "steps": [
+      "Find the vertex — the point where the two arms meet.",
+      "Compare the opening to a square corner (right angle, 90°).",
+      "Equal to the corner → RIGHT; smaller → ACUTE; larger but not straight → OBTUSE; a straight line → STRAIGHT (180°).",
+      "A full turn all the way around is 360°."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Corner-tester",
+      "whenToUse": "To classify an angle quickly without a protractor.",
+      "steps": [
+        "Use the square corner of a book or paper as a right-angle tester.",
+        "Fit the corner into the angle's vertex.",
+        "If the angle hugs the corner exactly it is right; peeks smaller = acute; gaps wider = obtuse."
+      ],
+      "example": "A door opened a little: the book corner gaps wider — obtuse."
+    },
+    {
+      "name": "Clock-hands",
+      "whenToUse": "To picture angle sizes.",
+      "steps": [
+        "Think of two clock hands at the centre.",
+        "3:00 makes a right angle; 1:00 makes an acute angle.",
+        "The wider the hands open, the bigger the angle."
+      ],
+      "example": "5:00 hands open wider than a corner — obtuse."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A clock shows 3 o'clock. What kind of angle do the hands make?",
+      "steps": [
+        "Vertex is the clock's centre.",
+        "The hands stand a quarter-turn apart.",
+        "A quarter turn is exactly a square corner.",
+        "It is a RIGHT angle (90°)."
+      ],
+      "answer": "right",
+      "visual": {
+        "component": "ClockFace",
+        "props": {
+          "clocks": [
+            {
+              "hour": 3,
+              "minute": 0
+            }
+          ]
+        },
+        "caption": "Quarter turn = right angle (90°)."
+      }
+    },
+    {
+      "problem": "An angle is smaller than a square corner. What is it called?",
+      "steps": [
+        "Compare it to a right angle (90°).",
+        "It opens LESS than the corner.",
+        "Less than 90° has a special name.",
+        "It is an ACUTE angle."
+      ],
+      "answer": "acute",
+      "visual": {
+        "component": "ClockFace",
+        "props": {
+          "clocks": [
+            {
+              "hour": 1,
+              "minute": 0
+            }
+          ]
+        },
+        "caption": "1 o'clock hands open less than a corner — acute."
+      }
+    }
+  ],
+  "trickPractice": {
+    "trick": "Measure against the square corner",
+    "intro": "Use the 90° right angle as your ruler: smaller = acute, bigger = obtuse.",
+    "questions": [
+      {
+        "id": "geo05-trick-quarter",
+        "type": "mcq",
+        "q": "A quarter turn (square corner) is how many degrees?",
+        "answer": "90",
+        "options": [
+          {
+            "label": "90"
+          },
+          {
+            "label": "180"
+          },
+          {
+            "label": "45"
+          }
+        ],
+        "hintLadder": [
+          "A square corner is a RIGHT angle.",
+          "A right angle = a quarter turn.",
+          "90°."
+        ],
+        "explain": "right angle = 90°."
+      },
+      {
+        "id": "geo05-trick-half",
+        "type": "mcq",
+        "q": "A half turn (straight line) is…",
+        "answer": "180",
+        "options": [
+          {
+            "label": "180"
+          },
+          {
+            "label": "90"
+          },
+          {
+            "label": "360"
+          }
+        ],
+        "hintLadder": [
+          "Two right angles make a straight line.",
+          "90 + 90.",
+          "180°."
+        ],
+        "explain": "straight = 180°."
+      },
+      {
+        "id": "geo05-trick-full",
+        "type": "mcq",
+        "q": "A full turn all the way around is…",
+        "answer": "360",
+        "options": [
+          {
+            "label": "360"
+          },
+          {
+            "label": "180"
+          },
+          {
+            "label": "90"
+          }
+        ],
+        "hintLadder": [
+          "Four right angles.",
+          "90 × 4.",
+          "360°."
+        ],
+        "explain": "full turn = 360°."
+      },
+      {
+        "id": "geo05-trick-acute",
+        "type": "mcq",
+        "q": "An angle SMALLER than a right angle is called…",
+        "answer": "acute",
+        "options": [
+          {
+            "label": "acute"
+          },
+          {
+            "label": "obtuse"
+          },
+          {
+            "label": "right"
+          }
+        ],
+        "hintLadder": [
+          "Compare to the square corner (90°).",
+          "Smaller than 90°.",
+          "Acute."
+        ],
+        "explain": "<90° = acute."
+      },
+      {
+        "id": "geo05-trick-obtuse",
+        "type": "mcq",
+        "q": "An angle BIGGER than a right angle but less than a straight line is…",
+        "answer": "obtuse",
+        "options": [
+          {
+            "label": "obtuse"
+          },
+          {
+            "label": "acute"
+          },
+          {
+            "label": "right"
+          }
+        ],
+        "hintLadder": [
+          "Between 90° and 180°.",
+          "Bigger than the square corner.",
+          "Obtuse."
+        ],
+        "explain": "90–180° = obtuse."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "acute-obtuse-swapped",
+      "mistake": "Calling a wide angle 'acute' and a narrow one 'obtuse'.",
+      "fix": "ACUTE = a-CUTE little angle, SMALLER than a corner. OBTUSE is the big, wide one. Compare to a square corner: smaller → acute, bigger → obtuse."
+    },
+    {
+      "mistakeTag": "arm-length-is-size",
+      "mistake": "Thinking an angle is bigger just because its arms are drawn longer.",
+      "fix": "Angle size is about the TURN at the vertex, not how long the arms are. Long arms with a small opening is still a small angle."
+    },
+    {
+      "mistakeTag": "right-angle-degrees",
+      "mistake": "Thinking a right angle is 100° or a straight angle is 90°.",
+      "fix": "A right angle (square corner) is 90°. A straight line is 180°. A full turn is 360°."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "geo-05-e1",
+        "type": "mcq",
+        "q": "How many degrees is a right angle (a square corner)?",
+        "answer": "90",
+        "hintLadder": [
+          "A quarter turn.",
+          "A book corner.",
+          "Ninety."
+        ],
+        "options": [
+          {
+            "label": "90"
+          },
+          {
+            "label": "180",
+            "mistakeTag": "right-angle-degrees"
+          },
+          {
+            "label": "100",
+            "mistakeTag": "right-angle-degrees"
+          }
+        ],
+        "explain": "A right angle is 90°."
+      },
+      {
+        "id": "geo-05-e2",
+        "type": "mcq",
+        "q": "An angle smaller than a square corner is called...",
+        "answer": "acute",
+        "hintLadder": [
+          "Smaller than 90°.",
+          "'A-cute' little angle.",
+          "Acute."
+        ],
+        "options": [
+          {
+            "label": "acute"
+          },
+          {
+            "label": "obtuse",
+            "mistakeTag": "acute-obtuse-swapped"
+          }
+        ],
+        "explain": "Smaller than a right angle = acute."
+      }
+    ],
+    "medium": [
+      {
+        "id": "geo-05-m1",
+        "type": "mcq",
+        "q": "An angle bigger than a right angle but less than a straight line is...",
+        "answer": "obtuse",
+        "hintLadder": [
+          "More than 90°, less than 180°.",
+          "The wide one.",
+          "Obtuse."
+        ],
+        "options": [
+          {
+            "label": "obtuse"
+          },
+          {
+            "label": "acute",
+            "mistakeTag": "acute-obtuse-swapped"
+          }
+        ],
+        "explain": "Between 90° and 180° = obtuse."
+      },
+      {
+        "id": "geo-05-m2",
+        "type": "mcq",
+        "q": "How many degrees is a straight angle (a straight line)?",
+        "answer": "180",
+        "hintLadder": [
+          "A half turn.",
+          "Two right angles together.",
+          "One hundred eighty."
+        ],
+        "options": [
+          {
+            "label": "180"
+          },
+          {
+            "label": "90",
+            "mistakeTag": "right-angle-degrees"
+          },
+          {
+            "label": "360",
+            "mistakeTag": "right-angle-degrees"
+          }
+        ],
+        "explain": "A straight angle is 180°."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "geo-05-c1",
+        "type": "number",
+        "q": "Two right angles placed together make a straight line. How many degrees is that?",
+        "answer": "180",
+        "hintLadder": [
+          "Each right angle is 90°.",
+          "90 + 90.",
+          "A straight line."
+        ],
+        "explain": "90 + 90 = 180°."
+      },
+      {
+        "id": "geo-05-c2",
+        "type": "mcq",
+        "q": "At 6 o'clock the clock hands point straight up and down. What angle is that?",
+        "answer": "straight",
+        "hintLadder": [
+          "The hands form a straight line.",
+          "A half turn, 180°.",
+          "Straight angle."
+        ],
+        "options": [
+          {
+            "label": "straight"
+          },
+          {
+            "label": "right",
+            "mistakeTag": "acute-obtuse-swapped"
+          },
+          {
+            "label": "acute",
+            "mistakeTag": "acute-obtuse-swapped"
+          }
+        ],
+        "explain": "6:00 hands make a straight angle (180°).",
+        "visual": {
+          "component": "ClockFace",
+          "props": {
+            "clocks": [
+              {
+                "hour": 6,
+                "minute": 0
+              }
+            ]
+          },
+          "caption": "6 o'clock — a straight angle."
+        }
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "geo-05-x1",
+        "type": "mcq",
+        "q": "A perfect square corner is a ___ angle.",
+        "answer": "right",
+        "hintLadder": [
+          "A quarter turn.",
+          "90°.",
+          "Right."
+        ],
+        "options": [
+          {
+            "label": "right"
+          },
+          {
+            "label": "acute",
+            "mistakeTag": "acute-obtuse-swapped"
+          },
+          {
+            "label": "obtuse",
+            "mistakeTag": "acute-obtuse-swapped"
+          }
+        ],
+        "explain": "A square corner = right angle."
+      },
+      {
+        "id": "geo-05-x2",
+        "type": "number",
+        "q": "How many degrees is a right angle?",
+        "answer": "90",
+        "hintLadder": [
+          "Quarter turn.",
+          "Book corner.",
+          "Ninety."
+        ],
+        "explain": "90°."
+      },
+      {
+        "id": "geo-05-x3",
+        "type": "mcq",
+        "q": "An angle of 40° is...",
+        "answer": "acute",
+        "hintLadder": [
+          "Less than 90°.",
+          "Small opening.",
+          "Acute."
+        ],
+        "options": [
+          {
+            "label": "acute"
+          },
+          {
+            "label": "obtuse",
+            "mistakeTag": "acute-obtuse-swapped"
+          },
+          {
+            "label": "right",
+            "mistakeTag": "right-angle-degrees"
+          }
+        ],
+        "explain": "40° < 90° → acute."
+      },
+      {
+        "id": "geo-05-x4",
+        "type": "mcq",
+        "q": "An angle of 120° is...",
+        "answer": "obtuse",
+        "hintLadder": [
+          "More than 90°, less than 180°.",
+          "Wide opening.",
+          "Obtuse."
+        ],
+        "options": [
+          {
+            "label": "obtuse"
+          },
+          {
+            "label": "acute",
+            "mistakeTag": "acute-obtuse-swapped"
+          },
+          {
+            "label": "straight",
+            "mistakeTag": "right-angle-degrees"
+          }
+        ],
+        "explain": "90° < 120° < 180° → obtuse."
+      },
+      {
+        "id": "geo-05-x5",
+        "type": "number",
+        "q": "A full turn all the way around is how many degrees?",
+        "answer": "360",
+        "hintLadder": [
+          "Four right angles.",
+          "90 × 4.",
+          "Three sixty."
+        ],
+        "explain": "A full turn = 360°."
+      }
+    ]
+  },
+  "teachBackPrompt": "Use a clock (real or drawn) to teach someone at home the four angles: show 3 o'clock (right), 1 o'clock (acute), 5 o'clock (obtuse), and 6 o'clock (straight) — and explain why long arms do NOT make a bigger angle.",
+  "revisionCard": {
+    "summary": "Angle = amount of TURN at a vertex. Right = 90° (corner), acute < 90°, obtuse between 90°–180°, straight = 180°, full turn = 360°. Arm length does not change the angle.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Geometry City (Ganita Grove)",
+    "title": "The Clock Hands' Dance",
+    "brief": "Read the angles the clock makes through the day and sort them into right, acute, obtuse, and straight.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Walk around your home with a book corner. Find and note three right angles, one acute angle, and one obtuse angle you can see.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

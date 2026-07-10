@@ -1,0 +1,172 @@
+{
+  "id": "num-32-expressions",
+  "name": "Algebraic Expressions — Terms and Like Terms",
+  "grade": 7,
+  "strand": "numbers",
+  "prerequisites": ["num-23-algebra-intro"],
+  "whatIsIt": "An algebraic EXPRESSION mixes numbers and letters, like 3x + 5. Each part separated by + or − is a TERM (3x, 5). The number stuck to a letter is the COEFFICIENT (the 3 in 3x). A CONSTANT is a plain number (5). LIKE TERMS have the same letter part (3x and 5x) and can be added; SUBSTITUTION means replacing the letter with a value to find the expression's worth.",
+  "whyNeeded": "Expressions are the sentences of algebra — they describe patterns, formulas and rules with letters. Simplifying and evaluating them is the everyday skill behind all equations, science formulas and coding.",
+  "realLifeUses": [
+    "A phone plan cost: 200 + 2n (₹2 per call plus ₹200 rent)",
+    "Perimeter of a rectangle as 2l + 2b",
+    "Total for x tickets at ₹150: 150x",
+    "A formula you fill in with numbers (substitution)"
+  ],
+  "vocabulary": [
+    { "term": "term", "meaning": "A part of an expression separated by + or −, like 3x or 5." },
+    { "term": "coefficient", "meaning": "The number multiplying a letter (the 3 in 3x)." },
+    { "term": "like terms", "meaning": "Terms with the same letter part (3x and 5x) that can be combined." }
+  ],
+  "story": {
+    "title": "The Ticket Total",
+    "characters": ["Rhea", "Sir"],
+    "text": "Sir writes the cost of x tickets plus a ₹20 booking fee: 150x + 20. 'What are the terms?' 150x and 20. 'The coefficient of x?' 150. 'Now find the cost for 3 tickets.' Rhea substitutes x = 3: 150 × 3 + 20 = 450 + 20 = ₹470. 'Letters become numbers when you know them,' she says.",
+    "extractedProblem": "For the cost 150x + 20, what is the total when x = 3 tickets?",
+    "answerInStory": "₹470 — substitute x = 3: 150×3 + 20."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "3x + 5 (x = 4) = 17", "parts": [ { "value": 12 }, { "value": 5 } ], "showTotal": true }
+      ]
+    },
+    "caption": "3x + 5 has two terms. With x = 4: 3×4 = 12, plus the constant 5 = 17."
+  },
+  "teachingGallery": [
+    {
+      "title": "Terms, coefficients, like terms",
+      "note": "Combine like terms; substitute to evaluate.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "3x + 5x = 8x", "parts": [ { "value": 3 }, { "value": 5 } ], "showTotal": true } ] }, "caption": "Like terms add: 3x + 5x = 8x." },
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 2, "cols": 4, "label": "2x with x = 4 → 8" } ] }, "caption": "Substitute x = 4 into 2x → 8." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "2l + 2b (rectangle)", "parts": [ { "value": 2 }, { "value": 2 } ], "showTotal": false } ] }, "caption": "Formulas are expressions with letters." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Identify terms and coefficients; add like terms to simplify; substitute values to evaluate.",
+    "steps": [
+      "Split the expression into TERMS at each + or −.",
+      "The COEFFICIENT is the number in front of the letter; a plain number is a CONSTANT.",
+      "Combine LIKE TERMS (same letter): add their coefficients (3x + 5x = 8x). Unlike terms stay separate.",
+      "To EVALUATE, replace each letter with its value and calculate (use BODMAS)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Simplify 4x + 3 + 2x.",
+      "steps": ["Like terms: 4x and 2x.", "4x + 2x = 6x.", "Keep the constant: 6x + 3."],
+      "answer": "6x + 3"
+    },
+    {
+      "problem": "Find the value of 2x + 7 when x = 5.",
+      "steps": ["Substitute x = 5.", "2 × 5 + 7.", "= 10 + 7 = 17."],
+      "answer": "17"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "add-unlike-terms",
+      "mistake": "Adding unlike terms, like 3x + 5 = 8x.",
+      "fix": "Only LIKE terms combine. 3x + 5 stays as 3x + 5 — you can't merge a letter term with a constant."
+    },
+    {
+      "mistakeTag": "substitute-forgot-coefficient",
+      "mistake": "Substituting but ignoring the coefficient (2x with x=4 giving 4, not 8).",
+      "fix": "2x means 2 × x. With x = 4 it's 2 × 4 = 8. Multiply by the coefficient."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "n32-e1", "type": "mcq",
+        "q": "In 5x, the coefficient is…",
+        "options": [ { "label": "5" }, { "label": "x", "mistakeTag": "substitute-forgot-coefficient" } ],
+        "answer": "5",
+        "hintLadder": ["Number in front of the letter.", "5x.", "5."]
+      },
+      {
+        "id": "n32-e2", "type": "number",
+        "q": "Find 3x when x = 2. (write like 6)",
+        "answer": "6",
+        "hintLadder": ["3 × x.", "3 × 2.", "6."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "n32-m1", "type": "number",
+        "q": "Find 2x + 5 when x = 4. (write like 13)",
+        "answer": "13",
+        "hintLadder": ["2×4 + 5.", "8 + 5.", "13."]
+      },
+      {
+        "id": "n32-m2", "type": "mcq",
+        "q": "Simplify 3x + 4x.",
+        "options": [ { "label": "7x" }, { "label": "7x²", "mistakeTag": "add-unlike-terms" } ],
+        "answer": "7x",
+        "hintLadder": ["Like terms add.", "3 + 4 = 7.", "7x."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "n32-c1", "type": "number",
+        "q": "Find 4x − 3 when x = 5. (write like 17)",
+        "answer": "17",
+        "hintLadder": ["4×5 − 3.", "20 − 3.", "17."]
+      },
+      {
+        "id": "n32-c2", "type": "mcq",
+        "q": "Ravi writes 3x + 5 = 8x. What's the fix?",
+        "options": [ { "label": "3x and 5 are unlike — it stays 3x + 5" }, { "label": "8x is right", "mistakeTag": "add-unlike-terms" } ],
+        "answer": "3x and 5 are unlike — it stays 3x + 5",
+        "hintLadder": ["A letter term and a constant.", "Can't merge.", "Stays 3x + 5."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "n32-x1", "type": "number",
+        "q": "Find 5x when x = 3. (write like 15)",
+        "answer": "15",
+        "hintLadder": ["5 × 3.", "Multiply.", "15."]
+      },
+      {
+        "id": "n32-x2", "type": "mcq",
+        "q": "Simplify 6x + 2x.",
+        "options": [ { "label": "8x" }, { "label": "8", "mistakeTag": "add-unlike-terms" } ],
+        "answer": "8x",
+        "hintLadder": ["Like terms.", "6 + 2 = 8.", "8x."]
+      },
+      {
+        "id": "n32-x3", "type": "number",
+        "q": "Find 3x + 1 when x = 6. (write like 19)",
+        "answer": "19",
+        "hintLadder": ["3×6 + 1.", "18 + 1.", "19."]
+      },
+      {
+        "id": "n32-x4", "type": "mcq",
+        "q": "The coefficient of x in 7x is…",
+        "options": [ { "label": "7" }, { "label": "1", "mistakeTag": "substitute-forgot-coefficient" } ],
+        "answer": "7",
+        "hintLadder": ["Number multiplying x.", "7x.", "7."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Make up a cost rule with a letter (like '₹50 per ticket plus ₹10 fee' = 50x + 10). Show a grown-up the terms and coefficient, and work out the total for a few values of x by substituting.",
+  "revisionCard": {
+    "summary": "Expression = numbers + letters (3x + 5). Terms split at + / −; coefficient = number on the letter; constant = plain number. Combine LIKE terms (same letter): add coefficients (3x + 5x = 8x). Evaluate by substituting the value and using BODMAS. Unlike terms don't merge.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 7 (algebraic expressions)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

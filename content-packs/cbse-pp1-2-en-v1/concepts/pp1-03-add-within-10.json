@@ -1,0 +1,862 @@
+{
+  "id": "pp1-03-add-within-10",
+  "name": "Adding Within 10 — Put Together and Count On",
+  "grade": 1,
+  "strand": "operations",
+  "prerequisites": [
+    "pp1-01-count-to-10"
+  ],
+  "whatIsIt": "Adding means putting two groups together to find how many there are ALTOGETHER. The plus sign (+) means 'and'. A quick way is to start at the bigger number and COUNT ON: for 3 + 4, hold 4 in your head and count on three more — five, six, seven.",
+  "whyNeeded": "We add all the time: sweets from both hands, runs in two overs, marbles you had plus marbles you won. Adding is how small amounts join into a bigger total, and it is the first big engine of arithmetic.",
+  "realLifeUses": [
+    "Finding the total sweets when you get some from Amma AND some from Nana",
+    "Adding runs scored in the first over and the second over",
+    "Counting all the toys after tipping two boxes together",
+    "Knowing how many friends came when 3 arrive first and 2 come later"
+  ],
+  "vocabulary": [
+    {
+      "term": "add / plus (+)",
+      "meaning": "To put groups together; '+' is read as 'and' or 'plus'."
+    },
+    {
+      "term": "altogether / in all",
+      "meaning": "The words that ask for a total — a signal to add."
+    },
+    {
+      "term": "count on",
+      "meaning": "Start at the bigger number and count the smaller group forward: 6... 7, 8."
+    },
+    {
+      "term": "sum / total",
+      "meaning": "The answer you get after adding."
+    }
+  ],
+  "story": {
+    "title": "Two Handfuls of Ber Fruit",
+    "characters": [
+      "Ravi",
+      "Chinni the squirrel"
+    ],
+    "text": "Ravi holds 3 red ber fruits in one hand and 4 in the other. 'How many altogether?' asks Chinni the squirrel. Ravi starts counting from one. 'Try a faster way,' says Chinni. 'Hold the bigger number, 4, in your head — then count on the other hand: five, six, seven!' Ravi grins: 'Seven ber altogether — and I did not start from one!'",
+    "extractedProblem": "Ravi has 3 ber fruits in one hand and 4 in the other. How many altogether?",
+    "answerInStory": "7 ber altogether — start at 4 and count on 3 more: 5, 6, 7."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        {
+          "parts": [
+            {
+              "value": 4,
+              "label": "4"
+            },
+            {
+              "value": 3,
+              "label": "and 3"
+            }
+          ]
+        }
+      ]
+    },
+    "caption": "Two parts join into one bar: 4 and 3 make 7 altogether."
+  },
+  "teachingGallery": [
+    {
+      "title": "Put together and count on",
+      "note": "Join the two groups, then count them all.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "apple",
+                  "apple"
+                ],
+                "label": "2"
+              },
+              {
+                "items": [
+                  "apple"
+                ],
+                "label": "1"
+              }
+            ]
+          },
+          "caption": "2 apples and 1 apple = 3 apples."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "duck",
+                  "duck",
+                  "duck"
+                ],
+                "label": "3"
+              },
+              {
+                "items": [
+                  "duck",
+                  "duck"
+                ],
+                "label": "2"
+              }
+            ]
+          },
+          "caption": "3 ducks and 2 ducks = 5 ducks."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "4"
+              },
+              {
+                "items": [
+                  "star"
+                ],
+                "label": "1"
+              }
+            ]
+          },
+          "caption": "4 and 1 more = 5."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "ball",
+                  "ball",
+                  "ball"
+                ],
+                "label": "3"
+              },
+              {
+                "items": [
+                  "ball",
+                  "ball",
+                  "ball"
+                ],
+                "label": "3"
+              }
+            ]
+          },
+          "caption": "3 and 3 = 6 (a double!)."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon"
+                ],
+                "label": "5"
+              },
+              {
+                "items": [
+                  "balloon",
+                  "balloon"
+                ],
+                "label": "2"
+              }
+            ]
+          },
+          "caption": "5 and 2 = 7."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To add: put the groups together and count them all — or start at the bigger number and count on the smaller.",
+    "steps": [
+      "Find the bigger number and hold it in your head.",
+      "Count ON by the smaller number: say the next numbers one at a time.",
+      "Stop when you have counted the whole smaller group.",
+      "The number you land on is the total (the sum)."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Count-all with objects",
+      "whenToUse": "When first learning, or when you have real objects.",
+      "steps": [
+        "Put both groups together in one pile.",
+        "Touch each thing once and count from one.",
+        "The last number is the total."
+      ],
+      "example": "2 + 3: pile them, count 1, 2, 3, 4, 5 — total 5."
+    },
+    {
+      "name": "Make-ten helper",
+      "whenToUse": "When one number is close to 10.",
+      "steps": [
+        "Fill up to 10 first using part of the other number.",
+        "Then add whatever is left.",
+        "Ten and the leftover is easy."
+      ],
+      "example": "8 + 3: 8 and 2 make 10, then 1 more is 11 (for bigger sums later)."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Anu has 5 red beads and 2 blue beads. How many altogether?",
+      "steps": [
+        "The bigger number is 5 — hold it in your head.",
+        "Count on 2 more: six, seven.",
+        "Stop after counting both blue beads.",
+        "5 + 2 = 7 beads altogether."
+      ],
+      "answer": "7",
+      "visual": {
+        "component": "BarModel",
+        "props": {
+          "bars": [
+            {
+              "parts": [
+                {
+                  "value": 5,
+                  "label": "5"
+                },
+                {
+                  "value": 2,
+                  "label": "and 2"
+                }
+              ]
+            }
+          ]
+        },
+        "caption": "5 and 2 join to make 7."
+      }
+    },
+    {
+      "problem": "There are 6 ducks in the pond and 3 more waddle in. How many now?",
+      "steps": [
+        "'More... how many now' means add.",
+        "Start at 6, count on 3: seven, eight, nine.",
+        "All three new ducks counted.",
+        "6 + 3 = 9 ducks."
+      ],
+      "answer": "9",
+      "visual": {
+        "component": "BarModel",
+        "props": {
+          "bars": [
+            {
+              "parts": [
+                {
+                  "value": 6,
+                  "label": "6"
+                },
+                {
+                  "value": 3,
+                  "label": "and 3"
+                }
+              ]
+            }
+          ]
+        },
+        "caption": "6 and 3 make 9."
+      }
+    }
+  ],
+  "trickPractice": {
+    "trick": "Count on from the bigger",
+    "intro": "Don't count both piles — hold the bigger number and count on the small one.",
+    "questions": [
+      {
+        "id": "pp103-trick-2+6",
+        "type": "number",
+        "q": "2 + 6 = ?",
+        "answer": "8",
+        "hintLadder": [
+          "Put the BIGGER number in your head: 6.",
+          "Count on 2 more: 7, 8.",
+          "= 8."
+        ],
+        "explain": "Start at 6, count on 2 → 8."
+      },
+      {
+        "id": "pp103-trick-3+5",
+        "type": "number",
+        "q": "3 + 5 = ?",
+        "answer": "8",
+        "hintLadder": [
+          "Put the BIGGER number in your head: 5.",
+          "Count on 3 more: 6, 7, 8.",
+          "= 8."
+        ],
+        "explain": "Start at 5, count on 3 → 8."
+      },
+      {
+        "id": "pp103-trick-1+7",
+        "type": "number",
+        "q": "1 + 7 = ?",
+        "answer": "8",
+        "hintLadder": [
+          "Put the BIGGER number in your head: 7.",
+          "Count on 1 more: 8.",
+          "= 8."
+        ],
+        "explain": "Start at 7, count on 1 → 8."
+      },
+      {
+        "id": "pp103-trick-4+4",
+        "type": "number",
+        "q": "4 + 4 = ?",
+        "answer": "8",
+        "hintLadder": [
+          "Put the BIGGER number in your head: 4.",
+          "Count on 4 more: 5, 6, 7, 8.",
+          "= 8."
+        ],
+        "explain": "Start at 4, count on 4 → 8."
+      },
+      {
+        "id": "pp103-trick-2+5",
+        "type": "number",
+        "q": "2 + 5 = ?",
+        "answer": "7",
+        "hintLadder": [
+          "Put the BIGGER number in your head: 5.",
+          "Count on 2 more: 6, 7.",
+          "= 7."
+        ],
+        "explain": "Start at 5, count on 2 → 7."
+      },
+      {
+        "id": "pp103-trick-3+6",
+        "type": "number",
+        "q": "3 + 6 = ?",
+        "answer": "9",
+        "hintLadder": [
+          "Put the BIGGER number in your head: 6.",
+          "Count on 3 more: 7, 8, 9.",
+          "= 9."
+        ],
+        "explain": "Start at 6, count on 3 → 9."
+      },
+      {
+        "id": "pp103-trick-1+8",
+        "type": "number",
+        "q": "1 + 8 = ?",
+        "answer": "9",
+        "hintLadder": [
+          "Put the BIGGER number in your head: 8.",
+          "Count on 1 more: 9.",
+          "= 9."
+        ],
+        "explain": "Start at 8, count on 1 → 9."
+      },
+      {
+        "id": "pp103-trick-2+7",
+        "type": "number",
+        "q": "2 + 7 = ?",
+        "answer": "9",
+        "hintLadder": [
+          "Put the BIGGER number in your head: 7.",
+          "Count on 2 more: 8, 9.",
+          "= 9."
+        ],
+        "explain": "Start at 7, count on 2 → 9."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "counted-all-restart",
+      "mistake": "Recounting the whole thing from one every time instead of counting on.",
+      "fix": "You do not need to start at one! Hold the bigger number in your head and count ON just the smaller group — it is faster and safer."
+    },
+    {
+      "mistakeTag": "lost-track-adding",
+      "mistake": "Counting on too many or too few — losing track of how many were added.",
+      "fix": "Use fingers or objects for the smaller number, and put one down for each count-on step so you stop at exactly the right place."
+    },
+    {
+      "mistakeTag": "took-away-instead",
+      "mistake": "Taking away instead of adding when the problem says 'altogether' or 'in all'.",
+      "fix": "'Altogether', 'in all', and 'more come' all mean PUT TOGETHER — that is adding, not taking away."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "pp1-03-e1",
+        "type": "number",
+        "q": "3 + 2 = ?",
+        "answer": "5",
+        "hintLadder": [
+          "Hold the bigger number, 3.",
+          "Count on 2: four, five.",
+          "Where did you land?"
+        ],
+        "explain": "3 + 2 = 5.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 3,
+                    "label": "3"
+                  },
+                  {
+                    "value": 2,
+                    "label": "and 2"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-03-e2",
+        "type": "mcq",
+        "q": "4 apples and 3 apples — how many altogether?",
+        "answer": "7",
+        "hintLadder": [
+          "'Altogether' means add.",
+          "Start at 4, count on 3.",
+          "5, 6, 7."
+        ],
+        "options": [
+          {
+            "label": "7"
+          },
+          {
+            "label": "1",
+            "mistakeTag": "took-away-instead"
+          },
+          {
+            "label": "6",
+            "mistakeTag": "lost-track-adding"
+          }
+        ],
+        "explain": "4 + 3 = 7.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 4,
+                    "label": "4"
+                  },
+                  {
+                    "value": 3,
+                    "label": "and 3"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "medium": [
+      {
+        "id": "pp1-03-m1",
+        "type": "number",
+        "q": "6 + 3 = ?",
+        "answer": "9",
+        "hintLadder": [
+          "Hold 6 in your head.",
+          "Count on 3: seven, eight, nine.",
+          "Land on the total."
+        ],
+        "explain": "6 + 3 = 9.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 6,
+                    "label": "6"
+                  },
+                  {
+                    "value": 3,
+                    "label": "and 3"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-03-m2",
+        "type": "number",
+        "q": "5 + 4 = ?",
+        "answer": "9",
+        "hintLadder": [
+          "Bigger number is 5.",
+          "Count on 4: 6, 7, 8, 9.",
+          "Stop after four counts."
+        ],
+        "explain": "5 + 4 = 9.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 5,
+                    "label": "5"
+                  },
+                  {
+                    "value": 4,
+                    "label": "and 4"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "pp1-03-c1",
+        "type": "number",
+        "q": "There are 7 birds and 2 more fly in. How many now?",
+        "answer": "9",
+        "hintLadder": [
+          "'More fly in' means add.",
+          "Start at 7, count on 2.",
+          "8, 9."
+        ],
+        "explain": "7 + 2 = 9 birds.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 7,
+                    "label": "7"
+                  },
+                  {
+                    "value": 2,
+                    "label": "and 2"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-03-c2",
+        "type": "mcq",
+        "q": "2 + 6 = ? (Tip: hold the BIGGER number.)",
+        "answer": "8",
+        "hintLadder": [
+          "The bigger number is 6, not 2.",
+          "Hold 6, count on 2: seven, eight.",
+          "Landing number is the total."
+        ],
+        "options": [
+          {
+            "label": "8"
+          },
+          {
+            "label": "4",
+            "mistakeTag": "took-away-instead"
+          },
+          {
+            "label": "7",
+            "mistakeTag": "lost-track-adding"
+          }
+        ],
+        "explain": "2 + 6 = 8 — smarter to start from 6.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 6,
+                    "label": "6"
+                  },
+                  {
+                    "value": 2,
+                    "label": "and 2"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "pp1-03-x1",
+        "type": "number",
+        "q": "4 + 2 = ?",
+        "answer": "6",
+        "hintLadder": [
+          "Hold 4.",
+          "Count on 2: five, six.",
+          "Total?"
+        ],
+        "explain": "4 + 2 = 6.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 4,
+                    "label": "4"
+                  },
+                  {
+                    "value": 2,
+                    "label": "and 2"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-03-x2",
+        "type": "number",
+        "q": "5 + 3 = ?",
+        "answer": "8",
+        "hintLadder": [
+          "Hold 5.",
+          "Count on 3: 6, 7, 8.",
+          "Land on the total."
+        ],
+        "explain": "5 + 3 = 8.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 5,
+                    "label": "5"
+                  },
+                  {
+                    "value": 3,
+                    "label": "and 3"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-03-x3",
+        "type": "mcq",
+        "q": "3 balloons and 4 balloons — how many in all?",
+        "answer": "7",
+        "hintLadder": [
+          "'In all' means add.",
+          "Start at 4, count on 3.",
+          "5, 6, 7."
+        ],
+        "options": [
+          {
+            "label": "7"
+          },
+          {
+            "label": "1",
+            "mistakeTag": "took-away-instead"
+          },
+          {
+            "label": "8",
+            "mistakeTag": "lost-track-adding"
+          }
+        ],
+        "explain": "3 + 4 = 7.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 4,
+                    "label": "4"
+                  },
+                  {
+                    "value": 3,
+                    "label": "and 3"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-03-x4",
+        "type": "number",
+        "q": "6 + 4 = ?",
+        "answer": "10",
+        "hintLadder": [
+          "Bigger number 6.",
+          "Count on 4: 7, 8, 9, 10.",
+          "Stop at four counts."
+        ],
+        "explain": "6 + 4 = 10.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 6,
+                    "label": "6"
+                  },
+                  {
+                    "value": 4,
+                    "label": "and 4"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-03-x5",
+        "type": "mcq",
+        "q": "8 + 1 = ?",
+        "answer": "9",
+        "hintLadder": [
+          "Hold 8.",
+          "Count on 1: nine.",
+          "Just one more than 8."
+        ],
+        "options": [
+          {
+            "label": "9"
+          },
+          {
+            "label": "7",
+            "mistakeTag": "took-away-instead"
+          },
+          {
+            "label": "10",
+            "mistakeTag": "lost-track-adding"
+          }
+        ],
+        "explain": "8 + 1 = 9.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 8,
+                    "label": "8"
+                  },
+                  {
+                    "value": 1,
+                    "label": "and 1"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "teachBackPrompt": "Teach someone at home the 'count on' trick: give them 5 + 3, and show why you start at 5 and count on 3 instead of counting all the way from one.",
+  "revisionCard": {
+    "summary": "Adding = put groups together. Hold the BIGGER number and COUNT ON the smaller. 'Altogether / in all / more' means add.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Adding Orchard (Little Sprouts)",
+    "title": "Two Handfuls",
+    "brief": "Help Ravi and Fraction Fox join their fruit and count on to find each total — without starting from one!",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "Put some spoons from two drawers together. Guess the total, then count on from the bigger pile to check.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  },
+  "mentalMathMethod": {
+    "name": "Count on from the bigger",
+    "whenToUse": "When adding two small numbers.",
+    "steps": [
+      "Hold the bigger number in your head.",
+      "Count on the smaller number, one at a time.",
+      "The number you land on is the total."
+    ],
+    "example": "3 + 5: hold 5, count on 3 → 6, 7, 8."
+  },
+  "abacusMethod": {
+    "name": "Beads up for adding",
+    "whenToUse": "To add on the abacus.",
+    "steps": [
+      "Set the first number by pushing beads toward the bar.",
+      "Push up more beads for the second number.",
+      "Read the beads at the bar — that is the total."
+    ],
+    "example": "3 + 4: set 3, push 4 more → 7.",
+    "visual": {
+      "component": "Abacus",
+      "props": {
+        "abaci": [
+          {
+            "value": 7,
+            "label": "3 + 4 = 7"
+          }
+        ]
+      },
+      "caption": "Set 3 beads, push 4 more to the bar → 7."
+    }
+  }
+}

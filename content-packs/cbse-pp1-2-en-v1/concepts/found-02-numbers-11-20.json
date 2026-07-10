@@ -1,0 +1,553 @@
+{
+  "id": "found-02-numbers-11-20",
+  "name": "Teen Numbers 11 to 20 — Ten and Some More",
+  "grade": 1,
+  "strand": "numbers",
+  "prerequisites": [
+    "pp1-01-count-to-10"
+  ],
+  "whatIsIt": "Every teen number is made of ONE TEN and some ONES. 13 is 'ten and three'; 17 is 'ten and seven'. Once you can bundle ten and count the extras, the numbers from 11 to 20 stop being a jumble and become 'ten and some more'.",
+  "whyNeeded": "Teen numbers are the very first place-value idea — the bridge from counting to 10 to understanding tens and ones. Getting them solid (not just chanting 'eleven, twelve...') is what makes place value, adding past ten, and all bigger numbers make sense later.",
+  "realLifeUses": [
+    "Counting a dozen (12) eggs as one full carton of ten and two more",
+    "Knowing 15 rupees is a ten-note and five one-coins",
+    "Counting 14 steps as ten steps and four more",
+    "Reading age or house numbers in the teens"
+  ],
+  "vocabulary": [
+    {
+      "term": "ten",
+      "meaning": "A bundle of ten ones counted as one group."
+    },
+    {
+      "term": "ones",
+      "meaning": "The single extra units after the ten (the loose ones)."
+    },
+    {
+      "term": "teen number",
+      "meaning": "A number from 11 to 19 — one ten and some ones."
+    },
+    {
+      "term": "twenty",
+      "meaning": "Two full tens (10 and 10) with no ones left over."
+    }
+  ],
+  "story": {
+    "title": "Ajji's Trick with Thirteen Marbles",
+    "characters": [
+      "Ravi",
+      "his grandmother Ajji"
+    ],
+    "text": "Ravi has 13 marbles in a muddle. 'Too many to see!' Ajji scoops ten of them into one little cloth pouch — one neat bundle of ten. 'Now, how many are LEFT OVER?' Ravi counts: 'Three!' 'So 13 is ONE TEN and THREE ones,' says Ajji. 'Bundle the ten, count the extras — every teen number is just ten and some more.'",
+    "extractedProblem": "Ravi has 13 marbles. He bundles ten together. How many ones are left over, and what is 13 made of?",
+    "answerInStory": "13 is one ten and 3 ones — bundle ten, and three are left over."
+  },
+  "visual": {
+    "component": "PlaceValueBlocks",
+    "props": {
+      "sets": [
+        {
+          "tens": 1,
+          "ones": 3,
+          "label": "13 = ten and 3"
+        }
+      ]
+    },
+    "caption": "13 is 1 TEN and 3 ONES. Bundle ten, count the loose ones."
+  },
+  "teachingGallery": [
+    {
+      "title": "Ten and some more",
+      "note": "Every teen number is ONE ten and some extra ones.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "1 ten"
+              },
+              {
+                "items": [
+                  "star"
+                ],
+                "label": "1 one"
+              }
+            ]
+          },
+          "caption": "10 and 1 more = 11."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "1 ten"
+              },
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "3 ones"
+              }
+            ]
+          },
+          "caption": "10 and 3 more = 13."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "1 ten"
+              },
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "5 ones"
+              }
+            ]
+          },
+          "caption": "10 and 5 more = 15."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "1 ten"
+              },
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "7 ones"
+              }
+            ]
+          },
+          "caption": "10 and 7 more = 17."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "1 ten"
+              },
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "9 ones"
+              }
+            ]
+          },
+          "caption": "10 and 9 more = 19."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Make one bundle of ten, then count the leftover ones: a teen number is 'ten and that many ones'.",
+    "steps": [
+      "Group ten ones into one TEN bundle.",
+      "Count the ONES left over.",
+      "Say it as 'ten and ___': 16 is ten and six.",
+      "Twenty is two full tens with no ones."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Ten-frame fill",
+      "whenToUse": "To see a teen number clearly.",
+      "steps": [
+        "Fill a ten-frame completely (that is the ten).",
+        "Put the extra ones beside it.",
+        "The picture shows ten and some more."
+      ],
+      "example": "18: a full ten-frame plus 8 extra dots."
+    },
+    {
+      "name": "Count on from ten",
+      "whenToUse": "To find a teen number quickly.",
+      "steps": [
+        "Start at ten.",
+        "Count on the extra ones.",
+        "Stop at the teen number."
+      ],
+      "example": "Ten... eleven, twelve — 12 is ten and two."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "What is 15 made of — how many tens and ones?",
+      "steps": [
+        "Bundle ten of the 15.",
+        "Count what is left: 5.",
+        "So 15 is one ten and five ones.",
+        "15 = 10 and 5."
+      ],
+      "answer": "1 ten and 5 ones",
+      "visual": {
+        "component": "PlaceValueBlocks",
+        "props": {
+          "sets": [
+            {
+              "tens": 1,
+              "ones": 5,
+              "label": "15"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem": "One ten and 8 ones make which number?",
+      "steps": [
+        "Start with ten.",
+        "Add the 8 ones.",
+        "Ten and eight.",
+        "That is 18."
+      ],
+      "answer": "18",
+      "visual": {
+        "component": "PlaceValueBlocks",
+        "props": {
+          "sets": [
+            {
+              "tens": 1,
+              "ones": 8,
+              "label": "18"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "teen-reversed",
+      "mistake": "Writing 14 as 41 (or reading it backwards).",
+      "fix": "A teen has the TEN first, then the ones. 14 is 'ten and four' → 1 then 4 = 14, not 41. The 1 stands for one whole ten."
+    },
+    {
+      "mistakeTag": "ones-miscounted",
+      "mistake": "After bundling ten, counting the leftover ones wrong.",
+      "fix": "Bundle exactly ten first, then carefully count only the LEFT-OVER ones. 16: ten bundled, six loose → ten and six."
+    },
+    {
+      "mistakeTag": "ten-not-bundled",
+      "mistake": "Counting a teen number one-by-one and losing track instead of using the ten.",
+      "fix": "Don't count 13 ones one at a time — BUNDLE ten first, then just count the few extras. Ten and three is much easier to hold."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "found-02-e1",
+        "type": "number",
+        "q": "One ten and 2 ones make which number?",
+        "answer": "12",
+        "hintLadder": [
+          "Start at ten.",
+          "Add 2 ones.",
+          "Ten and two."
+        ],
+        "explain": "12.",
+        "visual": {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "tens": 1,
+                "ones": 2,
+                "label": "12"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-02-e2",
+        "type": "number",
+        "q": "How many ONES are left over in 11 after bundling a ten?",
+        "answer": "1",
+        "hintLadder": [
+          "Bundle ten.",
+          "What is left?",
+          "One."
+        ],
+        "explain": "11 = ten and 1."
+      }
+    ],
+    "medium": [
+      {
+        "id": "found-02-m1",
+        "type": "number",
+        "q": "One ten and 7 ones make which number?",
+        "answer": "17",
+        "hintLadder": [
+          "Ten and seven.",
+          "Count on from ten.",
+          "Seventeen."
+        ],
+        "explain": "17.",
+        "visual": {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "tens": 1,
+                "ones": 7,
+                "label": "17"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-02-m2",
+        "type": "number",
+        "q": "How many ones are in 16 after the ten is bundled?",
+        "answer": "6",
+        "hintLadder": [
+          "Ten bundled.",
+          "Leftover ones.",
+          "Six."
+        ],
+        "explain": "16 = ten and 6."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "found-02-c1",
+        "type": "number",
+        "q": "Two full tens make which number?",
+        "answer": "20",
+        "hintLadder": [
+          "Ten and ten.",
+          "No ones left.",
+          "Twenty."
+        ],
+        "explain": "20 = two tens.",
+        "visual": {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "tens": 2,
+                "ones": 0,
+                "label": "20"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-02-c2",
+        "type": "number",
+        "q": "19 is one ten and how many ones?",
+        "answer": "9",
+        "hintLadder": [
+          "Bundle ten.",
+          "Count the rest.",
+          "Nine."
+        ],
+        "explain": "19 = ten and 9."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "found-02-x1",
+        "type": "number",
+        "q": "One ten and 3 ones = ?",
+        "answer": "13",
+        "hintLadder": [
+          "Ten and three.",
+          "Count on.",
+          "Thirteen."
+        ],
+        "explain": "13.",
+        "visual": {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "tens": 1,
+                "ones": 3,
+                "label": "13"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-02-x2",
+        "type": "number",
+        "q": "14 is one ten and how many ones?",
+        "answer": "4",
+        "hintLadder": [
+          "Bundle ten.",
+          "Leftover.",
+          "Four."
+        ],
+        "explain": "14 = ten and 4."
+      },
+      {
+        "id": "found-02-x3",
+        "type": "number",
+        "q": "One ten and 9 ones = ?",
+        "answer": "19",
+        "hintLadder": [
+          "Ten and nine.",
+          "Count on.",
+          "Nineteen."
+        ],
+        "explain": "19."
+      },
+      {
+        "id": "found-02-x4",
+        "type": "number",
+        "q": "How many ones left over in 18 after a ten is bundled?",
+        "answer": "8",
+        "hintLadder": [
+          "Ten bundled.",
+          "Rest.",
+          "Eight."
+        ],
+        "explain": "18 = ten and 8.",
+        "visual": {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "tens": 1,
+                "ones": 8,
+                "label": "18"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-02-x5",
+        "type": "number",
+        "q": "One ten and 0 ones = ?",
+        "answer": "10",
+        "hintLadder": [
+          "Just the ten.",
+          "No extras.",
+          "Ten."
+        ],
+        "explain": "10 = one ten."
+      }
+    ]
+  },
+  "teachBackPrompt": "Grab about 15 small things (buttons, beans). Teach someone at home to BUNDLE ten into one group and count the leftovers, saying the teen number as 'ten and ___'. Explain why 14 is not 41.",
+  "revisionCard": {
+    "summary": "Teen numbers = ONE TEN and some ONES. Bundle ten, count the extras: 16 is 'ten and six'. Ten comes first (14 = ten and 4). Twenty = two full tens.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Counting Meadow (Little Sprouts)",
+    "title": "The Ten-Frame Trick",
+    "brief": "Bundle ten and count the extras to name every teen number from 11 to 20.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Count a box of a dozen (12) of something — bundle ten in a row and see the 2 extras. Talk about 'ten and two'.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

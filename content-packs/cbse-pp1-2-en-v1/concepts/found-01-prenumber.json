@@ -1,0 +1,1028 @@
+{
+  "id": "found-01-prenumber",
+  "name": "Getting Ready to Count — Big, Small, First, Last",
+  "grade": 0,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "Before we count with numbers, we learn to SORT and COMPARE things: which is bigger or smaller, taller or shorter, which comes FIRST and which comes LAST, and where things are — on top, below, inside, next to. These 'pre-number' ideas are the ground that counting stands on.",
+  "whyNeeded": "A child who can sort a pile of buttons, line things up, and say 'the big one', 'the first one', or 'the one on top' is ready to count with meaning. Without these ideas, numbers are just sounds. Pre-number sense turns counting into understanding.",
+  "realLifeUses": [
+    "Lining up shoes from smallest to biggest",
+    "Knowing who is FIRST and who is LAST in a queue",
+    "Putting toys INSIDE the box and the lid ON TOP",
+    "Sorting fruit into groups: all the mangoes together, all the bananas together"
+  ],
+  "vocabulary": [
+    {
+      "term": "big / small",
+      "meaning": "Comparing size — which takes up more or less space."
+    },
+    {
+      "term": "tall / short",
+      "meaning": "Comparing height — which reaches higher."
+    },
+    {
+      "term": "first / last",
+      "meaning": "The one at the start of a line, and the one at the end."
+    },
+    {
+      "term": "position words",
+      "meaning": "Where something is: on, under, inside, next to, top, bottom."
+    },
+    {
+      "term": "sort",
+      "meaning": "To put things that are alike into the same group."
+    }
+  ],
+  "story": {
+    "title": "First in Line at the Village Fair",
+    "characters": [
+      "Anu",
+      "Dadi (grandmother)"
+    ],
+    "text": "At the village fair, Anu lines up her three new toys on Dadi's shawl: a little wooden car, then a ball, then a cloth doll. 'Which one is FIRST, Anu?' asks Dadi. Anu points to the very start of the line. 'The car is first — it stands right at the beginning. The doll is LAST, at the far end.' Dadi claps. 'Big, small, first, last — you're getting ready to count!'",
+    "extractedProblem": "Three toys stand in a line: a car, a ball, a doll. Which toy is FIRST?",
+    "answerInStory": "The car is first — it stands at the start of the line."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        {
+          "rows": 1,
+          "cols": 2,
+          "asGroups": true
+        },
+        {
+          "rows": 1,
+          "cols": 5,
+          "asGroups": true
+        }
+      ]
+    },
+    "caption": "Compare and sort: a small group and a big group. Which is bigger? Getting ready to count!"
+  },
+  "teachingGallery": [
+    {
+      "title": "Big and Small",
+      "note": "The BIG one takes more space. The small one takes less.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "elephant",
+                  "mouse"
+                ],
+                "sizes": [
+                  70,
+                  26
+                ],
+                "markIndex": 0
+              }
+            ]
+          },
+          "caption": "The elephant is BIG. The mouse is small."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "house",
+                  "cup"
+                ],
+                "sizes": [
+                  70,
+                  28
+                ],
+                "markIndex": 0
+              }
+            ]
+          },
+          "caption": "The house is BIG. The cup is small."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "bus",
+                  "bike"
+                ],
+                "sizes": [
+                  68,
+                  30
+                ],
+                "markIndex": 0
+              }
+            ]
+          },
+          "caption": "The bus is BIG. The bike is small."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "cow",
+                  "hen"
+                ],
+                "sizes": [
+                  66,
+                  30
+                ],
+                "markIndex": 0
+              }
+            ]
+          },
+          "caption": "The cow is BIG. The hen is small."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "tree",
+                  "flower"
+                ],
+                "sizes": [
+                  68,
+                  28
+                ],
+                "markIndex": 0
+              }
+            ]
+          },
+          "caption": "The tree is BIG. The flower is small."
+        }
+      ]
+    },
+    {
+      "title": "Tall and Short",
+      "note": "TALL reaches high up. Short stays low.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "tree",
+                  "flower"
+                ],
+                "sizes": [
+                  70,
+                  26
+                ],
+                "markIndex": 0
+              }
+            ]
+          },
+          "caption": "The tree is TALL. The flower is short."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "building",
+                  "hut"
+                ],
+                "sizes": [
+                  70,
+                  34
+                ],
+                "markIndex": 0
+              }
+            ]
+          },
+          "caption": "The building is TALL. The hut is short."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "man",
+                  "boy"
+                ],
+                "sizes": [
+                  64,
+                  40
+                ],
+                "markIndex": 0
+              }
+            ]
+          },
+          "caption": "The man is TALL. The boy is short."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "horse",
+                  "dog"
+                ],
+                "sizes": [
+                  64,
+                  38
+                ],
+                "markIndex": 0
+              }
+            ]
+          },
+          "caption": "The horse is TALL. The dog is short."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "woman",
+                  "girl"
+                ],
+                "sizes": [
+                  64,
+                  40
+                ],
+                "markIndex": 0
+              }
+            ]
+          },
+          "caption": "The woman is TALL. The girl is short."
+        }
+      ]
+    },
+    {
+      "title": "Long and Short",
+      "note": "LONG lines have MORE. Short lines have fewer. Count the length!",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "car",
+                  "car",
+                  "car",
+                  "car",
+                  "car",
+                  "car"
+                ],
+                "label": "long"
+              }
+            ]
+          },
+          "caption": "A LONG train of cars."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "car",
+                  "car"
+                ],
+                "label": "short"
+              }
+            ]
+          },
+          "caption": "A short train of cars."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "ant",
+                  "ant",
+                  "ant",
+                  "ant",
+                  "ant",
+                  "ant",
+                  "ant"
+                ],
+                "label": "long"
+              }
+            ]
+          },
+          "caption": "A LONG line of ants."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "ant",
+                  "ant"
+                ],
+                "label": "short"
+              }
+            ]
+          },
+          "caption": "A short line of ants."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "duck",
+                  "duck",
+                  "duck",
+                  "duck",
+                  "duck"
+                ],
+                "label": "long"
+              }
+            ]
+          },
+          "caption": "A LONG row of ducks — longer than a row of 2."
+        }
+      ]
+    },
+    {
+      "title": "Largest and Smallest",
+      "note": "Line them up by size. The LARGEST is the biggest of all; the smallest is the tiniest.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "mouse",
+                  "dog",
+                  "elephant"
+                ],
+                "sizes": [
+                  26,
+                  44,
+                  68
+                ],
+                "markIndex": 2
+              }
+            ]
+          },
+          "caption": "Elephant is the LARGEST. Mouse is the smallest."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "flower",
+                  "tree",
+                  "building"
+                ],
+                "sizes": [
+                  26,
+                  46,
+                  68
+                ],
+                "markIndex": 2
+              }
+            ]
+          },
+          "caption": "Building is the LARGEST. Flower is the smallest."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "cup",
+                  "ball",
+                  "box"
+                ],
+                "sizes": [
+                  28,
+                  44,
+                  64
+                ],
+                "markIndex": 2
+              }
+            ]
+          },
+          "caption": "Box is the LARGEST. Cup is the smallest."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "ant",
+                  "hen",
+                  "cow"
+                ],
+                "sizes": [
+                  24,
+                  42,
+                  64
+                ],
+                "markIndex": 2
+              }
+            ]
+          },
+          "caption": "Cow is the LARGEST. Ant is the smallest."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "coin",
+                  "book",
+                  "house"
+                ],
+                "sizes": [
+                  28,
+                  46,
+                  66
+                ],
+                "markIndex": 2
+              }
+            ]
+          },
+          "caption": "House is the LARGEST. Coin is the smallest."
+        }
+      ]
+    },
+    {
+      "title": "First and Last",
+      "note": "FIRST is at the start of the line. LAST is at the far end.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "apple",
+                  "ball",
+                  "cup"
+                ],
+                "markIndex": 0,
+                "showOrdinal": true
+              }
+            ]
+          },
+          "caption": "apple is FIRST."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "bus",
+                  "car",
+                  "bike"
+                ],
+                "markIndex": 2,
+                "showOrdinal": true
+              }
+            ]
+          },
+          "caption": "bike is LAST."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "cat",
+                  "dog",
+                  "cow"
+                ],
+                "markIndex": 0,
+                "showOrdinal": true
+              }
+            ]
+          },
+          "caption": "cat is FIRST."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "duck",
+                  "hen",
+                  "goat",
+                  "cow"
+                ],
+                "markIndex": 3,
+                "showOrdinal": true
+              }
+            ]
+          },
+          "caption": "cow is LAST."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "boy",
+                  "girl",
+                  "man",
+                  "woman"
+                ],
+                "markIndex": 0,
+                "showOrdinal": true
+              }
+            ]
+          },
+          "caption": "boy is FIRST."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Compare by looking (size, height), find first and last by the ends of a line, and sort by putting alike things together.",
+    "steps": [
+      "To compare SIZE: look at which takes more space — that is bigger.",
+      "To find FIRST and LAST: look at the two ends of the line.",
+      "For POSITION: say where it is — on, under, inside, next to.",
+      "To SORT: put things that are the same kind into one group."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Line-them-up",
+      "whenToUse": "To compare sizes or find order.",
+      "steps": [
+        "Stand the things in a row.",
+        "Look from one end: the start is first, the far end is last.",
+        "For size, line up bottoms and see which reaches highest."
+      ],
+      "example": "Three pencils lined up: the longest reaches highest — it is the biggest."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A big elephant and a small ant. Which one is BIGGER?",
+      "steps": [
+        "Look at the space each takes.",
+        "The elephant is huge; the ant is tiny.",
+        "Bigger means takes more space.",
+        "The elephant is bigger."
+      ],
+      "answer": "elephant",
+      "visual": {
+        "component": "ObjectRow",
+        "props": {
+          "sequences": [
+            {
+              "items": [
+                "elephant",
+                "ant"
+              ],
+              "sizes": [
+                66,
+                26
+              ]
+            }
+          ]
+        },
+        "caption": "Bigger takes more space."
+      }
+    },
+    {
+      "problem": "In a line: cat, dog, cow. Which animal is LAST?",
+      "steps": [
+        "Find the two ends of the line.",
+        "First is at the start (cat).",
+        "Last is at the far end.",
+        "The cow is last."
+      ],
+      "answer": "cow",
+      "visual": {
+        "component": "ObjectRow",
+        "props": {
+          "sequences": [
+            {
+              "items": [
+                "cat",
+                "dog",
+                "cow"
+              ],
+              "markIndex": 2,
+              "showOrdinal": true
+            }
+          ]
+        },
+        "caption": "cat is FIRST, cow is LAST."
+      }
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "first-last-swapped",
+      "mistake": "Calling the last one 'first' — mixing up the two ends.",
+      "fix": "FIRST is at the START of the line (where you begin). LAST is at the very END. Point to where you'd start reading — that's first."
+    },
+    {
+      "mistakeTag": "big-small-swapped",
+      "mistake": "Calling the small thing 'big'.",
+      "fix": "BIG takes up MORE space; SMALL takes up less. Put them side by side — the one that looks larger is big."
+    },
+    {
+      "mistakeTag": "sorted-by-wrong-feature",
+      "mistake": "Putting a banana in the 'apples' group when sorting fruit.",
+      "fix": "Sort by ONE feature at a time (kind, colour, or size). Check each thing matches the group before adding it."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "found-01-e1",
+        "type": "mcq",
+        "q": "Which is BIGGER: an elephant or a mouse?",
+        "answer": "elephant",
+        "hintLadder": [
+          "Which takes more space?",
+          "The huge one.",
+          "Elephant."
+        ],
+        "options": [
+          {
+            "label": "elephant"
+          },
+          {
+            "label": "mouse",
+            "mistakeTag": "big-small-swapped"
+          }
+        ],
+        "explain": "The elephant is bigger.",
+        "visual": {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "elephant",
+                  "mouse"
+                ],
+                "sizes": [
+                  64,
+                  30
+                ]
+              }
+            ]
+          },
+          "caption": "Which is BIGGER? Look at the size."
+        }
+      },
+      {
+        "id": "found-01-e2",
+        "type": "mcq",
+        "q": "In a line: apple, ball, cup — which is FIRST?",
+        "answer": "apple",
+        "hintLadder": [
+          "The start of the line.",
+          "Where you begin.",
+          "Apple."
+        ],
+        "options": [
+          {
+            "label": "apple"
+          },
+          {
+            "label": "cup",
+            "mistakeTag": "first-last-swapped"
+          }
+        ],
+        "explain": "Apple is first — at the start.",
+        "visual": {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "apple",
+                  "ball",
+                  "cup"
+                ],
+                "markIndex": 0,
+                "showOrdinal": true
+              }
+            ]
+          },
+          "caption": "apple is FIRST, cup is LAST"
+        }
+      }
+    ],
+    "medium": [
+      {
+        "id": "found-01-m1",
+        "type": "mcq",
+        "q": "Which is TALLER: a tree or a flower?",
+        "answer": "tree",
+        "hintLadder": [
+          "Which reaches higher?",
+          "Up high.",
+          "Tree."
+        ],
+        "options": [
+          {
+            "label": "tree"
+          },
+          {
+            "label": "flower",
+            "mistakeTag": "big-small-swapped"
+          }
+        ],
+        "explain": "A tree is taller.",
+        "visual": {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "tree",
+                  "flower"
+                ],
+                "sizes": [
+                  64,
+                  30
+                ]
+              }
+            ]
+          },
+          "caption": "Which is TALLER? Look how high it reaches."
+        }
+      },
+      {
+        "id": "found-01-m2",
+        "type": "mcq",
+        "q": "In a line: red, blue, green — which colour is LAST?",
+        "answer": "green",
+        "hintLadder": [
+          "The far end of the line.",
+          "Where it ends.",
+          "Green."
+        ],
+        "options": [
+          {
+            "label": "green"
+          },
+          {
+            "label": "red",
+            "mistakeTag": "first-last-swapped"
+          }
+        ],
+        "explain": "Green is last."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "found-01-c1",
+        "type": "mcq",
+        "q": "You sort fruit into a MANGO group. Which does NOT belong?",
+        "answer": "banana",
+        "hintLadder": [
+          "Sort by ONE kind: mangoes only.",
+          "A banana is not a mango.",
+          "Banana does not belong."
+        ],
+        "options": [
+          {
+            "label": "banana"
+          },
+          {
+            "label": "mango",
+            "mistakeTag": "sorted-by-wrong-feature"
+          }
+        ],
+        "explain": "A banana isn't a mango.",
+        "visual": {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "mango",
+                  "mango",
+                  "banana",
+                  "mango"
+                ],
+                "markIndex": 2
+              }
+            ]
+          },
+          "caption": "Sort the MANGO group — which does NOT belong?"
+        }
+      },
+      {
+        "id": "found-01-c2",
+        "type": "mcq",
+        "q": "The cat sits ON the mat. Where is the cat?",
+        "answer": "on top",
+        "hintLadder": [
+          "Position word.",
+          "Above the mat, resting on it.",
+          "On top."
+        ],
+        "options": [
+          {
+            "label": "on top"
+          },
+          {
+            "label": "under",
+            "mistakeTag": "first-last-swapped"
+          }
+        ],
+        "explain": "On the mat = on top.",
+        "visual": {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "cat"
+                ]
+              }
+            ]
+          },
+          "caption": "Where is the cat sitting?"
+        }
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "found-01-x1",
+        "type": "mcq",
+        "q": "Which is SMALLER: an ant or a dog?",
+        "answer": "ant",
+        "hintLadder": [
+          "Less space.",
+          "Tiny.",
+          "Ant."
+        ],
+        "options": [
+          {
+            "label": "ant"
+          },
+          {
+            "label": "dog",
+            "mistakeTag": "big-small-swapped"
+          }
+        ],
+        "explain": "An ant is smaller."
+      },
+      {
+        "id": "found-01-x2",
+        "type": "mcq",
+        "q": "In a line: 1st is the bus, then car, then bike — which is FIRST?",
+        "answer": "bus",
+        "hintLadder": [
+          "Start of the line.",
+          "Where we begin.",
+          "Bus."
+        ],
+        "options": [
+          {
+            "label": "bus"
+          },
+          {
+            "label": "bike",
+            "mistakeTag": "first-last-swapped"
+          }
+        ],
+        "explain": "The bus is first.",
+        "visual": {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "bus",
+                  "car",
+                  "bike"
+                ],
+                "markIndex": 0,
+                "showOrdinal": true
+              }
+            ]
+          },
+          "caption": "bus is FIRST"
+        }
+      },
+      {
+        "id": "found-01-x3",
+        "type": "mcq",
+        "q": "Which is TALLER: a building or a hut?",
+        "answer": "building",
+        "hintLadder": [
+          "Reaches higher.",
+          "Way up.",
+          "Building."
+        ],
+        "options": [
+          {
+            "label": "building"
+          },
+          {
+            "label": "hut",
+            "mistakeTag": "big-small-swapped"
+          }
+        ],
+        "explain": "A building is taller."
+      },
+      {
+        "id": "found-01-x4",
+        "type": "mcq",
+        "q": "Sorting toy CARS, which does NOT belong?",
+        "answer": "doll",
+        "hintLadder": [
+          "Only cars.",
+          "A doll is not a car.",
+          "Doll."
+        ],
+        "options": [
+          {
+            "label": "doll"
+          },
+          {
+            "label": "car",
+            "mistakeTag": "sorted-by-wrong-feature"
+          }
+        ],
+        "explain": "A doll isn't a car."
+      },
+      {
+        "id": "found-01-x5",
+        "type": "mcq",
+        "q": "The ball is UNDER the table. Where is the ball?",
+        "answer": "below",
+        "hintLadder": [
+          "Position word.",
+          "Beneath the table.",
+          "Below."
+        ],
+        "options": [
+          {
+            "label": "below"
+          },
+          {
+            "label": "on top",
+            "mistakeTag": "first-last-swapped"
+          }
+        ],
+        "explain": "Under = below."
+      }
+    ]
+  },
+  "teachBackPrompt": "Be the sorting helper! With someone at home, line up 3 toys and say which is FIRST and LAST, point to the BIGGEST and SMALLEST, and sort a handful of objects into groups — explaining your rule.",
+  "revisionCard": {
+    "summary": "Before numbers: compare SIZE (big/small, tall/short), find FIRST and LAST at the ends of a line, use POSITION words (on/under/inside), and SORT alike things together.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Counting Meadow (Little Sprouts)",
+    "title": "Fraction Fox Tidies the Shelf",
+    "brief": "Sort, compare, and order the toys and books — getting everything ready before we count.",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "At home, line up your family's shoes from smallest to biggest. Which is first? Which is last? Then sort them into pairs.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

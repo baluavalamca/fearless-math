@@ -1,0 +1,459 @@
+{
+  "id": "found-05-skip-counting",
+  "name": "Skip Counting — Counting in Groups by 2s, 5s and 10s",
+  "grade": 2,
+  "strand": "numbers",
+  "prerequisites": [
+    "pp1-01-count-to-10"
+  ],
+  "whatIsIt": "Skip counting is counting in equal JUMPS instead of by ones: by 2s (2, 4, 6, 8...), by 5s (5, 10, 15...), by 10s (10, 20, 30...). Counting things in equal groups is far faster than counting one by one — and it is the doorway to the times tables.",
+  "whyNeeded": "When things come in equal groups — pairs of shoes, fingers in fives, ten-rupee notes — skip counting gets the total fast. It builds the rhythm of multiplication and makes counting big collections quick and reliable.",
+  "realLifeUses": [
+    "Counting shoes or socks in 2s",
+    "Counting fingers or a hand of cards in 5s",
+    "Counting ten-rupee notes in 10s",
+    "Counting wheels on cars (4s) or legs on animals"
+  ],
+  "vocabulary": [
+    {
+      "term": "skip counting",
+      "meaning": "Counting in equal jumps, like 2, 4, 6 instead of 1, 2, 3."
+    },
+    {
+      "term": "jump / step",
+      "meaning": "The equal amount you add each time (the group size)."
+    },
+    {
+      "term": "in groups",
+      "meaning": "Counting things that come in equal bundles."
+    },
+    {
+      "term": "multiples",
+      "meaning": "The numbers you land on when skip counting: multiples of 5 are 5, 10, 15..."
+    }
+  ],
+  "story": {
+    "title": "Sandals at the Temple Door",
+    "characters": [
+      "Meena",
+      "the temple keeper"
+    ],
+    "text": "Outside the temple, sandals are lined up neatly in pairs. Meena starts '1, 2, 3...' and loses count. 'Sandals come in TWOS,' says the temple keeper. 'Jump by two: 2, 4, 6, 8, 10!' It is so much faster. 'Counting in equal groups is like hopping instead of walking,' Meena laughs.",
+    "extractedProblem": "Five pairs of sandals are at the temple door. Counting in 2s, how many sandals is that?",
+    "answerInStory": "10 sandals — skip count by 2s: 2, 4, 6, 8, 10."
+  },
+  "visual": {
+    "component": "NumberLine",
+    "props": {
+      "lines": [
+        {
+          "parts": 10,
+          "mark": 5,
+          "showLabels": true,
+          "label": "jump by 2"
+        }
+      ]
+    },
+    "caption": "Skip count by 2s: 2, 4, 6, 8, 10 — equal jumps on the number line."
+  },
+  "teachingGallery": [
+    {
+      "title": "Skip counting — jump in equal groups",
+      "note": "Each jump adds the same amount. Watch the pattern grow!",
+      "examples": [
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  2,
+                  4,
+                  6,
+                  8,
+                  "?"
+                ],
+                "jump": 2
+              }
+            ]
+          },
+          "caption": "Count by 2s: 2, 4, 6, 8… next is 10."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  5,
+                  10,
+                  15,
+                  20,
+                  "?"
+                ],
+                "jump": 5
+              }
+            ]
+          },
+          "caption": "Count by 5s: 5, 10, 15, 20… next is 25."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  10,
+                  20,
+                  30,
+                  "?"
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "Count by 10s: 10, 20, 30… next is 40."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  0,
+                  2,
+                  4,
+                  6,
+                  "?"
+                ],
+                "jump": 2
+              }
+            ]
+          },
+          "caption": "Start at 0, jump by 2s."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  15,
+                  20,
+                  25,
+                  "?"
+                ],
+                "jump": 5
+              }
+            ]
+          },
+          "caption": "Keep jumping by 5s from 15."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Pick the group size, then keep adding it: land on 2,4,6... or 5,10,15... or 10,20,30...",
+    "steps": [
+      "See how big each equal group is (2, 5, or 10).",
+      "Start at that number.",
+      "Keep adding the same amount for each new group.",
+      "Say the numbers you land on — those are the totals."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Hop the number line",
+      "whenToUse": "To see the equal jumps.",
+      "steps": [
+        "Start at 0.",
+        "Hop forward by the group size each time.",
+        "Read the number you land on."
+      ],
+      "example": "By 5s: hop to 5, 10, 15, 20."
+    },
+    {
+      "name": "Groups-and-add",
+      "whenToUse": "To find a total of equal groups.",
+      "steps": [
+        "Count how many groups.",
+        "Skip count by the group size that many times.",
+        "The last number is the total."
+      ],
+      "example": "4 groups of 10: 10, 20, 30, 40."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Skip count by 5s: 5, 10, 15, __?",
+      "steps": [
+        "Each jump adds 5.",
+        "After 15, add 5 more.",
+        "15 + 5.",
+        "The next is 20."
+      ],
+      "answer": "20",
+      "visual": {
+        "component": "NumberLine",
+        "props": {
+          "lines": [
+            {
+              "parts": 10,
+              "mark": 4,
+              "showLabels": true,
+              "label": "by 5s"
+            }
+          ]
+        },
+        "caption": "5,10,15,20"
+      }
+    },
+    {
+      "problem": "Count 3 groups of 10 by skip counting.",
+      "steps": [
+        "Each group is 10.",
+        "Ten, twenty, thirty.",
+        "That was 3 jumps of ten.",
+        "3 groups of 10 = 30."
+      ],
+      "answer": "30"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "unequal-jumps",
+      "mistake": "Skip counting with jumps that aren't equal (2, 4, 7, 9).",
+      "fix": "Every jump must add the SAME amount. By 2s it's always +2: 2, 4, 6, 8 — check each gap is equal."
+    },
+    {
+      "mistakeTag": "started-wrong",
+      "mistake": "Starting a skip count from the wrong number (counting by 5 as 1, 6, 11).",
+      "fix": "Start ON the group size: by 5s begin at 5 (5, 10, 15), not at 1. The landing numbers are multiples of the jump."
+    },
+    {
+      "mistakeTag": "lost-a-jump",
+      "mistake": "Skipping or repeating a step so the count goes wrong.",
+      "fix": "Add the jump carefully each time and don't rush. Use fingers or the number line to keep every jump in place."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "found-05-e1",
+        "type": "number",
+        "q": "Skip count by 2s: 2, 4, 6, __?",
+        "answer": "8",
+        "hintLadder": [
+          "Each jump adds 2.",
+          "6 + 2.",
+          "Eight."
+        ],
+        "explain": "+2 → 8.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 4,
+                "showLabels": true,
+                "label": "by 2s"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-05-e2",
+        "type": "number",
+        "q": "Skip count by 10s: 10, 20, 30, __?",
+        "answer": "40",
+        "hintLadder": [
+          "Each jump adds 10.",
+          "30 + 10.",
+          "Forty."
+        ],
+        "explain": "+10 → 40."
+      }
+    ],
+    "medium": [
+      {
+        "id": "found-05-m1",
+        "type": "number",
+        "q": "Skip count by 5s: 5, 10, 15, 20, __?",
+        "answer": "25",
+        "hintLadder": [
+          "Add 5 each time.",
+          "20 + 5.",
+          "Twenty-five."
+        ],
+        "explain": "+5 → 25.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 5,
+                "showLabels": true,
+                "label": "by 5s"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-05-m2",
+        "type": "number",
+        "q": "How many shoes are 4 pairs? (count by 2s)",
+        "answer": "8",
+        "hintLadder": [
+          "Each pair is 2.",
+          "2, 4, 6, 8.",
+          "Eight."
+        ],
+        "explain": "4 × 2 = 8."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "found-05-c1",
+        "type": "number",
+        "q": "Count by 2s: 2, 4, 6, 8, 10, __?",
+        "answer": "12",
+        "hintLadder": [
+          "Keep adding 2.",
+          "10 + 2.",
+          "Twelve."
+        ],
+        "explain": "+2 → 12."
+      },
+      {
+        "id": "found-05-c2",
+        "type": "number",
+        "q": "5 ten-rupee notes make how many rupees? (count by 10s)",
+        "answer": "50",
+        "hintLadder": [
+          "Each note is 10.",
+          "10, 20, 30, 40, 50.",
+          "Fifty."
+        ],
+        "explain": "5 × 10 = 50."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "found-05-x1",
+        "type": "number",
+        "q": "By 2s: 2, 4, 6, __?",
+        "answer": "8",
+        "hintLadder": [
+          "+2.",
+          "6+2.",
+          "Eight."
+        ],
+        "explain": "8.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 4,
+                "showLabels": true,
+                "label": "by 2s"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-05-x2",
+        "type": "number",
+        "q": "By 5s: 5, 10, __?",
+        "answer": "15",
+        "hintLadder": [
+          "+5.",
+          "10+5.",
+          "Fifteen."
+        ],
+        "explain": "15."
+      },
+      {
+        "id": "found-05-x3",
+        "type": "number",
+        "q": "By 10s: 10, 20, 30, 40, __?",
+        "answer": "50",
+        "hintLadder": [
+          "+10.",
+          "40+10.",
+          "Fifty."
+        ],
+        "explain": "50."
+      },
+      {
+        "id": "found-05-x4",
+        "type": "number",
+        "q": "3 pairs of socks = how many socks? (by 2s)",
+        "answer": "6",
+        "hintLadder": [
+          "Each pair 2.",
+          "2,4,6.",
+          "Six."
+        ],
+        "explain": "6."
+      },
+      {
+        "id": "found-05-x5",
+        "type": "number",
+        "q": "By 5s: 5, 10, 15, 20, 25, __?",
+        "answer": "30",
+        "hintLadder": [
+          "+5.",
+          "25+5.",
+          "Thirty."
+        ],
+        "explain": "30.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 6,
+                "showLabels": true,
+                "label": "by 5s"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "teachBackPrompt": "Grab a pile of socks or coins. Teach someone at home to count them FAST by skip counting in 2s, 5s, or 10s — and show why the jumps must always be equal.",
+  "revisionCard": {
+    "summary": "Skip counting = equal JUMPS. By 2s: 2,4,6,8. By 5s: 5,10,15. By 10s: 10,20,30. Start on the group size and keep the jumps equal. It's the doorway to times tables.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Counting Meadow (Little Sprouts)",
+    "title": "Counting the Shoes",
+    "brief": "Count piles of shoes, fingers and notes in fast equal jumps of 2, 5 and 10.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Count all the shoes at your front door by 2s. Then count everyone's fingers in the room by 5s. Which was faster than counting by ones?",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

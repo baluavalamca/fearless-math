@@ -1,0 +1,627 @@
+{
+  "id": "num-02-comparing",
+  "name": "Comparing and Ordering Numbers",
+  "grade": 3,
+  "strand": "numbers",
+  "prerequisites": [
+    "num-01-place-value"
+  ],
+  "whatIsIt": "Comparing numbers means finding which is bigger, smaller, or whether they are equal. The place-value rule makes it easy: FIRST count the digits — more digits wins. If the digit counts match, compare from the LEFT, place by place, until one digit is bigger.",
+  "whyNeeded": "Which team scored more? Which toy costs less? Which bottle holds more? Life asks 'which is bigger?' every single day. Comparing correctly needs place value — otherwise 9 looks bigger than 10, and Ravi picks the smaller pile again!",
+  "realLifeUses": [
+    "Shopping: is the ₹95 toy cheaper than the ₹109 toy?",
+    "Cricket: 178 runs vs 87 runs — who won?",
+    "Heights: 132 cm vs 129 cm — who is taller?",
+    "Games: comparing scores to find the winner"
+  ],
+  "vocabulary": [
+    {
+      "term": "greater than (>)",
+      "meaning": "The open mouth always eats the bigger number: 109 > 91."
+    },
+    {
+      "term": "less than (<)",
+      "meaning": "The point aims at the smaller number: 91 < 109."
+    },
+    {
+      "term": "ascending order",
+      "meaning": "Climbing up: smallest to biggest."
+    },
+    {
+      "term": "descending order",
+      "meaning": "Coming down: biggest to smallest."
+    }
+  ],
+  "story": {
+    "title": "Which Pile Is Bigger?",
+    "characters": [
+      "Meena",
+      "the shopkeeper"
+    ],
+    "text": "At the shop, Meena compares two heaps of tamarind — one marked 91, the other 109. 'The 9 in 91 looks so big — is 91 more?' 'Count the DIGITS first,' says the shopkeeper. '109 has three digits; 91 has only two. More digits means a bigger number, no matter how big a single digit looks. So 109 is greater.'",
+    "extractedProblem": "Which is greater: 91 or 109?",
+    "answerInStory": "109 — it has three digits while 91 has only two. More digits means a bigger number, no matter how big the digits look!"
+  },
+  "visual": {
+    "component": "PlaceValueBlocks",
+    "props": {
+      "sets": [
+        {
+          "hundreds": 1,
+          "tens": 0,
+          "ones": 9,
+          "label": "109"
+        },
+        {
+          "tens": 9,
+          "ones": 1,
+          "label": "91"
+        }
+      ]
+    },
+    "caption": "109 owns a hundred-flat; 91 has only ten-rods. One hundred beats nine tens — 109 > 91."
+  },
+  "teachingGallery": [
+    {
+      "title": "Compare from the left",
+      "note": "Line numbers up by place. The first place that differs decides it.",
+      "examples": [
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 3,
+                "tens": 5,
+                "ones": 8,
+                "label": "358"
+              },
+              {
+                "hundreds": 5,
+                "tens": 1,
+                "ones": 2,
+                "label": "512"
+              }
+            ]
+          },
+          "caption": "3 hundreds < 5 hundreds → 358 < 512. Decide at the FIRST digit."
+        },
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 4,
+                "tens": 5,
+                "ones": 2,
+                "label": "452"
+              },
+              {
+                "hundreds": 4,
+                "tens": 5,
+                "ones": 8,
+                "label": "458"
+              }
+            ]
+          },
+          "caption": "Same hundreds & tens; ones 2 < 8 → 452 < 458."
+        },
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 6,
+                "tens": 0,
+                "ones": 9,
+                "label": "609"
+              },
+              {
+                "hundreds": 6,
+                "tens": 9,
+                "ones": 0,
+                "label": "690"
+              }
+            ]
+          },
+          "caption": "Same hundreds; 0 tens < 9 tens → 609 < 690."
+        },
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 7,
+                "tens": 2,
+                "ones": 1,
+                "label": "721"
+              },
+              {
+                "hundreds": 2,
+                "tens": 9,
+                "ones": 9,
+                "label": "299"
+              }
+            ]
+          },
+          "caption": "7 hundreds > 2 hundreds → 721 > 299, even though 299 has big tens/ones."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  10,
+                  20,
+                  30,
+                  40,
+                  50
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "On the number line, numbers to the right are bigger."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Count digits first; if equal, compare place by place from the LEFT.",
+    "steps": [
+      "STEP 1 — Count the digits. More digits = bigger number (109 > 91).",
+      "STEP 2 — Same digit count? Compare the LEFTMOST digits (372 vs 359: 3 = 3, move on).",
+      "STEP 3 — Keep moving right until one digit is bigger (7 > 5, so 372 > 359).",
+      "STEP 4 — Write it with the hungry mouth eating the bigger number: 372 > 359."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Blocks method",
+      "whenToUse": "To SEE why one number is bigger.",
+      "steps": [
+        "Build both numbers with place-value blocks.",
+        "Compare the biggest blocks first: hundreds, then tens, then ones.",
+        "The number with more of the biggest block wins immediately."
+      ],
+      "example": "109 has a hundred-flat; 91 has none — 109 wins before even counting tens!"
+    },
+    {
+      "name": "Number line method",
+      "whenToUse": "For ordering several numbers.",
+      "steps": [
+        "Picture the numbers on a number line.",
+        "Numbers further RIGHT are bigger.",
+        "Read them left to right for ascending order."
+      ],
+      "example": "128, 218, 281 sit left to right on the line — that is ascending order."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Which is greater: 372 or 359?",
+      "steps": [
+        "Digit count: both have 3 digits — go to place-by-place.",
+        "Hundreds: 3 = 3. Tied — move right.",
+        "Tens: 7 > 5. Decided!",
+        "372 > 359 (the ones never even got a turn)."
+      ],
+      "answer": "372"
+    },
+    {
+      "problem": "Ravi says 19 > 21 'because 9 is the biggest digit on the board.' Set him straight.",
+      "steps": [
+        "Both have 2 digits, so compare from the LEFT — not the biggest digit anywhere!",
+        "Tens: 1 vs 2. 2 is bigger.",
+        "21 > 19. The big 9 sits in the ones room — it only counts as nine.",
+        "Left digits rule; loud digits don't!"
+      ],
+      "answer": "21 > 19 — compare from the left, not by the flashiest digit."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Compare the leftmost digit",
+    "intro": "Don't read the whole number — the first place that differs already decides it.",
+    "questions": [
+      {
+        "id": "num02-trick-452-458",
+        "type": "mcq",
+        "q": "Which is BIGGER: 452 or 458?",
+        "answer": "458",
+        "options": [
+          {
+            "label": "452"
+          },
+          {
+            "label": "458"
+          }
+        ],
+        "hintLadder": [
+          "Line them up by place. Compare the LEFT-most digit first.",
+          "If the left digits are equal, move one place right.",
+          "The number with the bigger digit at the first difference wins."
+        ],
+        "explain": "458 is bigger."
+      },
+      {
+        "id": "num02-trick-358-512",
+        "type": "mcq",
+        "q": "Which is BIGGER: 358 or 512?",
+        "answer": "512",
+        "options": [
+          {
+            "label": "358"
+          },
+          {
+            "label": "512"
+          }
+        ],
+        "hintLadder": [
+          "Line them up by place. Compare the LEFT-most digit first.",
+          "If the left digits are equal, move one place right.",
+          "The number with the bigger digit at the first difference wins."
+        ],
+        "explain": "512 is bigger."
+      },
+      {
+        "id": "num02-trick-609-690",
+        "type": "mcq",
+        "q": "Which is BIGGER: 609 or 690?",
+        "answer": "690",
+        "options": [
+          {
+            "label": "609"
+          },
+          {
+            "label": "690"
+          }
+        ],
+        "hintLadder": [
+          "Line them up by place. Compare the LEFT-most digit first.",
+          "If the left digits are equal, move one place right.",
+          "The number with the bigger digit at the first difference wins."
+        ],
+        "explain": "690 is bigger."
+      },
+      {
+        "id": "num02-trick-721-299",
+        "type": "mcq",
+        "q": "Which is BIGGER: 721 or 299?",
+        "answer": "721",
+        "options": [
+          {
+            "label": "721"
+          },
+          {
+            "label": "299"
+          }
+        ],
+        "hintLadder": [
+          "Line them up by place. Compare the LEFT-most digit first.",
+          "If the left digits are equal, move one place right.",
+          "The number with the bigger digit at the first difference wins."
+        ],
+        "explain": "721 is bigger."
+      },
+      {
+        "id": "num02-trick-84-88",
+        "type": "mcq",
+        "q": "Which is BIGGER: 84 or 88?",
+        "answer": "88",
+        "options": [
+          {
+            "label": "84"
+          },
+          {
+            "label": "88"
+          }
+        ],
+        "hintLadder": [
+          "Line them up by place. Compare the LEFT-most digit first.",
+          "If the left digits are equal, move one place right.",
+          "The number with the bigger digit at the first difference wins."
+        ],
+        "explain": "88 is bigger."
+      },
+      {
+        "id": "num02-trick-230-203",
+        "type": "mcq",
+        "q": "Which is BIGGER: 230 or 203?",
+        "answer": "230",
+        "options": [
+          {
+            "label": "230"
+          },
+          {
+            "label": "203"
+          }
+        ],
+        "hintLadder": [
+          "Line them up by place. Compare the LEFT-most digit first.",
+          "If the left digits are equal, move one place right.",
+          "The number with the bigger digit at the first difference wins."
+        ],
+        "explain": "230 is bigger."
+      },
+      {
+        "id": "num02-trick-560-506",
+        "type": "mcq",
+        "q": "Which is BIGGER: 560 or 506?",
+        "answer": "560",
+        "options": [
+          {
+            "label": "560"
+          },
+          {
+            "label": "506"
+          }
+        ],
+        "hintLadder": [
+          "Line them up by place. Compare the LEFT-most digit first.",
+          "If the left digits are equal, move one place right.",
+          "The number with the bigger digit at the first difference wins."
+        ],
+        "explain": "560 is bigger."
+      },
+      {
+        "id": "num02-trick-199-201",
+        "type": "mcq",
+        "q": "Which is BIGGER: 199 or 201?",
+        "answer": "201",
+        "options": [
+          {
+            "label": "199"
+          },
+          {
+            "label": "201"
+          }
+        ],
+        "hintLadder": [
+          "Line them up by place. Compare the LEFT-most digit first.",
+          "If the left digits are equal, move one place right.",
+          "The number with the bigger digit at the first difference wins."
+        ],
+        "explain": "201 is bigger."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "digit-count-ignored",
+      "mistake": "Choosing 91 over 109 because 9 looks bigger than 1 — forgetting to count digits first.",
+      "fix": "Always count digits FIRST. A 3-digit number beats any 2-digit number — a small general with a bigger army wins!"
+    },
+    {
+      "mistakeTag": "compared-wrong-place",
+      "mistake": "Comparing from the ones (right side) instead of the left: picking 359 over 372 because 9 > 2.",
+      "fix": "Start at the LEFT — the biggest place. The first place where the digits differ decides everything; the smaller places can't overturn it."
+    },
+    {
+      "mistakeTag": "bigger-digit-anywhere",
+      "mistake": "Thinking the number containing the biggest single digit wins (19 > 21 'because of the 9').",
+      "fix": "A digit's power depends on its PLACE. A 9 in the ones room is just nine; a 2 in the tens room is twenty. Compare places, not show-off digits."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "mcq",
+        "q": "Which is greater: 109 or 91?",
+        "options": [
+          {
+            "label": "109"
+          },
+          {
+            "label": "91",
+            "mistakeTag": "digit-count-ignored"
+          }
+        ],
+        "answer": "109",
+        "hintLadder": [
+          "Count the digits in each number first.",
+          "109 has 3 digits; 91 has 2.",
+          "More digits always wins — like Captain Count's bridge!"
+        ],
+        "explain": "3-digit numbers start at 100, which is already past every 2-digit number."
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "Which is greater: 45 or 54?",
+        "options": [
+          {
+            "label": "54"
+          },
+          {
+            "label": "45",
+            "mistakeTag": "compared-wrong-place"
+          }
+        ],
+        "answer": "54",
+        "hintLadder": [
+          "Both have 2 digits — compare from the LEFT.",
+          "Tens: 4 vs 5 — which is bigger?",
+          "5 tens beat 4 tens, so 54 wins."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "mcq",
+        "q": "Which is greater: 372 or 359?",
+        "options": [
+          {
+            "label": "372"
+          },
+          {
+            "label": "359",
+            "mistakeTag": "compared-wrong-place"
+          }
+        ],
+        "answer": "372",
+        "hintLadder": [
+          "Same digit count — start at the LEFT.",
+          "Hundreds tie (3 = 3). Move to the tens.",
+          "7 tens vs 5 tens — decided!"
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "Type the SMALLEST of these numbers: 218, 281, 128",
+        "answer": "128",
+        "hintLadder": [
+          "All have 3 digits — compare hundreds first.",
+          "Hundreds digits: 2, 2, 1. Which is smallest?",
+          "The number starting with 1 hundred is smallest."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Ravi says 19 > 21 'because 9 is the biggest digit.' What is the real rule?",
+        "options": [
+          {
+            "label": "Compare from the LEFT place — 2 tens beat 1 ten, so 21 > 19"
+          },
+          {
+            "label": "He is right — the biggest digit wins",
+            "mistakeTag": "bigger-digit-anywhere"
+          },
+          {
+            "label": "Count the digits — 21 has more digits",
+            "mistakeTag": "digit-count-ignored"
+          }
+        ],
+        "answer": "Compare from the LEFT place — 2 tens beat 1 ten, so 21 > 19",
+        "hintLadder": [
+          "Both numbers have TWO digits, so digit count ties.",
+          "Where does the mighty 9 stand — tens or ones?",
+          "A 9 in the ones room is only nine. Compare the tens first."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "Using each of the digits 4, 0, 9 exactly once, type the LARGEST 3-digit number you can make.",
+        "answer": "940",
+        "hintLadder": [
+          "The biggest digit should grab the biggest room — the hundreds.",
+          "Then the next biggest digit takes the tens.",
+          "9 hundreds, 4 tens, 0 ones."
+        ],
+        "explain": "Put the biggest digit in the biggest place: 940."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "mcq",
+        "q": "Which is greater: 87 or 178?",
+        "options": [
+          {
+            "label": "178"
+          },
+          {
+            "label": "87",
+            "mistakeTag": "digit-count-ignored"
+          }
+        ],
+        "answer": "178",
+        "hintLadder": [
+          "Count digits first!",
+          "178 has 3 digits, 87 has 2.",
+          "Three-digit beats two-digit, always."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "Which is greater: 634 or 643?",
+        "options": [
+          {
+            "label": "643"
+          },
+          {
+            "label": "634",
+            "mistakeTag": "compared-wrong-place"
+          }
+        ],
+        "answer": "643",
+        "hintLadder": [
+          "Same digits count — compare from the LEFT.",
+          "Hundreds tie (6 = 6). Compare tens.",
+          "4 tens vs 3 tens."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "number",
+        "q": "Type the GREATEST of these: 356, 365, 335",
+        "answer": "365",
+        "hintLadder": [
+          "Hundreds all tie at 3 — compare the tens.",
+          "Tens digits: 5, 6, 3.",
+          "The 6 in the tens room wins."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "When two numbers have the SAME number of digits, where do you start comparing?",
+        "options": [
+          {
+            "label": "From the LEFT — the biggest place first"
+          },
+          {
+            "label": "From the ones — the right side",
+            "mistakeTag": "compared-wrong-place"
+          },
+          {
+            "label": "Find the biggest digit anywhere",
+            "mistakeTag": "bigger-digit-anywhere"
+          }
+        ],
+        "answer": "From the LEFT — the biggest place first",
+        "hintLadder": [
+          "Which place is worth the most?",
+          "Hundreds beat tens beat ones.",
+          "So start where the value is biggest — the left."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "You are the new bridge keeper! Teach someone at home the two comparing rules — count digits first, then compare from the left — and show them with 91 vs 109 why Ravi nearly fell off the bridge.",
+  "revisionCard": {
+    "summary": "Rule 1: count digits — more digits wins (109 > 91). Rule 2: same count → compare from the LEFT, place by place (372 > 359 because 7 tens > 5 tens). The hungry mouth > always eats the bigger number!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The More-or-Less Bridge",
+    "brief": "Cross the wobbling bridge by always stepping to the bigger number! Digit-count traps, tricky nines, and Ravi's loud wrong answers await. Ten safe steps and the Jungle is yours.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Collect 4 prices from home (biscuit packet, toothpaste, a book, anything). Write them on slips, shuffle, and arrange them from cheapest to costliest — ascending order! Then answer: which two prices were hardest to compare, and which rule decided it?",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3 (comparing and ordering numbers)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

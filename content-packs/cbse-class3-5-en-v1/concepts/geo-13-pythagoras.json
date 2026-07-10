@@ -1,0 +1,169 @@
+{
+  "id": "geo-13-pythagoras",
+  "name": "The Pythagorean Theorem",
+  "grade": 8,
+  "strand": "geometry",
+  "prerequisites": ["geo-10-triangles-quads", "num-27-squares-roots"],
+  "whatIsIt": "In a RIGHT-ANGLED triangle, the longest side (the HYPOTENUSE, opposite the right angle) is linked to the other two by a famous rule: a² + b² = c². Square the two shorter sides, add them, and that equals the square of the hypotenuse. To find a missing side, use squares and square roots.",
+  "whyNeeded": "Pythagoras finds distances you can't measure directly — the length of a ramp, a ladder against a wall, the diagonal of a screen, or the straight-line distance on a map. It's one of the most used rules in construction, navigation and physics.",
+  "realLifeUses": [
+    "How long a ladder reaches up a wall",
+    "The diagonal length of a TV or phone screen",
+    "The straight-line distance between two points",
+    "Checking a corner is a true right angle (3-4-5 rule)"
+  ],
+  "vocabulary": [
+    { "term": "hypotenuse", "meaning": "The longest side of a right triangle, opposite the right angle." },
+    { "term": "right-angled triangle", "meaning": "A triangle with one 90° angle." },
+    { "term": "a² + b² = c²", "meaning": "The Pythagorean rule: the two short sides squared add to the hypotenuse squared." }
+  ],
+  "story": {
+    "title": "The Leaning Ladder",
+    "characters": ["Vikram", "Uncle"],
+    "text": "Uncle's ladder stands 4 m up the wall, its foot 3 m out. 'How long is the ladder?' asks Vikram. He uses Pythagoras: 3² + 4² = 9 + 16 = 25, and √25 = 5. 'The ladder is 5 metres long!' Uncle grins — 'the 3-4-5 triangle, the builder's favourite.'",
+    "extractedProblem": "A ladder reaches 4 m up a wall with its foot 3 m out. How long is the ladder?",
+    "answerInStory": "5 m — because 3² + 4² = 25 and √25 = 5."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "triangle", "label": "3, 4, 5 right triangle" }
+      ]
+    },
+    "caption": "Right triangle: 3² + 4² = 9 + 16 = 25 = 5². The hypotenuse (longest side) is 5."
+  },
+  "teachingGallery": [
+    {
+      "title": "Square, add, root",
+      "note": "a² + b² = c²; the hypotenuse is the longest side.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "6, 8, 10" } ] }, "caption": "6² + 8² = 36 + 64 = 100 = 10²." },
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 3, "cols": 3, "label": "3² = 9" } ] }, "caption": "Square a side by making a square grid." },
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 4, "cols": 4, "label": "4² = 16" } ] }, "caption": "9 + 16 = 25, and √25 = 5." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Identify the right angle and hypotenuse; use a² + b² = c², squaring and taking roots to find the missing side.",
+    "steps": [
+      "Find the right angle; the side opposite it is the hypotenuse (longest).",
+      "To find the hypotenuse: square the two short sides, add, then take the square root.",
+      "To find a short side: subtract the known short side's square from the hypotenuse's square, then take the root.",
+      "Check: the hypotenuse must be the longest side."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A right triangle has short sides 6 and 8. Find the hypotenuse.",
+      "steps": ["6² + 8² = 36 + 64 = 100.", "Hypotenuse = √100.", "= 10."],
+      "answer": "10"
+    },
+    {
+      "problem": "A right triangle has hypotenuse 13 and one short side 5. Find the other short side.",
+      "steps": ["13² − 5² = 169 − 25 = 144.", "Other side = √144.", "= 12."],
+      "answer": "12"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "add-not-square",
+      "mistake": "Adding the sides instead of their squares (3 + 4 = 7 as the hypotenuse).",
+      "fix": "Square first: 3² + 4² = 25, THEN take the root → 5. Not 3 + 4."
+    },
+    {
+      "mistakeTag": "hypotenuse-wrong-side",
+      "mistake": "Treating a short side as the hypotenuse.",
+      "fix": "The hypotenuse is always the LONGEST side, opposite the right angle. It goes on the c² side of the equation."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "g13-e1", "type": "number",
+        "q": "In a right triangle, 3² + 4² = ? (write the total, like 25)",
+        "answer": "25",
+        "hintLadder": ["9 + 16.", "Add the squares.", "25."]
+      },
+      {
+        "id": "g13-e2", "type": "number",
+        "q": "The hypotenuse whose square is 25 is √25 = ?",
+        "answer": "5",
+        "hintLadder": ["What times itself is 25?", "5 × 5.", "5."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "g13-m1", "type": "number",
+        "q": "Right triangle short sides 6 and 8 — hypotenuse?",
+        "answer": "10",
+        "hintLadder": ["36 + 64 = 100.", "√100.", "10."]
+      },
+      {
+        "id": "g13-m2", "type": "number",
+        "q": "Short sides 5 and 12 — hypotenuse?",
+        "answer": "13",
+        "hintLadder": ["25 + 144 = 169.", "√169.", "13."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "g13-c1", "type": "number",
+        "q": "Hypotenuse 10, one short side 6 — the other short side?",
+        "answer": "8",
+        "hintLadder": ["10² − 6² = 100 − 36 = 64.", "√64.", "8."]
+      },
+      {
+        "id": "g13-c2", "type": "mcq",
+        "q": "Ravi says a triangle with short sides 3 and 4 has hypotenuse 7. What's the fix?",
+        "options": [ { "label": "Square first: 3²+4²=25, √25 = 5" }, { "label": "7 is right", "mistakeTag": "add-not-square" } ],
+        "answer": "Square first: 3²+4²=25, √25 = 5",
+        "hintLadder": ["Don't just add sides.", "Square, add, root.", "5."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "g13-x1", "type": "number",
+        "q": "Short sides 3 and 4 — hypotenuse?",
+        "answer": "5",
+        "hintLadder": ["9 + 16 = 25.", "√25.", "5."]
+      },
+      {
+        "id": "g13-x2", "type": "number",
+        "q": "Short sides 8 and 15 — hypotenuse?",
+        "answer": "17",
+        "hintLadder": ["64 + 225 = 289.", "√289.", "17."]
+      },
+      {
+        "id": "g13-x3", "type": "number",
+        "q": "Hypotenuse 13, short side 12 — the other short side?",
+        "answer": "5",
+        "hintLadder": ["169 − 144 = 25.", "√25.", "5."]
+      },
+      {
+        "id": "g13-x4", "type": "mcq",
+        "q": "The hypotenuse of a right triangle is…",
+        "options": [ { "label": "The longest side, opposite the right angle" }, { "label": "Any short side", "mistakeTag": "hypotenuse-wrong-side" } ],
+        "answer": "The longest side, opposite the right angle",
+        "hintLadder": ["Opposite the 90°.", "The longest one.", "Hypotenuse."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Make a 3-4-5 triangle with string or a set square and show a grown-up that 3² + 4² = 5². Explain how Pythagoras finds a ladder's length or a screen's diagonal — square the two sides, add, then take the square root.",
+  "revisionCard": {
+    "summary": "Right-angled triangle: a² + b² = c², where c is the hypotenuse (longest side, opposite the 90°). Find the hypotenuse: square the short sides, add, root. Find a short side: hypotenuse² − known² , then root. Square first — never just add the sides.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 7-8 (Pythagorean theorem)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

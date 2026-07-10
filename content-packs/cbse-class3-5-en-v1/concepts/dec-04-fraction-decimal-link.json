@@ -1,0 +1,455 @@
+{
+  "id": "dec-04-fraction-decimal-link",
+  "name": "Fractions ↔ Decimals — Two Names, One Number",
+  "grade": 5,
+  "strand": "fractions",
+  "prerequisites": [
+    "dec-03-hundredths",
+    "frac-03-equivalent"
+  ],
+  "whatIsIt": "Fractions and decimals are TWO LANGUAGES for the same numbers! The translator is equivalent fractions: rename any fraction with 10 or 100 at the bottom, and it becomes a decimal instantly. 1/2 = 5/10 = 0.5; 3/4 = 75/100 = 0.75; 1/5 = 2/10 = 0.2. Same point on the number line, two name tags.",
+  "whyNeeded": "Life switches languages constantly: the recipe says half a cup, the measuring jug says 0.5! Prices, measurements, and sports stats speak decimal; sharing and cooking speak fraction. A translator moves freely between both — and picks whichever makes each problem easiest.",
+  "realLifeUses": [
+    "Half a litre on a 0.5 L bottle label — same amount, two languages",
+    "Quarter kg of sweets = 0.25 kg on the digital scale",
+    "Three-quarters of the match done = 0.75 of the time gone",
+    "Half-price sale = 0.5 × the price"
+  ],
+  "vocabulary": [
+    {
+      "term": "translate",
+      "meaning": "Rewrite a fraction as a decimal (or back) without changing the amount."
+    },
+    {
+      "term": "friendly bottoms",
+      "meaning": "10 and 100 — bottoms that turn straight into decimal seats!"
+    },
+    {
+      "term": "famous pairs",
+      "meaning": "1/2 = 0.5, 1/4 = 0.25, 3/4 = 0.75, 1/5 = 0.2, 1/10 = 0.1 — know them by heart!"
+    }
+  ],
+  "story": {
+    "title": "Two Languages for the Same Amount",
+    "characters": [
+      "Meena",
+      "Thatha (grandfather)"
+    ],
+    "text": "At the grocer's, the weights are marked in halves and quarters. 'Half a kilo — is that a decimal too?' asks Meena. 'Fractions and decimals are two LANGUAGES for the same amount,' says Thatha. '1/2 is 5/10 is 0.5; 3/4 is 75/100 is 0.75; and 0.25 is 25/100, which is 1/4. Translate freely between them!'",
+    "extractedProblem": "Translate 1/2 and 3/4 into decimals, and 0.25 back into a fraction.",
+    "answerInStory": "1/2 = 5/10 = 0.5; 3/4 = 75/100 = 0.75; and 0.25 = 25/100 = 1/4. Same amounts, two languages!"
+  },
+  "visual": {
+    "component": "FractionStrip",
+    "props": {
+      "strips": [
+        {
+          "parts": 2,
+          "shaded": 1,
+          "label": "1/2"
+        },
+        {
+          "parts": 10,
+          "shaded": 5,
+          "label": "5/10 = 0.5"
+        },
+        {
+          "parts": 4,
+          "shaded": 3,
+          "label": "3/4 = 0.75"
+        }
+      ]
+    },
+    "caption": "The shading lines up: 1/2 and 5/10 and 0.5 are ONE amount. Equivalent fractions are the translator!"
+  },
+  "teachingGallery": [
+    {
+      "title": "Two names, one number",
+      "note": "A tenth is 1/10 or 0.1 — same amount, different clothes.",
+      "examples": [
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 3,
+                "label": "3/10 = 0.3"
+              }
+            ]
+          },
+          "caption": "3/10 = 0.3."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 5,
+                "label": "5/10 = 0.5 = 1/2"
+              }
+            ]
+          },
+          "caption": "5/10 = 0.5 = a half."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 1,
+                "label": "1/10 = 0.1"
+              }
+            ]
+          },
+          "caption": "1/10 = 0.1."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 9,
+                "label": "9/10 = 0.9"
+              }
+            ]
+          },
+          "caption": "9/10 = 0.9."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 7,
+                "label": "7/10 = 0.7",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "Same point on the line: 7/10 and 0.7."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Fraction → decimal: rename with bottom 10 or 100. Decimal → fraction: read the seats, then simplify.",
+    "steps": [
+      "Fraction → decimal: multiply top and bottom to make the bottom 10 or 100. 1/2 = 5/10 = 0.5; 3/4 = 75/100 = 0.75.",
+      "Decimal → fraction: read it! 0.7 = 7/10; 0.25 = 25/100.",
+      "Simplify the result: 25/100 ÷25 = 1/4.",
+      "Memorise the famous pairs: 1/2=0.5, 1/4=0.25, 3/4=0.75, 1/5=0.2, 1/10=0.1."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Number-line meeting point",
+      "whenToUse": "To PROVE two names are one number.",
+      "steps": [
+        "Draw 0 to 1 cut into 4 jumps; mark 3/4.",
+        "Draw 0 to 1 cut into 100 (imagine!); mark 0.75.",
+        "Same spot! One home, two name plates."
+      ],
+      "example": "1/2 and 0.5 both live exactly at the middle."
+    },
+    {
+      "name": "Money translation",
+      "whenToUse": "Instant translation with coins.",
+      "steps": [
+        "One rupee = the whole.",
+        "1/2 rupee = 50 paise = ₹0.50. 1/4 rupee = 25 paise = ₹0.25.",
+        "Fractions of a rupee ARE decimals of a rupee!"
+      ],
+      "example": "Three-quarters of ₹1 = 75 paise = ₹0.75."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Translate 1/5 into a decimal.",
+      "steps": [
+        "Make the bottom 10: multiply top and bottom by 2.",
+        "1/5 = 2/10.",
+        "2 tenths = 0.2."
+      ],
+      "answer": "0.2"
+    },
+    {
+      "problem": "The scale shows 0.75 kg of sweets. Amma asked for three-quarters kg. Did the shopkeeper weigh right?",
+      "steps": [
+        "Translate 0.75: it reads 75/100.",
+        "Simplify: ÷25 both → 3/4.",
+        "0.75 kg IS three-quarters kg — perfectly weighed! Two languages, one amount."
+      ],
+      "answer": "Yes — 0.75 = 3/4 exactly."
+    }
+  ],
+  "trickPractice": {
+    "trick": "One place = tenths",
+    "intro": "A single digit after the dot is just that many tenths — bottom is 10.",
+    "questions": [
+      {
+        "id": "dec04-trick-3",
+        "type": "fraction",
+        "q": "Write 0.3 as a fraction.",
+        "answer": "3/10",
+        "hintLadder": [
+          "One digit after the dot = TENTHS.",
+          "So the bottom is 10.",
+          "0.3 = 3/10."
+        ],
+        "explain": "0.3 = 3/10."
+      },
+      {
+        "id": "dec04-trick-7",
+        "type": "fraction",
+        "q": "Write 0.7 as a fraction.",
+        "answer": "7/10",
+        "hintLadder": [
+          "One digit after the dot = TENTHS.",
+          "So the bottom is 10.",
+          "0.7 = 7/10."
+        ],
+        "explain": "0.7 = 7/10."
+      },
+      {
+        "id": "dec04-trick-1",
+        "type": "fraction",
+        "q": "Write 0.1 as a fraction.",
+        "answer": "1/10",
+        "hintLadder": [
+          "One digit after the dot = TENTHS.",
+          "So the bottom is 10.",
+          "0.1 = 1/10."
+        ],
+        "explain": "0.1 = 1/10."
+      },
+      {
+        "id": "dec04-trick-9",
+        "type": "fraction",
+        "q": "Write 0.9 as a fraction.",
+        "answer": "9/10",
+        "hintLadder": [
+          "One digit after the dot = TENTHS.",
+          "So the bottom is 10.",
+          "0.9 = 9/10."
+        ],
+        "explain": "0.9 = 9/10."
+      },
+      {
+        "id": "dec04-trick-5",
+        "type": "fraction",
+        "q": "Write 0.5 as a fraction.",
+        "answer": "5/10",
+        "hintLadder": [
+          "One digit after the dot = TENTHS.",
+          "So the bottom is 10.",
+          "0.5 = 5/10."
+        ],
+        "explain": "0.5 = 5/10."
+      },
+      {
+        "id": "dec04-trick-4",
+        "type": "fraction",
+        "q": "Write 0.4 as a fraction.",
+        "answer": "4/10",
+        "hintLadder": [
+          "One digit after the dot = TENTHS.",
+          "So the bottom is 10.",
+          "0.4 = 4/10."
+        ],
+        "explain": "0.4 = 4/10."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "digits-copied-across",
+      "mistake": "Translating 1/2 as 0.12 or 1.2 — copying the fraction's digits into decimal seats.",
+      "fix": "Digits don't teleport — AMOUNTS translate! Rename first: 1/2 = 5/10, and 5 tenths = 0.5. Always route through a friendly bottom (10 or 100)."
+    },
+    {
+      "mistakeTag": "quarter-called-point-four",
+      "mistake": "Writing 1/4 as 0.4 ('the 4 goes after the dot').",
+      "fix": "1/4 = 25/100 = 0.25! Money proof: a quarter of a rupee is 25 paise, not 40. The famous pairs are worth knowing cold."
+    },
+    {
+      "mistakeTag": "simplify-skipped",
+      "mistake": "Leaving 0.25 translated as 25/100 and stopping there.",
+      "fix": "Finish the translation with a simplify: 25/100 ÷25 = 1/4 — the simplest name is the most useful one (and the one recipes use!)."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "Translate 1/2 into a decimal.",
+        "answer": "0.5",
+        "hintLadder": [
+          "Rename with bottom 10: 1/2 = ?/10.",
+          "×5 both: 5/10.",
+          "Five tenths as a decimal."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "fraction",
+        "q": "Translate 0.7 into a fraction.",
+        "answer": "7/10",
+        "hintLadder": [
+          "One seat after the dot = tenths.",
+          "Seven of them.",
+          "Top 7, bottom 10."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "mcq",
+        "q": "1/4 as a decimal is…",
+        "options": [
+          {
+            "label": "0.25"
+          },
+          {
+            "label": "0.4",
+            "mistakeTag": "quarter-called-point-four"
+          },
+          {
+            "label": "0.14",
+            "mistakeTag": "digits-copied-across"
+          }
+        ],
+        "answer": "0.25",
+        "hintLadder": [
+          "Money proof: a quarter of a rupee = ? paise.",
+          "25 paise!",
+          "1/4 = 25/100 = 0.25."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "Translate 3/4 into a decimal.",
+        "answer": "0.75",
+        "hintLadder": [
+          "Rename over 100: ×25 both.",
+          "75/100.",
+          "Seventy-five hundredths."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "fraction",
+        "q": "Translate 0.25 into its SIMPLEST fraction.",
+        "answer": "1/4",
+        "hintLadder": [
+          "Read it: 25/100.",
+          "Simplify — divide both by 25.",
+          "One quarter!"
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "The recipe needs 1/5 cup of oil; your measuring cup shows decimals. How much do you pour?",
+        "answer": "0.2",
+        "hintLadder": [
+          "1/5 = ?/10 — multiply both by 2.",
+          "2/10.",
+          "Two tenths on the cup."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "1/2 as a decimal:",
+        "answer": "0.5",
+        "hintLadder": [
+          "Famous pair!",
+          "5/10.",
+          "Point five."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "3/4 as a decimal:",
+        "answer": "0.75",
+        "hintLadder": [
+          "75/100.",
+          "Money: 75 paise.",
+          "Point seven five."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "fraction",
+        "q": "0.2 as a simplest fraction:",
+        "answer": "1/5",
+        "hintLadder": [
+          "0.2 = 2/10.",
+          "Simplify ÷2.",
+          "One fifth."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "Why are 3/4 and 0.75 the 'same number'?",
+        "options": [
+          {
+            "label": "They mark the SAME point on the number line — one amount, two names"
+          },
+          {
+            "label": "They just look similar",
+            "mistakeTag": "digits-copied-across"
+          }
+        ],
+        "answer": "They mark the SAME point on the number line — one amount, two names",
+        "hintLadder": [
+          "Where does each live between 0 and 1?",
+          "Three-quarters of the way — both!",
+          "Same home, two name plates."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Make a two-language menu card for your family: pick 3 amounts (half a glass, quarter kg, three-quarters of an hour) and write each in BOTH languages, explaining the translator trick for one of them.",
+  "revisionCard": {
+    "summary": "Fractions ↔ decimals = two languages, ONE number. Translator = equivalent fractions via bottoms of 10/100. Famous pairs: 1/2=0.5, 1/4=0.25, 3/4=0.75, 1/5=0.2, 1/10=0.1. Decimal→fraction: read the seats, then SIMPLIFY. Money proves everything!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Fraction Kitchen (Ganita Grove)",
+    "title": "The Two-Language Menu",
+    "brief": "Café orders arrive in both languages and the kitchen must match them! Translate fractions to decimals and back before the food gets cold — and catch Ravi serving 0.4 pizza to the 1/4-pizza customers.",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "Kitchen translator: find 3 real items with decimal labels (0.5 L bottle, 0.25 kg pack…). Say each in fraction language. Then reverse: measure half a cup of rice and write it as a decimal.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 5 (fraction-decimal relationship)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

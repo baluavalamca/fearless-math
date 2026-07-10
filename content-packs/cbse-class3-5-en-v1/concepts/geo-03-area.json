@@ -1,0 +1,489 @@
+{
+  "id": "geo-03-area",
+  "name": "Area — Counting the Space Inside",
+  "grade": 4,
+  "strand": "geometry",
+  "prerequisites": [
+    "geo-02-perimeter",
+    "ops-09-multiplication-groups"
+  ],
+  "whatIsIt": "Area is how much flat space a shape covers INSIDE its boundary. We measure it by counting unit squares — like tiles on a floor. A rectangle's tiles sit in neat rows, so instead of counting one by one: rows × tiles-per-row. Area of a rectangle = length × breadth, in SQUARE units.",
+  "whyNeeded": "How many tiles for the bathroom floor? How much paint for the wall? How big is the farm? Whenever you cover, paint, or plant a SURFACE, you're buying area. Perimeter walks the edge; area fills the inside — mixing them up buys the wrong amount of everything!",
+  "realLifeUses": [
+    "Tiling: how many square tiles cover the kitchen floor?",
+    "Painting: how much wall does one paint tin cover?",
+    "Farming: how big is the field to be planted?",
+    "Wrapping: is this paper sheet big enough for the gift box?"
+  ],
+  "vocabulary": [
+    {
+      "term": "area",
+      "meaning": "The amount of flat space inside a shape's boundary."
+    },
+    {
+      "term": "unit square",
+      "meaning": "A 1-by-1 square — the tile we count area with."
+    },
+    {
+      "term": "square units",
+      "meaning": "Area's units: square cm, square m — because we count SQUARES."
+    }
+  ],
+  "story": {
+    "title": "Tiling the Wedding Mandap",
+    "characters": [
+      "Ravi",
+      "the tile-layer"
+    ],
+    "text": "The wedding mandap floor is 6 tiles long and 4 tiles wide. 'How many tiles cover it completely?' asks Ravi. The tile-layer sets them in 4 equal rows of 6. 'Count the array: area = 6 × 4 = 24 square tiles. Edges you ADD for perimeter; the inside you MULTIPLY for area.'",
+    "extractedProblem": "A dance floor is 6 tiles long and 4 tiles wide. How many tiles cover it completely?",
+    "answerInStory": "24 tiles — 4 equal rows of 6: area = 6 × 4 = 24 square tiles."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        {
+          "kind": "rect",
+          "w": 6,
+          "h": 4,
+          "unitGrid": true,
+          "sideLabels": true,
+          "label": "area = 6 × 4 = 24 square units"
+        }
+      ]
+    },
+    "caption": "Count the unit squares: 4 rows of 6 = 24. That's why area of a rectangle = length × breadth."
+  },
+  "teachingGallery": [
+    {
+      "title": "Area — the space inside",
+      "note": "Cover it in unit squares: rows × columns.",
+      "examples": [
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "rect",
+                "w": 4,
+                "h": 3,
+                "label": "4×3 = 12 squares"
+              }
+            ]
+          },
+          "caption": "Rectangle 4 by 3 → 12 unit squares."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 5,
+                "label": "5×5 = 25 squares"
+              }
+            ]
+          },
+          "caption": "Square side 5 → 25 squares."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "rect",
+                "w": 6,
+                "h": 2,
+                "label": "6×2 = 12"
+              }
+            ]
+          },
+          "caption": "6 by 2 → 12 squares."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 4,
+                "asGroups": false
+              }
+            ]
+          },
+          "caption": "3 rows × 4 columns = 12."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 3,
+                "label": "3×3 = 9"
+              }
+            ]
+          },
+          "caption": "Square side 3 → 9 squares."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Rectangle area = length × breadth, answered in square units.",
+    "steps": [
+      "Check it's a rectangle (or split the shape into rectangles).",
+      "Multiply: length × breadth. 6 × 4 = 24.",
+      "Say WHY it works: the unit squares sit in 4 equal rows of 6 — an array!",
+      "Answer in SQUARE units: 24 square metres (not just 'metres')."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Count-the-squares method",
+      "whenToUse": "First meetings with area, and odd shapes on grid paper.",
+      "steps": [
+        "Draw the shape on squared paper.",
+        "Count every full square inside the boundary.",
+        "For rectangles, notice the rows are equal — multiplication is just fast counting!"
+      ],
+      "example": "An L-shaped room on grid paper: count squares one by one, or split into two rectangles."
+    },
+    {
+      "name": "Split-into-rectangles method",
+      "whenToUse": "L-shapes and T-shapes.",
+      "steps": [
+        "Cut the shape into rectangles with one straight line.",
+        "Find each rectangle's area (l × b).",
+        "Add the pieces — just like partial products!"
+      ],
+      "example": "An L = a 4×3 rectangle + a 2×2 square → 12 + 4 = 16 square units."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A classroom notice board is 3 m long and 2 m wide. What is its area?",
+      "steps": [
+        "Rectangle: length 3, breadth 2.",
+        "Area = 3 × 2 = 6.",
+        "Units: 6 SQUARE metres — six 1m×1m squares of chart paper would exactly cover it."
+      ],
+      "answer": "6"
+    },
+    {
+      "problem": "Two gardens: A is 6 m × 4 m, B is 8 m × 3 m. Ravi says B is bigger 'because 8 is the biggest number'. Who's right?",
+      "steps": [
+        "Compare AREAS, not single sides!",
+        "A: 6 × 4 = 24 square m. B: 8 × 3 = 24 square m.",
+        "They're exactly EQUAL — different shapes can hold the same space. One long-and-thin, one short-and-wide."
+      ],
+      "answer": "Equal — both 24 square metres."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Rows × columns",
+    "intro": "Area is how many unit squares fit inside — just multiply length by width.",
+    "questions": [
+      {
+        "id": "geo03-trick-4x3",
+        "type": "number",
+        "q": "A rectangle is 4 by 3. What is its area (in squares)?",
+        "answer": "12",
+        "hintLadder": [
+          "Area = cover it in unit squares.",
+          "Rows × columns = 4 × 3.",
+          "= 12."
+        ],
+        "explain": "4×3 = 12."
+      },
+      {
+        "id": "geo03-trick-6x2",
+        "type": "number",
+        "q": "A rectangle is 6 by 2. What is its area (in squares)?",
+        "answer": "12",
+        "hintLadder": [
+          "Area = cover it in unit squares.",
+          "Rows × columns = 6 × 2.",
+          "= 12."
+        ],
+        "explain": "6×2 = 12."
+      },
+      {
+        "id": "geo03-trick-5x5",
+        "type": "number",
+        "q": "A rectangle is 5 by 5. What is its area (in squares)?",
+        "answer": "25",
+        "hintLadder": [
+          "Area = cover it in unit squares.",
+          "Rows × columns = 5 × 5.",
+          "= 25."
+        ],
+        "explain": "5×5 = 25."
+      },
+      {
+        "id": "geo03-trick-7x3",
+        "type": "number",
+        "q": "A rectangle is 7 by 3. What is its area (in squares)?",
+        "answer": "21",
+        "hintLadder": [
+          "Area = cover it in unit squares.",
+          "Rows × columns = 7 × 3.",
+          "= 21."
+        ],
+        "explain": "7×3 = 21."
+      },
+      {
+        "id": "geo03-trick-8x2",
+        "type": "number",
+        "q": "A rectangle is 8 by 2. What is its area (in squares)?",
+        "answer": "16",
+        "hintLadder": [
+          "Area = cover it in unit squares.",
+          "Rows × columns = 8 × 2.",
+          "= 16."
+        ],
+        "explain": "8×2 = 16."
+      },
+      {
+        "id": "geo03-trick-4x4",
+        "type": "number",
+        "q": "A rectangle is 4 by 4. What is its area (in squares)?",
+        "answer": "16",
+        "hintLadder": [
+          "Area = cover it in unit squares.",
+          "Rows × columns = 4 × 4.",
+          "= 16."
+        ],
+        "explain": "4×4 = 16."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "confused-with-perimeter",
+      "mistake": "Adding the sides (6+4+6+4=20) when asked for area — buying the border instead of the floor!",
+      "fix": "Ask: edge question or inside question? Fencing/ribbon = edge = ADD. Tiles/paint/planting = inside = MULTIPLY. Remember Ravi's hollow dance floor!"
+    },
+    {
+      "mistakeTag": "plain-units-used",
+      "mistake": "Writing area as '24 metres' instead of 24 SQUARE metres.",
+      "fix": "Area counts SQUARES, so its units are square units: square cm, square m. '24 metres' is a length — a walk, not a floor."
+    },
+    {
+      "mistakeTag": "biggest-side-wins",
+      "mistake": "Judging which shape is bigger by its longest side instead of computing areas.",
+      "fix": "A long thin strip can hold LESS than a chubby square! Always multiply l × b for each shape, then compare the areas."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "A chocolate bar is 5 squares long and 3 squares wide. How many small squares does it have (its area)?",
+        "answer": "15",
+        "hintLadder": [
+          "The squares sit in 3 equal rows.",
+          "Rows × per-row: 3 × 5.",
+          "Fifteen."
+        ],
+        "visual": {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "rect",
+                "w": 5,
+                "h": 3,
+                "unitGrid": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "Tiles for a floor is an ______ question; fence for a garden is an ______ question.",
+        "options": [
+          {
+            "label": "inside (area) … edge (perimeter)"
+          },
+          {
+            "label": "edge (perimeter) … inside (area)",
+            "mistakeTag": "confused-with-perimeter"
+          }
+        ],
+        "answer": "inside (area) … edge (perimeter)",
+        "hintLadder": [
+          "Where do tiles go — around or all over?",
+          "Where does a fence go?",
+          "Inside = area = multiply; edge = perimeter = add."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "A courtyard is 9 m long and 4 m wide. How many square metres of tiles cover it?",
+        "answer": "36",
+        "hintLadder": [
+          "Inside question → multiply.",
+          "9 × 4.",
+          "Think 9 × 4 = 36 — four rows of nine."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "The area of a 7 cm × 2 cm card is written correctly as…",
+        "options": [
+          {
+            "label": "14 square cm"
+          },
+          {
+            "label": "14 cm",
+            "mistakeTag": "plain-units-used"
+          },
+          {
+            "label": "18 cm",
+            "mistakeTag": "confused-with-perimeter"
+          }
+        ],
+        "answer": "14 square cm",
+        "hintLadder": [
+          "7 × 2 = 14 — but which units?",
+          "Area counts squares.",
+          "SQUARE centimetres."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "number",
+        "q": "An L-shaped room splits into a 4 m × 3 m rectangle and a 2 m × 2 m square. Total area in square metres?",
+        "answer": "16",
+        "hintLadder": [
+          "Area of each piece first.",
+          "4×3 = 12 and 2×2 = 4.",
+          "Add the pieces."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "Garden A is 10 m × 2 m. Garden B is 5 m × 5 m. Which holds more planting space?",
+        "options": [
+          {
+            "label": "B — 25 square m beats A's 20 square m"
+          },
+          {
+            "label": "A — it has the longest side (10)",
+            "mistakeTag": "biggest-side-wins"
+          }
+        ],
+        "answer": "B — 25 square m beats A's 20 square m",
+        "hintLadder": [
+          "Compute both areas first.",
+          "A: 10×2 = ? B: 5×5 = ?",
+          "20 vs 25 — the chubby square wins!"
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "Area of an 8 m × 3 m rectangle, in square metres?",
+        "answer": "24",
+        "hintLadder": [
+          "Inside question → multiply.",
+          "8 × 3.",
+          "Twenty-four."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "Area is measured in…",
+        "options": [
+          {
+            "label": "Square units (square cm, square m)"
+          },
+          {
+            "label": "Plain length units (cm, m)",
+            "mistakeTag": "plain-units-used"
+          }
+        ],
+        "answer": "Square units (square cm, square m)",
+        "hintLadder": [
+          "What do we count for area?",
+          "Unit squares!",
+          "So the units are square units."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "For the SAME 6 × 4 rectangle: perimeter and area are…",
+        "options": [
+          {
+            "label": "Perimeter 20 (add all sides), area 24 (multiply) — different things!"
+          },
+          {
+            "label": "Both 20",
+            "mistakeTag": "confused-with-perimeter"
+          }
+        ],
+        "answer": "Perimeter 20 (add all sides), area 24 (multiply) — different things!",
+        "hintLadder": [
+          "Perimeter: 2×(6+4) = ?",
+          "Area: 6×4 = ?",
+          "The walk and the floor are different measurements."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "number",
+        "q": "A square stamp has 4 cm sides. Its area in square cm?",
+        "answer": "16",
+        "hintLadder": [
+          "A square's length and breadth are the same.",
+          "4 × 4.",
+          "Sixteen."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Retell Ravi's hollow dance floor disaster in your own words: why did 20 tiles only make a border, why did 6 × 4 fix it, and what's the one question ('edge or inside?') that keeps perimeter and area apart?",
+  "revisionCard": {
+    "summary": "Area = space INSIDE = count unit squares = length × breadth (rows of tiles = an array!). Units: SQUARE cm/m. Edge questions (fence/ribbon) ADD sides = perimeter; inside questions (tiles/paint) MULTIPLY = area. Odd shapes: split into rectangles and add.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Geometry City (Ganita Grove)",
+    "title": "The Dance Floor Rescue",
+    "brief": "Floors all over Shape City need tiling before the festival! Order exact tile counts by multiplying, split the tricky L-shaped halls, and reject Ravi's border-only orders before another hollow floor!",
+    "character": "Geo Giraffe"
+  },
+  "realLifeProject": "Tile inspector: pick a tiled floor or wall at home. Count the tiles in one row and the number of rows, multiply for the total, then spot-check by counting a small patch. Report your floor's area in tiles!",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4 (area with unit squares)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

@@ -1,0 +1,568 @@
+{
+  "id": "ops-07-addition-regrouping",
+  "name": "Addition with Regrouping (Carrying)",
+  "grade": 3,
+  "strand": "operations",
+  "prerequisites": [
+    "num-01-place-value"
+  ],
+  "whatIsIt": "Sometimes when we add, a place overflows: 7 ones + 5 ones = 12 ones — too many for the ones room! Regrouping fixes it: we bundle 10 of those ones into 1 new ten and CARRY it to the tens room. That little carried 1 is not magic — it is a real bundle of ten moving house.",
+  "whyNeeded": "Small additions fit on fingers, but real life adds bigger numbers: two shopping bills, two cricket scores, pages read this week and last week. Regrouping is what lets column addition work for ANY numbers — it is the engine inside every big addition.",
+  "realLifeUses": [
+    "Money: a ₹47 notebook and a ₹25 pencil box — total bill?",
+    "Cricket: 38 runs in the first innings, 26 in the second",
+    "Reading: 56 pages last week + 38 pages this week",
+    "Steps: walking 68 steps to the shop and 47 steps back home"
+  ],
+  "vocabulary": [
+    {
+      "term": "regroup",
+      "meaning": "Bundle 10 ones into 1 ten (or 10 tens into 1 hundred)."
+    },
+    {
+      "term": "carry",
+      "meaning": "Move the new bundle to the next place on the left."
+    },
+    {
+      "term": "column addition",
+      "meaning": "Adding numbers written one under the other, place by place."
+    },
+    {
+      "term": "sum",
+      "meaning": "The answer of an addition."
+    }
+  ],
+  "story": {
+    "title": "The Grain Merchant's Fair Count",
+    "characters": [
+      "the grain merchant",
+      "Ravi"
+    ],
+    "text": "At the market, a grain merchant pours 47 sugar grains into a bowl, then 25 more. 'How many now?' asks Ravi. 'Add the loose ones first: 7 and 5 make 12 — but 12 is more than ten! Ten of them make one full TEN, and 2 stay loose,' says the merchant, tying ten into a bundle. 'That new ten joins the rest: 4 tens, 2 tens, and 1 carried ten make 7 tens. So 72 grains in all.'",
+    "extractedProblem": "47 sugar grains + 25 sugar grains. How many grains in total?",
+    "answerInStory": "72 grains — the 12 loose ones became 1 new ten and 2 singles, so 7 tens and 2 ones."
+  },
+  "visual": {
+    "component": "PlaceValueBlocks",
+    "props": {
+      "sets": [
+        {
+          "tens": 4,
+          "ones": 7,
+          "label": "47"
+        },
+        {
+          "tens": 2,
+          "ones": 5,
+          "label": "+ 25"
+        },
+        {
+          "tens": 7,
+          "ones": 2,
+          "label": "= 72"
+        }
+      ]
+    },
+    "caption": "7 ones + 5 ones = 12 ones → tape 10 into a NEW ten-rod, keep 2 singles. Tens: 4 + 2 + 1(new) = 7. Answer: 72."
+  },
+  "teachingGallery": [
+    {
+      "title": "Carrying — when the ones make a ten",
+      "note": "Add the ones first. If they reach ten or more, carry a ten to the next column.",
+      "examples": [
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 0,
+                "tens": 2,
+                "ones": 7,
+                "label": "27"
+              }
+            ]
+          },
+          "caption": "Start: 27."
+        },
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 0,
+                "tens": 1,
+                "ones": 5,
+                "label": "+ 15"
+              }
+            ]
+          },
+          "caption": "Add 15."
+        },
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 0,
+                "tens": 0,
+                "ones": 12,
+                "label": "7 + 5 = 12 ones"
+              }
+            ]
+          },
+          "caption": "Ones make 12 → that's 1 ten and 2 ones. CARRY the ten."
+        },
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 0,
+                "tens": 4,
+                "ones": 2,
+                "label": "27 + 15 = 42"
+              }
+            ]
+          },
+          "caption": "2 tens + 1 ten + carried 1 ten = 4 tens; 2 ones left → 42."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  27,
+                  37,
+                  42
+                ],
+                "jump": null
+              }
+            ]
+          },
+          "caption": "Or jump: 27 + 10 = 37, + 5 = 42."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Add the ones first. If they make 10 or more, carry the new ten to the tens column.",
+    "steps": [
+      "Write the numbers one under the other, ones under ones, tens under tens.",
+      "Add the ONES column: 7 + 5 = 12. Write 2, carry the 1 (a real ten!) above the tens.",
+      "Add the TENS column with the carry: 4 + 2 + 1 = 7.",
+      "Read the answer: 72. Check: does it look about right? 47 + 25 is near 50 + 25 = 75 ✓"
+    ]
+  },
+  "mentalMathMethod": {
+    "name": "Left-to-right adding",
+    "whenToUse": "For fast mental sums.",
+    "steps": [
+      "Add the TENS first (or biggest place).",
+      "Then add the ones.",
+      "Combine — adjust if the ones make a new ten."
+    ],
+    "example": "47 + 38: 40+30=70, 7+8=15, 70+15=85."
+  },
+  "alternateMethods": [
+    {
+      "name": "Blocks method",
+      "whenToUse": "To SEE what the carried 1 really is.",
+      "steps": [
+        "Build both numbers with ten-rods and one-cubes.",
+        "Push all the ones together; every time 10 cubes gather, trade them for 1 rod.",
+        "Count rods and leftover cubes — that is the sum."
+      ],
+      "example": "47 + 25: cubes 7+5=12 → trade 10 for a rod → 7 rods, 2 cubes → 72."
+    },
+    {
+      "name": "Number-line jumps",
+      "whenToUse": "When you like hopping instead of columns.",
+      "steps": [
+        "Start at the bigger number: 47.",
+        "Jump the tens of the other number: 47 → 57 → 67 (that's +20).",
+        "Jump the ones: 67 → 72 (that's +5)."
+      ],
+      "example": "56 + 38: 56 →66→76→86 (+30), then 86→94 (+8)."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A shop sold 38 laddus in the morning and 26 in the evening. How many laddus in the whole day?",
+      "steps": [
+        "Column setup: 38 over 26, places aligned.",
+        "Ones: 8 + 6 = 14 → write 4, carry 1 ten.",
+        "Tens: 3 + 2 + 1(carry) = 6.",
+        "Total: 64 laddus. Estimate check: 40 + 26 = 66 — close ✓"
+      ],
+      "answer": "64"
+    },
+    {
+      "problem": "Ravi added 47 + 25 and wrote 612. 'Ones made 12, so I wrote 12!' What went wrong?",
+      "steps": [
+        "12 ones cannot ALL live in the ones column — only one digit fits per place.",
+        "Regroup: 12 ones = 1 ten + 2 ones. Write the 2, CARRY the 1.",
+        "Tens: 4 + 2 + 1 = 7 → answer 72, not 612.",
+        "Estimate check catches it too: 47 + 25 must be near 70, and 612 is way off!"
+      ],
+      "answer": "72 — write one digit, carry the bundle."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Carry the ten",
+    "intro": "When the ones pile past 9, bundle ten of them and carry it to the tens column.",
+    "questions": [
+      {
+        "id": "ops07-trick-27+15",
+        "type": "number",
+        "q": "27 + 15 = ?",
+        "answer": "42",
+        "hintLadder": [
+          "Add the ones: 7 + 5 = 12. Write 2, carry 1 ten.",
+          "Add the tens: 2 + 1 + 1 carried = 4.",
+          "Join → 42."
+        ],
+        "explain": "Carry 1 ten → 42."
+      },
+      {
+        "id": "ops07-trick-48+26",
+        "type": "number",
+        "q": "48 + 26 = ?",
+        "answer": "74",
+        "hintLadder": [
+          "Add the ones: 8 + 6 = 14. Write 4, carry 1 ten.",
+          "Add the tens: 4 + 2 + 1 carried = 7.",
+          "Join → 74."
+        ],
+        "explain": "Carry 1 ten → 74."
+      },
+      {
+        "id": "ops07-trick-36+29",
+        "type": "number",
+        "q": "36 + 29 = ?",
+        "answer": "65",
+        "hintLadder": [
+          "Add the ones: 6 + 9 = 15. Write 5, carry 1 ten.",
+          "Add the tens: 3 + 2 + 1 carried = 6.",
+          "Join → 65."
+        ],
+        "explain": "Carry 1 ten → 65."
+      },
+      {
+        "id": "ops07-trick-57+38",
+        "type": "number",
+        "q": "57 + 38 = ?",
+        "answer": "95",
+        "hintLadder": [
+          "Add the ones: 7 + 8 = 15. Write 5, carry 1 ten.",
+          "Add the tens: 5 + 3 + 1 carried = 9.",
+          "Join → 95."
+        ],
+        "explain": "Carry 1 ten → 95."
+      },
+      {
+        "id": "ops07-trick-19+44",
+        "type": "number",
+        "q": "19 + 44 = ?",
+        "answer": "63",
+        "hintLadder": [
+          "Add the ones: 9 + 4 = 13. Write 3, carry 1 ten.",
+          "Add the tens: 1 + 4 + 1 carried = 6.",
+          "Join → 63."
+        ],
+        "explain": "Carry 1 ten → 63."
+      },
+      {
+        "id": "ops07-trick-65+28",
+        "type": "number",
+        "q": "65 + 28 = ?",
+        "answer": "93",
+        "hintLadder": [
+          "Add the ones: 5 + 8 = 13. Write 3, carry 1 ten.",
+          "Add the tens: 6 + 2 + 1 carried = 9.",
+          "Join → 93."
+        ],
+        "explain": "Carry 1 ten → 93."
+      },
+      {
+        "id": "ops07-trick-46+47",
+        "type": "number",
+        "q": "46 + 47 = ?",
+        "answer": "93",
+        "hintLadder": [
+          "Add the ones: 6 + 7 = 13. Write 3, carry 1 ten.",
+          "Add the tens: 4 + 4 + 1 carried = 9.",
+          "Join → 93."
+        ],
+        "explain": "Carry 1 ten → 93."
+      },
+      {
+        "id": "ops07-trick-58+25",
+        "type": "number",
+        "q": "58 + 25 = ?",
+        "answer": "83",
+        "hintLadder": [
+          "Add the ones: 8 + 5 = 13. Write 3, carry 1 ten.",
+          "Add the tens: 5 + 2 + 1 carried = 8.",
+          "Join → 83."
+        ],
+        "explain": "Carry 1 ten → 83."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "forgot-the-carry",
+      "mistake": "Regrouping the ones but forgetting to add the carried 1 in the tens (47 + 25 = 62).",
+      "fix": "The carry is a REAL ten waiting upstairs! Write it clearly above the tens column and greet it first: 'carry says 1... plus 4 plus 2.'"
+    },
+    {
+      "mistakeTag": "wrote-both-digits",
+      "mistake": "Writing the whole 12 in the ones column (47 + 25 = 612).",
+      "fix": "One digit per room! When ones make 12, split it: 2 stays home, the 1 (a bundle of ten) moves to the tens shelf — Addy's warehouse rule."
+    },
+    {
+      "mistakeTag": "misaligned-places",
+      "mistake": "Writing 47 + 5 with the 5 under the 4, adding wrong columns together.",
+      "fix": "Line up from the RIGHT: ones under ones, tens under tens. A quick grid or squared paper keeps every digit in its lane."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "Addy's warehouse gets 26 grains + 17 grains. How many in total?",
+        "answer": "43",
+        "hintLadder": [
+          "Ones first: 6 + 7 = ?",
+          "13 ones! Keep 3, tape 10 into a new rod — carry 1.",
+          "Tens: 2 + 1 + 1(carry) = 4. Read the answer."
+        ],
+        "explain": "6+7=13 → write 3 carry 1; 2+1+1=4 → 43."
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "When the ones column makes 14, what do you write and carry?",
+        "options": [
+          {
+            "label": "Write 4, carry 1"
+          },
+          {
+            "label": "Write 14 in the ones column",
+            "mistakeTag": "wrote-both-digits"
+          },
+          {
+            "label": "Write 1, carry 4",
+            "mistakeTag": "misaligned-places"
+          }
+        ],
+        "answer": "Write 4, carry 1",
+        "hintLadder": [
+          "14 ones = how many tens and how many ones?",
+          "1 ten and 4 ones.",
+          "The ones digit stays; the ten travels left."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "A ₹47 notebook and a ₹25 pencil box. What is the total bill in rupees?",
+        "answer": "72",
+        "hintLadder": [
+          "Ones: 7 + 5 = 12 → write 2, carry 1.",
+          "Tens: 4 + 2 + 1 = ?",
+          "Check with an estimate: about 50 + 25 = 75, so your answer should be close."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "Try the friendly-ten trick in your head: 38 + 26 = ?",
+        "answer": "64",
+        "hintLadder": [
+          "38 needs 2 to become 40. Borrow the 2 from 26.",
+          "Now it is 40 + 24.",
+          "Add the easy way: 40 + 24."
+        ],
+        "explain": "38+2=40, 26−2=24, 40+24=64 — same answer, no paper!"
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Ravi wrote 47 + 25 = 62. Which warehouse rule did he break?",
+        "options": [
+          {
+            "label": "He made the new ten but forgot to add the carry in the tens"
+          },
+          {
+            "label": "He wrote both digits of 12 in the ones",
+            "mistakeTag": "wrote-both-digits"
+          },
+          {
+            "label": "Nothing — 62 is correct",
+            "mistakeTag": "forgot-the-carry"
+          }
+        ],
+        "answer": "He made the new ten but forgot to add the carry in the tens",
+        "hintLadder": [
+          "His ones digit (2) is right — so the regrouping started well.",
+          "Tens: 4 + 2 = 6… but who is missing?",
+          "The carried ten! 4 + 2 + 1 = 7, so 72."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "Double regroup! 76 + 58 = ? (Watch both columns overflow.)",
+        "answer": "134",
+        "hintLadder": [
+          "Ones: 6 + 8 = 14 → write 4, carry 1.",
+          "Tens: 7 + 5 + 1 = 13 tens! That is 1 hundred and 3 tens.",
+          "Write 3 in the tens, and the new hundred in front: 134."
+        ],
+        "explain": "Regrouping works at every level: 10 ones → 1 ten, 10 tens → 1 hundred."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "35 + 27 = ?",
+        "answer": "62",
+        "hintLadder": [
+          "Ones: 5 + 7 = 12 → write 2, carry 1.",
+          "Tens: 3 + 2 + 1 = ?",
+          "Six tens, two ones."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "The little 1 we carry to the tens column is really…",
+        "options": [
+          {
+            "label": "A bundle of ten ones moving to the tens place"
+          },
+          {
+            "label": "Just a decoration we memorise",
+            "mistakeTag": "forgot-the-carry"
+          }
+        ],
+        "answer": "A bundle of ten ones moving to the tens place",
+        "hintLadder": [
+          "Think of Addy taping grains together.",
+          "10 singles became one what?",
+          "One ten-rod, moved to the tens shelf."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "number",
+        "q": "Two innings: 38 runs + 46 runs. Total score?",
+        "answer": "84",
+        "hintLadder": [
+          "Ones: 8 + 6 = 14 → write 4, carry 1.",
+          "Tens: 3 + 4 + 1 = ?",
+          "Eight tens, four ones."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "number",
+        "q": "Pages read: 56 last week + 38 this week = ?",
+        "answer": "94",
+        "hintLadder": [
+          "Ones: 6 + 8 = 14 → write 4, carry 1.",
+          "Tens: 5 + 3 + 1 = ?",
+          "Nine tens, four ones."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "mcq",
+        "q": "Before trusting your answer, Addy always does one last check. Which?",
+        "options": [
+          {
+            "label": "An estimate: is the answer close to a friendly round sum?"
+          },
+          {
+            "label": "Nothing — column addition never goes wrong",
+            "mistakeTag": "wrote-both-digits"
+          }
+        ],
+        "answer": "An estimate: is the answer close to a friendly round sum?",
+        "hintLadder": [
+          "47 + 25 should be NEAR 50 + 25.",
+          "If you got 612, would the estimate warn you?",
+          "Yes! Estimation is the answer's bodyguard."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "You are Addy's new warehouse manager! Explain the warehouse rule to someone at home: what happens when the ones shelf collects 12 grains, and why the carried 1 must never be forgotten. Show them with 47 + 25.",
+  "revisionCard": {
+    "summary": "Add ones first. 10 or more? REGROUP: keep the ones digit, CARRY the new ten left (it's a real bundle!). Then add the tens including the carry. Always estimate-check: 47+25 ≈ 75, so 72 ✓ and 612 ✗.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Multiplication Farm (Ganita Grove)",
+    "title": "The Sugar Warehouse Rush",
+    "brief": "Deliveries are pouring in! Combine each pair of sugar shipments, tape every 10 loose grains into rods, and keep Addy's shelves perfect. Beware: Ravi keeps hiding the carry!",
+    "character": "Addy the Ant"
+  },
+  "realLifeProject": "Shop bill detective: take a real shop bill (or make one with a parent) with two items under ₹100. Add them with columns, then check with the friendly-ten trick. Do both ways give the same total?",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3 (addition with regrouping)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "abacusMethod": {
+    "name": "Carry a bead to the next rod",
+    "whenToUse": "To add with regrouping on the abacus.",
+    "steps": [
+      "Add on the ones rod. If it fills past nine, clear ten and carry ONE bead to the tens rod.",
+      "Add the tens (plus any carried bead).",
+      "Read the answer across the rods."
+    ],
+    "example": "27 + 18: ones fill past ten → carry 1 ten → 45.",
+    "visual": {
+      "component": "Abacus",
+      "props": {
+        "abaci": [
+          {
+            "value": 45,
+            "label": "27 + 18 = 45"
+          }
+        ]
+      },
+      "caption": "Ones overflow → carry one bead to the tens rod."
+    }
+  },
+  "vedicMethod": {
+    "name": "Complete the whole (Vedic)",
+    "whenToUse": "When one number is just below a ten/hundred.",
+    "steps": [
+      "Round the near number up to the next ten or hundred.",
+      "Add — this is easy.",
+      "Subtract the small amount you added extra."
+    ],
+    "example": "58 + 26: 60 + 26 = 86, take back 2 → 84."
+  }
+}

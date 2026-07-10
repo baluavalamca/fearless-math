@@ -1,0 +1,596 @@
+{
+  "id": "num-05-even-odd",
+  "name": "Even and Odd — The Pairing Game",
+  "grade": 3,
+  "strand": "numbers",
+  "prerequisites": [
+    "num-01-place-value"
+  ],
+  "whatIsIt": "An EVEN number can be split into pairs with nobody left out: 8 = four pairs. An ODD number always leaves ONE alone: 7 = three pairs + a lonely one. The fastest check: look at the LAST digit only — 0,2,4,6,8 means even; 1,3,5,7,9 means odd. Even a giant like 3,45,678 confesses through its final digit!",
+  "whyNeeded": "Pairing shows up everywhere: partners for a dance, sharing between 2 friends, shoes and socks, house numbers on opposite street sides. Even/odd is also your first PATTERN law — numbers alternate even-odd-even-odd forever, and patterns like this power all higher math.",
+  "realLifeUses": [
+    "Class partners: can 27 students pair up evenly? (One left — odd!)",
+    "Sharing between 2 siblings: even numbers share perfectly",
+    "House numbers: odd on one side of the street, even on the other",
+    "Games: 'odd or even?' finger games decide who starts"
+  ],
+  "vocabulary": [
+    {
+      "term": "even",
+      "meaning": "Splits into pairs perfectly — ends in 0, 2, 4, 6, or 8."
+    },
+    {
+      "term": "odd",
+      "meaning": "One is always left unpaired — ends in 1, 3, 5, 7, or 9."
+    },
+    {
+      "term": "last-digit rule",
+      "meaning": "Only the ONES digit decides even/odd — the rest of the number doesn't matter!"
+    }
+  ],
+  "story": {
+    "title": "Pairs for the Garba Dance",
+    "characters": [
+      "the dance teacher",
+      "Ravi"
+    ],
+    "text": "The teacher pairs children for the garba dance. With 14 children everyone finds a partner — 7 full pairs — so 14 is EVEN. With 15, poor Ravi is left alone: 15 is ODD! 'For big numbers you need not pair them all,' she says. 'Just look at the LAST digit: 3,45,678 ends in 8, so it is even. The last digit alone decides.'",
+    "extractedProblem": "Are 14 and 15 even or odd? And how can you tell for 3,45,678 without pairing?",
+    "answerInStory": "14 is even (7 full pairs), 15 is odd (Ravi left alone!). 3,45,678 ends in 8 → even — the last digit alone decides."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        {
+          "rows": 2,
+          "cols": 7,
+          "label": "14 = 7 pairs — EVEN"
+        },
+        {
+          "rows": 2,
+          "cols": 7,
+          "highlightRows": 1,
+          "label": "15 = 7 pairs + 1 alone — ODD"
+        }
+      ]
+    },
+    "caption": "Two rows = pairing! 14 fills both rows evenly. 15 leaves one lonely spot — odd."
+  },
+  "teachingGallery": [
+    {
+      "title": "Even makes pairs; odd has one left over",
+      "note": "Line them in twos. No leftover = EVEN. One lonely one = ODD.",
+      "examples": [
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 3,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "6 makes 3 neat pairs — EVEN."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 2,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "4 makes 2 pairs — EVEN."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "8 pairs up perfectly — EVEN."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 5,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "5 leaves one lonely — ODD."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 7,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "7 has one left over — ODD."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Check ONLY the last digit: 0,2,4,6,8 → even; 1,3,5,7,9 → odd.",
+    "steps": [
+      "Look at the ONES digit — ignore everything else!",
+      "0, 2, 4, 6, 8 → EVEN (pairs perfectly).",
+      "1, 3, 5, 7, 9 → ODD (one left alone).",
+      "Why it works: tens/hundreds/thousands are already all pairs — only the ones can break pairing."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Pair-up test (concrete)",
+      "whenToUse": "Small numbers, and to SEE what even/odd means.",
+      "steps": [
+        "Take that many objects.",
+        "Match them into twos.",
+        "All matched → even. One alone → odd."
+      ],
+      "example": "9 buttons → 4 pairs + 1 alone → odd."
+    },
+    {
+      "name": "Even-odd arithmetic patterns",
+      "whenToUse": "Predicting answers before computing!",
+      "steps": [
+        "even + even = even; odd + odd = EVEN (the two loners pair up!).",
+        "even + odd = odd (one loner survives).",
+        "Predict, then verify: 23 + 45 → odd+odd → even. Check: 68 ✓"
+      ],
+      "example": "347 + 253: odd + odd → must be even → 600 ✓"
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Is 3,45,678 even or odd?",
+      "steps": [
+        "Last-digit spy: look only at the ones digit.",
+        "It ends in 8.",
+        "8 is in the even family → 3,45,678 is EVEN. (No pairing of three lakh dancers required!)"
+      ],
+      "answer": "Even"
+    },
+    {
+      "problem": "Ravi declares 41 even 'because 4 is even'. Which digit should he have watched?",
+      "steps": [
+        "Only the LAST digit decides — the 4 sits in the tens (already all pairs!).",
+        "41 ends in 1.",
+        "1 is odd → 41 is ODD. Pair-check: 20 pairs + 1 alone ✓"
+      ],
+      "answer": "Odd — watch the ones digit, not the loudest one."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Look at the last digit",
+    "intro": "Ignore the whole number — the final digit alone tells you even or odd.",
+    "questions": [
+      {
+        "id": "num05-trick-34",
+        "type": "mcq",
+        "q": "Is 34 even or odd?",
+        "answer": "even",
+        "options": [
+          {
+            "label": "even"
+          },
+          {
+            "label": "odd"
+          }
+        ],
+        "hintLadder": [
+          "Look ONLY at the last digit.",
+          "0,2,4,6,8 → even. 1,3,5,7,9 → odd.",
+          "34 ends in 4 → even."
+        ],
+        "explain": "34 ends in 4 → even."
+      },
+      {
+        "id": "num05-trick-57",
+        "type": "mcq",
+        "q": "Is 57 even or odd?",
+        "answer": "odd",
+        "options": [
+          {
+            "label": "even"
+          },
+          {
+            "label": "odd"
+          }
+        ],
+        "hintLadder": [
+          "Look ONLY at the last digit.",
+          "0,2,4,6,8 → even. 1,3,5,7,9 → odd.",
+          "57 ends in 7 → odd."
+        ],
+        "explain": "57 ends in 7 → odd."
+      },
+      {
+        "id": "num05-trick-20",
+        "type": "mcq",
+        "q": "Is 20 even or odd?",
+        "answer": "even",
+        "options": [
+          {
+            "label": "even"
+          },
+          {
+            "label": "odd"
+          }
+        ],
+        "hintLadder": [
+          "Look ONLY at the last digit.",
+          "0,2,4,6,8 → even. 1,3,5,7,9 → odd.",
+          "20 ends in 0 → even."
+        ],
+        "explain": "20 ends in 0 → even."
+      },
+      {
+        "id": "num05-trick-63",
+        "type": "mcq",
+        "q": "Is 63 even or odd?",
+        "answer": "odd",
+        "options": [
+          {
+            "label": "even"
+          },
+          {
+            "label": "odd"
+          }
+        ],
+        "hintLadder": [
+          "Look ONLY at the last digit.",
+          "0,2,4,6,8 → even. 1,3,5,7,9 → odd.",
+          "63 ends in 3 → odd."
+        ],
+        "explain": "63 ends in 3 → odd."
+      },
+      {
+        "id": "num05-trick-88",
+        "type": "mcq",
+        "q": "Is 88 even or odd?",
+        "answer": "even",
+        "options": [
+          {
+            "label": "even"
+          },
+          {
+            "label": "odd"
+          }
+        ],
+        "hintLadder": [
+          "Look ONLY at the last digit.",
+          "0,2,4,6,8 → even. 1,3,5,7,9 → odd.",
+          "88 ends in 8 → even."
+        ],
+        "explain": "88 ends in 8 → even."
+      },
+      {
+        "id": "num05-trick-45",
+        "type": "mcq",
+        "q": "Is 45 even or odd?",
+        "answer": "odd",
+        "options": [
+          {
+            "label": "even"
+          },
+          {
+            "label": "odd"
+          }
+        ],
+        "hintLadder": [
+          "Look ONLY at the last digit.",
+          "0,2,4,6,8 → even. 1,3,5,7,9 → odd.",
+          "45 ends in 5 → odd."
+        ],
+        "explain": "45 ends in 5 → odd."
+      },
+      {
+        "id": "num05-trick-10",
+        "type": "mcq",
+        "q": "Is 10 even or odd?",
+        "answer": "even",
+        "options": [
+          {
+            "label": "even"
+          },
+          {
+            "label": "odd"
+          }
+        ],
+        "hintLadder": [
+          "Look ONLY at the last digit.",
+          "0,2,4,6,8 → even. 1,3,5,7,9 → odd.",
+          "10 ends in 0 → even."
+        ],
+        "explain": "10 ends in 0 → even."
+      },
+      {
+        "id": "num05-trick-99",
+        "type": "mcq",
+        "q": "Is 99 even or odd?",
+        "answer": "odd",
+        "options": [
+          {
+            "label": "even"
+          },
+          {
+            "label": "odd"
+          }
+        ],
+        "hintLadder": [
+          "Look ONLY at the last digit.",
+          "0,2,4,6,8 → even. 1,3,5,7,9 → odd.",
+          "99 ends in 9 → odd."
+        ],
+        "explain": "99 ends in 9 → odd."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "wrong-digit-watched",
+      "mistake": "Judging by the first digit or any even digit inside (calling 41 even for its 4).",
+      "fix": "Only the ONES digit can leave a loner — everything left of it is built of tens, which are pure pairs. Watch the LAST digit only!"
+    },
+    {
+      "mistakeTag": "zero-called-odd",
+      "mistake": "Thinking numbers ending in 0 (like 30, 40) are odd because 'zero is nothing'.",
+      "fix": "Ending in 0 means perfectly bundled tens — ALL pairs, nobody alone. 0 belongs to the even family: 10, 20, 30 all split evenly between two friends!"
+    },
+    {
+      "mistakeTag": "odd-plus-odd-called-odd",
+      "mistake": "Predicting odd + odd = odd ('two odds stay odd').",
+      "fix": "The two loners find EACH OTHER! odd + odd = even, always: 3+5 = 8, 7+9 = 16. Only a single unpaired loner makes odd."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "mcq",
+        "q": "Is 27 even or odd?",
+        "options": [
+          {
+            "label": "Odd — it ends in 7"
+          },
+          {
+            "label": "Even — 2 is even",
+            "mistakeTag": "wrong-digit-watched"
+          }
+        ],
+        "answer": "Odd — it ends in 7",
+        "hintLadder": [
+          "Which digit decides?",
+          "The LAST one.",
+          "7 is in the odd family."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "Can 16 students pair up with nobody left out?",
+        "options": [
+          {
+            "label": "Yes — 16 is even, 8 full pairs"
+          },
+          {
+            "label": "No — one will be alone",
+            "mistakeTag": "zero-called-odd"
+          }
+        ],
+        "answer": "Yes — 16 is even, 8 full pairs",
+        "hintLadder": [
+          "Check the last digit of 16.",
+          "6 → even family.",
+          "Even = perfect pairs."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "mcq",
+        "q": "Is 90 even or odd?",
+        "options": [
+          {
+            "label": "Even — ending in 0 means all pairs"
+          },
+          {
+            "label": "Odd — zero is nothing",
+            "mistakeTag": "zero-called-odd"
+          }
+        ],
+        "answer": "Even — ending in 0 means all pairs",
+        "hintLadder": [
+          "90 = 9 bundles of ten.",
+          "Every ten = 5 pairs.",
+          "All pairs → even!"
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "WITHOUT adding, predict: 23 + 45 will be…",
+        "options": [
+          {
+            "label": "Even — the two loners pair up!"
+          },
+          {
+            "label": "Odd — odd plus odd stays odd",
+            "mistakeTag": "odd-plus-odd-called-odd"
+          }
+        ],
+        "answer": "Even — the two loners pair up!",
+        "hintLadder": [
+          "23 is odd (loner!), 45 is odd (loner!).",
+          "What do two loners do?",
+          "Pair with each other → even. Check: 68."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "The giant 7,77,774 — even or odd?",
+        "options": [
+          {
+            "label": "Even — it ends in 4, sevens don't matter!"
+          },
+          {
+            "label": "Odd — it's full of sevens",
+            "mistakeTag": "wrong-digit-watched"
+          }
+        ],
+        "answer": "Even — it ends in 4, sevens don't matter!",
+        "hintLadder": [
+          "All those 7s sit in pair-built rooms.",
+          "Only the ones digit can leave a loner.",
+          "4 → even family."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "What is the SMALLEST 3-digit even number?",
+        "answer": "100",
+        "hintLadder": [
+          "Smallest 3-digit number is 100.",
+          "Check its last digit: 0.",
+          "0 is even — so 100 itself qualifies!"
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "mcq",
+        "q": "Which digit of a number decides even or odd?",
+        "options": [
+          {
+            "label": "The last (ones) digit only"
+          },
+          {
+            "label": "The first digit",
+            "mistakeTag": "wrong-digit-watched"
+          }
+        ],
+        "answer": "The last (ones) digit only",
+        "hintLadder": [
+          "Where can a loner hide?",
+          "Only in the ones.",
+          "Everything else is pairs of tens."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "38 is…",
+        "options": [
+          {
+            "label": "Even"
+          },
+          {
+            "label": "Odd",
+            "mistakeTag": "wrong-digit-watched"
+          }
+        ],
+        "answer": "Even",
+        "hintLadder": [
+          "Last digit?",
+          "8.",
+          "0,2,4,6,8 → even."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "Numbers ending in 0 (like 50) are…",
+        "options": [
+          {
+            "label": "Even — perfectly bundled pairs"
+          },
+          {
+            "label": "Odd — zero is nothing",
+            "mistakeTag": "zero-called-odd"
+          }
+        ],
+        "answer": "Even — perfectly bundled pairs",
+        "hintLadder": [
+          "50 shared between 2 friends?",
+          "25 each, nobody short!",
+          "Perfect sharing = even."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "odd + odd always makes…",
+        "options": [
+          {
+            "label": "Even — the loners pair up"
+          },
+          {
+            "label": "Odd",
+            "mistakeTag": "odd-plus-odd-called-odd"
+          }
+        ],
+        "answer": "Even — the loners pair up",
+        "hintLadder": [
+          "Each odd brings one loner.",
+          "Two loners meet…",
+          "…and dance! Even."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Host a mini dance parade at home: grab 13 small objects, pair them up to show odd, add one more to show even — then teach the last-digit spy trick with a huge number like 5,67,892.",
+  "revisionCard": {
+    "summary": "Even = perfect pairs (ends 0,2,4,6,8); odd = one loner (ends 1,3,5,7,9). ONLY the last digit decides — the rest is pre-paired tens! Patterns: odd+odd = even (loners pair up), even+odd = odd. 0-enders are even!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The Dance Partner Parade",
+    "brief": "Dancers keep arriving in crowds of all sizes! Sort each crowd even/odd with the last-digit spy trick, predict which combined crowds pair perfectly, and find poor Ravi a partner when the count goes odd.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "House-number walk: with a parent, note 6 house numbers on your street. Which side is odd, which even? Then predict even/odd for each family member's age — and verify with the pair-up test using beans!",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3 (even and odd numbers)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

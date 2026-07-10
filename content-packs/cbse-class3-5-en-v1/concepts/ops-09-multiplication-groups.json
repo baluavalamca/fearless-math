@@ -1,0 +1,744 @@
+{
+  "id": "ops-09-multiplication-groups",
+  "name": "Multiplication — Equal Groups and Arrays",
+  "grade": 3,
+  "strand": "operations",
+  "prerequisites": [
+    "ops-07-addition-regrouping"
+  ],
+  "whatIsIt": "Multiplication is a fast way of adding the SAME number again and again. '4 × 6' means '4 groups of 6'. Instead of counting 6 + 6 + 6 + 6 slowly, multiplication jumps straight to 24. When we arrange the groups in neat rows, we get an ARRAY — rows and columns that show multiplication as a picture.",
+  "whyNeeded": "Counting one by one is slow and tiring. When things come in EQUAL groups — boxes of laddus, rows of chairs, wheels on cycles — multiplication counts them all in one jump. It is the counting superpower for equal groups!",
+  "realLifeUses": [
+    "Shopping: 5 packets of biscuits with 8 biscuits each — how many biscuits?",
+    "School assembly: 6 rows of children with 10 in each row",
+    "Cycles: 7 bicycles — how many wheels? 7 groups of 2!",
+    "Egg trays: 3 trays of 12 eggs for the party",
+    "Cricket: 4 overs bowled — how many balls? 4 groups of 6"
+  ],
+  "vocabulary": [
+    {
+      "term": "equal groups",
+      "meaning": "Groups that all have the SAME number of things in them."
+    },
+    {
+      "term": "multiplication (×)",
+      "meaning": "Counting equal groups in one jump: 4 × 6 means 4 groups of 6."
+    },
+    {
+      "term": "array",
+      "meaning": "Things arranged in equal rows and columns — a multiplication picture."
+    },
+    {
+      "term": "product",
+      "meaning": "The answer of a multiplication. The product of 4 × 6 is 24."
+    }
+  ],
+  "story": {
+    "title": "Four Baskets at the Mango Stall",
+    "characters": [
+      "Anu",
+      "the mango seller"
+    ],
+    "text": "At the mango stall, Anu sees 4 baskets, each holding 6 mangoes. 'How many mangoes altogether?' The seller smiles: 'Do not count all 24 one by one — the baskets are EQUAL groups. Four groups of six is 4 × 6. Jump-count by six: 6, 12, 18, 24. Twenty-four mangoes, in just four jumps!'",
+    "extractedProblem": "There are 4 baskets with 6 mangoes in each basket. How many mangoes are there in total?",
+    "answerInStory": "4 groups of 6 makes 4 × 6 = 24 mangoes — counted in four jumps, not twenty-four!"
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        {
+          "rows": 4,
+          "cols": 6,
+          "asGroups": true,
+          "label": "4 baskets of 6 = 4 × 6 = 24"
+        }
+      ]
+    },
+    "caption": "Each dashed basket holds 6 mangoes. Four equal baskets: 6 + 6 + 6 + 6 = 4 × 6 = 24."
+  },
+  "teachingGallery": [
+    {
+      "title": "Multiplication is equal groups",
+      "note": "So many groups, each the same size — count them all with a skip-count.",
+      "examples": [
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "3 groups of 4 = 12 (skip-count 4, 8, 12)."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 5,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "2 groups of 5 = 10."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 4,
+                "cols": 3,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "4 groups of 3 = 12."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 5,
+                "cols": 2,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "5 groups of 2 = 10."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  4,
+                  8,
+                  12,
+                  16
+                ],
+                "jump": 4
+              }
+            ]
+          },
+          "caption": "4 × 4: skip-count 4, 8, 12, 16."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Count the groups, count how many in each group, then multiply: groups × in-each = total.",
+    "steps": [
+      "Check the groups are EQUAL — same number in every group.",
+      "Count the number of groups (4 baskets).",
+      "Count how many in ONE group (6 mangoes).",
+      "Write and solve the multiplication sentence: 4 × 6 = 24."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Repeated addition",
+      "whenToUse": "When you are just starting, or want to check a multiplication.",
+      "steps": [
+        "Write the group number once for every group: 6 + 6 + 6 + 6.",
+        "Add step by step: 6+6=12, 12+6=18, 18+6=24.",
+        "The total matches the multiplication: 4 × 6 = 24."
+      ],
+      "example": "3 × 5 = 5 + 5 + 5 = 15."
+    },
+    {
+      "name": "Array method (rows and columns)",
+      "whenToUse": "To SEE multiplication and discover that 4 × 6 = 6 × 4.",
+      "steps": [
+        "Arrange the objects in equal rows: 4 rows of 6.",
+        "Count a row (6) and count the rows (4): 4 × 6 = 24.",
+        "Turn your head sideways — now it is 6 rows of 4! Same dots, so 6 × 4 = 24 too."
+      ],
+      "example": "A 3-by-4 array of stickers shows 3 × 4 = 4 × 3 = 12."
+    },
+    {
+      "name": "Skip counting",
+      "whenToUse": "For quick mental multiplication with friendly numbers.",
+      "steps": [
+        "Say the table of the group size, one jump per group.",
+        "For 4 × 6: say 6, 12, 18, 24 — four jumps, done!"
+      ],
+      "example": "5 × 2: say 2, 4, 6, 8, 10."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A parking lot has 5 rows of cars with 3 cars in each row. How many cars are there?",
+      "steps": [
+        "Groups are equal: 5 rows, 3 cars in each.",
+        "Multiplication sentence: 5 × 3.",
+        "Skip count by 3: 3, 6, 9, 12, 15.",
+        "There are 15 cars."
+      ],
+      "answer": "15",
+      "visual": {
+        "component": "ArrayGrid",
+        "props": {
+          "grids": [
+            {
+              "rows": 5,
+              "cols": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem": "Ravi says 4 × 6 = 10 because '4 + 6 = 10'. What went wrong?",
+      "steps": [
+        "4 × 6 does not mean 'put 4 and 6 together'.",
+        "It means 4 GROUPS of 6: 6 + 6 + 6 + 6.",
+        "Adding the two numbers mixes up + and ×.",
+        "6+6=12, 12+6=18, 18+6=24. So 4 × 6 = 24, not 10."
+      ],
+      "answer": "4 × 6 = 24 — multiplication is groups-of, not plus."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Equal groups — skip count",
+    "intro": "Multiplication is just skip-counting the same group again and again.",
+    "questions": [
+      {
+        "id": "ops09-trick-2x3",
+        "type": "number",
+        "q": "2 groups of 3 = ?",
+        "answer": "6",
+        "hintLadder": [
+          "2 groups, each has 3.",
+          "Skip count by 3: 3, 6.",
+          "= 6."
+        ],
+        "explain": "Skip count 3, 2 times = 6.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  3,
+                  6
+                ],
+                "jump": 3
+              }
+            ]
+          },
+          "caption": "2 jumps of 3"
+        }
+      },
+      {
+        "id": "ops09-trick-3x4",
+        "type": "number",
+        "q": "3 groups of 4 = ?",
+        "answer": "12",
+        "hintLadder": [
+          "3 groups, each has 4.",
+          "Skip count by 4: 4, 8, 12.",
+          "= 12."
+        ],
+        "explain": "Skip count 4, 3 times = 12.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  4,
+                  8,
+                  12
+                ],
+                "jump": 4
+              }
+            ]
+          },
+          "caption": "3 jumps of 4"
+        }
+      },
+      {
+        "id": "ops09-trick-4x2",
+        "type": "number",
+        "q": "4 groups of 2 = ?",
+        "answer": "8",
+        "hintLadder": [
+          "4 groups, each has 2.",
+          "Skip count by 2: 2, 4, 6, 8.",
+          "= 8."
+        ],
+        "explain": "Skip count 2, 4 times = 8.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  2,
+                  4,
+                  6,
+                  8
+                ],
+                "jump": 2
+              }
+            ]
+          },
+          "caption": "4 jumps of 2"
+        }
+      },
+      {
+        "id": "ops09-trick-5x3",
+        "type": "number",
+        "q": "5 groups of 3 = ?",
+        "answer": "15",
+        "hintLadder": [
+          "5 groups, each has 3.",
+          "Skip count by 3: 3, 6, 9, 12, 15.",
+          "= 15."
+        ],
+        "explain": "Skip count 3, 5 times = 15.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  3,
+                  6,
+                  9,
+                  12,
+                  15
+                ],
+                "jump": 3
+              }
+            ]
+          },
+          "caption": "5 jumps of 3"
+        }
+      },
+      {
+        "id": "ops09-trick-3x5",
+        "type": "number",
+        "q": "3 groups of 5 = ?",
+        "answer": "15",
+        "hintLadder": [
+          "3 groups, each has 5.",
+          "Skip count by 5: 5, 10, 15.",
+          "= 15."
+        ],
+        "explain": "Skip count 5, 3 times = 15.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  5,
+                  10,
+                  15
+                ],
+                "jump": 5
+              }
+            ]
+          },
+          "caption": "3 jumps of 5"
+        }
+      },
+      {
+        "id": "ops09-trick-4x4",
+        "type": "number",
+        "q": "4 groups of 4 = ?",
+        "answer": "16",
+        "hintLadder": [
+          "4 groups, each has 4.",
+          "Skip count by 4: 4, 8, 12, 16.",
+          "= 16."
+        ],
+        "explain": "Skip count 4, 4 times = 16.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  4,
+                  8,
+                  12,
+                  16
+                ],
+                "jump": 4
+              }
+            ]
+          },
+          "caption": "4 jumps of 4"
+        }
+      },
+      {
+        "id": "ops09-trick-2x7",
+        "type": "number",
+        "q": "2 groups of 7 = ?",
+        "answer": "14",
+        "hintLadder": [
+          "2 groups, each has 7.",
+          "Skip count by 7: 7, 14.",
+          "= 14."
+        ],
+        "explain": "Skip count 7, 2 times = 14.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  7,
+                  14
+                ],
+                "jump": 7
+              }
+            ]
+          },
+          "caption": "2 jumps of 7"
+        }
+      },
+      {
+        "id": "ops09-trick-6x2",
+        "type": "number",
+        "q": "6 groups of 2 = ?",
+        "answer": "12",
+        "hintLadder": [
+          "6 groups, each has 2.",
+          "Skip count by 2: 2, 4, 6, 8, 10, 12.",
+          "= 12."
+        ],
+        "explain": "Skip count 2, 6 times = 12.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  2,
+                  4,
+                  6,
+                  8,
+                  10,
+                  12
+                ],
+                "jump": 2
+              }
+            ]
+          },
+          "caption": "6 jumps of 2"
+        }
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "added-the-two-numbers",
+      "mistake": "Answering 4 × 6 with 10 by adding 4 + 6 instead of taking 4 groups of 6.",
+      "fix": "Read × as 'groups of'. 4 × 6 is 4 groups of 6 mangoes — picture Multi's baskets, then jump: 6, 12, 18, 24."
+    },
+    {
+      "mistakeTag": "counted-groups-not-items",
+      "mistake": "Giving the number of groups (4) or the group size (6) as the answer instead of the total.",
+      "fix": "The question asks for ALL the things together. After writing groups × in-each, finish the jump counting to the total."
+    },
+    {
+      "mistakeTag": "unequal-groups-multiplied",
+      "mistake": "Multiplying when the groups are NOT equal (baskets of 6, 4, and 7 treated as 3 × 6).",
+      "fix": "Multiplication only works for EQUAL groups. If groups differ, add them one by one — or make them equal first."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "There are 3 plates with 4 laddus on each plate. How many laddus in total?",
+        "answer": "12",
+        "hintLadder": [
+          "Are the groups equal? 3 plates, 4 on each — yes!",
+          "Write it as groups × in-each: 3 × 4.",
+          "Jump count by 4: 4, 8, 12."
+        ],
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          }
+        },
+        "explain": "3 groups of 4 = 3 × 4 = 12 laddus."
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "Which sum is the SAME as 2 × 5?",
+        "options": [
+          {
+            "label": "5 + 5"
+          },
+          {
+            "label": "2 + 5",
+            "mistakeTag": "added-the-two-numbers"
+          },
+          {
+            "label": "2 + 2 + 2 + 2 + 2",
+            "mistakeTag": "counted-groups-not-items"
+          }
+        ],
+        "answer": "5 + 5",
+        "hintLadder": [
+          "2 × 5 means 2 GROUPS of 5.",
+          "Write 5 once for each group. How many 5s?",
+          "Two groups: 5 + 5."
+        ],
+        "explain": "2 × 5 = 5 + 5 = 10. (2+2+2+2+2 is 5 × 2 — same answer, different picture!)"
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "A classroom has 6 rows of desks with 5 desks in each row. How many desks are there?",
+        "answer": "30",
+        "hintLadder": [
+          "Rows and columns — this is an array!",
+          "6 rows × 5 in each row.",
+          "Skip count by 5, six jumps: 5, 10, 15, 20, 25, 30."
+        ],
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 6,
+                "cols": 5
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "Multi arranged 24 mangoes in 4 rows of 6. Anu turned the tray sideways and saw 6 rows of 4. Who has more mangoes?",
+        "options": [
+          {
+            "label": "Both have the same — 4 × 6 = 6 × 4 = 24"
+          },
+          {
+            "label": "Anu, because 6 rows is more than 4 rows",
+            "mistakeTag": "counted-groups-not-items"
+          }
+        ],
+        "answer": "Both have the same — 4 × 6 = 6 × 4 = 24",
+        "hintLadder": [
+          "Did any mango appear or disappear when the tray turned?",
+          "Count the total both ways: 4 jumps of 6, then 6 jumps of 4.",
+          "Same dots, same total — order does not change the product."
+        ],
+        "explain": "Turning an array swaps rows and columns but never changes the total: 4 × 6 = 6 × 4."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Three baskets hold 6, 4, and 7 mangoes. Ravi writes 3 × 6 = 18 mangoes. What is wrong?",
+        "options": [
+          {
+            "label": "The groups are not equal, so he cannot multiply — he must add 6 + 4 + 7"
+          },
+          {
+            "label": "He should write 3 × 7 instead",
+            "mistakeTag": "unequal-groups-multiplied"
+          },
+          {
+            "label": "He should add 3 + 6 instead",
+            "mistakeTag": "added-the-two-numbers"
+          }
+        ],
+        "answer": "The groups are not equal, so he cannot multiply — he must add 6 + 4 + 7",
+        "hintLadder": [
+          "What must be true about the groups before you multiply?",
+          "Are 6, 4, and 7 the same?",
+          "Unequal groups: add them instead — 6 + 4 + 7 = 17."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "A cricket match: a bowler bowls 4 overs, and each over has 6 balls. Another bowler bowls 24 balls. Who bowled more balls? Answer with the FIRST bowler's total.",
+        "answer": "24",
+        "hintLadder": [
+          "First bowler: 4 overs of 6 balls — equal groups!",
+          "4 × 6 = ? Jump: 6, 12, 18, 24.",
+          "Now compare with the second bowler's 24."
+        ],
+        "explain": "4 × 6 = 24 — both bowled exactly the same number of balls!"
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "mcq",
+        "q": "What does 5 × 3 mean?",
+        "options": [
+          {
+            "label": "5 groups of 3"
+          },
+          {
+            "label": "5 plus 3",
+            "mistakeTag": "added-the-two-numbers"
+          }
+        ],
+        "answer": "5 groups of 3",
+        "hintLadder": [
+          "Read × as 'groups of'.",
+          "Which number counts the groups? Which counts inside one group?",
+          "5 groups, 3 in each: 3+3+3+3+3."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "There are 4 cycles in the shed. Each cycle has 2 wheels. How many wheels?",
+        "answer": "8",
+        "hintLadder": [
+          "Equal groups: 4 cycles, 2 wheels each.",
+          "4 × 2 — jump count by 2.",
+          "2, 4, 6, 8."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "number",
+        "q": "An egg tray array has 3 rows with 6 eggs in each row. How many eggs?",
+        "answer": "18",
+        "hintLadder": [
+          "Rows × in-each-row.",
+          "3 × 6 — three jumps of 6.",
+          "6, 12, 18."
+        ],
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 6
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "When is it OK to multiply to find a total?",
+        "options": [
+          {
+            "label": "Only when all the groups are equal"
+          },
+          {
+            "label": "Whenever there are groups of any sizes",
+            "mistakeTag": "unequal-groups-multiplied"
+          }
+        ],
+        "answer": "Only when all the groups are equal",
+        "hintLadder": [
+          "Think of Multi's baskets — what was special about them?",
+          "Could Multi jump-count baskets of 6, 4, and 7?",
+          "Equal groups only. Different sizes must be added."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "number",
+        "q": "5 packets of biscuits, 8 biscuits in each packet. Total biscuits?",
+        "answer": "40",
+        "hintLadder": [
+          "Groups × in-each: 5 × 8.",
+          "Jump count by 8: 8, 16, 24, 32...",
+          "One more jump: 40."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Multi the Monkey wants YOU to teach a new monkey the jump-counting trick! Explain: what must be true about the groups, what 3 × 4 means, and show how to jump-count it. Use baskets, plates, or anything you like.",
+  "revisionCard": {
+    "summary": "Multiplication = equal groups counted in jumps. 4 × 6 = 4 groups of 6 = 6+6+6+6 = 24. Arrays show it in rows; turning the array proves 4 × 6 = 6 × 4. Rule: EQUAL groups only — unequal groups must be added.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Multiplication Farm (Ganita Grove)",
+    "title": "The Mango Basket Rush",
+    "brief": "Baskets keep arriving at Multi's stall! Jump-count each delivery before the timer mangoes roll away, and catch Ravi sneaking unequal baskets into the multiplication line.",
+    "character": "Multi the Monkey"
+  },
+  "realLifeProject": "Set the table tonight! Count the plates, then the spoons per plate, and announce the total 'the monkey way': '4 plates × 2 spoons = 8 spoons!' Find two more equal-group multiplications hiding in your home (window grills, egg trays, chapati stacks) and write them down.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3 (multiplication as equal groups)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "mentalMathMethod": {
+    "name": "Doubling to multiply",
+    "whenToUse": "For 2, 4, and 8 times tables.",
+    "steps": [
+      "×2 is doubling.",
+      "×4 is double-double.",
+      "×8 is double-double-double."
+    ],
+    "example": "6 × 4: double 6 = 12, double again = 24."
+  },
+  "abacusMethod": {
+    "name": "Repeated addition on the beads",
+    "whenToUse": "To multiply small numbers on the abacus.",
+    "steps": [
+      "Add the group size once for each group.",
+      "Push up that many beads, that many times.",
+      "The final beads show the product."
+    ],
+    "example": "3 × 4: add 4 three times → 12.",
+    "visual": {
+      "component": "Abacus",
+      "props": {
+        "abaci": [
+          {
+            "value": 12,
+            "label": "3 × 4 = 12"
+          }
+        ]
+      },
+      "caption": "Add 4 three times on the beads."
+    }
+  }
+}

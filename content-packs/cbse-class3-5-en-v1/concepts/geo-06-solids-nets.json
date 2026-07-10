@@ -1,0 +1,591 @@
+{
+  "id": "geo-06-solids-nets",
+  "name": "Solids and Nets — Boxes You Can Unfold",
+  "grade": 5,
+  "strand": "geometry",
+  "prerequisites": [
+    "geo-01-shapes"
+  ],
+  "whatIsIt": "A SOLID (3D shape) has length, breadth AND height — like a cube, cuboid, cone, cylinder, or sphere. Its flat surfaces are FACES, the lines where faces meet are EDGES, and the corners are VERTICES. A NET is a solid unfolded flat — the shape you could cut out and fold back into the box.",
+  "whyNeeded": "The world is 3D: boxes, cans, balls, dice, ice-cream cones. Knowing faces, edges and vertices helps us describe and build them; nets are exactly how cartons and packets are designed and printed flat before folding.",
+  "realLifeUses": [
+    "A cardboard carton is folded from a flat net",
+    "A dice (cube) has 6 faces, 12 edges, 8 corners",
+    "A tin can is a cylinder; an ice-cream cone is a cone",
+    "Wrapping a gift box is covering all its faces"
+  ],
+  "vocabulary": [
+    {
+      "term": "solid (3D shape)",
+      "meaning": "A shape with length, breadth and height, like a cube or ball."
+    },
+    {
+      "term": "face",
+      "meaning": "A flat surface of a solid (a cube has 6)."
+    },
+    {
+      "term": "edge",
+      "meaning": "The line where two faces meet (a cube has 12)."
+    },
+    {
+      "term": "vertex",
+      "meaning": "A corner where edges meet (a cube has 8). Plural: vertices."
+    },
+    {
+      "term": "net",
+      "meaning": "A solid unfolded into a flat shape that folds back into it."
+    }
+  ],
+  "story": {
+    "title": "Unfolding the Diwali Mithai Box",
+    "characters": [
+      "Meena",
+      "the halwai"
+    ],
+    "text": "Meena's Diwali mithai came in a cube-shaped box. The halwai carefully unfolds it flat — six squares joined in a cross. 'That flat shape is the NET of a cube.' He counts on the folded box: 6 flat FACES, 12 EDGES where they meet, and 8 corner VERTICES. 'A flat net folds back into a solid box — that is how every carton is made!'",
+    "extractedProblem": "A cube-shaped mithai box is unfolded flat. How many square faces make up its net?",
+    "answerInStory": "6 squares — a cube has 6 faces, so its net is 6 squares."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        {
+          "kind": "square",
+          "w": 3,
+          "label": "one face"
+        }
+      ]
+    },
+    "caption": "A cube has 6 square FACES, 12 EDGES, 8 VERTICES. Unfold it and you get a net of 6 squares."
+  },
+  "teachingGallery": [
+    {
+      "title": "Solids and their nets",
+      "note": "A net is a solid unfolded flat. Count the faces to know the shape.",
+      "examples": [
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 3,
+                "label": "cube face: 1 of 6 squares"
+              }
+            ]
+          },
+          "caption": "A cube net is 6 squares."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 3,
+                "asGroups": false
+              }
+            ]
+          },
+          "caption": "6 square faces fold up into a cube."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "rect",
+                "w": 5,
+                "h": 3,
+                "label": "cuboid face"
+              }
+            ]
+          },
+          "caption": "A cuboid (box) has 6 rectangle faces."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "triangle",
+                "label": "pyramid face"
+              }
+            ]
+          },
+          "caption": "A square pyramid: 1 square base + 4 triangle faces."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "circle",
+                "label": "cylinder ends"
+              }
+            ]
+          },
+          "caption": "A cylinder: 2 circle ends + 1 rolled rectangle."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Describe a solid by counting its faces, edges and vertices; a net is the solid unfolded into flat faces.",
+    "steps": [
+      "FACES: count the flat surfaces (a cube/cuboid has 6).",
+      "EDGES: count the lines where two faces meet (a cube has 12).",
+      "VERTICES: count the corners (a cube has 8).",
+      "NET: imagine unfolding the solid — every face lies flat, joined along edges."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Handle-a-box",
+      "whenToUse": "To count faces, edges, vertices reliably.",
+      "steps": [
+        "Hold a real box or dice.",
+        "Touch and tally each flat face, then each edge, then each corner.",
+        "Mark them so you don't count twice."
+      ],
+      "example": "A matchbox (cuboid): 6 faces, 12 edges, 8 vertices."
+    },
+    {
+      "name": "Fold-test a net",
+      "whenToUse": "To check if a flat shape is a valid net.",
+      "steps": [
+        "Imagine folding along the joins.",
+        "Check no two faces overlap and none is missing.",
+        "If it closes into the solid with no gaps, it's a valid net."
+      ],
+      "example": "Six squares in a cross fold into a cube."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "How many faces does a cube have?",
+      "steps": [
+        "A cube is a box with square sides.",
+        "Count them: top, bottom, and four around.",
+        "2 + 4 = 6.",
+        "A cube has 6 faces."
+      ],
+      "answer": "6",
+      "visual": {
+        "component": "GeometryCanvas",
+        "props": {
+          "shapes": [
+            {
+              "kind": "square",
+              "w": 3,
+              "label": "square face"
+            }
+          ]
+        },
+        "caption": "A cube: 6 square faces."
+      }
+    },
+    {
+      "problem": "How many vertices (corners) does a cube have?",
+      "steps": [
+        "Look at the corners of a box.",
+        "4 corners on the top, 4 on the bottom.",
+        "4 + 4 = 8.",
+        "A cube has 8 vertices."
+      ],
+      "answer": "8"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Count faces, edges, corners",
+    "intro": "Unfold the solid: a cube is 6 faces, 12 edges, 8 corners — count them on the net.",
+    "questions": [
+      {
+        "id": "geo06-trick-cube-f",
+        "type": "mcq",
+        "q": "How many faces does a CUBE have?",
+        "answer": "6",
+        "options": [
+          {
+            "label": "6"
+          },
+          {
+            "label": "4"
+          },
+          {
+            "label": "8"
+          }
+        ],
+        "hintLadder": [
+          "Think of a dice.",
+          "Top, bottom, and 4 sides.",
+          "6 faces."
+        ],
+        "explain": "cube → 6 faces."
+      },
+      {
+        "id": "geo06-trick-cube-e",
+        "type": "mcq",
+        "q": "How many edges does a cube have?",
+        "answer": "12",
+        "options": [
+          {
+            "label": "12"
+          },
+          {
+            "label": "6"
+          },
+          {
+            "label": "8"
+          }
+        ],
+        "hintLadder": [
+          "Edges are where two faces meet.",
+          "4 top + 4 bottom + 4 uprights.",
+          "12 edges."
+        ],
+        "explain": "cube → 12 edges."
+      },
+      {
+        "id": "geo06-trick-cube-v",
+        "type": "mcq",
+        "q": "How many corners (vertices) does a cube have?",
+        "answer": "8",
+        "options": [
+          {
+            "label": "8"
+          },
+          {
+            "label": "6"
+          },
+          {
+            "label": "12"
+          }
+        ],
+        "hintLadder": [
+          "Corners are the pointy bits.",
+          "4 on top, 4 at the bottom.",
+          "8 vertices."
+        ],
+        "explain": "cube → 8 corners."
+      },
+      {
+        "id": "geo06-trick-cuboid",
+        "type": "mcq",
+        "q": "A cuboid (box) has how many faces?",
+        "answer": "6",
+        "options": [
+          {
+            "label": "6"
+          },
+          {
+            "label": "4"
+          },
+          {
+            "label": "5"
+          }
+        ],
+        "hintLadder": [
+          "Same as a cube, but rectangles.",
+          "6 flat faces.",
+          "6."
+        ],
+        "explain": "cuboid → 6 faces."
+      },
+      {
+        "id": "geo06-trick-pyr",
+        "type": "mcq",
+        "q": "A square pyramid has how many faces?",
+        "answer": "5",
+        "options": [
+          {
+            "label": "5"
+          },
+          {
+            "label": "4"
+          },
+          {
+            "label": "6"
+          }
+        ],
+        "hintLadder": [
+          "1 square base + 4 triangles.",
+          "1 + 4.",
+          "5 faces."
+        ],
+        "explain": "pyramid → 5 faces."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "face-edge-vertex-mixed",
+      "mistake": "Mixing up faces, edges and vertices — saying a cube has 6 edges.",
+      "fix": "FACE = flat surface (6 on a cube), EDGE = line where faces meet (12), VERTEX = corner point (8). Touch a box: surfaces vs lines vs corners."
+    },
+    {
+      "mistakeTag": "2d-3d-confused",
+      "mistake": "Calling a cube a 'square' or a sphere a 'circle'.",
+      "fix": "A square is FLAT (2D); a cube is SOLID (3D). A circle is flat; a sphere is a ball. Solids have height you can hold."
+    },
+    {
+      "mistakeTag": "net-missing-face",
+      "mistake": "Thinking a shape with too few faces can fold into the solid.",
+      "fix": "A net must have EXACTLY as many faces as the solid — a cube net needs all 6 squares, no more, no fewer."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "geo-06-e1",
+        "type": "number",
+        "q": "How many faces does a cube have?",
+        "answer": "6",
+        "hintLadder": [
+          "A box shape.",
+          "Top, bottom, and four sides.",
+          "2 + 4."
+        ],
+        "explain": "A cube has 6 faces.",
+        "visual": {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 3
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "geo-06-e2",
+        "type": "mcq",
+        "q": "Which is a SOLID (3D) shape?",
+        "answer": "cube",
+        "hintLadder": [
+          "3D means it has height you can hold.",
+          "A square is flat; a cube is a box.",
+          "Cube."
+        ],
+        "options": [
+          {
+            "label": "cube"
+          },
+          {
+            "label": "square",
+            "mistakeTag": "2d-3d-confused"
+          },
+          {
+            "label": "circle",
+            "mistakeTag": "2d-3d-confused"
+          }
+        ],
+        "explain": "A cube is a 3D solid; square and circle are flat."
+      }
+    ],
+    "medium": [
+      {
+        "id": "geo-06-m1",
+        "type": "number",
+        "q": "How many vertices (corners) does a cube have?",
+        "answer": "8",
+        "hintLadder": [
+          "Corners on a box.",
+          "4 on top, 4 on bottom.",
+          "4 + 4."
+        ],
+        "explain": "A cube has 8 vertices."
+      },
+      {
+        "id": "geo-06-m2",
+        "type": "number",
+        "q": "How many edges does a cube have?",
+        "answer": "12",
+        "hintLadder": [
+          "Lines where faces meet.",
+          "4 on top, 4 on bottom, 4 standing up.",
+          "4 + 4 + 4."
+        ],
+        "explain": "A cube has 12 edges."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "geo-06-c1",
+        "type": "number",
+        "q": "A cube net is made of how many squares?",
+        "answer": "6",
+        "hintLadder": [
+          "A net is the cube unfolded.",
+          "One square per face.",
+          "A cube has 6 faces."
+        ],
+        "explain": "6 squares.",
+        "visual": {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 3
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "geo-06-c2",
+        "type": "mcq",
+        "q": "A tin can is shaped like a...",
+        "answer": "cylinder",
+        "hintLadder": [
+          "Round with flat top and bottom.",
+          "Not a cube, not a ball.",
+          "Cylinder."
+        ],
+        "options": [
+          {
+            "label": "cylinder"
+          },
+          {
+            "label": "cube",
+            "mistakeTag": "2d-3d-confused"
+          },
+          {
+            "label": "circle",
+            "mistakeTag": "2d-3d-confused"
+          }
+        ],
+        "explain": "A tin can is a cylinder."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "geo-06-x1",
+        "type": "number",
+        "q": "Faces of a cube?",
+        "answer": "6",
+        "hintLadder": [
+          "Box surfaces.",
+          "2 + 4.",
+          "Six."
+        ],
+        "explain": "6.",
+        "visual": {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 3
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "geo-06-x2",
+        "type": "number",
+        "q": "Vertices of a cube?",
+        "answer": "8",
+        "hintLadder": [
+          "Corners.",
+          "4 + 4.",
+          "Eight."
+        ],
+        "explain": "8."
+      },
+      {
+        "id": "geo-06-x3",
+        "type": "number",
+        "q": "Edges of a cube?",
+        "answer": "12",
+        "hintLadder": [
+          "Lines where faces meet.",
+          "4+4+4.",
+          "Twelve."
+        ],
+        "explain": "12."
+      },
+      {
+        "id": "geo-06-x4",
+        "type": "mcq",
+        "q": "Which is a 3D solid?",
+        "answer": "sphere",
+        "hintLadder": [
+          "It has height you can hold.",
+          "A ball, not a flat circle.",
+          "Sphere."
+        ],
+        "options": [
+          {
+            "label": "sphere"
+          },
+          {
+            "label": "circle",
+            "mistakeTag": "2d-3d-confused"
+          },
+          {
+            "label": "triangle",
+            "mistakeTag": "2d-3d-confused"
+          }
+        ],
+        "explain": "A sphere (ball) is 3D."
+      },
+      {
+        "id": "geo-06-x5",
+        "type": "mcq",
+        "q": "A cube unfolded flat is called its...",
+        "answer": "net",
+        "hintLadder": [
+          "The flat fold-out.",
+          "Six squares joined.",
+          "Net."
+        ],
+        "options": [
+          {
+            "label": "net"
+          },
+          {
+            "label": "face",
+            "mistakeTag": "face-edge-vertex-mixed"
+          },
+          {
+            "label": "edge",
+            "mistakeTag": "face-edge-vertex-mixed"
+          }
+        ],
+        "explain": "The unfolded flat shape is a net."
+      }
+    ]
+  },
+  "teachBackPrompt": "Find a real box (matchbox or dice) at home. Teach someone to count its FACES, EDGES and VERTICES by touching each, then carefully unfold a paper box to show its NET.",
+  "revisionCard": {
+    "summary": "Solids are 3D (length, breadth, height). Cube: 6 FACES, 12 EDGES, 8 VERTICES. A NET is the solid unfolded flat. Don't confuse flat (square) with solid (cube).",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Geometry City (Ganita Grove)",
+    "title": "Unfolding the Sweet Box",
+    "brief": "Count faces, edges and vertices, and match each solid to the net it folds from.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Carefully open up an empty toothpaste or biscuit carton along its folds and lay it flat. That flat shape is its net — count how many faces it has.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

@@ -1,0 +1,549 @@
+{
+  "id": "found-04-ordinals",
+  "name": "Ordinal Numbers — First, Second, Third",
+  "grade": 1,
+  "strand": "numbers",
+  "prerequisites": [
+    "pp1-01-count-to-10"
+  ],
+  "whatIsIt": "Ordinal numbers tell us POSITION or ORDER in a line: first, second, third, fourth... Counting numbers (1, 2, 3) tell HOW MANY; ordinal numbers (1st, 2nd, 3rd) tell WHICH ONE — where something stands in a row or a race.",
+  "whyNeeded": "Order is everywhere: who came first in a race, the third house on the street, the second floor, the fifth in a queue. Ordinal words let us describe exactly which one we mean, not just how many there are.",
+  "realLifeUses": [
+    "Who came first, second, and third in a running race",
+    "The second floor of a building, or the third house on a lane",
+    "Your place in a queue at the shop",
+    "The fourth day of the week, or the first page of a book"
+  ],
+  "vocabulary": [
+    {
+      "term": "ordinal number",
+      "meaning": "A number that shows position: first (1st), second (2nd), third (3rd)..."
+    },
+    {
+      "term": "cardinal number",
+      "meaning": "A counting number that shows how many: one, two, three."
+    },
+    {
+      "term": "position",
+      "meaning": "Where something stands in an order or line."
+    },
+    {
+      "term": "first / last",
+      "meaning": "The one at the very start and the one at the very end."
+    }
+  ],
+  "story": {
+    "title": "The Village Fair Running Race",
+    "characters": [
+      "Anu",
+      "Ravi",
+      "the fair announcer"
+    ],
+    "text": "At the village fair race, five children line up at the finishing rope. Anu breaks the rope first! 'Anu is FIRST!' cries the announcer. Ravi is right behind — 'Ravi is SECOND.' Then third, fourth and fifth cross the line. 'Counting tells us there were 5 runners,' says the announcer, 'but ORDINALS tell us WHICH one — first, second, third. Position, not just how many!'",
+    "extractedProblem": "Five runners finish a race. Anu breaks the tape at the front. What position is Anu?",
+    "answerInStory": "Anu is first (1st) — she is at the front of the finishing order."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        {
+          "rows": 1,
+          "cols": 5,
+          "asGroups": true
+        }
+      ]
+    },
+    "caption": "Five in a row: the 1st is at the front, the 5th is at the end. Ordinals name each position."
+  },
+  "teachingGallery": [
+    {
+      "title": "Which place in line? First, second, third…",
+      "note": "Start counting from the front of the line.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "boy",
+                  "girl",
+                  "man",
+                  "woman",
+                  "baby"
+                ],
+                "markIndex": 0,
+                "showOrdinal": true
+              }
+            ]
+          },
+          "caption": "The boy is 1st (first)."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "boy",
+                  "girl",
+                  "man",
+                  "woman",
+                  "baby"
+                ],
+                "markIndex": 2,
+                "showOrdinal": true
+              }
+            ]
+          },
+          "caption": "The man is 3rd (third)."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "car",
+                  "bus",
+                  "bike",
+                  "truck"
+                ],
+                "markIndex": 1,
+                "showOrdinal": true
+              }
+            ]
+          },
+          "caption": "The bus is 2nd (second)."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "duck",
+                  "hen",
+                  "goat",
+                  "cow",
+                  "horse"
+                ],
+                "markIndex": 4,
+                "showOrdinal": true
+              }
+            ]
+          },
+          "caption": "The horse is 5th (last)."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "apple",
+                  "banana",
+                  "mango",
+                  "grapes"
+                ],
+                "markIndex": 3,
+                "showOrdinal": true
+              }
+            ]
+          },
+          "caption": "The grapes are 4th (fourth)."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Start counting positions from the front: the front one is first, the next second, and so on to the last.",
+    "steps": [
+      "Find the START of the line or race (the front).",
+      "The front one is FIRST (1st).",
+      "Count along: second, third, fourth... one position at a time.",
+      "The one at the very end is LAST."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Point-and-say",
+      "whenToUse": "To find any position.",
+      "steps": [
+        "Point at the first one and say 'first'.",
+        "Move along saying 'second, third...'",
+        "Stop at the one you want — that's its position."
+      ],
+      "example": "Point along a queue: first, second, THIRD — the third person."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "In a line of animals: cat, dog, cow, hen — what position is the cow?",
+      "steps": [
+        "Start at the front: cat is first.",
+        "Dog is second.",
+        "Cow is next — third.",
+        "The cow is THIRD (3rd)."
+      ],
+      "answer": "third",
+      "visual": {
+        "component": "ArrayGrid",
+        "props": {
+          "grids": [
+            {
+              "rows": 1,
+              "cols": 4,
+              "asGroups": true
+            }
+          ]
+        },
+        "caption": "cat(1st) dog(2nd) cow(3rd) hen(4th)"
+      }
+    },
+    {
+      "problem": "Who wins a race — the one who comes FIRST or SECOND?",
+      "steps": [
+        "First means the front, ahead of everyone.",
+        "Second is just behind first.",
+        "The winner is at the very front.",
+        "The one who comes FIRST wins."
+      ],
+      "answer": "first"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "ordinal-cardinal-mixed",
+      "mistake": "Answering 'how many' when asked 'which position' (saying 5 for the position of the last of five).",
+      "fix": "'How many' wants a count (5). 'Which position' wants an ordinal (fifth). The last of five is in FIFTH position."
+    },
+    {
+      "mistakeTag": "counted-from-wrong-end",
+      "mistake": "Counting positions from the back instead of the front.",
+      "fix": "Ordinals count from the FRONT (the start). The first is at the front, not the back. Find where the line begins and count from there."
+    },
+    {
+      "mistakeTag": "off-by-one-position",
+      "mistake": "Calling the second one 'first' by starting the count at zero.",
+      "fix": "The very first one is 'first' (1st), not 'zero'. Start counting positions at ONE, from the front."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "found-04-e1",
+        "type": "mcq",
+        "q": "In a queue, who is at the very front?",
+        "answer": "first",
+        "hintLadder": [
+          "The start of the line.",
+          "Ahead of everyone.",
+          "First."
+        ],
+        "options": [
+          {
+            "label": "first"
+          },
+          {
+            "label": "last",
+            "mistakeTag": "counted-from-wrong-end"
+          }
+        ],
+        "explain": "The front of the queue is first."
+      },
+      {
+        "id": "found-04-e2",
+        "type": "mcq",
+        "q": "A, B, C in a row — what position is B?",
+        "answer": "second",
+        "hintLadder": [
+          "A is first.",
+          "B is next.",
+          "Second."
+        ],
+        "options": [
+          {
+            "label": "second"
+          },
+          {
+            "label": "third",
+            "mistakeTag": "off-by-one-position"
+          }
+        ],
+        "explain": "B is second.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 3,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "A(1st) B(2nd) C(3rd)"
+        }
+      }
+    ],
+    "medium": [
+      {
+        "id": "found-04-m1",
+        "type": "mcq",
+        "q": "Runners finish: Anu, Ravi, Sana. What position is Sana?",
+        "answer": "third",
+        "hintLadder": [
+          "Anu first, Ravi second.",
+          "Sana is next.",
+          "Third."
+        ],
+        "options": [
+          {
+            "label": "third"
+          },
+          {
+            "label": "second",
+            "mistakeTag": "off-by-one-position"
+          }
+        ],
+        "explain": "Sana is third."
+      },
+      {
+        "id": "found-04-m2",
+        "type": "mcq",
+        "q": "In a line of 5, which position is the LAST one?",
+        "answer": "fifth",
+        "hintLadder": [
+          "Count from the front to the end.",
+          "1st, 2nd, 3rd, 4th, then...",
+          "Fifth."
+        ],
+        "options": [
+          {
+            "label": "fifth"
+          },
+          {
+            "label": "first",
+            "mistakeTag": "counted-from-wrong-end"
+          }
+        ],
+        "explain": "The last of five is fifth.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 5,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "found-04-c1",
+        "type": "mcq",
+        "q": "Houses 1st to 6th on a lane. What position is the house right after the 3rd?",
+        "answer": "fourth",
+        "hintLadder": [
+          "After third comes...",
+          "Count on one.",
+          "Fourth."
+        ],
+        "options": [
+          {
+            "label": "fourth"
+          },
+          {
+            "label": "third",
+            "mistakeTag": "off-by-one-position"
+          }
+        ],
+        "explain": "After 3rd is 4th."
+      },
+      {
+        "id": "found-04-c2",
+        "type": "mcq",
+        "q": "You are 2nd in a queue and one person leaves the front. What is your position now?",
+        "answer": "first",
+        "hintLadder": [
+          "The front person left.",
+          "You move up one.",
+          "First."
+        ],
+        "options": [
+          {
+            "label": "first"
+          },
+          {
+            "label": "third",
+            "mistakeTag": "counted-from-wrong-end"
+          }
+        ],
+        "explain": "You move up to first."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "found-04-x1",
+        "type": "mcq",
+        "q": "Front of the line is the ___ position.",
+        "answer": "first",
+        "hintLadder": [
+          "The start.",
+          "Ahead of all.",
+          "First."
+        ],
+        "options": [
+          {
+            "label": "first"
+          },
+          {
+            "label": "last",
+            "mistakeTag": "counted-from-wrong-end"
+          }
+        ],
+        "explain": "Front = first."
+      },
+      {
+        "id": "found-04-x2",
+        "type": "mcq",
+        "q": "A, B, C, D — position of C?",
+        "answer": "third",
+        "hintLadder": [
+          "A1, B2.",
+          "C next.",
+          "Third."
+        ],
+        "options": [
+          {
+            "label": "third"
+          },
+          {
+            "label": "fourth",
+            "mistakeTag": "off-by-one-position"
+          }
+        ],
+        "explain": "C is third.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-04-x3",
+        "type": "mcq",
+        "q": "Who wins the race?",
+        "answer": "first",
+        "hintLadder": [
+          "The front.",
+          "Ahead of all.",
+          "First place."
+        ],
+        "options": [
+          {
+            "label": "first"
+          },
+          {
+            "label": "second",
+            "mistakeTag": "off-by-one-position"
+          }
+        ],
+        "explain": "First wins."
+      },
+      {
+        "id": "found-04-x4",
+        "type": "mcq",
+        "q": "In a row of 4, the last one is in which position?",
+        "answer": "fourth",
+        "hintLadder": [
+          "Count to the end.",
+          "1,2,3, then...",
+          "Fourth."
+        ],
+        "options": [
+          {
+            "label": "fourth"
+          },
+          {
+            "label": "first",
+            "mistakeTag": "counted-from-wrong-end"
+          }
+        ],
+        "explain": "Last of four is fourth.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-04-x5",
+        "type": "mcq",
+        "q": "After the 5th comes the ___?",
+        "answer": "sixth",
+        "hintLadder": [
+          "Count on one.",
+          "After fifth.",
+          "Sixth."
+        ],
+        "options": [
+          {
+            "label": "sixth"
+          },
+          {
+            "label": "fifth",
+            "mistakeTag": "off-by-one-position"
+          }
+        ],
+        "explain": "After 5th is 6th."
+      }
+    ]
+  },
+  "teachBackPrompt": "Line up some toys and race them! Teach someone at home to say which is FIRST, SECOND, THIRD... and explain the difference between 'how many' (counting) and 'which position' (ordinals).",
+  "revisionCard": {
+    "summary": "Ordinals show POSITION: first, second, third... Count from the FRONT, starting at first (not zero). 'How many' = counting; 'which one' = ordinal.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Counting Meadow (Little Sprouts)",
+    "title": "The Sports Day Race",
+    "brief": "Line up the racers and call out who finished first, second, third — position, not just count.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Watch or run a little race at home with family. Call out who is first, second and third — and which floor or house-number positions you can spot outside.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

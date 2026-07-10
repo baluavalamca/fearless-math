@@ -1,0 +1,504 @@
+{
+  "id": "num-06-roman-numerals",
+  "name": "Roman Numerals — Letters That Count",
+  "grade": 4,
+  "strand": "numbers",
+  "prerequisites": [
+    "num-02-comparing"
+  ],
+  "whatIsIt": "Long before our digits, Romans counted with LETTERS: I=1, V=5, X=10, L=50, C=100. Reading rule: values ADD when they go big→small (VI = 5+1 = 6), but a smaller letter BEFORE a bigger one SUBTRACTS (IV = 5−1 = 4). Only I, X, C can be subtractors, and never more than three of a letter in a row!",
+  "whyNeeded": "Roman numerals still live all around you: clock faces (III o'clock!), book chapters, movie sequels, class names (Class VI!), monument dates. Reading them is like knowing a secret ancient code that never quite retired.",
+  "realLifeUses": [
+    "Wall clocks with XII at the top",
+    "School classes: Class IV, Class VI",
+    "Book chapters and movie sequels (Part II!)",
+    "Kings and queens in history: Ashoka's edicts, George V"
+  ],
+  "vocabulary": [
+    {
+      "term": "I, V, X, L, C",
+      "meaning": "1, 5, 10, 50, 100 — the starter Roman letters."
+    },
+    {
+      "term": "addition rule",
+      "meaning": "Big→small adds up: XV = 10+5 = 15."
+    },
+    {
+      "term": "subtraction rule",
+      "meaning": "Small BEFORE big subtracts: IX = 10−1 = 9. Only I, X, C may do this!"
+    }
+  ],
+  "story": {
+    "title": "The Old Clock Tower's Letters",
+    "characters": [
+      "Meena",
+      "Thatha (grandfather)"
+    ],
+    "text": "The town's old clock tower shows its numbers in strange letters. 'IV and VI use the same letters — are they the same?' asks Meena. 'Position is everything,' says Thatha. 'IV is 4 — a small letter BEFORE a big one SUBTRACTS: 5 − 1. But VI is 6 — big THEN small ADDS: 5 + 1. Always watch which letter comes first!'",
+    "extractedProblem": "Decode IV and VI — why are they different?",
+    "answerInStory": "IV = 4 (small-before-big subtracts: 5−1); VI = 6 (big-then-small adds: 5+1). Position is everything!"
+  },
+  "visual": {
+    "component": "ClockFace",
+    "props": {
+      "clocks": [
+        {
+          "hour": 4,
+          "minute": 0,
+          "label": "IV o'clock = 4"
+        },
+        {
+          "hour": 9,
+          "minute": 0,
+          "label": "IX o'clock = 9"
+        }
+      ]
+    },
+    "caption": "Ancient clock marks: IV = 5−1 = 4 and IX = 10−1 = 9 — small letters BEFORE big ones subtract!"
+  },
+  "teachingGallery": [
+    {
+      "title": "Roman numerals — letters that count",
+      "note": "I=1, V=5, X=10. Big-before-small ADD; small-before-big SUBTRACT.",
+      "examples": [
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  2,
+                  3
+                ],
+                "jump": 1
+              }
+            ]
+          },
+          "caption": "I=1, II=2, III=3 — add the ones."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  4,
+                  5,
+                  6
+                ],
+                "jump": 1
+              }
+            ]
+          },
+          "caption": "IV=4 (5−1), V=5, VI=6 (5+1)."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  9,
+                  10,
+                  11
+                ],
+                "jump": 1
+              }
+            ]
+          },
+          "caption": "IX=9 (10−1), X=10, XI=11 (10+1)."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  10,
+                  20,
+                  30
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "X=10, XX=20, XXX=30 — tens."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  40,
+                  50,
+                  60
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "XL=40 (50−10), L=50, LX=60 (50+10)."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Scan left to right: add big→small; subtract when a small letter sits before a bigger one.",
+    "steps": [
+      "Know the letters: I=1, V=5, X=10, L=50, C=100.",
+      "Going DOWN or level? ADD: XVII = 10+5+1+1 = 17.",
+      "Small before big? SUBTRACT that pair: XIV = 10 + (5−1) = 14.",
+      "Guard rules: max three repeats (III ✓, IIII ✗); only I, X, C subtract (IV, IX, XL, XC ✓)."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Build-by-blocks (writing numbers)",
+      "whenToUse": "Converting our numbers INTO Roman.",
+      "steps": [
+        "Break the number into tens and ones: 24 = 20 + 4.",
+        "Write each block: 20 = XX, 4 = IV.",
+        "Join: 24 = XXIV."
+      ],
+      "example": "39 = 30 + 9 = XXX + IX = XXXIX."
+    },
+    {
+      "name": "Clock-face anchors",
+      "whenToUse": "Quick recall of 1-12.",
+      "steps": [
+        "Picture the ancient clock: I II III IV V VI VII VIII IX X XI XII.",
+        "Anchor the two tricky ones: IV (4) and IX (9) — the subtractors!"
+      ],
+      "example": "What's 11? One past X → XI."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Decode XXVII.",
+      "steps": [
+        "Scan: X(10) X(10) V(5) I(1) I(1) — always big→small here.",
+        "No small-before-big anywhere → pure addition.",
+        "10+10+5+1+1 = 27."
+      ],
+      "answer": "27"
+    },
+    {
+      "problem": "Ravi writes 40 as XXXX. The tower rumbles! Fix his code.",
+      "steps": [
+        "Guard rule: never FOUR repeats of a letter.",
+        "40 needs the subtractor trick with L(50): small X before big L.",
+        "XL = 50 − 10 = 40. The rumble stops!"
+      ],
+      "answer": "XL"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Add or subtract by order",
+    "intro": "Smaller letter before a bigger one? Subtract. Otherwise just add them up.",
+    "questions": [
+      {
+        "id": "num06-trick-IV",
+        "type": "number",
+        "q": "What number is IV?",
+        "answer": "4",
+        "hintLadder": [
+          "Read left to right: I=1, V=5, X=10, L=50.",
+          "A SMALLER letter before a bigger one means SUBTRACT; otherwise ADD.",
+          "IV = 4."
+        ],
+        "explain": "IV = 4."
+      },
+      {
+        "id": "num06-trick-VI",
+        "type": "number",
+        "q": "What number is VI?",
+        "answer": "6",
+        "hintLadder": [
+          "Read left to right: I=1, V=5, X=10, L=50.",
+          "A SMALLER letter before a bigger one means SUBTRACT; otherwise ADD.",
+          "VI = 6."
+        ],
+        "explain": "VI = 6."
+      },
+      {
+        "id": "num06-trick-IX",
+        "type": "number",
+        "q": "What number is IX?",
+        "answer": "9",
+        "hintLadder": [
+          "Read left to right: I=1, V=5, X=10, L=50.",
+          "A SMALLER letter before a bigger one means SUBTRACT; otherwise ADD.",
+          "IX = 9."
+        ],
+        "explain": "IX = 9."
+      },
+      {
+        "id": "num06-trick-XI",
+        "type": "number",
+        "q": "What number is XI?",
+        "answer": "11",
+        "hintLadder": [
+          "Read left to right: I=1, V=5, X=10, L=50.",
+          "A SMALLER letter before a bigger one means SUBTRACT; otherwise ADD.",
+          "XI = 11."
+        ],
+        "explain": "XI = 11."
+      },
+      {
+        "id": "num06-trick-XIV",
+        "type": "number",
+        "q": "What number is XIV?",
+        "answer": "14",
+        "hintLadder": [
+          "Read left to right: I=1, V=5, X=10, L=50.",
+          "A SMALLER letter before a bigger one means SUBTRACT; otherwise ADD.",
+          "XIV = 14."
+        ],
+        "explain": "XIV = 14."
+      },
+      {
+        "id": "num06-trick-XIX",
+        "type": "number",
+        "q": "What number is XIX?",
+        "answer": "19",
+        "hintLadder": [
+          "Read left to right: I=1, V=5, X=10, L=50.",
+          "A SMALLER letter before a bigger one means SUBTRACT; otherwise ADD.",
+          "XIX = 19."
+        ],
+        "explain": "XIX = 19."
+      },
+      {
+        "id": "num06-trick-XL",
+        "type": "number",
+        "q": "What number is XL?",
+        "answer": "40",
+        "hintLadder": [
+          "Read left to right: I=1, V=5, X=10, L=50.",
+          "A SMALLER letter before a bigger one means SUBTRACT; otherwise ADD.",
+          "XL = 40."
+        ],
+        "explain": "XL = 40."
+      },
+      {
+        "id": "num06-trick-XXVII",
+        "type": "number",
+        "q": "What number is XXVII?",
+        "answer": "27",
+        "hintLadder": [
+          "Read left to right: I=1, V=5, X=10, L=50.",
+          "A SMALLER letter before a bigger one means SUBTRACT; otherwise ADD.",
+          "XXVII = 27."
+        ],
+        "explain": "XXVII = 27."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "order-ignored",
+      "mistake": "Reading IV and VI as the same (both '1 and 5 = 6').",
+      "fix": "Position is the whole code! Small BEFORE big subtracts (IV = 4); big before small adds (VI = 6). Scan left to right and watch for the small-first pairs."
+    },
+    {
+      "mistakeTag": "four-repeats-written",
+      "mistake": "Writing 4 as IIII or 40 as XXXX.",
+      "fix": "Three's the max! The fourth step always uses a subtractor: 4 = IV, 9 = IX, 40 = XL, 90 = XC."
+    },
+    {
+      "mistakeTag": "v-used-as-subtractor",
+      "mistake": "Inventing subtractions like VL for 45 or VX for 5.",
+      "fix": "Only I, X, and C may stand as subtractors — V and L never do. 45 = XL + V = XLV."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "Decode: XV = ?",
+        "answer": "15",
+        "hintLadder": [
+          "X then V — big to small.",
+          "Big→small means ADD.",
+          "10 + 5."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "What is IX?",
+        "options": [
+          {
+            "label": "9 — small I before big X subtracts"
+          },
+          {
+            "label": "11 — just add them",
+            "mistakeTag": "order-ignored"
+          }
+        ],
+        "answer": "9 — small I before big X subtracts",
+        "hintLadder": [
+          "Is the I before or after the X?",
+          "Before — subtractor position!",
+          "10 − 1."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "Decode: XXIV = ?",
+        "answer": "24",
+        "hintLadder": [
+          "XX first: 20.",
+          "Then IV — small before big!",
+          "20 + (5−1)."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "The correct Roman code for 4 is…",
+        "options": [
+          {
+            "label": "IV"
+          },
+          {
+            "label": "IIII",
+            "mistakeTag": "four-repeats-written"
+          }
+        ],
+        "answer": "IV",
+        "hintLadder": [
+          "Max three repeats!",
+          "The fourth step uses a subtractor.",
+          "5 − 1."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "text",
+        "q": "Write 39 in Roman numerals. (Blocks: 30 + 9!)",
+        "answer": "XXXIX",
+        "hintLadder": [
+          "30 = XXX.",
+          "9 = IX (subtractor!).",
+          "Join the blocks."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "Ravi writes 45 as VL ('50 minus 5!'). The tower rumbles again. Why?",
+        "options": [
+          {
+            "label": "V is never a subtractor — 45 = XL + V = XLV"
+          },
+          {
+            "label": "Nothing wrong, VL is fine",
+            "mistakeTag": "v-used-as-subtractor"
+          },
+          {
+            "label": "He should write IIIIL",
+            "mistakeTag": "four-repeats-written"
+          }
+        ],
+        "answer": "V is never a subtractor — 45 = XL + V = XLV",
+        "hintLadder": [
+          "Which letters may subtract?",
+          "Only I, X, C!",
+          "40 = XL, then add V."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "Decode: XVII = ?",
+        "answer": "17",
+        "hintLadder": [
+          "All big→small.",
+          "10+5+1+1.",
+          "Seventeen."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "Decode: XIV = ?",
+        "answer": "14",
+        "hintLadder": [
+          "X first: 10.",
+          "Then IV — the subtractor pair.",
+          "10 + 4."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "text",
+        "q": "Write 29 in Roman numerals.",
+        "answer": "XXIX",
+        "hintLadder": [
+          "Blocks: 20 + 9.",
+          "20 = XX, 9 = IX.",
+          "Join them."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "Which letters are ALLOWED to subtract?",
+        "options": [
+          {
+            "label": "Only I, X, and C"
+          },
+          {
+            "label": "Any letter, any time",
+            "mistakeTag": "v-used-as-subtractor"
+          }
+        ],
+        "answer": "Only I, X, and C",
+        "hintLadder": [
+          "The 1-10-100 family.",
+          "V and L never lead.",
+          "IV, IX, XL, XC — spot the pattern!"
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Become the tower keeper! Teach someone at home the two rules (add big→small, subtract small-before-big) using a real or drawn clock face — and catch them if they ever write IIII!",
+  "revisionCard": {
+    "summary": "I=1, V=5, X=10, L=50, C=100. Big→small ADDS (XVII = 17); small-before-big SUBTRACTS (IV = 4, IX = 9, XL = 40). Guards: max 3 repeats; only I, X, C subtract. Build by blocks: 39 = XXX + IX = XXXIX.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The Ancient Clock Tower Code",
+    "brief": "The tower's letter-locks are scrambled! Decode Roman marks to open each floor, re-encode our numbers into proper Roman (no IIII allowed!), and silence the rumbles from Ravi's forbidden VLs.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Roman hunt: find 3 Roman numerals in the wild (a clock, a book's chapter list, a movie title, a class board). Decode each aloud — then write your own age and birth month in Roman!",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4 (Roman numerals)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

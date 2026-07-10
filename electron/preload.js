@@ -1,0 +1,33 @@
+const { contextBridge, ipcRenderer } = require("electron");
+
+// The ONLY bridge between renderer and system. Typed mirror in src/api.ts.
+contextBridge.exposeInMainWorld("fm", {
+  getProfile: () => ipcRenderer.invoke("profile:get"),
+  listProfiles: () => ipcRenderer.invoke("profiles:list"),
+  activeProfile: () => ipcRenderer.invoke("profiles:active"),
+  createProfile: (data) => ipcRenderer.invoke("profiles:create", data),
+  setActiveProfile: (id) => ipcRenderer.invoke("profiles:setActive", id),
+  listConcepts: () => ipcRenderer.invoke("concepts:list"),
+  getConcept: (id) => ipcRenderer.invoke("concepts:get", id),
+  lessonStarted: (id) => ipcRenderer.invoke("lesson:started", id),
+  submitAnswer: (payload) => ipcRenderer.invoke("practice:submit", payload),
+  finishMastery: (payload) => ipcRenderer.invoke("mastery:finish", payload),
+  listBadges: () => ipcRenderer.invoke("badges:list"),
+  clinicList: () => ipcRenderer.invoke("clinic:list"),
+  getDashboard: () => ipcRenderer.invoke("dashboard:get"),
+  aiStatus: () => ipcRenderer.invoke("ai:status"),
+  aiConfigure: (cfg) => ipcRenderer.invoke("ai:configure", cfg),
+  aiExplain: (p) => ipcRenderer.invoke("ai:explain", p),
+  aiWhyWrong: (p) => ipcRenderer.invoke("ai:whyWrong", p),
+  aiCoach: (p) => ipcRenderer.invoke("ai:coach", p),
+  mediaStatus: () => ipcRenderer.invoke("media:status"),
+  mediaConfigure: (cfg) => ipcRenderer.invoke("media:configure", cfg),
+  getCachedImage: (p) => ipcRenderer.invoke("image:cached", p),
+  generateImage: (p) => ipcRenderer.invoke("image:generate", p),
+  sarvamSpeak: (p) => ipcRenderer.invoke("tts:sarvam", p),
+  mediaClearCache: (what) => ipcRenderer.invoke("media:clearCache", what),
+  sarvamTranscribe: (p) => ipcRenderer.invoke("stt:sarvam", p),
+  createConcept: (p) => ipcRenderer.invoke("concept:create", p),
+  listUserConcepts: () => ipcRenderer.invoke("concept:listUser"),
+  deleteConcept: (id) => ipcRenderer.invoke("concept:delete", id),
+});

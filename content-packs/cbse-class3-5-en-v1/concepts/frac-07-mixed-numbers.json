@@ -1,0 +1,172 @@
+{
+  "id": "frac-07-mixed-numbers",
+  "name": "Improper Fractions and Mixed Numbers",
+  "grade": 5,
+  "strand": "fractions",
+  "prerequisites": ["frac-03-equivalent"],
+  "whatIsIt": "A PROPER fraction is less than one (3/4). An IMPROPER fraction has a top bigger than the bottom (7/4) — it's more than one whole. A MIXED NUMBER writes the same thing as a whole plus a fraction (1 3/4). They are two names for the same amount: 7/4 = 1 3/4. We can swap between them whenever it's handy.",
+  "whyNeeded": "Real amounts often pass one whole — 1½ litres of milk, 2¼ pizzas. Being able to switch between improper fractions (easy for calculating) and mixed numbers (easy for reading) is essential for adding, subtracting and measuring.",
+  "realLifeUses": [
+    "1½ litres of milk or 2¼ cups of flour in a recipe",
+    "Sharing 7 quarter-slices of pizza (7/4 = 1¾ pizzas)",
+    "Measuring 5/2 metres of cloth as 2½ m",
+    "Reading a scale that shows more than one whole"
+  ],
+  "vocabulary": [
+    { "term": "proper fraction", "meaning": "Top smaller than bottom; less than one (3/4)." },
+    { "term": "improper fraction", "meaning": "Top bigger than (or equal to) bottom; one or more (7/4)." },
+    { "term": "mixed number", "meaning": "A whole number plus a fraction (1 3/4)." }
+  ],
+  "story": {
+    "title": "The Pizza Slices",
+    "characters": ["Sana", "Bhaiya"],
+    "text": "Sana has 7 quarter-slices of pizza. 'How many whole pizzas is that?' asks Bhaiya. She groups them in fours: 4 quarters make 1 whole, and 3 quarters are left. 'So 7/4 is 1 whole and 3/4 — one and three-quarters!' Bhaiya nods: 'Same slices, two names.'",
+    "extractedProblem": "7 quarter-slices = 7/4. Write it as a mixed number.",
+    "answerInStory": "1 3/4 — four quarters make one whole, with three quarters left."
+  },
+  "visual": {
+    "component": "PizzaSlices",
+    "props": {
+      "pies": [
+        { "parts": 4, "shaded": 4, "label": "1 whole" },
+        { "parts": 4, "shaded": 3, "label": "3/4" }
+      ]
+    },
+    "caption": "7/4 = one whole pizza (4/4) plus 3/4 = the mixed number 1 3/4."
+  },
+  "teachingGallery": [
+    {
+      "title": "Two names, one amount",
+      "note": "Group the parts into wholes to change improper → mixed.",
+      "examples": [
+        { "component": "FractionStrip", "props": { "strips": [ { "parts": 2, "shaded": 2, "label": "2/2 = 1" }, { "parts": 2, "shaded": 1, "label": "1/2" } ] }, "caption": "3/2 = 1 1/2." },
+        { "component": "PizzaSlices", "props": { "pies": [ { "parts": 3, "shaded": 3, "label": "1" }, { "parts": 3, "shaded": 2, "label": "2/3" } ] }, "caption": "5/3 = 1 2/3." },
+        { "component": "FractionStrip", "props": { "strips": [ { "parts": 4, "shaded": 3, "label": "3/4 proper" } ] }, "caption": "3/4 is still less than one (proper)." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Improper → mixed: divide top by bottom (whole = quotient, fraction = remainder/bottom). Mixed → improper: multiply the whole by the bottom, add the top.",
+    "steps": [
+      "Improper to mixed: divide numerator ÷ denominator. The quotient is the whole; the remainder over the denominator is the fraction.",
+      "So 7/4: 7 ÷ 4 = 1 remainder 3 → 1 3/4.",
+      "Mixed to improper: (whole × denominator) + numerator, over the same denominator.",
+      "So 2 1/3: (2 × 3) + 1 = 7 → 7/3."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Write 11/4 as a mixed number.",
+      "steps": ["Divide 11 ÷ 4 = 2 remainder 3.", "Whole part 2, fraction 3/4.", "So 11/4 = 2 3/4."],
+      "answer": "2 3/4"
+    },
+    {
+      "problem": "Write 3 1/2 as an improper fraction.",
+      "steps": ["Multiply whole by denominator: 3 × 2 = 6.", "Add the numerator: 6 + 1 = 7.", "Over the same denominator: 7/2."],
+      "answer": "7/2"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "add-whole-to-numerator",
+      "mistake": "Changing a mixed number by adding the whole to the numerator only (2 1/3 → 3/3).",
+      "fix": "Multiply the whole by the denominator FIRST, then add the numerator: (2×3)+1 = 7/3."
+    },
+    {
+      "mistakeTag": "remainder-as-whole",
+      "mistake": "Using the remainder as the whole number when changing improper to mixed.",
+      "fix": "The QUOTIENT is the whole; the REMAINDER goes on top of the fraction. 7/4 → 1 (quotient) 3/4 (remainder)."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "f07-e1", "type": "mcq",
+        "q": "Which is an improper fraction?",
+        "options": [ { "label": "5/3" }, { "label": "2/3", "mistakeTag": "remainder-as-whole" } ],
+        "answer": "5/3",
+        "hintLadder": ["Top bigger than bottom?", "5 > 3.", "5/3."]
+      },
+      {
+        "id": "f07-e2", "type": "fraction",
+        "q": "Write 1 1/2 as an improper fraction. (like 3/2)",
+        "answer": "3/2",
+        "hintLadder": ["(1 × 2) + 1.", "= 3 over 2.", "3/2."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "f07-m1", "type": "fraction",
+        "q": "Write 9/4 as a mixed number's fraction part only — what is left over? (like 1/4)",
+        "answer": "1/4",
+        "hintLadder": ["9 ÷ 4 = 2 remainder 1.", "Remainder over 4.", "1/4."]
+      },
+      {
+        "id": "f07-m2", "type": "fraction",
+        "q": "Write 2 1/3 as an improper fraction. (like 7/3)",
+        "answer": "7/3",
+        "hintLadder": ["(2 × 3) + 1 = 7.", "Over 3.", "7/3."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "f07-c1", "type": "fraction",
+        "q": "Write 3 2/5 as an improper fraction. (like 17/5)",
+        "answer": "17/5",
+        "hintLadder": ["(3 × 5) + 2 = 17.", "Over 5.", "17/5."]
+      },
+      {
+        "id": "f07-c2", "type": "mcq",
+        "q": "Ravi changes 2 1/3 to 3/3. What went wrong?",
+        "options": [ { "label": "Multiply whole × bottom first: (2×3)+1 = 7/3" }, { "label": "Nothing, it's 3/3", "mistakeTag": "add-whole-to-numerator" } ],
+        "answer": "Multiply whole × bottom first: (2×3)+1 = 7/3",
+        "hintLadder": ["Don't just add the whole to the top.", "2 × 3 = 6, + 1 = 7.", "7/3."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "f07-x1", "type": "mcq",
+        "q": "7/4 as a mixed number is…",
+        "options": [ { "label": "1 3/4" }, { "label": "3 1/4", "mistakeTag": "remainder-as-whole" } ],
+        "answer": "1 3/4",
+        "hintLadder": ["7 ÷ 4 = 1 remainder 3.", "Whole 1, fraction 3/4.", "1 3/4."]
+      },
+      {
+        "id": "f07-x2", "type": "fraction",
+        "q": "Write 1 1/4 as an improper fraction. (like 5/4)",
+        "answer": "5/4",
+        "hintLadder": ["(1 × 4) + 1 = 5.", "Over 4.", "5/4."]
+      },
+      {
+        "id": "f07-x3", "type": "fraction",
+        "q": "Write 4 1/2 as an improper fraction. (like 9/2)",
+        "answer": "9/2",
+        "hintLadder": ["(4 × 2) + 1 = 9.", "Over 2.", "9/2."]
+      },
+      {
+        "id": "f07-x4", "type": "mcq",
+        "q": "A fraction with the top BIGGER than the bottom is…",
+        "options": [ { "label": "Improper" }, { "label": "Proper", "mistakeTag": "remainder-as-whole" } ],
+        "answer": "Improper",
+        "hintLadder": ["More than one whole.", "Top > bottom.", "Improper."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Use food to show it: cut two rotis into quarters, take 5 quarter-pieces, and explain to a grown-up that 5/4 is the same as 1 1/4 — then change a mixed number like 2 1/2 back into halves (5/2).",
+  "revisionCard": {
+    "summary": "Proper: top < bottom (<1). Improper: top ≥ bottom (≥1). Mixed: whole + fraction. Improper → mixed: divide top by bottom (quotient = whole, remainder over bottom). Mixed → improper: (whole × bottom) + top, over the bottom.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 5-6 (improper fractions & mixed numbers)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

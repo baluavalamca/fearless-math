@@ -1,0 +1,487 @@
+{
+  "id": "meas-02-time",
+  "name": "Time — Reading Clocks and Counting Minutes",
+  "grade": 3,
+  "strand": "measurement",
+  "prerequisites": [
+    "frac-01-equal-parts"
+  ],
+  "whatIsIt": "A clock is a circular number line! The SHORT hand counts hours; the LONG hand counts minutes — 5 minutes for every number it passes. 'Half past 3' means the minute hand travelled HALF the circle (30 minutes) — your fractions live on the clock face! Elapsed time is how long something took, from start to finish.",
+  "whyNeeded": "School bells, cartoon timings, cricket overs, train departures — the day runs on clocks. Reading them (and counting how long until / how long it took) puts YOU in charge of your day instead of always asking someone.",
+  "realLifeUses": [
+    "School: classes start at 9:00 and lunch at 12:30",
+    "TV: your cartoon starts at 5:30 and ends at 6:00 — how long is it?",
+    "Cooking: the cake needs 45 minutes in the oven",
+    "Travel: the bus leaves at 4:15 — how long do you have to pack?"
+  ],
+  "vocabulary": [
+    {
+      "term": "hour hand",
+      "meaning": "The SHORT hand — moves once around in 12 hours."
+    },
+    {
+      "term": "minute hand",
+      "meaning": "The LONG hand — each clock number it passes = 5 minutes."
+    },
+    {
+      "term": "half past / quarter past",
+      "meaning": "30 minutes past / 15 minutes past — clock fractions!"
+    },
+    {
+      "term": "elapsed time",
+      "meaning": "How much time passed between start and finish."
+    }
+  ],
+  "story": {
+    "title": "Half Past Three by the Wall Clock",
+    "characters": [
+      "Ravi",
+      "Thatha (grandfather)"
+    ],
+    "text": "Ravi reads the wall clock. 'The short hand is between 3 and 4, and the long hand points at 6 — what time is it, Thatha?' 'The minute hand has swept HALF the circle — that is 30 minutes. So it is half past three, 3:30.' Ravi nods: 'Short hand tells the hour, long hand tells the minutes.'",
+    "extractedProblem": "The short hand is between 3 and 4; the long hand points at 6. What time is it?",
+    "answerInStory": "3:30 — half past three. The minute hand covered half the circle: 30 minutes."
+  },
+  "visual": {
+    "component": "ClockFace",
+    "props": {
+      "clocks": [
+        {
+          "hour": 3,
+          "minute": 0,
+          "label": "3 o'clock"
+        },
+        {
+          "hour": 3,
+          "minute": 30,
+          "label": "half past 3 (3:30)"
+        },
+        {
+          "hour": 3,
+          "minute": 15,
+          "label": "quarter past 3 (3:15)"
+        }
+      ]
+    },
+    "caption": "The long hand walks the circle: to 3 = quarter (15 min), to 6 = half (30 min). Skip-count numbers by 5!"
+  },
+  "teachingGallery": [
+    {
+      "title": "Reading the clock",
+      "note": "The short hand = hours; the long hand = minutes (count by 5s).",
+      "examples": [
+        {
+          "component": "ClockFace",
+          "props": {
+            "clocks": [
+              {
+                "hour": 3,
+                "minute": 0,
+                "label": "3 o'clock"
+              }
+            ]
+          },
+          "caption": "Long hand on 12 → o'clock."
+        },
+        {
+          "component": "ClockFace",
+          "props": {
+            "clocks": [
+              {
+                "hour": 3,
+                "minute": 30,
+                "label": "half past 3"
+              }
+            ]
+          },
+          "caption": "Long hand on 6 → half past (30 min)."
+        },
+        {
+          "component": "ClockFace",
+          "props": {
+            "clocks": [
+              {
+                "hour": 3,
+                "minute": 15,
+                "label": "quarter past 3"
+              }
+            ]
+          },
+          "caption": "Long hand on 3 → 15 minutes."
+        },
+        {
+          "component": "ClockFace",
+          "props": {
+            "clocks": [
+              {
+                "hour": 3,
+                "minute": 45,
+                "label": "quarter to 4"
+              }
+            ]
+          },
+          "caption": "Long hand on 9 → 45 minutes."
+        },
+        {
+          "component": "ClockFace",
+          "props": {
+            "clocks": [
+              {
+                "hour": 3,
+                "minute": 20,
+                "label": "3:20"
+              }
+            ]
+          },
+          "caption": "Long hand on 4 → 4 × 5 = 20 minutes."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Short hand → hour. Long hand → skip-count each number by 5 for minutes.",
+    "steps": [
+      "Read the SHORT hand first: the hour is the number it last passed.",
+      "Read the LONG hand: skip-count by 5 for each number from 12 (1→5, 2→10, 3→15... 6→30).",
+      "Say it together: short hand past 3, long hand at 6 → 3:30.",
+      "Landmarks: 12 = o'clock, 3 = quarter past, 6 = half past."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Counting-up elapsed time",
+      "whenToUse": "How long did it take? How long until?",
+      "steps": [
+        "Start at the earlier time, climb to a friendly o'clock, then jump on.",
+        "Cartoon 5:30 → 6:00 is 30 minutes.",
+        "Longer gaps: 4:15 → 5:00 is 45 min, 5:00 → 6:00 is 1 hour → total 1 h 45 min."
+      ],
+      "example": "School 9:00 to lunch 12:30 → 9→12 is 3 hours, +30 min = 3 h 30 min."
+    },
+    {
+      "name": "Fraction-circle method",
+      "whenToUse": "To connect the clock to your fraction skills.",
+      "steps": [
+        "The clock face is 1 whole hour = 60 minutes.",
+        "Long hand at 6 = 1/2 circle = 30 min; at 3 = 1/4 circle = 15 min; at 9 = 3/4 circle = 45 min."
+      ],
+      "example": "'Quarter to 5' = 3/4 of the circle done = 4:45."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "The short hand is just past 7; the long hand points at 3. What time is it?",
+      "steps": [
+        "Hour: short hand last passed 7.",
+        "Minutes: long hand at 3 → skip-count 5, 10, 15.",
+        "Time: 7:15 — quarter past seven."
+      ],
+      "answer": "7:15"
+    },
+    {
+      "problem": "Anu's cartoon runs 5:30 to 6:00. Ravi says it lasted '70 minutes because 6:00 − 5:30 = 0.70'. Untangle him!",
+      "steps": [
+        "Clocks don't work in hundredths — an hour has 60 minutes, not 100!",
+        "Count up instead: 5:30 → 6:00.",
+        "That climb is 30 minutes. The cartoon lasted 30 minutes."
+      ],
+      "answer": "30 minutes — count up, and remember: 60 minutes per hour!"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Count minutes by fives",
+    "intro": "Each clock number is 5 minutes — multiply the minute hand's number by 5.",
+    "questions": [
+      {
+        "id": "meas02-trick-4",
+        "type": "number",
+        "q": "The long (minute) hand points to 4. How many minutes past the hour?",
+        "answer": "20",
+        "hintLadder": [
+          "Each number is 5 minutes apart.",
+          "Count by 5s to 4: 4 × 5.",
+          "= 20 minutes."
+        ],
+        "explain": "4 × 5 = 20 min."
+      },
+      {
+        "id": "meas02-trick-3",
+        "type": "number",
+        "q": "The long (minute) hand points to 3. How many minutes past the hour?",
+        "answer": "15",
+        "hintLadder": [
+          "Each number is 5 minutes apart.",
+          "Count by 5s to 3: 3 × 5.",
+          "= 15 minutes."
+        ],
+        "explain": "3 × 5 = 15 min."
+      },
+      {
+        "id": "meas02-trick-6",
+        "type": "number",
+        "q": "The long (minute) hand points to 6. How many minutes past the hour?",
+        "answer": "30",
+        "hintLadder": [
+          "Each number is 5 minutes apart.",
+          "Count by 5s to 6: 6 × 5.",
+          "= 30 minutes."
+        ],
+        "explain": "6 × 5 = 30 min."
+      },
+      {
+        "id": "meas02-trick-9",
+        "type": "number",
+        "q": "The long (minute) hand points to 9. How many minutes past the hour?",
+        "answer": "45",
+        "hintLadder": [
+          "Each number is 5 minutes apart.",
+          "Count by 5s to 9: 9 × 5.",
+          "= 45 minutes."
+        ],
+        "explain": "9 × 5 = 45 min."
+      },
+      {
+        "id": "meas02-trick-2",
+        "type": "number",
+        "q": "The long (minute) hand points to 2. How many minutes past the hour?",
+        "answer": "10",
+        "hintLadder": [
+          "Each number is 5 minutes apart.",
+          "Count by 5s to 2: 2 × 5.",
+          "= 10 minutes."
+        ],
+        "explain": "2 × 5 = 10 min."
+      },
+      {
+        "id": "meas02-trick-7",
+        "type": "number",
+        "q": "The long (minute) hand points to 7. How many minutes past the hour?",
+        "answer": "35",
+        "hintLadder": [
+          "Each number is 5 minutes apart.",
+          "Count by 5s to 7: 7 × 5.",
+          "= 35 minutes."
+        ],
+        "explain": "7 × 5 = 35 min."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "hands-swapped",
+      "mistake": "Reading the long hand as the hour (calling 3:30 'six o'clock something').",
+      "fix": "SHORT hand = hour (it moves slowly, like hours do). LONG hand = minutes. Check the short hand FIRST, every time."
+    },
+    {
+      "mistakeTag": "minute-number-read-directly",
+      "mistake": "Reading the long hand at 6 as '6 minutes' instead of 30.",
+      "fix": "The clock numbers are HOUR labels. For minutes, each number = 5: skip-count 5, 10, 15... The 6 is the 6th stop → 30 minutes."
+    },
+    {
+      "mistakeTag": "sixty-forgotten",
+      "mistake": "Treating an hour as 100 minutes when finding elapsed time (6:00 − 5:30 = '70').",
+      "fix": "One hour = 60 minutes! Never column-subtract clock times like money. COUNT UP instead: 5:30 → 6:00 is 30 minutes, always."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "text",
+        "q": "Short hand between 4 and 5; long hand on the 6. Write the time like 4:30.",
+        "answer": "4:30",
+        "hintLadder": [
+          "Short hand last passed which number?",
+          "Long hand at 6 = half the circle = how many minutes?",
+          "Half past four."
+        ],
+        "visual": {
+          "component": "ClockFace",
+          "props": {
+            "clocks": [
+              {
+                "hour": 4,
+                "minute": 30
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "e2",
+        "type": "number",
+        "q": "The long hand points at the 3. How many MINUTES past the hour is that?",
+        "answer": "15",
+        "hintLadder": [
+          "Each number = 5 minutes.",
+          "Skip-count to the 3: 5, 10...",
+          "Fifteen — quarter past!"
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "text",
+        "q": "Short hand just past 7, long hand on the 9. Write the time like 7:45.",
+        "answer": "7:45",
+        "hintLadder": [
+          "Hour: last passed 7.",
+          "Long hand at 9: skip-count by 5 nine times.",
+          "45 minutes — quarter TO eight!"
+        ],
+        "visual": {
+          "component": "ClockFace",
+          "props": {
+            "clocks": [
+              {
+                "hour": 7,
+                "minute": 45
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "Your cartoon runs from 5:30 to 6:00. How many minutes long is it?",
+        "answer": "30",
+        "hintLadder": [
+          "Count UP from 5:30.",
+          "5:30 → 6:00 is how far around the circle?",
+          "Half a circle of minutes."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Ravi computed 6:00 − 5:30 = '0:70, so 70 minutes'. What rule did he break?",
+        "options": [
+          {
+            "label": "An hour has 60 minutes — clock times can't be subtracted like money"
+          },
+          {
+            "label": "He read the wrong hand",
+            "mistakeTag": "hands-swapped"
+          },
+          {
+            "label": "Nothing — 70 is right",
+            "mistakeTag": "sixty-forgotten"
+          }
+        ],
+        "answer": "An hour has 60 minutes — clock times can't be subtracted like money",
+        "hintLadder": [
+          "How many minutes in one hour?",
+          "60 — not 100!",
+          "Count up: 5:30 → 6:00 = 30 min."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "The school bus leaves at 4:15. It's 3:30 now. How many minutes do you have?",
+        "answer": "45",
+        "hintLadder": [
+          "Count up: 3:30 → 4:00 is how much?",
+          "30 minutes. Then 4:00 → 4:15?",
+          "30 + 15."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "text",
+        "q": "Short hand between 9 and 10, long hand on 6. Write the time like 9:30.",
+        "answer": "9:30",
+        "hintLadder": [
+          "Hour last passed?",
+          "Long hand at 6 = ?",
+          "Half past nine."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "The long hand pointing at 6 means…",
+        "options": [
+          {
+            "label": "30 minutes — half the circle"
+          },
+          {
+            "label": "6 minutes",
+            "mistakeTag": "minute-number-read-directly"
+          }
+        ],
+        "answer": "30 minutes — half the circle",
+        "hintLadder": [
+          "Numbers are hour labels!",
+          "Skip-count by 5 to the 6.",
+          "5,10,15,20,25,30."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "number",
+        "q": "A movie starts at 2:00 and ends at 3:30. How many MINUTES did it run?",
+        "answer": "90",
+        "hintLadder": [
+          "2:00 → 3:00 is one hour = 60 min.",
+          "3:00 → 3:30 adds 30.",
+          "60 + 30."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "Which hand tells the HOUR?",
+        "options": [
+          {
+            "label": "The short hand"
+          },
+          {
+            "label": "The long hand",
+            "mistakeTag": "hands-swapped"
+          }
+        ],
+        "answer": "The short hand",
+        "hintLadder": [
+          "Hours move slowly...",
+          "...so the slow, short hand carries them.",
+          "Short = hour, long = minutes."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach the talking clock! Show someone at home a real clock at any time, read it aloud (short hand first!), and explain why 'half past' is your fraction 1/2 wearing a wristwatch.",
+  "revisionCard": {
+    "summary": "Short hand = hour; long hand = minutes (each number × 5). Landmarks: 3→quarter past (15), 6→half past (30), 9→quarter to (45). One hour = 60 minutes — NEVER subtract clocks like money; COUNT UP for elapsed time (5:30→6:00 = 30 min).",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Measurement Island (Ganita Grove)",
+    "title": "The Island Train Timetable",
+    "brief": "Trains leave Measurement Island on the dot! Read each platform clock, compute how long passengers must wait, and catch Ravi announcing '70-minute hours' before the whole timetable melts.",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "Be the family timekeeper for one evening: note the clock time when dinner starts and ends, when your favourite show starts and ends, and report each elapsed time by counting up.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3 (time and clocks)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

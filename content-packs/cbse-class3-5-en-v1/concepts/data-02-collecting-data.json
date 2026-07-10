@@ -1,0 +1,471 @@
+{
+  "id": "data-02-collecting-data",
+  "name": "Collecting Data — Ask, Tally, Discover",
+  "grade": 4,
+  "strand": "data",
+  "prerequisites": [
+    "data-01-bar-graphs"
+  ],
+  "whatIsIt": "Data is information you COLLECT to answer a question: ask everyone the same clear question, record answers with TALLY marks (bundle the fifth across: ||||), total them into a table, then graph and read the story. Question → collect → tally → table → graph → answer!",
+  "whyNeeded": "Guessing says 'I think most kids like cricket'; DATA proves it. Shops decide what to stock, schools plan events, doctors track health — all by collecting data first. Whoever collects carefully gets answers they can trust (and spots others' shaky claims!).",
+  "realLifeUses": [
+    "Class party planning: survey which snack to order",
+    "School: counting how students travel (walk/bus/cycle)",
+    "Weather diary: sunny, cloudy, rainy days this month",
+    "Shop keeping: which flavour sells most, to restock right"
+  ],
+  "vocabulary": [
+    {
+      "term": "data",
+      "meaning": "Collected pieces of information — answers, counts, measurements."
+    },
+    {
+      "term": "tally marks",
+      "meaning": "Quick counting sticks: |||| = 4, the 5th crosses the bundle = 5."
+    },
+    {
+      "term": "survey",
+      "meaning": "Asking many people the SAME question and recording every answer."
+    }
+  ],
+  "story": {
+    "title": "Choosing the Festival Snack Fairly",
+    "characters": [
+      "Meena",
+      "Ravi",
+      "the teacher"
+    ],
+    "text": "The class must pick ONE snack for the festival. Ravi shouts 'Jalebi!' but the teacher smiles: 'Let's decide fairly — with DATA.' They survey everyone, tally the answers (laddu 9, samosa 7, jalebi 4), and draw a graph. 'Laddu wins — decided by the data, not by the loudest voice!' Meena grins at Ravi.",
+    "extractedProblem": "How should the class decide the festival snack fairly?",
+    "answerInStory": "Survey everyone, tally the answers (laddu 9, samosa 7, jalebi 4), graph — laddu wins by data, not by Ravi!"
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": {
+      "categories": [
+        {
+          "label": "laddu",
+          "value": 9
+        },
+        {
+          "label": "samosa",
+          "value": 7
+        },
+        {
+          "label": "jalebi",
+          "value": 4
+        }
+      ],
+      "unit": "votes"
+    },
+    "caption": "From tally slate to bar graph: |||| |||| → 9, |||| || → 7, |||| → 4. The graph ends the argument!"
+  },
+  "teachingGallery": [
+    {
+      "title": "Tally marks — count in fives",
+      "note": "Draw 4 lines, then the 5th crosses them like a gate. Count the gates in fives.",
+      "examples": [
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "5 = ||||̸",
+                "value": 5
+              }
+            ]
+          },
+          "caption": "Four lines + one crossing = a bundle of 5."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "IIII",
+                "value": 4
+              },
+              {
+                "label": "gate of 5",
+                "value": 5
+              }
+            ]
+          },
+          "caption": "4 stays open; the 5th closes the gate."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "5+5",
+                "value": 10
+              }
+            ]
+          },
+          "caption": "Two gates = 10."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "5+3",
+                "value": 8
+              }
+            ]
+          },
+          "caption": "One gate (5) plus 3 loose lines = 8."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "cats",
+                "value": 7,
+                "icon": "🐈"
+              },
+              {
+                "label": "dogs",
+                "value": 5,
+                "icon": "🐕"
+              }
+            ]
+          },
+          "caption": "Turn tallies into a bar graph."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Question → collect → tally → table → graph → answer.",
+    "steps": [
+      "Fix ONE clear question with clear choices ('Which snack: laddu / samosa / jalebi?').",
+      "Ask everyone; record each answer instantly as a tally stick (5th crosses the bundle!).",
+      "Total the tallies into a table.",
+      "Draw the graph and READ it: winner, loser, total, gaps."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Observation counting",
+      "whenToUse": "When you WATCH instead of asking (traffic, birds, weather).",
+      "steps": [
+        "Decide what counts (red cars? crows?) and for how long.",
+        "Tally every sighting in the moment — never trust memory.",
+        "Total and graph, same as a survey."
+      ],
+      "example": "20-minute window count: cars |||| |||| ||, autos |||| |, cycles ||||."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Anu's travel survey tallies: walk |||| |||| , bus |||| ||, cycle |||| . Turn the tallies into numbers.",
+      "steps": [
+        "walk: two full bundles = 5 + 5 = 10.",
+        "bus: one bundle + 2 = 7.",
+        "cycle: one bundle = 5. (Table done — ready to graph!)"
+      ],
+      "answer": "walk 10, bus 7, cycle 5"
+    },
+    {
+      "problem": "Ravi surveyed 'Is cricket the best sport? Yes or yes?!' and reports 100% say yes. What went wrong before he even counted?",
+      "steps": [
+        "The QUESTION was broken — it allowed only one answer!",
+        "Fair data needs a fair question with real choices: 'Which sport do you like most: cricket / football / kho-kho?'",
+        "Rule: fix the question first; crooked questions make crooked data."
+      ],
+      "answer": "The question forced the answer — fair choices first!"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Count tallies in fives",
+    "intro": "Each crossed gate is 5. Count the gates by fives, then add the loose marks.",
+    "questions": [
+      {
+        "id": "data02-trick-1-3",
+        "type": "number",
+        "q": "Count the tally: 1 closed gate(s) of 5 and 3 loose mark(s). Total?",
+        "answer": "8",
+        "hintLadder": [
+          "Each closed gate = 5. That's 1 × 5 = 5.",
+          "Add the 3 loose marks.",
+          "5 + 3 = 8."
+        ],
+        "explain": "1×5 + 3 = 8."
+      },
+      {
+        "id": "data02-trick-2-0",
+        "type": "number",
+        "q": "Count the tally: 2 closed gate(s) of 5 and 0 loose mark(s). Total?",
+        "answer": "10",
+        "hintLadder": [
+          "Each closed gate = 5. That's 2 × 5 = 10.",
+          "Add the 0 loose marks.",
+          "10 + 0 = 10."
+        ],
+        "explain": "2×5 + 0 = 10."
+      },
+      {
+        "id": "data02-trick-1-2",
+        "type": "number",
+        "q": "Count the tally: 1 closed gate(s) of 5 and 2 loose mark(s). Total?",
+        "answer": "7",
+        "hintLadder": [
+          "Each closed gate = 5. That's 1 × 5 = 5.",
+          "Add the 2 loose marks.",
+          "5 + 2 = 7."
+        ],
+        "explain": "1×5 + 2 = 7."
+      },
+      {
+        "id": "data02-trick-2-4",
+        "type": "number",
+        "q": "Count the tally: 2 closed gate(s) of 5 and 4 loose mark(s). Total?",
+        "answer": "14",
+        "hintLadder": [
+          "Each closed gate = 5. That's 2 × 5 = 10.",
+          "Add the 4 loose marks.",
+          "10 + 4 = 14."
+        ],
+        "explain": "2×5 + 4 = 14."
+      },
+      {
+        "id": "data02-trick-0-4",
+        "type": "number",
+        "q": "Count the tally: 0 closed gate(s) of 5 and 4 loose mark(s). Total?",
+        "answer": "4",
+        "hintLadder": [
+          "Each closed gate = 5. That's 0 × 5 = 0.",
+          "Add the 4 loose marks.",
+          "0 + 4 = 4."
+        ],
+        "explain": "0×5 + 4 = 4."
+      },
+      {
+        "id": "data02-trick-3-1",
+        "type": "number",
+        "q": "Count the tally: 3 closed gate(s) of 5 and 1 loose mark(s). Total?",
+        "answer": "16",
+        "hintLadder": [
+          "Each closed gate = 5. That's 3 × 5 = 15.",
+          "Add the 1 loose marks.",
+          "15 + 1 = 16."
+        ],
+        "explain": "3×5 + 1 = 16."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "memory-instead-of-tally",
+      "mistake": "Asking everyone first and trying to remember the answers afterwards.",
+      "fix": "Memory drops data! Tally EACH answer the second you hear it — the slate remembers so you don't have to."
+    },
+    {
+      "mistakeTag": "fifth-stick-uncrossed",
+      "mistake": "Writing five separate sticks ||||| instead of crossing the bundle, then miscounting piles of sticks.",
+      "fix": "The 5th stick LIES ACROSS its four friends: ||||. Bundles of 5 count fast: 5, 10, 15... That's the whole point of tallying!"
+    },
+    {
+      "mistakeTag": "loaded-question-asked",
+      "mistake": "Asking a question that pushes one answer ('Laddus are the best, right?').",
+      "fix": "Ask neutral questions with equal choices. Data's job is to SURPRISE you if you're wrong — a loaded question can't."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "A tally shows |||| |||| || . What number is that?",
+        "answer": "12",
+        "hintLadder": [
+          "Count the crossed bundles first.",
+          "Two bundles = 10.",
+          "Plus the loose sticks: 10 + 2."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "When should you record each survey answer?",
+        "options": [
+          {
+            "label": "Immediately, as a tally mark"
+          },
+          {
+            "label": "Later, from memory",
+            "mistakeTag": "memory-instead-of-tally"
+          }
+        ],
+        "answer": "Immediately, as a tally mark",
+        "hintLadder": [
+          "What happens to answers you 'save for later'?",
+          "They leak away!",
+          "Tally in the moment."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "Snack votes: laddu 9, samosa 7, jalebi 4. How many people were surveyed in total?",
+        "answer": "20",
+        "hintLadder": [
+          "Total = all groups added.",
+          "9 + 7 + 4.",
+          "Twenty."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "Which survey question is FAIR?",
+        "options": [
+          {
+            "label": "Which fruit do you like most: mango, banana, or apple?"
+          },
+          {
+            "label": "Mango is everyone's favourite, isn't it?",
+            "mistakeTag": "loaded-question-asked"
+          }
+        ],
+        "answer": "Which fruit do you like most: mango, banana, or apple?",
+        "hintLadder": [
+          "Which one lets people disagree?",
+          "A fair question offers real choices.",
+          "Neutral words, equal options."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "number",
+        "q": "Weather diary tallies — sunny: |||| |||| |||| (3 bundles), rainy: |||| (1 bundle), cloudy: |||| |||| (2 bundles). How many days were recorded altogether?",
+        "answer": "30",
+        "hintLadder": [
+          "Each crossed bundle = 5. Count bundles per weather type.",
+          "Sunny 3 bundles = 15, rainy 1 bundle = 5, cloudy 2 bundles = 10.",
+          "Add all three groups: 15 + 5 + 10."
+        ],
+        "explain": "Bundles of 5 count fast: 15 + 5 + 10 = 30 days — a whole month of weather!"
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "Robo wants to know which vehicles pass the school most. Should he SURVEY or OBSERVE?",
+        "options": [
+          {
+            "label": "Observe — watch and tally the vehicles themselves"
+          },
+          {
+            "label": "Survey the vehicles with a questionnaire",
+            "mistakeTag": "loaded-question-asked"
+          }
+        ],
+        "answer": "Observe — watch and tally the vehicles themselves",
+        "hintLadder": [
+          "Can you interview an auto-rickshaw?",
+          "Some data is WATCHED, not asked.",
+          "Observation counting with tallies."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "Read the tally: |||| |||| |||| || = ?",
+        "answer": "17",
+        "hintLadder": [
+          "Three bundles = 15.",
+          "Plus loose sticks.",
+          "15 + 2."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "The correct order of a data project is…",
+        "options": [
+          {
+            "label": "Question → collect/tally → table → graph → answer"
+          },
+          {
+            "label": "Graph first, then find data to match",
+            "mistakeTag": "loaded-question-asked"
+          }
+        ],
+        "answer": "Question → collect/tally → table → graph → answer",
+        "hintLadder": [
+          "What must exist before you can collect?",
+          "A clear question!",
+          "Then tally, table, graph, read."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "Why does the 5th tally stick cross the bundle?",
+        "options": [
+          {
+            "label": "So finished bundles of 5 can be counted fast: 5, 10, 15…"
+          },
+          {
+            "label": "It just looks nice",
+            "mistakeTag": "fifth-stick-uncrossed"
+          }
+        ],
+        "answer": "So finished bundles of 5 can be counted fast: 5, 10, 15…",
+        "hintLadder": [
+          "What's easy to skip-count?",
+          "Fives!",
+          "Crossed bundles = ready-made fives."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "number",
+        "q": "Votes were laddu 9, samosa 7, jalebi 4. How many MORE chose laddu than jalebi?",
+        "answer": "5",
+        "hintLadder": [
+          "'How many more' = subtract.",
+          "9 − 4.",
+          "Five."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Run the Great Snack Vote at home! Ask everyone one fair question with 3 choices, tally live, total, graph, and announce the result — then explain to your family why 'I asked myself and I agree' isn't data.",
+  "revisionCard": {
+    "summary": "Data project: fair QUESTION → tally EVERY answer instantly (5th stick crosses: |||| = 5) → table → graph → read. Loaded questions make crooked data. Bundles of 5 count fast. Data replaces 'I think' with 'we know'!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Data Newsroom (Ganita Grove)",
+    "title": "The Grove Census",
+    "brief": "The Newsroom is running the first-ever Grove Census! Write fair questions, tally the stampede of answers without dropping any, and expose Ravi's 'surveys of himself' before they reach print.",
+    "character": "Robo Reason"
+  },
+  "realLifeProject": "Be a window scientist: pick a 15-minute slot and tally something you can see (birds, vehicle types, people with umbrellas). Table it, graph it, and share one surprising discovery with your family.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4 (data collection and handling)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

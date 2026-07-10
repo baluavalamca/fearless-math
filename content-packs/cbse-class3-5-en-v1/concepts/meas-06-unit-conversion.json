@@ -1,0 +1,169 @@
+{
+  "id": "meas-06-unit-conversion",
+  "name": "Changing Units — Metres, Grams and Litres",
+  "grade": 4,
+  "strand": "measurement",
+  "prerequisites": ["meas-01-units"],
+  "whatIsIt": "The same amount can be written in different units. 1 metre = 100 centimetres, 1 kilometre = 1000 metres, 1 kilogram = 1000 grams, 1 litre = 1000 millilitres. To go from a BIGGER unit to a SMALLER one, MULTIPLY. To go from a SMALLER unit to a BIGGER one, DIVIDE.",
+  "whyNeeded": "Shops, recipes, and travel mix units all the time — 2 kg 500 g of rice, 1 litre 250 mL of milk, 3 km walk. Converting between units lets you compare and calculate correctly instead of comparing apples with oranges.",
+  "realLifeUses": [
+    "A recipe needs 250 mL of milk from a 1-litre packet",
+    "Cloth measured in metres and centimetres",
+    "Rice bought as 2 kg 500 g",
+    "A 3 km walk written as 3000 metres"
+  ],
+  "vocabulary": [
+    { "term": "convert", "meaning": "Rewrite a measure in a different unit for the same amount." },
+    { "term": "bigger unit", "meaning": "km, m, kg, L — fewer of them for the same amount." },
+    { "term": "smaller unit", "meaning": "m, cm, g, mL — more of them for the same amount." }
+  ],
+  "story": {
+    "title": "Milk for the Kheer",
+    "characters": ["Naina", "Mummy"],
+    "text": "Mummy is making kheer and needs 750 mL of milk. The packet says 1 litre. 'Is there enough?' asks Naina. 'One litre is 1000 mL,' says Mummy. Naina thinks: 1000 mL is more than 750 mL, so yes — and 1000 − 750 = 250 mL will be left over for tomorrow's tea.",
+    "extractedProblem": "A 1 litre packet has how many millilitres, and is that enough for 750 mL of kheer?",
+    "answerInStory": "1000 mL — yes, enough, with 250 mL to spare."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "1 metre = 100 cm", "parts": [ { "value": 50 }, { "value": 50 } ], "showTotal": true }
+      ]
+    },
+    "caption": "1 metre split into centimetres: 50 + 50 = 100 cm. Bigger → smaller, multiply by 100."
+  },
+  "teachingGallery": [
+    {
+      "title": "Bigger↔smaller units",
+      "note": "Bigger to smaller: multiply. Smaller to bigger: divide.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "1 kg = 1000 g", "parts": [ { "value": 500 }, { "value": 500 } ], "showTotal": true } ] }, "caption": "1 kilogram = 1000 grams." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "1 L = 1000 mL", "parts": [ { "value": 250 }, { "value": 250 }, { "value": 250 }, { "value": 250 } ], "showTotal": true } ] }, "caption": "1 litre = four 250 mL cups." },
+        { "component": "NumberLine", "props": { "lines": [ { "parts": 10, "mark": 3, "label": "3 m = 300 cm", "showLabels": false } ] }, "caption": "Each metre is 100 cm." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Know the '1 big = 1000 (or 100) small' fact; multiply to go bigger→smaller, divide to go smaller→bigger.",
+    "steps": [
+      "Recall the fact: 1 m = 100 cm, 1 km = 1000 m, 1 kg = 1000 g, 1 L = 1000 mL.",
+      "Bigger unit → smaller unit: MULTIPLY (e.g. 3 m × 100 = 300 cm).",
+      "Smaller unit → bigger unit: DIVIDE (e.g. 2000 g ÷ 1000 = 2 kg).",
+      "For mixed measures (2 kg 500 g), convert each part or keep them separate."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Convert 3 kilometres into metres.",
+      "steps": ["1 km = 1000 m.", "Bigger → smaller, so multiply: 3 × 1000.", "= 3000 m."],
+      "answer": "3000"
+    },
+    {
+      "problem": "Convert 2500 grams into kilograms and grams.",
+      "steps": ["1 kg = 1000 g.", "2500 ÷ 1000 = 2 with 500 left.", "= 2 kg 500 g."],
+      "answer": "2 kg 500 g"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "wrong-direction",
+      "mistake": "Dividing when you should multiply (bigger→smaller), or vice versa.",
+      "fix": "Going to a SMALLER unit gives MORE of them → multiply. Going to a BIGGER unit gives FEWER → divide."
+    },
+    {
+      "mistakeTag": "wrong-conversion-fact",
+      "mistake": "Using 100 where 1000 is needed (e.g. 1 kg = 100 g).",
+      "fix": "Metres↔cm use 100; km, kg and litres use 1000. Recall the exact fact first."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "me06-e1", "type": "number",
+        "q": "How many centimetres are in 1 metre?",
+        "answer": "100",
+        "hintLadder": ["Metre to cm fact.", "One hundred.", "100."]
+      },
+      {
+        "id": "me06-e2", "type": "number",
+        "q": "How many millilitres are in 1 litre?",
+        "answer": "1000",
+        "hintLadder": ["Litre to mL fact.", "One thousand.", "1000."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "me06-m1", "type": "number",
+        "q": "Convert 2 metres into centimetres.",
+        "answer": "200",
+        "hintLadder": ["Bigger → smaller, multiply.", "2 × 100.", "200."]
+      },
+      {
+        "id": "me06-m2", "type": "number",
+        "q": "Convert 3000 grams into kilograms.",
+        "answer": "3",
+        "hintLadder": ["Smaller → bigger, divide.", "3000 ÷ 1000.", "Three."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "me06-c1", "type": "number",
+        "q": "A 1 litre bottle has 400 mL poured out. How many mL are left?",
+        "answer": "600",
+        "hintLadder": ["1 L = 1000 mL.", "1000 − 400.", "600."]
+      },
+      {
+        "id": "me06-c2", "type": "mcq",
+        "q": "Sam converts 5 km to metres by dividing by 1000. What should he do?",
+        "options": [ { "label": "Multiply — 5 × 1000 = 5000 m" }, { "label": "Divide is correct", "mistakeTag": "wrong-direction" } ],
+        "answer": "Multiply — 5 × 1000 = 5000 m",
+        "hintLadder": ["Metres are smaller than km.", "Smaller unit → more of them → multiply.", "5000 m."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "me06-x1", "type": "number",
+        "q": "How many grams are in 1 kilogram?",
+        "answer": "1000",
+        "hintLadder": ["kg to g fact.", "One thousand.", "1000."]
+      },
+      {
+        "id": "me06-x2", "type": "number",
+        "q": "Convert 4 metres to centimetres.",
+        "answer": "400",
+        "hintLadder": ["Multiply by 100.", "4 × 100.", "400."]
+      },
+      {
+        "id": "me06-x3", "type": "number",
+        "q": "Convert 2000 millilitres to litres.",
+        "answer": "2",
+        "hintLadder": ["Divide by 1000.", "2000 ÷ 1000.", "Two."]
+      },
+      {
+        "id": "me06-x4", "type": "mcq",
+        "q": "To change a BIGGER unit into a SMALLER one you…",
+        "options": [ { "label": "Multiply" }, { "label": "Divide", "mistakeTag": "wrong-direction" } ],
+        "answer": "Multiply",
+        "hintLadder": ["Smaller units → more of them.", "More means multiply.", "Multiply."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Use a measuring cup or a scale at home. Show a grown-up how to convert one measure both ways — like 1 litre into millilitres and back — and explain when you multiply and when you divide.",
+  "revisionCard": {
+    "summary": "1 m = 100 cm; 1 km = 1000 m; 1 kg = 1000 g; 1 L = 1000 mL. Bigger → smaller unit: MULTIPLY. Smaller → bigger unit: DIVIDE. Metres↔cm use 100; km, kg, litres use 1000.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4 (unit conversion — length, mass, capacity)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

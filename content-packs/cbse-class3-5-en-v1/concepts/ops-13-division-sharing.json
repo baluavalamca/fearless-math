@@ -1,0 +1,574 @@
+{
+  "id": "ops-13-division-sharing",
+  "name": "Division — Fair Sharing and Grouping",
+  "grade": 3,
+  "strand": "operations",
+  "prerequisites": [
+    "ops-09-multiplication-groups"
+  ],
+  "whatIsIt": "Division splits a total into EQUAL parts. It answers two friendly questions: SHARING — '12 laddus shared by 3 friends, how many each?' — and GROUPING — '12 laddus packed 4 to a box, how many boxes?'. Both are written with the ÷ sign: 12 ÷ 3 = 4.",
+  "whyNeeded": "Sharing fairly is one of life's most important jobs! Division makes sure everyone gets the same — no fights, no leftovers missed. It is also multiplication's twin: multiplication builds equal groups, division breaks a total back INTO equal groups. And fair sharing is exactly where fractions are born!",
+  "realLifeUses": [
+    "Snacks: 12 laddus shared equally among 3 friends — 4 each",
+    "Teams: 20 children making 4 equal teams for kho-kho — 5 per team",
+    "Packing: 18 eggs packed 6 to a box — 3 boxes needed",
+    "Money: ₹50 shared equally between 2 siblings — ₹25 each",
+    "Car seats: 15 people, 5 seats per car — how many cars?"
+  ],
+  "vocabulary": [
+    {
+      "term": "division (÷)",
+      "meaning": "Splitting a total into equal parts: 12 ÷ 3 = 4."
+    },
+    {
+      "term": "share equally",
+      "meaning": "Give everyone exactly the same amount."
+    },
+    {
+      "term": "grouping",
+      "meaning": "Making groups of a fixed size and counting the groups."
+    },
+    {
+      "term": "left over (remainder)",
+      "meaning": "What remains when things cannot be shared out evenly."
+    }
+  ],
+  "story": {
+    "title": "Sharing the Festival Laddus",
+    "characters": [
+      "Ajji",
+      "three grandchildren"
+    ],
+    "text": "Ajji has 12 laddus to share equally among her 3 grandchildren, so nobody grumbles. 'How many each?' She deals them one by one into 3 plates — fair sharing. Each plate ends with 4 laddus. 'Twelve shared among three is 12 ÷ 3 = 4 each. Think of the twin fact: 3 × 4 = 12. Fair sharing done!'",
+    "extractedProblem": "12 laddus are shared equally among 3 friends. How many laddus does each friend get?",
+    "answerInStory": "12 ÷ 3 = 4 — each friend gets exactly 4 laddus, and nobody grumbles!"
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        {
+          "rows": 3,
+          "cols": 4,
+          "asGroups": true,
+          "label": "12 ÷ 3 = 4 each"
+        }
+      ]
+    },
+    "caption": "12 laddus dealt into 3 equal plates — 4 on each. Division makes equal groups: 12 ÷ 3 = 4."
+  },
+  "teachingGallery": [
+    {
+      "title": "Division is fair sharing",
+      "note": "Share the whole into equal groups — how many in each?",
+      "examples": [
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "12 shared into 3 groups → 4 each. 12 ÷ 3 = 4."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 5,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "10 ÷ 2 = 5."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 4,
+                "cols": 3,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "12 ÷ 4 = 3."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 5,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "20 ÷ 5 = 4."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  0,
+                  4,
+                  8,
+                  12
+                ],
+                "jump": 4
+              }
+            ]
+          },
+          "caption": "Or count up in 4s to 12 → 3 jumps → 12 ÷ 4 = 3."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Deal the total into equal shares (or equal groups), then count one share.",
+    "steps": [
+      "Find the TOTAL (12 laddus) and the number of SHARES (3 friends).",
+      "Deal one to each share, again and again, until the total is used up.",
+      "Count how many landed in ONE share: 4.",
+      "Write the division sentence: 12 ÷ 3 = 4."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Grouping method (measure out)",
+      "whenToUse": "When you know the SIZE of each group and need the NUMBER of groups.",
+      "steps": [
+        "Take out one group of the given size at a time: 12 laddus, boxes of 4.",
+        "Group 1 (4 gone, 8 left), group 2 (4 gone, 4 left), group 3 (empty!).",
+        "Count the groups you made: 3 boxes. So 12 ÷ 4 = 3."
+      ],
+      "example": "18 eggs, 6 per box: take 6, take 6, take 6 — 18 ÷ 6 = 3 boxes."
+    },
+    {
+      "name": "Think-multiplication method",
+      "whenToUse": "The fast mental method once tables are known — division is multiplication's twin!",
+      "steps": [
+        "Turn 12 ÷ 3 into a missing-number multiplication: 3 × ? = 12.",
+        "Run the 3-times jumps: 3, 6, 9, 12 — that took 4 jumps.",
+        "So 12 ÷ 3 = 4."
+      ],
+      "example": "30 ÷ 5: think 5 × ? = 30 → 5 × 6 = 30 → answer 6."
+    },
+    {
+      "name": "Array method",
+      "whenToUse": "To SEE both division questions in one picture.",
+      "steps": [
+        "Arrange the total in an array: 12 dots in 3 rows.",
+        "Rows answer sharing: 3 friends → 4 in each row.",
+        "Columns answer grouping: groups of 3 → 4 groups.",
+        "One picture, two division stories!"
+      ],
+      "example": "A 3-by-4 array shows 12 ÷ 3 = 4 AND 12 ÷ 4 = 3."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "20 children make 4 equal teams for kho-kho. How many children in each team?",
+      "steps": [
+        "Total = 20, shares (teams) = 4.",
+        "Think multiplication: 4 × ? = 20.",
+        "Jump by 4: 4, 8, 12, 16, 20 — five jumps.",
+        "20 ÷ 4 = 5 children per team."
+      ],
+      "answer": "5",
+      "visual": {
+        "component": "ArrayGrid",
+        "props": {
+          "grids": [
+            {
+              "rows": 4,
+              "cols": 5,
+              "asGroups": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem": "15 people are going by car, and each car seats 5. Ravi answers '15 ÷ 5 = 10 because 15 - 5 = 10.' Help him.",
+      "steps": [
+        "Division is not take-away-once — it asks how many FIVES fit inside 15.",
+        "Measure out fives: 5 (one car), 10 (two cars), 15 (three cars).",
+        "Or think multiplication: 5 × 3 = 15.",
+        "15 ÷ 5 = 3 cars, not 10."
+      ],
+      "answer": "3 — division counts the equal groups, not one subtraction."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Division = counting equal groups",
+    "intro": "Divide by counting how many equal groups fit — the twin of the times table.",
+    "questions": [
+      {
+        "id": "ops13-trick-12/3",
+        "type": "number",
+        "q": "12 ÷ 3 = ?",
+        "answer": "4",
+        "hintLadder": [
+          "How many groups of 3 fit in 12?",
+          "Skip-count 3: 3, 6, 9, 12.",
+          "That took 4 jumps → 12 ÷ 3 = 4."
+        ],
+        "explain": "12 ÷ 3 = 4."
+      },
+      {
+        "id": "ops13-trick-10/2",
+        "type": "number",
+        "q": "10 ÷ 2 = ?",
+        "answer": "5",
+        "hintLadder": [
+          "How many groups of 2 fit in 10?",
+          "Skip-count 2: 2, 4, 6, 8, 10.",
+          "That took 5 jumps → 10 ÷ 2 = 5."
+        ],
+        "explain": "10 ÷ 2 = 5."
+      },
+      {
+        "id": "ops13-trick-20/5",
+        "type": "number",
+        "q": "20 ÷ 5 = ?",
+        "answer": "4",
+        "hintLadder": [
+          "How many groups of 5 fit in 20?",
+          "Skip-count 5: 5, 10, 15, 20.",
+          "That took 4 jumps → 20 ÷ 5 = 4."
+        ],
+        "explain": "20 ÷ 5 = 4."
+      },
+      {
+        "id": "ops13-trick-18/6",
+        "type": "number",
+        "q": "18 ÷ 6 = ?",
+        "answer": "3",
+        "hintLadder": [
+          "How many groups of 6 fit in 18?",
+          "Skip-count 6: 6, 12, 18.",
+          "That took 3 jumps → 18 ÷ 6 = 3."
+        ],
+        "explain": "18 ÷ 6 = 3."
+      },
+      {
+        "id": "ops13-trick-24/4",
+        "type": "number",
+        "q": "24 ÷ 4 = ?",
+        "answer": "6",
+        "hintLadder": [
+          "How many groups of 4 fit in 24?",
+          "Skip-count 4: 4, 8, 12, 16, 20, 24.",
+          "That took 6 jumps → 24 ÷ 4 = 6."
+        ],
+        "explain": "24 ÷ 4 = 6."
+      },
+      {
+        "id": "ops13-trick-15/3",
+        "type": "number",
+        "q": "15 ÷ 3 = ?",
+        "answer": "5",
+        "hintLadder": [
+          "How many groups of 3 fit in 15?",
+          "Skip-count 3: 3, 6, 9, 12, 15.",
+          "That took 5 jumps → 15 ÷ 3 = 5."
+        ],
+        "explain": "15 ÷ 3 = 5."
+      },
+      {
+        "id": "ops13-trick-16/8",
+        "type": "number",
+        "q": "16 ÷ 8 = ?",
+        "answer": "2",
+        "hintLadder": [
+          "How many groups of 8 fit in 16?",
+          "Skip-count 8: 8, 16.",
+          "That took 2 jumps → 16 ÷ 8 = 2."
+        ],
+        "explain": "16 ÷ 8 = 2."
+      },
+      {
+        "id": "ops13-trick-21/7",
+        "type": "number",
+        "q": "21 ÷ 7 = ?",
+        "answer": "3",
+        "hintLadder": [
+          "How many groups of 7 fit in 21?",
+          "Skip-count 7: 7, 14, 21.",
+          "That took 3 jumps → 21 ÷ 7 = 3."
+        ],
+        "explain": "21 ÷ 7 = 3."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "shared-unequally",
+      "mistake": "Handing out different amounts (7, 3, 2) and calling it sharing.",
+      "fix": "Fair sharing = SAME for everyone. Deal like cards — one each, round and round — until the pile is gone, then check all shares match."
+    },
+    {
+      "mistakeTag": "subtracted-once-only",
+      "mistake": "Treating 15 ÷ 5 like 15 - 5 and answering 10.",
+      "fix": "Division keeps taking the group out until nothing is left, counting the groups: 5, 10, 15 → three groups. Or flip it: 5 × ? = 15."
+    },
+    {
+      "mistakeTag": "swapped-the-order",
+      "mistake": "Writing 3 ÷ 12 when 12 things are shared among 3 (order flipped).",
+      "fix": "The TOTAL always comes first: total ÷ shares. Twelve laddus shared by three friends is 12 ÷ 3."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "8 chocolates are shared equally between 2 friends. How many does each friend get?",
+        "answer": "4",
+        "hintLadder": [
+          "Deal them like cards: one for you, one for me...",
+          "Or think multiplication: 2 × ? = 8.",
+          "Jump by 2: 2, 4, 6, 8 — how many jumps?"
+        ],
+        "explain": "8 ÷ 2 = 4 — four chocolates each, perfectly fair!"
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "12 laddus are shared equally among 3 friends. Which sentence is right?",
+        "options": [
+          {
+            "label": "12 ÷ 3 = 4"
+          },
+          {
+            "label": "3 ÷ 12 = 4",
+            "mistakeTag": "swapped-the-order"
+          },
+          {
+            "label": "12 ÷ 3 = 9",
+            "mistakeTag": "subtracted-once-only"
+          }
+        ],
+        "answer": "12 ÷ 3 = 4",
+        "hintLadder": [
+          "Which number is the TOTAL? That one comes first.",
+          "12 laddus split into 3 equal plates.",
+          "Check with multiplication: 3 × 4 = 12."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "18 eggs are packed 6 to a box. How many boxes are filled?",
+        "answer": "3",
+        "hintLadder": [
+          "This is grouping: take out 6 at a time.",
+          "6 (one box), 12 (two boxes)... keep going.",
+          "How many sixes fit in 18? Think 6 × ? = 18."
+        ],
+        "explain": "18 ÷ 6 = 3 boxes — grouping is division too!"
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "₹50 is shared equally between 2 siblings. How many rupees does each get?",
+        "answer": "25",
+        "hintLadder": [
+          "Total ÷ shares: 50 ÷ 2.",
+          "Half of 50 — split it into two equal piles.",
+          "Check: 2 × 25 = 50."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Ravi shares 12 laddus among 3 friends as 7, 3, and 2. 'Done — division!' he says. What would Divya Divider say?",
+        "options": [
+          {
+            "label": "Not division — the shares must all be EQUAL"
+          },
+          {
+            "label": "Correct, because 7 + 3 + 2 = 12",
+            "mistakeTag": "shared-unequally"
+          },
+          {
+            "label": "He should write 3 ÷ 12",
+            "mistakeTag": "swapped-the-order"
+          }
+        ],
+        "answer": "Not division — the shares must all be EQUAL",
+        "hintLadder": [
+          "The total is right... but check the plates.",
+          "Does everyone have the same amount?",
+          "Division = equal shares only. Deal one-each, round and round."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "A school van seats 8 children. 24 children are going on a trip. Multi asks the twin question: 8 × ? = 24. How many vans are needed?",
+        "answer": "3",
+        "hintLadder": [
+          "Division and multiplication are twins.",
+          "Jump by 8: 8, 16, 24.",
+          "Count the jumps."
+        ],
+        "explain": "24 ÷ 8 = 3 vans, because 8 × 3 = 24."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "10 pencils are shared equally between 5 children. How many pencils each?",
+        "answer": "2",
+        "hintLadder": [
+          "Total ÷ shares: 10 ÷ 5.",
+          "Think: 5 × ? = 10.",
+          "Two jumps of 5 make 10."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "What must be true about the shares in division?",
+        "options": [
+          {
+            "label": "They must all be equal"
+          },
+          {
+            "label": "The first person can take more",
+            "mistakeTag": "shared-unequally"
+          }
+        ],
+        "answer": "They must all be equal",
+        "hintLadder": [
+          "What did Divya call division?",
+          "The fairness machine!",
+          "Same amount for every share — always."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "number",
+        "q": "21 mangoes are packed 7 to a basket. How many baskets?",
+        "answer": "3",
+        "hintLadder": [
+          "Grouping: how many sevens fit in 21?",
+          "Jump by 7: 7, 14, 21.",
+          "Count the jumps."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "16 biscuits shared among 4 friends. Which division sentence is correct?",
+        "options": [
+          {
+            "label": "16 ÷ 4 = 4"
+          },
+          {
+            "label": "4 ÷ 16 = 4",
+            "mistakeTag": "swapped-the-order"
+          },
+          {
+            "label": "16 ÷ 4 = 12",
+            "mistakeTag": "subtracted-once-only"
+          }
+        ],
+        "answer": "16 ÷ 4 = 4",
+        "hintLadder": [
+          "Total first, then the shares.",
+          "16 split into 4 equal plates.",
+          "Check with the twin: 4 × 4 = 16."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "number",
+        "q": "Divya's quick twin trick: 30 ÷ 5 = ? (Think 5 × ? = 30.)",
+        "answer": "6",
+        "hintLadder": [
+          "Run the 5-times jumps toward 30.",
+          "5, 10, 15, 20, 25, 30.",
+          "How many jumps did that take?"
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Divya Divider is training new fairness helpers! Teach someone at home the two division questions — sharing ('how many each?') and grouping ('how many groups?') — using 12 of anything. Show the card-dealing trick, and tell them which number always comes first in the division sentence.",
+  "revisionCard": {
+    "summary": "Division = the fairness machine. Total ÷ shares, total always FIRST. Two questions: sharing (12 ÷ 3 friends = 4 each) and grouping (12 ÷ 4 per box = 3 boxes). Twin trick: 12 ÷ 3 = ? is 3 × ? = 12. Equal shares only!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Multiplication Farm (Ganita Grove)",
+    "title": "The Fairness Machine",
+    "brief": "The party guests are waiting! Deal laddus, mangoes, and pencils into perfectly equal shares before Ravi's grabby paws reach the box. Bonus round: pack the delivery boxes using the grouping method.",
+    "character": "Divya Divider"
+  },
+  "realLifeProject": "At snack time, take 12 of something small (grapes, biscuits, peanuts) and share them equally among family members — deal like cards! Write the division sentence you performed. Then try 13 and discover what a 'left over' is!",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3 (division as sharing and grouping)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "mentalMathMethod": {
+    "name": "Think the multiplication twin",
+    "whenToUse": "For quick division facts.",
+    "steps": [
+      "Ask: what times the divisor makes this number?",
+      "Use the times table you know.",
+      "That missing factor is the answer."
+    ],
+    "example": "24 ÷ 6: 6 × ? = 24 → 4."
+  },
+  "abacusMethod": {
+    "name": "Share beads into equal groups",
+    "whenToUse": "To divide on the abacus.",
+    "steps": [
+      "Set the total in beads.",
+      "Deal them out equally into the number of groups.",
+      "Count how many each group got."
+    ],
+    "example": "12 ÷ 3: share 12 into 3 → 4 each.",
+    "visual": {
+      "component": "Abacus",
+      "props": {
+        "abaci": [
+          {
+            "value": 4,
+            "label": "12 ÷ 3 = 4"
+          }
+        ]
+      },
+      "caption": "Share the beads equally — 4 in each group."
+    }
+  }
+}

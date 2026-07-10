@@ -1,0 +1,656 @@
+{
+  "id": "ops-15-word-problems",
+  "name": "Word Problems — Choosing the Right Operation",
+  "grade": 4,
+  "strand": "operations",
+  "prerequisites": [
+    "ops-13-division-sharing"
+  ],
+  "whatIsIt": "A word problem is a story hiding a calculation. The hard part is not the arithmetic — it is choosing WHICH operation the story needs: joining (+), taking away or comparing (−), equal groups (×), or sharing/grouping (÷). The bar model turns the story into a picture, and the picture reveals the operation.",
+  "whyNeeded": "Real life never says 'compute 52 − 27'. It says 'you had 52 rupees and bought a toy…'. Every exam, every shop, every game speaks in stories. A child who can turn stories into math can solve ANYTHING — this is the skill all ten earlier concepts were building toward.",
+  "realLifeUses": [
+    "Shop stories: money paid, cost, change",
+    "Cricket stories: runs scored, runs needed, run rates",
+    "Kitchen stories: laddus made, shared, left over",
+    "Travel stories: distance covered and remaining"
+  ],
+  "vocabulary": [
+    {
+      "term": "R.E.A.S.O.N.",
+      "meaning": "Read → Extract → Arrange (draw!) → Select operation → Operate → Notice (check)."
+    },
+    {
+      "term": "bar model",
+      "meaning": "Rectangles that picture the story: parts, wholes, and comparisons."
+    },
+    {
+      "term": "operation clue",
+      "meaning": "What the story DOES: joins, removes, compares, groups equally, or shares."
+    }
+  ],
+  "story": {
+    "title": "The Sweet Tray at the Wedding",
+    "characters": [
+      "Meena",
+      "the halwai"
+    ],
+    "text": "At a village wedding, the halwai's big tray holds 6 rows of 8 laddus. Hungry guests eat 15 of them. 'How many are left?' Meena thinks in two steps: 'Equal rows mean MULTIPLY — 6 × 8 = 48 laddus to start. Eaten means SUBTRACT — 48 − 15 = 33. Read the words, then pick the right step!'",
+    "extractedProblem": "A box has 6 rows of 8 laddus; 15 are eaten. How many laddus are left?",
+    "answerInStory": "33 — equal rows say multiply (6×8=48), 'eaten' says subtract (48−15=33)."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        {
+          "label": "made",
+          "parts": [
+            {
+              "value": 8,
+              "label": "8"
+            },
+            {
+              "value": 8,
+              "label": "8"
+            },
+            {
+              "value": 8,
+              "label": "8"
+            },
+            {
+              "value": 8,
+              "label": "8"
+            },
+            {
+              "value": 8,
+              "label": "8"
+            },
+            {
+              "value": 8,
+              "label": "8"
+            }
+          ]
+        },
+        {
+          "label": "after eating",
+          "parts": [
+            {
+              "value": 33,
+              "label": "left = 33"
+            },
+            {
+              "value": 15,
+              "label": "eaten 15",
+              "shaded": false
+            }
+          ]
+        }
+      ]
+    },
+    "caption": "Bar 1: six equal parts of 8 → multiply. Bar 2: the whole splits into 'left' and 'eaten' → subtract. Pictures choose operations!"
+  },
+  "teachingGallery": [
+    {
+      "title": "Which operation? Read the story",
+      "note": "Keywords tell you what to do: altogether=+, left=−, each/groups=×, share=÷.",
+      "examples": [
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "altogether",
+                "parts": [
+                  {
+                    "value": 3,
+                    "label": "3"
+                  },
+                  {
+                    "value": 2,
+                    "label": "2"
+                  }
+                ],
+                "showTotal": true
+              }
+            ]
+          },
+          "caption": "'Altogether' → ADD: 3 + 2 = 5."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "had 8, gave 3",
+                "parts": [
+                  {
+                    "value": 5,
+                    "label": "5 left"
+                  },
+                  {
+                    "value": 3,
+                    "label": "gave 3"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "'How many left' → SUBTRACT: 8 − 3 = 5."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 4,
+                "cols": 3,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "'4 boxes of 3' → MULTIPLY: 4 × 3 = 12."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "'Share 12 among 3' → DIVIDE: 12 ÷ 3 = 4."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "total 10",
+                "parts": [
+                  {
+                    "value": 6,
+                    "label": "6"
+                  },
+                  {
+                    "value": 4,
+                    "label": "? "
+                  }
+                ],
+                "showTotal": true
+              }
+            ]
+          },
+          "caption": "'How many more to reach 10' → SUBTRACT: 10 − 6 = 4."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "R.E.A.S.O.N. through every story — never guess the operation.",
+    "steps": [
+      "READ and restate: what is the story asking?",
+      "EXTRACT: what do we know? What is unknown?",
+      "ARRANGE: draw a bar model of the story.",
+      "SELECT: joining→+, removing/comparing→−, equal groups→×, sharing/grouping→÷.",
+      "OPERATE step by step, then NOTICE: does the answer make sense in the story?"
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Operation-clue spotting",
+      "whenToUse": "A quick first instinct before drawing.",
+      "steps": [
+        "JOIN words (altogether, total, in all, combined) hint +.",
+        "REMOVE/COMPARE words (left, remain, change, more than, fewer) hint −.",
+        "EQUAL-GROUP words (each, every, per, rows of) hint × …or ÷!",
+        "'Each' with the TOTAL known means ÷; 'each' with the total UNKNOWN means ×. The bar model settles any doubt."
+      ],
+      "example": "'5 boxes of 12' → total unknown → ×. '60 laddus, 12 per box' → total known → ÷."
+    },
+    {
+      "name": "Answer-sense check",
+      "whenToUse": "ALWAYS, after solving.",
+      "steps": [
+        "Put your answer back into the story: does it sound possible?",
+        "Left-over answers must be SMALLER than the start.",
+        "Sharing answers must be smaller than the total; totals must be bigger than each part."
+      ],
+      "example": "'52 − 27 = 35 laddus left'? But 35 + 27 ≠ 52 — the story itself rejects it!"
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Anu read 38 pages on Saturday and 26 on Sunday. How many pages altogether?",
+      "steps": [
+        "What happens? Two amounts JOIN into one total.",
+        "Bar: two parts (38 and 26) making one whole.",
+        "Joining → ADD: 38 + 26 = 64.",
+        "Sense check: 64 is bigger than both parts ✓"
+      ],
+      "answer": "64",
+      "visual": {
+        "component": "BarModel",
+        "props": {
+          "bars": [
+            {
+              "parts": [
+                {
+                  "value": 38,
+                  "label": "Sat 38"
+                },
+                {
+                  "value": 26,
+                  "label": "Sun 26"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem": "60 laddus are packed 12 to a box. Ravi shouts 'each means MULTIPLY — 720 laddus!' Untangle him.",
+      "steps": [
+        "What happens? A TOTAL (60) is being broken into equal groups of 12.",
+        "The total is already KNOWN — nothing new is being built.",
+        "Breaking a known total into equal groups → DIVIDE: 60 ÷ 12 = 5 boxes.",
+        "Sense check: 720 boxes from 60 laddus?! The story laughs. 5 boxes ✓"
+      ],
+      "answer": "5"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Keyword → operation",
+    "intro": "Let the words pick the sign: altogether +, left −, each/groups ×, share ÷.",
+    "questions": [
+      {
+        "id": "ops15-trick-1",
+        "type": "mcq",
+        "q": "Riya has 4 mangoes. Papa gives 3 more. How many ALTOGETHER?",
+        "answer": "add",
+        "options": [
+          {
+            "label": "add"
+          },
+          {
+            "label": "subtract"
+          },
+          {
+            "label": "multiply"
+          },
+          {
+            "label": "divide"
+          }
+        ],
+        "hintLadder": [
+          "'Altogether / in all' means put together.",
+          "Putting groups together is ADD (+).",
+          "4 + 3 = 7."
+        ],
+        "explain": "altogether → add."
+      },
+      {
+        "id": "ops15-trick-2",
+        "type": "mcq",
+        "q": "A shop had 12 laddus and sold 5. How many are LEFT?",
+        "answer": "subtract",
+        "options": [
+          {
+            "label": "add"
+          },
+          {
+            "label": "subtract"
+          },
+          {
+            "label": "multiply"
+          },
+          {
+            "label": "divide"
+          }
+        ],
+        "hintLadder": [
+          "'Left / remaining' means take away.",
+          "Taking away is SUBTRACT (−).",
+          "12 − 5 = 7."
+        ],
+        "explain": "left → subtract."
+      },
+      {
+        "id": "ops15-trick-3",
+        "type": "mcq",
+        "q": "There are 5 baskets with 4 apples EACH. How many apples?",
+        "answer": "multiply",
+        "options": [
+          {
+            "label": "add"
+          },
+          {
+            "label": "subtract"
+          },
+          {
+            "label": "multiply"
+          },
+          {
+            "label": "divide"
+          }
+        ],
+        "hintLadder": [
+          "Equal groups: 5 groups of 4.",
+          "Equal groups is MULTIPLY (×).",
+          "5 × 4 = 20."
+        ],
+        "explain": "each/groups → multiply."
+      },
+      {
+        "id": "ops15-trick-4",
+        "type": "mcq",
+        "q": "Share 20 sweets equally among 4 friends. How many EACH?",
+        "answer": "divide",
+        "options": [
+          {
+            "label": "add"
+          },
+          {
+            "label": "subtract"
+          },
+          {
+            "label": "multiply"
+          },
+          {
+            "label": "divide"
+          }
+        ],
+        "hintLadder": [
+          "'Share equally' means split into equal groups.",
+          "Equal sharing is DIVIDE (÷).",
+          "20 ÷ 4 = 5."
+        ],
+        "explain": "share → divide."
+      },
+      {
+        "id": "ops15-trick-5",
+        "type": "mcq",
+        "q": "A pack has 6 pens. You buy 3 packs. How many pens?",
+        "answer": "multiply",
+        "options": [
+          {
+            "label": "add"
+          },
+          {
+            "label": "subtract"
+          },
+          {
+            "label": "multiply"
+          },
+          {
+            "label": "divide"
+          }
+        ],
+        "hintLadder": [
+          "Equal groups: 3 packs of 6.",
+          "Equal groups → MULTIPLY.",
+          "3 × 6 = 18."
+        ],
+        "explain": "groups → multiply."
+      },
+      {
+        "id": "ops15-trick-6",
+        "type": "mcq",
+        "q": "28 children, 13 go home. How many STILL there?",
+        "answer": "subtract",
+        "options": [
+          {
+            "label": "add"
+          },
+          {
+            "label": "subtract"
+          },
+          {
+            "label": "multiply"
+          },
+          {
+            "label": "divide"
+          }
+        ],
+        "hintLadder": [
+          "'Still there / remain' → take away.",
+          "SUBTRACT.",
+          "28 − 13 = 15."
+        ],
+        "explain": "remain → subtract."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "grabbed-numbers-guessed",
+      "mistake": "Grabbing the two numbers and guessing an operation without reading what happens.",
+      "fix": "Numbers don't choose the operation — the STORY's action does. Ask: is something joining, leaving, grouping, or sharing? Draw the bar first, calculate second."
+    },
+    {
+      "mistakeTag": "each-always-multiply",
+      "mistake": "Treating 'each/every' as an automatic multiply — even when the total is already given.",
+      "fix": "'Each' has two faces! Total unknown → × builds it. Total already known → ÷ breaks it. Check which piece of the bar is missing."
+    },
+    {
+      "mistakeTag": "answer-not-checked",
+      "mistake": "Accepting any answer without asking if it makes sense in the story (720 boxes from 60 laddus!).",
+      "fix": "Always finish with the N of R.E.A.S.O.N. — NOTICE. Put the answer back in the story: leftovers smaller than the start, shares smaller than the total, totals bigger than parts."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "mcq",
+        "q": "'Anu has 24 marbles. Ravi gives her 13 more. How many now?' Which operation?",
+        "options": [
+          {
+            "label": "Add — the marbles are joining"
+          },
+          {
+            "label": "Multiply — there are two numbers",
+            "mistakeTag": "grabbed-numbers-guessed"
+          }
+        ],
+        "answer": "Add — the marbles are joining",
+        "hintLadder": [
+          "What HAPPENS in the story — joining, leaving, grouping, or sharing?",
+          "'Gives her more' — amounts are coming together.",
+          "Joining is adding: 24 + 13."
+        ],
+        "explain": "24 + 13 = 37 marbles."
+      },
+      {
+        "id": "e2",
+        "type": "number",
+        "q": "A bus had 45 passengers; 18 got down at the market. How many are still on the bus?",
+        "answer": "27",
+        "hintLadder": [
+          "What happens? People LEAVE the bus.",
+          "Leaving means subtract: 45 − 18.",
+          "Borrow if you need to! Check: your answer + 18 = 45?"
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "A parking lot has 7 rows with 15 cars in each row. How many cars in all?",
+        "answer": "105",
+        "hintLadder": [
+          "'Each row' and the total is UNKNOWN — which face of 'each' is this?",
+          "Building a total from equal groups → multiply.",
+          "7 × 15: break apart! 7×10=70, 7×5=35."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "72 students travel 9 to a van. How many vans are needed?",
+        "answer": "8",
+        "hintLadder": [
+          "'9 to a van' and the total (72) is KNOWN — which face of 'each'?",
+          "Breaking a known total into equal groups → divide.",
+          "Think the twin: 9 × ? = 72."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "number",
+        "q": "Two steps! A tray has 4 rows of 6 laddus. 9 laddus are eaten. How many are left?",
+        "answer": "15",
+        "hintLadder": [
+          "Step 1: equal rows build the total — 4 × 6 = ?",
+          "Step 2: 'eaten' removes — 24 − 9 = ?",
+          "Sense check: is your answer smaller than 24?"
+        ],
+        "explain": "Multiply then subtract: 24 − 9 = 15."
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "'Anu is 132 cm tall. Ravi is 9 cm shorter.' Ravi writes 132 + 9 = 141 cm for his own height. What went wrong?",
+        "options": [
+          {
+            "label": "'Shorter' compares DOWNWARD — subtract: 132 − 9 = 123 cm"
+          },
+          {
+            "label": "He should have multiplied",
+            "mistakeTag": "grabbed-numbers-guessed"
+          },
+          {
+            "label": "Nothing — more numbers means add",
+            "mistakeTag": "answer-not-checked"
+          }
+        ],
+        "answer": "'Shorter' compares DOWNWARD — subtract: 132 − 9 = 123 cm",
+        "hintLadder": [
+          "Draw two bars: Anu's, and Ravi's which is 9 SHORTER.",
+          "Is Ravi's bar longer or shorter than Anu's?",
+          "Shorter bar = smaller number = subtract. And sense-check: can 'shorter' make him taller?!"
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "mcq",
+        "q": "'56 mangoes are shared equally among 8 friends.' Which operation?",
+        "options": [
+          {
+            "label": "Divide — a known total is being shared"
+          },
+          {
+            "label": "Multiply — because of 'equally'",
+            "mistakeTag": "each-always-multiply"
+          }
+        ],
+        "answer": "Divide — a known total is being shared",
+        "hintLadder": [
+          "Is the total known or being built?",
+          "56 is already the total.",
+          "Breaking a known total → divide."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "A shop sold 34 kites in the morning and 48 in the evening. Total kites sold?",
+        "answer": "82",
+        "hintLadder": [
+          "Two amounts joining into one day's total.",
+          "Add: 34 + 48 (careful — regrouping!).",
+          "Ones: 4+8=12."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "number",
+        "q": "Two steps: 5 packets of 20 biscuits; 27 are eaten at the party. How many left?",
+        "answer": "73",
+        "hintLadder": [
+          "Build the total first: 5 × 20 = ?",
+          "Then remove: 100 − 27 = ?",
+          "Borrow from the tens!"
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "The FINAL step of every word problem, per Robo Reason, is…",
+        "options": [
+          {
+            "label": "NOTICE: put the answer back in the story — does it make sense?"
+          },
+          {
+            "label": "Move on quickly to the next question",
+            "mistakeTag": "answer-not-checked"
+          }
+        ],
+        "answer": "NOTICE: put the answer back in the story — does it make sense?",
+        "hintLadder": [
+          "R.E.A.S.O.N. — what is the N?",
+          "Notice and verify!",
+          "Leftovers smaller than the start, totals bigger than parts."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "number",
+        "q": "You pay ₹90 for 6 identical notebooks. What does ONE notebook cost in rupees?",
+        "answer": "15",
+        "hintLadder": [
+          "Total known (90), equal groups (6 notebooks) — which operation?",
+          "Divide: 90 ÷ 6.",
+          "Twin trick: 6 × ? = 90."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Become the Story Untangler! Make up ONE word problem of your own about your home (food, cricket, money — anything), draw its bar model, and explain to someone which operation the story chose and why.",
+  "revisionCard": {
+    "summary": "Stories choose operations, not luck! R.E.A.S.O.N.: Read → Extract → Arrange (draw the bar!) → Select (+ join, − remove/compare, × build equal groups, ÷ break a known total) → Operate → NOTICE (sense-check!). 'Each' has two faces: total unknown → ×, total known → ÷.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Multiplication Farm (Ganita Grove)",
+    "title": "The Story Untangler",
+    "brief": "Tangled stories are piling up at Robo's desk! Draw the right bar, pick the true operation, and sense-check every answer. Beware Ravi's favourite trap: shouting 'MULTIPLY!' at every 'each'.",
+    "character": "Robo Reason"
+  },
+  "realLifeProject": "Story-hunt at dinner: each family member tells one real number story from their day ('I bought…', 'we walked…'). You untangle each one out loud: what's known, what's asked, which operation, and the answer — sense-checked!",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4 (word problems, all four operations)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "mentalMathMethod": {
+    "name": "Pólya's four steps",
+    "whenToUse": "For any word problem.",
+    "steps": [
+      "UNDERSTAND: what is given, what is asked?",
+      "PLAN: which operation fits — join, remove, groups, share?",
+      "SOLVE it, then CHECK the answer makes sense."
+    ],
+    "example": "'12 sweets shared by 3' → share → ÷ → 4, and 4×3=12 ✓."
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "id": "frac-09-multiply-divide",
+  "name": "Multiplying and Dividing Fractions",
+  "grade": 6,
+  "strand": "fractions",
+  "prerequisites": ["frac-06-fraction-of-quantity", "frac-08-simplifying"],
+  "whatIsIt": "To MULTIPLY fractions, multiply the tops and multiply the bottoms: 2/3 × 4/5 = 8/15. The word 'of' means multiply — half OF a quarter is 1/2 × 1/4 = 1/8. To DIVIDE by a fraction, FLIP the second one and multiply (multiply by its reciprocal): 1/2 ÷ 1/4 = 1/2 × 4/1 = 2. Simplify the answer at the end.",
+  "whyNeeded": "Multiplying and dividing fractions runs through recipes (half of ¾ cup), scaling, rates, probability, and algebra. The flip-and-multiply rule for division is one of the handiest tricks in maths.",
+  "realLifeUses": [
+    "Half of a three-quarter cup of sugar (1/2 × 3/4)",
+    "How many quarter-litre glasses fill from 2 litres (2 ÷ 1/4)",
+    "Scaling a recipe down by a fraction",
+    "Sharing a fraction of a fraction of a cake"
+  ],
+  "vocabulary": [
+    { "term": "reciprocal", "meaning": "A fraction flipped upside down: the reciprocal of 3/4 is 4/3." },
+    { "term": "of", "meaning": "In fractions, 'of' means multiply (1/2 of 1/4 = 1/2 × 1/4)." },
+    { "term": "product", "meaning": "The answer to a multiplication." }
+  ],
+  "story": {
+    "title": "Half of Grandma's Recipe",
+    "characters": ["Neel", "Grandma"],
+    "text": "Grandma's laddoo recipe needs 3/4 cup of ghee, but Neel wants to make just half. 'How much ghee?' he asks. Half OF three-quarters means 1/2 × 3/4. Neel multiplies tops and bottoms: 1×3 = 3, 2×4 = 8. 'Three-eighths of a cup!' Grandma checks — spot on.",
+    "extractedProblem": "How much is half of 3/4 cup? (1/2 × 3/4)",
+    "answerInStory": "3/8 cup — multiply tops (1×3) and bottoms (2×4)."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        { "rows": 2, "cols": 4, "highlightRows": 1, "label": "1/2 of 3/4 = 3/8" }
+      ]
+    },
+    "caption": "Split the whole into 4 columns (quarters) and 2 rows (halves) → 8 equal boxes. 3 shaded of 8 = 3/8."
+  },
+  "teachingGallery": [
+    {
+      "title": "Multiply across; divide by flipping",
+      "note": "Tops × tops, bottoms × bottoms; to divide, flip and multiply.",
+      "examples": [
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 3, "cols": 3, "label": "1/3 × 1/3 = 1/9" } ] }, "caption": "A third of a third is one ninth." },
+        { "component": "PizzaSlices", "props": { "pies": [ { "parts": 4, "shaded": 1, "label": "1/4" } ] }, "caption": "2 ÷ 1/4: how many quarters in 2? Eight." },
+        { "component": "FractionStrip", "props": { "strips": [ { "parts": 8, "shaded": 3, "label": "3/8 result" } ] }, "caption": "1/2 × 3/4 = 3/8." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Multiply: tops × tops over bottoms × bottoms, then simplify. Divide: multiply by the reciprocal of the second fraction (flip and multiply).",
+    "steps": [
+      "Multiply: numerator × numerator, denominator × denominator.",
+      "'of' means multiply. A whole number is that number over 1.",
+      "Divide: keep the first, FLIP the second, and multiply (× its reciprocal).",
+      "Simplify the answer to lowest terms at the end."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Work out 2/3 × 3/5.",
+      "steps": ["Multiply tops: 2 × 3 = 6.", "Multiply bottoms: 3 × 5 = 15.", "6/15 simplifies (÷3) to 2/5."],
+      "answer": "2/5"
+    },
+    {
+      "problem": "Work out 1/2 ÷ 1/4.",
+      "steps": ["Flip the second: 1/4 becomes 4/1.", "Multiply: 1/2 × 4/1 = 4/2.", "= 2. (There are two quarters in a half.)"],
+      "answer": "2"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "cross-add-multiply",
+      "mistake": "Adding tops and bottoms when multiplying (2/3 × 3/5 → 5/8).",
+      "fix": "For MULTIPLY, multiply straight across: tops × tops, bottoms × bottoms — don't add."
+    },
+    {
+      "mistakeTag": "divide-no-flip",
+      "mistake": "Dividing fractions straight across instead of flipping the second.",
+      "fix": "To divide, keep the first, FLIP the second, then multiply: ÷ 1/4 becomes × 4/1."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "f09-e1", "type": "fraction",
+        "q": "Work out 1/2 × 1/3. (like 1/6)",
+        "answer": "1/6",
+        "hintLadder": ["Tops: 1×1. Bottoms: 2×3.", "1 over 6.", "1/6."]
+      },
+      {
+        "id": "f09-e2", "type": "fraction",
+        "q": "What is the reciprocal of 2/5? (like 5/2)",
+        "answer": "5/2",
+        "hintLadder": ["Flip it.", "Top and bottom swap.", "5/2."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "f09-m1", "type": "fraction",
+        "q": "Work out 2/3 × 1/2. (like 1/3)",
+        "answer": "1/3",
+        "hintLadder": ["2×1 over 3×2 = 2/6.", "Simplify ÷2.", "1/3."]
+      },
+      {
+        "id": "f09-m2", "type": "number",
+        "q": "Work out 1/2 ÷ 1/4. (write like 2)",
+        "answer": "2",
+        "hintLadder": ["Flip: × 4/1.", "1/2 × 4 = 4/2.", "2."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "f09-c1", "type": "fraction",
+        "q": "Work out 3/4 × 2/3 (simplify). (like 1/2)",
+        "answer": "1/2",
+        "hintLadder": ["3×2 over 4×3 = 6/12.", "Simplify ÷6.", "1/2."]
+      },
+      {
+        "id": "f09-c2", "type": "mcq",
+        "q": "Sam computes 1/2 ÷ 1/4 = 1/8. What's the fix?",
+        "options": [ { "label": "Flip the second: 1/2 × 4/1 = 2" }, { "label": "1/8 is correct", "mistakeTag": "divide-no-flip" } ],
+        "answer": "Flip the second: 1/2 × 4/1 = 2",
+        "hintLadder": ["Division flips the second fraction.", "× 4/1.", "= 2."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "f09-x1", "type": "fraction",
+        "q": "Work out 1/3 × 1/2. (like 1/6)",
+        "answer": "1/6",
+        "hintLadder": ["1×1 over 3×2.", "1 over 6.", "1/6."]
+      },
+      {
+        "id": "f09-x2", "type": "fraction",
+        "q": "Work out 2/5 × 1/2 (simplify). (like 1/5)",
+        "answer": "1/5",
+        "hintLadder": ["2×1 over 5×2 = 2/10.", "Simplify ÷2.", "1/5."]
+      },
+      {
+        "id": "f09-x3", "type": "number",
+        "q": "Work out 3/4 ÷ 1/4. (write like 3)",
+        "answer": "3",
+        "hintLadder": ["Flip: 3/4 × 4/1.", "12/4.", "3."]
+      },
+      {
+        "id": "f09-x4", "type": "mcq",
+        "q": "To multiply two fractions you…",
+        "options": [ { "label": "Multiply tops and multiply bottoms" }, { "label": "Add tops and add bottoms", "mistakeTag": "cross-add-multiply" } ],
+        "answer": "Multiply tops and multiply bottoms",
+        "hintLadder": ["Straight across.", "Tops × tops, bottoms × bottoms.", "Multiply."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Use a recipe: show a grown-up how to find half of 3/4 cup (1/2 × 3/4 = 3/8), and how many 1/4-cup scoops fill 2 cups (2 ÷ 1/4 = 8) — explaining the flip-and-multiply trick for division.",
+  "revisionCard": {
+    "summary": "Multiply: tops × tops over bottoms × bottoms, then simplify. 'Of' = multiply. Divide: keep–flip–multiply (× the reciprocal): a ÷ b/c = a × c/b. 1/2 ÷ 1/4 = 1/2 × 4/1 = 2. Never add across when multiplying.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 6-7 (multiplying & dividing fractions)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

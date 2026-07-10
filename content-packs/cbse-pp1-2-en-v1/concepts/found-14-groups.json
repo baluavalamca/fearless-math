@@ -1,0 +1,169 @@
+{
+  "id": "found-14-groups",
+  "name": "Equal Groups and Fair Shares — Before Times and Divide",
+  "grade": 2,
+  "strand": "operations",
+  "prerequisites": ["found-05-skip-counting"],
+  "whatIsIt": "Making EQUAL GROUPS is the seed of multiplication: 3 baskets with 4 apples each is 4 + 4 + 4 = 12. FAIR SHARING is the seed of division: 12 sweets shared equally among 3 friends is 4 each. Same picture, read two ways — group up, or share out.",
+  "whyNeeded": "Whenever we count in groups (pairs of shoes, wheels on cars) or share fairly (sweets, slices), we are getting ready for multiplication and division. Doing it with real objects first makes those big words easy later.",
+  "realLifeUses": [
+    "Counting wheels: cars in 2s, autos in 3s",
+    "Sharing sweets equally among friends",
+    "Packing eggs in trays of equal rows",
+    "Making equal teams for a game"
+  ],
+  "vocabulary": [
+    { "term": "equal groups", "meaning": "Groups that each have the same number." },
+    { "term": "in all (total)", "meaning": "How many altogether — add the groups or count all." },
+    { "term": "fair share", "meaning": "Splitting into equal parts so everyone gets the same." }
+  ],
+  "story": {
+    "title": "The Sweet Shop Trays",
+    "characters": ["Nisha", "Bhaiya"],
+    "text": "At the sweet shop, Bhaiya fills 3 trays with 4 laddoos each. 'How many laddoos in all?' he asks Nisha. She counts in groups: 4, 8, 12. 'Twelve!' Then a customer buys all 12 and shares them fairly among 3 children. 'Four each,' says Nisha — 'sharing is just grouping backwards!'",
+    "extractedProblem": "3 trays with 4 laddoos each — how many laddoos in all?",
+    "answerInStory": "12 — count in groups: 4, 8, 12."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        { "rows": 3, "cols": 4, "asGroups": true, "label": "3 groups of 4 = 12" }
+      ]
+    },
+    "caption": "3 equal groups of 4 make 12 in all. Share 12 among 3 → 4 each."
+  },
+  "teachingGallery": [
+    {
+      "title": "Group up or share out",
+      "note": "Equal groups add to a total; fair sharing splits a total equally.",
+      "examples": [
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 2, "cols": 5, "asGroups": true, "label": "2 groups of 5 = 10" } ] }, "caption": "2 groups of 5 → 5, 10." },
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 4, "cols": 2, "asGroups": true, "label": "4 groups of 2 = 8" } ] }, "caption": "4 pairs → 2, 4, 6, 8." },
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 3, "cols": 3, "asGroups": true, "label": "9 shared into 3 → 3 each" } ] }, "caption": "Share 9 among 3 → 3 each." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "For 'in all', add the equal groups (or skip-count). For 'fair share', deal one to each until none are left, then count one share.",
+    "steps": [
+      "Equal groups → total: skip-count the group size (4, 8, 12) or add 4 + 4 + 4.",
+      "Fair share → each: deal out one to each person, round and round, until none are left.",
+      "Count how many ONE person got — that is the share."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "There are 5 autos, each with 3 wheels. How many wheels in all?",
+      "steps": ["Equal groups of 3, five times.", "Skip-count: 3, 6, 9, 12, 15.", "= 15 wheels."],
+      "answer": "15"
+    },
+    {
+      "problem": "12 biscuits are shared equally among 4 children. How many does each child get?",
+      "steps": ["Deal one to each, round and round.", "12 shared into 4 equal shares.", "Each share is 3 biscuits."],
+      "answer": "3"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "unequal-groups",
+      "mistake": "Making groups that are not equal, then counting them as if they were.",
+      "fix": "Every group must have the SAME number before you skip-count or share. Check each group first."
+    },
+    {
+      "mistakeTag": "shares-not-equal",
+      "mistake": "Sharing so one person gets more than another.",
+      "fix": "Fair sharing means EVERYONE gets the same. Deal one at a time to each until none are left."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "f14-e1", "type": "number",
+        "q": "3 baskets with 2 apples each. How many apples in all?",
+        "answer": "6",
+        "hintLadder": ["Skip-count by 2 three times.", "2, 4, 6.", "Six."]
+      },
+      {
+        "id": "f14-e2", "type": "mcq",
+        "q": "To count equal groups quickly you can…",
+        "options": [ { "label": "Skip-count the group size" }, { "label": "Count only one group", "mistakeTag": "unequal-groups" } ],
+        "answer": "Skip-count the group size",
+        "hintLadder": ["Groups are equal.", "Jump by the group size.", "Skip-count."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "f14-m1", "type": "number",
+        "q": "4 cars, each with 4 wheels. How many wheels in all?",
+        "answer": "16",
+        "hintLadder": ["Skip-count by 4, four times.", "4, 8, 12, 16.", "Sixteen."]
+      },
+      {
+        "id": "f14-m2", "type": "number",
+        "q": "10 sweets shared equally among 2 friends. How many each?",
+        "answer": "5",
+        "hintLadder": ["Deal one to each, round and round.", "10 into 2 equal shares.", "Five each."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "f14-c1", "type": "number",
+        "q": "15 mangoes shared equally among 3 baskets. How many in each basket?",
+        "answer": "5",
+        "hintLadder": ["Share out fairly.", "15 into 3 equal parts.", "Five each."]
+      },
+      {
+        "id": "f14-c2", "type": "mcq",
+        "q": "Raj shares 8 toffees so he gets 5 and his sister gets 3. Is this a fair share?",
+        "options": [ { "label": "No — a fair share gives 4 and 4" }, { "label": "Yes, they are shared", "mistakeTag": "shares-not-equal" } ],
+        "answer": "No — a fair share gives 4 and 4",
+        "hintLadder": ["Fair = equal.", "8 into 2 equal parts is 4 each.", "5 and 3 is not fair."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "f14-x1", "type": "number",
+        "q": "2 trays with 5 laddoos each. How many in all?",
+        "answer": "10",
+        "hintLadder": ["Skip-count by 5 twice.", "5, 10.", "Ten."]
+      },
+      {
+        "id": "f14-x2", "type": "number",
+        "q": "3 groups of 4 stars. How many stars in all?",
+        "answer": "12",
+        "hintLadder": ["4, 8, 12.", "Three groups of four.", "Twelve."]
+      },
+      {
+        "id": "f14-x3", "type": "number",
+        "q": "12 crayons shared equally among 3 children. How many each?",
+        "answer": "4",
+        "hintLadder": ["Deal fairly, round and round.", "12 into 3 equal shares.", "Four each."]
+      },
+      {
+        "id": "f14-x4", "type": "mcq",
+        "q": "Before you skip-count groups, you must make sure the groups are…",
+        "options": [ { "label": "Equal — the same number in each" }, { "label": "Any size is fine", "mistakeTag": "unequal-groups" } ],
+        "answer": "Equal — the same number in each",
+        "hintLadder": ["Skip-counting needs equal jumps.", "So groups must be equal.", "Equal groups."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Use real objects (buttons, coins or biscuits). First make equal groups and tell a grown-up the total by skip-counting. Then share the same objects fairly among a few people and say how many each gets — explaining why grouping and sharing are opposites.",
+  "revisionCard": {
+    "summary": "Equal groups → total: skip-count the group size (4, 8, 12). Fair share → each: deal one at a time to everyone until none are left, then count one share. Groups and shares must always be EQUAL.",
+    "reviewAfterDays": [1, 3, 7]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 2 (equal groups & sharing — pre-multiplication/division)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "id": "found-12-patterns",
+  "name": "Patterns — What Comes Next?",
+  "grade": 1,
+  "strand": "numbers",
+  "prerequisites": ["found-01-prenumber"],
+  "whatIsIt": "A PATTERN is something that repeats in a rule. 🔴🔵🔴🔵🔴🔵 repeats red-blue. A clap-stomp-clap-stomp is a sound pattern. Numbers make patterns too: 2, 4, 6, 8 jumps by 2. Find the RULE, and you can always tell what comes next.",
+  "whyNeeded": "Patterns are how we spot order in the world — in music, in rangoli, in days of the week, in counting. Finding the rule trains your brain to predict, which is the heart of maths.",
+  "realLifeUses": [
+    "Rangoli and border designs repeat a unit",
+    "Days of the week repeat in the same order",
+    "Clap-stomp rhythms in songs",
+    "Counting by 2s, 5s and 10s makes number patterns"
+  ],
+  "vocabulary": [
+    { "term": "pattern", "meaning": "Something that repeats following a rule." },
+    { "term": "rule", "meaning": "The part that repeats, or the jump each time." },
+    { "term": "what comes next", "meaning": "Using the rule to find the following item." }
+  ],
+  "story": {
+    "title": "Dadi's Rangoli",
+    "characters": ["Riya", "Dadi"],
+    "text": "Dadi makes a rangoli border: flower, dot, flower, dot, flower, dot. 'You finish it, Riya,' she says. Riya looks carefully. 'The rule is flower then dot, again and again. So after this last dot comes a flower!' She adds a flower and the border marches on, neat and pretty.",
+    "extractedProblem": "The border goes flower, dot, flower, dot, flower, dot… what comes next?",
+    "answerInStory": "A flower — the rule is flower-then-dot repeating."
+  },
+  "visual": {
+    "component": "ObjectRow",
+    "props": {
+      "sequences": [
+        { "items": ["🔴", "🔵", "🔴", "🔵", "🔴", "🔵", "❓"], "label": "What comes next?" }
+      ]
+    },
+    "caption": "Rule: red, blue, repeating. After blue comes red — so the ❓ is red."
+  },
+  "teachingGallery": [
+    {
+      "title": "Find the rule, say what's next",
+      "note": "Read the repeating unit, then continue it.",
+      "examples": [
+        { "component": "ObjectRow", "props": { "sequences": [ { "items": ["⭐", "🌙", "⭐", "🌙", "❓"], "label": "star, moon, …" } ] }, "caption": "Rule star-moon → next is a star." },
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [2, 4, 6, 8, "?"], "jump": 2, "label": "jumps of 2" } ] }, "caption": "Add 2 each time → next is 10." },
+        { "component": "ObjectRow", "props": { "sequences": [ { "items": ["🔺", "🔺", "⚫", "🔺", "🔺", "⚫", "❓"], "label": "triangle, triangle, dot, …" } ] }, "caption": "The unit is 3 long → next is a triangle." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Find the repeating unit (or the jump), then continue the rule.",
+    "steps": [
+      "Look for the part that repeats — say it out loud: 'red, blue, red, blue'.",
+      "For numbers, find the jump: how much bigger each time?",
+      "Use the rule to write or say what comes next."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Pattern: 🟢🟢🟡🟢🟢🟡🟢🟢… what comes next?",
+      "steps": ["The repeating unit is green, green, yellow.", "We just had green, green.", "So next comes yellow."],
+      "answer": "yellow"
+    },
+    {
+      "problem": "Number pattern: 5, 10, 15, 20, … what comes next?",
+      "steps": ["Find the jump: 10 − 5 = 5 each time.", "Add 5 to the last number.", "20 + 5 = 25."],
+      "answer": "25"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "wrong-repeat-unit",
+      "mistake": "Guessing the next item without finding the full repeating unit.",
+      "fix": "Say the whole repeating part out loud (like 'red-blue') before choosing what comes next."
+    },
+    {
+      "mistakeTag": "wrong-jump",
+      "mistake": "Using the wrong jump in a number pattern (e.g. adding 1 instead of 2).",
+      "fix": "Check the jump between TWO pairs of numbers to be sure, then keep adding the same jump."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "f12-e1", "type": "mcq",
+        "q": "🔴🔵🔴🔵🔴 — what comes next?",
+        "options": [ { "label": "Blue" }, { "label": "Red", "mistakeTag": "wrong-repeat-unit" } ],
+        "answer": "Blue",
+        "hintLadder": ["Say it: red, blue, red, blue…", "We just had red.", "Next is blue."]
+      },
+      {
+        "id": "f12-e2", "type": "number",
+        "q": "2, 4, 6, 8, … what number comes next?",
+        "answer": "10",
+        "hintLadder": ["Find the jump: it goes up by 2.", "8 + 2.", "Ten."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "f12-m1", "type": "number",
+        "q": "5, 10, 15, 20, … what comes next?",
+        "answer": "25",
+        "hintLadder": ["The jump is 5 each time.", "20 + 5.", "Twenty-five."]
+      },
+      {
+        "id": "f12-m2", "type": "mcq",
+        "q": "⭐🌙🌙⭐🌙🌙⭐🌙🌙 — what comes next?",
+        "options": [ { "label": "Star" }, { "label": "Moon", "mistakeTag": "wrong-repeat-unit" } ],
+        "answer": "Star",
+        "hintLadder": ["The unit is star, moon, moon.", "We just finished moon, moon.", "Next is a star."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "f12-c1", "type": "number",
+        "q": "10, 20, 30, 40, … what comes next?",
+        "answer": "50",
+        "hintLadder": ["Jump of 10 each time.", "40 + 10.", "Fifty."]
+      },
+      {
+        "id": "f12-c2", "type": "mcq",
+        "q": "Ravi sees 3, 6, 9, 12 and says the next is 13. What's the real rule?",
+        "options": [ { "label": "Add 3 each time, so next is 15" }, { "label": "Add 1 each time", "mistakeTag": "wrong-jump" } ],
+        "answer": "Add 3 each time, so next is 15",
+        "hintLadder": ["Check 6 − 3 and 9 − 6.", "The jump is 3, not 1.", "12 + 3 = 15."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "f12-x1", "type": "mcq",
+        "q": "🟡🟢🟡🟢🟡 — what comes next?",
+        "options": [ { "label": "Green" }, { "label": "Yellow", "mistakeTag": "wrong-repeat-unit" } ],
+        "answer": "Green",
+        "hintLadder": ["Rule: yellow, green.", "We just had yellow.", "Green."]
+      },
+      {
+        "id": "f12-x2", "type": "number",
+        "q": "1, 2, 3, 4, … what comes next?",
+        "answer": "5",
+        "hintLadder": ["Jump of 1.", "4 + 1.", "Five."]
+      },
+      {
+        "id": "f12-x3", "type": "number",
+        "q": "2, 4, 6, 8, 10, … what comes next?",
+        "answer": "12",
+        "hintLadder": ["Jump of 2.", "10 + 2.", "Twelve."]
+      },
+      {
+        "id": "f12-x4", "type": "mcq",
+        "q": "The BEST first step to solve a pattern is to…",
+        "options": [ { "label": "Find the repeating unit or the jump" }, { "label": "Guess the next one quickly", "mistakeTag": "wrong-repeat-unit" } ],
+        "answer": "Find the repeating unit or the jump",
+        "hintLadder": ["Rules make patterns.", "Find the rule first.", "Then continue it."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Make your own pattern with crayons, claps, or toys (like red-red-blue repeating). Show a grown-up, ask them what comes next, and then explain the rule you used.",
+  "revisionCard": {
+    "summary": "A pattern repeats a RULE. Find the repeating unit (red-blue) or the jump (add 2), then continue it to say what comes next. Check the jump on two pairs to be sure.",
+    "reviewAfterDays": [1, 3, 7]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 1-2 (patterns)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

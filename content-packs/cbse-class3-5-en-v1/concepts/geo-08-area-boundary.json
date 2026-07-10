@@ -1,0 +1,171 @@
+{
+  "id": "geo-08-area-boundary",
+  "name": "Area and Its Boundary — Two Different Measures",
+  "grade": 5,
+  "strand": "geometry",
+  "prerequisites": ["geo-03-area", "geo-02-perimeter"],
+  "whatIsIt": "A shape has TWO measures. AREA is the space INSIDE — count the unit squares (square units). BOUNDARY (perimeter) is the distance AROUND the edge — add the side lengths. They answer different questions: how much carpet to cover the floor (area) vs how much fencing to go round the field (boundary). Two shapes can share an area but have different boundaries.",
+  "whyNeeded": "Builders, farmers and tailors need both: tiles or paint for the surface (area) and fencing or lace for the edge (boundary). Knowing which one a problem needs — and that they can differ — prevents costly mistakes.",
+  "realLifeUses": [
+    "Tiles to cover a floor (area) vs skirting around it (boundary)",
+    "Fencing a field (boundary) vs grass to grow inside (area)",
+    "Lace around a handkerchief (boundary) vs cloth for it (area)",
+    "Paint for a wall (area) vs border tape around it (boundary)"
+  ],
+  "vocabulary": [
+    { "term": "area", "meaning": "The space inside a shape, in square units — count the unit squares." },
+    { "term": "boundary (perimeter)", "meaning": "The total distance around the edge — add the sides." },
+    { "term": "square unit", "meaning": "One unit square; the unit for area (like sq cm, sq m)." }
+  ],
+  "story": {
+    "title": "The Vegetable Patch",
+    "characters": ["Farmer Das", "Priya"],
+    "text": "Farmer Das has a rectangular patch 4 m by 3 m. 'I need fencing to keep out goats, and soil to fill it. Which measure for which?' asks Priya. She thinks: fencing goes AROUND — that's the boundary, 4 + 3 + 4 + 3 = 14 m. Soil fills INSIDE — that's the area, 4 × 3 = 12 square metres. 'Two jobs, two different numbers,' she nods.",
+    "extractedProblem": "A 4 m by 3 m patch — what is its boundary (for fencing) and its area (for soil)?",
+    "answerInStory": "Boundary 14 m; area 12 square metres."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "rect", "w": 4, "h": 3, "label": "4 × 3", "sideLabels": true, "unitGrid": true }
+      ]
+    },
+    "caption": "Inside squares = area (12 sq units). Trip around the edge = boundary (4+3+4+3 = 14 units)."
+  },
+  "teachingGallery": [
+    {
+      "title": "Inside vs around",
+      "note": "Count squares for area; add sides for boundary.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "square", "w": 3, "h": 3, "label": "3 × 3", "sideLabels": true, "unitGrid": true } ] }, "caption": "Area 9 sq units; boundary 12 units." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "rect", "w": 6, "h": 2, "label": "6 × 2", "sideLabels": true, "unitGrid": true } ] }, "caption": "Area 12 sq units; boundary 16 units." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "rect", "w": 4, "h": 3, "label": "4 × 3", "sideLabels": true, "unitGrid": true } ] }, "caption": "Same area 12, but boundary 14 — area can match while boundary differs." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "For area, count unit squares (or length × breadth). For boundary, add all the side lengths.",
+    "steps": [
+      "Decide which the question wants: inside space (area) or distance around (boundary)?",
+      "AREA of a rectangle = length × breadth, in SQUARE units. For odd shapes, count whole squares (and pair up half squares).",
+      "BOUNDARY (perimeter) = add every side once, in plain units.",
+      "Remember: two shapes can have the SAME area but DIFFERENT boundaries."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A rectangle is 5 units long and 3 units wide. Find its area and its boundary.",
+      "steps": ["Area = length × breadth = 5 × 3 = 15 square units.", "Boundary = 5 + 3 + 5 + 3 = 16 units.", "Different jobs, different numbers."],
+      "answer": "Area 15 sq units, boundary 16 units"
+    },
+    {
+      "problem": "Two rectangles: A is 6 by 2, B is 4 by 3. Do they have the same area? The same boundary?",
+      "steps": ["Areas: 6 × 2 = 12 and 4 × 3 = 12 — same area.", "Boundaries: 6+2+6+2 = 16 and 4+3+4+3 = 14 — different.", "Same area, different boundary."],
+      "answer": "Same area (12), different boundary (16 vs 14)"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "area-boundary-swap",
+      "mistake": "Using area when the problem needs boundary (fencing) or vice versa (tiles).",
+      "fix": "Fencing/lace/border = go AROUND = boundary. Tiles/paint/soil = cover INSIDE = area."
+    },
+    {
+      "mistakeTag": "area-wrong-units",
+      "mistake": "Giving area in plain units instead of SQUARE units.",
+      "fix": "Area is always in SQUARE units (sq cm, sq m) because you're counting squares; boundary is in plain units."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "g08-e1", "type": "number",
+        "q": "A rectangle is 4 by 2. What is its area in square units?",
+        "answer": "8",
+        "hintLadder": ["Area = length × breadth.", "4 × 2.", "Eight."]
+      },
+      {
+        "id": "g08-e2", "type": "mcq",
+        "q": "To buy fencing to go around a field you need the…",
+        "options": [ { "label": "Boundary (perimeter)" }, { "label": "Area", "mistakeTag": "area-boundary-swap" } ],
+        "answer": "Boundary (perimeter)",
+        "hintLadder": ["Fencing goes around the edge.", "Around = boundary.", "Boundary."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "g08-m1", "type": "number",
+        "q": "A rectangle 5 by 3 — what is its boundary in units?",
+        "answer": "16",
+        "hintLadder": ["Add all four sides.", "5 + 3 + 5 + 3.", "Sixteen."]
+      },
+      {
+        "id": "g08-m2", "type": "number",
+        "q": "A square has side 4 units. What is its area in square units?",
+        "answer": "16",
+        "hintLadder": ["Area = side × side.", "4 × 4.", "Sixteen."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "g08-c1", "type": "number",
+        "q": "A rectangle 6 by 4 — what is its area in square units?",
+        "answer": "24",
+        "hintLadder": ["Length × breadth.", "6 × 4.", "Twenty-four."]
+      },
+      {
+        "id": "g08-c2", "type": "mcq",
+        "q": "Two gardens each have area 12 sq m. Meena says 'so they need the same fencing'. Is she right?",
+        "options": [ { "label": "No — same area can have different boundaries" }, { "label": "Yes, same area means same fencing", "mistakeTag": "area-boundary-swap" } ],
+        "answer": "No — same area can have different boundaries",
+        "hintLadder": ["Area and boundary are different.", "A 6×2 and a 4×3 both have area 12.", "But boundaries 16 and 14 differ."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "g08-x1", "type": "number",
+        "q": "A rectangle 3 by 3 — area in square units?",
+        "answer": "9",
+        "hintLadder": ["Side × side.", "3 × 3.", "Nine."]
+      },
+      {
+        "id": "g08-x2", "type": "number",
+        "q": "A rectangle 6 by 2 — boundary in units?",
+        "answer": "16",
+        "hintLadder": ["Add all sides.", "6 + 2 + 6 + 2.", "Sixteen."]
+      },
+      {
+        "id": "g08-x3", "type": "mcq",
+        "q": "To buy tiles to cover a floor you need the…",
+        "options": [ { "label": "Area" }, { "label": "Boundary", "mistakeTag": "area-boundary-swap" } ],
+        "answer": "Area",
+        "hintLadder": ["Tiles cover the inside.", "Inside = area.", "Area."]
+      },
+      {
+        "id": "g08-x4", "type": "mcq",
+        "q": "Area is always measured in…",
+        "options": [ { "label": "Square units" }, { "label": "Plain units", "mistakeTag": "area-wrong-units" } ],
+        "answer": "Square units",
+        "hintLadder": ["You count squares.", "So the unit is square units.", "Square units."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Pick a rectangular thing at home (a book cover or a floor tile). Measure its length and breadth, then explain to a grown-up how to find its area (cover it) and its boundary (go around it), and why the two answers are different.",
+  "revisionCard": {
+    "summary": "AREA = space inside, in SQUARE units (length × breadth, or count squares). BOUNDARY/perimeter = distance around, add the sides, plain units. Fencing/border = boundary; tiles/paint/soil = area. Same area can have different boundaries.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 5 (area and its boundary)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

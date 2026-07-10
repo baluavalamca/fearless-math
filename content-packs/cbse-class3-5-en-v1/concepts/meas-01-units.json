@@ -1,0 +1,512 @@
+{
+  "id": "meas-01-units",
+  "name": "Measuring — Length, Weight, and Capacity",
+  "grade": 3,
+  "strand": "measurement",
+  "prerequisites": [
+    "num-03-rounding"
+  ],
+  "whatIsIt": "Measuring means comparing something to a standard UNIT everyone agrees on: metres for length, kilograms for weight, litres for how much liquid fits (capacity). Big things use big units (km, kg, L); small things use small units (cm, g, mL) — and 1000 small units often pack into one big one.",
+  "whyNeeded": "'A little far', 'quite heavy', 'some milk' — vague words cause fights and spilled recipes! Units let a doctor, a tailor, and a milkman all mean exactly the same amount. Pick the wrong unit and you'll ask for 2000 metres of shirt cloth.",
+  "realLifeUses": [
+    "Tailor: shirt cloth measured in metres, buttons in centimetres",
+    "Kitchen: 2 kg rice, 500 g sugar, 1 L milk, 5 mL of medicine",
+    "Travel: school is 2 km away; your book is 25 cm tall",
+    "Market: vegetables weighed in kg on the balance"
+  ],
+  "vocabulary": [
+    {
+      "term": "length units",
+      "meaning": "centimetre (cm) → metre (m, =100 cm) → kilometre (km, =1000 m)."
+    },
+    {
+      "term": "weight units",
+      "meaning": "gram (g) → kilogram (kg, =1000 g). Kilo means thousand!"
+    },
+    {
+      "term": "capacity units",
+      "meaning": "millilitre (mL) → litre (L, =1000 mL) — how much a container holds."
+    }
+  ],
+  "story": {
+    "title": "The Right Measure for Everything",
+    "characters": [
+      "Meena",
+      "Amma"
+    ],
+    "text": "On errands with Amma, Meena matches each thing to its unit. 'Milk from the dairy?' 'Litres — that is capacity.' 'The walk to the temple?' 'Kilometres — that is length.' 'Cloth for a new kurta from the tailor?' 'Metres — length again.' 'Every measurement has its own right family of units,' smiles Amma.",
+    "extractedProblem": "Match each item with its unit family: milk, distance to walk, cloth.",
+    "answerInStory": "Milk → litres (capacity), distance → kilometres (length), cloth → metres (length)."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        {
+          "label": "1 kg",
+          "parts": [
+            {
+              "value": 500,
+              "label": "500 g"
+            },
+            {
+              "value": 500,
+              "label": "500 g"
+            }
+          ],
+          "showTotal": false
+        },
+        {
+          "label": "1 L",
+          "parts": [
+            {
+              "value": 250,
+              "label": "250 mL"
+            },
+            {
+              "value": 250,
+              "label": "250 mL"
+            },
+            {
+              "value": 250,
+              "label": "250 mL"
+            },
+            {
+              "value": 250,
+              "label": "250 mL"
+            }
+          ],
+          "showTotal": false
+        }
+      ]
+    },
+    "caption": "Big units are made of small ones: 1 kg = 1000 g (two 500s), 1 L = 1000 mL (four 250s). Kilo = thousand!"
+  },
+  "teachingGallery": [
+    {
+      "title": "Units of length, weight and capacity",
+      "note": "Bigger units hold many small ones. Convert by ×/÷ 10, 100 or 1000.",
+      "examples": [
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "1 metre",
+                "parts": [
+                  {
+                    "value": 100,
+                    "label": "= 100 cm"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "1 m = 100 cm."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "1 kilometre",
+                "parts": [
+                  {
+                    "value": 1000,
+                    "label": "= 1000 m"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "1 km = 1000 m."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "1 kilogram",
+                "parts": [
+                  {
+                    "value": 1000,
+                    "label": "= 1000 g"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "1 kg = 1000 g."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "1 litre",
+                "parts": [
+                  {
+                    "value": 1000,
+                    "label": "= 1000 mL"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "1 L = 1000 mL."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "half a kilo",
+                "parts": [
+                  {
+                    "value": 500,
+                    "label": "= 500 g"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "½ kg = 500 g."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Pick the family (length/weight/capacity), pick the right size unit, convert with 1000s and 100s.",
+    "steps": [
+      "Ask: measuring how LONG, how HEAVY, or how much LIQUID?",
+      "Pick a sensible unit size: pencil → cm, road → km, medicine → mL.",
+      "Convert big→small by ×: 3 kg = 3 × 1000 = 3000 g. (1 m = 100 cm; 1 km = 1000 m; 1 L = 1000 mL)",
+      "Convert small→big by ÷: 5000 mL = 5000 ÷ 1000 = 5 L."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Benchmark objects",
+      "whenToUse": "To FEEL the units with familiar things.",
+      "steps": [
+        "1 cm ≈ your fingernail's width. 1 m ≈ a big step. 1 km ≈ a 12-minute walk.",
+        "1 g ≈ a paper clip's weight... 1 kg ≈ a big packet of salt.",
+        "1 L ≈ a big water bottle; 5 mL ≈ one medicine spoon.",
+        "Estimate with benchmarks BEFORE measuring — then check!"
+      ],
+      "example": "Is your book closer to 2 cm or 25 cm tall? Compare with fingernails!"
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Amma's recipe needs 2 kg of flour, but the scale shows grams. How many grams is that?",
+      "steps": [
+        "Weight family: kg → g, big to small.",
+        "Big → small means MULTIPLY: 1 kg = 1000 g.",
+        "2 × 1000 = 2000 g."
+      ],
+      "answer": "2000"
+    },
+    {
+      "problem": "Ravi says his pencil is '14 kilometres long'. Rescue him with a sensible unit.",
+      "steps": [
+        "A kilometre is a 12-minute WALK — a pencil can't be 14 of those!",
+        "Pencils are small lengths → centimetres.",
+        "His pencil is 14 CM long. Benchmark check: about 14 fingernail-widths ✓"
+      ],
+      "answer": "14 cm — small things take small units."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Convert by ×/÷ 10, 100, 1000",
+    "intro": "Big unit to small: multiply. Small to big: divide. The number tells you by how much.",
+    "questions": [
+      {
+        "id": "meas01-trick-3m-cm",
+        "type": "number",
+        "q": "3 m = ? cm",
+        "answer": "300",
+        "hintLadder": [
+          "Going to a SMALLER unit → multiply.",
+          "× 100 (that many cm in each).",
+          "= 300 cm."
+        ],
+        "explain": "3 m = 300 cm."
+      },
+      {
+        "id": "meas01-trick-2km-m",
+        "type": "number",
+        "q": "2 km = ? m",
+        "answer": "2000",
+        "hintLadder": [
+          "Going to a SMALLER unit → multiply.",
+          "× 1000 (that many m in each).",
+          "= 2000 m."
+        ],
+        "explain": "2 km = 2000 m."
+      },
+      {
+        "id": "meas01-trick-4kg-g",
+        "type": "number",
+        "q": "4 kg = ? g",
+        "answer": "4000",
+        "hintLadder": [
+          "Going to a SMALLER unit → multiply.",
+          "× 1000 (that many g in each).",
+          "= 4000 g."
+        ],
+        "explain": "4 kg = 4000 g."
+      },
+      {
+        "id": "meas01-trick-3L-mL",
+        "type": "number",
+        "q": "3 L = ? mL",
+        "answer": "3000",
+        "hintLadder": [
+          "Going to a SMALLER unit → multiply.",
+          "× 1000 (that many mL in each).",
+          "= 3000 mL."
+        ],
+        "explain": "3 L = 3000 mL."
+      },
+      {
+        "id": "meas01-trick-5m-cm",
+        "type": "number",
+        "q": "5 m = ? cm",
+        "answer": "500",
+        "hintLadder": [
+          "Going to a SMALLER unit → multiply.",
+          "× 100 (that many cm in each).",
+          "= 500 cm."
+        ],
+        "explain": "5 m = 500 cm."
+      },
+      {
+        "id": "meas01-trick-6kg-g",
+        "type": "number",
+        "q": "6 kg = ? g",
+        "answer": "6000",
+        "hintLadder": [
+          "Going to a SMALLER unit → multiply.",
+          "× 1000 (that many g in each).",
+          "= 6000 g."
+        ],
+        "explain": "6 kg = 6000 g."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "wrong-unit-family",
+      "mistake": "Measuring milk in metres or distance in kilograms.",
+      "fix": "First name the family: long/far → length (m), heavy → weight (kg), liquid fits → capacity (L). Then pick a unit from THAT family only."
+    },
+    {
+      "mistakeTag": "silly-unit-size",
+      "mistake": "Using huge units for tiny things (a 14 km pencil) or tiny units for huge things (a 2,00,000 cm road).",
+      "fix": "Benchmark it! Fingernail = cm, big step = m, long walk = km. If the number sounds crazy, the unit size is wrong."
+    },
+    {
+      "mistakeTag": "converted-wrong-way",
+      "mistake": "Dividing when going big→small (2 kg = 2 g 'divided by 1000').",
+      "fix": "Small units are MANY: going big→small MULTIPLIES (2 kg = 2000 g). Going small→big DIVIDES (2000 g = 2 kg). One kg holds a thousand grams — expect a BIGGER number in grams!"
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "mcq",
+        "q": "Which unit fits milk in a bottle?",
+        "options": [
+          {
+            "label": "Litres (L)"
+          },
+          {
+            "label": "Metres (m)",
+            "mistakeTag": "wrong-unit-family"
+          },
+          {
+            "label": "Kilograms of distance",
+            "mistakeTag": "silly-unit-size"
+          }
+        ],
+        "answer": "Litres (L)",
+        "hintLadder": [
+          "Is milk a length, a weight, or a liquid amount?",
+          "Liquid that FITS in a container.",
+          "Capacity family → litres."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "number",
+        "q": "1 kg = how many grams?",
+        "answer": "1000",
+        "hintLadder": [
+          "What does KILO mean?",
+          "Thousand!",
+          "One thousand grams."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "A ribbon is 3 m long. How many centimetres is that?",
+        "answer": "300",
+        "hintLadder": [
+          "1 m = 100 cm.",
+          "Big → small: multiply.",
+          "3 × 100."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "A jug holds 2000 mL of juice. How many litres?",
+        "answer": "2",
+        "hintLadder": [
+          "1 L = 1000 mL.",
+          "Small → big: divide.",
+          "2000 ÷ 1000."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Ravi wrote: 'The road to school is 3 centimetres.' What's the sensible fix?",
+        "options": [
+          {
+            "label": "3 kilometres — roads are long-walk lengths"
+          },
+          {
+            "label": "3 millilitres",
+            "mistakeTag": "wrong-unit-family"
+          },
+          {
+            "label": "Nothing wrong",
+            "mistakeTag": "silly-unit-size"
+          }
+        ],
+        "answer": "3 kilometres — roads are long-walk lengths",
+        "hintLadder": [
+          "3 cm is three fingernails — can a road be that?",
+          "Which length unit means a long walk?",
+          "Kilometres!"
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "A doctor prescribes 5 mL of syrup, 3 times a day, for 4 days. How many mL in total? (Careful — two steps!)",
+        "answer": "60",
+        "hintLadder": [
+          "Per day: 5 × 3 = ?",
+          "15 mL a day, for 4 days.",
+          "15 × 4."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "mcq",
+        "q": "How HEAVY something is belongs to which unit family?",
+        "options": [
+          {
+            "label": "Weight — grams and kilograms"
+          },
+          {
+            "label": "Capacity — litres",
+            "mistakeTag": "wrong-unit-family"
+          }
+        ],
+        "answer": "Weight — grams and kilograms",
+        "hintLadder": [
+          "Heavy = weight.",
+          "Which units weigh vegetables at the market?",
+          "g and kg."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "4 kg of rice = how many grams?",
+        "answer": "4000",
+        "hintLadder": [
+          "Kilo = 1000.",
+          "Big → small: multiply.",
+          "4 × 1000."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "number",
+        "q": "A path is 5000 m long. How many km?",
+        "answer": "5",
+        "hintLadder": [
+          "1 km = 1000 m.",
+          "Small → big: divide.",
+          "5000 ÷ 1000."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "The best unit for a spoon of medicine:",
+        "options": [
+          {
+            "label": "Millilitres (mL)"
+          },
+          {
+            "label": "Litres (L)",
+            "mistakeTag": "silly-unit-size"
+          }
+        ],
+        "answer": "Millilitres (mL)",
+        "hintLadder": [
+          "A litre is a BIG bottle.",
+          "A spoon holds a tiny liquid amount.",
+          "The small capacity unit."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Fix Ravi's market list for someone at home: 'two metres of milk, five kilograms of distance, one litre of cloth.' Explain WHICH family each item belongs to and the kilo-means-thousand trick.",
+  "revisionCard": {
+    "summary": "Three families: LENGTH (cm→m→km), WEIGHT (g→kg), CAPACITY (mL→L). Kilo = 1000! Big→small MULTIPLY (2 kg = 2000 g); small→big DIVIDE (3000 m = 3 km). Benchmarks: fingernail=cm, big step=m, salt packet=kg, water bottle=L.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Measurement Island (Ganita Grove)",
+    "title": "The Mixed-Up Market Rescue",
+    "brief": "Every stall on Measurement Island has Ravi's mixed-up labels! Re-tag milk, cloth, rice, and roads with the right units, convert between big and small, and reopen the market before lunch.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Kitchen measuring hunt: find one thing measured in kg, one in g, one in L, one in mL, and one in cm (check the labels!). Convert the kg item to grams and the L item to mL.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3-4 (measurement units)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

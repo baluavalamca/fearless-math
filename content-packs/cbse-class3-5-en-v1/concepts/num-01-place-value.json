@@ -1,0 +1,567 @@
+{
+  "id": "num-01-place-value",
+  "name": "Place Value — What Each Digit Is Worth",
+  "grade": 3,
+  "strand": "numbers",
+  "prerequisites": [
+    "num-00-counting-to-100"
+  ],
+  "whatIsIt": "In a number, each digit's WORTH depends on its PLACE. In 52, the 5 does not mean five — it sits in the tens place, so it means fifty! The same digit changes value as it moves: 5, 50, 500. Place value is the secret rule that makes just ten digits (0–9) able to write EVERY number.",
+  "whyNeeded": "Without place value we would need a new symbol for every number — millions of symbols! With place value, the position does the work. It is also the key to everything ahead: comparing numbers, adding with carrying, subtracting with borrowing, and understanding money.",
+  "realLifeUses": [
+    "Money: ₹352 means 3 hundred-notes, 5 ten-notes, and 2 coins — places are note values!",
+    "Cricket scores: 245 runs is 2 hundreds, 4 tens, 5 singles",
+    "House numbers and bus routes: 108 and 18 are very different addresses!",
+    "Reading big prices in shops: knowing 1,999 is about two thousand, not two hundred"
+  ],
+  "vocabulary": [
+    {
+      "term": "digit",
+      "meaning": "One of the ten symbols 0,1,2,3,4,5,6,7,8,9 that build all numbers."
+    },
+    {
+      "term": "place",
+      "meaning": "The position of a digit: ones, tens, hundreds, thousands."
+    },
+    {
+      "term": "value",
+      "meaning": "What the digit is really worth in its place: the 5 in 52 has value 50."
+    },
+    {
+      "term": "expanded form",
+      "meaning": "Stretching a number to show each value: 235 = 200 + 30 + 5."
+    }
+  ],
+  "story": {
+    "title": "The Muddled House Numbers",
+    "characters": [
+      "Ravi",
+      "the village postman"
+    ],
+    "text": "The village postman is puzzled: two letters read '25' and '52' — the same two digits! 'Are they for the same house?' asks Ravi. 'No!' laughs the postman. 'It is all about PLACE. In 25 the 2 sits in the tens room, worth 20, and the 5 is worth 5. But in 52 the 5 is worth 50 and the 2 is worth 2. The same digits in different rooms make different numbers!'",
+    "extractedProblem": "25 and 52 use the same digits. Why are they different numbers?",
+    "answerInStory": "Because of place: in 25 the 2 is worth 20 and the 5 is worth 5; in 52 the 5 is worth 50 and the 2 is worth 2."
+  },
+  "visual": {
+    "component": "PlaceValueBlocks",
+    "props": {
+      "sets": [
+        {
+          "hundreds": 2,
+          "tens": 3,
+          "ones": 5,
+          "label": "235 = 200 + 30 + 5"
+        }
+      ]
+    },
+    "caption": "The number 235 built from blocks: 2 hundred-flats, 3 ten-rods, 5 one-cubes. Each digit's place tells which block it counts!"
+  },
+  "teachingGallery": [
+    {
+      "title": "Every digit has a place and a value",
+      "note": "Hundreds, tens, ones. A digit's value = the digit × its place.",
+      "examples": [
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 2,
+                "tens": 3,
+                "ones": 5,
+                "label": "235 = 200 + 30 + 5"
+              }
+            ]
+          },
+          "caption": "235: 2 hundreds, 3 tens, 5 ones."
+        },
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 0,
+                "tens": 4,
+                "ones": 6,
+                "label": "46 = 40 + 6"
+              }
+            ]
+          },
+          "caption": "46: 4 tens and 6 ones."
+        },
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 3,
+                "tens": 0,
+                "ones": 8,
+                "label": "308 = 300 + 8"
+              }
+            ]
+          },
+          "caption": "308: the 0 means NO tens."
+        },
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 5,
+                "tens": 7,
+                "ones": 0,
+                "label": "570 = 500 + 70"
+              }
+            ]
+          },
+          "caption": "570: 5 hundreds, 7 tens, 0 ones."
+        },
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 1,
+                "tens": 1,
+                "ones": 1,
+                "label": "111 = 100 + 10 + 1"
+              }
+            ]
+          },
+          "caption": "Same digit 1, three different values."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Read each digit with its place, from left to right, then write the expanded form.",
+    "steps": [
+      "Name the places from the RIGHT: ones, tens, hundreds, thousands.",
+      "Match each digit to its place: in 235 → 2 is hundreds, 3 is tens, 5 is ones.",
+      "Find each digit's value: 2 hundreds = 200, 3 tens = 30, 5 ones = 5.",
+      "Expanded form: 235 = 200 + 30 + 5."
+    ]
+  },
+  "abacusMethod": {
+    "name": "Abacus rods",
+    "whenToUse": "To FEEL place value with your hands — each rod is one place.",
+    "steps": [
+      "The rightmost rod is ONES, next is TENS, then HUNDREDS.",
+      "To show 235: slide 2 beads on the hundreds rod, 3 on the tens rod, 5 on the ones rod.",
+      "See how the SAME kind of bead is worth different amounts on different rods — that is place value!",
+      "Read back: 2 hundreds, 3 tens, 5 ones → 235."
+    ],
+    "example": "Show 407 on the abacus: 4 beads on hundreds, NO beads on tens, 7 on ones. The empty rod is the zero!"
+  },
+  "alternateMethods": [
+    {
+      "name": "Bundle method (concrete)",
+      "whenToUse": "First meeting with place value — make tens you can hold.",
+      "steps": [
+        "Take matchsticks or straws. Bundle every 10 with a rubber band.",
+        "Bundle 10 bundles into one SUPER-bundle — that is a hundred!",
+        "To show 47: 4 bundles + 7 loose sticks.",
+        "Count bundles and loose sticks separately — that IS the number's digits."
+      ],
+      "example": "36 sticks = 3 bundles of ten + 6 loose = the digits 3 and 6."
+    },
+    {
+      "name": "Money method",
+      "whenToUse": "Quick mental check using notes and coins.",
+      "steps": [
+        "Think of the number as rupees paid with ₹100 notes, ₹10 notes, and ₹1 coins.",
+        "352 = 3 hundred-notes + 5 ten-notes + 2 coins.",
+        "Each note type is a place!"
+      ],
+      "example": "₹509 needs 5 hundred-notes, no ten-notes, and 9 coins — the 0 means no ten-notes."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "What is the VALUE of the digit 7 in 374?",
+      "steps": [
+        "Name places from the right: 4 is ones, 7 is tens, 3 is hundreds.",
+        "The 7 stands in the TENS place.",
+        "7 tens = 70.",
+        "The value of the 7 is 70 (not just 7!)."
+      ],
+      "answer": "70",
+      "visual": {
+        "component": "PlaceValueBlocks",
+        "props": {
+          "sets": [
+            {
+              "hundreds": 3,
+              "tens": 7,
+              "ones": 4,
+              "label": "374"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem": "Ravi reads 302 as 'thirty-two' — the zero looked like nothing to him. What did the zero actually do?",
+      "steps": [
+        "Write the places: 3 → hundreds, 0 → tens, 2 → ones.",
+        "The 0 is a PLACE-HOLDER: it keeps the 3 in the hundreds room.",
+        "Remove it and 3 slides into the tens room: 32 — a totally different number!",
+        "302 = 300 + 0 + 2 = three hundred and two."
+      ],
+      "answer": "302 is three hundred and two — the zero holds the tens place open."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Value = digit × its place",
+    "intro": "A digit is worth its face times where it sits — ones, tens, or hundreds.",
+    "questions": [
+      {
+        "id": "num01-trick-275-7",
+        "type": "number",
+        "q": "In 275, what is the VALUE of the digit 7?",
+        "answer": "70",
+        "hintLadder": [
+          "Find the 7. Which place is it in — ones, tens, or hundreds?",
+          "It is in the tens place, so multiply: 7 × 10.",
+          "Value = 70."
+        ],
+        "explain": "7 in the tens place = 70."
+      },
+      {
+        "id": "num01-trick-482-4",
+        "type": "number",
+        "q": "In 482, what is the VALUE of the digit 4?",
+        "answer": "400",
+        "hintLadder": [
+          "Find the 4. Which place is it in — ones, tens, or hundreds?",
+          "It is in the hundreds place, so multiply: 4 × 100.",
+          "Value = 400."
+        ],
+        "explain": "4 in the hundreds place = 400."
+      },
+      {
+        "id": "num01-trick-536-3",
+        "type": "number",
+        "q": "In 536, what is the VALUE of the digit 3?",
+        "answer": "30",
+        "hintLadder": [
+          "Find the 3. Which place is it in — ones, tens, or hundreds?",
+          "It is in the tens place, so multiply: 3 × 10.",
+          "Value = 30."
+        ],
+        "explain": "3 in the tens place = 30."
+      },
+      {
+        "id": "num01-trick-940-9",
+        "type": "number",
+        "q": "In 940, what is the VALUE of the digit 9?",
+        "answer": "900",
+        "hintLadder": [
+          "Find the 9. Which place is it in — ones, tens, or hundreds?",
+          "It is in the hundreds place, so multiply: 9 × 100.",
+          "Value = 900."
+        ],
+        "explain": "9 in the hundreds place = 900."
+      },
+      {
+        "id": "num01-trick-268-8",
+        "type": "number",
+        "q": "In 268, what is the VALUE of the digit 8?",
+        "answer": "8",
+        "hintLadder": [
+          "Find the 8. Which place is it in — ones, tens, or hundreds?",
+          "It is in the ones place, so multiply: 8 × 1.",
+          "Value = 8."
+        ],
+        "explain": "8 in the ones place = 8."
+      },
+      {
+        "id": "num01-trick-713-1",
+        "type": "number",
+        "q": "In 713, what is the VALUE of the digit 1?",
+        "answer": "10",
+        "hintLadder": [
+          "Find the 1. Which place is it in — ones, tens, or hundreds?",
+          "It is in the tens place, so multiply: 1 × 10.",
+          "Value = 10."
+        ],
+        "explain": "1 in the tens place = 10."
+      },
+      {
+        "id": "num01-trick-650-6",
+        "type": "number",
+        "q": "In 650, what is the VALUE of the digit 6?",
+        "answer": "600",
+        "hintLadder": [
+          "Find the 6. Which place is it in — ones, tens, or hundreds?",
+          "It is in the hundreds place, so multiply: 6 × 100.",
+          "Value = 600."
+        ],
+        "explain": "6 in the hundreds place = 600."
+      },
+      {
+        "id": "num01-trick-129-2",
+        "type": "number",
+        "q": "In 129, what is the VALUE of the digit 2?",
+        "answer": "20",
+        "hintLadder": [
+          "Find the 2. Which place is it in — ones, tens, or hundreds?",
+          "It is in the tens place, so multiply: 2 × 10.",
+          "Value = 20."
+        ],
+        "explain": "2 in the tens place = 20."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "face-value-confused",
+      "mistake": "Saying the 5 in 52 is 'worth 5' — reading the digit's face instead of its place value.",
+      "fix": "Ask WHERE before WHAT: which room does the digit stand in? 5 in the tens room = 50. Face is 5, value is 50."
+    },
+    {
+      "mistakeTag": "zero-place-ignored",
+      "mistake": "Dropping the zero and reading 302 as 32.",
+      "fix": "Zero is a guard, not nothing! It holds its room open so the other digits stay in the right places. 302 and 32 live in different palaces."
+    },
+    {
+      "mistakeTag": "digits-swapped",
+      "mistake": "Writing 'sixty-three' as 36 — putting digits in the wrong places.",
+      "fix": "Say it slowly with places: SIXTY-three = 6 tens and 3 ones = 63. The tens word comes first, the tens digit comes first."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "mcq",
+        "q": "What is the VALUE of the 5 in 52?",
+        "options": [
+          {
+            "label": "50"
+          },
+          {
+            "label": "5",
+            "mistakeTag": "face-value-confused"
+          },
+          {
+            "label": "2",
+            "mistakeTag": "digits-swapped"
+          }
+        ],
+        "answer": "50",
+        "hintLadder": [
+          "First ask WHERE: which place does the 5 stand in?",
+          "It is in the tens place — one step left of the ones.",
+          "5 tens = how much?"
+        ],
+        "explain": "The 5 stands in the tens place, so it is worth 5 tens = 50."
+      },
+      {
+        "id": "e2",
+        "type": "number",
+        "q": "3 tens and 4 ones make which number?",
+        "answer": "34",
+        "hintLadder": [
+          "3 tens = 30.",
+          "Add the 4 ones.",
+          "30 + 4 = ?"
+        ],
+        "visual": {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "tens": 3,
+                "ones": 4
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "What is the value of the digit 7 in 374? (Type the value, like 700 or 70 or 7.)",
+        "answer": "70",
+        "hintLadder": [
+          "Name the places from the RIGHT: ones, tens, hundreds.",
+          "4 is ones, 7 is…?",
+          "7 in the tens place = 7 × 10."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "Which number is 300 + 0 + 2?",
+        "options": [
+          {
+            "label": "302"
+          },
+          {
+            "label": "32",
+            "mistakeTag": "zero-place-ignored"
+          }
+        ],
+        "answer": "302",
+        "hintLadder": [
+          "There are 3 hundreds — so the number has 3 digits.",
+          "The tens place has ZERO tens, but the place still needs a digit.",
+          "Write it: 3, then 0 holding the tens room, then 2."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Ravi wrote 'sixty-three' as 36. What happened?",
+        "options": [
+          {
+            "label": "He put the digits in the wrong places — sixty means 6 TENS"
+          },
+          {
+            "label": "Nothing wrong, 36 and 63 are the same digits",
+            "mistakeTag": "digits-swapped"
+          },
+          {
+            "label": "He should have written 606",
+            "mistakeTag": "face-value-confused"
+          }
+        ],
+        "answer": "He put the digits in the wrong places — sixty means 6 TENS",
+        "hintLadder": [
+          "Say it slowly: SIXTY-three. Which part is the tens?",
+          "Sixty = 6 tens = 60. Three = 3 ones.",
+          "6 tens and 3 ones — which digit comes first?"
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "Captain Count builds a number with 4 hundreds, 0 tens, and 9 ones. What number is it?",
+        "answer": "409",
+        "hintLadder": [
+          "Write the hundreds digit first: 4.",
+          "No tens — but the tens room still needs its guard!",
+          "4, then 0, then 9."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "mcq",
+        "q": "What is the VALUE of the 8 in 285?",
+        "options": [
+          {
+            "label": "80"
+          },
+          {
+            "label": "8",
+            "mistakeTag": "face-value-confused"
+          }
+        ],
+        "answer": "80",
+        "hintLadder": [
+          "WHERE does the 8 stand?",
+          "5 is ones, 8 is tens.",
+          "8 tens = ?"
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "500 + 60 + 3 = ?",
+        "answer": "563",
+        "hintLadder": [
+          "5 hundreds, 6 tens, 3 ones.",
+          "Put each digit in its place from left to right.",
+          "Hundreds digit, tens digit, ones digit."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "Why is 907 NOT the same as 97?",
+        "options": [
+          {
+            "label": "The 0 holds the tens place, keeping the 9 in the hundreds"
+          },
+          {
+            "label": "They are the same because 0 means nothing",
+            "mistakeTag": "zero-place-ignored"
+          }
+        ],
+        "answer": "The 0 holds the tens place, keeping the 9 in the hundreds",
+        "hintLadder": [
+          "In 907, which room does the 9 stand in? And in 97?",
+          "Remove the 0 and the 9 slides from hundreds to tens.",
+          "900 + 0 + 7 versus 90 + 7 — very different!"
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "number",
+        "q": "What is the VALUE of the digit 4 in 421? (Type the value.)",
+        "answer": "400",
+        "hintLadder": [
+          "Name places from the right: 1 ones, 2 tens, 4…?",
+          "The 4 is in the hundreds place.",
+          "4 hundreds = ?"
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "mcq",
+        "q": "In the number 123, what does the digit 2 mean?",
+        "options": [
+          {
+            "label": "2 tens"
+          },
+          {
+            "label": "2 ones",
+            "mistakeTag": "face-value-confused"
+          }
+        ],
+        "answer": "2 tens",
+        "hintLadder": [
+          "Point from the right: 3 is ones, 2 is next.",
+          "The second place from the right is the tens.",
+          "So the 2 means 2 tens = 20."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Captain Count needs a new palace guard — YOU! Explain to someone at home why 25 and 52 are different numbers even with the same digits, and what the zero is doing in 302. Use money or bundles if it helps!",
+  "revisionCard": {
+    "summary": "A digit's VALUE depends on its PLACE: the 5 in 52 is worth 50. Places from the right: ones, tens, hundreds, thousands. Expanded form: 235 = 200 + 30 + 5. Zero is the place-guard: 302 ≠ 32!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The Palace Room Mix-Up",
+    "brief": "Ravi delivered every parcel to the wrong palace room! Read each number's places, rebuild it with blocks, and put the parcels right before Captain Count's inspection.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Ask a parent for some play money (or draw notes): make ₹352 using hundred-notes, ten-notes, and coins. Then make ₹325 — same digits! Talk about which is more and WHY. Bonus: find a 3-digit house number on your street and say its expanded form aloud.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3 (numbers up to 999, place value)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "id": "data-07-probability-depth",
+  "name": "Sample Space and Combined Probability",
+  "grade": 8,
+  "strand": "data",
+  "prerequisites": ["data-05-probability"],
+  "whatIsIt": "The SAMPLE SPACE is the list of ALL possible outcomes (a dice: 1,2,3,4,5,6). THEORETICAL probability comes from logic (favourable ÷ total); EXPERIMENTAL probability comes from actually trying it many times. For two events, INDEPENDENT means one doesn't affect the other (two coin tosses); to find the chance of BOTH happening, MULTIPLY their probabilities.",
+  "whyNeeded": "Games, genetics, weather and risk involve more than one event. Listing the sample space and combining probabilities correctly is how scientists, engineers and analysts reason about uncertainty.",
+  "realLifeUses": [
+    "Chance of two coins both landing heads",
+    "Listing all outcomes when rolling two dice",
+    "Comparing what SHOULD happen (theory) with what DID (experiment)",
+    "Chance of rain on two days"
+  ],
+  "vocabulary": [
+    { "term": "sample space", "meaning": "The set of all possible outcomes." },
+    { "term": "independent events", "meaning": "Events where one result doesn't change the other's chance." },
+    { "term": "experimental probability", "meaning": "Probability worked out from actual trials (successes ÷ tries)." }
+  ],
+  "story": {
+    "title": "Two Coins",
+    "characters": ["Dev", "Sir"],
+    "text": "Sir tosses two coins. 'List all outcomes,' he says. Dev writes the sample space: HH, HT, TH, TT — four outcomes. 'Chance of BOTH heads?' Only HH works: 1 of 4. 'Or multiply: 1/2 × 1/2 = 1/4,' says Dev. 'Independent tosses — you multiply.' Sir nods.",
+    "extractedProblem": "Two coins are tossed. What is the probability of both landing heads?",
+    "answerInStory": "1/4 — HH is 1 of the 4 outcomes (or 1/2 × 1/2)."
+  },
+  "visual": {
+    "component": "PizzaSlices",
+    "props": {
+      "pies": [
+        { "parts": 4, "shaded": 1, "label": "HH: 1 of 4" }
+      ]
+    },
+    "caption": "Two coins → sample space HH, HT, TH, TT. Both heads (HH) = 1 of 4 = 1/4 = 1/2 × 1/2."
+  },
+  "teachingGallery": [
+    {
+      "title": "List, then combine",
+      "note": "Sample space lists all; independent events multiply.",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [ { "label": "HH", "value": 1 }, { "label": "HT", "value": 1 }, { "label": "TH", "value": 1 }, { "label": "TT", "value": 1 } ] }, "caption": "Four equally likely outcomes for two coins." },
+        { "component": "PizzaSlices", "props": { "pies": [ { "parts": 6, "shaded": 1, "label": "P(6) = 1/6" } ] }, "caption": "One dice: sample space 1–6." },
+        { "component": "PizzaSlices", "props": { "pies": [ { "parts": 2, "shaded": 1, "label": "1/2 × 1/2 = 1/4" } ] }, "caption": "Multiply for BOTH independent events." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "List the sample space; theoretical probability = favourable ÷ total; for independent events happening together, multiply the probabilities.",
+    "steps": [
+      "List the SAMPLE SPACE — every possible outcome.",
+      "Theoretical probability = favourable ÷ total outcomes.",
+      "Experimental probability = number of successes ÷ number of tries.",
+      "For two INDEPENDENT events both happening (AND), multiply their probabilities."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A dice is rolled and a coin tossed. How many outcomes are in the sample space?",
+      "steps": ["Dice: 6 outcomes. Coin: 2 outcomes.", "Each dice value pairs with H or T.", "6 × 2 = 12 outcomes."],
+      "answer": "12"
+    },
+    {
+      "problem": "Two coins are tossed. Probability of both tails?",
+      "steps": ["Independent events: multiply.", "1/2 × 1/2.", "= 1/4."],
+      "answer": "1/4"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "add-not-multiply",
+      "mistake": "Adding probabilities of two independent events happening together instead of multiplying.",
+      "fix": "For BOTH events (AND) with independent events, MULTIPLY: 1/2 × 1/2 = 1/4, not 1/2 + 1/2."
+    },
+    {
+      "mistakeTag": "sample-space-incomplete",
+      "mistake": "Missing outcomes when listing the sample space (forgetting HT and TH for two coins).",
+      "fix": "List EVERY combination systematically: HH, HT, TH, TT. Order matters when you list."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "d07-e1", "type": "number",
+        "q": "How many outcomes are in the sample space of one dice?",
+        "answer": "6",
+        "hintLadder": ["Faces 1 to 6.", "Count them.", "6."]
+      },
+      {
+        "id": "d07-e2", "type": "fraction",
+        "q": "Probability both of two coins land heads? (like 1/4)",
+        "answer": "1/4",
+        "hintLadder": ["1/2 × 1/2.", "Multiply.", "1/4."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "d07-m1", "type": "number",
+        "q": "Two coins tossed — how many outcomes in the sample space?",
+        "answer": "4",
+        "hintLadder": ["HH, HT, TH, TT.", "Count.", "4."]
+      },
+      {
+        "id": "d07-m2", "type": "fraction",
+        "q": "A dice: probability of rolling an even number? (like 1/2)",
+        "answer": "1/2",
+        "hintLadder": ["Even: 2,4,6 → 3.", "Out of 6.", "3/6 = 1/2."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "d07-c1", "type": "number",
+        "q": "A coin and a dice — how many outcomes in the sample space?",
+        "answer": "12",
+        "hintLadder": ["2 × 6.", "Each coin side with each dice face.", "12."]
+      },
+      {
+        "id": "d07-c2", "type": "mcq",
+        "q": "Ravi says the chance of two coins both heads is 1/2 + 1/2 = 1. What's the fix?",
+        "options": [ { "label": "Multiply: 1/2 × 1/2 = 1/4" }, { "label": "1 is correct", "mistakeTag": "add-not-multiply" } ],
+        "answer": "Multiply: 1/2 × 1/2 = 1/4",
+        "hintLadder": ["'Both' with independent events → multiply.", "1/2 × 1/2.", "1/4."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "d07-x1", "type": "number",
+        "q": "Sample space size for one coin?",
+        "answer": "2",
+        "hintLadder": ["Heads or tails.", "Two.", "2."]
+      },
+      {
+        "id": "d07-x2", "type": "fraction",
+        "q": "Both of two coins land tails — probability? (like 1/4)",
+        "answer": "1/4",
+        "hintLadder": ["1/2 × 1/2.", "Multiply.", "1/4."]
+      },
+      {
+        "id": "d07-x3", "type": "number",
+        "q": "Two dice rolled — how many outcomes in the sample space?",
+        "answer": "36",
+        "hintLadder": ["6 × 6.", "Each face with each face.", "36."]
+      },
+      {
+        "id": "d07-x4", "type": "mcq",
+        "q": "For two independent events BOTH happening you…",
+        "options": [ { "label": "Multiply their probabilities" }, { "label": "Add their probabilities", "mistakeTag": "add-not-multiply" } ],
+        "answer": "Multiply their probabilities",
+        "hintLadder": ["AND → multiply.", "For independent events.", "Multiply."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Toss two coins many times with a grown-up and record the results. List the sample space (HH, HT, TH, TT), compare your experimental results with the theoretical 1/4 for HH, and explain why you multiply the probabilities for two independent events.",
+  "revisionCard": {
+    "summary": "Sample space = all possible outcomes. Theoretical probability = favourable ÷ total; experimental = successes ÷ tries. Independent events don't affect each other; for BOTH happening (AND) MULTIPLY their probabilities (two coins both heads = 1/2 × 1/2 = 1/4).",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 8-9 (sample space & combined probability)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

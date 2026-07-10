@@ -1,0 +1,572 @@
+{
+  "id": "data-01-bar-graphs",
+  "name": "Pictographs and Bar Graphs — Pictures That Talk",
+  "grade": 4,
+  "strand": "data",
+  "prerequisites": [
+    "num-02-comparing"
+  ],
+  "whatIsIt": "A graph turns a pile of numbers into a picture your eyes can read in one glance. A PICTOGRAPH uses symbols (🍎 = 5 fruits — check the key!); a BAR GRAPH uses bars whose HEIGHTS show the counts. Taller bar = bigger number: comparing becomes as easy as looking.",
+  "whyNeeded": "Numbers in a list hide their story; the same numbers in a graph SHOUT it. Newspapers, weather reports, class surveys, cricket scorecards — the world reports itself in graphs. Reading them (and spotting when they trick you!) is everyday superpower stuff.",
+  "realLifeUses": [
+    "Class survey: favourite fruits of Class 4 as a bar graph",
+    "Weather: rainy days per month on the news",
+    "Cricket: runs per over as tall and short bars",
+    "School: books read by each class this term"
+  ],
+  "vocabulary": [
+    {
+      "term": "pictograph",
+      "meaning": "A graph using picture symbols — the KEY says what one symbol is worth."
+    },
+    {
+      "term": "bar graph",
+      "meaning": "A graph using bar heights to show counts."
+    },
+    {
+      "term": "key (scale)",
+      "meaning": "The decoder: '1 symbol = 5 fruits' or 'each grid line = 2'."
+    }
+  ],
+  "story": {
+    "title": "The Village Fruit Vote",
+    "characters": [
+      "Meena",
+      "the teacher"
+    ],
+    "text": "The class votes for the fair's fruit stall: mango 12, banana 8, apple 4. Meena draws a bar graph. 'Which fruit won, and how can you tell fastest?' asks the teacher. 'Mango — its bar towers over the others! I can see it in a single glance,' says Meena. 'The graph shows at once what the long list hid,' the teacher nods.",
+    "extractedProblem": "Votes: mango 12, banana 8, apple 4. Which fruit won, and how can you tell fastest?",
+    "answerInStory": "Mango — its bar towers over the others. The graph shows in a glance what the list hid."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": {
+      "categories": [
+        {
+          "label": "mango",
+          "value": 12,
+          "icon": "🥭"
+        },
+        {
+          "label": "banana",
+          "value": 8,
+          "icon": "🍌"
+        },
+        {
+          "label": "apple",
+          "value": 4,
+          "icon": "🍎"
+        }
+      ],
+      "unit": "votes"
+    },
+    "caption": "Bar heights ARE the numbers: mango 12, banana 8, apple 4. Compare with your eyes, verify with the labels!"
+  },
+  "teachingGallery": [
+    {
+      "title": "Reading a bar graph",
+      "note": "Taller bar = more. Read across to the number the bar reaches.",
+      "examples": [
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "mango",
+                "value": 12,
+                "icon": "🥭"
+              },
+              {
+                "label": "banana",
+                "value": 8,
+                "icon": "🍌"
+              },
+              {
+                "label": "apple",
+                "value": 4,
+                "icon": "🍎"
+              }
+            ]
+          },
+          "caption": "Mango is tallest → most liked (12)."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "bus",
+                "value": 6,
+                "icon": "🚌"
+              },
+              {
+                "label": "car",
+                "value": 10,
+                "icon": "🚗"
+              },
+              {
+                "label": "bike",
+                "value": 3,
+                "icon": "🚲"
+              }
+            ]
+          },
+          "caption": "Car is the tallest bar → 10."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "Mon",
+                "value": 2
+              },
+              {
+                "label": "Tue",
+                "value": 5
+              },
+              {
+                "label": "Wed",
+                "value": 7
+              }
+            ]
+          },
+          "caption": "Wednesday had the most (7)."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "red",
+                "value": 4
+              },
+              {
+                "label": "blue",
+                "value": 4
+              },
+              {
+                "label": "green",
+                "value": 9
+              }
+            ]
+          },
+          "caption": "Red and blue are equal (4 each)."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "dog",
+                "value": 11,
+                "icon": "🐕"
+              },
+              {
+                "label": "cat",
+                "value": 6,
+                "icon": "🐈"
+              }
+            ]
+          },
+          "caption": "11 − 6 = 5 more chose dog."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Read the title, read the KEY/scale, then read heights — only then compare or calculate.",
+    "steps": [
+      "TITLE first: what is this graph about?",
+      "KEY/SCALE next: what is one symbol or one grid line worth?",
+      "Read each bar or symbol row into a real number.",
+      "NOW answer: tallest? shortest? how many more? total?"
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Tally-to-graph (making your own)",
+      "whenToUse": "Turning your own survey into a graph.",
+      "steps": [
+        "Collect answers with tally marks (bundle the 5th across — ||||).",
+        "Count each tally group into a number.",
+        "Draw one bar per group, heights matching the numbers. Add title + key!"
+      ],
+      "example": "Pets survey: dogs |||| ||, cats ||||, fish || → bars of 7, 4, 2."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A pictograph shows library visits: Monday 🟦🟦🟦, Friday 🟦🟦🟦🟦🟦. Key: 🟦 = 4 students. How many came on Friday?",
+      "steps": [
+        "Key FIRST: one square = 4 students.",
+        "Friday: 5 symbols × 4 = 20 students.",
+        "(Monday: 3 × 4 = 12 — the key changes everything!)"
+      ],
+      "answer": "20"
+    },
+    {
+      "problem": "In the fruit graph (mango 12, banana 8, apple 4), Ravi says 'mango beat banana by 2 because the bars look 2 apart'. Check him with the numbers!",
+      "steps": [
+        "Looks lie when the scale is big — read VALUES, not gaps on air.",
+        "Mango 12, banana 8.",
+        "12 − 8 = 4. Mango won by 4 votes, not 2 — the 'how many more' question is a subtraction!"
+      ],
+      "answer": "4 — read values, then subtract."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Tallest = most, read to the top",
+    "intro": "Compare bar heights for most/least; read across from the bar's top for its value.",
+    "questions": [
+      {
+        "id": "data01-trick-most",
+        "type": "mcq",
+        "q": "In the fruit graph — mango 12, banana 8, apple 4 — which is the MOST liked?",
+        "answer": "mango",
+        "options": [
+          {
+            "label": "mango"
+          },
+          {
+            "label": "banana"
+          },
+          {
+            "label": "apple"
+          }
+        ],
+        "hintLadder": [
+          "The tallest bar means the most.",
+          "Mango reaches 12, the highest.",
+          "Mango."
+        ],
+        "explain": "tallest = most.",
+        "visual": {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "mango",
+                "value": 12,
+                "icon": "🥭"
+              },
+              {
+                "label": "banana",
+                "value": 8,
+                "icon": "🍌"
+              },
+              {
+                "label": "apple",
+                "value": 4,
+                "icon": "🍎"
+              }
+            ]
+          },
+          "caption": "Which is most?"
+        }
+      },
+      {
+        "id": "data01-trick-read",
+        "type": "number",
+        "q": "In the graph, the banana bar reaches 8. How many chose banana?",
+        "answer": "8",
+        "hintLadder": [
+          "Read across from the top of the bar.",
+          "It reaches the line at 8.",
+          "8."
+        ],
+        "explain": "read the bar → 8.",
+        "visual": {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "mango",
+                "value": 12,
+                "icon": "🥭"
+              },
+              {
+                "label": "banana",
+                "value": 8,
+                "icon": "🍌"
+              },
+              {
+                "label": "apple",
+                "value": 4,
+                "icon": "🍎"
+              }
+            ]
+          },
+          "caption": "Read banana."
+        }
+      },
+      {
+        "id": "data01-trick-diff",
+        "type": "number",
+        "q": "Mango 12 and apple 4. How many MORE chose mango?",
+        "answer": "8",
+        "hintLadder": [
+          "'How many more' means subtract.",
+          "12 − 4.",
+          "8 more."
+        ],
+        "explain": "12−4 = 8."
+      },
+      {
+        "id": "data01-trick-least",
+        "type": "mcq",
+        "q": "Mango 12, banana 8, apple 4 — which is the LEAST liked?",
+        "answer": "apple",
+        "options": [
+          {
+            "label": "apple"
+          },
+          {
+            "label": "banana"
+          },
+          {
+            "label": "mango"
+          }
+        ],
+        "hintLadder": [
+          "The shortest bar = the least.",
+          "Apple is shortest (4).",
+          "Apple."
+        ],
+        "explain": "shortest = least."
+      },
+      {
+        "id": "data01-trick-total",
+        "type": "number",
+        "q": "Mango 12, banana 8, apple 4. How many children in ALL?",
+        "answer": "24",
+        "hintLadder": [
+          "'In all' means add every bar.",
+          "12 + 8 + 4.",
+          "24."
+        ],
+        "explain": "12+8+4 = 24."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "key-ignored",
+      "mistake": "Counting symbols as 1 each when the key says one symbol = 2, 5, or 10.",
+      "fix": "The key is the graph's secret decoder — read it FIRST, always. Five symbols with '1 = 4' is twenty, not five!"
+    },
+    {
+      "mistakeTag": "eyeballed-not-read",
+      "mistake": "Answering 'how many more?' by eyeballing the gap instead of subtracting the values.",
+      "fix": "Eyes find the tallest, but NUMBERS answer 'how many more': read both values off the scale, then subtract. 12 − 8 = 4."
+    },
+    {
+      "mistakeTag": "tallest-equals-total",
+      "mistake": "Giving the tallest bar's value when asked for the TOTAL of all bars.",
+      "fix": "Total means EVERYONE: add all the bars (12+8+4 = 24). The tallest bar is just the winner, not the whole story."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "mcq",
+        "q": "In the Grove fruit graph, which fruit got the most votes?",
+        "options": [
+          {
+            "label": "Mango — the tallest bar"
+          },
+          {
+            "label": "Apple — it's first alphabetically",
+            "mistakeTag": "eyeballed-not-read"
+          }
+        ],
+        "answer": "Mango — the tallest bar",
+        "hintLadder": [
+          "Which bar reaches highest?",
+          "Height = count!",
+          "The mango tower wins."
+        ],
+        "visual": {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "mango",
+                "value": 12
+              },
+              {
+                "label": "banana",
+                "value": 8
+              },
+              {
+                "label": "apple",
+                "value": 4
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "e2",
+        "type": "number",
+        "q": "A pictograph key says 🟦 = 4 students. Friday shows 5 symbols. How many students?",
+        "answer": "20",
+        "hintLadder": [
+          "Read the key first!",
+          "Each symbol is worth 4.",
+          "5 × 4."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "Mango got 12 votes, banana got 8. How many MORE votes did mango get?",
+        "answer": "4",
+        "hintLadder": [
+          "'How many more' is a subtraction question.",
+          "Read both values from the graph.",
+          "12 − 8."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "Fruit graph totals: mango 12 + banana 8 + apple 4. How many children voted in ALL?",
+        "answer": "24",
+        "hintLadder": [
+          "Total = every bar together.",
+          "Add all three values.",
+          "12 + 8 + 4."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "A pictograph shows 3 symbols for Monday (key: 1 symbol = 10 books). Ravi reports 'only 3 books on Monday!' What did he skip?",
+        "options": [
+          {
+            "label": "The key — 3 symbols × 10 = 30 books"
+          },
+          {
+            "label": "Nothing, 3 symbols = 3 books",
+            "mistakeTag": "key-ignored"
+          }
+        ],
+        "answer": "The key — 3 symbols × 10 = 30 books",
+        "hintLadder": [
+          "What must you read BEFORE counting symbols?",
+          "The key: 1 symbol = 10.",
+          "Multiply, don't just count."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "Runs per over: over-1 six runs, over-2 twelve, over-3 nine. The team wants the TOTAL. What is it?",
+        "answer": "27",
+        "hintLadder": [
+          "Total needs ALL bars, not the tallest.",
+          "6 + 12 + 9.",
+          "Twenty-seven."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "mcq",
+        "q": "The FIRST thing to read on any pictograph:",
+        "options": [
+          {
+            "label": "The key — what one symbol is worth"
+          },
+          {
+            "label": "The prettiest symbol",
+            "mistakeTag": "key-ignored"
+          }
+        ],
+        "answer": "The key — what one symbol is worth",
+        "hintLadder": [
+          "Symbols are rarely worth 1.",
+          "The decoder ring of the graph.",
+          "Key first, always."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "Bars: cats 9, dogs 15. How many more dog-lovers than cat-lovers?",
+        "answer": "6",
+        "hintLadder": [
+          "'How many more' = subtract.",
+          "15 − 9.",
+          "Six."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "number",
+        "q": "Key: 1 symbol = 5 kites. Saturday shows 7 symbols. Kites sold on Saturday?",
+        "answer": "35",
+        "hintLadder": [
+          "Key first!",
+          "7 × 5.",
+          "Thirty-five."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "Asked for the TOTAL of all bars, you should…",
+        "options": [
+          {
+            "label": "Add every bar's value"
+          },
+          {
+            "label": "Report the tallest bar",
+            "mistakeTag": "tallest-equals-total"
+          }
+        ],
+        "answer": "Add every bar's value",
+        "hintLadder": [
+          "Total = the whole survey.",
+          "Everyone counts, not just the winner.",
+          "Add them all."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Run your own mini Newsroom: survey your family's favourite dinner (4-5 people), tally it, draw a quick bar graph, and present the 'headline' — explaining why the graph tells the story faster than your list.",
+  "revisionCard": {
+    "summary": "Graphs = numbers as pictures. Reading order: TITLE → KEY/scale → values → answer. Pictograph symbols are worth what the KEY says (× them!). 'How many more' = subtract values; 'total' = add ALL bars. Tallest = winner, not total!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Data Newsroom (Ganita Grove)",
+    "title": "The Headline Machine",
+    "brief": "The Grove Gazette goes to print at sunset! Turn messy survey lists into bar graphs, decode sneaky pictograph keys, and fact-check Ravi's headlines before they hit the front page.",
+    "character": "Robo Reason"
+  },
+  "realLifeProject": "Graph your week: count something for 5 days (glasses of water, pages read, minutes of play) and draw the bar graph with a title and scale. What headline does your week deserve?",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4 (pictographs and bar graphs)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

@@ -1,0 +1,649 @@
+{
+  "id": "found-06-add-sub-within-20",
+  "name": "Adding and Subtracting to 20 — Crossing the Ten",
+  "grade": 1,
+  "strand": "operations",
+  "prerequisites": [
+    "found-02-numbers-11-20",
+    "pp1-04-subtract-within-10"
+  ],
+  "whatIsIt": "Adding and subtracting past ten is easy with the MAKE-TEN trick. To add 8 + 5, first make ten (8 needs 2), then add the rest (3 left): ten and three is 13. To subtract, break back through ten. Ten is the friendly stepping-stone.",
+  "whyNeeded": "Numbers to 20 are where mental maths really begins. The make-ten strategy — instead of slow finger-counting — is what lets children add and subtract quickly and sets up column addition with carrying later.",
+  "realLifeUses": [
+    "Adding two handfuls of sweets that total more than ten",
+    "Scores in a game passing ten points",
+    "Adding rupees when the total crosses ten",
+    "Working out how many more to reach a teen number"
+  ],
+  "vocabulary": [
+    {
+      "term": "make ten",
+      "meaning": "Adding just enough to reach a friendly ten first."
+    },
+    {
+      "term": "bridge through ten",
+      "meaning": "Using ten as a stepping-stone when crossing it."
+    },
+    {
+      "term": "teen total",
+      "meaning": "A sum between 11 and 20 — ten and some ones."
+    },
+    {
+      "term": "break apart",
+      "meaning": "Splitting a number to make ten (5 = 2 + 3)."
+    }
+  ],
+  "story": {
+    "title": "Eight and Five Chikkis",
+    "characters": [
+      "Ravi",
+      "Ajji"
+    ],
+    "text": "Ravi has 8 chikkis (peanut-jaggery sweets) and Ajji gives him 5 more. 'How many now?' He starts counting slowly. 'Try the MAKE-TEN trick,' says Ajji. 'Eight needs how many to reach ten?' 'Two!' 'Take 2 from the 5 — that makes ten, and 3 are left. Ten and three is 13!' Ravi beams: 'Making ten first is so much faster than counting on my fingers.'",
+    "extractedProblem": "Ravi has 8 chikkis and gets 5 more. Using make-ten, what is 8 + 5?",
+    "answerInStory": "13 — make ten (8 + 2), then add the leftover 3: ten and three is 13."
+  },
+  "visual": {
+    "component": "NumberLine",
+    "props": {
+      "lines": [
+        {
+          "parts": 10,
+          "mark": 3,
+          "showLabels": true,
+          "label": "8 + 5 = 13"
+        }
+      ]
+    },
+    "caption": "Jump 8 to 10 (that's 2), then 3 more lands on 13. Ten is the stepping-stone."
+  },
+  "teachingGallery": [
+    {
+      "title": "Crossing the ten — make a ten first",
+      "note": "The easy trick: fill up to 10, then add what is left.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball"
+                ],
+                "label": "8"
+              },
+              {
+                "items": [
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball"
+                ],
+                "label": "5"
+              }
+            ]
+          },
+          "caption": "8 + 5: fill to 10 (8+2), then 3 more = 13."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "9"
+              },
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "4"
+              }
+            ]
+          },
+          "caption": "9 + 4: 9+1=10, then 3 = 13."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "apple",
+                  "apple",
+                  "apple",
+                  "apple",
+                  "apple",
+                  "apple",
+                  "apple"
+                ],
+                "label": "7"
+              },
+              {
+                "items": [
+                  "apple",
+                  "apple",
+                  "apple",
+                  "apple",
+                  "apple",
+                  "apple"
+                ],
+                "label": "6"
+              }
+            ]
+          },
+          "caption": "7 + 6: 7+3=10, then 3 = 13."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon"
+                ],
+                "label": "8"
+              },
+              {
+                "items": [
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon"
+                ],
+                "label": "8"
+              }
+            ]
+          },
+          "caption": "8 + 8 = 16 (double, then it's easy)."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  15,
+                  14,
+                  13,
+                  12,
+                  11,
+                  "?"
+                ],
+                "jump": -1
+              }
+            ]
+          },
+          "caption": "15 − 4: step back to 11. Count down!"
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To add past ten, make ten first then add the rest; to subtract past ten, break back to ten first.",
+    "steps": [
+      "ADD: find how many the first number needs to reach ten.",
+      "Take that from the second number to MAKE TEN, then add whatever is left.",
+      "SUBTRACT: take away down to ten first, then take away the rest.",
+      "The answer is a teen: ten and some ones."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Number-line hop",
+      "whenToUse": "To add or subtract across ten.",
+      "steps": [
+        "Start at the first number.",
+        "Hop to ten first (a small hop).",
+        "Hop the rest of the way."
+      ],
+      "example": "7 + 6: hop 7→10 (3), then 3 more → 13."
+    },
+    {
+      "name": "Doubles-helper",
+      "whenToUse": "When the two numbers are close.",
+      "steps": [
+        "Use a double you know (6 + 6 = 12).",
+        "Adjust by one for near-doubles.",
+        "6 + 7 = 12 + 1 = 13."
+      ],
+      "example": "8 + 7 = double 7 (14) + 1 = 15."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Add 9 + 4 using make-ten.",
+      "steps": [
+        "9 needs 1 to make ten.",
+        "Take 1 from the 4 → ten, and 3 are left.",
+        "Ten and three.",
+        "9 + 4 = 13."
+      ],
+      "answer": "13",
+      "visual": {
+        "component": "NumberLine",
+        "props": {
+          "lines": [
+            {
+              "parts": 10,
+              "mark": 3,
+              "showLabels": true,
+              "label": "9 + 4"
+            }
+          ]
+        },
+        "caption": "9→10 (1), then 3 → 13."
+      }
+    },
+    {
+      "problem": "Subtract 13 − 5 by breaking through ten.",
+      "steps": [
+        "Take 3 from 13 to reach ten first.",
+        "2 still left to take (5 − 3 = 2).",
+        "Ten take away 2 is 8.",
+        "13 − 5 = 8."
+      ],
+      "answer": "8"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Make a ten",
+    "intro": "Fill up to 10 first, then add what's left — crossing the ten becomes easy.",
+    "questions": [
+      {
+        "id": "f06-trick-8+5",
+        "type": "number",
+        "q": "8 + 5 = ?",
+        "answer": "13",
+        "hintLadder": [
+          "8 needs 2 more to make 10.",
+          "Split 5 into 2 + 3.",
+          "10 + 3 = 13."
+        ],
+        "explain": "8+2=10, then +3 = 13."
+      },
+      {
+        "id": "f06-trick-9+4",
+        "type": "number",
+        "q": "9 + 4 = ?",
+        "answer": "13",
+        "hintLadder": [
+          "9 needs 1 more to make 10.",
+          "Split 4 into 1 + 3.",
+          "10 + 3 = 13."
+        ],
+        "explain": "9+1=10, then +3 = 13."
+      },
+      {
+        "id": "f06-trick-7+6",
+        "type": "number",
+        "q": "7 + 6 = ?",
+        "answer": "13",
+        "hintLadder": [
+          "7 needs 3 more to make 10.",
+          "Split 6 into 3 + 3.",
+          "10 + 3 = 13."
+        ],
+        "explain": "7+3=10, then +3 = 13."
+      },
+      {
+        "id": "f06-trick-6+8",
+        "type": "number",
+        "q": "6 + 8 = ?",
+        "answer": "14",
+        "hintLadder": [
+          "6 needs 4 more to make 10.",
+          "Split 8 into 4 + 4.",
+          "10 + 4 = 14."
+        ],
+        "explain": "6+4=10, then +4 = 14."
+      },
+      {
+        "id": "f06-trick-9+7",
+        "type": "number",
+        "q": "9 + 7 = ?",
+        "answer": "16",
+        "hintLadder": [
+          "9 needs 1 more to make 10.",
+          "Split 7 into 1 + 6.",
+          "10 + 6 = 16."
+        ],
+        "explain": "9+1=10, then +6 = 16."
+      },
+      {
+        "id": "f06-trick-8+6",
+        "type": "number",
+        "q": "8 + 6 = ?",
+        "answer": "14",
+        "hintLadder": [
+          "8 needs 2 more to make 10.",
+          "Split 6 into 2 + 4.",
+          "10 + 4 = 14."
+        ],
+        "explain": "8+2=10, then +4 = 14."
+      },
+      {
+        "id": "f06-trick-7+5",
+        "type": "number",
+        "q": "7 + 5 = ?",
+        "answer": "12",
+        "hintLadder": [
+          "7 needs 3 more to make 10.",
+          "Split 5 into 3 + 2.",
+          "10 + 2 = 12."
+        ],
+        "explain": "7+3=10, then +2 = 12."
+      },
+      {
+        "id": "f06-trick-9+6",
+        "type": "number",
+        "q": "9 + 6 = ?",
+        "answer": "15",
+        "hintLadder": [
+          "9 needs 1 more to make 10.",
+          "Split 6 into 1 + 5.",
+          "10 + 5 = 15."
+        ],
+        "explain": "9+1=10, then +5 = 15."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "didnt-cross-ten",
+      "mistake": "Counting on fingers and losing track when the total passes ten.",
+      "fix": "Use ten as a stepping-stone: MAKE TEN first, then add the rest. 8 + 5 → 8+2=10, then +3 = 13. No lost fingers."
+    },
+    {
+      "mistakeTag": "split-wrong",
+      "mistake": "Breaking the second number incorrectly when making ten (taking 3 from 5 for 8+5).",
+      "fix": "First find what the FIRST number needs: 8 needs 2. Take exactly that (2) from the second number, and the rest (3) is added after."
+    },
+    {
+      "mistakeTag": "add-sub-mixed",
+      "mistake": "Adding when the problem says take away (or the reverse).",
+      "fix": "'More/altogether' → ADD (answer bigger). 'Left/take away' → SUBTRACT (answer smaller). Check your answer makes sense."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "found-06-e1",
+        "type": "number",
+        "q": "8 + 4 = ?",
+        "answer": "12",
+        "hintLadder": [
+          "8 needs 2 to make ten.",
+          "Take 2 from 4, 2 left.",
+          "Ten and two."
+        ],
+        "explain": "8 + 4 = 12.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 2,
+                "showLabels": true,
+                "label": "8+4"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-06-e2",
+        "type": "number",
+        "q": "7 + 5 = ?",
+        "answer": "12",
+        "hintLadder": [
+          "7 needs 3 to make ten.",
+          "Take 3 from 5, 2 left.",
+          "Ten and two."
+        ],
+        "explain": "7 + 5 = 12."
+      }
+    ],
+    "medium": [
+      {
+        "id": "found-06-m1",
+        "type": "number",
+        "q": "9 + 6 = ?",
+        "answer": "15",
+        "hintLadder": [
+          "9 needs 1.",
+          "Take 1 from 6, 5 left.",
+          "Ten and five."
+        ],
+        "explain": "9 + 6 = 15.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 5,
+                "showLabels": true,
+                "label": "9+6"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-06-m2",
+        "type": "number",
+        "q": "14 − 6 = ?",
+        "answer": "8",
+        "hintLadder": [
+          "Take 4 from 14 to reach ten.",
+          "2 more to take.",
+          "Ten − 2."
+        ],
+        "explain": "14 − 6 = 8."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "found-06-c1",
+        "type": "number",
+        "q": "8 + 7 = ?",
+        "answer": "15",
+        "hintLadder": [
+          "8 needs 2.",
+          "Take 2 from 7, 5 left.",
+          "Ten and five."
+        ],
+        "explain": "8 + 7 = 15."
+      },
+      {
+        "id": "found-06-c2",
+        "type": "number",
+        "q": "16 − 9 = ?",
+        "answer": "7",
+        "hintLadder": [
+          "Take 6 from 16 to reach ten.",
+          "3 more to take.",
+          "Ten − 3."
+        ],
+        "explain": "16 − 9 = 7."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "found-06-x1",
+        "type": "number",
+        "q": "8 + 5 = ?",
+        "answer": "13",
+        "hintLadder": [
+          "8 needs 2.",
+          "2 from 5, 3 left.",
+          "Ten and three."
+        ],
+        "explain": "13.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 3,
+                "showLabels": true,
+                "label": "8+5"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-06-x2",
+        "type": "number",
+        "q": "9 + 3 = ?",
+        "answer": "12",
+        "hintLadder": [
+          "9 needs 1.",
+          "1 from 3, 2 left.",
+          "Ten and two."
+        ],
+        "explain": "12."
+      },
+      {
+        "id": "found-06-x3",
+        "type": "number",
+        "q": "7 + 6 = ?",
+        "answer": "13",
+        "hintLadder": [
+          "7 needs 3.",
+          "3 from 6, 3 left.",
+          "Ten and three."
+        ],
+        "explain": "13."
+      },
+      {
+        "id": "found-06-x4",
+        "type": "number",
+        "q": "15 − 7 = ?",
+        "answer": "8",
+        "hintLadder": [
+          "Take 5 to reach ten.",
+          "2 more.",
+          "Ten − 2."
+        ],
+        "explain": "8."
+      },
+      {
+        "id": "found-06-x5",
+        "type": "number",
+        "q": "12 − 5 = ?",
+        "answer": "7",
+        "hintLadder": [
+          "Take 2 to reach ten.",
+          "3 more.",
+          "Ten − 3."
+        ],
+        "explain": "7."
+      }
+    ]
+  },
+  "teachBackPrompt": "Use counters or sweets to teach someone at home the MAKE-TEN trick for 8 + 5: fill up to ten first, then add the rest. Explain why ten is such a friendly stepping-stone.",
+  "revisionCard": {
+    "summary": "Cross ten with MAKE-TEN: for 8+5, fill 8 to ten (+2), then add the leftover 3 → 13. To subtract, break back to ten first. Ten is the stepping-stone.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Adding Orchard (Little Sprouts)",
+    "title": "Eight and Five Sweets",
+    "brief": "Cross the ten with the make-ten trick to add and subtract quickly up to 20.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Play a quick points game at home where scores pass ten. Practise making ten first to add the new points in your head.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  },
+  "mentalMathMethod": {
+    "name": "Near-doubles",
+    "whenToUse": "When the two numbers are close together.",
+    "steps": [
+      "Use a double you know (6 + 6 = 12).",
+      "Adjust by one for a near-double.",
+      "6 + 7 = 12 + 1 = 13."
+    ],
+    "example": "8 + 7 = double 7 (14) + 1 = 15."
+  },
+  "abacusMethod": {
+    "name": "Bridge through ten on the beads",
+    "whenToUse": "To cross ten on the abacus.",
+    "steps": [
+      "Set the first number.",
+      "Add up to a full ten first (a ten bead), clearing the ones.",
+      "Add the leftover ones on the next rod."
+    ],
+    "example": "8 + 5: fill to 10, then 3 more → 13.",
+    "visual": {
+      "component": "Abacus",
+      "props": {
+        "abaci": [
+          {
+            "value": 13,
+            "label": "8 + 5 = 13"
+          }
+        ]
+      },
+      "caption": "Make a ten, then 3 ones → 13."
+    }
+  },
+  "vedicMethod": {
+    "name": "Complete the ten (Vedic completing)",
+    "whenToUse": "When one number is near ten.",
+    "steps": [
+      "Round the near-ten number up to ten.",
+      "Add the other number.",
+      "Take back the extra you added."
+    ],
+    "example": "9 + 6: 10 + 6 = 16, take back 1 → 15."
+  }
+}

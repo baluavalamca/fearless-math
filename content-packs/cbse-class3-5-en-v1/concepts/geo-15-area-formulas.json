@@ -1,0 +1,169 @@
+{
+  "id": "geo-15-area-formulas",
+  "name": "Area Formulas — Triangle, Parallelogram and Circle",
+  "grade": 7,
+  "strand": "geometry",
+  "prerequisites": ["geo-08-area-boundary", "geo-11-circles"],
+  "whatIsIt": "Beyond rectangles, each shape has an area formula. RECTANGLE: length × breadth. PARALLELOGRAM: base × height (the straight height, not the slanted side). TRIANGLE: ½ × base × height (half a rectangle). CIRCLE: π × radius × radius (π r², with π ≈ 3.14). Area is always in SQUARE units.",
+  "whyNeeded": "Real jobs need these: paint for a triangular gable, turf for a round lawn, cloth for a slanted banner. The formulas turn measuring the space inside any common shape into a quick calculation.",
+  "realLifeUses": [
+    "Turf or water for a circular pond (π r²)",
+    "Cloth for a triangular flag (½ base × height)",
+    "Tiles for a parallelogram-shaped patio",
+    "Paint for a triangular wall gable"
+  ],
+  "vocabulary": [
+    { "term": "base and height", "meaning": "The base is a side; the height is the straight (perpendicular) distance to it." },
+    { "term": "π r²", "meaning": "The area of a circle: π times the radius squared." },
+    { "term": "square units", "meaning": "The unit for area (sq cm, sq m)." }
+  ],
+  "story": {
+    "title": "The Triangular Flag",
+    "characters": ["Neha", "Teacher"],
+    "text": "Neha sews a triangular flag with base 20 cm and height 15 cm. 'How much cloth?' asks the teacher. Neha recalls a triangle is half a rectangle: ½ × 20 × 15 = ½ × 300 = 150. 'One hundred and fifty square centimetres!' The teacher smiles — 'the half is what makes it a triangle.'",
+    "extractedProblem": "A triangular flag has base 20 cm and height 15 cm. What is its area?",
+    "answerInStory": "150 sq cm — ½ × base × height = ½ × 20 × 15."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "triangle", "label": "area = ½ × base × height" }
+      ]
+    },
+    "caption": "A triangle is half of a rectangle with the same base and height → area = ½ × base × height."
+  },
+  "teachingGallery": [
+    {
+      "title": "One formula per shape",
+      "note": "Use the straight height; area is in square units.",
+      "examples": [
+        { "component": "AreaModel", "props": { "models": [ { "rowParts": [3], "colParts": [5], "label": "rectangle 5 × 3 = 15" } ] }, "caption": "Rectangle: length × breadth." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "rect", "w": 6, "h": 4, "label": "parallelogram: base × height" } ] }, "caption": "Parallelogram: base × height." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "circle", "label": "circle: π r²" } ] }, "caption": "Circle: π × radius × radius." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Pick the shape's formula, use the perpendicular height (not slant), calculate, and give the answer in square units.",
+    "steps": [
+      "Rectangle: length × breadth.",
+      "Parallelogram: base × height (the straight, perpendicular height).",
+      "Triangle: ½ × base × height.",
+      "Circle: π × radius × radius (π ≈ 3.14). Answer in SQUARE units."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find the area of a triangle with base 10 cm and height 6 cm.",
+      "steps": ["Area = ½ × base × height.", "½ × 10 × 6 = ½ × 60.", "= 30 sq cm."],
+      "answer": "30"
+    },
+    {
+      "problem": "Find the area of a circle with radius 7 cm (π ≈ 3.14).",
+      "steps": ["Area = π × r × r.", "3.14 × 7 × 7 = 3.14 × 49.", "≈ 153.86 sq cm."],
+      "answer": "153.86"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "triangle-forgot-half",
+      "mistake": "Using base × height for a triangle (forgetting the ½).",
+      "fix": "A triangle is HALF a rectangle: area = ½ × base × height. Don't skip the half."
+    },
+    {
+      "mistakeTag": "used-slant-height",
+      "mistake": "Using the slanted side instead of the straight (perpendicular) height.",
+      "fix": "Height means the STRAIGHT distance from the base to the top, at a right angle — not the slanted side."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "g15-e1", "type": "number",
+        "q": "Rectangle 5 by 4 — area (sq units)?",
+        "answer": "20",
+        "hintLadder": ["length × breadth.", "5 × 4.", "20."]
+      },
+      {
+        "id": "g15-e2", "type": "number",
+        "q": "Triangle base 8, height 4 — area (sq units)?",
+        "answer": "16",
+        "hintLadder": ["½ × base × height.", "½ × 32.", "16."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "g15-m1", "type": "number",
+        "q": "Parallelogram base 6, height 5 — area (sq units)?",
+        "answer": "30",
+        "hintLadder": ["base × height.", "6 × 5.", "30."]
+      },
+      {
+        "id": "g15-m2", "type": "number",
+        "q": "Triangle base 12, height 5 — area (sq units)?",
+        "answer": "30",
+        "hintLadder": ["½ × 12 × 5.", "½ × 60.", "30."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "g15-c1", "type": "number",
+        "q": "Circle radius 10 — area (π ≈ 3.14, sq units)? (write like 314)",
+        "answer": "314",
+        "hintLadder": ["π × r × r.", "3.14 × 100.", "314."]
+      },
+      {
+        "id": "g15-c2", "type": "mcq",
+        "q": "Ravi finds a triangle's area as base × height. What's the fix?",
+        "options": [ { "label": "Multiply by ½ — it's half a rectangle" }, { "label": "He's right", "mistakeTag": "triangle-forgot-half" } ],
+        "answer": "Multiply by ½ — it's half a rectangle",
+        "hintLadder": ["Triangle = half rectangle.", "Add the ½.", "½ × base × height."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "g15-x1", "type": "number",
+        "q": "Rectangle 7 by 3 — area (sq units)?",
+        "answer": "21",
+        "hintLadder": ["7 × 3.", "length × breadth.", "21."]
+      },
+      {
+        "id": "g15-x2", "type": "number",
+        "q": "Triangle base 10, height 8 — area (sq units)?",
+        "answer": "40",
+        "hintLadder": ["½ × 10 × 8.", "½ × 80.", "40."]
+      },
+      {
+        "id": "g15-x3", "type": "number",
+        "q": "Parallelogram base 9, height 4 — area (sq units)?",
+        "answer": "36",
+        "hintLadder": ["base × height.", "9 × 4.", "36."]
+      },
+      {
+        "id": "g15-x4", "type": "mcq",
+        "q": "The area of a circle is…",
+        "options": [ { "label": "π × radius × radius" }, { "label": "π × diameter", "mistakeTag": "used-slant-height" } ],
+        "answer": "π × radius × radius",
+        "hintLadder": ["Area uses radius squared.", "π r².", "π × r × r."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Cut a rectangle of paper along a diagonal to make two triangles, and show a grown-up why a triangle's area is HALF the rectangle's. Then measure a round plate's radius and estimate its area with π r².",
+  "revisionCard": {
+    "summary": "Rectangle: length × breadth. Parallelogram: base × height. Triangle: ½ × base × height (half a rectangle). Circle: π × radius × radius (π ≈ 3.14). Always use the STRAIGHT height, and give area in SQUARE units.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 7 (area formulas — triangle, parallelogram, circle)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

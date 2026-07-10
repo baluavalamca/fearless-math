@@ -1,0 +1,565 @@
+{
+  "id": "frac-05-adding-like",
+  "name": "Adding and Subtracting Like Fractions",
+  "grade": 4,
+  "strand": "fractions",
+  "prerequisites": [
+    "frac-04-comparing"
+  ],
+  "whatIsIt": "Like fractions have the SAME bottom number — the same size pieces. Adding them is just counting pieces: 2/8 + 3/8 = 5/8, because 2 pieces plus 3 pieces of the same size make 5 pieces. The piece SIZE (the bottom) never changes — only the count (the top) does.",
+  "whyNeeded": "Once pieces match, fractions behave exactly like counting toys! You ate 2 slices, your sister ate 3 slices of the same pizza — together how much of the pizza is gone? This is the doorway to ALL fraction arithmetic; later, equivalent fractions will make UNLIKE pieces match so this same trick works everywhere.",
+  "realLifeUses": [
+    "Pizza night: 2/8 eaten by you + 3/8 by your sister = 5/8 of the pizza gone",
+    "Water bottle: drank 1/4 in the morning and 2/4 at lunch — 3/4 finished",
+    "Homework: finished 3/10 yesterday and 4/10 today — 7/10 done",
+    "Chapati sharing: 1/4 left from lunch plus 2/4 from dinner boxes"
+  ],
+  "vocabulary": [
+    {
+      "term": "like fractions",
+      "meaning": "Fractions with the SAME bottom number — same-size pieces (2/8 and 3/8)."
+    },
+    {
+      "term": "unlike fractions",
+      "meaning": "Different bottoms — different-size pieces (1/2 and 1/3). Not today's guests!"
+    },
+    {
+      "term": "add the tops",
+      "meaning": "With like fractions, add the piece counts; the piece size stays."
+    }
+  ],
+  "story": {
+    "title": "Two Helpings at the Sankranti Feast",
+    "characters": [
+      "Meena",
+      "her grandmother Ajji"
+    ],
+    "text": "At the Sankranti feast, Ajji cuts a big sweet holige into 8 equal slices. Meena eats 2 slices before the kite-flying, then 3 more after. 'How much of the whole holige did I eat, Ajji?' she asks. Ajji smiles: 'The slices are all the same size — eighths. So just COUNT them: 2 slices and 3 slices make 5 slices. Nobody re-cut the holige, so it stays in eighths. You ate 5/8 of it!'",
+    "extractedProblem": "2/8 of a holige + 3/8 of the same holige — how much holige in total?",
+    "answerInStory": "5/8 — five same-size slices out of eight. The bottom stays because nobody re-cut the holige!"
+  },
+  "visual": {
+    "component": "FractionStrip",
+    "props": {
+      "strips": [
+        {
+          "parts": 8,
+          "shaded": 2,
+          "label": "2/8"
+        },
+        {
+          "parts": 8,
+          "shaded": 3,
+          "label": "+ 3/8"
+        },
+        {
+          "parts": 8,
+          "shaded": 5,
+          "label": "= 5/8"
+        }
+      ]
+    },
+    "caption": "Same-size pieces: 2 shaded + 3 shaded = 5 shaded. Tops add, the bottom (piece size) stays 8."
+  },
+  "teachingGallery": [
+    {
+      "title": "Adding like fractions — same bottom",
+      "note": "When the bottoms match, just add the tops. The bottom never changes.",
+      "examples": [
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 5,
+                "shaded": 3,
+                "label": "2/5 + 1/5 = 3/5"
+              }
+            ]
+          },
+          "caption": "2/5 + 1/5 = 3/5 (add tops, keep 5)."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 4,
+                "shaded": 3,
+                "label": "1/4 + 2/4 = 3/4"
+              }
+            ]
+          },
+          "caption": "1/4 + 2/4 = 3/4."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 8,
+                "shaded": 5,
+                "label": "3/8 + 2/8 = 5/8"
+              }
+            ]
+          },
+          "caption": "3/8 + 2/8 = 5/8."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 6,
+                "shaded": 4,
+                "label": "1/6 + 3/6 = 4/6"
+              }
+            ]
+          },
+          "caption": "1/6 + 3/6 = 4/6."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 7,
+                "label": "4/10 + 3/10 = 7/10"
+              }
+            ]
+          },
+          "caption": "4/10 + 3/10 = 7/10."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Same bottoms? Add (or subtract) the TOPS, keep the bottom, simplify if you can.",
+    "steps": [
+      "Check the bottoms MATCH — like fractions only! (2/8 and 3/8 ✓)",
+      "Add the tops: 2 + 3 = 5.",
+      "Keep the bottom: /8. Answer: 5/8.",
+      "Simplify if possible (4/8 would become 1/2; 5/8 is already simplest)."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Strip counting",
+      "whenToUse": "To SEE the addition and never doubt the rule.",
+      "steps": [
+        "Draw one strip of 8 equal parts.",
+        "Shade 2 parts one colour, then 3 more parts another colour.",
+        "Count ALL the shaded parts: that's the answer."
+      ],
+      "example": "1/6 + 4/6 on a strip of 6: shade 1, then 4 → 5 shaded → 5/6."
+    },
+    {
+      "name": "Number-line hops",
+      "whenToUse": "Connects fraction adding to the number line you already know.",
+      "steps": [
+        "Start at 2/8 on a 0-to-1 line cut into 8 jumps.",
+        "Hop 3 more jumps forward.",
+        "You land on 5/8."
+      ],
+      "example": "Subtracting hops backward: 7/8 − 3/8 → three hops back → 4/8 = 1/2."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A water bottle scale shows eighths. You drank 3/8 before lunch and 2/8 after. What fraction of the bottle did you drink?",
+      "steps": [
+        "Bottoms match (both eighths) — like fractions ✓",
+        "Add the tops: 3 + 2 = 5.",
+        "Keep the bottom: 5/8 of the bottle."
+      ],
+      "answer": "5/8"
+    },
+    {
+      "problem": "A chapati is in sixths. 5/6 was on the plate; Ravi ate 2/6. How much is left? (Subtraction works the same way!)",
+      "steps": [
+        "Bottoms match: sixths ✓",
+        "Subtract the tops: 5 − 2 = 3.",
+        "Keep the bottom: 3/6 left.",
+        "Simplify: 3/6 = 1/2 — half a chapati remains."
+      ],
+      "answer": "3/6",
+      "visual": {
+        "component": "PizzaSlices",
+        "props": {
+          "pies": [
+            {
+              "parts": 6,
+              "shaded": 3,
+              "label": "3/6 left"
+            }
+          ]
+        },
+        "caption": "The chapati stays in 6 equal slices — 3 slices are left: 3/6."
+      }
+    }
+  ],
+  "trickPractice": {
+    "trick": "Add tops, keep the bottom",
+    "intro": "When bottoms match, the bottom stays and you simply add the top numbers.",
+    "questions": [
+      {
+        "id": "frac05-trick-2-1-5",
+        "type": "fraction",
+        "q": "2/5 + 1/5 = ?",
+        "answer": "3/5",
+        "hintLadder": [
+          "The bottoms are the SAME, so keep the bottom.",
+          "Add the tops: 2 + 1 = 3.",
+          "= 3/5."
+        ],
+        "explain": "2/5+1/5=3/5.",
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 5,
+                "shaded": 3,
+                "label": "3/5"
+              }
+            ]
+          },
+          "caption": "3/5"
+        }
+      },
+      {
+        "id": "frac05-trick-1-2-4",
+        "type": "fraction",
+        "q": "1/4 + 2/4 = ?",
+        "answer": "3/4",
+        "hintLadder": [
+          "The bottoms are the SAME, so keep the bottom.",
+          "Add the tops: 1 + 2 = 3.",
+          "= 3/4."
+        ],
+        "explain": "1/4+2/4=3/4.",
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 4,
+                "shaded": 3,
+                "label": "3/4"
+              }
+            ]
+          },
+          "caption": "3/4"
+        }
+      },
+      {
+        "id": "frac05-trick-3-2-8",
+        "type": "fraction",
+        "q": "3/8 + 2/8 = ?",
+        "answer": "5/8",
+        "hintLadder": [
+          "The bottoms are the SAME, so keep the bottom.",
+          "Add the tops: 3 + 2 = 5.",
+          "= 5/8."
+        ],
+        "explain": "3/8+2/8=5/8.",
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 8,
+                "shaded": 5,
+                "label": "5/8"
+              }
+            ]
+          },
+          "caption": "5/8"
+        }
+      },
+      {
+        "id": "frac05-trick-1-3-6",
+        "type": "fraction",
+        "q": "1/6 + 3/6 = ?",
+        "answer": "4/6",
+        "hintLadder": [
+          "The bottoms are the SAME, so keep the bottom.",
+          "Add the tops: 1 + 3 = 4.",
+          "= 4/6."
+        ],
+        "explain": "1/6+3/6=4/6.",
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 6,
+                "shaded": 4,
+                "label": "4/6"
+              }
+            ]
+          },
+          "caption": "4/6"
+        }
+      },
+      {
+        "id": "frac05-trick-4-3-10",
+        "type": "fraction",
+        "q": "4/10 + 3/10 = ?",
+        "answer": "7/10",
+        "hintLadder": [
+          "The bottoms are the SAME, so keep the bottom.",
+          "Add the tops: 4 + 3 = 7.",
+          "= 7/10."
+        ],
+        "explain": "4/10+3/10=7/10.",
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 7,
+                "label": "7/10"
+              }
+            ]
+          },
+          "caption": "7/10"
+        }
+      },
+      {
+        "id": "frac05-trick-2-2-7",
+        "type": "fraction",
+        "q": "2/7 + 2/7 = ?",
+        "answer": "4/7",
+        "hintLadder": [
+          "The bottoms are the SAME, so keep the bottom.",
+          "Add the tops: 2 + 2 = 4.",
+          "= 4/7."
+        ],
+        "explain": "2/7+2/7=4/7.",
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 7,
+                "shaded": 4,
+                "label": "4/7"
+              }
+            ]
+          },
+          "caption": "4/7"
+        }
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "added-the-bottoms",
+      "mistake": "Adding tops AND bottoms: 2/8 + 3/8 = 5/16.",
+      "fix": "The bottom is the PIECE SIZE, and nobody re-cut the pizza! Only the piece COUNT (top) changes. Add tops, keep the bottom: 5/8."
+    },
+    {
+      "mistakeTag": "mixed-unlike-fractions",
+      "mistake": "Using this rule on different bottoms: 1/2 + 1/3 = 2/5.",
+      "fix": "Different bottoms = different-size pieces — you can't just count them together! First make the pieces match with equivalent fractions (that adventure comes next). Today's rule is for LIKE fractions only."
+    },
+    {
+      "mistakeTag": "forgot-to-simplify",
+      "mistake": "Leaving 4/8 as the final answer when it has a simpler name.",
+      "fix": "Always ask: does my answer have a smaller name? 4/8 = 1/2 (divide both by 4). Simplest names make answers easiest to see."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "fraction",
+        "q": "2/8 of the pizza + 3/8 of the pizza = ? (write the fraction)",
+        "answer": "5/8",
+        "hintLadder": [
+          "Are the bottoms the same? Then the pieces match!",
+          "Just count the pieces: 2 + 3 = ?",
+          "5 pieces of size one-eighth: write top over bottom."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "1/6 + 4/6 = ?",
+        "options": [
+          {
+            "label": "5/6"
+          },
+          {
+            "label": "5/12",
+            "mistakeTag": "added-the-bottoms"
+          }
+        ],
+        "answer": "5/6",
+        "hintLadder": [
+          "Did anyone re-cut the strip? The pieces stay sixths.",
+          "Add only the tops: 1 + 4.",
+          "5 pieces, each one-sixth."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "fraction",
+        "q": "You finished 3/10 of your homework yesterday and 4/10 today. What fraction is done? (write the fraction)",
+        "answer": "7/10",
+        "hintLadder": [
+          "Same bottoms — tenths and tenths.",
+          "3 + 4 = ?",
+          "Keep the /10."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "fraction",
+        "q": "Subtraction, same trick: 7/8 − 3/8 = ? (write the fraction; simplify!)",
+        "answer": "4/8",
+        "hintLadder": [
+          "Bottoms match — subtract only the tops.",
+          "7 − 3 = 4, keep the /8.",
+          "Bonus: 4/8 has a simpler name (1/2) — either is correct here, write 4/8."
+        ],
+        "explain": "7/8 − 3/8 = 4/8, which simplifies to 1/2."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Ravi writes 1/2 + 1/3 = 2/5. Fraction Fox faints. Why is this NOT allowed?",
+        "options": [
+          {
+            "label": "Halves and thirds are different-size pieces — they can't be counted together yet"
+          },
+          {
+            "label": "He should have written 2/6 instead",
+            "mistakeTag": "added-the-bottoms"
+          },
+          {
+            "label": "Nothing wrong — tops and bottoms both add",
+            "mistakeTag": "mixed-unlike-fractions"
+          }
+        ],
+        "answer": "Halves and thirds are different-size pieces — they can't be counted together yet",
+        "hintLadder": [
+          "What was today's ONE condition before adding?",
+          "Do 1/2 and 1/3 have the same bottom?",
+          "Unlike pieces must be renamed to matching pieces first (equivalent fractions!)."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "fraction",
+        "q": "A juice jug is marked in sixths. Anu pours out 2/6, then 1/6 more, then drinks 1/6 herself. What fraction of the jug is GONE in total?",
+        "answer": "4/6",
+        "hintLadder": [
+          "Three like fractions leaving the jug: 2/6 + 1/6 + 1/6.",
+          "Add all the tops: 2 + 1 + 1.",
+          "Keep the bottom: sixths."
+        ],
+        "explain": "2/6 + 1/6 + 1/6 = 4/6 (= 2/3 simplified)."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "fraction",
+        "q": "3/7 + 2/7 = ?",
+        "answer": "5/7",
+        "hintLadder": [
+          "Bottoms match — count the pieces.",
+          "3 + 2 = ?",
+          "Keep the /7."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "When adding like fractions, the bottom number…",
+        "options": [
+          {
+            "label": "Stays the same — it is the piece size, and nobody re-cut the whole"
+          },
+          {
+            "label": "Gets added too",
+            "mistakeTag": "added-the-bottoms"
+          }
+        ],
+        "answer": "Stays the same — it is the piece size, and nobody re-cut the whole",
+        "hintLadder": [
+          "Remember the pizza — did the slice marks change?",
+          "What does the bottom number describe?",
+          "Piece size stays; only the count grows."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "fraction",
+        "q": "9/10 − 4/10 = ?",
+        "answer": "5/10",
+        "hintLadder": [
+          "Same bottoms — subtract only the tops.",
+          "9 − 4 = ?",
+          "Keep the /10. (Its simple name is 1/2!)"
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "Which pair can you add DIRECTLY with today's rule?",
+        "options": [
+          {
+            "label": "2/9 and 5/9"
+          },
+          {
+            "label": "1/2 and 1/4",
+            "mistakeTag": "mixed-unlike-fractions"
+          }
+        ],
+        "answer": "2/9 and 5/9",
+        "hintLadder": [
+          "Today's rule needs matching what?",
+          "Check the bottoms of each pair.",
+          "Only same-bottom (like) fractions count pieces directly."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Retell the Pizza Party Puzzle in your own words: what silly thing did Ravi do with 2/8 + 3/8, and why does the bottom number refuse to change? Then show 1/6 + 4/6 on a drawn strip.",
+  "revisionCard": {
+    "summary": "LIKE fractions (same bottoms) = same-size pieces → just count them! Add/subtract the TOPS, keep the bottom: 2/8+3/8=5/8, 7/8−3/8=4/8=1/2. Never add bottoms (the pizza doesn't re-cut itself!). Unlike bottoms need renaming first.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Fraction Kitchen (Ganita Grove)",
+    "title": "The Pizza Party Ledger",
+    "brief": "Guests keep eating slices and the Kitchen must track every pizza! Add and subtract the like fractions on Fox's ledger — and catch Ravi whenever he tries to 're-cut' a pizza by adding the bottoms.",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "At the next meal, cut one roti into 4 equal parts (or a dosa into 8). Track out loud who takes what: '1/4 gone... now 2/4 gone...' Write the full addition story of your family finishing the roti, fraction by fraction.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4 (addition/subtraction of like fractions)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

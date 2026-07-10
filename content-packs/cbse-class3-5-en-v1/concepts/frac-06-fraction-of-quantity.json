@@ -1,0 +1,533 @@
+{
+  "id": "frac-06-fraction-of-quantity",
+  "name": "Fraction of a Quantity — Sharing a Whole Group",
+  "grade": 5,
+  "strand": "fractions",
+  "prerequisites": [
+    "frac-05-adding-like",
+    "ops-13-division-sharing"
+  ],
+  "whatIsIt": "Finding a fraction OF a group means splitting the group into equal parts and taking some of them. To find 1/3 of 12, split 12 into 3 equal parts (12 ÷ 3 = 4) and take one part. For 2/3 of 12, take two of those parts (4 + 4 = 8): divide by the bottom, multiply by the top.",
+  "whyNeeded": "Real sharing is almost always a fraction of a group, not of one object: half of the class, a quarter of your pocket money, two-thirds of the marbles. This is also the bridge to percentages and to multiplying fractions.",
+  "realLifeUses": [
+    "Half of a class of 30 children going on a trip",
+    "Spending a quarter of ₹40 pocket money",
+    "Two-thirds of a box of 12 mangoes being ripe",
+    "A recipe needing three-quarters of a 200 g pack"
+  ],
+  "vocabulary": [
+    {
+      "term": "fraction of a quantity",
+      "meaning": "A fraction applied to a whole group, e.g., 1/4 of 20."
+    },
+    {
+      "term": "of",
+      "meaning": "In fraction problems, 'of' signals splitting the group into equal parts."
+    },
+    {
+      "term": "unit fraction",
+      "meaning": "A fraction with 1 on top, like 1/3 — one equal part."
+    },
+    {
+      "term": "divide then multiply",
+      "meaning": "Divide by the bottom number, then multiply by the top: n ÷ b × t."
+    }
+  ],
+  "story": {
+    "title": "The Mango Seller's Ripe Basket",
+    "characters": [
+      "Ravi",
+      "the mango seller"
+    ],
+    "text": "In the busy summer market, Ravi eyes a basket of 12 golden alphonso mangoes. 'Two-thirds are ripe and sweet today,' calls the mango seller. 'How many is that?' Ravi wonders aloud. The seller tips the mangoes into 3 equal little piles — that is thirds — 4 mangoes in each pile. 'One-third is 4 mangoes. Two-thirds is TWO of those piles: 4 and 4 make 8 ripe mangoes.' Ravi happily buys all 8.",
+    "extractedProblem": "A basket has 12 mangoes and two-thirds are ripe. How many mangoes are ripe?",
+    "answerInStory": "8 mangoes — split 12 into 3 groups of 4, then take 2 groups (4 + 4 = 8)."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        {
+          "rows": 3,
+          "cols": 4,
+          "asGroups": true
+        }
+      ]
+    },
+    "caption": "12 split into 3 equal groups of 4. One-third = 4; two-thirds = 8."
+  },
+  "teachingGallery": [
+    {
+      "title": "Fraction of a group",
+      "note": "Divide the group by the bottom (equal shares), then take the top number of shares.",
+      "examples": [
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 4,
+                "cols": 3,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "1/4 of 12: split 12 into 4 groups of 3 → 1 group = 3."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "1/3 of 12 = 4 (three groups of 4)."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 5,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "1/2 of 10 = 5."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 5,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "1/5 of 20 = 4."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 4,
+                "cols": 6,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "3/4 of 24: quarters of 24 = 6, three of them = 18."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To find a fraction of a group: divide the group by the bottom number to make equal parts, then multiply by the top number to take that many.",
+    "steps": [
+      "Split the whole group into equal parts: divide by the BOTTOM number.",
+      "That gives the size of ONE part (a unit fraction of the group).",
+      "Multiply that part by the TOP number to take that many parts.",
+      "'of' means do this splitting — 1/3 of 12 = 12 ÷ 3 = 4."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Draw-and-share",
+      "whenToUse": "When first learning, or for small groups.",
+      "steps": [
+        "Draw the whole group as dots.",
+        "Circle them into equal groups (the bottom number of groups).",
+        "Count the dots in as many groups as the top number."
+      ],
+      "example": "3/4 of 8: make 4 groups of 2, take 3 groups → 6."
+    },
+    {
+      "name": "Unit-fraction first",
+      "whenToUse": "For any fraction of a quantity.",
+      "steps": [
+        "Find the unit fraction first (1 over the bottom).",
+        "That is the group ÷ bottom.",
+        "Multiply by the top number."
+      ],
+      "example": "2/5 of 20: 1/5 of 20 is 4, times 2 is 8."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Find 1/4 of 20.",
+      "steps": [
+        "Split 20 into 4 equal parts: 20 ÷ 4 = 5.",
+        "One part is 5.",
+        "Top number is 1, so take one part.",
+        "1/4 of 20 = 5."
+      ],
+      "answer": "5",
+      "visual": {
+        "component": "ArrayGrid",
+        "props": {
+          "grids": [
+            {
+              "rows": 4,
+              "cols": 5,
+              "asGroups": true
+            }
+          ]
+        },
+        "caption": "20 in 4 groups of 5 — one-fourth is 5."
+      }
+    },
+    {
+      "problem": "Find 3/4 of 20.",
+      "steps": [
+        "One-fourth of 20 is 5 (20 ÷ 4).",
+        "Top number is 3 — take three parts.",
+        "5 + 5 + 5 = 15.",
+        "3/4 of 20 = 15."
+      ],
+      "answer": "15"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Divide by the bottom, times the top",
+    "intro": "'Of' a group = split into bottom-many shares, then take top-many of them.",
+    "questions": [
+      {
+        "id": "frac06-trick-1-4-12",
+        "type": "number",
+        "q": "What is 1/4 of 12?",
+        "answer": "3",
+        "hintLadder": [
+          "Divide 12 into 4 equal groups: 12 ÷ 4 = 3.",
+          "Take 1 of those groups: 3 × 1.",
+          "= 3."
+        ],
+        "explain": "1/4 of 12 = 3."
+      },
+      {
+        "id": "frac06-trick-1-3-12",
+        "type": "number",
+        "q": "What is 1/3 of 12?",
+        "answer": "4",
+        "hintLadder": [
+          "Divide 12 into 3 equal groups: 12 ÷ 3 = 4.",
+          "Take 1 of those groups: 4 × 1.",
+          "= 4."
+        ],
+        "explain": "1/3 of 12 = 4."
+      },
+      {
+        "id": "frac06-trick-1-2-10",
+        "type": "number",
+        "q": "What is 1/2 of 10?",
+        "answer": "5",
+        "hintLadder": [
+          "Divide 10 into 2 equal groups: 10 ÷ 2 = 5.",
+          "Take 1 of those groups: 5 × 1.",
+          "= 5."
+        ],
+        "explain": "1/2 of 10 = 5."
+      },
+      {
+        "id": "frac06-trick-3-4-12",
+        "type": "number",
+        "q": "What is 3/4 of 12?",
+        "answer": "9",
+        "hintLadder": [
+          "Divide 12 into 4 equal groups: 12 ÷ 4 = 3.",
+          "Take 3 of those groups: 3 × 3.",
+          "= 9."
+        ],
+        "explain": "3/4 of 12 = 9."
+      },
+      {
+        "id": "frac06-trick-2-3-15",
+        "type": "number",
+        "q": "What is 2/3 of 15?",
+        "answer": "10",
+        "hintLadder": [
+          "Divide 15 into 3 equal groups: 15 ÷ 3 = 5.",
+          "Take 2 of those groups: 5 × 2.",
+          "= 10."
+        ],
+        "explain": "2/3 of 15 = 10."
+      },
+      {
+        "id": "frac06-trick-2-5-20",
+        "type": "number",
+        "q": "What is 2/5 of 20?",
+        "answer": "8",
+        "hintLadder": [
+          "Divide 20 into 5 equal groups: 20 ÷ 5 = 4.",
+          "Take 2 of those groups: 4 × 2.",
+          "= 8."
+        ],
+        "explain": "2/5 of 20 = 8."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "multiplied-by-bottom",
+      "mistake": "Multiplying by the bottom number instead of dividing (20 × 4 for 1/4 of 20).",
+      "fix": "For a fraction OF a group, DIVIDE by the bottom to make the equal parts first. 1/4 of 20 = 20 ÷ 4 = 5, not 20 × 4."
+    },
+    {
+      "mistakeTag": "ignored-top",
+      "mistake": "Finding one part but forgetting to multiply by the top number (giving 5 for 3/4 of 20).",
+      "fix": "After dividing by the bottom, MULTIPLY by the top. 3/4 of 20: 20 ÷ 4 = 5, then × 3 = 15."
+    },
+    {
+      "mistakeTag": "used-whole-not-part",
+      "mistake": "Giving the whole group as the answer, forgetting to take only the fraction.",
+      "fix": "A fraction of a group is only PART of it (unless the fraction is 1 whole). 1/3 of 12 is 4, not 12."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "frac-06-e1",
+        "type": "number",
+        "q": "What is 1/2 of 10?",
+        "answer": "5",
+        "hintLadder": [
+          "Split 10 into 2 equal parts.",
+          "10 ÷ 2.",
+          "One part."
+        ],
+        "explain": "1/2 of 10 = 5.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 5,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "frac-06-e2",
+        "type": "number",
+        "q": "What is 1/3 of 9?",
+        "answer": "3",
+        "hintLadder": [
+          "Split 9 into 3 equal parts.",
+          "9 ÷ 3.",
+          "One part."
+        ],
+        "explain": "1/3 of 9 = 3.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 3,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "medium": [
+      {
+        "id": "frac-06-m1",
+        "type": "number",
+        "q": "What is 1/4 of 16?",
+        "answer": "4",
+        "hintLadder": [
+          "16 ÷ 4.",
+          "Four equal parts.",
+          "One part."
+        ],
+        "explain": "1/4 of 16 = 4.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 4,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "frac-06-m2",
+        "type": "number",
+        "q": "What is 2/3 of 12?",
+        "answer": "8",
+        "hintLadder": [
+          "1/3 of 12 is 12 ÷ 3 = 4.",
+          "Take the top number of parts: 2.",
+          "4 + 4."
+        ],
+        "explain": "2/3 of 12 = 8.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "frac-06-c1",
+        "type": "number",
+        "q": "What is 3/4 of 20?",
+        "answer": "15",
+        "hintLadder": [
+          "1/4 of 20 = 5.",
+          "Multiply by the top: 3.",
+          "5 × 3."
+        ],
+        "explain": "3/4 of 20 = 15."
+      },
+      {
+        "id": "frac-06-c2",
+        "type": "number",
+        "q": "What is 3/5 of 25?",
+        "answer": "15",
+        "hintLadder": [
+          "1/5 of 25 = 5.",
+          "Take 3 parts.",
+          "5 × 3."
+        ],
+        "explain": "3/5 of 25 = 15."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "frac-06-x1",
+        "type": "number",
+        "q": "1/2 of 8?",
+        "answer": "4",
+        "hintLadder": [
+          "8 ÷ 2.",
+          "Two parts.",
+          "One part."
+        ],
+        "explain": "4.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "frac-06-x2",
+        "type": "number",
+        "q": "1/3 of 15?",
+        "answer": "5",
+        "hintLadder": [
+          "15 ÷ 3.",
+          "Three parts.",
+          "One part."
+        ],
+        "explain": "5."
+      },
+      {
+        "id": "frac-06-x3",
+        "type": "number",
+        "q": "2/3 of 9?",
+        "answer": "6",
+        "hintLadder": [
+          "1/3 of 9 = 3.",
+          "Take 2 parts.",
+          "3 + 3."
+        ],
+        "explain": "6.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 3,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "frac-06-x4",
+        "type": "number",
+        "q": "3/4 of 8?",
+        "answer": "6",
+        "hintLadder": [
+          "1/4 of 8 = 2.",
+          "Take 3 parts.",
+          "2 × 3."
+        ],
+        "explain": "6."
+      },
+      {
+        "id": "frac-06-x5",
+        "type": "number",
+        "q": "2/5 of 20?",
+        "answer": "8",
+        "hintLadder": [
+          "1/5 of 20 = 4.",
+          "Take 2 parts.",
+          "4 × 2."
+        ],
+        "explain": "8."
+      }
+    ]
+  },
+  "teachBackPrompt": "Grab a handful of buttons. Teach someone at home how to find two-thirds of them: split into equal groups (divide by the bottom), then take the top number of groups. Explain why you divide, not multiply, by the bottom.",
+  "revisionCard": {
+    "summary": "Fraction OF a group: DIVIDE by the bottom to make equal parts, then MULTIPLY by the top to take them. 3/4 of 20 = 20 ÷ 4 × 3 = 15.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Fraction Kitchen (Ganita Grove)",
+    "title": "Two-Thirds of the Mangoes",
+    "brief": "Share whole baskets fairly — split into equal groups and take the right fraction each time.",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "Count your crayons or coins. Find half of them, then a quarter of them, by making equal groups. Check your answers by counting.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

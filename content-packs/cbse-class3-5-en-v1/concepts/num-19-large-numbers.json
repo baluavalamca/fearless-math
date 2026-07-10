@@ -1,0 +1,169 @@
+{
+  "id": "num-19-large-numbers",
+  "name": "Numbers to Ten Thousands — 4 and 5 Digit Numbers",
+  "grade": 4,
+  "strand": "numbers",
+  "prerequisites": ["num-01-place-value", "num-02-comparing"],
+  "whatIsIt": "After hundreds come THOUSANDS. A 4-digit number like 3,482 has thousands, hundreds, tens and ones. A 5-digit number like 47,315 adds ten-thousands. Each place is 10 times the one to its right. We read, compare, add and subtract these bigger numbers using the same place-value ideas as before.",
+  "whyNeeded": "Populations, prices of gadgets, distances between cities, cricket crowd sizes — the real world is full of 4- and 5-digit numbers. Reading and working with them confidently is essential everyday maths.",
+  "realLifeUses": [
+    "The price of a phone or fridge (₹12,499)",
+    "The number of people at a big cricket match",
+    "Distance in metres between two towns",
+    "The population of a small town"
+  ],
+  "vocabulary": [
+    { "term": "thousand", "meaning": "Ten hundreds; the 4th place from the right." },
+    { "term": "ten-thousand", "meaning": "Ten thousands; the 5th place from the right." },
+    { "term": "place value", "meaning": "What a digit is worth because of its position." }
+  ],
+  "story": {
+    "title": "The Stadium Count",
+    "characters": ["Arjun", "Coach"],
+    "text": "Coach tells Arjun the stadium seated 4,208 fans on Saturday and 3,675 on Sunday. 'How many over the two days?' he asks. Arjun lines up the places — thousands under thousands, ones under ones — and adds: 4,208 + 3,675 = 7,883. 'Line up the columns and it's just like adding small numbers,' he grins.",
+    "extractedProblem": "Saturday 4,208 fans, Sunday 3,675 fans. How many in total over both days?",
+    "answerInStory": "7,883 — add with the columns lined up."
+  },
+  "visual": {
+    "component": "PlaceValueBlocks",
+    "props": {
+      "sets": [
+        { "label": "3,482", "thousands": 3, "hundreds": 4, "tens": 8, "ones": 2 }
+      ]
+    },
+    "caption": "3,482 = 3 thousands + 4 hundreds + 8 tens + 2 ones. Each place is 10× the one on its right."
+  },
+  "teachingGallery": [
+    {
+      "title": "Build and compare big numbers",
+      "note": "Read from the left; compare the highest place first.",
+      "examples": [
+        { "component": "PlaceValueBlocks", "props": { "sets": [ { "label": "2,150", "thousands": 2, "hundreds": 1, "tens": 5, "ones": 0 } ] }, "caption": "2,150 = 2 thousands, 1 hundred, 5 tens." },
+        { "component": "PlaceValueBlocks", "props": { "sets": [ { "label": "1,306", "thousands": 1, "hundreds": 3, "tens": 0, "ones": 6 } ] }, "caption": "The 0 tens still holds the place." },
+        { "component": "Abacus", "props": { "abaci": [ { "value": 4275, "label": "4,275 on the abacus" } ] }, "caption": "Beads by place: 4 · 2 · 7 · 5." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Group digits in place-value columns; to add or subtract, line up the columns and work right to left, regrouping when needed.",
+    "steps": [
+      "Write the number in columns: ten-thousands, thousands, hundreds, tens, ones.",
+      "To compare: check the highest place first; the bigger digit there wins.",
+      "To add/subtract: line up the columns and work from the ones, carrying or borrowing as usual."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Add 4,208 + 3,675.",
+      "steps": ["Line up columns.", "Ones 8+5=13 (write 3 carry 1); tens 0+7+1=8; hundreds 2+6=8; thousands 4+3=7.", "= 7,883."],
+      "answer": "7883"
+    },
+    {
+      "problem": "Which is bigger: 12,940 or 12,899?",
+      "steps": ["Same ten-thousands (1) and thousands (2).", "Compare hundreds: 9 vs 8.", "9 > 8, so 12,940 is bigger."],
+      "answer": "12940"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "columns-misaligned",
+      "mistake": "Not lining up the place-value columns when adding or subtracting big numbers.",
+      "fix": "Ones under ones, tens under tens. Misaligned columns give completely wrong answers."
+    },
+    {
+      "mistakeTag": "compare-by-length-only",
+      "mistake": "Assuming a number with more digits is always bigger, or comparing the wrong place.",
+      "fix": "First compare the number of digits; if equal, compare from the HIGHEST place downward."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "n19-e1", "type": "number",
+        "q": "In 3,482, what is the digit in the thousands place?",
+        "answer": "3",
+        "hintLadder": ["Thousands is the 4th place from the right.", "3,482.", "It is 3."]
+      },
+      {
+        "id": "n19-e2", "type": "mcq",
+        "q": "Which number is bigger?",
+        "options": [ { "label": "5,120" }, { "label": "4,998", "mistakeTag": "compare-by-length-only" } ],
+        "answer": "5,120",
+        "hintLadder": ["Compare thousands first.", "5 vs 4.", "5,120 is bigger."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "n19-m1", "type": "number",
+        "q": "Add 2,340 + 1,250.",
+        "answer": "3590",
+        "hintLadder": ["Line up columns.", "Add ones, tens, hundreds, thousands.", "3,590."]
+      },
+      {
+        "id": "n19-m2", "type": "number",
+        "q": "Subtract 5,600 − 2,300.",
+        "answer": "3300",
+        "hintLadder": ["Line up columns.", "Subtract each place.", "3,300."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "n19-c1", "type": "number",
+        "q": "A town has 12,450 people; another has 9,875. How many MORE in the first town?",
+        "answer": "2575",
+        "hintLadder": ["'How many more' = subtract.", "12,450 − 9,875.", "2,575."]
+      },
+      {
+        "id": "n19-c2", "type": "mcq",
+        "q": "Ravi says 9,999 is bigger than 12,000 'because it has more nines'. What's the fix?",
+        "options": [ { "label": "12,000 has more digits, so it is bigger" }, { "label": "9,999 is bigger", "mistakeTag": "compare-by-length-only" } ],
+        "answer": "12,000 has more digits, so it is bigger",
+        "hintLadder": ["Count the digits: 5 vs 4.", "More digits (same style) = bigger.", "12,000 wins."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "n19-x1", "type": "number",
+        "q": "In 47,315, which digit is in the ten-thousands place?",
+        "answer": "4",
+        "hintLadder": ["Ten-thousands is the 5th place.", "47,315.", "It is 4."]
+      },
+      {
+        "id": "n19-x2", "type": "number",
+        "q": "Add 3,206 + 2,158.",
+        "answer": "5364",
+        "hintLadder": ["Line up columns.", "Carry where needed.", "5,364."]
+      },
+      {
+        "id": "n19-x3", "type": "number",
+        "q": "Subtract 7,000 − 2,450.",
+        "answer": "4550",
+        "hintLadder": ["Borrow across zeros.", "7,000 − 2,450.", "4,550."]
+      },
+      {
+        "id": "n19-x4", "type": "mcq",
+        "q": "Before adding two 4-digit numbers you must…",
+        "options": [ { "label": "Line up the place-value columns" }, { "label": "Add the biggest digits first", "mistakeTag": "columns-misaligned" } ],
+        "answer": "Line up the place-value columns",
+        "hintLadder": ["Ones under ones.", "Aligned columns.", "Then add right to left."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Find a 4-digit price at home (a gadget, an appliance) and a smaller one. Explain to a grown-up the place value of each digit in the bigger number, then add or subtract the two prices with the columns lined up.",
+  "revisionCard": {
+    "summary": "Thousands and ten-thousands extend place value: each place is 10× the one on its right. Compare by digit-count, then from the highest place. Add/subtract by lining up columns and working right to left, carrying/borrowing.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4 (4- and 5-digit numbers, place value & operations)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

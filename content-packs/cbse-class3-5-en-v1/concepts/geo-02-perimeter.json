@@ -1,0 +1,479 @@
+{
+  "id": "geo-02-perimeter",
+  "name": "Perimeter — The Walk Around the Edge",
+  "grade": 4,
+  "strand": "geometry",
+  "prerequisites": [
+    "geo-01-shapes",
+    "ops-07-addition-regrouping"
+  ],
+  "whatIsIt": "Perimeter is the total distance AROUND a shape — the length of a full walk along its boundary. Find it by adding ALL the side lengths. For a rectangle there's a shortcut: 2 × (length + breadth), because opposite sides come in equal pairs.",
+  "whyNeeded": "Fencing a garden, framing a photo, putting ribbon around a gift, lining a playground — whenever something goes AROUND an edge, you're buying perimeter! Get it wrong and your fence stops halfway.",
+  "realLifeUses": [
+    "Fencing: how much wire fence for the vegetable garden?",
+    "Craft: ribbon around a greeting card's border",
+    "Sports: one lap around the playground boundary",
+    "Sewing: lace around the edge of a tablecloth"
+  ],
+  "vocabulary": [
+    {
+      "term": "perimeter",
+      "meaning": "The total distance around a shape's boundary. Peri = around!"
+    },
+    {
+      "term": "boundary",
+      "meaning": "The edge line of a shape — where the walk happens."
+    },
+    {
+      "term": "length and breadth",
+      "meaning": "A rectangle's long side and short side."
+    }
+  ],
+  "story": {
+    "title": "The March Around the Tulsi Garden",
+    "characters": [
+      "Meena",
+      "Ajji"
+    ],
+    "text": "Ajji's rectangular tulsi garden is 5 m long and 3 m wide. 'If you march all the way around the edge, how far is that?' asks Ajji. Meena walks the four sides: 5 + 3 + 5 + 3. 'Sixteen metres!' 'Or the shortcut: 2 × (5 + 3) = 16. The perimeter is the whole walk around the boundary,' nods Ajji.",
+    "extractedProblem": "A rectangular garden is 5 m long and 3 m wide. How far is one full march around it?",
+    "answerInStory": "16 m — all four sides: 5+3+5+3, or the shortcut 2×(5+3)."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        {
+          "kind": "rect",
+          "w": 5,
+          "h": 3,
+          "sideLabels": true,
+          "label": "perimeter = 5+3+5+3 = 16"
+        }
+      ]
+    },
+    "caption": "Walk the whole boundary: two 5s and two 3s. Perimeter = 2 × (5 + 3) = 16."
+  },
+  "teachingGallery": [
+    {
+      "title": "Perimeter — the walk around the edge",
+      "note": "Add up every side. That total is the perimeter.",
+      "examples": [
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 5,
+                "label": "square side 5 → 5+5+5+5 = 20"
+              }
+            ]
+          },
+          "caption": "Square, side 5: 4 × 5 = 20."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "rect",
+                "w": 6,
+                "h": 3,
+                "label": "rect 6×3 → 6+3+6+3 = 18"
+              }
+            ]
+          },
+          "caption": "Rectangle 6 by 3: 2×(6+3) = 18."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 4,
+                "label": "square side 4 → 16"
+              }
+            ]
+          },
+          "caption": "Square side 4: 4 × 4 = 16."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "rect",
+                "w": 8,
+                "h": 2,
+                "label": "rect 8×2 → 20"
+              }
+            ]
+          },
+          "caption": "Rectangle 8 by 2: 2×(8+2) = 20."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "triangle",
+                "label": "triangle 3+4+5 = 12"
+              }
+            ]
+          },
+          "caption": "Triangle sides 3,4,5: 3+4+5 = 12."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Add ALL the sides — every single one of the walk.",
+    "steps": [
+      "List every side length of the shape.",
+      "Add them all: rectangle 5,3,5,3 → 5+3+5+3 = 16.",
+      "Rectangle shortcut: 2 × (length + breadth) = 2 × 8 = 16.",
+      "Answer with UNITS: 16 metres (a walk is measured in length units!)."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Finger-walk method",
+      "whenToUse": "To never forget a side.",
+      "steps": [
+        "Put your finger on one corner and 'walk' the boundary.",
+        "Say each side's length as you pass it.",
+        "Stop when you're back at the start — add what you said."
+      ],
+      "example": "Triangle 4, 6, 5: walk-and-say → 4+6+5 = 15."
+    },
+    {
+      "name": "Square shortcut",
+      "whenToUse": "All sides equal? Multiply instead of adding!",
+      "steps": [
+        "A square has 4 equal sides.",
+        "Perimeter = 4 × side."
+      ],
+      "example": "Square of side 7: 4 × 7 = 28."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A square photo frame has sides of 6 cm. How much ribbon goes around it?",
+      "steps": [
+        "All 4 sides equal: 6 cm each.",
+        "Perimeter = 4 × 6 = 24.",
+        "Answer with units: 24 cm of ribbon."
+      ],
+      "answer": "24"
+    },
+    {
+      "problem": "Ravi fenced a 8 m by 4 m rectangle with 12 m of wire — 'because 8 + 4 = 12'. Why is his garden half-open?",
+      "steps": [
+        "8 + 4 covers only TWO sides — one length and one breadth.",
+        "The walk has FOUR sides: 8+4+8+4.",
+        "True perimeter: 24 m. Ravi is 12 m of fence short — the goats are delighted."
+      ],
+      "answer": "24 — all four sides, not two."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Add every side",
+    "intro": "Perimeter is just the fence around the shape — total up all the sides.",
+    "questions": [
+      {
+        "id": "geo02-trick-sq5",
+        "type": "number",
+        "q": "A square has side 5. What is its perimeter?",
+        "answer": "20",
+        "hintLadder": [
+          "Perimeter = add ALL the sides.",
+          "A square has 4 equal sides: 4 × 5.",
+          "= 20."
+        ],
+        "explain": "4 × 5 = 20."
+      },
+      {
+        "id": "geo02-trick-sq4",
+        "type": "number",
+        "q": "A square has side 4. What is its perimeter?",
+        "answer": "16",
+        "hintLadder": [
+          "Perimeter = add ALL the sides.",
+          "A square has 4 equal sides: 4 × 4.",
+          "= 16."
+        ],
+        "explain": "4 × 4 = 16."
+      },
+      {
+        "id": "geo02-trick-sq7",
+        "type": "number",
+        "q": "A square has side 7. What is its perimeter?",
+        "answer": "28",
+        "hintLadder": [
+          "Perimeter = add ALL the sides.",
+          "A square has 4 equal sides: 4 × 7.",
+          "= 28."
+        ],
+        "explain": "4 × 7 = 28."
+      },
+      {
+        "id": "geo02-trick-sq6",
+        "type": "number",
+        "q": "A square has side 6. What is its perimeter?",
+        "answer": "24",
+        "hintLadder": [
+          "Perimeter = add ALL the sides.",
+          "A square has 4 equal sides: 4 × 6.",
+          "= 24."
+        ],
+        "explain": "4 × 6 = 24."
+      },
+      {
+        "id": "geo02-trick-r6x3",
+        "type": "number",
+        "q": "A rectangle is 6 long and 3 wide. Perimeter?",
+        "answer": "18",
+        "hintLadder": [
+          "Add all four sides.",
+          "Two longs + two widths = 2 × (6 + 3).",
+          "= 18."
+        ],
+        "explain": "2×(6+3) = 18."
+      },
+      {
+        "id": "geo02-trick-r8x2",
+        "type": "number",
+        "q": "A rectangle is 8 long and 2 wide. Perimeter?",
+        "answer": "20",
+        "hintLadder": [
+          "Add all four sides.",
+          "Two longs + two widths = 2 × (8 + 2).",
+          "= 20."
+        ],
+        "explain": "2×(8+2) = 20."
+      },
+      {
+        "id": "geo02-trick-r5x4",
+        "type": "number",
+        "q": "A rectangle is 5 long and 4 wide. Perimeter?",
+        "answer": "18",
+        "hintLadder": [
+          "Add all four sides.",
+          "Two longs + two widths = 2 × (5 + 4).",
+          "= 18."
+        ],
+        "explain": "2×(5+4) = 18."
+      },
+      {
+        "id": "geo02-trick-r7x3",
+        "type": "number",
+        "q": "A rectangle is 7 long and 3 wide. Perimeter?",
+        "answer": "20",
+        "hintLadder": [
+          "Add all four sides.",
+          "Two longs + two widths = 2 × (7 + 3).",
+          "= 20."
+        ],
+        "explain": "2×(7+3) = 20."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "added-only-two-sides",
+      "mistake": "Adding just length + breadth (5+3=8) instead of the whole way around.",
+      "fix": "Finger-walk the boundary! You pass FOUR sides on a rectangle — two lengths and two breadths. 2×(5+3), never just 5+3."
+    },
+    {
+      "mistakeTag": "multiplied-the-sides",
+      "mistake": "Multiplying length × breadth (5×3=15) — that's a different measurement entirely!",
+      "fix": "Multiplying sides gives AREA (the space inside — next adventure!). Perimeter is a WALK, and walks are ADDED, side by side."
+    },
+    {
+      "mistakeTag": "units-forgotten",
+      "mistake": "Answering '16' with no units, or with square units.",
+      "fix": "Perimeter is a length — metres, centimetres. Say the units every time: 16 metres of marching!"
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "A rectangle is 6 m long and 2 m wide. What is its perimeter in metres?",
+        "answer": "16",
+        "hintLadder": [
+          "Finger-walk: how many sides do you pass?",
+          "Two 6s and two 2s.",
+          "6+2+6+2 or 2×(6+2)."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "number",
+        "q": "A square carrom board has 4 sides of 7 dm each. Perimeter in dm?",
+        "answer": "28",
+        "hintLadder": [
+          "All sides equal — use the square shortcut.",
+          "4 × side.",
+          "4 × 7."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "A triangle park has sides 40 m, 30 m, and 50 m. How long is one lap around it, in metres?",
+        "answer": "120",
+        "hintLadder": [
+          "A lap = the whole boundary.",
+          "Add all three sides.",
+          "40+30+50."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "For a 5 × 3 rectangle, Ravi computed the 'perimeter' as 15. What did he actually compute?",
+        "options": [
+          {
+            "label": "He multiplied the sides — that's the area, not the perimeter"
+          },
+          {
+            "label": "The correct perimeter",
+            "mistakeTag": "multiplied-the-sides"
+          },
+          {
+            "label": "Half the perimeter",
+            "mistakeTag": "added-only-two-sides"
+          }
+        ],
+        "answer": "He multiplied the sides — that's the area, not the perimeter",
+        "hintLadder": [
+          "5 × 3 = 15 — which operation did he use?",
+          "Are walks multiplied or added?",
+          "Multiplying sides measures the INSIDE space."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "number",
+        "q": "A rectangular kitchen garden is 12 m by 8 m. Fencing costs are per metre, so first: how many metres of fence are needed?",
+        "answer": "40",
+        "hintLadder": [
+          "Shortcut: 2 × (length + breadth).",
+          "12 + 8 = 20.",
+          "Double it."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "Reverse puzzle! A square field has a perimeter of 36 m. How long is ONE side, in metres?",
+        "answer": "9",
+        "hintLadder": [
+          "Perimeter of a square = 4 × side.",
+          "So side = perimeter ÷ 4.",
+          "36 ÷ 4."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "Perimeter of a 7 m by 3 m rectangle, in metres?",
+        "answer": "20",
+        "hintLadder": [
+          "Four sides: two 7s, two 3s.",
+          "2 × (7+3).",
+          "Double 10."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "Perimeter means…",
+        "options": [
+          {
+            "label": "The total distance around the boundary"
+          },
+          {
+            "label": "The space inside the shape",
+            "mistakeTag": "multiplied-the-sides"
+          }
+        ],
+        "answer": "The total distance around the boundary",
+        "hintLadder": [
+          "Think of the ant parade.",
+          "Around or inside?",
+          "Peri = around!"
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "number",
+        "q": "A square has sides of 5 cm. Perimeter in cm?",
+        "answer": "20",
+        "hintLadder": [
+          "4 equal sides.",
+          "4 × 5.",
+          "Twenty."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "For a rectangle, adding only length + breadth gives…",
+        "options": [
+          {
+            "label": "Half the perimeter — the walk has four sides!"
+          },
+          {
+            "label": "The full perimeter",
+            "mistakeTag": "added-only-two-sides"
+          }
+        ],
+        "answer": "Half the perimeter — the walk has four sides!",
+        "hintLadder": [
+          "Finger-walk it.",
+          "How many sides did you pass?",
+          "Two pairs — double the sum."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Lead your own ant parade! Pick any table or book at home, finger-walk its boundary saying each side aloud, and explain to someone why Ravi's 'just add two sides' fence left the goats a doorway.",
+  "revisionCard": {
+    "summary": "Perimeter = the walk AROUND = add ALL sides. Rectangle: 2×(l+b). Square: 4×side. Never multiply the sides (that's area!) and never forget: two lengths AND two breadths. Always give length units!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Geometry City (Ganita Grove)",
+    "title": "The Great Fence Contract",
+    "brief": "Shape City's gardens all need fencing before the goat festival! Measure each boundary walk, order exactly the right fence length, and audit Ravi's contracts — half his fences mysteriously stop midway.",
+    "character": "Geo Giraffe"
+  },
+  "realLifeProject": "Fence your bed! Measure its length and breadth with a scale or measuring tape (parent's help), compute the perimeter both ways (add-all and shortcut), then check by walking a string around it.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4 (perimeter)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

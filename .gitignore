@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+release/
+release2/
+*.asar
+
+# Logs & scratch
+*.log
+devlog.txt
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local runtime data (never commit keys/caches)
+*.local

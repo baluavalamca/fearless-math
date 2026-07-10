@@ -1,0 +1,170 @@
+{
+  "id": "ops-18-order-of-operations",
+  "name": "Order of Operations — BODMAS",
+  "grade": 6,
+  "strand": "operations",
+  "prerequisites": ["ops-17-properties"],
+  "whatIsIt": "When a sum mixes operations, we must all do them in the SAME order or we get different answers. The rule is BODMAS: Brackets first, then Orders (powers/roots), then Division and Multiplication (left to right), then Addition and Subtraction (left to right). So 2 + 3 × 4 = 2 + 12 = 14, not 20.",
+  "whyNeeded": "Calculators, spreadsheets, and every mathematician agree on this order — without it, the same expression could mean two things. It's essential for algebra, formulas, coding and any real calculation with more than one step.",
+  "realLifeUses": [
+    "Working out a bill: 2 items at ₹50 plus a ₹20 delivery = 2×50 + 20",
+    "A formula like area then adding a border",
+    "Spreadsheet formulas that mix + and ×",
+    "Any recipe or cost that scales one part but not another"
+  ],
+  "vocabulary": [
+    { "term": "BODMAS", "meaning": "Brackets, Orders, Division/Multiplication, Addition/Subtraction — the order to calculate." },
+    { "term": "brackets", "meaning": "( ) group a part to be done first." },
+    { "term": "orders", "meaning": "Powers and roots, like 3² or √9." }
+  ],
+  "story": {
+    "title": "Two Answers, One Sum",
+    "characters": ["Isha", "Rohan"],
+    "text": "Isha and Rohan both work out 2 + 3 × 4. Rohan goes left to right and gets 20. Isha multiplies first and gets 14. 'We can't both be right!' says Rohan. Isha explains BODMAS: 'Multiplication comes before addition, so 3 × 4 = 12 first, then + 2 = 14.' Rohan checks on the calculator — it agrees with Isha.",
+    "extractedProblem": "What is 2 + 3 × 4 by the correct rule?",
+    "answerInStory": "14 — multiply 3 × 4 first, then add 2."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "2 + 3×4 = 2 + 12 = 14", "parts": [ { "value": 2 }, { "value": 12 } ], "showTotal": true }
+      ]
+    },
+    "caption": "Do 3 × 4 = 12 FIRST, then add 2 → 14. Multiplication before addition (BODMAS)."
+  },
+  "teachingGallery": [
+    {
+      "title": "Work in BODMAS order",
+      "note": "Brackets → Orders → ÷ × → + −.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "(2 + 3) × 4 = 5 × 4 = 20", "parts": [ { "value": 20 } ], "showTotal": false } ] }, "caption": "Brackets first → 5, then × 4 = 20." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "10 − 2 × 3 = 10 − 6 = 4", "parts": [ { "value": 4 }, { "value": 6 } ], "showTotal": true } ] }, "caption": "Multiply first: 2 × 3 = 6, then 10 − 6 = 4." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "6 + 8 ÷ 2 = 6 + 4 = 10", "parts": [ { "value": 6 }, { "value": 4 } ], "showTotal": true } ] }, "caption": "Divide first: 8 ÷ 2 = 4, then + 6 = 10." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Scan the expression and do operations in BODMAS order, working left to right within the same level.",
+    "steps": [
+      "B — do anything inside BRACKETS first.",
+      "O — then ORDERS (powers and roots).",
+      "DM — then Division and Multiplication, left to right.",
+      "AS — finally Addition and Subtraction, left to right."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Work out 5 + 6 × 2.",
+      "steps": ["No brackets or orders.", "Multiply first: 6 × 2 = 12.", "Then add: 5 + 12 = 17."],
+      "answer": "17"
+    },
+    {
+      "problem": "Work out (8 − 3) × 2.",
+      "steps": ["Brackets first: 8 − 3 = 5.", "Then multiply: 5 × 2.", "= 10."],
+      "answer": "10"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "left-to-right-always",
+      "mistake": "Just working left to right, so 2 + 3 × 4 becomes 20.",
+      "fix": "Do × and ÷ BEFORE + and −. 3 × 4 first = 12, then 2 + 12 = 14."
+    },
+    {
+      "mistakeTag": "brackets-ignored",
+      "mistake": "Ignoring brackets and multiplying the wrong part.",
+      "fix": "Brackets come FIRST — always finish what's inside ( ) before anything else."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "o18-e1", "type": "number",
+        "q": "What is 2 + 3 × 4?",
+        "answer": "14",
+        "hintLadder": ["Multiply first.", "3 × 4 = 12.", "2 + 12 = 14."]
+      },
+      {
+        "id": "o18-e2", "type": "mcq",
+        "q": "In BODMAS, what do you do first?",
+        "options": [ { "label": "Brackets" }, { "label": "Addition", "mistakeTag": "left-to-right-always" } ],
+        "answer": "Brackets",
+        "hintLadder": ["B comes first.", "Brackets.", "Do ( ) first."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "o18-m1", "type": "number",
+        "q": "What is 10 − 2 × 3?",
+        "answer": "4",
+        "hintLadder": ["Multiply first: 2 × 3 = 6.", "10 − 6.", "4."]
+      },
+      {
+        "id": "o18-m2", "type": "number",
+        "q": "What is (4 + 1) × 3?",
+        "answer": "15",
+        "hintLadder": ["Brackets first: 4 + 1 = 5.", "5 × 3.", "15."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "o18-c1", "type": "number",
+        "q": "What is 20 ÷ 4 + 2 × 3?",
+        "answer": "11",
+        "hintLadder": ["÷ and × first: 20÷4 = 5, 2×3 = 6.", "Then add.", "5 + 6 = 11."]
+      },
+      {
+        "id": "o18-c2", "type": "mcq",
+        "q": "Sam writes 6 + 4 × 2 = 20. What went wrong?",
+        "options": [ { "label": "He added first — should be 4×2=8, then 6+8=14" }, { "label": "Nothing, it's 20", "mistakeTag": "left-to-right-always" } ],
+        "answer": "He added first — should be 4×2=8, then 6+8=14",
+        "hintLadder": ["× before +.", "4 × 2 = 8.", "6 + 8 = 14."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "o18-x1", "type": "number",
+        "q": "What is 3 + 2 × 5?",
+        "answer": "13",
+        "hintLadder": ["Multiply first: 2 × 5 = 10.", "3 + 10.", "13."]
+      },
+      {
+        "id": "o18-x2", "type": "number",
+        "q": "What is (6 − 2) × 4?",
+        "answer": "16",
+        "hintLadder": ["Brackets: 6 − 2 = 4.", "4 × 4.", "16."]
+      },
+      {
+        "id": "o18-x3", "type": "number",
+        "q": "What is 12 ÷ 3 + 5?",
+        "answer": "9",
+        "hintLadder": ["Divide first: 12 ÷ 3 = 4.", "4 + 5.", "9."]
+      },
+      {
+        "id": "o18-x4", "type": "mcq",
+        "q": "Which comes BEFORE addition in BODMAS?",
+        "options": [ { "label": "Multiplication and division" }, { "label": "Nothing — go left to right", "mistakeTag": "left-to-right-always" } ],
+        "answer": "Multiplication and division",
+        "hintLadder": ["DM before AS.", "× and ÷ first.", "Then + and −."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Write a mixed sum like 4 + 6 × 2 for a grown-up and ask them to solve it. Then show the BODMAS order and explain why multiplication happens before addition — check it on a calculator together.",
+  "revisionCard": {
+    "summary": "BODMAS: Brackets → Orders (powers/roots) → Division & Multiplication (left to right) → Addition & Subtraction (left to right). So 2 + 3 × 4 = 14 (not 20). Always finish brackets first.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 6 (order of operations / BODMAS)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

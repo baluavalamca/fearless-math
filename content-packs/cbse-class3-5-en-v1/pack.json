@@ -1,0 +1,8 @@
+{
+  "name": "CBSE Class 3-5 Mathematics (English)",
+  "version": "0.1.0",
+  "curriculum": "CBSE/NCERT",
+  "grades": [3, 4, 5],
+  "language": "en",
+  "world": "Ganita Grove"
+}

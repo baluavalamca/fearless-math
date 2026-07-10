@@ -1,0 +1,524 @@
+{
+  "id": "meas-03-maps-scale",
+  "name": "Maps and Scale — Shrinking the World to Fit",
+  "grade": 5,
+  "strand": "measurement",
+  "prerequisites": [
+    "meas-01-units"
+  ],
+  "whatIsIt": "A MAP is a small drawing of a big place, seen from above. A SCALE tells how map distance stands for real distance, e.g., '1 cm = 5 km'. To find a real distance, multiply the map length by the scale; to find a map length, divide the real distance by the scale.",
+  "whyNeeded": "We can't carry a whole city, so we shrink it onto paper. Reading a scale lets us plan journeys, estimate how far places are, and understand plans of houses, parks and zoos — turning centimetres on paper into kilometres on the ground.",
+  "realLifeUses": [
+    "A zoo or park map showing how far the tiger enclosure is",
+    "A road map: 1 cm on paper standing for many km of road",
+    "A house plan drawn to scale before it is built",
+    "Direction clues: north, south, east, west on the map"
+  ],
+  "vocabulary": [
+    {
+      "term": "map",
+      "meaning": "A small top-view drawing of a larger place."
+    },
+    {
+      "term": "scale",
+      "meaning": "The rule linking map distance to real distance, like 1 cm = 5 km."
+    },
+    {
+      "term": "real distance",
+      "meaning": "The actual distance on the ground."
+    },
+    {
+      "term": "directions",
+      "meaning": "North, South, East, West — used to describe positions on a map."
+    }
+  ],
+  "story": {
+    "title": "The Village Map's Secret Scale",
+    "characters": [
+      "Ravi",
+      "Thatha (grandfather)"
+    ],
+    "text": "Ravi finds an old hand-drawn village map. 'The pond looks so close to the gate — only 3 cm!' Thatha points at the corner: 'Read the SCALE: 1 cm stands for 10 metres. So 3 cm means 3 × 10 = 30 real metres. The map shrinks the whole village to fit the paper — the scale is the secret to un-shrinking it.'",
+    "extractedProblem": "On a map with scale 1 cm = 10 m, the pond is 3 cm from the gate. How far is it really?",
+    "answerInStory": "30 metres — 3 cm × 10 m per cm = 30 m."
+  },
+  "visual": {
+    "component": "NumberLine",
+    "props": {
+      "lines": [
+        {
+          "parts": 10,
+          "mark": 3,
+          "showLabels": true,
+          "label": "1 cm = 10 m"
+        }
+      ]
+    },
+    "caption": "Scale 1 cm = 10 m. A 3 cm map distance means 30 real metres."
+  },
+  "teachingGallery": [
+    {
+      "title": "Scale — shrink the world to fit",
+      "note": "A scale like '1 cm = 5 km' means every 1 cm on the map is 5 km real.",
+      "examples": [
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "1 cm on map",
+                "parts": [
+                  {
+                    "value": 5,
+                    "label": "= 5 km real"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "Scale 1 cm : 5 km."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "2 cm",
+                "parts": [
+                  {
+                    "value": 5,
+                    "label": "5 km"
+                  },
+                  {
+                    "value": 5,
+                    "label": "5 km"
+                  }
+                ],
+                "showTotal": true
+              }
+            ]
+          },
+          "caption": "2 cm = 2 × 5 = 10 km."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "3 cm",
+                "parts": [
+                  {
+                    "value": 5,
+                    "label": "5"
+                  },
+                  {
+                    "value": 5,
+                    "label": "5"
+                  },
+                  {
+                    "value": 5,
+                    "label": "5"
+                  }
+                ],
+                "showTotal": true
+              }
+            ]
+          },
+          "caption": "3 cm = 15 km."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  5,
+                  10,
+                  15,
+                  20
+                ],
+                "jump": 5
+              }
+            ]
+          },
+          "caption": "Each cm adds 5 km: 5, 10, 15, 20."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "1 cm : 2 m (room plan)",
+                "parts": [
+                  {
+                    "value": 2,
+                    "label": "2 m"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "Room plans use smaller scales, e.g. 1 cm = 2 m."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Use the scale: real distance = map distance × scale; map distance = real distance ÷ scale.",
+    "steps": [
+      "Read the SCALE (e.g., 1 cm = 5 km).",
+      "To get REAL distance: multiply the map centimetres by the scale number.",
+      "To get MAP distance: divide the real distance by the scale number.",
+      "Use directions (N, S, E, W) to describe which way."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Unit-jump",
+      "whenToUse": "For any scale question.",
+      "steps": [
+        "Write what 1 cm stands for.",
+        "Count how many cm on the map.",
+        "Add that real distance up, one cm at a time, or multiply."
+      ],
+      "example": "1 cm = 4 km, map shows 5 cm: 4×5 = 20 km."
+    },
+    {
+      "name": "Direction-grid",
+      "whenToUse": "To describe a position.",
+      "steps": [
+        "Find the reference point.",
+        "Say how far and in which direction (N/S/E/W).",
+        "Combine, e.g., '3 cm east then 2 cm north'."
+      ],
+      "example": "The school is 2 cm north of the market."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A map has scale 1 cm = 5 km. Two towns are 4 cm apart on the map. How far apart are they really?",
+      "steps": [
+        "Scale: 1 cm stands for 5 km.",
+        "Map distance is 4 cm.",
+        "Real = 4 × 5.",
+        "They are 20 km apart."
+      ],
+      "answer": "20",
+      "visual": {
+        "component": "NumberLine",
+        "props": {
+          "lines": [
+            {
+              "parts": 10,
+              "mark": 4,
+              "showLabels": true,
+              "label": "1 cm = 5 km"
+            }
+          ]
+        },
+        "caption": "4 cm × 5 km = 20 km."
+      }
+    },
+    {
+      "problem": "Scale 1 cm = 2 m. A room is really 8 m long. How long is it on the plan?",
+      "steps": [
+        "To get MAP distance, divide by the scale.",
+        "8 ÷ 2.",
+        "= 4.",
+        "It is 4 cm long on the plan."
+      ],
+      "answer": "4"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Multiply by the scale",
+    "intro": "Real distance = map length × what one unit stands for.",
+    "questions": [
+      {
+        "id": "meas03-trick-5-4",
+        "type": "number",
+        "q": "Scale: 1 cm = 5 km. The map shows 4 cm. Real distance?",
+        "answer": "20",
+        "hintLadder": [
+          "Each cm stands for 5 km.",
+          "Multiply: 4 × 5.",
+          "= 20 km."
+        ],
+        "explain": "4×5 = 20 km."
+      },
+      {
+        "id": "meas03-trick-5-3",
+        "type": "number",
+        "q": "Scale: 1 cm = 5 km. The map shows 3 cm. Real distance?",
+        "answer": "15",
+        "hintLadder": [
+          "Each cm stands for 5 km.",
+          "Multiply: 3 × 5.",
+          "= 15 km."
+        ],
+        "explain": "3×5 = 15 km."
+      },
+      {
+        "id": "meas03-trick-10-2",
+        "type": "number",
+        "q": "Scale: 1 cm = 10 km. The map shows 2 cm. Real distance?",
+        "answer": "20",
+        "hintLadder": [
+          "Each cm stands for 10 km.",
+          "Multiply: 2 × 10.",
+          "= 20 km."
+        ],
+        "explain": "2×10 = 20 km."
+      },
+      {
+        "id": "meas03-trick-2-6",
+        "type": "number",
+        "q": "Scale: 1 cm = 2 km. The map shows 6 cm. Real distance?",
+        "answer": "12",
+        "hintLadder": [
+          "Each cm stands for 2 km.",
+          "Multiply: 6 × 2.",
+          "= 12 km."
+        ],
+        "explain": "6×2 = 12 km."
+      },
+      {
+        "id": "meas03-trick-5-7",
+        "type": "number",
+        "q": "Scale: 1 cm = 5 km. The map shows 7 cm. Real distance?",
+        "answer": "35",
+        "hintLadder": [
+          "Each cm stands for 5 km.",
+          "Multiply: 7 × 5.",
+          "= 35 km."
+        ],
+        "explain": "7×5 = 35 km."
+      },
+      {
+        "id": "meas03-trick-4-5",
+        "type": "number",
+        "q": "Scale: 1 cm = 4 km. The map shows 5 cm. Real distance?",
+        "answer": "20",
+        "hintLadder": [
+          "Each cm stands for 4 km.",
+          "Multiply: 5 × 4.",
+          "= 20 km."
+        ],
+        "explain": "5×4 = 20 km."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "ignored-scale",
+      "mistake": "Reading the map centimetres as the real distance, ignoring the scale.",
+      "fix": "The map is SHRUNK — always use the scale. 3 cm on a '1 cm = 10 m' map is 30 m, not 3 m."
+    },
+    {
+      "mistakeTag": "multiply-divide-swapped",
+      "mistake": "Dividing when you should multiply (or the reverse) between map and real distance.",
+      "fix": "Map → real: MULTIPLY by the scale (things get bigger). Real → map: DIVIDE by the scale (things get smaller to fit the paper)."
+    },
+    {
+      "mistakeTag": "unit-forgotten",
+      "mistake": "Getting the number but attaching the wrong unit (km instead of m).",
+      "fix": "Carry the scale's real-world unit through: if 1 cm = 10 m, the answer is in METRES."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "meas-03-e1",
+        "type": "number",
+        "q": "Scale: 1 cm = 10 m. A path is 2 cm on the map. How many metres is it really?",
+        "answer": "20",
+        "hintLadder": [
+          "1 cm stands for 10 m.",
+          "2 × 10.",
+          "Twenty."
+        ],
+        "explain": "2 × 10 = 20 m.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 2,
+                "showLabels": true,
+                "label": "1 cm = 10 m"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "meas-03-e2",
+        "type": "number",
+        "q": "Scale: 1 cm = 5 km. Map shows 3 cm. Real distance in km?",
+        "answer": "15",
+        "hintLadder": [
+          "1 cm = 5 km.",
+          "3 × 5.",
+          "Fifteen."
+        ],
+        "explain": "3 × 5 = 15 km."
+      }
+    ],
+    "medium": [
+      {
+        "id": "meas-03-m1",
+        "type": "number",
+        "q": "Scale: 1 cm = 4 km. Two towns are 6 cm apart on the map. Real km?",
+        "answer": "24",
+        "hintLadder": [
+          "1 cm = 4 km.",
+          "6 × 4.",
+          "Twenty-four."
+        ],
+        "explain": "6 × 4 = 24 km."
+      },
+      {
+        "id": "meas-03-m2",
+        "type": "number",
+        "q": "Scale: 1 cm = 2 m. A wall is really 10 m. How many cm on the plan?",
+        "answer": "5",
+        "hintLadder": [
+          "Real → map means DIVIDE.",
+          "10 ÷ 2.",
+          "Five."
+        ],
+        "explain": "10 ÷ 2 = 5 cm."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "meas-03-c1",
+        "type": "number",
+        "q": "Scale: 1 cm = 25 km. Map distance is 4 cm. Real km?",
+        "answer": "100",
+        "hintLadder": [
+          "1 cm = 25 km.",
+          "4 × 25.",
+          "One hundred."
+        ],
+        "explain": "4 × 25 = 100 km."
+      },
+      {
+        "id": "meas-03-c2",
+        "type": "number",
+        "q": "Scale: 1 cm = 3 m. A garden is really 21 m long. Length on the plan in cm?",
+        "answer": "7",
+        "hintLadder": [
+          "Real → map: divide.",
+          "21 ÷ 3.",
+          "Seven."
+        ],
+        "explain": "21 ÷ 3 = 7 cm."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "meas-03-x1",
+        "type": "number",
+        "q": "1 cm = 10 m. Map 5 cm. Real metres?",
+        "answer": "50",
+        "hintLadder": [
+          "5 × 10.",
+          "Fifty.",
+          "50 m."
+        ],
+        "explain": "50 m.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 5,
+                "showLabels": true,
+                "label": "1 cm = 10 m"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "meas-03-x2",
+        "type": "number",
+        "q": "1 cm = 6 km. Map 3 cm. Real km?",
+        "answer": "18",
+        "hintLadder": [
+          "3 × 6.",
+          "Eighteen.",
+          "18 km."
+        ],
+        "explain": "18 km."
+      },
+      {
+        "id": "meas-03-x3",
+        "type": "number",
+        "q": "1 cm = 2 m. Real 12 m. Map cm?",
+        "answer": "6",
+        "hintLadder": [
+          "Real → map: divide.",
+          "12 ÷ 2.",
+          "Six."
+        ],
+        "explain": "6 cm."
+      },
+      {
+        "id": "meas-03-x4",
+        "type": "number",
+        "q": "1 cm = 5 m. Map 7 cm. Real metres?",
+        "answer": "35",
+        "hintLadder": [
+          "7 × 5.",
+          "Thirty-five.",
+          "35 m."
+        ],
+        "explain": "35 m."
+      },
+      {
+        "id": "meas-03-x5",
+        "type": "number",
+        "q": "1 cm = 4 km. Real 20 km. Map cm?",
+        "answer": "5",
+        "hintLadder": [
+          "Real → map: divide.",
+          "20 ÷ 4.",
+          "Five."
+        ],
+        "explain": "5 cm."
+      }
+    ]
+  },
+  "teachBackPrompt": "Draw a simple map of your room to a scale like '1 cm = 1 metre'. Teach someone at home how to turn a map length into the real length using the scale — and why you multiply going map-to-real.",
+  "revisionCard": {
+    "summary": "A map shrinks a big place; the SCALE un-shrinks it. Map → real: MULTIPLY by the scale. Real → map: DIVIDE. Keep the scale's real unit (m or km).",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Measurement Island (Ganita Grove)",
+    "title": "The Treasure Map's Secret",
+    "brief": "Read scales to turn tiny map distances into real ones and guide the hunt across the island.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Find a map (bus route, mall directory, or atlas). Read its scale and work out the real distance between two places on it.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

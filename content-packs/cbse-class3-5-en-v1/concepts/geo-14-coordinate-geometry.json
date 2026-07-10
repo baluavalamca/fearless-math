@@ -1,0 +1,175 @@
+{
+  "id": "geo-14-coordinate-geometry",
+  "name": "Coordinate Geometry — Plotting Points",
+  "grade": 8,
+  "strand": "geometry",
+  "prerequisites": ["num-21-integers", "geo-10-triangles-quads"],
+  "whatIsIt": "The coordinate plane has two number lines: the x-axis (across) and the y-axis (up/down), meeting at the ORIGIN (0,0). Every point has an address (x, y) — go x steps across FIRST, then y steps up. So (3, 2) means 3 right and 2 up. Negative coordinates go left or down. The two axes split the plane into four QUADRANTS.",
+  "whyNeeded": "Coordinates locate anything on a grid — map references, screen pixels, graphs of data and equations, and later all of geometry and calculus. 'Across then up' is a rule you'll use for life.",
+  "realLifeUses": [
+    "Map grid references to find a place",
+    "Pixels on a phone or game screen (x, y)",
+    "Plotting a graph of temperature over time",
+    "Battleship-style grid games"
+  ],
+  "vocabulary": [
+    { "term": "coordinates (x, y)", "meaning": "A point's address: x across, then y up." },
+    { "term": "origin", "meaning": "Where the axes cross, the point (0, 0)." },
+    { "term": "quadrant", "meaning": "One of the four regions the axes split the plane into." }
+  ],
+  "story": {
+    "title": "The Treasure Grid",
+    "characters": ["Aisha", "Grandpa"],
+    "text": "Grandpa's treasure map says (4, 3). 'Where do I dig?' asks Aisha. 'Across then up,' says Grandpa. She counts 4 steps right along the x-axis, then 3 steps up. 'Right here!' The rule holds: the first number is across, the second is up.",
+    "extractedProblem": "On a grid, where is the point (4, 3)?",
+    "answerInStory": "4 steps right (x), then 3 steps up (y) from the origin."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        { "rows": 5, "cols": 5, "label": "grid: (x across, y up) from origin" }
+      ]
+    },
+    "caption": "Read a point as (x, y): count x across the bottom first, then y up. The origin is the bottom-left corner (0, 0)."
+  },
+  "teachingGallery": [
+    {
+      "title": "Across then up",
+      "note": "First number = x (across), second = y (up).",
+      "examples": [
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 4, "cols": 4, "label": "(2,3): 2 across, 3 up" } ] }, "caption": "(2, 3) → 2 right, 3 up." },
+        { "component": "NumberLine", "props": { "lines": [ { "parts": 5, "mark": 3, "label": "x-axis: 3 across", "showLabels": false } ] }, "caption": "The x-axis measures across." },
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 4, "cols": 4, "label": "(0,0) is the origin" } ] }, "caption": "The origin is where the axes cross." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Read or plot a point as (x, y): move x along the x-axis first, then y up the y-axis. Negatives go left/down.",
+    "steps": [
+      "Start at the origin (0, 0).",
+      "First number (x): move that many steps ACROSS (right if +, left if −).",
+      "Second number (y): move that many steps UP (or down if −).",
+      "Mark the point. Remember: x always comes first."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Where is the point (5, 2)?",
+      "steps": ["Start at the origin.", "x = 5: move 5 right.", "y = 2: move 2 up. That's the point."],
+      "answer": "5 right, 2 up"
+    },
+    {
+      "problem": "A point is 3 across and 4 up. Write its coordinates.",
+      "steps": ["x (across) = 3.", "y (up) = 4.", "So it is (3, 4)."],
+      "answer": "(3, 4)"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "xy-swapped",
+      "mistake": "Reading (x, y) as up-then-across, so (4, 3) is plotted as 3 across, 4 up.",
+      "fix": "x comes FIRST (across), y second (up). (4, 3) = 4 right, 3 up."
+    },
+    {
+      "mistakeTag": "origin-wrong",
+      "mistake": "Starting to count from the wrong place, not the origin.",
+      "fix": "Always start at the origin (0, 0) where the two axes cross."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "g14-e1", "type": "mcq",
+        "q": "In the point (4, 3), the FIRST number tells you to move…",
+        "options": [ { "label": "4 across (x)" }, { "label": "4 up", "mistakeTag": "xy-swapped" } ],
+        "answer": "4 across (x)",
+        "hintLadder": ["x comes first.", "Across.", "4 across."]
+      },
+      {
+        "id": "g14-e2", "type": "number",
+        "q": "The origin has coordinates (0, ?). What is the second number?",
+        "answer": "0",
+        "hintLadder": ["Origin is where axes cross.", "(0, 0).", "0."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "g14-m1", "type": "mcq",
+        "q": "A point 2 across and 5 up is written as…",
+        "options": [ { "label": "(2, 5)" }, { "label": "(5, 2)", "mistakeTag": "xy-swapped" } ],
+        "answer": "(2, 5)",
+        "hintLadder": ["x first (across = 2).", "y second (up = 5).", "(2, 5)."]
+      },
+      {
+        "id": "g14-m2", "type": "mcq",
+        "q": "To plot (6, 1) you move…",
+        "options": [ { "label": "6 across, then 1 up" }, { "label": "6 up, then 1 across", "mistakeTag": "xy-swapped" } ],
+        "answer": "6 across, then 1 up",
+        "hintLadder": ["x first.", "6 across.", "then 1 up."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "g14-c1", "type": "mcq",
+        "q": "The point (−3, 2) is…",
+        "options": [ { "label": "3 left and 2 up" }, { "label": "3 right and 2 up", "mistakeTag": "xy-swapped" } ],
+        "answer": "3 left and 2 up",
+        "hintLadder": ["Negative x = left.", "x = −3 → 3 left.", "then 2 up."]
+      },
+      {
+        "id": "g14-c2", "type": "mcq",
+        "q": "Ravi plots (4, 3) as 3 across and 4 up. What's the fix?",
+        "options": [ { "label": "x is first: 4 across, then 3 up" }, { "label": "He's right", "mistakeTag": "xy-swapped" } ],
+        "answer": "x is first: 4 across, then 3 up",
+        "hintLadder": ["First number is x.", "Across first.", "4 across, 3 up."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "g14-x1", "type": "mcq",
+        "q": "In (x, y), which do you move first?",
+        "options": [ { "label": "x, across" }, { "label": "y, up", "mistakeTag": "xy-swapped" } ],
+        "answer": "x, across",
+        "hintLadder": ["x is first.", "Across.", "x across."]
+      },
+      {
+        "id": "g14-x2", "type": "mcq",
+        "q": "A point 3 across, 2 up is…",
+        "options": [ { "label": "(3, 2)" }, { "label": "(2, 3)", "mistakeTag": "xy-swapped" } ],
+        "answer": "(3, 2)",
+        "hintLadder": ["Across = 3 (x).", "Up = 2 (y).", "(3, 2)."]
+      },
+      {
+        "id": "g14-x3", "type": "number",
+        "q": "The origin is the point (0, 0). How many steps from the origin is the origin itself?",
+        "answer": "0",
+        "hintLadder": ["It's the start.", "No steps.", "0."]
+      },
+      {
+        "id": "g14-x4", "type": "mcq",
+        "q": "The point (2, −3) is…",
+        "options": [ { "label": "2 right, 3 down" }, { "label": "2 up, 3 right", "mistakeTag": "xy-swapped" } ],
+        "answer": "2 right, 3 down",
+        "hintLadder": ["x = 2 → right. y = −3 → down.", "Across then up/down.", "2 right, 3 down."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw a grid with a grown-up and play 'find the point': call out coordinates like (3, 4) and take turns plotting them — across first, then up. Explain what the origin is and how negative numbers go left or down.",
+  "revisionCard": {
+    "summary": "Coordinate plane: x-axis across, y-axis up, meeting at the origin (0, 0). A point (x, y): move x across FIRST (right +, left −), then y up (up +, down −). The axes make four quadrants. x always comes first.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 8-9 (coordinate geometry — plotting points)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

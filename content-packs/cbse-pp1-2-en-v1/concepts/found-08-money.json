@@ -1,0 +1,452 @@
+{
+  "id": "found-08-money",
+  "name": "Money — Coins, Notes, and Making Amounts",
+  "grade": 2,
+  "strand": "measurement",
+  "prerequisites": [
+    "num-00-counting-to-100"
+  ],
+  "whatIsIt": "Money comes in COINS and NOTES of set values: ₹1, ₹2, ₹5, ₹10, ₹20, ₹50, ₹100. We can MAKE an amount in different ways (₹10 as a ten-note, or two fives, or ten ones), ADD up what we have, and work out CHANGE — what's left after we spend.",
+  "whyNeeded": "Money is maths children see every day. Knowing coin and note values, counting a handful, making an exact amount, and checking change are real-life skills that make counting, place value and addition matter.",
+  "realLifeUses": [
+    "Counting the coins in a piggy bank",
+    "Paying the exact amount for a snack",
+    "Checking the change after buying something",
+    "Saving up ₹50 in fives and tens"
+  ],
+  "vocabulary": [
+    {
+      "term": "coin / note",
+      "meaning": "Money pieces of set value: ₹1, ₹2, ₹5 coins; ₹10, ₹20, ₹50, ₹100 notes."
+    },
+    {
+      "term": "amount",
+      "meaning": "The total value of the money you have."
+    },
+    {
+      "term": "make an amount",
+      "meaning": "Choosing coins/notes that add up to a value (₹10 = 5 + 5)."
+    },
+    {
+      "term": "change",
+      "meaning": "The money you get back after paying more than the price."
+    }
+  ],
+  "story": {
+    "title": "Buying a Clay Horse at the Fair",
+    "characters": [
+      "Ravi",
+      "the toy-stall seller"
+    ],
+    "text": "At the village fair, Ravi wants a ₹15 clay horse. He has a ₹10 note and a ₹5 coin. 'Do I have enough?' The stall seller nods: '10 and 5 make exactly 15 — perfect!' Later a balloon costs ₹8 and Ravi pays with a ₹10 note. 'Your change?' 'Ten take away eight... 2 rupees back!' Ravi grins. 'Money is just counting and adding — with rupees!'",
+    "extractedProblem": "Ravi pays for a ₹15 clay horse with a ₹10 note and a ₹5 coin. Does he have exactly enough?",
+    "answerInStory": "Yes — ₹10 + ₹5 = ₹15, exactly the price."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        {
+          "parts": [
+            {
+              "value": 10,
+              "label": "₹10 note"
+            },
+            {
+              "value": 5,
+              "label": "₹5 coin"
+            }
+          ]
+        }
+      ]
+    },
+    "caption": "₹10 and ₹5 make ₹15. Add up coins and notes to find the amount."
+  },
+  "teachingGallery": [
+    {
+      "title": "Coins and notes — making amounts",
+      "note": "Count coins and notes to make the money you need.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "coin",
+                  "coin",
+                  "coin"
+                ],
+                "showCount": true
+              }
+            ]
+          },
+          "caption": "Three ₹1 coins = ₹3."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin"
+                ],
+                "showCount": true
+              }
+            ]
+          },
+          "caption": "Five ₹1 coins = ₹5."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "note"
+                ]
+              }
+            ]
+          },
+          "caption": "One ₹10 note = the same as ten ₹1 coins."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "note",
+                  "note"
+                ]
+              }
+            ]
+          },
+          "caption": "Two ₹10 notes = ₹20."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "note",
+                  "coin",
+                  "coin"
+                ]
+              }
+            ]
+          },
+          "caption": "₹10 + ₹1 + ₹1 = ₹12."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Add up the values of the coins and notes; to make an amount, pick pieces that total it; change = paid − price.",
+    "steps": [
+      "Know each coin/note value (₹1, 2, 5, 10, 20, 50, 100).",
+      "To find how much you have, ADD the values (biggest first helps).",
+      "To MAKE an amount, choose pieces that add to exactly that value.",
+      "CHANGE = money paid − the price."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Biggest-first counting",
+      "whenToUse": "To count a handful of money.",
+      "steps": [
+        "Sort into notes and coins.",
+        "Add the biggest values first.",
+        "Then add the smaller ones."
+      ],
+      "example": "₹10 + ₹5 + ₹2 + ₹1 = ₹18."
+    },
+    {
+      "name": "Count-up for change",
+      "whenToUse": "To find change.",
+      "steps": [
+        "Start at the price.",
+        "Count up to the amount paid.",
+        "How much you counted is the change."
+      ],
+      "example": "Price ₹8, paid ₹10: 8→9→10 is ₹2 change."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "How much is a ₹10 note and two ₹2 coins together?",
+      "steps": [
+        "Note: ₹10.",
+        "Two ₹2 coins: 2 + 2 = ₹4.",
+        "Add: 10 + 4.",
+        "Total ₹14."
+      ],
+      "answer": "14",
+      "visual": {
+        "component": "BarModel",
+        "props": {
+          "bars": [
+            {
+              "parts": [
+                {
+                  "value": 10,
+                  "label": "₹10"
+                },
+                {
+                  "value": 2,
+                  "label": "₹2"
+                },
+                {
+                  "value": 2,
+                  "label": "₹2"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem": "You buy a ₹6 pencil with a ₹10 note. What change do you get?",
+      "steps": [
+        "Change = paid − price.",
+        "10 − 6.",
+        "Count up 6→10 is 4.",
+        "Change is ₹4."
+      ],
+      "answer": "4"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "counted-coins-not-value",
+      "mistake": "Counting the NUMBER of coins instead of their value (calling three ₹5 coins '₹3').",
+      "fix": "Add the VALUES, not the count. Three ₹5 coins = 5 + 5 + 5 = ₹15, not ₹3."
+    },
+    {
+      "mistakeTag": "change-added",
+      "mistake": "Adding the price and the money paid to find change instead of subtracting.",
+      "fix": "Change is what's LEFT: money paid − price. Paid ₹10 for a ₹6 item → 10 − 6 = ₹4 change, not 16."
+    },
+    {
+      "mistakeTag": "wrong-note-value",
+      "mistake": "Mixing up note values, like thinking a ₹20 note is ₹2.",
+      "fix": "Read the number on the note carefully: ₹20 is twenty rupees, ten times a ₹2 coin. Know the set: 1, 2, 5, 10, 20, 50, 100."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "found-08-e1",
+        "type": "number",
+        "q": "A ₹10 note and a ₹5 coin — how many rupees together?",
+        "answer": "15",
+        "hintLadder": [
+          "Add the values.",
+          "10 + 5.",
+          "Fifteen."
+        ],
+        "explain": "₹15.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 10,
+                    "label": "₹10"
+                  },
+                  {
+                    "value": 5,
+                    "label": "₹5"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-08-e2",
+        "type": "number",
+        "q": "Two ₹5 coins make how many rupees?",
+        "answer": "10",
+        "hintLadder": [
+          "Add the values, not the count.",
+          "5 + 5.",
+          "Ten."
+        ],
+        "explain": "₹10."
+      }
+    ],
+    "medium": [
+      {
+        "id": "found-08-m1",
+        "type": "number",
+        "q": "A ₹20 note and a ₹10 note = how many rupees?",
+        "answer": "30",
+        "hintLadder": [
+          "Add values.",
+          "20 + 10.",
+          "Thirty."
+        ],
+        "explain": "₹30."
+      },
+      {
+        "id": "found-08-m2",
+        "type": "number",
+        "q": "You pay ₹10 for a ₹7 snack. What change (in rupees)?",
+        "answer": "3",
+        "hintLadder": [
+          "Change = paid − price.",
+          "10 − 7.",
+          "Three."
+        ],
+        "explain": "₹3 change."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "found-08-c1",
+        "type": "number",
+        "q": "Three ₹5 coins — how many rupees?",
+        "answer": "15",
+        "hintLadder": [
+          "Add values.",
+          "5 + 5 + 5.",
+          "Fifteen."
+        ],
+        "explain": "₹15."
+      },
+      {
+        "id": "found-08-c2",
+        "type": "number",
+        "q": "You pay a ₹50 note for a ₹35 book. Change in rupees?",
+        "answer": "15",
+        "hintLadder": [
+          "Change = paid − price.",
+          "50 − 35.",
+          "Fifteen."
+        ],
+        "explain": "₹15 change."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "found-08-x1",
+        "type": "number",
+        "q": "₹10 + ₹10 notes = ? rupees",
+        "answer": "20",
+        "hintLadder": [
+          "Add values.",
+          "10 + 10.",
+          "Twenty."
+        ],
+        "explain": "₹20."
+      },
+      {
+        "id": "found-08-x2",
+        "type": "number",
+        "q": "A ₹5 coin and two ₹2 coins = ? rupees",
+        "answer": "9",
+        "hintLadder": [
+          "5 + 2 + 2.",
+          "Add values.",
+          "Nine."
+        ],
+        "explain": "₹9.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 5,
+                    "label": "₹5"
+                  },
+                  {
+                    "value": 2,
+                    "label": "₹2"
+                  },
+                  {
+                    "value": 2,
+                    "label": "₹2"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-08-x3",
+        "type": "number",
+        "q": "Pay ₹20 for a ₹14 toy. Change in rupees?",
+        "answer": "6",
+        "hintLadder": [
+          "Paid − price.",
+          "20 − 14.",
+          "Six."
+        ],
+        "explain": "₹6."
+      },
+      {
+        "id": "found-08-x4",
+        "type": "number",
+        "q": "Four ₹10 notes = ? rupees",
+        "answer": "40",
+        "hintLadder": [
+          "Add values (or skip-count by 10).",
+          "10,20,30,40.",
+          "Forty."
+        ],
+        "explain": "₹40."
+      },
+      {
+        "id": "found-08-x5",
+        "type": "number",
+        "q": "Pay ₹50 for a ₹45 item. Change?",
+        "answer": "5",
+        "hintLadder": [
+          "Paid − price.",
+          "50 − 45.",
+          "Five."
+        ],
+        "explain": "₹5."
+      }
+    ]
+  },
+  "teachBackPrompt": "Use real or paper coins and notes. Teach someone at home to MAKE ₹20 in two different ways, count a small handful by adding values (not counting coins), and work out change from ₹10.",
+  "revisionCard": {
+    "summary": "Money values: ₹1,2,5,10,20,50,100. Add the VALUES (not the count) to find an amount. Make an amount by choosing pieces that total it. Change = paid − price.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Measurement Island (Little Sprouts)",
+    "title": "Fun at the Fair",
+    "brief": "Count coins and notes, make exact amounts, and give the right change at the fair stalls.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "With a grown-up's play money or coins, make ₹25 in two different ways. Then 'buy' something and work out the change.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

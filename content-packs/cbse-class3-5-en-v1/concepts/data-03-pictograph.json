@@ -1,0 +1,173 @@
+{
+  "id": "data-03-pictograph",
+  "name": "Tally Marks and Pictographs — Class 3 Data",
+  "grade": 3,
+  "strand": "data",
+  "prerequisites": ["num-02-comparing"],
+  "whatIsIt": "To collect data we use TALLY MARKS — one stroke per count, with the fifth stroke crossing the bundle (卌) so groups of 5 are easy to count. A PICTOGRAPH then shows the counts with symbols. Sometimes one symbol stands for MORE than one — the KEY tells you (e.g. 1 ⭐ = 2 children), so you multiply.",
+  "whyNeeded": "Surveys, votes and score-keeping all start with tallies, then become pictures everyone can read. Learning to make tallies and read a key is the bridge from counting to real graphs.",
+  "realLifeUses": [
+    "Tallying votes for the class monitor",
+    "Counting vehicles passing the school gate",
+    "A pictograph of favourite games in the class",
+    "Keeping score in a game with tally marks"
+  ],
+  "vocabulary": [
+    { "term": "tally mark", "meaning": "One stroke per count; the 5th crosses the bundle of four." },
+    { "term": "pictograph", "meaning": "A chart that shows counts using symbols." },
+    { "term": "key", "meaning": "The rule telling what one symbol is worth (e.g. 1 = 2)." }
+  ],
+  "story": {
+    "title": "The Favourite-Game Survey",
+    "characters": ["Sara", "the class"],
+    "text": "Sara asks the class their favourite game and makes tally marks: cricket 卌 卌 (10), kho-kho 卌 (5), carrom 卌 || (7). She draws a pictograph where one ⚽ stands for 2 children. 'How many symbols for cricket?' asks the teacher. Sara thinks: 10 children, and 1 symbol = 2, so 10 ÷ 2 = 5 symbols.",
+    "extractedProblem": "Cricket got 10 votes. In a pictograph where 1 symbol = 2 children, how many symbols show cricket?",
+    "answerInStory": "5 symbols, because 10 ÷ 2 = 5."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": {
+      "categories": [
+        { "label": "cricket", "value": 10, "icon": "🏏" },
+        { "label": "kho-kho", "value": 5, "icon": "🏃" },
+        { "label": "carrom", "value": 7, "icon": "🔴" }
+      ],
+      "unit": "children"
+    },
+    "caption": "Survey counts: cricket 10, carrom 7, kho-kho 5. Read the KEY before counting symbols."
+  },
+  "teachingGallery": [
+    {
+      "title": "Tally, then read the key",
+      "note": "5th tally crosses the bundle. One symbol may stand for many — check the key.",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [ { "label": "Mon", "value": 6 }, { "label": "Tue", "value": 8 }, { "label": "Wed", "value": 4 } ] }, "caption": "Books borrowed each day." },
+        { "component": "BarChart", "props": { "categories": [ { "label": "bus", "value": 12, "icon": "🚌" }, { "label": "car", "value": 6, "icon": "🚗" } ] }, "caption": "Key 1 = 2: bus needs 6 symbols, car 3." },
+        { "component": "BarChart", "props": { "categories": [ { "label": "mango", "value": 8, "icon": "🥭" }, { "label": "apple", "value": 8, "icon": "🍎" } ] }, "caption": "Equal counts → equal symbol rows." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Collect with tallies (bundle by 5), count each group, then read a pictograph using its key.",
+    "steps": [
+      "Make one tally per item; the 5th stroke crosses the bundle of four.",
+      "Count each bundle of five plus leftovers.",
+      "To read a pictograph: read the KEY first (1 symbol = ?).",
+      "Number of things = symbols × key value; symbols needed = count ÷ key value."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A pictograph key says 1 🍎 = 5 apples. Monday shows 4 apple symbols. How many apples?",
+      "steps": ["Key first: 1 symbol = 5.", "4 symbols × 5.", "= 20 apples."],
+      "answer": "20"
+    },
+    {
+      "problem": "In a survey, 12 children like cricket. In a pictograph where 1 symbol = 2, how many symbols are needed?",
+      "steps": ["Symbols = count ÷ key value.", "12 ÷ 2.", "= 6 symbols."],
+      "answer": "6"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "key-ignored-cl3",
+      "mistake": "Counting each symbol as 1 when the key says one symbol is worth more.",
+      "fix": "Read the KEY first. If 1 symbol = 5, then 4 symbols mean 20, not 4."
+    },
+    {
+      "mistakeTag": "tally-bundle-wrong",
+      "mistake": "Not crossing the fifth tally, so counting the marks becomes slow and error-prone.",
+      "fix": "Every fifth stroke crosses the bundle (卌). Count in fives, then add leftovers."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "d03-e1", "type": "number",
+        "q": "Tally 卌 || means how many?",
+        "answer": "7",
+        "hintLadder": ["The crossed bundle is 5.", "Then two more strokes.", "5 + 2 = 7."]
+      },
+      {
+        "id": "d03-e2", "type": "mcq",
+        "q": "The FIRST thing to read on a pictograph is…",
+        "options": [ { "label": "The key" }, { "label": "The prettiest symbol", "mistakeTag": "key-ignored-cl3" } ],
+        "answer": "The key",
+        "hintLadder": ["Symbols may be worth more than 1.", "The key tells the value.", "Key first."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "d03-m1", "type": "number",
+        "q": "Key: 1 symbol = 3 books. Tuesday shows 5 symbols. How many books?",
+        "answer": "15",
+        "hintLadder": ["Key first: 1 = 3.", "5 × 3.", "Fifteen."]
+      },
+      {
+        "id": "d03-m2", "type": "number",
+        "q": "Cricket got 10 votes. Key: 1 symbol = 2. How many symbols?",
+        "answer": "5",
+        "hintLadder": ["Symbols = count ÷ key.", "10 ÷ 2.", "Five."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "d03-c1", "type": "number",
+        "q": "A pictograph: mango 6 symbols, apple 4 symbols. Key 1 = 5. How many MORE mangoes than apples?",
+        "answer": "10",
+        "hintLadder": ["Mangoes: 6 × 5 = 30. Apples: 4 × 5 = 20.", "'How many more' = subtract.", "30 − 20 = 10."]
+      },
+      {
+        "id": "d03-c2", "type": "mcq",
+        "q": "Riya sees 3 symbols (key 1 = 10) and writes 'only 3 books'. What did she forget?",
+        "options": [ { "label": "The key — 3 × 10 = 30 books" }, { "label": "Nothing, 3 symbols = 3", "mistakeTag": "key-ignored-cl3" } ],
+        "answer": "The key — 3 × 10 = 30 books",
+        "hintLadder": ["Read the key.", "1 symbol = 10.", "Multiply: 30."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "d03-x1", "type": "number",
+        "q": "Tally 卌 卌 means how many?",
+        "answer": "10",
+        "hintLadder": ["Two crossed bundles.", "5 + 5.", "Ten."]
+      },
+      {
+        "id": "d03-x2", "type": "number",
+        "q": "Key: 1 symbol = 4. Friday shows 6 symbols. How many?",
+        "answer": "24",
+        "hintLadder": ["Key first: 1 = 4.", "6 × 4.", "Twenty-four."]
+      },
+      {
+        "id": "d03-x3", "type": "number",
+        "q": "8 children like art. Key 1 symbol = 2. How many symbols?",
+        "answer": "4",
+        "hintLadder": ["Symbols = count ÷ key.", "8 ÷ 2.", "Four."]
+      },
+      {
+        "id": "d03-x4", "type": "mcq",
+        "q": "When making tallies, every FIFTH mark should…",
+        "options": [ { "label": "Cross the bundle of four" }, { "label": "Start a brand new row", "mistakeTag": "tally-bundle-wrong" } ],
+        "answer": "Cross the bundle of four",
+        "hintLadder": ["Bundles of five are easy to count.", "The 5th crosses.", "卌."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Run a mini survey at home (favourite fruit or colour of 5–6 people). Record answers with tally marks, then draw a pictograph. Explain your key and how many each symbol stands for.",
+  "revisionCard": {
+    "summary": "Tally: one stroke each, 5th crosses the bundle (卌). Pictograph: read the KEY first. Things = symbols × key value; symbols = count ÷ key value. 'How many more' = subtract the real counts.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3 (tally marks & pictographs)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

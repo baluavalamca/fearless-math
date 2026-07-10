@@ -1,0 +1,685 @@
+{
+  "id": "num-17-patterns",
+  "name": "Patterns — Finding the Rule",
+  "grade": 5,
+  "strand": "numbers",
+  "prerequisites": [
+    "ops-10-tables-patterns"
+  ],
+  "whatIsIt": "A PATTERN is a sequence that follows a RULE — a repeating or growing idea. Once you find the rule (add 3, double it, skip a shape), you can continue the pattern forever and predict any step without listing them all.",
+  "whyNeeded": "Patterns are the heartbeat of maths and the world: calendars, times-tables, tiles on a floor, music beats, growing savings. Spotting the rule turns a puzzle into a prediction — it is how mathematicians see far ahead.",
+  "realLifeUses": [
+    "Predicting dates: every 7th day is the same weekday",
+    "Rangoli and tile designs that repeat a shape rule",
+    "Saving ₹5 more each week — a growing number pattern",
+    "Bead necklaces or music beats that repeat"
+  ],
+  "vocabulary": [
+    {
+      "term": "pattern",
+      "meaning": "A sequence that follows a rule."
+    },
+    {
+      "term": "rule",
+      "meaning": "What you do to get from one term to the next (e.g., add 3)."
+    },
+    {
+      "term": "term",
+      "meaning": "One item or number in the sequence."
+    },
+    {
+      "term": "growing pattern",
+      "meaning": "A pattern where each term gets bigger by a rule."
+    },
+    {
+      "term": "repeating pattern",
+      "meaning": "A pattern where a unit repeats (like circle-square-circle-square)."
+    }
+  ],
+  "story": {
+    "title": "The Kolam Pattern's Secret Rule",
+    "characters": [
+      "Meena",
+      "her mother"
+    ],
+    "text": "At dawn Meena lays a kolam with rows of dots: 2, then 4, then 6, then 8. 'What comes next?' asks her mother. Meena studies it. 'Look for the RULE — how do you get from one row to the next?' Meena spots it: 'Each row adds 2! So next is 10, then 12.' 'Find the rule,' smiles her mother, 'and you can carry the pattern as far as you like.'",
+    "extractedProblem": "A pattern goes 2, 4, 6, 8, ... What is the rule and the next number?",
+    "answerInStory": "The rule is 'add 2 each time', so the next number is 10."
+  },
+  "visual": {
+    "component": "NumberLine",
+    "props": {
+      "lines": [
+        {
+          "parts": 10,
+          "mark": 5,
+          "showLabels": true,
+          "label": "add 2 each step"
+        }
+      ]
+    },
+    "caption": "2, 4, 6, 8, 10 — the rule is +2. Equal jumps on the number line."
+  },
+  "teachingGallery": [
+    {
+      "title": "Find the rule — what is the step?",
+      "note": "Look at the gap between terms. Same gap = add (or subtract) that each time.",
+      "examples": [
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  3,
+                  6,
+                  9,
+                  12,
+                  "?"
+                ],
+                "jump": 3
+              }
+            ]
+          },
+          "caption": "Gap is +3 each time → next is 15."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  5,
+                  10,
+                  15,
+                  20,
+                  "?"
+                ],
+                "jump": 5
+              }
+            ]
+          },
+          "caption": "Gap +5 → next 25."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  2,
+                  4,
+                  8,
+                  16,
+                  "?"
+                ],
+                "jump": null
+              }
+            ]
+          },
+          "caption": "This one DOUBLES (×2) → next 32."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  20,
+                  18,
+                  16,
+                  14,
+                  "?"
+                ],
+                "jump": -2
+              }
+            ]
+          },
+          "caption": "Gap is −2 (shrinking) → next 12."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  4,
+                  7,
+                  10,
+                  "?"
+                ],
+                "jump": 3
+              }
+            ]
+          },
+          "caption": "Gap +3 → next 13."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Find the rule by comparing one term to the next, then apply the rule to continue or predict.",
+    "steps": [
+      "Look at how each term changes to the next: does it add, subtract, double, or repeat?",
+      "State the rule in words (e.g., 'add 3', 'double it').",
+      "Check the rule works for ALL the given terms, not just the first two.",
+      "Apply the rule to find the next term (or jump ahead)."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Difference-hunt",
+      "whenToUse": "For number patterns.",
+      "steps": [
+        "Write the gaps between terms.",
+        "If the gaps are equal, the rule is 'add that gap'.",
+        "If the gaps grow, the rule may be doubling or adding a growing amount."
+      ],
+      "example": "3, 6, 12, 24: each doubles — gaps grow, rule is ×2."
+    },
+    {
+      "name": "Unit-spotting",
+      "whenToUse": "For repeating shape/colour patterns.",
+      "steps": [
+        "Find the smallest chunk that repeats.",
+        "Mark where it starts again.",
+        "Continue by copying the chunk."
+      ],
+      "example": "red, blue, blue, red, blue, blue — the unit is red-blue-blue."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Find the next number: 5, 10, 15, 20, __",
+      "steps": [
+        "Gap from 5 to 10 is 5; 10 to 15 is 5.",
+        "The rule is 'add 5'.",
+        "It works for every step.",
+        "20 + 5 = 25."
+      ],
+      "answer": "25",
+      "visual": {
+        "component": "NumberLine",
+        "props": {
+          "lines": [
+            {
+              "parts": 10,
+              "mark": 5,
+              "showLabels": true,
+              "label": "add 5"
+            }
+          ]
+        },
+        "caption": "5,10,15,20,25 — rule +5."
+      }
+    },
+    {
+      "problem": "Find the next number: 3, 6, 12, 24, __",
+      "steps": [
+        "3 to 6 is ×2; 6 to 12 is ×2.",
+        "The rule is 'double it'.",
+        "Check: 12 to 24 is also ×2.",
+        "24 × 2 = 48."
+      ],
+      "answer": "48"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Find the step",
+    "intro": "Every pattern hides one rule — the gap between terms. Find it once, extend forever.",
+    "questions": [
+      {
+        "id": "num17-trick-3-3",
+        "type": "number",
+        "q": "Find the next number: 3, 6, 9, 12, ?",
+        "answer": "15",
+        "hintLadder": [
+          "What is the GAP between terms? 6 − 3 = 3.",
+          "The rule is add 3 each time.",
+          "12 + 3 = 15."
+        ],
+        "explain": "Step +3 → 15.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  3,
+                  6,
+                  9,
+                  12,
+                  "?"
+                ],
+                "jump": 3
+              }
+            ]
+          },
+          "caption": "find the step"
+        }
+      },
+      {
+        "id": "num17-trick-5-5",
+        "type": "number",
+        "q": "Find the next number: 5, 10, 15, 20, ?",
+        "answer": "25",
+        "hintLadder": [
+          "What is the GAP between terms? 10 − 5 = 5.",
+          "The rule is add 5 each time.",
+          "20 + 5 = 25."
+        ],
+        "explain": "Step +5 → 25.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  5,
+                  10,
+                  15,
+                  20,
+                  "?"
+                ],
+                "jump": 5
+              }
+            ]
+          },
+          "caption": "find the step"
+        }
+      },
+      {
+        "id": "num17-trick-2-4",
+        "type": "number",
+        "q": "Find the next number: 2, 6, 10, 14, ?",
+        "answer": "18",
+        "hintLadder": [
+          "What is the GAP between terms? 6 − 2 = 4.",
+          "The rule is add 4 each time.",
+          "14 + 4 = 18."
+        ],
+        "explain": "Step +4 → 18.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  2,
+                  6,
+                  10,
+                  14,
+                  "?"
+                ],
+                "jump": 4
+              }
+            ]
+          },
+          "caption": "find the step"
+        }
+      },
+      {
+        "id": "num17-trick-10-10",
+        "type": "number",
+        "q": "Find the next number: 10, 20, 30, 40, ?",
+        "answer": "50",
+        "hintLadder": [
+          "What is the GAP between terms? 20 − 10 = 10.",
+          "The rule is add 10 each time.",
+          "40 + 10 = 50."
+        ],
+        "explain": "Step +10 → 50.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  10,
+                  20,
+                  30,
+                  40,
+                  "?"
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "find the step"
+        }
+      },
+      {
+        "id": "num17-trick-7-3",
+        "type": "number",
+        "q": "Find the next number: 7, 10, 13, 16, ?",
+        "answer": "19",
+        "hintLadder": [
+          "What is the GAP between terms? 10 − 7 = 3.",
+          "The rule is add 3 each time.",
+          "16 + 3 = 19."
+        ],
+        "explain": "Step +3 → 19.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  7,
+                  10,
+                  13,
+                  16,
+                  "?"
+                ],
+                "jump": 3
+              }
+            ]
+          },
+          "caption": "find the step"
+        }
+      },
+      {
+        "id": "num17-trick-4-6",
+        "type": "number",
+        "q": "Find the next number: 4, 10, 16, 22, ?",
+        "answer": "28",
+        "hintLadder": [
+          "What is the GAP between terms? 10 − 4 = 6.",
+          "The rule is add 6 each time.",
+          "22 + 6 = 28."
+        ],
+        "explain": "Step +6 → 28.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  4,
+                  10,
+                  16,
+                  22,
+                  "?"
+                ],
+                "jump": 6
+              }
+            ]
+          },
+          "caption": "find the step"
+        }
+      },
+      {
+        "id": "num17-trick-6-2",
+        "type": "number",
+        "q": "Find the next number: 6, 8, 10, 12, ?",
+        "answer": "14",
+        "hintLadder": [
+          "What is the GAP between terms? 8 − 6 = 2.",
+          "The rule is add 2 each time.",
+          "12 + 2 = 14."
+        ],
+        "explain": "Step +2 → 14.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  6,
+                  8,
+                  10,
+                  12,
+                  "?"
+                ],
+                "jump": 2
+              }
+            ]
+          },
+          "caption": "find the step"
+        }
+      },
+      {
+        "id": "num17-trick-1-9",
+        "type": "number",
+        "q": "Find the next number: 1, 10, 19, 28, ?",
+        "answer": "37",
+        "hintLadder": [
+          "What is the GAP between terms? 10 − 1 = 9.",
+          "The rule is add 9 each time.",
+          "28 + 9 = 37."
+        ],
+        "explain": "Step +9 → 37.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  10,
+                  19,
+                  28,
+                  "?"
+                ],
+                "jump": 9
+              }
+            ]
+          },
+          "caption": "find the step"
+        }
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "rule-from-two-only",
+      "mistake": "Guessing the rule from just the first two terms and ignoring the rest.",
+      "fix": "Check your rule against EVERY given term. 2, 4, 8 is NOT 'add 2' — test the next gap: 4 to 8 is +4, so the rule is 'double'."
+    },
+    {
+      "mistakeTag": "added-instead-of-multiplied",
+      "mistake": "Using 'add' when the pattern is actually doubling (or the reverse).",
+      "fix": "Compare the gaps. If gaps are EQUAL it's adding; if the numbers GROW faster and faster, it's multiplying/doubling."
+    },
+    {
+      "mistakeTag": "wrong-repeat-unit",
+      "mistake": "In a repeating pattern, picking the wrong chunk to repeat.",
+      "fix": "Find the SMALLEST part that repeats exactly, then copy it. Check it lines up all the way along."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "num-17-e1",
+        "type": "number",
+        "q": "What comes next: 2, 4, 6, 8, __?",
+        "answer": "10",
+        "hintLadder": [
+          "How much does each step add?",
+          "The gap is 2.",
+          "8 + 2."
+        ],
+        "explain": "Rule +2 → 10.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 5,
+                "showLabels": true,
+                "label": "+2"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "num-17-e2",
+        "type": "number",
+        "q": "What comes next: 10, 20, 30, __?",
+        "answer": "40",
+        "hintLadder": [
+          "Equal jumps.",
+          "The rule is add 10.",
+          "30 + 10."
+        ],
+        "explain": "Rule +10 → 40."
+      }
+    ],
+    "medium": [
+      {
+        "id": "num-17-m1",
+        "type": "number",
+        "q": "What comes next: 3, 6, 9, 12, __?",
+        "answer": "15",
+        "hintLadder": [
+          "Gap between terms?",
+          "Add 3 each time.",
+          "12 + 3."
+        ],
+        "explain": "Rule +3 → 15."
+      },
+      {
+        "id": "num-17-m2",
+        "type": "number",
+        "q": "What comes next: 1, 2, 4, 8, __?",
+        "answer": "16",
+        "hintLadder": [
+          "3 to... check the gaps.",
+          "Each term DOUBLES.",
+          "8 × 2."
+        ],
+        "explain": "Rule ×2 → 16."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "num-17-c1",
+        "type": "number",
+        "q": "What comes next: 100, 90, 80, 70, __?",
+        "answer": "60",
+        "hintLadder": [
+          "Are the numbers growing or shrinking?",
+          "The rule is subtract 10.",
+          "70 − 10."
+        ],
+        "explain": "Rule −10 → 60."
+      },
+      {
+        "id": "num-17-c2",
+        "type": "number",
+        "q": "What comes next: 1, 3, 9, 27, __?",
+        "answer": "81",
+        "hintLadder": [
+          "1→3 is ×3; 3→9 is ×3.",
+          "The rule is triple it.",
+          "27 × 3."
+        ],
+        "explain": "Rule ×3 → 81."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "num-17-x1",
+        "type": "number",
+        "q": "Next: 5, 10, 15, __?",
+        "answer": "20",
+        "hintLadder": [
+          "Gap is 5.",
+          "Add 5.",
+          "15 + 5."
+        ],
+        "explain": "+5 → 20.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 5,
+                "showLabels": true,
+                "label": "+5"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "num-17-x2",
+        "type": "number",
+        "q": "Next: 2, 4, 8, 16, __?",
+        "answer": "32",
+        "hintLadder": [
+          "Check the gaps — do they grow?",
+          "Each doubles.",
+          "16 × 2."
+        ],
+        "explain": "×2 → 32."
+      },
+      {
+        "id": "num-17-x3",
+        "type": "number",
+        "q": "Next: 50, 45, 40, __?",
+        "answer": "35",
+        "hintLadder": [
+          "Shrinking pattern.",
+          "Subtract 5.",
+          "40 − 5."
+        ],
+        "explain": "−5 → 35."
+      },
+      {
+        "id": "num-17-x4",
+        "type": "number",
+        "q": "Next: 7, 14, 21, __?",
+        "answer": "28",
+        "hintLadder": [
+          "The 7 times table.",
+          "Add 7.",
+          "21 + 7."
+        ],
+        "explain": "+7 → 28."
+      },
+      {
+        "id": "num-17-x5",
+        "type": "number",
+        "q": "Next: 2, 6, 18, __?",
+        "answer": "54",
+        "hintLadder": [
+          "2→6 is ×3.",
+          "Triple each time.",
+          "18 × 3."
+        ],
+        "explain": "×3 → 54."
+      }
+    ]
+  },
+  "teachBackPrompt": "Make a pattern with beads, claps, or numbers and teach someone at home to find your RULE — then show why you must test the rule on more than just the first two terms.",
+  "revisionCard": {
+    "summary": "A pattern follows a RULE. Find it by checking how each term changes — equal gaps = adding/subtracting, fast growth = doubling/multiplying. Always test the rule on ALL terms.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The Rangoli Rule",
+    "brief": "Crack the rule behind each rangoli and number train, then leap ahead to predict what comes next.",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "Look at a calendar. Pick a weekday and write its dates down the month (e.g., every Monday). What is the rule? Predict next month's first one.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

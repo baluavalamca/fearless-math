@@ -1,0 +1,169 @@
+{
+  "id": "num-27-squares-roots",
+  "name": "Squares, Cubes and Roots",
+  "grade": 7,
+  "strand": "numbers",
+  "prerequisites": ["num-24-primes"],
+  "whatIsIt": "A SQUARE of a number multiplies it by itself: 5² = 5 × 5 = 25. A CUBE multiplies it three times: 2³ = 2 × 2 × 2 = 8. A SQUARE ROOT undoes squaring: √25 = 5. A CUBE ROOT undoes cubing: ∛8 = 2. Square numbers make a perfect square of dots (25 = a 5×5 grid); cube numbers fill a cube.",
+  "whyNeeded": "Squares and roots run through area (a square of side 5 has area 25), the Pythagoras theorem, algebra, and physics. Recognising perfect squares and cubes speeds up all later maths.",
+  "realLifeUses": [
+    "Area of a square garden of side 6 m = 6² = 36 m²",
+    "Volume of a cube box of side 3 cm = 3³ = 27 cm³",
+    "Finding a side length back from an area (√)",
+    "Pythagoras and distances use squares and square roots"
+  ],
+  "vocabulary": [
+    { "term": "square (n²)", "meaning": "A number multiplied by itself: 4² = 16." },
+    { "term": "cube (n³)", "meaning": "A number multiplied by itself three times: 3³ = 27." },
+    { "term": "square root (√)", "meaning": "The number that was squared: √36 = 6." }
+  ],
+  "story": {
+    "title": "The Square Tiles",
+    "characters": ["Karan", "Bhaiya"],
+    "text": "Karan lays tiles in a perfect square: 6 rows of 6. 'How many tiles?' asks Bhaiya. Karan says 6² = 36. Later Bhaiya says 'I have 49 tiles — will they make a perfect square?' Karan thinks: what times itself is 49? √49 = 7. 'Yes — a 7 by 7 square!' The root gives the side back.",
+    "extractedProblem": "49 tiles make a perfect square. How many tiles are on each side?",
+    "answerInStory": "7 — because √49 = 7 (7 × 7 = 49)."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        { "rows": 5, "cols": 5, "label": "5² = 25 (a perfect square)" }
+      ]
+    },
+    "caption": "A square number fills a perfect square grid: 5 × 5 = 25. The square ROOT of 25 is 5 (the side)."
+  },
+  "teachingGallery": [
+    {
+      "title": "Squares and their roots",
+      "note": "n² fills a square; √ gives the side back.",
+      "examples": [
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 3, "cols": 3, "label": "3² = 9" } ] }, "caption": "3 × 3 = 9, so √9 = 3." },
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 4, "cols": 4, "label": "4² = 16" } ] }, "caption": "4 × 4 = 16, so √16 = 4." },
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [1, 4, 9, 16, 25], "label": "square numbers" } ] }, "caption": "The square numbers: 1, 4, 9, 16, 25…" }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To square, multiply a number by itself; to cube, by itself three times. A root reverses it — find what number gives that value.",
+    "steps": [
+      "Square: n² = n × n (e.g. 7² = 49).",
+      "Cube: n³ = n × n × n (e.g. 2³ = 8).",
+      "Square root: √v = the number whose square is v (√64 = 8).",
+      "Cube root: ∛v = the number whose cube is v (∛27 = 3). Learn the perfect squares to 12² and small cubes."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find 8².",
+      "steps": ["Square means multiply by itself.", "8 × 8.", "= 64."],
+      "answer": "64"
+    },
+    {
+      "problem": "Find √81.",
+      "steps": ["Ask: what number times itself is 81?", "9 × 9 = 81.", "So √81 = 9."],
+      "answer": "9"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "square-means-times-two",
+      "mistake": "Thinking 5² means 5 × 2 = 10 instead of 5 × 5.",
+      "fix": "Squaring is multiplying by ITSELF, not by 2. 5² = 5 × 5 = 25."
+    },
+    {
+      "mistakeTag": "root-guess-wrong",
+      "mistake": "Guessing a square root without checking (saying √20 = 5 because 5 is near).",
+      "fix": "A root must square back exactly. 5² = 25 ≠ 20, so √20 isn't a whole number. Check n × n."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "n27-e1", "type": "number",
+        "q": "What is 3²?",
+        "answer": "9",
+        "hintLadder": ["3 × 3.", "Multiply by itself.", "9."]
+      },
+      {
+        "id": "n27-e2", "type": "number",
+        "q": "What is √16?",
+        "answer": "4",
+        "hintLadder": ["What times itself is 16?", "4 × 4 = 16.", "4."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "n27-m1", "type": "number",
+        "q": "What is 6²?",
+        "answer": "36",
+        "hintLadder": ["6 × 6.", "Square it.", "36."]
+      },
+      {
+        "id": "n27-m2", "type": "number",
+        "q": "What is 2³?",
+        "answer": "8",
+        "hintLadder": ["2 × 2 × 2.", "Cube it.", "8."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "n27-c1", "type": "number",
+        "q": "A square field has area 64 m². What is the length of one side (in m)?",
+        "answer": "8",
+        "hintLadder": ["Side = √area.", "√64.", "8 m."]
+      },
+      {
+        "id": "n27-c2", "type": "mcq",
+        "q": "Riya says 4² = 8. What's the fix?",
+        "options": [ { "label": "4² = 4 × 4 = 16" }, { "label": "She's right, 4² = 8", "mistakeTag": "square-means-times-two" } ],
+        "answer": "4² = 4 × 4 = 16",
+        "hintLadder": ["Square = times itself.", "4 × 4.", "16."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "n27-x1", "type": "number",
+        "q": "What is 5²?",
+        "answer": "25",
+        "hintLadder": ["5 × 5.", "Square it.", "25."]
+      },
+      {
+        "id": "n27-x2", "type": "number",
+        "q": "What is √49?",
+        "answer": "7",
+        "hintLadder": ["What times itself is 49?", "7 × 7.", "7."]
+      },
+      {
+        "id": "n27-x3", "type": "number",
+        "q": "What is 3³?",
+        "answer": "27",
+        "hintLadder": ["3 × 3 × 3.", "Cube it.", "27."]
+      },
+      {
+        "id": "n27-x4", "type": "mcq",
+        "q": "The square root of a number…",
+        "options": [ { "label": "Undoes squaring (√25 = 5)" }, { "label": "Halves the number", "mistakeTag": "square-means-times-two" } ],
+        "answer": "Undoes squaring (√25 = 5)",
+        "hintLadder": ["Root reverses square.", "√25 = 5 because 5² = 25.", "Undoes squaring."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw a square of dots (say 4 by 4) and show a grown-up that it equals 4² = 16, then explain that √16 = 4 gives the side back. Bonus: build a 2×2×2 cube of blocks to show 2³ = 8.",
+  "revisionCard": {
+    "summary": "Square: n² = n × n (5² = 25). Cube: n³ = n × n × n (2³ = 8). Square root √ undoes squaring (√25 = 5); cube root ∛ undoes cubing (∛8 = 2). Squaring is NOT ×2. Learn perfect squares 1,4,9,16,25,36,49,64,81,100.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 6-8 (squares, cubes, roots)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

@@ -1,0 +1,637 @@
+{
+  "id": "num-16-factors-multiples",
+  "name": "Factors and Multiples — Building Blocks of Numbers",
+  "grade": 5,
+  "strand": "numbers",
+  "prerequisites": [
+    "ops-10-tables-patterns",
+    "ops-13-division-sharing"
+  ],
+  "whatIsIt": "A FACTOR of a number divides it exactly with nothing left over — factors are the equal-sized building blocks a number can be split into. A MULTIPLE is what you get when you count a number in jumps: the multiples of 4 are 4, 8, 12, 16... A number with exactly two factors (1 and itself) is PRIME; with more is COMPOSITE.",
+  "whyNeeded": "Factors and multiples are the secret behind sharing fairly, simplifying fractions, finding common time-tables (when two buses meet again), and spotting patterns. HCF (highest common factor) and LCM (lowest common multiple) grow straight out of them.",
+  "realLifeUses": [
+    "Arranging 12 chairs into equal rows — the factors of 12 tell you the ways",
+    "Two buses leave together; multiples tell you when they leave together again (LCM)",
+    "Sharing sweets into equal packets with none left over",
+    "Simplifying a fraction by dividing top and bottom by a common factor"
+  ],
+  "vocabulary": [
+    {
+      "term": "factor",
+      "meaning": "A number that divides another exactly, with no remainder. 3 is a factor of 12."
+    },
+    {
+      "term": "multiple",
+      "meaning": "The result of multiplying by 1, 2, 3... The multiples of 5 are 5, 10, 15..."
+    },
+    {
+      "term": "prime number",
+      "meaning": "A number with exactly two factors: 1 and itself (2, 3, 5, 7, 11...)."
+    },
+    {
+      "term": "composite number",
+      "meaning": "A number with more than two factors (4, 6, 8, 9...)."
+    },
+    {
+      "term": "HCF",
+      "meaning": "Highest Common Factor — the biggest factor two numbers share."
+    },
+    {
+      "term": "LCM",
+      "meaning": "Lowest Common Multiple — the smallest multiple two numbers share."
+    }
+  ],
+  "story": {
+    "title": "Arranging Chairs for the Function",
+    "characters": [
+      "Meena",
+      "her uncle Mama"
+    ],
+    "text": "Meena must set 12 chairs in equal rows for a family function. 'How many ways can I do it?' Mama shows her: 1 row of 12, 2 rows of 6, 3 rows of 4 — and their turn-arounds. 'Each neat way is a FACTOR pair of 12. The factors of 12 are 1, 2, 3, 4, 6, 12 — every number that divides 12 with nothing left over.'",
+    "extractedProblem": "In how many ways can 12 chairs be set in equal rows, and what are the factors of 12?",
+    "answerInStory": "The factors of 12 are 1, 2, 3, 4, 6, 12 — giving rows like 3×4 and 2×6 (with turn-arounds)."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        {
+          "rows": 3,
+          "cols": 4,
+          "asGroups": true
+        }
+      ]
+    },
+    "caption": "12 as a 3 × 4 array — 3 and 4 are factors of 12. Rearrange to see 2 × 6 and 1 × 12 too."
+  },
+  "teachingGallery": [
+    {
+      "title": "Factors build a number; multiples are its jumps",
+      "note": "Factors fit into a rectangle exactly. Multiples are skip-counts.",
+      "examples": [
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 6,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "12 = 2 × 6 → 2 and 6 are FACTORS of 12."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "12 = 3 × 4 → 3 and 4 are factors too."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 12,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "12 = 1 × 12 → 1 and 12 are factors."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  3,
+                  6,
+                  9,
+                  12,
+                  15
+                ],
+                "jump": 3
+              }
+            ]
+          },
+          "caption": "Multiples of 3: skip-count 3, 6, 9, 12, 15…"
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  5,
+                  10,
+                  15,
+                  20,
+                  25
+                ],
+                "jump": 5
+              }
+            ]
+          },
+          "caption": "Multiples of 5: 5, 10, 15, 20, 25…"
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To find factors, test which numbers divide it exactly; to find multiples, skip-count. Prime = exactly two factors.",
+    "steps": [
+      "FACTORS: try 1, 2, 3... and keep those that divide the number with no remainder — they come in pairs.",
+      "MULTIPLES: skip-count the number: n, 2n, 3n, 4n...",
+      "PRIME check: if the only factors are 1 and the number itself, it is prime; otherwise composite.",
+      "COMMON: shared factors give the HCF; shared multiples give the LCM."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Rainbow factor pairs",
+      "whenToUse": "To list every factor without missing any.",
+      "steps": [
+        "Start at 1 and pair it with the number itself.",
+        "Move up: 2 and its partner, 3 and its partner...",
+        "Stop when the pair values meet in the middle — draw arcs like a rainbow."
+      ],
+      "example": "18: 1-18, 2-9, 3-6 — factors are 1,2,3,6,9,18."
+    },
+    {
+      "name": "Common-multiple meeting",
+      "whenToUse": "To find the LCM of two numbers.",
+      "steps": [
+        "List multiples of each number.",
+        "Circle the first one that appears in BOTH lists.",
+        "That is the LCM."
+      ],
+      "example": "LCM of 4 and 6: 4,8,12... and 6,12... meet at 12."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "List all the factors of 18.",
+      "steps": [
+        "Test 1: 18÷1=18 ✓ (pair 1 and 18).",
+        "2: 18÷2=9 ✓ (2 and 9). 3: 18÷3=6 ✓ (3 and 6).",
+        "4 and 5 do not divide 18 exactly.",
+        "Factors of 18: 1, 2, 3, 6, 9, 18."
+      ],
+      "answer": "1, 2, 3, 6, 9, 18",
+      "visual": {
+        "component": "ArrayGrid",
+        "props": {
+          "grids": [
+            {
+              "rows": 3,
+              "cols": 6,
+              "asGroups": true
+            }
+          ]
+        },
+        "caption": "18 = 3 × 6, so 3 and 6 are factors."
+      }
+    },
+    {
+      "problem": "Is 7 prime or composite?",
+      "steps": [
+        "Which numbers divide 7 exactly?",
+        "Only 1 and 7 — nothing else fits.",
+        "Exactly two factors → prime.",
+        "7 is a PRIME number."
+      ],
+      "answer": "prime"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Divisibility rules",
+    "intro": "Test big numbers instantly: by 2, 5, 10 (last digit) and 3 (digit-sum).",
+    "questions": [
+      {
+        "id": "num16-trick-45-5",
+        "type": "mcq",
+        "q": "Is 45 divisible by 5?",
+        "answer": "yes",
+        "options": [
+          {
+            "label": "yes"
+          },
+          {
+            "label": "no"
+          }
+        ],
+        "hintLadder": [
+          "Divisibility rule for 5: a number works if it ends in 0 or 5.",
+          "Check 45.",
+          "45 → yes."
+        ],
+        "explain": "45 divisible by 5? yes."
+      },
+      {
+        "id": "num16-trick-36-2",
+        "type": "mcq",
+        "q": "Is 36 divisible by 2?",
+        "answer": "yes",
+        "options": [
+          {
+            "label": "yes"
+          },
+          {
+            "label": "no"
+          }
+        ],
+        "hintLadder": [
+          "Divisibility rule for 2: a number works if it ends in 0,2,4,6,8.",
+          "Check 36.",
+          "36 → yes."
+        ],
+        "explain": "36 divisible by 2? yes."
+      },
+      {
+        "id": "num16-trick-50-10",
+        "type": "mcq",
+        "q": "Is 50 divisible by 10?",
+        "answer": "yes",
+        "options": [
+          {
+            "label": "yes"
+          },
+          {
+            "label": "no"
+          }
+        ],
+        "hintLadder": [
+          "Divisibility rule for 10: a number works if it ends in 0.",
+          "Check 50.",
+          "50 → yes."
+        ],
+        "explain": "50 divisible by 10? yes."
+      },
+      {
+        "id": "num16-trick-27-3",
+        "type": "mcq",
+        "q": "Is 27 divisible by 3?",
+        "answer": "yes",
+        "options": [
+          {
+            "label": "yes"
+          },
+          {
+            "label": "no"
+          }
+        ],
+        "hintLadder": [
+          "Divisibility rule for 3: a number works if it digit-sum is a multiple of 3.",
+          "Check 27.",
+          "27 → yes."
+        ],
+        "explain": "27 divisible by 3? yes."
+      },
+      {
+        "id": "num16-trick-40-5",
+        "type": "mcq",
+        "q": "Is 40 divisible by 5?",
+        "answer": "yes",
+        "options": [
+          {
+            "label": "yes"
+          },
+          {
+            "label": "no"
+          }
+        ],
+        "hintLadder": [
+          "Divisibility rule for 5: a number works if it ends in 0 or 5.",
+          "Check 40.",
+          "40 → yes."
+        ],
+        "explain": "40 divisible by 5? yes."
+      },
+      {
+        "id": "num16-trick-53-2",
+        "type": "mcq",
+        "q": "Is 53 divisible by 2?",
+        "answer": "no",
+        "options": [
+          {
+            "label": "yes"
+          },
+          {
+            "label": "no"
+          }
+        ],
+        "hintLadder": [
+          "Divisibility rule for 2: a number works if it ends in 0,2,4,6,8.",
+          "Check 53.",
+          "53 → no."
+        ],
+        "explain": "53 divisible by 2? no."
+      },
+      {
+        "id": "num16-trick-72-3",
+        "type": "mcq",
+        "q": "Is 72 divisible by 3?",
+        "answer": "yes",
+        "options": [
+          {
+            "label": "yes"
+          },
+          {
+            "label": "no"
+          }
+        ],
+        "hintLadder": [
+          "Divisibility rule for 3: a number works if it digit-sum is a multiple of 3.",
+          "Check 72.",
+          "72 → yes."
+        ],
+        "explain": "72 divisible by 3? yes."
+      },
+      {
+        "id": "num16-trick-64-10",
+        "type": "mcq",
+        "q": "Is 64 divisible by 10?",
+        "answer": "no",
+        "options": [
+          {
+            "label": "yes"
+          },
+          {
+            "label": "no"
+          }
+        ],
+        "hintLadder": [
+          "Divisibility rule for 10: a number works if it ends in 0.",
+          "Check 64.",
+          "64 → no."
+        ],
+        "explain": "64 divisible by 10? no."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "factor-multiple-swapped",
+      "mistake": "Mixing up factors and multiples — calling 24 a factor of 12.",
+      "fix": "Factors are SMALLER (they fit inside): factors of 12 are ≤ 12. Multiples are BIGGER (they stretch out): 24 is a MULTIPLE of 12, not a factor."
+    },
+    {
+      "mistakeTag": "one-not-prime",
+      "mistake": "Thinking 1 is a prime number.",
+      "fix": "1 has only ONE factor (itself), not two. A prime needs exactly TWO different factors, so 1 is neither prime nor composite. The smallest prime is 2."
+    },
+    {
+      "mistakeTag": "missed-factor-pair",
+      "mistake": "Listing factors but missing one of a pair (writing 1,2,3,6 for 12 but forgetting 4 and 12).",
+      "fix": "Factors come in PAIRS. Every time you find one, write its partner too: for 12, finding 3 means writing 4 (3×4=12)."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "num-16-e1",
+        "type": "mcq",
+        "q": "Which of these is a FACTOR of 10?",
+        "answer": "5",
+        "hintLadder": [
+          "A factor divides it exactly.",
+          "Does 10 ÷ 5 leave nothing over?",
+          "5 × 2 = 10."
+        ],
+        "options": [
+          {
+            "label": "5"
+          },
+          {
+            "label": "20",
+            "mistakeTag": "factor-multiple-swapped"
+          },
+          {
+            "label": "3",
+            "mistakeTag": "missed-factor-pair"
+          }
+        ],
+        "explain": "5 divides 10 exactly, so 5 is a factor."
+      },
+      {
+        "id": "num-16-e2",
+        "type": "number",
+        "q": "What is the 3rd multiple of 4? (4, 8, __?)",
+        "answer": "12",
+        "hintLadder": [
+          "Skip-count by 4.",
+          "4, 8, then one more jump.",
+          "4 × 3."
+        ],
+        "explain": "4 × 3 = 12."
+      }
+    ],
+    "medium": [
+      {
+        "id": "num-16-m1",
+        "type": "mcq",
+        "q": "Is 9 prime or composite?",
+        "answer": "composite",
+        "hintLadder": [
+          "List the factors of 9.",
+          "1, 3, 9 — that is three factors.",
+          "More than two factors → composite."
+        ],
+        "options": [
+          {
+            "label": "composite"
+          },
+          {
+            "label": "prime",
+            "mistakeTag": "one-not-prime"
+          }
+        ],
+        "explain": "9 has factors 1, 3, 9 — composite."
+      },
+      {
+        "id": "num-16-m2",
+        "type": "number",
+        "q": "How many factors does 6 have in total?",
+        "answer": "4",
+        "hintLadder": [
+          "List them: 1, 2, 3, 6.",
+          "Count how many.",
+          "Four factors."
+        ],
+        "explain": "1, 2, 3, 6 → 4 factors.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 3,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "6 = 2 × 3"
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "num-16-c1",
+        "type": "number",
+        "q": "What is the LCM (lowest common multiple) of 4 and 6?",
+        "answer": "12",
+        "hintLadder": [
+          "List multiples of each.",
+          "4, 8, 12... and 6, 12...",
+          "The first shared one."
+        ],
+        "explain": "4 and 6 first meet at 12."
+      },
+      {
+        "id": "num-16-c2",
+        "type": "number",
+        "q": "What is the HCF (highest common factor) of 12 and 18?",
+        "answer": "6",
+        "hintLadder": [
+          "Factors of 12: 1,2,3,4,6,12. Factors of 18: 1,2,3,6,9,18.",
+          "Which factors are in BOTH?",
+          "The biggest shared one."
+        ],
+        "explain": "Shared factors 1,2,3,6 — highest is 6."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "num-16-x1",
+        "type": "mcq",
+        "q": "Which is a MULTIPLE of 5?",
+        "answer": "20",
+        "hintLadder": [
+          "Multiples are 5, 10, 15, 20...",
+          "Which one is in the 5-times table?",
+          "5 × 4 = 20."
+        ],
+        "options": [
+          {
+            "label": "20"
+          },
+          {
+            "label": "2",
+            "mistakeTag": "factor-multiple-swapped"
+          },
+          {
+            "label": "12",
+            "mistakeTag": "missed-factor-pair"
+          }
+        ],
+        "explain": "20 = 5 × 4, a multiple of 5."
+      },
+      {
+        "id": "num-16-x2",
+        "type": "number",
+        "q": "What is the 4th multiple of 3?",
+        "answer": "12",
+        "hintLadder": [
+          "3, 6, 9, __.",
+          "Skip-count by 3 four times.",
+          "3 × 4."
+        ],
+        "explain": "3 × 4 = 12."
+      },
+      {
+        "id": "num-16-x3",
+        "type": "mcq",
+        "q": "Is 2 prime or composite?",
+        "answer": "prime",
+        "hintLadder": [
+          "Factors of 2?",
+          "Only 1 and 2.",
+          "Exactly two → prime (the smallest one)."
+        ],
+        "options": [
+          {
+            "label": "prime"
+          },
+          {
+            "label": "composite",
+            "mistakeTag": "one-not-prime"
+          }
+        ],
+        "explain": "2 has exactly two factors — prime."
+      },
+      {
+        "id": "num-16-x4",
+        "type": "number",
+        "q": "How many factors does 8 have?",
+        "answer": "4",
+        "hintLadder": [
+          "1, 2, 4, 8.",
+          "Count them.",
+          "Four."
+        ],
+        "explain": "1,2,4,8 → 4 factors.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 4,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "8 = 2 × 4"
+        }
+      },
+      {
+        "id": "num-16-x5",
+        "type": "number",
+        "q": "LCM of 3 and 4?",
+        "answer": "12",
+        "hintLadder": [
+          "Multiples of 3 and of 4.",
+          "First shared multiple.",
+          "3×4 here."
+        ],
+        "explain": "First common multiple of 3 and 4 is 12."
+      }
+    ]
+  },
+  "teachBackPrompt": "Be the number detective! Teach someone at home the difference between a factor and a multiple using 12 — show the factor pairs (arrays of chairs) and the multiples (skip-counting) — and why 1 is not prime.",
+  "revisionCard": {
+    "summary": "Factors DIVIDE (fit inside, come in pairs); multiples are SKIP-COUNTS (stretch out). Prime = exactly 2 factors. HCF = biggest shared factor; LCM = smallest shared multiple.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The Building Blocks",
+    "brief": "Help Captain Count arrange chairs and catch bus timetables — find factors, multiples, and the sneaky primes.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Find the factors of your house number by trying to arrange that many buttons into equal rows. Which arrangements work?",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

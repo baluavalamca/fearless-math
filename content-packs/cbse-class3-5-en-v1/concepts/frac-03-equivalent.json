@@ -1,0 +1,557 @@
+{
+  "id": "frac-03-equivalent",
+  "name": "Equivalent Fractions — Different Names, Same Amount",
+  "grade": 4,
+  "strand": "fractions",
+  "prerequisites": [
+    "frac-02-numberline"
+  ],
+  "whatIsIt": "Equivalent fractions are different fraction names for the SAME amount. 1/2, 2/4, and 4/8 all cover exactly the same space — like one person being called 'Amma' at home and 'Doctor' at work. Same person, different names!",
+  "whyNeeded": "To add, subtract, or compare fractions, we often need pieces of the same size. Equivalent fractions let us re-cut a fraction into smaller equal pieces WITHOUT changing the amount — that is the magic key that unlocks fraction addition and comparison later.",
+  "realLifeUses": [
+    "Sharing: half a chapati is the same amount as 2 quarter-pieces — useful when more friends arrive",
+    "Money: 1/2 rupee = 50 paise = 2 coins of 25 paise (2/4 of a rupee)",
+    "Time: half an hour = 30/60 minutes = 2/4 of an hour — the clock says all three the same way",
+    "Cooking: a 1/2 cup measure can be filled with two 1/4 cups when the big cup is missing"
+  ],
+  "vocabulary": [
+    {
+      "term": "equivalent",
+      "meaning": "Equal in value — same amount, even if it looks different."
+    },
+    {
+      "term": "equivalent fractions",
+      "meaning": "Fractions that name the same amount, like 1/2 and 2/4."
+    },
+    {
+      "term": "simplify",
+      "meaning": "Rename a fraction with the smallest numbers possible: 6/8 becomes 3/4."
+    }
+  ],
+  "story": {
+    "title": "Birbal Settles the Buttermilk Quarrel",
+    "characters": [
+      "Birbal",
+      "two thirsty farmers"
+    ],
+    "text": "On a scorching day two farmers came to Emperor Akbar's court, quarrelling. 'I drank half a glass of buttermilk!' said one. 'And I drank two-fourths of the same-size glass — so I drank MORE!' said the other. Akbar turned to clever Birbal. Birbal poured both amounts into matching glasses and held them side by side. 'Look — the buttermilk reaches exactly the same line. One-half and two-fourths are just two NAMES for the very same amount. Neither of you drank more.' The farmers laughed and shared the rest.",
+    "extractedProblem": "One farmer drank 1/2 of a glass and another drank 2/4 of an identical glass. Did one of them drink more?",
+    "answerInStory": "No — 1/2 and 2/4 are equivalent fractions. They drank exactly the same amount."
+  },
+  "visual": {
+    "component": "FractionStrip",
+    "props": {
+      "strips": [
+        {
+          "parts": 2,
+          "shaded": 1,
+          "label": "1/2"
+        },
+        {
+          "parts": 4,
+          "shaded": 2,
+          "label": "2/4"
+        },
+        {
+          "parts": 8,
+          "shaded": 4,
+          "label": "4/8"
+        }
+      ]
+    },
+    "caption": "Three names, one amount. The shaded parts end at exactly the same place — 1/2 = 2/4 = 4/8."
+  },
+  "teachingGallery": [
+    {
+      "title": "Equivalent fractions — same amount, new name",
+      "note": "Multiply top AND bottom by the same number: the picture doesn't change.",
+      "examples": [
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 2,
+                "shaded": 1,
+                "label": "1/2"
+              },
+              {
+                "parts": 4,
+                "shaded": 2,
+                "label": "2/4"
+              }
+            ]
+          },
+          "caption": "1/2 and 2/4 shade the same strip."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 2,
+                "shaded": 1,
+                "label": "1/2"
+              },
+              {
+                "parts": 6,
+                "shaded": 3,
+                "label": "3/6"
+              }
+            ]
+          },
+          "caption": "1/2 = 3/6 (×3 top and bottom)."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 3,
+                "shaded": 1,
+                "label": "1/3"
+              },
+              {
+                "parts": 6,
+                "shaded": 2,
+                "label": "2/6"
+              }
+            ]
+          },
+          "caption": "1/3 = 2/6."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 4,
+                "shaded": 3,
+                "label": "3/4"
+              },
+              {
+                "parts": 8,
+                "shaded": 6,
+                "label": "6/8"
+              }
+            ]
+          },
+          "caption": "3/4 = 6/8."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 5,
+                "shaded": 2,
+                "label": "2/5"
+              },
+              {
+                "parts": 10,
+                "shaded": 4,
+                "label": "4/10"
+              }
+            ]
+          },
+          "caption": "2/5 = 4/10."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To make an equivalent fraction, multiply (or divide) the TOP and the BOTTOM by the SAME number.",
+    "steps": [
+      "Pick a number (2, 3, 4...).",
+      "Multiply the top by it AND the bottom by it — both, always both!",
+      "The new fraction is equivalent: 1/2 → (1×2)/(2×2) = 2/4.",
+      "To simplify, divide both by the same number instead: 6/8 → (6÷2)/(8÷2) = 3/4."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Folding method (paper proof)",
+      "whenToUse": "To SEE why two fractions are equal, not just calculate.",
+      "steps": [
+        "Fold a strip in half and shade 1/2.",
+        "Fold the SAME strip in half again — now it shows 4 parts, and 2 are shaded.",
+        "The shading never changed! 1/2 = 2/4.",
+        "Every extra fold doubles both numbers but keeps the amount the same."
+      ],
+      "example": "One strip, three folds: the same shading reads 1/2, then 2/4, then 4/8."
+    },
+    {
+      "name": "Number line check",
+      "whenToUse": "To verify two fractions are equivalent.",
+      "steps": [
+        "Draw two number lines from 0 to 1, one above the other.",
+        "Cut one into 2 jumps, the other into 4 jumps.",
+        "Mark 1/2 on the first and 2/4 on the second.",
+        "If the marks sit at the SAME spot, the fractions are equivalent."
+      ],
+      "example": "1/2 and 2/4 land on exactly the same point of the line — equivalent!"
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Fill in the missing number: 1/2 = ?/6",
+      "steps": [
+        "The bottom went from 2 to 6. What did we multiply by? 2 × 3 = 6, so by 3.",
+        "Do the SAME to the top: 1 × 3 = 3.",
+        "So 1/2 = 3/6."
+      ],
+      "answer": "3/6",
+      "visual": {
+        "component": "FractionStrip",
+        "props": {
+          "strips": [
+            {
+              "parts": 2,
+              "shaded": 1,
+              "label": "1/2"
+            },
+            {
+              "parts": 6,
+              "shaded": 3,
+              "label": "3/6"
+            }
+          ]
+        },
+        "caption": "Line them up: 1/2 and 3/6 stretch to the same length — same amount, different name."
+      }
+    },
+    {
+      "problem": "Ravi says 2/3 = 3/4 because 'I added 1 to the top and 1 to the bottom.' Check with strips: is he right?",
+      "steps": [
+        "Fold one strip into 3 parts, shade 2: that is 2/3.",
+        "Fold another equal strip into 4 parts, shade 3: that is 3/4.",
+        "Hold them together: the shaded ends do NOT line up — 3/4 is a little more.",
+        "ADDING the same number to top and bottom changes the amount. Only MULTIPLYING or DIVIDING both keeps it equal."
+      ],
+      "answer": "No — adding to top and bottom does not make equivalent fractions."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Multiply top and bottom the same",
+    "intro": "Whatever you do to the bottom, do to the top — the fraction's value stays put.",
+    "questions": [
+      {
+        "id": "frac03-trick-1-2-4",
+        "type": "number",
+        "q": "1/2 = ?/4  — what is the missing TOP number?",
+        "answer": "2",
+        "hintLadder": [
+          "How do you get 2 → 4? Multiply by 2.",
+          "Do the SAME to the top: 1 × 2.",
+          "Missing top = 2."
+        ],
+        "explain": "1/2 = 2/4."
+      },
+      {
+        "id": "frac03-trick-1-2-6",
+        "type": "number",
+        "q": "1/2 = ?/6  — what is the missing TOP number?",
+        "answer": "3",
+        "hintLadder": [
+          "How do you get 2 → 6? Multiply by 3.",
+          "Do the SAME to the top: 1 × 3.",
+          "Missing top = 3."
+        ],
+        "explain": "1/2 = 3/6."
+      },
+      {
+        "id": "frac03-trick-1-3-6",
+        "type": "number",
+        "q": "1/3 = ?/6  — what is the missing TOP number?",
+        "answer": "2",
+        "hintLadder": [
+          "How do you get 3 → 6? Multiply by 2.",
+          "Do the SAME to the top: 1 × 2.",
+          "Missing top = 2."
+        ],
+        "explain": "1/3 = 2/6."
+      },
+      {
+        "id": "frac03-trick-3-4-8",
+        "type": "number",
+        "q": "3/4 = ?/8  — what is the missing TOP number?",
+        "answer": "6",
+        "hintLadder": [
+          "How do you get 4 → 8? Multiply by 2.",
+          "Do the SAME to the top: 3 × 2.",
+          "Missing top = 6."
+        ],
+        "explain": "3/4 = 6/8."
+      },
+      {
+        "id": "frac03-trick-2-5-10",
+        "type": "number",
+        "q": "2/5 = ?/10  — what is the missing TOP number?",
+        "answer": "4",
+        "hintLadder": [
+          "How do you get 5 → 10? Multiply by 2.",
+          "Do the SAME to the top: 2 × 2.",
+          "Missing top = 4."
+        ],
+        "explain": "2/5 = 4/10."
+      },
+      {
+        "id": "frac03-trick-2-3-9",
+        "type": "number",
+        "q": "2/3 = ?/9  — what is the missing TOP number?",
+        "answer": "6",
+        "hintLadder": [
+          "How do you get 3 → 9? Multiply by 3.",
+          "Do the SAME to the top: 2 × 3.",
+          "Missing top = 6."
+        ],
+        "explain": "2/3 = 6/9."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "added-instead-of-multiplied",
+      "mistake": "Adding the same number to top and bottom (2/3 → 3/4) and thinking the amount stayed the same.",
+      "fix": "Equivalents come from MULTIPLYING or DIVIDING both numbers by the same number — never adding. Check with strips: do the shaded ends line up?"
+    },
+    {
+      "mistakeTag": "changed-only-one",
+      "mistake": "Multiplying only the top (or only the bottom): 1/2 → 2/2.",
+      "fix": "Both or nothing! Whatever you do to the top, do exactly the same to the bottom. One-sided changes change the amount."
+    },
+    {
+      "mistakeTag": "top-bottom-swapped",
+      "mistake": "Flipping the fraction while renaming it (1/2 becoming 4/2 instead of 2/4).",
+      "fix": "Keep the fraction the same way up. Denominator stays Down — multiply it in its place."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "mcq",
+        "q": "Which fraction is equivalent to 1/2?",
+        "options": [
+          {
+            "label": "2/4"
+          },
+          {
+            "label": "2/3",
+            "mistakeTag": "added-instead-of-multiplied"
+          },
+          {
+            "label": "2/2",
+            "mistakeTag": "changed-only-one"
+          }
+        ],
+        "answer": "2/4",
+        "hintLadder": [
+          "Multiply the top AND the bottom of 1/2 by the same number.",
+          "Try multiplying both by 2: what do you get?",
+          "1×2 = 2 on top, 2×2 = 4 below."
+        ],
+        "explain": "1/2 = 2/4 — both numbers multiplied by 2, amount unchanged."
+      },
+      {
+        "id": "e2",
+        "type": "fraction",
+        "q": "Fill in the missing top number: 1/2 = ?/4 (write the whole fraction, like 2/4)",
+        "answer": "2/4",
+        "hintLadder": [
+          "The bottom went from 2 to 4. What was it multiplied by?",
+          "By 2! Now do the same to the top: 1 × 2 = ?",
+          "Top becomes 2, bottom is 4 — write the full fraction."
+        ],
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 2,
+                "shaded": 1,
+                "label": "1/2"
+              },
+              {
+                "parts": 4,
+                "shaded": 2,
+                "label": "?/4"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "fraction",
+        "q": "Fill in: 2/3 = ?/6 (write the whole fraction)",
+        "answer": "4/6",
+        "hintLadder": [
+          "Bottom: 3 became 6. Multiplied by what?",
+          "By 2. Do the same to the top: 2 × 2 = ?",
+          "Top 4, bottom 6."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "Anu wrote 3/4 = 4/5. What mistake did she make?",
+        "options": [
+          {
+            "label": "She added 1 to the top and bottom instead of multiplying"
+          },
+          {
+            "label": "She multiplied only the top",
+            "mistakeTag": "changed-only-one"
+          },
+          {
+            "label": "No mistake — they are equivalent",
+            "mistakeTag": "added-instead-of-multiplied"
+          }
+        ],
+        "answer": "She added 1 to the top and bottom instead of multiplying",
+        "hintLadder": [
+          "Compare 3→4 and 4→5. Was that multiplying or adding?",
+          "Does adding the same number to both keep the amount equal? Check with strips.",
+          "3/4 and 4/5 sit at different spots on the number line — she added instead of multiplied."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "fraction",
+        "q": "Simplify 6/8 to its smallest name (write the fraction).",
+        "answer": "3/4",
+        "hintLadder": [
+          "Simplifying means DIVIDING top and bottom by the same number.",
+          "What number divides both 6 and 8 exactly?",
+          "Divide both by 2: 6÷2 on top, 8÷2 below."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "A recipe needs 1/2 cup of milk, but you only have a 1/8 cup measure. How many 1/8 cups make 1/2?",
+        "options": [
+          {
+            "label": "4"
+          },
+          {
+            "label": "2",
+            "mistakeTag": "changed-only-one"
+          },
+          {
+            "label": "8",
+            "mistakeTag": "top-bottom-swapped"
+          }
+        ],
+        "answer": "4",
+        "hintLadder": [
+          "Rename 1/2 with 8 at the bottom: 1/2 = ?/8.",
+          "Bottom 2→8 means multiply by 4. Do the same on top.",
+          "1/2 = 4/8, so four 1/8 cups fill it."
+        ],
+        "explain": "1/2 = 4/8 — pour the small cup 4 times."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "mcq",
+        "q": "Two fractions are equivalent when…",
+        "options": [
+          {
+            "label": "They name the same amount, like 1/2 and 2/4"
+          },
+          {
+            "label": "Their tops differ by 1",
+            "mistakeTag": "added-instead-of-multiplied"
+          }
+        ],
+        "answer": "They name the same amount, like 1/2 and 2/4",
+        "hintLadder": [
+          "Think of the juice story — same amount, different names.",
+          "What did the folded strips show?",
+          "Equivalent = equal value, even with different numbers."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "fraction",
+        "q": "Fill in: 1/3 = ?/6 (write the whole fraction)",
+        "answer": "2/6",
+        "hintLadder": [
+          "Bottom 3 → 6: multiplied by what?",
+          "By 2. Same to the top.",
+          "1 × 2 = 2 on top, 6 below."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "fraction",
+        "q": "Simplify 4/8 to its smallest name.",
+        "answer": "1/2",
+        "hintLadder": [
+          "Divide top and bottom by the same number.",
+          "What divides both 4 and 8? Try 4.",
+          "4÷4 = 1, 8÷4 = 2."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "To make a fraction equivalent, you must…",
+        "options": [
+          {
+            "label": "Multiply or divide the top AND bottom by the same number"
+          },
+          {
+            "label": "Add the same number to the top and bottom",
+            "mistakeTag": "added-instead-of-multiplied"
+          },
+          {
+            "label": "Multiply only the bottom",
+            "mistakeTag": "changed-only-one"
+          }
+        ],
+        "answer": "Multiply or divide the top AND bottom by the same number",
+        "hintLadder": [
+          "Both or nothing — which operation keeps the amount equal?",
+          "Adding shifts the amount; check 2/3 vs 3/4 with strips.",
+          "Only multiplying/dividing BOTH keeps the strips lined up."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Ravi still thinks 2/4 is bigger than 1/2 'because 2 is more than 1.' Use the folding story (or your own drawing) to teach Ravi why 1/2 and 2/4 are the same amount, and tell him the one rule for making equivalent fractions.",
+  "revisionCard": {
+    "summary": "Equivalent fractions = same amount, different names (1/2 = 2/4 = 4/8). Rule: multiply OR divide top and bottom by the SAME number — never add. Simplify = divide both to the smallest name (6/8 → 3/4).",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Fraction Kitchen (Ganita Grove)",
+    "title": "The Name-Tag Party",
+    "brief": "Every fraction at the party wears many name-tags! Match the guests who are secretly the same amount (1/2 with 2/4 and 4/8) before Ravi mixes up the tags with his 'just add 1' trick.",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "In the kitchen with a parent: fill a 1/2 cup with water. Now pour it into 1/4 cups — how many did it fill? Write the equivalence you discovered (1/2 = 2/4) in your math notebook and decorate it with name-tags.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4 (equivalent fractions)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

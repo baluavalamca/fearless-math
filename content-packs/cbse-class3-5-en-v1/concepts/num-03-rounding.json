@@ -1,0 +1,488 @@
+{
+  "id": "num-03-rounding",
+  "name": "Rounding and Estimation — About How Many?",
+  "grade": 3,
+  "strand": "numbers",
+  "prerequisites": [
+    "num-02-comparing"
+  ],
+  "whatIsIt": "Rounding replaces a number with a nearby FRIENDLY number that is easier to think with: 47 becomes 50, 82 becomes 80. Estimation uses these friendly numbers to get a quick 'about how many' answer. It is not cheating — it is smart thinking that checks exact answers!",
+  "whyNeeded": "You rarely need exact numbers instantly. Will ₹100 be enough for a ₹47 toy and a ₹38 book? Round: 50 + 40 = 90 — yes! Estimation also GUARDS your exact answers: if you compute 47 + 25 = 612, the estimate (about 75) shouts that something went wrong.",
+  "realLifeUses": [
+    "Shopping: quickly checking if the money in your pocket is enough",
+    "Time: 'about 30 minutes to school' instead of 27 minutes",
+    "Crowds: 'about 500 people at the match' — nobody counts each head!",
+    "Checking homework: an estimate catches wild wrong answers instantly"
+  ],
+  "vocabulary": [
+    {
+      "term": "round",
+      "meaning": "Replace a number with the nearest friendly ten or hundred."
+    },
+    {
+      "term": "estimate",
+      "meaning": "A quick 'about' answer using rounded numbers."
+    },
+    {
+      "term": "nearest ten",
+      "meaning": "The friendly ten a number is closest to: 47 → 50, 42 → 40."
+    },
+    {
+      "term": "halfway rule",
+      "meaning": "Exactly in the middle (like 45)? Round UP."
+    }
+  ],
+  "story": {
+    "title": "Milestones on the Village Road",
+    "characters": [
+      "Ravi",
+      "Thatha (grandfather)"
+    ],
+    "text": "Walking the dusty village road, Ravi passes a milestone marked 47. 'About how far — nearer 40 or 50?' asks Thatha. On the number line in his mind, Ravi checks: '47 is only 3 steps from 50, but 7 steps from 40. So it rounds to 50 — the nearer ten.' 'Rounding gives a quick, close-enough answer,' nods Thatha.",
+    "extractedProblem": "Round 47 to the nearest ten.",
+    "answerInStory": "50 — on the number line, 47 is only 3 steps from 50 but 7 steps from 40."
+  },
+  "visual": {
+    "component": "NumberLine",
+    "props": {
+      "lines": [
+        {
+          "parts": 10,
+          "mark": 7,
+          "label": "47",
+          "showLabels": false
+        }
+      ]
+    },
+    "caption": "Think of 40 to 50 as a number line. 47 stands here — closer to the 50 end. So 47 rounds to 50."
+  },
+  "teachingGallery": [
+    {
+      "title": "Round to the nearest ten — which ten is closer?",
+      "note": "5 or more rounds UP; less than 5 rounds DOWN.",
+      "examples": [
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 7,
+                "label": "47→50",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "47 is past halfway (7) → nearest ten is 50."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 2,
+                "label": "42→40",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "42 is before halfway (2) → nearest ten is 40."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 5,
+                "label": "45→50",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "45 sits on the halfway mark → round UP to 50."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 8,
+                "label": "68→70",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "68 is close to 70 → round UP."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 3,
+                "label": "23→20",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "23 is close to 20 → round DOWN."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Look at the ones digit: 5 or more rounds UP, 4 or less rounds DOWN.",
+    "steps": [
+      "Find the two friendly tens around your number: 47 sits between 40 and 50.",
+      "Look at the ONES digit: 7.",
+      "7 is 5-or-more → round UP to 50. (If it were 4-or-less, round DOWN.)",
+      "Exactly 5 in the ones (like 45)? The halfway rule says round UP: 45 → 50."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Number-line method",
+      "whenToUse": "To SEE why a number rounds where it does.",
+      "steps": [
+        "Draw the two friendly tens as the ends of a line.",
+        "Mark your number between them.",
+        "Whichever end is closer — that's the round!"
+      ],
+      "example": "82 between 80 and 90: only 2 steps from 80 → rounds to 80."
+    },
+    {
+      "name": "Estimation guard (checking answers)",
+      "whenToUse": "After ANY calculation, to catch wild mistakes.",
+      "steps": [
+        "Round each number in the problem.",
+        "Do the easy friendly-number calculation.",
+        "Compare: your exact answer should be CLOSE to the estimate."
+      ],
+      "example": "47 + 38: estimate 50 + 40 = 90. Exact 85 ✓ close. An answer like 815 ✗ fails the guard!"
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Round 82 to the nearest ten.",
+      "steps": [
+        "82 sits between 80 and 90.",
+        "Ones digit: 2 — that is 4-or-less.",
+        "Round DOWN: 82 → 80."
+      ],
+      "answer": "80"
+    },
+    {
+      "problem": "Anu has ₹100. A toy costs ₹47 and a book ₹38. WITHOUT exact adding, is her money enough?",
+      "steps": [
+        "Round both prices UP to be safe: 47 → 50, 38 → 40.",
+        "Friendly sum: 50 + 40 = 90.",
+        "Even rounding UP, the total is under ₹100 — so YES, enough, with change!"
+      ],
+      "answer": "Yes — about ₹90, which is less than ₹100."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Look at the next digit",
+    "intro": "To round, peek at just ONE digit — the one to the right — then up or down.",
+    "questions": [
+      {
+        "id": "num03-trick-round47",
+        "type": "number",
+        "q": "Round 47 to the nearest ten = ?",
+        "answer": "50",
+        "hintLadder": [
+          "Look at the ONES digit: 7.",
+          "7 is 5 or more → round UP.",
+          "47 rounds to 50."
+        ],
+        "explain": "Ones 7 → up → 50."
+      },
+      {
+        "id": "num03-trick-round42",
+        "type": "number",
+        "q": "Round 42 to the nearest ten = ?",
+        "answer": "40",
+        "hintLadder": [
+          "Look at the ONES digit: 2.",
+          "2 is less than 5 → round DOWN.",
+          "42 rounds to 40."
+        ],
+        "explain": "Ones 2 → down → 40."
+      },
+      {
+        "id": "num03-trick-round68",
+        "type": "number",
+        "q": "Round 68 to the nearest ten = ?",
+        "answer": "70",
+        "hintLadder": [
+          "Look at the ONES digit: 8.",
+          "8 is 5 or more → round UP.",
+          "68 rounds to 70."
+        ],
+        "explain": "Ones 8 → up → 70."
+      },
+      {
+        "id": "num03-trick-round85",
+        "type": "number",
+        "q": "Round 85 to the nearest ten = ?",
+        "answer": "90",
+        "hintLadder": [
+          "Look at the ONES digit: 5.",
+          "5 is 5 or more → round UP.",
+          "85 rounds to 90."
+        ],
+        "explain": "Ones 5 → up → 90."
+      },
+      {
+        "id": "num03-trick-round23",
+        "type": "number",
+        "q": "Round 23 to the nearest ten = ?",
+        "answer": "20",
+        "hintLadder": [
+          "Look at the ONES digit: 3.",
+          "3 is less than 5 → round DOWN.",
+          "23 rounds to 20."
+        ],
+        "explain": "Ones 3 → down → 20."
+      },
+      {
+        "id": "num03-trick-round76",
+        "type": "number",
+        "q": "Round 76 to the nearest ten = ?",
+        "answer": "80",
+        "hintLadder": [
+          "Look at the ONES digit: 6.",
+          "6 is 5 or more → round UP.",
+          "76 rounds to 80."
+        ],
+        "explain": "Ones 6 → up → 80."
+      },
+      {
+        "id": "num03-trick-round51",
+        "type": "number",
+        "q": "Round 51 to the nearest ten = ?",
+        "answer": "50",
+        "hintLadder": [
+          "Look at the ONES digit: 1.",
+          "1 is less than 5 → round DOWN.",
+          "51 rounds to 50."
+        ],
+        "explain": "Ones 1 → down → 50."
+      },
+      {
+        "id": "num03-trick-round94",
+        "type": "number",
+        "q": "Round 94 to the nearest ten = ?",
+        "answer": "90",
+        "hintLadder": [
+          "Look at the ONES digit: 4.",
+          "4 is less than 5 → round DOWN.",
+          "94 rounds to 90."
+        ],
+        "explain": "Ones 4 → down → 90."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "rounded-wrong-direction",
+      "mistake": "Rounding 47 down to 40 because '4 is the first digit'.",
+      "fix": "The ONES digit decides, not the tens! Look at the 7: it is 5-or-more, so 47 climbs UP to 50. Check on a number line — 47 is clearly closer to 50."
+    },
+    {
+      "mistakeTag": "halfway-rounded-down",
+      "mistake": "Rounding 45 down to 40 — 'it's in the middle, so either way'.",
+      "fix": "Halfway numbers follow ONE agreed rule so everyone gets the same answer: exactly 5 in the ones rounds UP. 45 → 50, always."
+    },
+    {
+      "mistakeTag": "estimate-treated-as-exact",
+      "mistake": "Writing the estimate as the final exact answer (47 + 38 = 90).",
+      "fix": "An estimate is a helper, not the answer! Say it with 'about': 'about 90'. The exact answer (85) still needs real adding — the estimate just checks it."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "Round 62 to the nearest ten.",
+        "answer": "60",
+        "hintLadder": [
+          "62 sits between which two friendly tens?",
+          "Look at the ones digit: 2. Is it 5-or-more, or 4-or-less?",
+          "4-or-less means round DOWN."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "Round 78 to the nearest ten.",
+        "options": [
+          {
+            "label": "80"
+          },
+          {
+            "label": "70",
+            "mistakeTag": "rounded-wrong-direction"
+          }
+        ],
+        "answer": "80",
+        "hintLadder": [
+          "78 sits between 70 and 80.",
+          "Ones digit is 8 — is that 5-or-more?",
+          "5-or-more climbs UP."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "Round 45 to the nearest ten. (Careful — the halfway house!)",
+        "answer": "50",
+        "hintLadder": [
+          "45 is exactly halfway between 40 and 50.",
+          "What is the halfway rule?",
+          "Exactly 5 in the ones → UP, always."
+        ],
+        "explain": "Halfway always rounds UP: 45 → 50."
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "Estimate first: about how much is 47 + 38? (Give the estimate, not the exact sum.)",
+        "answer": "90",
+        "hintLadder": [
+          "Round each number first: 47 → ? and 38 → ?",
+          "50 and 40.",
+          "Add the friendly numbers."
+        ],
+        "explain": "About 90 (the exact answer 85 lives close by — that's the point!)."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Ravi computed 52 + 46 = 998. Captain Count caught it in two seconds WITHOUT adding. How?",
+        "options": [
+          {
+            "label": "He estimated: about 50 + 50 = 100, so 998 is impossible"
+          },
+          {
+            "label": "He is just very fast at exact adding",
+            "mistakeTag": "estimate-treated-as-exact"
+          },
+          {
+            "label": "He rounded 998 down to 990",
+            "mistakeTag": "rounded-wrong-direction"
+          }
+        ],
+        "answer": "He estimated: about 50 + 50 = 100, so 998 is impossible",
+        "hintLadder": [
+          "The Captain never added exactly — he used friendly numbers.",
+          "Round 52 and 46 and add in your head.",
+          "About 100. Can the true answer be near 998?"
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "A school trip needs 'about 30' seats per bus. 27 children from Class A and 31 from Class B are going. ESTIMATE the total children (nearest ten each, then add).",
+        "answer": "60",
+        "hintLadder": [
+          "Round 27 to the nearest ten: ones digit 7 → ?",
+          "Round 31: ones digit 1 → ?",
+          "30 + 30 = ?"
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "Round 34 to the nearest ten.",
+        "answer": "30",
+        "hintLadder": [
+          "Between 30 and 40.",
+          "Ones digit 4 — up or down?",
+          "4-or-less goes down."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "Round 75 to the nearest ten.",
+        "answer": "80",
+        "hintLadder": [
+          "Exactly halfway between 70 and 80!",
+          "Remember the halfway rule.",
+          "Exactly 5 always climbs UP."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "Which digit decides whether a number rounds up or down to the nearest ten?",
+        "options": [
+          {
+            "label": "The ones digit"
+          },
+          {
+            "label": "The tens digit",
+            "mistakeTag": "rounded-wrong-direction"
+          }
+        ],
+        "answer": "The ones digit",
+        "hintLadder": [
+          "Which digit tells you how far past the friendly ten you are?",
+          "In 47, which digit made it round UP?",
+          "The 7 — the ones digit."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "number",
+        "q": "Quick guard check: estimate 58 + 33 using friendly tens.",
+        "answer": "90",
+        "hintLadder": [
+          "58 rounds to…? 33 rounds to…?",
+          "60 and 30.",
+          "Add the friendly numbers."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "You are the new About-Bridge keeper! Explain to someone at home: how do you round 47 and 82 to the nearest ten, what happens with 45, and show how estimation caught Ravi's silly 998.",
+  "revisionCard": {
+    "summary": "Rounding: ones digit 5-or-more → UP, 4-or-less → DOWN, exactly halfway → UP (45→50). Estimation = friendly-number quick answer, said with 'about'. Use it as your answer's bodyguard: 47+38 ≈ 90, so 85 ✓ and 815 ✗.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The About-Bridge Crossings",
+    "brief": "Travellers keep arriving with exact numbers! Round each one to open the bridge, and use estimates to catch the impostors carrying impossible answers.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Estimation shopping game: before a parent totals the grocery bill, round each item's price and predict the total. How close was your 'about' answer to the real bill? Whoever gets within ₹20 wins!",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3-4 (rounding and estimation)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

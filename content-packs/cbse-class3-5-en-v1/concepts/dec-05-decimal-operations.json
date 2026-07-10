@@ -1,0 +1,526 @@
+{
+  "id": "dec-05-decimal-operations",
+  "name": "Adding and Subtracting Decimals — Line Up the Dot",
+  "grade": 5,
+  "strand": "fractions",
+  "prerequisites": [
+    "dec-03-hundredths",
+    "ops-08-subtraction-regrouping"
+  ],
+  "whatIsIt": "To add or subtract decimals, LINE UP THE DOTS so tenths sit under tenths and hundredths under hundredths — then add or subtract like whole numbers and bring the dot straight down. Multiplying a decimal by 10 shifts every digit one place bigger (the dot appears to move right).",
+  "whyNeeded": "Money and measurement live in decimals: totalling a shopping bill in rupees and paise, adding lengths in metres, working out change. If the dots are not lined up, the answer can be ten times wrong — so this skill protects real money and real measurements.",
+  "realLifeUses": [
+    "Adding a shopping bill: ₹12.50 + ₹3.75",
+    "Working out change from ₹20.00 after spending ₹14.30",
+    "Adding two lengths: 1.4 m + 0.75 m of ribbon",
+    "Totalling weights on a kitchen scale in kilograms"
+  ],
+  "vocabulary": [
+    {
+      "term": "line up the dot",
+      "meaning": "Write the numbers so the decimal points sit one under the other."
+    },
+    {
+      "term": "tenths",
+      "meaning": "The first place after the dot."
+    },
+    {
+      "term": "hundredths",
+      "meaning": "The second place after the dot."
+    },
+    {
+      "term": "place-holder zero",
+      "meaning": "A zero added (like 0.70) so both numbers have the same number of decimal places — it does not change the value."
+    }
+  ],
+  "story": {
+    "title": "The Shopkeeper's Careful Column",
+    "characters": [
+      "Meena",
+      "the shopkeeper"
+    ],
+    "text": "Meena buys a pencil for ₹3.50 and a sharpener for ₹2.25. She scribbles the numbers crookedly and gets confused. 'Careful,' says the shopkeeper. 'Write them in a column and LINE UP THE DOTS — rupees under rupees, paise under paise: 3.50 above 2.25. Add, then bring the dot straight down: ₹5.75. The dot keeps the money honest!'",
+    "extractedProblem": "A pencil costs ₹3.50 and a sharpener ₹2.25. What is the total?",
+    "answerInStory": "₹5.75 — line up the dots, add, and bring the dot straight down."
+  },
+  "visual": {
+    "component": "FractionStrip",
+    "props": {
+      "strips": [
+        {
+          "parts": 10,
+          "shaded": 3,
+          "label": "0.3"
+        },
+        {
+          "parts": 10,
+          "shaded": 4,
+          "label": "+ 0.4"
+        },
+        {
+          "parts": 10,
+          "shaded": 7,
+          "label": "= 0.7"
+        }
+      ]
+    },
+    "caption": "Tenths add like same-size pieces: 0.3 + 0.4 = 0.7. Line up the dots!"
+  },
+  "teachingGallery": [
+    {
+      "title": "Line up the dot, then add",
+      "note": "Stack the numbers so the dots are in a column. Then add like normal.",
+      "examples": [
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 7,
+                "label": "0.3 + 0.4 = 0.7"
+              }
+            ]
+          },
+          "caption": "0.3 + 0.4 = 0.7 (3 tenths + 4 tenths)."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 9,
+                "label": "0.5 + 0.4 = 0.9"
+              }
+            ]
+          },
+          "caption": "0.5 + 0.4 = 0.9."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 6,
+                "label": "0.8 − 0.2 = 0.6"
+              }
+            ]
+          },
+          "caption": "0.8 − 0.2 = 0.6."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 8,
+                "label": "0.6 + 0.2 = 0.8",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "Jump 0.2 from 0.6 → 0.8."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 10,
+                "label": "0.6 + 0.4 = 1.0"
+              }
+            ]
+          },
+          "caption": "0.6 + 0.4 = 1.0 (a whole!)."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Line up the decimal points, fill place-holder zeros so both have the same places, add/subtract like whole numbers, and bring the dot straight down.",
+    "steps": [
+      "Write the numbers in a column with the dots exactly under each other.",
+      "Add place-holder zeros so both have the same number of decimal places (0.7 → 0.70).",
+      "Add or subtract as if they were whole numbers, regrouping as usual.",
+      "Bring the decimal point straight down into the answer."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Money-sense check",
+      "whenToUse": "To check a decimal sum is reasonable.",
+      "steps": [
+        "Round each number to the nearest whole.",
+        "Add the wholes for a rough answer.",
+        "Your exact answer should be close to it."
+      ],
+      "example": "3.50 + 2.25 ≈ 4 + 2 = 6, and 5.75 is close ✓."
+    },
+    {
+      "name": "Convert-to-paise",
+      "whenToUse": "For money problems.",
+      "steps": [
+        "Turn rupees into paise (×100).",
+        "Add or subtract the whole paise.",
+        "Turn back into rupees (÷100)."
+      ],
+      "example": "3.50 → 350p, 2.25 → 225p, 350+225=575p = ₹5.75."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Add 0.6 + 0.3",
+      "steps": [
+        "Line up the dots.",
+        "Both have one decimal place already.",
+        "Add the tenths: 6 + 3 = 9 tenths.",
+        "Bring the dot down: 0.9."
+      ],
+      "answer": "0.9",
+      "visual": {
+        "component": "FractionStrip",
+        "props": {
+          "strips": [
+            {
+              "parts": 10,
+              "shaded": 6,
+              "label": "0.6"
+            },
+            {
+              "parts": 10,
+              "shaded": 3,
+              "label": "+ 0.3"
+            },
+            {
+              "parts": 10,
+              "shaded": 9,
+              "label": "= 0.9"
+            }
+          ]
+        },
+        "caption": "0.6 + 0.3 = 0.9"
+      }
+    },
+    {
+      "problem": "Subtract ₹5.75 − ₹2.50",
+      "steps": [
+        "Line up the dots in a column.",
+        "Both have two decimal places.",
+        "Subtract like whole numbers: 575 − 250 = 325 (paise).",
+        "Bring the dot down: ₹3.25."
+      ],
+      "answer": "3.25"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Line up the dot",
+    "intro": "Stack the decimal points, add or subtract as usual, and drop the dot straight down.",
+    "questions": [
+      {
+        "id": "dec05-trick-+34",
+        "type": "number",
+        "q": "0.3 + 0.4 = ?",
+        "answer": "0.7",
+        "hintLadder": [
+          "Line up the DOTS in a column.",
+          "Add/subtract the tenths: 3 + 4.",
+          "Put the dot straight down → 0.7."
+        ],
+        "explain": "0.3+0.4=0.7."
+      },
+      {
+        "id": "dec05-trick-+54",
+        "type": "number",
+        "q": "0.5 + 0.4 = ?",
+        "answer": "0.9",
+        "hintLadder": [
+          "Line up the DOTS in a column.",
+          "Add/subtract the tenths: 5 + 4.",
+          "Put the dot straight down → 0.9."
+        ],
+        "explain": "0.5+0.4=0.9."
+      },
+      {
+        "id": "dec05-trick--82",
+        "type": "number",
+        "q": "0.8 - 0.2 = ?",
+        "answer": "0.6",
+        "hintLadder": [
+          "Line up the DOTS in a column.",
+          "Add/subtract the tenths: 8 - 2.",
+          "Put the dot straight down → 0.6."
+        ],
+        "explain": "0.8-0.2=0.6."
+      },
+      {
+        "id": "dec05-trick-+62",
+        "type": "number",
+        "q": "0.6 + 0.2 = ?",
+        "answer": "0.8",
+        "hintLadder": [
+          "Line up the DOTS in a column.",
+          "Add/subtract the tenths: 6 + 2.",
+          "Put the dot straight down → 0.8."
+        ],
+        "explain": "0.6+0.2=0.8."
+      },
+      {
+        "id": "dec05-trick--93",
+        "type": "number",
+        "q": "0.9 - 0.3 = ?",
+        "answer": "0.6",
+        "hintLadder": [
+          "Line up the DOTS in a column.",
+          "Add/subtract the tenths: 9 - 3.",
+          "Put the dot straight down → 0.6."
+        ],
+        "explain": "0.9-0.3=0.6."
+      },
+      {
+        "id": "dec05-trick-+72",
+        "type": "number",
+        "q": "0.7 + 0.2 = ?",
+        "answer": "0.9",
+        "hintLadder": [
+          "Line up the DOTS in a column.",
+          "Add/subtract the tenths: 7 + 2.",
+          "Put the dot straight down → 0.9."
+        ],
+        "explain": "0.7+0.2=0.9."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "dots-not-aligned",
+      "mistake": "Adding 3.5 + 2.25 as if 35 + 225, not lining up the dots.",
+      "fix": "ALWAYS line up the decimal points first. Put tenths under tenths. Add a place-holder zero: 3.50 + 2.25 = 5.75 — never mix the columns."
+    },
+    {
+      "mistakeTag": "lost-the-dot",
+      "mistake": "Adding the digits correctly but forgetting to put the decimal point in the answer.",
+      "fix": "Bring the dot STRAIGHT DOWN from the lined-up column into the answer. 0.6 + 0.3 = 0.9, not 9."
+    },
+    {
+      "mistakeTag": "ragged-places",
+      "mistake": "Not matching decimal places, so 0.7 and 0.25 get added wrongly.",
+      "fix": "Give both numbers the same number of places using place-holder zeros: 0.70 and 0.25 — now the columns line up."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "dec-05-e1",
+        "type": "number",
+        "q": "0.3 + 0.4 = ?",
+        "answer": "0.7",
+        "hintLadder": [
+          "Line up the dots.",
+          "Add the tenths: 3 + 4.",
+          "Bring the dot down."
+        ],
+        "explain": "0.3 + 0.4 = 0.7.",
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 3,
+                "label": "0.3"
+              },
+              {
+                "parts": 10,
+                "shaded": 4,
+                "label": "+0.4"
+              },
+              {
+                "parts": 10,
+                "shaded": 7,
+                "label": "=0.7"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "dec-05-e2",
+        "type": "number",
+        "q": "0.5 + 0.5 = ?",
+        "answer": "1",
+        "hintLadder": [
+          "Add the tenths: 5 + 5 = 10 tenths.",
+          "10 tenths = 1 whole.",
+          "Answer is 1.0."
+        ],
+        "explain": "0.5 + 0.5 = 1."
+      }
+    ],
+    "medium": [
+      {
+        "id": "dec-05-m1",
+        "type": "number",
+        "q": "0.9 − 0.4 = ?",
+        "answer": "0.5",
+        "hintLadder": [
+          "Line up the dots.",
+          "Subtract tenths: 9 − 4.",
+          "Bring the dot down."
+        ],
+        "explain": "0.9 − 0.4 = 0.5."
+      },
+      {
+        "id": "dec-05-m2",
+        "type": "number",
+        "q": "1.25 + 0.50 = ? (write as a decimal)",
+        "answer": "1.75",
+        "hintLadder": [
+          "Line up the dots, match places.",
+          "Add hundredths, tenths, ones.",
+          "Bring the dot down."
+        ],
+        "explain": "1.25 + 0.50 = 1.75."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "dec-05-c1",
+        "type": "number",
+        "q": "₹5.75 − ₹2.50 = ? (write the rupees as a decimal)",
+        "answer": "3.25",
+        "hintLadder": [
+          "Line up the dots.",
+          "Subtract like whole paise: 575 − 250.",
+          "Bring the dot down."
+        ],
+        "explain": "5.75 − 2.50 = 3.25."
+      },
+      {
+        "id": "dec-05-c2",
+        "type": "number",
+        "q": "0.4 × 10 = ?",
+        "answer": "4",
+        "hintLadder": [
+          "×10 makes every digit one place bigger.",
+          "The dot appears to move right one place.",
+          "0.4 becomes 4."
+        ],
+        "explain": "0.4 × 10 = 4."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "dec-05-x1",
+        "type": "number",
+        "q": "0.2 + 0.5 = ?",
+        "answer": "0.7",
+        "hintLadder": [
+          "Line up dots.",
+          "2 + 5 tenths.",
+          "Dot down."
+        ],
+        "explain": "0.7.",
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 2,
+                "label": "0.2"
+              },
+              {
+                "parts": 10,
+                "shaded": 5,
+                "label": "+0.5"
+              },
+              {
+                "parts": 10,
+                "shaded": 7,
+                "label": "=0.7"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "dec-05-x2",
+        "type": "number",
+        "q": "0.8 − 0.3 = ?",
+        "answer": "0.5",
+        "hintLadder": [
+          "Line up dots.",
+          "8 − 3 tenths.",
+          "Dot down."
+        ],
+        "explain": "0.5."
+      },
+      {
+        "id": "dec-05-x3",
+        "type": "number",
+        "q": "2.50 + 1.25 = ?",
+        "answer": "3.75",
+        "hintLadder": [
+          "Match places, line up dots.",
+          "Add hundredths up.",
+          "Dot down."
+        ],
+        "explain": "3.75."
+      },
+      {
+        "id": "dec-05-x4",
+        "type": "number",
+        "q": "₹10.00 − ₹4.30 = ? (rupees as a decimal)",
+        "answer": "5.70",
+        "hintLadder": [
+          "Line up dots.",
+          "1000 − 430 paise.",
+          "Dot down."
+        ],
+        "explain": "5.70."
+      },
+      {
+        "id": "dec-05-x5",
+        "type": "number",
+        "q": "0.7 × 10 = ?",
+        "answer": "7",
+        "hintLadder": [
+          "×10 shifts one place bigger.",
+          "Dot moves right.",
+          "0.7 → 7."
+        ],
+        "explain": "7."
+      }
+    ]
+  },
+  "teachBackPrompt": "Play shopkeeper! Add two prices in rupees and paise for someone at home, saying out loud why you LINE UP THE DOTS and bring the dot straight down — and show the ten-times mistake that happens if you don't.",
+  "revisionCard": {
+    "summary": "Add/subtract decimals: LINE UP THE DOTS, match places with place-holder zeros, work like whole numbers, bring the dot straight down. ×10 shifts digits one place bigger.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Fraction Kitchen (Ganita Grove)",
+    "title": "The Shopkeeper's Column",
+    "brief": "Total the bills and give the right change — line up every dot so the money stays honest.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Next time you shop, add two item prices in your head by lining up the rupees and paise, then check against the bill.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

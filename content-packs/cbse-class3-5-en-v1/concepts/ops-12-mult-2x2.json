@@ -1,0 +1,752 @@
+{
+  "id": "ops-12-mult-2x2",
+  "name": "Multiplying 2-Digit by 2-Digit — Four Patches",
+  "grade": 5,
+  "strand": "operations",
+  "prerequisites": [
+    "ops-11-area-multiplication"
+  ],
+  "whatIsIt": "To multiply 24 × 15, break BOTH numbers by place value: (20+4) × (10+5). The rope trick now cuts the orchard into FOUR patches: 20×10, 20×5, 4×10, 4×5. Multiply each patch, add all four — 200+100+40+20 = 360. Every big multiplication is just small table facts wearing place-value coats.",
+  "whyNeeded": "Two-digit × two-digit shows up everywhere real quantities meet: 24 boxes of 15 laddus, 12 rows of 18 chairs, 25 days of 40 rupees saved. It's also where the column method's 'add a zero on the second line' finally makes SENSE — the four patches explain it.",
+  "realLifeUses": [
+    "Party order: 24 boxes with 15 sweets each",
+    "Hall seating: 12 rows of 18 chairs",
+    "Savings: ₹25 saved every day for 31 days",
+    "School: 32 pages of homework for 14 students to print"
+  ],
+  "vocabulary": [
+    {
+      "term": "double break-apart",
+      "meaning": "Split BOTH factors by place value: 24×15 = (20+4)×(10+5)."
+    },
+    {
+      "term": "four partial products",
+      "meaning": "The four patch answers that add to the total."
+    },
+    {
+      "term": "the magic zero",
+      "meaning": "The column method's second line ends in 0 because it multiplies by TENS."
+    }
+  ],
+  "story": {
+    "title": "The Hillside Tea Estate",
+    "characters": [
+      "Meena",
+      "the estate manager"
+    ],
+    "text": "On the misty hillside tea estate, there are 24 rows of tea bushes, with 15 bushes in each row. 'How many bushes in all?' asks Meena. The manager splits both numbers: '24 is 20+4, and 15 is 10+5. That makes four patches: 20×10=200, 20×5=100, 4×10=40, 4×5=20. Add them all — 200+100+40+20 = 360 bushes!'",
+    "extractedProblem": "24 rows of 15 tea bushes — how many bushes?",
+    "answerInStory": "360 — four patches: 200 + 100 + 40 + 20."
+  },
+  "visual": {
+    "component": "AreaModel",
+    "props": {
+      "models": [
+        {
+          "rowParts": [
+            20,
+            4
+          ],
+          "colParts": [
+            10,
+            5
+          ],
+          "label": "24 × 15 = 200+100+40+20 = 360"
+        }
+      ]
+    },
+    "caption": "Two ropes → four patches. EVERY piece of 24 multiplies EVERY piece of 15. Add all four patches."
+  },
+  "teachingGallery": [
+    {
+      "title": "Four patches for 2-digit × 2-digit",
+      "note": "Split BOTH numbers into tens and ones — that makes four easy multiplications.",
+      "examples": [
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  20,
+                  3
+                ],
+                "colParts": [
+                  10,
+                  4
+                ],
+                "label": "23 × 14 = 200+80+30+12 = 322"
+              }
+            ]
+          },
+          "caption": "23 × 14: 200 + 80 + 30 + 12 = 322."
+        },
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  10,
+                  2
+                ],
+                "colParts": [
+                  10,
+                  3
+                ],
+                "label": "12 × 13 = 100+30+20+6 = 156"
+              }
+            ]
+          },
+          "caption": "12 × 13 = 156."
+        },
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  20,
+                  1
+                ],
+                "colParts": [
+                  20,
+                  5
+                ],
+                "label": "21 × 25 = 400+100+20+5 = 525"
+              }
+            ]
+          },
+          "caption": "21 × 25 = 525."
+        },
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  30,
+                  4
+                ],
+                "colParts": [
+                  10,
+                  2
+                ],
+                "label": "34 × 12 = 300+60+40+8 = 408"
+              }
+            ]
+          },
+          "caption": "34 × 12 = 408."
+        },
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  10,
+                  5
+                ],
+                "colParts": [
+                  10,
+                  5
+                ],
+                "label": "15 × 15 = 100+50+50+25 = 225"
+              }
+            ]
+          },
+          "caption": "15 × 15 = 225."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Break both numbers by place value; multiply every piece by every piece; add the four partials.",
+    "steps": [
+      "Break both: 24 = 20+4, 15 = 10+5.",
+      "Four patches: 20×10=200, 20×5=100, 4×10=40, 4×5=20.",
+      "Add them all: 200+100+40+20 = 360.",
+      "Estimate guard: 24×15 ≈ 25×15 ≈ 375 — 360 fits ✓"
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Column method decoded",
+      "whenToUse": "Exams — it's the four patches in two lines.",
+      "steps": [
+        "Line 1: 24 × 5 = 120 (the two right patches: 100+20).",
+        "Line 2: 24 × 10 = 240 — write it with its 0, because it's TENS! (the two left patches: 200+40)",
+        "Add the lines: 120 + 240 = 360.",
+        "The 'magic zero' isn't magic — line 2 multiplies by ten!"
+      ],
+      "example": "36 × 12 → 36×2 = 72; 36×10 = 360; total 432."
+    },
+    {
+      "name": "Friendly-number adjust",
+      "whenToUse": "When one factor is near a round number.",
+      "steps": [
+        "24 × 15: take 15 as 30 halved!",
+        "24 × 30 = 720, half of that = 360.",
+        "Or 19 × 22 = 20×22 − 22 = 440 − 22 = 418."
+      ],
+      "example": "25 × 16 = 25 × 4 × 4 = 100 × 4 = 400 — spot the friendly 25×4!"
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A hall has 12 rows of 18 chairs. How many chairs?",
+      "steps": [
+        "Break both: 12 = 10+2, 18 = 10+8.",
+        "Patches: 10×10=100, 10×8=80, 2×10=20, 2×8=16.",
+        "Add: 100+80+20+16 = 216 chairs.",
+        "Estimate: 12×18 ≈ 10×20 = 200 ✓ close."
+      ],
+      "answer": "216",
+      "visual": {
+        "component": "AreaModel",
+        "props": {
+          "models": [
+            {
+              "rowParts": [
+                10,
+                2
+              ],
+              "colParts": [
+                10,
+                8
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem": "Ravi computed 24 × 15 with only TWO patches: '20×10 = 200 and 4×5 = 20 → 220!' Which patches did he skip?",
+      "steps": [
+        "He multiplied outer pieces only — but EVERY piece meets EVERY piece!",
+        "Missing: 20×5 = 100 and 4×10 = 40.",
+        "All four: 200+100+40+20 = 360.",
+        "The area picture shows his two empty patches immediately — and 220 fails the ≈375 estimate."
+      ],
+      "answer": "360 — never skip the cross patches."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Four patches (2×2 area)",
+    "intro": "Split both numbers into tens and ones — four little products you can do in your head.",
+    "questions": [
+      {
+        "id": "ops12-trick-23x14",
+        "type": "number",
+        "q": "23 × 14 = ?",
+        "answer": "322",
+        "hintLadder": [
+          "Split: 23 = 20+3, 14 = 10+4.",
+          "Four patches: 200 + 80 + 30 + 12.",
+          "Add them → 322."
+        ],
+        "explain": "Four patches → 322.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  20,
+                  3
+                ],
+                "colParts": [
+                  10,
+                  4
+                ],
+                "label": "23×14=322"
+              }
+            ]
+          },
+          "caption": "23×14"
+        }
+      },
+      {
+        "id": "ops12-trick-12x13",
+        "type": "number",
+        "q": "12 × 13 = ?",
+        "answer": "156",
+        "hintLadder": [
+          "Split: 12 = 10+2, 13 = 10+3.",
+          "Four patches: 100 + 30 + 20 + 6.",
+          "Add them → 156."
+        ],
+        "explain": "Four patches → 156.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  10,
+                  2
+                ],
+                "colParts": [
+                  10,
+                  3
+                ],
+                "label": "12×13=156"
+              }
+            ]
+          },
+          "caption": "12×13"
+        }
+      },
+      {
+        "id": "ops12-trick-21x25",
+        "type": "number",
+        "q": "21 × 25 = ?",
+        "answer": "525",
+        "hintLadder": [
+          "Split: 21 = 20+1, 25 = 20+5.",
+          "Four patches: 400 + 100 + 20 + 5.",
+          "Add them → 525."
+        ],
+        "explain": "Four patches → 525.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  20,
+                  1
+                ],
+                "colParts": [
+                  20,
+                  5
+                ],
+                "label": "21×25=525"
+              }
+            ]
+          },
+          "caption": "21×25"
+        }
+      },
+      {
+        "id": "ops12-trick-34x12",
+        "type": "number",
+        "q": "34 × 12 = ?",
+        "answer": "408",
+        "hintLadder": [
+          "Split: 34 = 30+4, 12 = 10+2.",
+          "Four patches: 300 + 60 + 40 + 8.",
+          "Add them → 408."
+        ],
+        "explain": "Four patches → 408.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  30,
+                  4
+                ],
+                "colParts": [
+                  10,
+                  2
+                ],
+                "label": "34×12=408"
+              }
+            ]
+          },
+          "caption": "34×12"
+        }
+      },
+      {
+        "id": "ops12-trick-15x15",
+        "type": "number",
+        "q": "15 × 15 = ?",
+        "answer": "225",
+        "hintLadder": [
+          "Split: 15 = 10+5, 15 = 10+5.",
+          "Four patches: 100 + 50 + 50 + 25.",
+          "Add them → 225."
+        ],
+        "explain": "Four patches → 225.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  10,
+                  5
+                ],
+                "colParts": [
+                  10,
+                  5
+                ],
+                "label": "15×15=225"
+              }
+            ]
+          },
+          "caption": "15×15"
+        }
+      },
+      {
+        "id": "ops12-trick-24x13",
+        "type": "number",
+        "q": "24 × 13 = ?",
+        "answer": "312",
+        "hintLadder": [
+          "Split: 24 = 20+4, 13 = 10+3.",
+          "Four patches: 200 + 60 + 40 + 12.",
+          "Add them → 312."
+        ],
+        "explain": "Four patches → 312.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  20,
+                  4
+                ],
+                "colParts": [
+                  10,
+                  3
+                ],
+                "label": "24×13=312"
+              }
+            ]
+          },
+          "caption": "24×13"
+        }
+      },
+      {
+        "id": "ops12-trick-16x21",
+        "type": "number",
+        "q": "16 × 21 = ?",
+        "answer": "336",
+        "hintLadder": [
+          "Split: 16 = 10+6, 21 = 20+1.",
+          "Four patches: 200 + 10 + 120 + 6.",
+          "Add them → 336."
+        ],
+        "explain": "Four patches → 336.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  10,
+                  6
+                ],
+                "colParts": [
+                  20,
+                  1
+                ],
+                "label": "16×21=336"
+              }
+            ]
+          },
+          "caption": "16×21"
+        }
+      },
+      {
+        "id": "ops12-trick-32x11",
+        "type": "number",
+        "q": "32 × 11 = ?",
+        "answer": "352",
+        "hintLadder": [
+          "Split: 32 = 30+2, 11 = 10+1.",
+          "Four patches: 300 + 30 + 20 + 2.",
+          "Add them → 352."
+        ],
+        "explain": "Four patches → 352.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  30,
+                  2
+                ],
+                "colParts": [
+                  10,
+                  1
+                ],
+                "label": "32×11=352"
+              }
+            ]
+          },
+          "caption": "32×11"
+        }
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "cross-patches-skipped",
+      "mistake": "Multiplying only 20×10 and 4×5, skipping the cross patches (20×5, 4×10).",
+      "fix": "Two ropes make FOUR patches, not two! Draw the rectangle: every row-piece must meet every column-piece. Count your partials — a 2×2 break always gives 4."
+    },
+    {
+      "mistakeTag": "magic-zero-dropped",
+      "mistake": "In the column method, writing line 2 without its ending zero (24×1 instead of 24×10).",
+      "fix": "Line 2 multiplies by the TENS digit — that's ×10-something! Its answer lives one place left, so it ends in 0. Say it aloud: 'twenty-four times TEN'."
+    },
+    {
+      "mistakeTag": "estimate-skipped",
+      "mistake": "Accepting any total without the estimate guard (220 or 3600 for 24×15).",
+      "fix": "Round first: 24×15 is about 25×15 = 375. Any answer far from 375 — like 220 or 3600 — is instantly suspicious. Two seconds of estimating saves the whole sum."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "12 × 13 = ? (Break both: (10+2) × (10+3) — four patches!)",
+        "answer": "156",
+        "hintLadder": [
+          "Patches: 10×10, 10×3, 2×10, 2×3.",
+          "100 + 30 + 20 + 6.",
+          "Add them up."
+        ],
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  10,
+                  2
+                ],
+                "colParts": [
+                  10,
+                  3
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "Breaking 24 × 15 with two ropes gives how many patches?",
+        "options": [
+          {
+            "label": "4 — every piece meets every piece"
+          },
+          {
+            "label": "2 — one per number",
+            "mistakeTag": "cross-patches-skipped"
+          }
+        ],
+        "answer": "4 — every piece meets every piece",
+        "hintLadder": [
+          "One rope cuts rows, one cuts columns.",
+          "2 row-pieces × 2 column-pieces.",
+          "Four patches!"
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "A party order: 21 boxes of 14 sweets. Total sweets?",
+        "answer": "294",
+        "hintLadder": [
+          "(20+1) × (10+4).",
+          "200 + 80 + 10 + 4.",
+          "Add all four patches."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "In the column method for 24 × 15, the second line ends in 0 because…",
+        "options": [
+          {
+            "label": "It multiplies by the TENS (×10), so it sits one place left"
+          },
+          {
+            "label": "It's a decoration teachers like",
+            "mistakeTag": "magic-zero-dropped"
+          }
+        ],
+        "answer": "It multiplies by the TENS (×10), so it sits one place left",
+        "hintLadder": [
+          "Line 2 uses which digit of 15?",
+          "The 1 — but it's worth TEN.",
+          "24 × 10 = 240 — hence the zero."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "number",
+        "q": "Savings plan: ₹25 every day for 31 days. Total rupees? (Try the friendly way: 25×30 + 25.)",
+        "answer": "775",
+        "hintLadder": [
+          "25 × 30 = 750.",
+          "Plus one more day's 25.",
+          "750 + 25."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "For 24 × 15, Ravi got 220. The estimate says ≈ 375. What should he do FIRST?",
+        "options": [
+          {
+            "label": "Trust the estimate — recheck for skipped patches (he missed 100+40!)"
+          },
+          {
+            "label": "Trust his answer — estimates are rough",
+            "mistakeTag": "estimate-skipped"
+          },
+          {
+            "label": "Add a zero to make 2200",
+            "mistakeTag": "magic-zero-dropped"
+          }
+        ],
+        "answer": "Trust the estimate — recheck for skipped patches (he missed 100+40!)",
+        "hintLadder": [
+          "220 vs about 375 — close or far?",
+          "Far! Something's missing.",
+          "Count his patches: only 2 of 4."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "13 × 12 = ?",
+        "answer": "156",
+        "hintLadder": [
+          "(10+3) × (10+2).",
+          "100 + 20 + 30 + 6.",
+          "Add the four patches."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "24 × 15 = ? (four patches!)",
+        "answer": "360",
+        "hintLadder": [
+          "200 + 100 + 40 + 20.",
+          "Or column: 120 + 240.",
+          "Estimate ≈ 375 to check."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "How many partial products does (20+4) × (10+5) create?",
+        "options": [
+          {
+            "label": "Four"
+          },
+          {
+            "label": "Two",
+            "mistakeTag": "cross-patches-skipped"
+          }
+        ],
+        "answer": "Four",
+        "hintLadder": [
+          "Each piece of the first meets each piece of the second.",
+          "2 × 2 meetings.",
+          "Four patches, always."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "number",
+        "q": "Estimate first, then compute exactly: 19 × 21 = ? (Friendly: 20×21 − 21.)",
+        "answer": "399",
+        "hintLadder": [
+          "20 × 21 = 420.",
+          "One 21 too many — remove it.",
+          "420 − 21."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw Multi's two-rope orchard for 12 × 13 on paper for someone at home: show all FOUR patches, add them, then reveal how the school column method hides the same four patches in two lines.",
+  "revisionCard": {
+    "summary": "2-digit × 2-digit: break BOTH numbers, make FOUR patches (every piece × every piece), add all partials. 24×15 = 200+100+40+20 = 360. Column method line 2 ends in 0 because it's ×TENS. Estimate first (≈375) — it catches skipped patches!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Multiplication Farm (Ganita Grove)",
+    "title": "The Mega Orchard Contracts",
+    "brief": "Huge planting orders are flooding in! Stretch both ropes, fill all four patches, and pass every order through the estimate gate. Ravi's two-patch shortcuts keep leaving orchards half-empty — audit him!",
+    "character": "Multi the Monkey"
+  },
+  "realLifeProject": "Real order math: find a snack box at home (biscuits per packet × packets per box, or similar). Compute the total with four patches AND with columns — do they agree? Show a parent both ways.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 5 (2-digit multiplication)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "mentalMathMethod": {
+    "name": "Break apart (area method)",
+    "whenToUse": "For any 2-digit × 2-digit.",
+    "steps": [
+      "Split both numbers into tens + ones.",
+      "Make the four partial products.",
+      "Add all four together."
+    ],
+    "example": "23 × 21 = 400 + 60 + 20 + 3 = 483."
+  },
+  "abacusMethod": {
+    "name": "Four partial products on the rods",
+    "whenToUse": "To multiply two-digit numbers on the abacus.",
+    "steps": [
+      "Multiply ones×ones and set it.",
+      "Add the two cross products (tens×ones) in the tens place.",
+      "Add tens×tens in the hundreds place; read the total."
+    ],
+    "example": "23 × 21 → 483.",
+    "visual": {
+      "component": "Abacus",
+      "props": {
+        "abaci": [
+          {
+            "value": 483,
+            "label": "23 × 21 = 483"
+          }
+        ]
+      },
+      "caption": "The four partial products, added in their columns."
+    }
+  },
+  "vedicMethod": {
+    "name": "Vertically and Crosswise (Urdhva-Tiryagbhyam)",
+    "whenToUse": "The fast Vedic way for 2×2 digits.",
+    "steps": [
+      "UNITS: multiply the two units vertically (right).",
+      "MIDDLE: cross-multiply the two pairs and add.",
+      "TENS: multiply the two tens vertically (left). Carry as you go."
+    ],
+    "example": "23 × 21: units 3×1=3; cross 2×1+3×2=8; tens 2×2=4 → 483."
+  }
+}

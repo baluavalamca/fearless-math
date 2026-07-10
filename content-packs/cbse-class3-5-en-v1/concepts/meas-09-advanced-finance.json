@@ -1,0 +1,169 @@
+{
+  "id": "meas-09-advanced-finance",
+  "name": "Tax, Compound Interest and EMIs",
+  "grade": 8,
+  "strand": "measurement",
+  "prerequisites": ["meas-07-financial-literacy", "dec-06-percentages"],
+  "whatIsIt": "Grown-up money maths. TAX (like GST) adds a percentage to a price: ₹100 + 18% GST = ₹118. COMPOUND INTEREST earns interest on the interest too, so money grows faster than simple interest over time. An EMI is an Equal Monthly Instalment — a loan (plus its interest) split into equal monthly payments. INFLATION means prices rise over time, so money buys a little less each year.",
+  "whyNeeded": "Bills, savings, loans and shopping all use these. Understanding GST on a bill, how savings grow, what an EMI really costs, and why prices rise makes you a smart, confident money manager.",
+  "realLifeUses": [
+    "GST added on a restaurant or shopping bill",
+    "Savings growing with compound interest at a bank",
+    "A phone or bike bought on EMIs",
+    "Why the same item costs more each year (inflation)"
+  ],
+  "vocabulary": [
+    { "term": "GST (tax)", "meaning": "A percentage added to a price (e.g. 18% GST)." },
+    { "term": "compound interest", "meaning": "Interest earned on both the principal AND the interest already added." },
+    { "term": "EMI", "meaning": "Equal Monthly Instalment — a loan repaid in equal monthly amounts." }
+  ],
+  "story": {
+    "title": "The Bill with GST",
+    "characters": ["Naina", "Waiter"],
+    "text": "Naina's food costs ₹200, and the bill adds 5% GST. She works out 5% of 200 = ₹10, so the total is 200 + 10 = ₹210. 'Tax is a percentage ON TOP,' she says. Her uncle adds, 'and if you saved ₹200 at compound interest, next year you'd earn interest on the interest too — money grows on money.'",
+    "extractedProblem": "Food costs ₹200 with 5% GST. What is the total bill?",
+    "answerInStory": "₹210 — add 5% of 200 (₹10) to the price."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "₹200 + 5% GST = ₹210", "parts": [ { "value": 200 }, { "value": 10 } ], "showTotal": true }
+      ]
+    },
+    "caption": "Tax adds a percentage on top of the price: ₹200 + (5% of 200 = ₹10) = ₹210."
+  },
+  "teachingGallery": [
+    {
+      "title": "Add tax, grow money, split loans",
+      "note": "Tax adds %; compound grows on the new total; EMI splits the total.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "₹1000 + 18% GST", "parts": [ { "value": 1000 }, { "value": 180 } ], "showTotal": true } ] }, "caption": "18% of 1000 = ₹180 tax." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "compound yr2 > yr1", "parts": [ { "value": 1000 }, { "value": 100 }, { "value": 10 } ], "showTotal": true } ] }, "caption": "Year 2 earns interest on the interest too." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "₹12000 loan ÷ 12 EMIs", "parts": [ { "value": 1000 }, { "value": 1000 }, { "value": 1000 } ], "showTotal": false } ] }, "caption": "EMI = total (with interest) ÷ number of months." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Tax: add the % of the price. Compound interest: apply interest each period on the running total. EMI: divide the total owed by the number of months.",
+    "steps": [
+      "Tax total = price + (tax% of price). GST 18% on ₹100 → 100 + 18 = ₹118.",
+      "Simple interest is on the original only; COMPOUND adds interest to the total, so the next interest is bigger.",
+      "EMI ≈ total amount to repay (loan + interest) ÷ number of months.",
+      "Inflation: prices rise by a % each year, so plan for costs to grow."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A ₹500 item has 10% GST. What is the total price?",
+      "steps": ["Tax = 10% of 500 = ₹50.", "Total = 500 + 50.", "= ₹550."],
+      "answer": "₹550"
+    },
+    {
+      "problem": "₹1000 at 10% per year, compounded. What is the amount after 2 years?",
+      "steps": ["Year 1: 1000 + 10% = ₹1100.", "Year 2: 10% of 1100 = ₹110 → 1100 + 110.", "= ₹1210 (₹10 more than simple interest)."],
+      "answer": "₹1210"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "tax-not-added",
+      "mistake": "Giving the tax amount as the total instead of adding it to the price.",
+      "fix": "Tax is ON TOP: total = price + tax. ₹500 with ₹50 tax = ₹550, not ₹50."
+    },
+    {
+      "mistakeTag": "compound-as-simple",
+      "mistake": "Treating compound interest like simple interest (same interest every year).",
+      "fix": "Compound interest is charged on the NEW, bigger total each period — so it grows faster than simple interest."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "m09-e1", "type": "number",
+        "q": "10% GST on ₹200 is how many rupees of tax?",
+        "answer": "20",
+        "hintLadder": ["10% of 200.", "200 ÷ 10.", "20."]
+      },
+      {
+        "id": "m09-e2", "type": "number",
+        "q": "₹100 item + ₹18 GST — total price (₹)?",
+        "answer": "118",
+        "hintLadder": ["Add tax on top.", "100 + 18.", "118."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m09-m1", "type": "number",
+        "q": "A ₹400 item has 5% GST. Total price (₹)?",
+        "answer": "420",
+        "hintLadder": ["5% of 400 = 20.", "400 + 20.", "420."]
+      },
+      {
+        "id": "m09-m2", "type": "number",
+        "q": "₹12000 loan repaid over 12 equal months. EMI (₹)?",
+        "answer": "1000",
+        "hintLadder": ["Total ÷ months.", "12000 ÷ 12.", "1000."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "m09-c1", "type": "number",
+        "q": "₹1000 at 10% compounded — amount after 2 years (₹)?",
+        "answer": "1210",
+        "hintLadder": ["Yr1: 1100. Yr2: +10% of 1100 = 110.", "1100 + 110.", "1210."]
+      },
+      {
+        "id": "m09-c2", "type": "mcq",
+        "q": "A ₹500 item has ₹50 tax. Ravi says the price is ₹50. What's the fix?",
+        "options": [ { "label": "Add tax to price: 500 + 50 = ₹550" }, { "label": "₹50 is right", "mistakeTag": "tax-not-added" } ],
+        "answer": "Add tax to price: 500 + 50 = ₹550",
+        "hintLadder": ["Tax is on top.", "price + tax.", "₹550."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "m09-x1", "type": "number",
+        "q": "18% GST on ₹100 is how much tax (₹)?",
+        "answer": "18",
+        "hintLadder": ["18% of 100.", "18.", "₹18."]
+      },
+      {
+        "id": "m09-x2", "type": "number",
+        "q": "₹300 item + 10% GST — total (₹)?",
+        "answer": "330",
+        "hintLadder": ["10% of 300 = 30.", "300 + 30.", "330."]
+      },
+      {
+        "id": "m09-x3", "type": "number",
+        "q": "₹24000 loan over 12 months — EMI (₹)?",
+        "answer": "2000",
+        "hintLadder": ["Total ÷ months.", "24000 ÷ 12.", "2000."]
+      },
+      {
+        "id": "m09-x4", "type": "mcq",
+        "q": "Compared with simple interest, compound interest…",
+        "options": [ { "label": "Grows faster (interest on interest)" }, { "label": "Is always the same", "mistakeTag": "compound-as-simple" } ],
+        "answer": "Grows faster (interest on interest)",
+        "hintLadder": ["Interest on the new total.", "Bigger each period.", "Grows faster."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Look at a real bill with GST at home. Show a grown-up how the tax is a percentage added on top, and explain the difference between simple and compound interest — why saving with compound interest grows money faster over the years.",
+  "revisionCard": {
+    "summary": "Tax/GST: total = price + (tax% of price). Compound interest: interest on the growing total each period (grows faster than simple). EMI = total owed (loan + interest) ÷ number of months. Inflation: prices rise a % each year, so money buys less over time.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 8 (tax/GST, compound interest, EMI, inflation)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

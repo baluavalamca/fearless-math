@@ -1,0 +1,172 @@
+{
+  "id": "geo-17-trigonometry",
+  "name": "Trigonometry — Sine, Cosine and Tangent",
+  "grade": 9,
+  "strand": "geometry",
+  "prerequisites": ["geo-13-pythagoras"],
+  "whatIsIt": "In a right-angled triangle, the three sides have names relative to an angle: OPPOSITE (facing it), ADJACENT (next to it), and HYPOTENUSE (longest). Three ratios connect them: sin = opposite/hypotenuse, cos = adjacent/hypotenuse, tan = opposite/adjacent — remembered as SOH-CAH-TOA. These ratios stay the same for a given angle in ANY similar right triangle, so they let us find unknown sides and heights.",
+  "whyNeeded": "Trigonometry measures heights and distances you can't reach — a tower, a hillside, a flagpole — using just an angle and one length. It underpins navigation, engineering, waves, and physics.",
+  "realLifeUses": [
+    "Finding a tree or tower's height from an angle and a distance",
+    "The steepness (angle) of a ramp or road",
+    "Navigation and surveying",
+    "The rise of a staircase from its angle"
+  ],
+  "vocabulary": [
+    { "term": "opposite / adjacent", "meaning": "The side facing the angle / the side next to it (not the hypotenuse)." },
+    { "term": "SOH-CAH-TOA", "meaning": "sin=O/H, cos=A/H, tan=O/A — the three ratios." },
+    { "term": "trigonometric ratio", "meaning": "A fixed ratio of two sides for a given angle." }
+  ],
+  "story": {
+    "title": "How Tall Is the Tower?",
+    "characters": ["Sara", "Engineer"],
+    "text": "From 50 m away, Sara measures the angle to the top of a tower as 30°. 'How tall is it?' The engineer says use tangent: tan 30° = height ÷ 50, so height = 50 × tan 30° ≈ 50 × 0.577 ≈ 29 m. 'We found the height without climbing!' Sara marvels. 'That's the power of a ratio.'",
+    "extractedProblem": "From 50 m away, the angle to a tower top is 30°. Roughly how tall is the tower?",
+    "answerInStory": "≈ 29 m — height = 50 × tan 30°."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "triangle", "label": "opposite, adjacent, hypotenuse" }
+      ]
+    },
+    "caption": "Right triangle: sin = opposite/hypotenuse, cos = adjacent/hypotenuse, tan = opposite/adjacent (SOH-CAH-TOA)."
+  },
+  "teachingGallery": [
+    {
+      "title": "Name the sides, pick the ratio",
+      "note": "Choose sin, cos or tan by which sides you know/want.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "3-4-5: sin = 3/5" } ] }, "caption": "Opposite 3, hypotenuse 5 → sin = 0.6." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "cos = 4/5" } ] }, "caption": "Adjacent 4, hypotenuse 5 → cos = 0.8." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "tan = 3/4" } ] }, "caption": "Opposite 3, adjacent 4 → tan = 0.75." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Label the sides relative to the angle, choose the ratio (SOH-CAH-TOA) that links what you know and want, and solve.",
+    "steps": [
+      "Mark the angle; label OPPOSITE (facing it), ADJACENT (beside it), HYPOTENUSE (longest).",
+      "Pick the ratio using SOH-CAH-TOA based on which two sides are involved.",
+      "Write the equation (e.g. tan θ = opposite/adjacent) and solve for the unknown.",
+      "Use a calculator/table for the angle's ratio value; check the answer is reasonable."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A right triangle has opposite 3 and hypotenuse 5. Find sin of the angle.",
+      "steps": ["sin = opposite / hypotenuse.", "3 / 5.", "= 0.6."],
+      "answer": "0.6"
+    },
+    {
+      "problem": "A right triangle has opposite 4 and adjacent 3. Find tan of the angle.",
+      "steps": ["tan = opposite / adjacent.", "4 / 3.", "≈ 1.33."],
+      "answer": "1.33"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "wrong-ratio-picked",
+      "mistake": "Using sin when the two sides call for tan (mixing up SOH-CAH-TOA).",
+      "fix": "Match the ratio to the SIDES: opposite & hypotenuse → sin; adjacent & hypotenuse → cos; opposite & adjacent → tan."
+    },
+    {
+      "mistakeTag": "hypotenuse-mislabelled",
+      "mistake": "Calling a shorter side the hypotenuse.",
+      "fix": "The hypotenuse is always the LONGEST side, opposite the right angle — never one of the sides forming the right angle."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "g17-e1", "type": "mcq",
+        "q": "sin of an angle equals…",
+        "options": [ { "label": "opposite / hypotenuse" }, { "label": "opposite / adjacent", "mistakeTag": "wrong-ratio-picked" } ],
+        "answer": "opposite / hypotenuse",
+        "hintLadder": ["SOH.", "Sine = Opposite / Hypotenuse.", "O/H."]
+      },
+      {
+        "id": "g17-e2", "type": "number",
+        "q": "Opposite 3, hypotenuse 6 — sin = ? (write like 0.5)",
+        "answer": "0.5",
+        "hintLadder": ["O/H.", "3 / 6.", "0.5."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "g17-m1", "type": "number",
+        "q": "Adjacent 4, hypotenuse 5 — cos = ? (write like 0.8)",
+        "answer": "0.8",
+        "hintLadder": ["CAH: A/H.", "4 / 5.", "0.8."]
+      },
+      {
+        "id": "g17-m2", "type": "mcq",
+        "q": "tan of an angle equals…",
+        "options": [ { "label": "opposite / adjacent" }, { "label": "adjacent / hypotenuse", "mistakeTag": "wrong-ratio-picked" } ],
+        "answer": "opposite / adjacent",
+        "hintLadder": ["TOA.", "Tan = Opposite / Adjacent.", "O/A."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "g17-c1", "type": "number",
+        "q": "Opposite 6, adjacent 8 — tan = ? (write like 0.75)",
+        "answer": "0.75",
+        "hintLadder": ["O/A.", "6 / 8.", "0.75."]
+      },
+      {
+        "id": "g17-c2", "type": "mcq",
+        "q": "You know the opposite and adjacent sides. Which ratio finds the angle?",
+        "options": [ { "label": "tan" }, { "label": "sin", "mistakeTag": "wrong-ratio-picked" } ],
+        "answer": "tan",
+        "hintLadder": ["Opposite & adjacent.", "TOA.", "tan."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "g17-x1", "type": "mcq",
+        "q": "cos = ?",
+        "options": [ { "label": "adjacent / hypotenuse" }, { "label": "opposite / hypotenuse", "mistakeTag": "wrong-ratio-picked" } ],
+        "answer": "adjacent / hypotenuse",
+        "hintLadder": ["CAH.", "Cos = Adjacent / Hypotenuse.", "A/H."]
+      },
+      {
+        "id": "g17-x2", "type": "number",
+        "q": "Opposite 4, hypotenuse 5 — sin = ? (write like 0.8)",
+        "answer": "0.8",
+        "hintLadder": ["O/H.", "4 / 5.", "0.8."]
+      },
+      {
+        "id": "g17-x3", "type": "number",
+        "q": "Opposite 5, adjacent 5 — tan = ? (write like 1)",
+        "answer": "1",
+        "hintLadder": ["O/A.", "5 / 5.", "1."]
+      },
+      {
+        "id": "g17-x4", "type": "mcq",
+        "q": "The hypotenuse is…",
+        "options": [ { "label": "The longest side, opposite the right angle" }, { "label": "The side next to the angle", "mistakeTag": "hypotenuse-mislabelled" } ],
+        "answer": "The longest side, opposite the right angle",
+        "hintLadder": ["Opposite the 90°.", "Longest.", "Hypotenuse."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw a right triangle for a grown-up and label opposite, adjacent and hypotenuse for a chosen angle. Explain SOH-CAH-TOA and work out sin, cos and tan for a 3-4-5 triangle (0.6, 0.8, 0.75).",
+  "revisionCard": {
+    "summary": "Right triangle sides (for an angle): opposite, adjacent, hypotenuse (longest). SOH-CAH-TOA: sin = O/H, cos = A/H, tan = O/A. Same angle → same ratio in any similar triangle, so ratios find unknown sides, heights and distances.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 9-10 (introduction to trigonometry)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

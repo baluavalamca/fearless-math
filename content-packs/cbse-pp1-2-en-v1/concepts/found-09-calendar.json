@@ -1,0 +1,473 @@
+{
+  "id": "found-09-calendar",
+  "name": "Days, Months and Seasons — Reading the Calendar",
+  "grade": 2,
+  "strand": "measurement",
+  "prerequisites": [
+    "pp1-01-count-to-10"
+  ],
+  "whatIsIt": "Time is organised in a CALENDAR. There are 7 DAYS in a week (Monday to Sunday), about 30 days in a MONTH, and 12 MONTHS in a YEAR. The days repeat in order, months follow one another, and the year moves through SEASONS.",
+  "whyNeeded": "Knowing days, months and seasons lets children plan and understand 'when': what day tomorrow is, when a birthday or festival falls, how long until an event. It turns the passing of time into something you can read and count.",
+  "realLifeUses": [
+    "Knowing what day comes after today",
+    "Finding which month a birthday or festival is in",
+    "Counting how many days until a holiday",
+    "Knowing which season brings rain, cold, or heat"
+  ],
+  "vocabulary": [
+    {
+      "term": "day",
+      "meaning": "One of the seven: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday."
+    },
+    {
+      "term": "week",
+      "meaning": "A group of 7 days."
+    },
+    {
+      "term": "month",
+      "meaning": "A block of about 30 days; there are 12 in a year."
+    },
+    {
+      "term": "year",
+      "meaning": "12 months, from January to December."
+    },
+    {
+      "term": "season",
+      "meaning": "A part of the year with its own weather: summer, monsoon, winter."
+    }
+  ],
+  "story": {
+    "title": "Counting Days to the Festival",
+    "characters": [
+      "Meena",
+      "Amma"
+    ],
+    "text": "Meena can hardly wait for the festival. 'Today is Monday — what is tomorrow, Amma?' 'Tuesday,' says Amma. 'The seven days always march in the same order.' Together they read the calendar: seven days make a week, twelve months make a year, and the seasons turn — so Meena can count exactly how many days until the festival arrives.",
+    "extractedProblem": "Today is Monday. What day comes right after it?",
+    "answerInStory": "Tuesday — the seven days always follow in the same order."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        {
+          "rows": 1,
+          "cols": 7,
+          "asGroups": true
+        }
+      ]
+    },
+    "caption": "A week = 7 days in order: Mon, Tue, Wed, Thu, Fri, Sat, Sun."
+  },
+  "teachingGallery": [
+    {
+      "title": "Days, weeks and the calendar",
+      "note": "The calendar is counting in a pattern — 7 days in a week.",
+      "examples": [
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "jump": 1
+              }
+            ]
+          },
+          "caption": "7 days make ONE week: Mon to Sun."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  8,
+                  15,
+                  22,
+                  "?"
+                ],
+                "jump": 7
+              }
+            ]
+          },
+          "caption": "The same weekday jumps by 7: 1, 8, 15, 22… next 29."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "sun"
+                ]
+              }
+            ]
+          },
+          "caption": "Daytime — the sun is up."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star"
+                ]
+              }
+            ]
+          },
+          "caption": "Night — the stars come out."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  2,
+                  3,
+                  "?"
+                ],
+                "jump": 1
+              }
+            ]
+          },
+          "caption": "Months in order: 1=Jan, 2=Feb, 3=Mar… next is April (4)."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Use the fixed orders: 7 days repeat each week, 12 months make a year, and seasons cycle through the year.",
+    "steps": [
+      "The 7 DAYS run Monday→Sunday, then repeat.",
+      "'After' a day is the next in order; 'before' is the one just past.",
+      "12 MONTHS run January→December.",
+      "SEASONS (summer, monsoon, winter) cycle through the year."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Say-the-order",
+      "whenToUse": "To find the day or month before/after.",
+      "steps": [
+        "Recite the days (or months) in order.",
+        "Find your starting one.",
+        "The next you say is 'after'; the one just before is 'before'."
+      ],
+      "example": "After Friday: ...Thursday, Friday, SATURDAY."
+    },
+    {
+      "name": "Point-on-the-calendar",
+      "whenToUse": "To count days to an event.",
+      "steps": [
+        "Find today on the calendar.",
+        "Count the boxes forward to the event.",
+        "That many days to go."
+      ],
+      "example": "From the 10th to the 14th is 4 days."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "How many days are there in a week?",
+      "steps": [
+        "Name them: Mon, Tue, Wed, Thu, Fri, Sat, Sun.",
+        "Count them.",
+        "That is seven.",
+        "A week has 7 days."
+      ],
+      "answer": "7",
+      "visual": {
+        "component": "ArrayGrid",
+        "props": {
+          "grids": [
+            {
+              "rows": 1,
+              "cols": 7,
+              "asGroups": true
+            }
+          ]
+        },
+        "caption": "7 days in a week"
+      }
+    },
+    {
+      "problem": "What day comes right after Wednesday?",
+      "steps": [
+        "Say the order: ...Tuesday, Wednesday...",
+        "The next one after Wednesday.",
+        "Thursday.",
+        "After Wednesday is Thursday."
+      ],
+      "answer": "Thursday"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "day-order-wrong",
+      "mistake": "Getting the order of days or months muddled (Wednesday before Tuesday).",
+      "fix": "Days and months have a FIXED order. Recite them from the start each time: Monday, Tuesday, Wednesday... to find what comes next."
+    },
+    {
+      "mistakeTag": "before-after-swapped-cal",
+      "mistake": "Giving the day before when asked for the day after (or the reverse).",
+      "fix": "'After' is the NEXT one in order; 'before' is the one just PAST. After Monday is Tuesday; before Monday is Sunday."
+    },
+    {
+      "mistakeTag": "wrong-count-days-months",
+      "mistake": "Thinking a week has 5 days or a year has 10 months.",
+      "fix": "A week always has 7 days; a year always has 12 months. Count them on a calendar to be sure."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "found-09-e1",
+        "type": "number",
+        "q": "How many days are in a week?",
+        "answer": "7",
+        "hintLadder": [
+          "Name them all.",
+          "Mon to Sun.",
+          "Seven."
+        ],
+        "explain": "7 days.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 7,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-09-e2",
+        "type": "mcq",
+        "q": "What day comes right after Monday?",
+        "answer": "Tuesday",
+        "hintLadder": [
+          "Say the order.",
+          "After Monday.",
+          "Tuesday."
+        ],
+        "options": [
+          {
+            "label": "Tuesday"
+          },
+          {
+            "label": "Sunday",
+            "mistakeTag": "before-after-swapped-cal"
+          }
+        ],
+        "explain": "After Monday is Tuesday."
+      }
+    ],
+    "medium": [
+      {
+        "id": "found-09-m1",
+        "type": "number",
+        "q": "How many months are in a year?",
+        "answer": "12",
+        "hintLadder": [
+          "January to December.",
+          "Count them.",
+          "Twelve."
+        ],
+        "explain": "12 months."
+      },
+      {
+        "id": "found-09-m2",
+        "type": "mcq",
+        "q": "What day comes right before Sunday?",
+        "answer": "Saturday",
+        "hintLadder": [
+          "Say the order.",
+          "Just before Sunday.",
+          "Saturday."
+        ],
+        "options": [
+          {
+            "label": "Saturday"
+          },
+          {
+            "label": "Monday",
+            "mistakeTag": "before-after-swapped-cal"
+          }
+        ],
+        "explain": "Before Sunday is Saturday."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "found-09-c1",
+        "type": "mcq",
+        "q": "What day comes right after Friday?",
+        "answer": "Saturday",
+        "hintLadder": [
+          "Order: Thu, Fri...",
+          "Next after Friday.",
+          "Saturday."
+        ],
+        "options": [
+          {
+            "label": "Saturday"
+          },
+          {
+            "label": "Thursday",
+            "mistakeTag": "before-after-swapped-cal"
+          }
+        ],
+        "explain": "After Friday is Saturday."
+      },
+      {
+        "id": "found-09-c2",
+        "type": "number",
+        "q": "From the 8th to the 12th of a month, how many days is that?",
+        "answer": "4",
+        "hintLadder": [
+          "Count the boxes forward.",
+          "9, 10, 11, 12.",
+          "Four days."
+        ],
+        "explain": "4 days."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "found-09-x1",
+        "type": "number",
+        "q": "Days in a week?",
+        "answer": "7",
+        "hintLadder": [
+          "Mon to Sun.",
+          "Count.",
+          "Seven."
+        ],
+        "explain": "7.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 7,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-09-x2",
+        "type": "number",
+        "q": "Months in a year?",
+        "answer": "12",
+        "hintLadder": [
+          "Jan to Dec.",
+          "Count.",
+          "Twelve."
+        ],
+        "explain": "12."
+      },
+      {
+        "id": "found-09-x3",
+        "type": "mcq",
+        "q": "Day right after Tuesday?",
+        "answer": "Wednesday",
+        "hintLadder": [
+          "Say order.",
+          "After Tuesday.",
+          "Wednesday."
+        ],
+        "options": [
+          {
+            "label": "Wednesday"
+          },
+          {
+            "label": "Monday",
+            "mistakeTag": "before-after-swapped-cal"
+          }
+        ],
+        "explain": "After Tuesday is Wednesday."
+      },
+      {
+        "id": "found-09-x4",
+        "type": "mcq",
+        "q": "Day right before Monday?",
+        "answer": "Sunday",
+        "hintLadder": [
+          "Say order.",
+          "Just before Monday.",
+          "Sunday."
+        ],
+        "options": [
+          {
+            "label": "Sunday"
+          },
+          {
+            "label": "Tuesday",
+            "mistakeTag": "before-after-swapped-cal"
+          }
+        ],
+        "explain": "Before Monday is Sunday."
+      },
+      {
+        "id": "found-09-x5",
+        "type": "number",
+        "q": "From the 5th to the 9th, how many days?",
+        "answer": "4",
+        "hintLadder": [
+          "Count forward.",
+          "6,7,8,9.",
+          "Four."
+        ],
+        "explain": "4 days."
+      }
+    ]
+  },
+  "teachBackPrompt": "Use a real calendar to teach someone at home the 7 days in order, the 12 months, and how to find the day AFTER and BEFORE today — plus which season we are in now.",
+  "revisionCard": {
+    "summary": "7 DAYS in a week (Mon→Sun), 12 MONTHS in a year (Jan→Dec), and SEASONS cycle through the year. 'After' = next in order; 'before' = just past. Orders are fixed.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Measurement Island (Little Sprouts)",
+    "title": "Which Season Is It?",
+    "brief": "Read the calendar to name days, months and seasons, and find what comes before and after.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "On a real calendar, find today. Say what day it is, what day tomorrow will be, and count how many days until the weekend.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

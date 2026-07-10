@@ -1,0 +1,629 @@
+{
+  "id": "frac-02-numberline",
+  "name": "Fractions on the Number Line",
+  "grade": 3,
+  "strand": "fractions",
+  "prerequisites": [
+    "frac-01-equal-parts"
+  ],
+  "whatIsIt": "A fraction is not only a piece of something — it is a NUMBER with its own home on the number line. To find 3/4, cut the space between 0 and 1 into 4 equal jumps and take 3 jumps from 0. Where you land, that point IS the number 3/4.",
+  "whyNeeded": "Strips and pizzas show fractions as pieces. But fractions are also numbers we can compare, order, and measure with — just like 1, 2, 3. The number line shows which fraction is bigger, which is smaller, and how close each one is to 0 or 1. Rulers, measuring tapes, and clocks are all number lines!",
+  "realLifeUses": [
+    "A ruler: the small marks between 0 cm and 1 cm are fractions of a centimetre",
+    "A race: the halfway flag on a track is at 1/2 of the distance",
+    "A water bottle: the level marks show 1/4, 1/2, 3/4 full",
+    "A clock: 'half past' means the minute hand travelled 1/2 of the way around"
+  ],
+  "vocabulary": [
+    {
+      "term": "number line",
+      "meaning": "A straight line where every number has its own point, in order."
+    },
+    {
+      "term": "jump",
+      "meaning": "One equal step along the line. Equal jumps make equal parts."
+    },
+    {
+      "term": "point",
+      "meaning": "The exact spot on the line where a number lives."
+    }
+  ],
+  "story": {
+    "title": "Manduka the Frog Crosses the Temple Pond",
+    "characters": [
+      "Manduka the frog",
+      "Kachhu the tortoise"
+    ],
+    "text": "Manduka the frog wants to cross the temple pond from the near bank (0) to the far bank (1). Wise Kachhu the tortoise has set 4 lily pads at EQUAL distances, cutting the crossing into 4 equal jumps. Manduka leaps — one... two... three — and rests on the third pad. 'Where am I now?' he asks. 'Count the JUMPS from the start, not the pads,' says Kachhu. 'Four equal jumps make the bottom number; three jumps taken make the top. You are at 3/4 of the way across!'",
+    "extractedProblem": "A pond crossing from 0 to 1 is divided into 4 equal jumps. Manduka rests after 3 jumps. At what number is he standing?",
+    "answerInStory": "Manduka is at 3/4 — three equal jumps out of four from the start."
+  },
+  "visual": {
+    "component": "NumberLine",
+    "props": {
+      "lines": [
+        {
+          "parts": 4,
+          "mark": 3,
+          "label": "3/4",
+          "showLabels": true
+        },
+        {
+          "parts": 2,
+          "mark": 1,
+          "label": "1/2",
+          "showLabels": true
+        }
+      ]
+    },
+    "caption": "Count the JUMPS, not the flag posts! 4 equal jumps between 0 and 1; landing after 3 jumps is the number 3/4."
+  },
+  "teachingGallery": [
+    {
+      "title": "Fractions live between 0 and 1",
+      "note": "Cut 0→1 into equal jumps. The bottom = number of jumps; the top = which jump you land on.",
+      "examples": [
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 4,
+                "mark": 1,
+                "label": "1/4",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "4 jumps from 0 to 1; land on jump 1 = 1/4."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 4,
+                "mark": 3,
+                "label": "3/4",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "Land on jump 3 = 3/4."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 2,
+                "mark": 1,
+                "label": "1/2",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "2 jumps; halfway = 1/2."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 5,
+                "mark": 2,
+                "label": "2/5",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "5 jumps; jump 2 = 2/5."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 8,
+                "mark": 5,
+                "label": "5/8",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "8 jumps; jump 5 = 5/8."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To read or place a fraction on a number line: count the equal jumps between 0 and 1, then count jumps from 0.",
+    "steps": [
+      "Check the line between 0 and 1 is cut into EQUAL jumps.",
+      "Count how many equal jumps fit between 0 and 1 — that is the bottom number.",
+      "Count how many jumps from 0 to reach the point — that is the top number.",
+      "Read the point: jumps taken over total jumps, like 3/4."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Strip-on-the-line method",
+      "whenToUse": "When the jumps are hard to count or you want to double-check.",
+      "steps": [
+        "Take a paper strip exactly as long as 0 to 1.",
+        "Fold it into the same number of equal parts as the line.",
+        "Lay it under the line — each fold lands on a flag.",
+        "Count folds from 0 to find your fraction."
+      ],
+      "example": "Fold a strip into 4 parts, lay it under the line: the 3rd fold sits exactly at 3/4."
+    },
+    {
+      "name": "Skip-counting fractions aloud",
+      "whenToUse": "For quick reading once you know the bottom number.",
+      "steps": [
+        "Say the fractions as you hop: 1/4, 2/4, 3/4...",
+        "Stop at your point — the fraction you just said is the answer."
+      ],
+      "example": "Hop and say: 1/4, 2/4, 3/4 — landed! The point is 3/4."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A number line from 0 to 1 is cut into 6 equal jumps. A dot sits after 5 jumps from 0. What number is the dot?",
+      "steps": [
+        "Equal jumps between 0 and 1: 6 — bottom number is 6.",
+        "Jumps from 0 to the dot: 5 — top number is 5.",
+        "The dot is the number 5/6."
+      ],
+      "answer": "5/6",
+      "visual": {
+        "component": "NumberLine",
+        "props": {
+          "lines": [
+            {
+              "parts": 6,
+              "mark": 5,
+              "showLabels": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem": "Ravi counts the flag posts on a line cut into 4 jumps: 'One, two, three, four, five posts — so the middle post is 3/5!' What went wrong?",
+      "steps": [
+        "Ravi counted the POSTS (tick marks), including the one at 0.",
+        "Fractions count JUMPS, not posts. 4 equal jumps means the bottom number is 4.",
+        "The middle post is 2 jumps from 0.",
+        "So the middle post is 2/4 (which sits at the same spot as 1/2)."
+      ],
+      "answer": "2/4 — count jumps, not posts."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Jumps tell the fraction",
+    "intro": "Bottom = how many equal jumps in the whole; top = the jump you're standing on.",
+    "questions": [
+      {
+        "id": "frac02-trick-4-3",
+        "type": "fraction",
+        "q": "On a line from 0 to 1 cut into 4 equal jumps, you land on jump 3. What fraction?",
+        "answer": "3/4",
+        "hintLadder": [
+          "The whole is cut into 4 jumps → bottom is 4.",
+          "You are on jump 3 → top is 3.",
+          "= 3/4."
+        ],
+        "explain": "jump 3 of 4 = 3/4.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 4,
+                "mark": 3,
+                "label": "3/4",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "3/4"
+        }
+      },
+      {
+        "id": "frac02-trick-2-1",
+        "type": "fraction",
+        "q": "On a line from 0 to 1 cut into 2 equal jumps, you land on jump 1. What fraction?",
+        "answer": "1/2",
+        "hintLadder": [
+          "The whole is cut into 2 jumps → bottom is 2.",
+          "You are on jump 1 → top is 1.",
+          "= 1/2."
+        ],
+        "explain": "jump 1 of 2 = 1/2.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 2,
+                "mark": 1,
+                "label": "1/2",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "1/2"
+        }
+      },
+      {
+        "id": "frac02-trick-5-2",
+        "type": "fraction",
+        "q": "On a line from 0 to 1 cut into 5 equal jumps, you land on jump 2. What fraction?",
+        "answer": "2/5",
+        "hintLadder": [
+          "The whole is cut into 5 jumps → bottom is 5.",
+          "You are on jump 2 → top is 2.",
+          "= 2/5."
+        ],
+        "explain": "jump 2 of 5 = 2/5.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 5,
+                "mark": 2,
+                "label": "2/5",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "2/5"
+        }
+      },
+      {
+        "id": "frac02-trick-8-5",
+        "type": "fraction",
+        "q": "On a line from 0 to 1 cut into 8 equal jumps, you land on jump 5. What fraction?",
+        "answer": "5/8",
+        "hintLadder": [
+          "The whole is cut into 8 jumps → bottom is 8.",
+          "You are on jump 5 → top is 5.",
+          "= 5/8."
+        ],
+        "explain": "jump 5 of 8 = 5/8.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 8,
+                "mark": 5,
+                "label": "5/8",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "5/8"
+        }
+      },
+      {
+        "id": "frac02-trick-3-2",
+        "type": "fraction",
+        "q": "On a line from 0 to 1 cut into 3 equal jumps, you land on jump 2. What fraction?",
+        "answer": "2/3",
+        "hintLadder": [
+          "The whole is cut into 3 jumps → bottom is 3.",
+          "You are on jump 2 → top is 2.",
+          "= 2/3."
+        ],
+        "explain": "jump 2 of 3 = 2/3.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 3,
+                "mark": 2,
+                "label": "2/3",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "2/3"
+        }
+      },
+      {
+        "id": "frac02-trick-6-5",
+        "type": "fraction",
+        "q": "On a line from 0 to 1 cut into 6 equal jumps, you land on jump 5. What fraction?",
+        "answer": "5/6",
+        "hintLadder": [
+          "The whole is cut into 6 jumps → bottom is 6.",
+          "You are on jump 5 → top is 5.",
+          "= 5/6."
+        ],
+        "explain": "jump 5 of 6 = 5/6.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 6,
+                "mark": 5,
+                "label": "5/6",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "5/6"
+        }
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "counted-posts-not-jumps",
+      "mistake": "Counting the tick marks (flag posts) including 0 instead of counting the jumps between them, e.g. calling 4 jumps '5 parts'.",
+      "fix": "Hop like a frog! Count each HOP from 0, not each stone you land on. The number of hops between 0 and 1 is the bottom number."
+    },
+    {
+      "mistakeTag": "unequal-jumps-ignored",
+      "mistake": "Reading a fraction from a line whose marks are NOT equally spaced.",
+      "fix": "Same first rule as always: EQUAL parts only. If the jumps are different sizes, the line cannot name a fraction yet — space the marks equally first."
+    },
+    {
+      "mistakeTag": "top-bottom-swapped",
+      "mistake": "Writing total jumps on top and jumps taken on the bottom (4/3 instead of 3/4).",
+      "fix": "Denominator is Down: the TOTAL equal jumps go DOWN at the bottom. The jumps you took go on top."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "mcq",
+        "q": "A number line from 0 to 1 has 2 equal jumps. A dot sits after 1 jump. What number is the dot?",
+        "options": [
+          {
+            "label": "1/2"
+          },
+          {
+            "label": "1/3",
+            "mistakeTag": "counted-posts-not-jumps"
+          },
+          {
+            "label": "2/1",
+            "mistakeTag": "top-bottom-swapped"
+          }
+        ],
+        "answer": "1/2",
+        "hintLadder": [
+          "How many equal JUMPS are there between 0 and 1?",
+          "That jump count is the bottom number. How many jumps to the dot?",
+          "1 jump taken out of 2 equal jumps — write it top over bottom."
+        ],
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 2,
+                "mark": 1
+              }
+            ]
+          }
+        },
+        "explain": "1 jump out of 2 equal jumps lands on 1/2 — the exact middle!"
+      },
+      {
+        "id": "e2",
+        "type": "fraction",
+        "q": "The line from 0 to 1 is cut into 4 equal jumps. The fox flag is after 3 jumps. What number is the flag on?",
+        "answer": "3/4",
+        "hintLadder": [
+          "Count the equal jumps between 0 and 1 — bottom number.",
+          "Count the jumps from 0 to the flag — top number.",
+          "3 jumps out of 4 equal jumps."
+        ],
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 4,
+                "mark": 3
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "fraction",
+        "q": "A number line from 0 to 1 has 6 equal jumps. A dot is placed after 5 jumps. Write the number at the dot.",
+        "answer": "5/6",
+        "hintLadder": [
+          "Total equal jumps = 6. Where does 6 go in the fraction?",
+          "The dot is 5 jumps from 0. Where does 5 go?",
+          "Jumps taken on top, total jumps below."
+        ],
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 6,
+                "mark": 5
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "Ravi counted ALL the tick marks on a line with 4 equal jumps — including the mark at 0 — and got 5. He says the first dot is 1/5. What should he count instead?",
+        "options": [
+          {
+            "label": "The jumps between the marks"
+          },
+          {
+            "label": "The tick marks including 0",
+            "mistakeTag": "counted-posts-not-jumps"
+          }
+        ],
+        "answer": "The jumps between the marks",
+        "hintLadder": [
+          "Does a fraction count stones or hops?",
+          "Between 5 tick marks, how many spaces (jumps) are there?",
+          "4 jumps — so the first dot is 1/4, not 1/5. Count jumps!"
+        ],
+        "explain": "5 posts make only 4 jumps. Fractions count the jumps."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Anu draws a line from 0 to 1 with marks at different distances — some close, some far — and labels a point 2/3. Fraction Fox shakes his head. Why?",
+        "options": [
+          {
+            "label": "The jumps are not equal, so the labels are not true fractions"
+          },
+          {
+            "label": "She should have written 3/2",
+            "mistakeTag": "top-bottom-swapped"
+          },
+          {
+            "label": "Nothing is wrong — any marks work",
+            "mistakeTag": "unequal-jumps-ignored"
+          }
+        ],
+        "answer": "The jumps are not equal, so the labels are not true fractions",
+        "hintLadder": [
+          "What is the first rule before naming any fraction?",
+          "Look at the spaces between her marks — are they the same size?",
+          "Unequal jumps cannot name fractions. Equal jumps first!"
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "fraction",
+        "q": "A clock's minute hand starts at 12 and travels to 6 — exactly half the way around. On a 0-to-1 number line of one full turn cut into 2 equal jumps, what number has the hand reached?",
+        "answer": "1/2",
+        "hintLadder": [
+          "One full turn = 1 on the line. The hand went half the way.",
+          "The line has 2 equal jumps. The hand finished 1 of them.",
+          "1 jump out of 2 equal jumps."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "fraction",
+        "q": "A line from 0 to 1 has 3 equal jumps. The dot is after 2 jumps. What number is the dot?",
+        "answer": "2/3",
+        "hintLadder": [
+          "Count equal jumps between 0 and 1 for the bottom.",
+          "Count jumps from 0 to the dot for the top.",
+          "2 out of 3 equal jumps."
+        ],
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 3,
+                "mark": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "To find the bottom number of a fraction on a number line, you count…",
+        "options": [
+          {
+            "label": "The equal jumps between 0 and 1"
+          },
+          {
+            "label": "All the tick marks including 0",
+            "mistakeTag": "counted-posts-not-jumps"
+          }
+        ],
+        "answer": "The equal jumps between 0 and 1",
+        "hintLadder": [
+          "Hops or stones — which one?",
+          "The bottom number tells how many equal parts the whole is cut into.",
+          "Between the marks are the jumps — count those."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "fraction",
+        "q": "A water bottle scale from empty (0) to full (1) has 4 equal marks of jumps. The water reaches after 1 jump. What fraction full is the bottle?",
+        "answer": "1/4",
+        "hintLadder": [
+          "The scale is a number line with 4 equal jumps.",
+          "The water climbed 1 jump from 0.",
+          "1 out of 4 equal jumps."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "Which point is at the number 3/4 on a line from 0 to 1 with 4 equal jumps?",
+        "options": [
+          {
+            "label": "The point after 3 jumps from 0"
+          },
+          {
+            "label": "The point after 4 jumps from 0",
+            "mistakeTag": "top-bottom-swapped"
+          }
+        ],
+        "answer": "The point after 3 jumps from 0",
+        "hintLadder": [
+          "The top number tells the jumps taken from 0.",
+          "In 3/4, how many jumps do we take?",
+          "3 jumps from 0 — one jump before reaching 1."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Fraction Fox is planting flags on a new race track! Teach Fox how to find where 2/3 lives on a number line from 0 to 1. Remember to tell him what to count — jumps or posts — and why.",
+  "revisionCard": {
+    "summary": "Fractions are NUMBERS with homes on the number line. Cut 0-to-1 into equal JUMPS (bottom number), take jumps from 0 (top number). Count hops, not posts! 3/4 = land after 3 of 4 equal jumps.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Fraction Kitchen (Ganita Grove)",
+    "title": "The Flag Race",
+    "brief": "Plant flags at exactly the right fractions on the race track so every runner knows where they are. Watch out — Ravi keeps counting posts instead of jumps!",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "Find a ruler at home. With a parent, look at the space between 0 and 1 cm: count the small jumps. Then measure something small (a button, a coin) and say its size as a fraction ('The button is 8 small jumps of 10 — that's 8/10 of a centimetre!').",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3 (number line readiness for fractions)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

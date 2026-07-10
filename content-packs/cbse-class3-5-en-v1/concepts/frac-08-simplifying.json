@@ -1,0 +1,170 @@
+{
+  "id": "frac-08-simplifying",
+  "name": "Simplifying Fractions — Lowest Terms",
+  "grade": 5,
+  "strand": "fractions",
+  "prerequisites": ["frac-03-equivalent", "num-16-factors-multiples"],
+  "whatIsIt": "A fraction is in LOWEST TERMS when the top and bottom share no common factor except 1. To simplify, DIVIDE both the numerator and denominator by a common factor (best: their HCF). 6/8 both divide by 2 → 3/4. The value stays exactly the same — it's just written in its simplest, tidiest form.",
+  "whyNeeded": "Simplified fractions are easier to read, compare and use — 3/4 is clearer than 6/8. Every fraction answer should be given in lowest terms, so simplifying is a habit you'll use forever.",
+  "realLifeUses": [
+    "Reporting a score of 15/20 as the neater 3/4",
+    "Simplifying a recipe fraction like 4/8 cup to 1/2 cup",
+    "Comparing fractions more easily once simplified",
+    "Reading a measurement in its simplest form"
+  ],
+  "vocabulary": [
+    { "term": "lowest terms", "meaning": "When numerator and denominator share no factor but 1." },
+    { "term": "common factor", "meaning": "A number that divides both the top and the bottom." },
+    { "term": "simplify (reduce)", "meaning": "Divide top and bottom by a common factor to make it simpler." }
+  ],
+  "story": {
+    "title": "The Tidy Score",
+    "characters": ["Arav", "Teacher"],
+    "text": "Arav scored 6 out of 8 in a quiz and writes 6/8. 'Can you say that more simply?' asks the teacher. Arav sees that 6 and 8 both divide by 2: 6 ÷ 2 = 3, 8 ÷ 2 = 4. 'It's 3/4 — same score, tidier!' The teacher smiles: 'Always give fractions in lowest terms.'",
+    "extractedProblem": "Simplify the score 6/8 to lowest terms.",
+    "answerInStory": "3/4 — divide top and bottom by 2."
+  },
+  "visual": {
+    "component": "FractionStrip",
+    "props": {
+      "strips": [
+        { "parts": 8, "shaded": 6, "label": "6/8" },
+        { "parts": 4, "shaded": 3, "label": "3/4" }
+      ]
+    },
+    "caption": "6/8 and 3/4 shade the same amount — 3/4 is the simplified (lowest-terms) form."
+  },
+  "teachingGallery": [
+    {
+      "title": "Divide top and bottom the same",
+      "note": "Keep dividing by common factors until only 1 is left.",
+      "examples": [
+        { "component": "FractionStrip", "props": { "strips": [ { "parts": 4, "shaded": 2, "label": "2/4" }, { "parts": 2, "shaded": 1, "label": "1/2" } ] }, "caption": "2/4 ÷2 = 1/2." },
+        { "component": "PizzaSlices", "props": { "pies": [ { "parts": 6, "shaded": 3, "label": "3/6" }, { "parts": 2, "shaded": 1, "label": "1/2" } ] }, "caption": "3/6 ÷3 = 1/2." },
+        { "component": "FractionStrip", "props": { "strips": [ { "parts": 10, "shaded": 5, "label": "5/10 = 1/2" } ] }, "caption": "5/10 ÷5 = 1/2." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Find a common factor of the top and bottom, divide both by it, and repeat until only 1 is shared.",
+    "steps": [
+      "Find a common factor of numerator and denominator (2, 3, 5…, or their HCF).",
+      "Divide BOTH the top and bottom by that factor.",
+      "Repeat until the only common factor left is 1.",
+      "Tip: dividing by the HCF gets you there in one step."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Simplify 12/16.",
+      "steps": ["Common factor 4 (the HCF).", "12 ÷ 4 = 3, 16 ÷ 4 = 4.", "= 3/4 (lowest terms)."],
+      "answer": "3/4"
+    },
+    {
+      "problem": "Simplify 9/12.",
+      "steps": ["Common factor 3.", "9 ÷ 3 = 3, 12 ÷ 3 = 4.", "= 3/4."],
+      "answer": "3/4"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "divide-one-part",
+      "mistake": "Dividing only the top (or only the bottom), which changes the value.",
+      "fix": "Divide BOTH the numerator and denominator by the SAME number to keep the fraction equal."
+    },
+    {
+      "mistakeTag": "not-fully-simplified",
+      "mistake": "Stopping early, e.g. leaving 6/8 as 3/4 is fine, but leaving 4/8 as 2/4.",
+      "fix": "Keep going until the top and bottom share only 1. 2/4 still divides by 2 → 1/2."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "f08-e1", "type": "fraction",
+        "q": "Simplify 2/4. (like 1/2)",
+        "answer": "1/2",
+        "hintLadder": ["Both divide by 2.", "2÷2, 4÷2.", "1/2."]
+      },
+      {
+        "id": "f08-e2", "type": "fraction",
+        "q": "Simplify 3/6. (like 1/2)",
+        "answer": "1/2",
+        "hintLadder": ["Both divide by 3.", "3÷3, 6÷3.", "1/2."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "f08-m1", "type": "fraction",
+        "q": "Simplify 6/9. (like 2/3)",
+        "answer": "2/3",
+        "hintLadder": ["Both divide by 3.", "6÷3, 9÷3.", "2/3."]
+      },
+      {
+        "id": "f08-m2", "type": "fraction",
+        "q": "Simplify 8/12. (like 2/3)",
+        "answer": "2/3",
+        "hintLadder": ["Both divide by 4.", "8÷4, 12÷4.", "2/3."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "f08-c1", "type": "fraction",
+        "q": "Simplify 15/20 to lowest terms. (like 3/4)",
+        "answer": "3/4",
+        "hintLadder": ["Both divide by 5.", "15÷5, 20÷5.", "3/4."]
+      },
+      {
+        "id": "f08-c2", "type": "mcq",
+        "q": "Ria simplifies 4/8 to 2/4 and stops. Is she finished?",
+        "options": [ { "label": "No — 2/4 still divides by 2, giving 1/2" }, { "label": "Yes, 2/4 is lowest terms", "mistakeTag": "not-fully-simplified" } ],
+        "answer": "No — 2/4 still divides by 2, giving 1/2",
+        "hintLadder": ["Do they still share a factor?", "2 and 4 share 2.", "So 1/2."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "f08-x1", "type": "fraction",
+        "q": "Simplify 4/6. (like 2/3)",
+        "answer": "2/3",
+        "hintLadder": ["Both divide by 2.", "4÷2, 6÷2.", "2/3."]
+      },
+      {
+        "id": "f08-x2", "type": "fraction",
+        "q": "Simplify 5/10. (like 1/2)",
+        "answer": "1/2",
+        "hintLadder": ["Both divide by 5.", "5÷5, 10÷5.", "1/2."]
+      },
+      {
+        "id": "f08-x3", "type": "fraction",
+        "q": "Simplify 10/15. (like 2/3)",
+        "answer": "2/3",
+        "hintLadder": ["Both divide by 5.", "10÷5, 15÷5.", "2/3."]
+      },
+      {
+        "id": "f08-x4", "type": "mcq",
+        "q": "To simplify a fraction you…",
+        "options": [ { "label": "Divide top and bottom by the same number" }, { "label": "Divide only the top", "mistakeTag": "divide-one-part" } ],
+        "answer": "Divide top and bottom by the same number",
+        "hintLadder": ["Keep the value equal.", "Same divisor on both.", "Top and bottom."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Take a fraction like 6/8 and show a grown-up, with a strip or pizza picture, that it equals 3/4 — then explain that you divide the top and bottom by the same number, and keep going until they share only 1.",
+  "revisionCard": {
+    "summary": "Lowest terms = top and bottom share only the factor 1. Simplify by dividing BOTH by a common factor (fastest: the HCF), and repeat until no shared factor remains. 6/8 ÷2 = 3/4; 12/16 ÷4 = 3/4. The value never changes.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 5-6 (simplifying fractions)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

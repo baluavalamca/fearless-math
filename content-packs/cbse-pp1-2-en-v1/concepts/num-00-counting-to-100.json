@@ -1,0 +1,870 @@
+{
+  "id": "num-00-counting-to-100",
+  "name": "Counting to 100 — Next, Before, and Jumps of Ten",
+  "grade": 2,
+  "strand": "numbers",
+  "prerequisites": [
+    "pp1-01-count-to-10"
+  ],
+  "whatIsIt": "Numbers keep going in a steady order all the way to 100. Every number has a NEXT number (one more) and a number BEFORE it (one less). Counting in jumps of ten — 10, 20, 30... — is a fast way to travel up the number road.",
+  "whyNeeded": "Once we can count past ten, we can count real-life piles: pages in a book, rupees in a purse, days on a calendar. Knowing 'what comes next', 'what comes before', and how to jump by tens is the bridge from little counting to place value, money, and addition.",
+  "realLifeUses": [
+    "Counting pages, stairs, or rupees past ten",
+    "Reading a calendar and saying which day number comes next",
+    "Counting money in tens: 10, 20, 30, 40 rupees",
+    "Playing hopscotch or board games where you move to the next number"
+  ],
+  "vocabulary": [
+    {
+      "term": "next number",
+      "meaning": "The number that comes right after — one MORE (after 49 comes 50)."
+    },
+    {
+      "term": "number before",
+      "meaning": "The number that comes right before — one LESS (before 70 comes 69)."
+    },
+    {
+      "term": "skip-counting",
+      "meaning": "Counting in equal jumps, like by tens: 10, 20, 30, 40..."
+    },
+    {
+      "term": "ten",
+      "meaning": "A bundle of ten ones. Ten tens make one hundred."
+    }
+  ],
+  "story": {
+    "title": "Climbing the Old Fort Steps",
+    "characters": [
+      "Meena",
+      "Thatha (grandfather)"
+    ],
+    "text": "Meena climbs the old fort steps, counting each one. She stops, puzzled: 'After twenty-nine comes... twenty-ten?' 'Not quite!' smiles Thatha. 'When the ones fill up at nine, the next number opens a brand-new ten. After 29 comes 30!' They climb on — 29, 30, 31 — then jump by tens: 10, 20, 30... all the way to a hundred steps.",
+    "extractedProblem": "Meena is at 29 and wants the next number. What comes right after 29?",
+    "answerInStory": "After 29 comes 30 — the ones filled up, so a new ten begins."
+  },
+  "visual": {
+    "component": "NumberLine",
+    "props": {
+      "lines": [
+        {
+          "parts": 10,
+          "mark": 3,
+          "label": "jumps of ten to 100",
+          "showLabels": true
+        }
+      ]
+    },
+    "caption": "The number road in jumps of ten: 10, 20, 30... up to 100. Ten equal jumps reach a hundred."
+  },
+  "teachingGallery": [
+    {
+      "title": "Next, before, and jumps of ten",
+      "note": "Counting is a pattern. +1 gives the next number; jumps of 10 zoom ahead.",
+      "examples": [
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  "?"
+                ],
+                "jump": 1
+              }
+            ]
+          },
+          "caption": "Next number: add 1. After 4 comes 5."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  47,
+                  48,
+                  49,
+                  "?"
+                ],
+                "jump": 1
+              }
+            ]
+          },
+          "caption": "After 49 comes 50."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  "?",
+                  50,
+                  51,
+                  52
+                ],
+                "jump": 1
+              }
+            ]
+          },
+          "caption": "Before 50 is 49."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  10,
+                  20,
+                  30,
+                  40,
+                  "?"
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "Jumps of ten: 10, 20, 30, 40… next 50."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  60,
+                  70,
+                  80,
+                  90,
+                  "?"
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "Keep jumping by tens to 100."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To find the next number add one more; for the number before, take one less; to travel fast, jump by tens.",
+    "steps": [
+      "NEXT number: count one more. If the ones digit is 9, the ones fill up and a new ten starts (39 -> 40).",
+      "NUMBER BEFORE: count one less. If the ones digit is 0, step back into the previous ten (60 -> 59).",
+      "SKIP by tens: keep the ones at zero and count the tens: 10, 20, 30, 40...",
+      "Ten tens make one hundred: 90 then 100."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Number-road hop",
+      "whenToUse": "When you are unsure of next/before.",
+      "steps": [
+        "Picture the numbers as stones on a road.",
+        "'Next' means hop one stone forward (right).",
+        "'Before' means hop one stone back (left)."
+      ],
+      "example": "Before 50: hop one stone back to 49."
+    },
+    {
+      "name": "Tens-bundles",
+      "whenToUse": "When skip-counting by ten.",
+      "steps": [
+        "Make bundles of ten sticks.",
+        "Count the bundles: one bundle 10, two bundles 20...",
+        "Each new bundle adds another ten."
+      ],
+      "example": "5 bundles of ten = 50."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "What number comes right after 49?",
+      "steps": [
+        "Look at the ones digit of 49 — it is 9, so the ones are full.",
+        "One more opens a brand-new ten.",
+        "4 tens become 5 tens, ones reset to 0.",
+        "After 49 comes 50."
+      ],
+      "answer": "50",
+      "visual": {
+        "component": "NumberLine",
+        "props": {
+          "lines": [
+            {
+              "parts": 10,
+              "mark": 5,
+              "showLabels": true,
+              "label": "40 to 50"
+            }
+          ]
+        },
+        "caption": "49 is almost at the next ten — one more step lands on 50."
+      }
+    },
+    {
+      "problem": "Skip-count by tens and fill the blank: 10, 20, 30, __, 50",
+      "steps": [
+        "Each jump adds one ten.",
+        "After 30, add ten more.",
+        "30 and ten more is 40.",
+        "The missing number is 40."
+      ],
+      "answer": "40",
+      "visual": {
+        "component": "NumberLine",
+        "props": {
+          "lines": [
+            {
+              "parts": 10,
+              "mark": 4,
+              "showLabels": true,
+              "label": "jumps of ten"
+            }
+          ]
+        },
+        "caption": "10, 20, 30, 40, 50 — each hop is a ten."
+      }
+    }
+  ],
+  "trickPractice": {
+    "trick": "Count on and back",
+    "intro": "One more is the next number; ten more just bumps the tens.",
+    "questions": [
+      {
+        "id": "num00-trick-more47",
+        "type": "number",
+        "q": "What is 1 MORE than 47?",
+        "answer": "48",
+        "hintLadder": [
+          "'1 more' means the very next number.",
+          "Just count up once.",
+          "47 → 48."
+        ],
+        "explain": "After 47 comes 48."
+      },
+      {
+        "id": "num00-trick-more60",
+        "type": "number",
+        "q": "What is 1 MORE than 60?",
+        "answer": "61",
+        "hintLadder": [
+          "'1 more' means the very next number.",
+          "Just count up once.",
+          "60 → 61."
+        ],
+        "explain": "After 60 comes 61."
+      },
+      {
+        "id": "num00-trick-more29",
+        "type": "number",
+        "q": "What is 1 MORE than 29?",
+        "answer": "30",
+        "hintLadder": [
+          "'1 more' means the very next number.",
+          "Just count up once.",
+          "29 → 30."
+        ],
+        "explain": "After 29 comes 30."
+      },
+      {
+        "id": "num00-trick-more80",
+        "type": "number",
+        "q": "What is 1 MORE than 80?",
+        "answer": "81",
+        "hintLadder": [
+          "'1 more' means the very next number.",
+          "Just count up once.",
+          "80 → 81."
+        ],
+        "explain": "After 80 comes 81."
+      },
+      {
+        "id": "num00-trick-more15",
+        "type": "number",
+        "q": "What is 1 MORE than 15?",
+        "answer": "16",
+        "hintLadder": [
+          "'1 more' means the very next number.",
+          "Just count up once.",
+          "15 → 16."
+        ],
+        "explain": "After 15 comes 16."
+      },
+      {
+        "id": "num00-trick-more99",
+        "type": "number",
+        "q": "What is 1 MORE than 99?",
+        "answer": "100",
+        "hintLadder": [
+          "'1 more' means the very next number.",
+          "Just count up once.",
+          "99 → 100."
+        ],
+        "explain": "After 99 comes 100."
+      },
+      {
+        "id": "num00-trick-more34",
+        "type": "number",
+        "q": "What is 1 MORE than 34?",
+        "answer": "35",
+        "hintLadder": [
+          "'1 more' means the very next number.",
+          "Just count up once.",
+          "34 → 35."
+        ],
+        "explain": "After 34 comes 35."
+      },
+      {
+        "id": "num00-trick-more70",
+        "type": "number",
+        "q": "What is 1 MORE than 70?",
+        "answer": "71",
+        "hintLadder": [
+          "'1 more' means the very next number.",
+          "Just count up once.",
+          "70 → 71."
+        ],
+        "explain": "After 70 comes 71."
+      },
+      {
+        "id": "num00-trick-ten30",
+        "type": "number",
+        "q": "What is 10 MORE than 30?",
+        "answer": "40",
+        "hintLadder": [
+          "Add a whole group of ten.",
+          "The ONES stay the same; the TENS go up by 1.",
+          "30 + 10 = 40."
+        ],
+        "explain": "30 + 10 = 40.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  30,
+                  40
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "30 jump 10 → 40"
+        }
+      },
+      {
+        "id": "num00-trick-ten54",
+        "type": "number",
+        "q": "What is 10 MORE than 54?",
+        "answer": "64",
+        "hintLadder": [
+          "Add a whole group of ten.",
+          "The ONES stay the same; the TENS go up by 1.",
+          "54 + 10 = 64."
+        ],
+        "explain": "54 + 10 = 64.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  54,
+                  64
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "54 jump 10 → 64"
+        }
+      },
+      {
+        "id": "num00-trick-ten20",
+        "type": "number",
+        "q": "What is 10 MORE than 20?",
+        "answer": "30",
+        "hintLadder": [
+          "Add a whole group of ten.",
+          "The ONES stay the same; the TENS go up by 1.",
+          "20 + 10 = 30."
+        ],
+        "explain": "20 + 10 = 30.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  20,
+                  30
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "20 jump 10 → 30"
+        }
+      },
+      {
+        "id": "num00-trick-ten71",
+        "type": "number",
+        "q": "What is 10 MORE than 71?",
+        "answer": "81",
+        "hintLadder": [
+          "Add a whole group of ten.",
+          "The ONES stay the same; the TENS go up by 1.",
+          "71 + 10 = 81."
+        ],
+        "explain": "71 + 10 = 81.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  71,
+                  81
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "71 jump 10 → 81"
+        }
+      },
+      {
+        "id": "num00-trick-ten60",
+        "type": "number",
+        "q": "What is 10 MORE than 60?",
+        "answer": "70",
+        "hintLadder": [
+          "Add a whole group of ten.",
+          "The ONES stay the same; the TENS go up by 1.",
+          "60 + 10 = 70."
+        ],
+        "explain": "60 + 10 = 70.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  60,
+                  70
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "60 jump 10 → 70"
+        }
+      },
+      {
+        "id": "num00-trick-ten90",
+        "type": "number",
+        "q": "What is 10 MORE than 90?",
+        "answer": "100",
+        "hintLadder": [
+          "Add a whole group of ten.",
+          "The ONES stay the same; the TENS go up by 1.",
+          "90 + 10 = 100."
+        ],
+        "explain": "90 + 10 = 100.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  90,
+                  100
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "90 jump 10 → 100"
+        }
+      },
+      {
+        "id": "num00-trick-ten45",
+        "type": "number",
+        "q": "What is 10 MORE than 45?",
+        "answer": "55",
+        "hintLadder": [
+          "Add a whole group of ten.",
+          "The ONES stay the same; the TENS go up by 1.",
+          "45 + 10 = 55."
+        ],
+        "explain": "45 + 10 = 55.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  45,
+                  55
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "45 jump 10 → 55"
+        }
+      },
+      {
+        "id": "num00-trick-ten100",
+        "type": "number",
+        "q": "What is 10 MORE than 100?",
+        "answer": "110",
+        "hintLadder": [
+          "Add a whole group of ten.",
+          "The ONES stay the same; the TENS go up by 1.",
+          "100 + 10 = 110."
+        ],
+        "explain": "100 + 10 = 110.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  100,
+                  110
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "100 jump 10 → 110"
+        }
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "decade-gap",
+      "mistake": "Getting stuck at a nine, saying 'twenty-ten' or 'thirty-ten' instead of the next ten.",
+      "fix": "When the ones reach 9, the next number opens a NEW ten: after 29 comes 30, after 39 comes 40. Never 'twenty-ten'."
+    },
+    {
+      "mistakeTag": "before-after-swapped",
+      "mistake": "Giving the next number when asked for the number BEFORE (or the other way round).",
+      "fix": "'Before' means one LESS — hop back (left). 'After/next' means one MORE — hop forward (right). Before 70 is 69; after 70 is 71."
+    },
+    {
+      "mistakeTag": "miscounted-tens",
+      "mistake": "Skip-counting by tens but landing wrong, like 10, 20, 30, 50.",
+      "fix": "Every jump adds exactly one ten. Check each hop: 30 then 40 then 50 — never skip a ten."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "num-00-e1",
+        "type": "number",
+        "q": "What number comes right after 6?",
+        "answer": "7",
+        "hintLadder": [
+          "'After' means one more.",
+          "Count on from 6.",
+          "6 and one more is..."
+        ],
+        "explain": "After 6 comes 7."
+      },
+      {
+        "id": "num-00-e2",
+        "type": "mcq",
+        "q": "What number comes right before 10?",
+        "answer": "9",
+        "hintLadder": [
+          "'Before' means one less.",
+          "Hop back one from 10.",
+          "10 take away 1."
+        ],
+        "options": [
+          {
+            "label": "9"
+          },
+          {
+            "label": "11",
+            "mistakeTag": "before-after-swapped"
+          },
+          {
+            "label": "8",
+            "mistakeTag": "miscounted-tens"
+          }
+        ],
+        "explain": "Before 10 comes 9."
+      }
+    ],
+    "medium": [
+      {
+        "id": "num-00-m1",
+        "type": "number",
+        "q": "What comes right after 49?",
+        "answer": "50",
+        "hintLadder": [
+          "Look at the ones digit — it is 9.",
+          "The ones are full, so a new ten starts.",
+          "4 tens become 5 tens."
+        ],
+        "explain": "After 49 comes 50.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 5,
+                "showLabels": true,
+                "label": "40 to 50"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "num-00-m2",
+        "type": "mcq",
+        "q": "Skip-count by tens: 10, 20, 30, __?",
+        "answer": "40",
+        "hintLadder": [
+          "Each jump adds one ten.",
+          "30 and ten more.",
+          "Keep the ones at zero."
+        ],
+        "options": [
+          {
+            "label": "40"
+          },
+          {
+            "label": "31",
+            "mistakeTag": "decade-gap"
+          },
+          {
+            "label": "50",
+            "mistakeTag": "miscounted-tens"
+          }
+        ],
+        "explain": "After 30 comes 40 when jumping by tens.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 4,
+                "showLabels": true,
+                "label": "jumps of ten"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "num-00-c1",
+        "type": "number",
+        "q": "What number comes right before 70?",
+        "answer": "69",
+        "hintLadder": [
+          "'Before' means one less.",
+          "Step back from 70.",
+          "70 take away 1 dips into the sixties."
+        ],
+        "explain": "Before 70 comes 69."
+      },
+      {
+        "id": "num-00-c2",
+        "type": "mcq",
+        "q": "Count by tens to a hundred: 70, 80, 90, __?",
+        "answer": "100",
+        "hintLadder": [
+          "Add one more ten to 90.",
+          "Nine tens and one more ten.",
+          "Ten tens make...",
+          "one hundred."
+        ],
+        "options": [
+          {
+            "label": "100"
+          },
+          {
+            "label": "91",
+            "mistakeTag": "decade-gap"
+          },
+          {
+            "label": "900",
+            "mistakeTag": "miscounted-tens"
+          }
+        ],
+        "explain": "After 90 comes 100 — ten tens make a hundred.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 10,
+                "showLabels": true,
+                "label": "90 to 100"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "num-00-x1",
+        "type": "number",
+        "q": "What number comes right after 29?",
+        "answer": "30",
+        "hintLadder": [
+          "The ones digit is 9 — full.",
+          "One more opens a new ten.",
+          "2 tens become 3 tens."
+        ],
+        "explain": "After 29 comes 30.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 10,
+                "showLabels": true,
+                "label": "20 to 30"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "num-00-x2",
+        "type": "mcq",
+        "q": "What comes right before 40?",
+        "answer": "39",
+        "hintLadder": [
+          "'Before' means one less.",
+          "Step back from 40.",
+          "40 take away 1."
+        ],
+        "options": [
+          {
+            "label": "39"
+          },
+          {
+            "label": "41",
+            "mistakeTag": "before-after-swapped"
+          },
+          {
+            "label": "30",
+            "mistakeTag": "miscounted-tens"
+          }
+        ],
+        "explain": "Before 40 comes 39."
+      },
+      {
+        "id": "num-00-x3",
+        "type": "number",
+        "q": "Skip-count by tens: 20, 30, 40, __?",
+        "answer": "50",
+        "hintLadder": [
+          "Each hop adds a ten.",
+          "40 and ten more.",
+          "Ones stay at zero."
+        ],
+        "explain": "After 40 comes 50.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 5,
+                "showLabels": true,
+                "label": "jumps of ten"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "num-00-x4",
+        "type": "mcq",
+        "q": "What comes right after 99?",
+        "answer": "100",
+        "hintLadder": [
+          "The ones are 9 and the tens are 9 — both full.",
+          "One more fills the last ten.",
+          "Nine tens and one more ten make ten tens."
+        ],
+        "options": [
+          {
+            "label": "100"
+          },
+          {
+            "label": "910",
+            "mistakeTag": "decade-gap"
+          },
+          {
+            "label": "90",
+            "mistakeTag": "before-after-swapped"
+          }
+        ],
+        "explain": "After 99 comes 100."
+      },
+      {
+        "id": "num-00-x5",
+        "type": "number",
+        "q": "What number comes right before 60?",
+        "answer": "59",
+        "hintLadder": [
+          "'Before' means one less.",
+          "Step back from 60.",
+          "Dip into the fifties."
+        ],
+        "explain": "Before 60 comes 59."
+      }
+    ]
+  },
+  "teachBackPrompt": "Teach someone at home the 'new ten' trick: show them why after 29 comes 30 (not 'twenty-ten'), and count by tens together all the way to 100.",
+  "revisionCard": {
+    "summary": "Next = one more (9 opens a new ten), Before = one less, and jump by tens 10, 20, 30... ten tens make 100.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Counting Meadow (Little Sprouts)",
+    "title": "Climb to a Hundred",
+    "brief": "Hop up the number road with Captain Count — mind the tricky nines where a brand-new ten begins — and jump by tens to reach 100.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Count the stairs in your home or building in tens if you can, or count to 100 out loud with a grown-up while climbing or clapping.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "fearless-math",
+  "version": "0.1.0",
+  "description": "FearlessMath - fear-free, visual, multi-method math learning (PP1 to Plus Two). Local-first Electron app.",
+  "author": "Bala Krishna",
+  "license": "UNLICENSED",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && cross-env ELECTRON_START_URL=http://localhost:5173 electron .\"",
+    "build": "vite build",
+    "start": "electron .",
+    "test": "node tests/logic.test.js && node tests/store.test.js && node tests/ai.test.js && node tests/practice.test.js",
+    "validate-content": "node tools/validate-content.js content-packs/cbse-class3-5-en-v1/concepts content-packs/cbse-pp1-2-en-v1/concepts",
+    "pack": "vite build && electron-builder --dir",
+    "dist": "vite build && electron-builder --win"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "optionalDependencies": {
+    "better-sqlite3": "^11.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^31.3.0",
+    "electron-builder": "^24.13.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.0",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.fearlessmath.app",
+    "productName": "FearlessMath",
+    "directories": { "output": "release", "buildResources": "build" },
+    "files": ["electron/**/*", "dist/**/*", "package.json"],
+    "extraResources": [{ "from": "content-packs", "to": "content-packs" }],
+    "asar": true,
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "FearlessMath"
+    }
+  }
+}

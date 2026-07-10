@@ -1,0 +1,169 @@
+{
+  "id": "meas-08-speed-distance-time",
+  "name": "Speed, Distance and Time",
+  "grade": 7,
+  "strand": "measurement",
+  "prerequisites": ["num-31-proportion"],
+  "whatIsIt": "SPEED tells how fast — distance covered in each unit of time (like 60 km per hour). The three are linked: Speed = Distance ÷ Time; Distance = Speed × Time; Time = Distance ÷ Speed. Cover the one you want in the triangle D over S and T, and the formula appears.",
+  "whyNeeded": "Journeys, sports, and everyday planning all use speed: 'when will we arrive?', 'how far in 2 hours?', 'what's my running pace?'. It's the most common real-life 'rate', and the gateway to physics.",
+  "realLifeUses": [
+    "Working out arrival time for a bus or train journey",
+    "How far a car travels in 3 hours at 50 km/h",
+    "A runner's pace (minutes per km)",
+    "Comparing which route is faster"
+  ],
+  "vocabulary": [
+    { "term": "speed", "meaning": "Distance covered per unit of time (km/h, m/s)." },
+    { "term": "distance", "meaning": "How far something travels." },
+    { "term": "the D-S-T triangle", "meaning": "D on top, S and T below: cover what you want to find." }
+  ],
+  "story": {
+    "title": "Will We Reach by Noon?",
+    "characters": ["Papa", " Meera "],
+    "text": "The family drives at a steady 60 km/h and the town is 180 km away. 'Will we reach by noon if we leave at 9?' asks Meera. She uses Time = Distance ÷ Speed = 180 ÷ 60 = 3 hours. 'Leaving at 9, we arrive at 12 — exactly noon!' Papa is impressed with her planning.",
+    "extractedProblem": "At 60 km/h, how long to travel 180 km?",
+    "answerInStory": "3 hours — Time = Distance ÷ Speed = 180 ÷ 60."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "180 km at 60 km/h", "parts": [ { "value": 60 }, { "value": 60 }, { "value": 60 } ], "showTotal": true }
+      ]
+    },
+    "caption": "Each hour covers 60 km. Three 60s make 180 km → the trip takes 3 hours (Time = Distance ÷ Speed)."
+  },
+  "teachingGallery": [
+    {
+      "title": "The three formulas",
+      "note": "Cover what you want in the D / S · T triangle.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "50 km/h × 2 h = 100 km", "parts": [ { "value": 50 }, { "value": 50 } ], "showTotal": true } ] }, "caption": "Distance = Speed × Time." },
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [0, 40, 80, 120], "jump": 40, "label": "40 km each hour" } ] }, "caption": "Steady speed adds the same distance each hour." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "120 km ÷ 3 h = 40 km/h", "parts": [ { "value": 40 }, { "value": 40 }, { "value": 40 } ], "showTotal": true } ] }, "caption": "Speed = Distance ÷ Time." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Pick the right formula from the D-S-T triangle, keep units matching, then calculate.",
+    "steps": [
+      "Write what you know and what you want (distance, speed, or time).",
+      "Speed = Distance ÷ Time; Distance = Speed × Time; Time = Distance ÷ Speed.",
+      "Keep units consistent (km with hours → km/h; m with seconds → m/s).",
+      "Check the answer is sensible (faster speed → less time for the same distance)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A car travels at 50 km/h for 3 hours. How far does it go?",
+      "steps": ["Want distance: Distance = Speed × Time.", "50 × 3.", "= 150 km."],
+      "answer": "150"
+    },
+    {
+      "problem": "A cyclist covers 30 km in 2 hours. What is the speed?",
+      "steps": ["Want speed: Speed = Distance ÷ Time.", "30 ÷ 2.", "= 15 km/h."],
+      "answer": "15"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "wrong-formula",
+      "mistake": "Multiplying when you should divide (using Speed × Time to find time).",
+      "fix": "Use the triangle: to find TIME, cover T → Distance ÷ Speed. To find DISTANCE, cover D → Speed × Time."
+    },
+    {
+      "mistakeTag": "units-mismatch",
+      "mistake": "Mixing units, like minutes with km/h, without converting.",
+      "fix": "Match the units first: with km/h use HOURS; 30 minutes = 0.5 hour."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "me08-e1", "type": "number",
+        "q": "At 40 km/h for 2 hours, how far (in km)?",
+        "answer": "80",
+        "hintLadder": ["Distance = Speed × Time.", "40 × 2.", "80."]
+      },
+      {
+        "id": "me08-e2", "type": "number",
+        "q": "60 km in 1 hour is a speed of how many km/h?",
+        "answer": "60",
+        "hintLadder": ["Speed = Distance ÷ Time.", "60 ÷ 1.", "60."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "me08-m1", "type": "number",
+        "q": "At 60 km/h, how long to travel 120 km (in hours)?",
+        "answer": "2",
+        "hintLadder": ["Time = Distance ÷ Speed.", "120 ÷ 60.", "2."]
+      },
+      {
+        "id": "me08-m2", "type": "number",
+        "q": "A train covers 240 km in 4 hours. Speed (km/h)?",
+        "answer": "60",
+        "hintLadder": ["Speed = Distance ÷ Time.", "240 ÷ 4.", "60."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "me08-c1", "type": "number",
+        "q": "At 80 km/h for 2.5 hours, how far (in km)?",
+        "answer": "200",
+        "hintLadder": ["Distance = Speed × Time.", "80 × 2.5.", "200."]
+      },
+      {
+        "id": "me08-c2", "type": "mcq",
+        "q": "To find the TIME for a journey you should…",
+        "options": [ { "label": "Divide distance by speed" }, { "label": "Multiply speed by distance", "mistakeTag": "wrong-formula" } ],
+        "answer": "Divide distance by speed",
+        "hintLadder": ["Cover T in the triangle.", "D over S.", "Distance ÷ Speed."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "me08-x1", "type": "number",
+        "q": "At 50 km/h for 4 hours, distance (km)?",
+        "answer": "200",
+        "hintLadder": ["Speed × Time.", "50 × 4.", "200."]
+      },
+      {
+        "id": "me08-x2", "type": "number",
+        "q": "100 km at 25 km/h takes how many hours?",
+        "answer": "4",
+        "hintLadder": ["Distance ÷ Speed.", "100 ÷ 25.", "4."]
+      },
+      {
+        "id": "me08-x3", "type": "number",
+        "q": "150 km in 3 hours — speed (km/h)?",
+        "answer": "50",
+        "hintLadder": ["Distance ÷ Time.", "150 ÷ 3.", "50."]
+      },
+      {
+        "id": "me08-x4", "type": "mcq",
+        "q": "Distance equals…",
+        "options": [ { "label": "Speed × Time" }, { "label": "Speed ÷ Time", "mistakeTag": "wrong-formula" } ],
+        "answer": "Speed × Time",
+        "hintLadder": ["Cover D in the triangle.", "S and T multiply.", "Speed × Time."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Plan a real trip with a grown-up: pick a distance and a speed, and work out the time (or pick a time and speed and work out the distance). Explain how the D-S-T triangle tells you whether to multiply or divide.",
+  "revisionCard": {
+    "summary": "Speed = Distance ÷ Time; Distance = Speed × Time; Time = Distance ÷ Speed. Use the D-over-S·T triangle: cover what you want. Keep units matched (km/h with hours; 30 min = 0.5 h). Faster speed → less time for the same distance.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 7 (speed, distance & time)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

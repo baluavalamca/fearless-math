@@ -1,0 +1,611 @@
+{
+  "id": "pp1-01-count-to-10",
+  "name": "Counting 1 to 10 — One Touch, One Number",
+  "grade": 0,
+  "strand": "numbers",
+  "prerequisites": [
+    "found-01-prenumber"
+  ],
+  "whatIsIt": "Counting tells us HOW MANY things there are. We touch each thing one time and say the numbers in order: one, two, three... The LAST number we say tells how many there are altogether.",
+  "whyNeeded": "We count all day! How many biscuits are on my plate? How many friends came to play? How many steps to the door? Counting is the very first math tool, and every bigger idea — adding, sharing, money — is built on top of it.",
+  "realLifeUses": [
+    "Counting biscuits, grapes, or laddus on your plate before you eat",
+    "Counting how many friends are playing so everyone gets a turn",
+    "Counting steps as you climb them, or fingers on one hand",
+    "Counting toy cars, crayons, or bangles as you tidy them into a box"
+  ],
+  "vocabulary": [
+    {
+      "term": "count",
+      "meaning": "To touch each thing once and say the numbers in order: 1, 2, 3..."
+    },
+    {
+      "term": "how many",
+      "meaning": "The question counting answers — the total number of things."
+    },
+    {
+      "term": "last number",
+      "meaning": "The number you say for the very last thing — it tells how many there are altogether."
+    },
+    {
+      "term": "in order",
+      "meaning": "Saying numbers the right way: one, two, three, four... never skipping or jumping."
+    }
+  ],
+  "story": {
+    "title": "Chinni Counts the Pond Ducklings",
+    "characters": [
+      "Chinni the squirrel",
+      "five ducklings"
+    ],
+    "text": "By the village temple pond, Chinni the little squirrel watches yellow ducklings paddle in a row. 'How many today?' she wonders. She touches each duckling gently, just once: 'One... two... three... four... five.' A duckling paddles back for another look. 'Careful!' laughs Chinni. 'Touch each one only ONCE, or you count it twice. And the LAST number I said was five — so there are five ducklings!'",
+    "extractedProblem": "Chinni counts a row of ducklings, touching each one once: one, two, three, four, five. How many ducklings are there?",
+    "answerInStory": "There are 5 ducklings — the last number Chinni said was five, and that tells how many."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        {
+          "rows": 1,
+          "cols": 5,
+          "asGroups": true
+        }
+      ]
+    },
+    "caption": "Touch each duck and say one number: 1, 2, 3, 4, 5. The LAST number, 5, tells how many."
+  },
+  "teachingGallery": [
+    {
+      "title": "Count them — one touch, one number",
+      "note": "Point to each thing and say the number out loud.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "apple"
+                ],
+                "showCount": true
+              }
+            ]
+          },
+          "caption": "1 apple. Just one!"
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "duck",
+                  "duck",
+                  "duck"
+                ],
+                "showCount": true
+              }
+            ]
+          },
+          "caption": "1, 2, 3 — three ducks."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "showCount": true
+              }
+            ]
+          },
+          "caption": "Count: 5 stars."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon"
+                ],
+                "showCount": true
+              }
+            ]
+          },
+          "caption": "Count: 7 balloons."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball"
+                ],
+                "showCount": true
+              }
+            ]
+          },
+          "caption": "Count all the way to 10 balls."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To count a group: touch each thing once, say the numbers in order, and the last number is how many.",
+    "steps": [
+      "Point to the first thing and say 'one'.",
+      "Move to the next thing, say 'two', and keep going in order — one touch per thing.",
+      "Do not touch anything twice and do not skip any thing.",
+      "The LAST number you say is how many there are altogether."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Move-them-aside method",
+      "whenToUse": "When the things can be moved, like buttons or grapes.",
+      "steps": [
+        "Say 'one' and slide the first thing to a new pile.",
+        "Say 'two' and slide the next, and so on.",
+        "When nothing is left to move, your last number is how many."
+      ],
+      "example": "Counting 4 buttons: slide each while saying 1, 2, 3, 4 — the pile of 4 is your answer."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "How many balls are here? (a row of 4 balls)",
+      "steps": [
+        "Touch the first ball: 'one'.",
+        "Touch each next ball in order: 'two, three, four'.",
+        "One touch per ball — none counted twice.",
+        "The last number is four, so there are 4 balls."
+      ],
+      "answer": "4",
+      "visual": {
+        "component": "ArrayGrid",
+        "props": {
+          "grids": [
+            {
+              "rows": 1,
+              "cols": 4,
+              "asGroups": true
+            }
+          ]
+        },
+        "caption": "1, 2, 3, 4 — the last number is 4."
+      }
+    },
+    {
+      "problem": "How many stars are here? (a row of 7 stars)",
+      "steps": [
+        "Point and say 'one' for the first star.",
+        "Keep going in order: two, three, four, five, six, seven.",
+        "Each star gets exactly one number.",
+        "The last number is seven, so there are 7 stars."
+      ],
+      "answer": "7",
+      "visual": {
+        "component": "ArrayGrid",
+        "props": {
+          "grids": [
+            {
+              "rows": 1,
+              "cols": 7,
+              "asGroups": true
+            }
+          ]
+        },
+        "caption": "1..7 — the last number is 7."
+      }
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "double-counted",
+      "mistake": "Touching one thing twice, so the count is one too big (says 6 for 5 things).",
+      "fix": "One touch per thing! Slide each thing aside as you count it, so you never count the same one twice."
+    },
+    {
+      "mistakeTag": "skipped-one",
+      "mistake": "Jumping past a thing without counting it, so the count is one too small (says 4 for 5 things).",
+      "fix": "Go slowly, left to right. Touch EVERY thing once — don't let any be skipped."
+    },
+    {
+      "mistakeTag": "not-last-number",
+      "mistake": "Giving a middle number as the total instead of the last one.",
+      "fix": "The answer is the LAST number you say. Count all the way to the end, then that final number is how many."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "pp1-01-e1",
+        "type": "mcq",
+        "q": "How many apples? (you see 3 apples)",
+        "answer": "3",
+        "hintLadder": [
+          "Touch each apple and say a number.",
+          "One, two... keep going.",
+          "The last number you say is the answer."
+        ],
+        "options": [
+          {
+            "label": "3"
+          },
+          {
+            "label": "2",
+            "mistakeTag": "skipped-one"
+          },
+          {
+            "label": "4",
+            "mistakeTag": "double-counted"
+          }
+        ],
+        "explain": "Three apples — 1, 2, 3.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 3,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-01-e2",
+        "type": "mcq",
+        "q": "How many balloons? (you see 5 balloons)",
+        "answer": "5",
+        "hintLadder": [
+          "Point to each balloon once.",
+          "Count in order: 1, 2, 3, 4, 5.",
+          "Say the last number."
+        ],
+        "options": [
+          {
+            "label": "5"
+          },
+          {
+            "label": "4",
+            "mistakeTag": "skipped-one"
+          },
+          {
+            "label": "6",
+            "mistakeTag": "double-counted"
+          }
+        ],
+        "explain": "Five balloons — the last number is 5.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 5,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "medium": [
+      {
+        "id": "pp1-01-m1",
+        "type": "number",
+        "q": "Count the fish and type how many: (you see 6 fish)",
+        "answer": "6",
+        "hintLadder": [
+          "Touch each fish one time.",
+          "Count in order up to the last fish.",
+          "The last number is your answer."
+        ],
+        "explain": "Six fish — 1, 2, 3, 4, 5, 6.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 6,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-01-m2",
+        "type": "mcq",
+        "q": "How many spoons? (you see 8 spoons)",
+        "answer": "8",
+        "hintLadder": [
+          "Go slowly, left to right.",
+          "Every spoon gets one number.",
+          "Do not skip or repeat any spoon."
+        ],
+        "options": [
+          {
+            "label": "8"
+          },
+          {
+            "label": "7",
+            "mistakeTag": "skipped-one"
+          },
+          {
+            "label": "9",
+            "mistakeTag": "double-counted"
+          }
+        ],
+        "explain": "Eight spoons.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 8,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "pp1-01-c1",
+        "type": "number",
+        "q": "Count the stars and type how many: (you see 10 stars)",
+        "answer": "10",
+        "hintLadder": [
+          "Point to each star once.",
+          "Count all the way in order.",
+          "Your last number is how many."
+        ],
+        "explain": "Ten stars — count all the way to 10.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 5,
+                "asGroups": true
+              }
+            ]
+          },
+          "caption": "Two rows of 5 make 10."
+        }
+      },
+      {
+        "id": "pp1-01-c2",
+        "type": "mcq",
+        "q": "You touched a group and said '...seven, eight, nine.' How many are there?",
+        "answer": "9",
+        "hintLadder": [
+          "The answer is the LAST number you said.",
+          "What number came last?",
+          "It was nine."
+        ],
+        "options": [
+          {
+            "label": "9"
+          },
+          {
+            "label": "8",
+            "mistakeTag": "not-last-number"
+          },
+          {
+            "label": "7",
+            "mistakeTag": "not-last-number"
+          }
+        ],
+        "explain": "The last number said was nine, so there are 9."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "pp1-01-x1",
+        "type": "mcq",
+        "q": "How many ducks? (you see 5 ducks)",
+        "answer": "5",
+        "hintLadder": [
+          "Touch each duck once.",
+          "Count 1, 2, 3, 4, 5.",
+          "Say the last number."
+        ],
+        "options": [
+          {
+            "label": "5"
+          },
+          {
+            "label": "4",
+            "mistakeTag": "skipped-one"
+          },
+          {
+            "label": "6",
+            "mistakeTag": "double-counted"
+          }
+        ],
+        "explain": "Five ducks.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 5,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-01-x2",
+        "type": "number",
+        "q": "Count the buttons and type how many: (you see 7 buttons)",
+        "answer": "7",
+        "hintLadder": [
+          "One touch per button.",
+          "Count in order.",
+          "Last number is the answer."
+        ],
+        "explain": "Seven buttons.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 7,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-01-x3",
+        "type": "mcq",
+        "q": "How many crayons? (you see 9 crayons)",
+        "answer": "9",
+        "hintLadder": [
+          "Go slowly, left to right.",
+          "Every crayon gets one number.",
+          "Do not skip or repeat."
+        ],
+        "options": [
+          {
+            "label": "9"
+          },
+          {
+            "label": "8",
+            "mistakeTag": "skipped-one"
+          },
+          {
+            "label": "10",
+            "mistakeTag": "double-counted"
+          }
+        ],
+        "explain": "Nine crayons.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 9,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-01-x4",
+        "type": "mcq",
+        "q": "You counted and said '...four, five, six.' How many are there?",
+        "answer": "6",
+        "hintLadder": [
+          "The total is the LAST number.",
+          "What did you say last?",
+          "It was six."
+        ],
+        "options": [
+          {
+            "label": "6"
+          },
+          {
+            "label": "5",
+            "mistakeTag": "not-last-number"
+          },
+          {
+            "label": "4",
+            "mistakeTag": "not-last-number"
+          }
+        ],
+        "explain": "The last number was six."
+      },
+      {
+        "id": "pp1-01-x5",
+        "type": "number",
+        "q": "Count the grapes and type how many: (you see 10 grapes)",
+        "answer": "10",
+        "hintLadder": [
+          "Touch each grape once.",
+          "Count all the way in order.",
+          "Your last number is how many."
+        ],
+        "explain": "Ten grapes.",
+        "visual": {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 5,
+                "asGroups": true
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "teachBackPrompt": "Be the teacher! Show someone at home how you count 6 spoons: touch each one just once, count out loud, and tell them the LAST number is how many.",
+  "revisionCard": {
+    "summary": "Counting: touch each thing ONCE, say numbers in order, and the LAST number tells how many.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Counting Meadow (Little Sprouts)",
+    "title": "Captain Count's Duck Parade",
+    "brief": "Help Captain Count line up the animals and count each group — one gentle touch per animal — before the parade begins!",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "At snack time, count your biscuits out loud by touching each one. Then count the people at the table. Who has more?",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  }
+}

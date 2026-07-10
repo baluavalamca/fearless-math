@@ -1,0 +1,476 @@
+{
+  "id": "dec-01-decimal-tenths",
+  "name": "Decimals — Tenths, the Dot's First Secret",
+  "grade": 4,
+  "strand": "fractions",
+  "prerequisites": [
+    "frac-05-adding-like"
+  ],
+  "whatIsIt": "A decimal is another way to write fractions whose pieces come in TENS: tenths, hundredths. The dot (decimal point) separates whole things from pieces: 2.7 means 2 wholes and 7 tenths — exactly the same as 2 and 7/10. Decimals are fractions wearing place-value clothes!",
+  "whyNeeded": "The world runs on tens — our whole number system does! Money (₹2.50), height (1.4 metres), cricket run rates (7.5 per over), petrol (2.3 litres). Decimals let the place-value system you already know keep going PAST the ones place, into pieces.",
+  "realLifeUses": [
+    "Money: ₹2.50 is 2 rupees and 50 paise",
+    "Measuring: your pencil is 12.5 cm — twelve and a half centimetres",
+    "Cricket: a run rate of 7.5 runs per over",
+    "Petrol pump display: 2.3 litres and counting!",
+    "Temperature: 38.5°C on the thermometer"
+  ],
+  "vocabulary": [
+    {
+      "term": "decimal point",
+      "meaning": "The dot that separates wholes (left) from pieces (right): 2.7"
+    },
+    {
+      "term": "tenth",
+      "meaning": "One piece when a whole is cut into 10 equal pieces: 1/10 = 0.1"
+    },
+    {
+      "term": "tenths place",
+      "meaning": "The first seat right of the dot — it counts tenths."
+    }
+  ],
+  "story": {
+    "title": "The Barfi Bar's Ten Pieces",
+    "characters": [
+      "Meena",
+      "the halwai"
+    ],
+    "text": "The halwai cuts a long coconut barfi into 10 equal pieces. Meena buys 7 of them. 'How much of the whole bar is that?' she asks. 'Seven pieces out of ten — that is 7/10 as a fraction,' says the halwai. 'And with the dot we write it 0.7. The same amount, two names — the dot means a part of one whole.'",
+    "extractedProblem": "7 pieces of a barfi cut into 10 equal pieces — write it as a fraction AND a decimal.",
+    "answerInStory": "7/10 as a fraction, 0.7 as a decimal — the same amount with two names."
+  },
+  "visual": {
+    "component": "FractionStrip",
+    "props": {
+      "strips": [
+        {
+          "parts": 10,
+          "shaded": 7,
+          "label": "7/10 = 0.7"
+        },
+        {
+          "parts": 10,
+          "shaded": 3,
+          "label": "3/10 = 0.3"
+        },
+        {
+          "parts": 10,
+          "shaded": 5,
+          "label": "5/10 = 0.5 (a half!)"
+        }
+      ]
+    },
+    "caption": "A strip cut into 10 equal parts: each part is one tenth = 1/10 = 0.1. Count the shaded tenths to read the decimal."
+  },
+  "teachingGallery": [
+    {
+      "title": "Tenths — one whole cut into 10",
+      "note": "Each part is one-tenth = 0.1. The digit after the dot counts the tenths.",
+      "examples": [
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 1,
+                "label": "1/10 = 0.1"
+              }
+            ]
+          },
+          "caption": "1 of 10 parts = 0.1."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 3,
+                "label": "3/10 = 0.3"
+              }
+            ]
+          },
+          "caption": "3 tenths = 0.3."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 5,
+                "label": "5/10 = 0.5"
+              }
+            ]
+          },
+          "caption": "5 tenths = 0.5 (a half!)."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 7,
+                "label": "7/10 = 0.7"
+              }
+            ]
+          },
+          "caption": "7 tenths = 0.7."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 9,
+                "label": "0.9",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "On the line, 9 tenths sits at 0.9."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Count wholes (left of the dot) and tenths (first place right of the dot).",
+    "steps": [
+      "Cut (or imagine) the whole in 10 equal pieces — each piece is a tenth.",
+      "Count complete wholes → write them LEFT of the dot.",
+      "Count leftover tenths → write them RIGHT of the dot.",
+      "2 wholes and 7 tenths → 2.7 (read: 'two point seven', meaning 2 and 7/10)."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Number-line method",
+      "whenToUse": "To see decimals as numbers with homes, just like fractions.",
+      "steps": [
+        "Cut the space between 0 and 1 into 10 equal jumps.",
+        "Each jump is 0.1 — say them as you hop: 0.1, 0.2, 0.3…",
+        "0.7 lives seven hops from 0 — the same home as 7/10!"
+      ],
+      "example": "A ruler is exactly this: the small marks between cm numbers are tenths."
+    },
+    {
+      "name": "Fraction-translation method",
+      "whenToUse": "Whenever a decimal confuses you — translate it back!",
+      "steps": [
+        "Read the tenths digit as a fraction over 10.",
+        "0.3 = 3/10. And 0.5 = 5/10 = 1/2 — an old friend!",
+        "All your fraction skills work on decimals too."
+      ],
+      "example": "Compare 0.4 and 0.6 → 4/10 vs 6/10 → same bottoms, compare tops → 0.6 is bigger."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A milk jug holds 1 litre, marked in 10 equal parts. Milk fills 1 whole jug and 3 marks of a second jug. Write the total as a decimal.",
+      "steps": [
+        "Wholes: 1 full jug → 1 goes left of the dot.",
+        "Tenths: 3 marks → 3 goes right of the dot.",
+        "Total: 1.3 litres (= 1 and 3/10)."
+      ],
+      "answer": "1.3"
+    },
+    {
+      "problem": "Ravi says 0.9 is smaller than 0.10 'because 9 is smaller than 10.' Set the record straight (compare 0.9 with 0.1).",
+      "steps": [
+        "Translate to fractions: 0.9 = 9/10 and 0.1 = 1/10.",
+        "Same bottoms — compare tops: 9 > 1.",
+        "So 0.9 is much BIGGER: nine tenths versus one tenth.",
+        "The digit right after the dot counts tenths — read it as a fraction and no trick can fool you."
+      ],
+      "answer": "0.9 is bigger — 9 tenths beats 1 tenth."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Tenths = one place after the dot",
+    "intro": "How many tenths? That single digit goes right after the decimal point.",
+    "questions": [
+      {
+        "id": "dec01-trick-7",
+        "type": "number",
+        "q": "Write 7/10 as a decimal.",
+        "answer": "0.7",
+        "hintLadder": [
+          "Tenths sit ONE place after the dot.",
+          "The top number is how many tenths.",
+          "7/10 = 0.7."
+        ],
+        "explain": "7/10 = 0.7."
+      },
+      {
+        "id": "dec01-trick-3",
+        "type": "number",
+        "q": "Write 3/10 as a decimal.",
+        "answer": "0.3",
+        "hintLadder": [
+          "Tenths sit ONE place after the dot.",
+          "The top number is how many tenths.",
+          "3/10 = 0.3."
+        ],
+        "explain": "3/10 = 0.3."
+      },
+      {
+        "id": "dec01-trick-5",
+        "type": "number",
+        "q": "Write 5/10 as a decimal.",
+        "answer": "0.5",
+        "hintLadder": [
+          "Tenths sit ONE place after the dot.",
+          "The top number is how many tenths.",
+          "5/10 = 0.5."
+        ],
+        "explain": "5/10 = 0.5."
+      },
+      {
+        "id": "dec01-trick-1",
+        "type": "number",
+        "q": "Write 1/10 as a decimal.",
+        "answer": "0.1",
+        "hintLadder": [
+          "Tenths sit ONE place after the dot.",
+          "The top number is how many tenths.",
+          "1/10 = 0.1."
+        ],
+        "explain": "1/10 = 0.1."
+      },
+      {
+        "id": "dec01-trick-9",
+        "type": "number",
+        "q": "Write 9/10 as a decimal.",
+        "answer": "0.9",
+        "hintLadder": [
+          "Tenths sit ONE place after the dot.",
+          "The top number is how many tenths.",
+          "9/10 = 0.9."
+        ],
+        "explain": "9/10 = 0.9."
+      },
+      {
+        "id": "dec01-trick-4",
+        "type": "number",
+        "q": "Write 4/10 as a decimal.",
+        "answer": "0.4",
+        "hintLadder": [
+          "Tenths sit ONE place after the dot.",
+          "The top number is how many tenths.",
+          "4/10 = 0.4."
+        ],
+        "explain": "4/10 = 0.4."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "read-as-whole-number",
+      "mistake": "Reading 0.7 as 'seven' or thinking 2.7 has 'twenty-seven' of something.",
+      "fix": "The dot changes everything after it into PIECES. 0.7 is seven TENTHS of one whole — less than 1! Translate: 0.7 = 7/10."
+    },
+    {
+      "mistakeTag": "longer-means-bigger",
+      "mistake": "Thinking 0.25 must beat 0.7 'because 25 > 7'.",
+      "fix": "Compare place by place, just like whole numbers! Tenths first: 0.7 has 7 tenths, 0.25 has only 2 tenths — 0.7 wins. Longer decimals are NOT automatically bigger."
+    },
+    {
+      "mistakeTag": "dot-position-confused",
+      "mistake": "Writing 'two and five tenths' as 25 or 2.05 instead of 2.5.",
+      "fix": "One seat per digit! Wholes LEFT of the dot, tenths in the FIRST seat right of the dot: two and five tenths = 2.5."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "A strip is cut into 10 equal parts and 3 parts are shaded. Write the shaded amount as a decimal.",
+        "answer": "0.3",
+        "hintLadder": [
+          "Each part is one tenth.",
+          "3 tenths as a fraction is 3/10.",
+          "Zero wholes, 3 tenths: 0 point ?"
+        ],
+        "visual": {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 3
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "What does 2.7 mean?",
+        "options": [
+          {
+            "label": "2 wholes and 7 tenths"
+          },
+          {
+            "label": "27 wholes",
+            "mistakeTag": "read-as-whole-number"
+          },
+          {
+            "label": "2 wholes and 7 hundredths",
+            "mistakeTag": "dot-position-confused"
+          }
+        ],
+        "answer": "2 wholes and 7 tenths",
+        "hintLadder": [
+          "The dot separates wholes from pieces.",
+          "The first seat after the dot counts what size of piece?",
+          "Tenths! 2 wholes + 7/10."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "Write 'one whole and 9 tenths' as a decimal.",
+        "answer": "1.9",
+        "hintLadder": [
+          "Wholes go left of the dot: 1.",
+          "Tenths go in the first seat right of the dot: 9.",
+          "Put them together with the dot."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "Which is bigger: 0.7 or 0.25?",
+        "options": [
+          {
+            "label": "0.7"
+          },
+          {
+            "label": "0.25, because 25 > 7",
+            "mistakeTag": "longer-means-bigger"
+          }
+        ],
+        "answer": "0.7",
+        "hintLadder": [
+          "Compare the TENTHS seat first, like comparing from the left.",
+          "0.7 has 7 tenths; 0.25 has only 2 tenths.",
+          "7 tenths beats 2 tenths — the extra digit can't save it."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "fraction",
+        "q": "Translate the decimal 0.5 into its SIMPLEST fraction name. (Hint: it's an old friend!)",
+        "answer": "1/2",
+        "hintLadder": [
+          "0.5 = 5 tenths = 5/10.",
+          "Simplify: divide top and bottom by the same number.",
+          "5 ÷ 5 = 1, 10 ÷ 5 = 2."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "A pencil measures 12 cm and 5 small ruler marks more (each mark = one tenth of a cm). Write its length in cm as a decimal.",
+        "answer": "12.5",
+        "hintLadder": [
+          "Wholes: 12 centimetres.",
+          "Pieces: 5 tenths of a centimetre.",
+          "Wholes, dot, tenths."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "Write 8 tenths as a decimal.",
+        "answer": "0.8",
+        "hintLadder": [
+          "No wholes at all — what goes left of the dot?",
+          "Zero. Then the tenths seat.",
+          "0 point 8."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "fraction",
+        "q": "Write 0.9 as a fraction.",
+        "answer": "9/10",
+        "hintLadder": [
+          "The digit after the dot counts tenths.",
+          "9 tenths.",
+          "Top 9, bottom 10."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "Which is bigger: 0.4 or 0.35?",
+        "options": [
+          {
+            "label": "0.4"
+          },
+          {
+            "label": "0.35, because 35 > 4",
+            "mistakeTag": "longer-means-bigger"
+          }
+        ],
+        "answer": "0.4",
+        "hintLadder": [
+          "Tenths seat first: 4 tenths vs 3 tenths.",
+          "4 > 3 — decided before the extra digit matters!",
+          "0.4 = 40/100 and 0.35 = 35/100 if you want proof."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "number",
+        "q": "The jug shows 2 full litres and 3 tenth-marks. Write the amount as a decimal.",
+        "answer": "2.3",
+        "hintLadder": [
+          "Wholes: 2.",
+          "Tenths: 3.",
+          "Wholes, dot, tenths."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Explain the Dot Machine to someone at home: what lives left of the dot, what lives in the first seat right of the dot, and why 0.7 and 7/10 are the same amount. Use a ruler or a ₹ price as your example!",
+  "revisionCard": {
+    "summary": "Decimal = fraction in place-value clothes. Dot separates wholes (left) from tenths (right): 2.7 = 2 + 7/10. Each tenth = 1/10 = 0.1. Compare tenths first (0.7 > 0.25 — longer is NOT bigger). 0.5 = 1/2!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Fraction Kitchen (Ganita Grove)",
+    "title": "The Dot Machine Delivery",
+    "brief": "The Dot Machine is stamping addresses for every piece in the Kitchen! Convert fractions to decimals and back, place them on the tenths line, and stop Ravi from declaring 0.25 the winner over 0.7.",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "Ruler hunt: measure three small things at home (eraser, spoon, phone) to the nearest tenth of a centimetre. Write each length BOTH ways — decimal (4.5 cm) and fraction (4 and 5/10 cm).",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4-5 (decimals: tenths)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

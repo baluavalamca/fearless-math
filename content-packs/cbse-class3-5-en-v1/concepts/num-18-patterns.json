@@ -1,0 +1,169 @@
+{
+  "id": "num-18-patterns",
+  "name": "Number and Shape Patterns — Find the Rule",
+  "grade": 3,
+  "strand": "numbers",
+  "prerequisites": ["num-01-place-value"],
+  "whatIsIt": "A pattern follows a RULE. Some patterns REPEAT (▲■▲■). Some GROW by the same jump (3, 6, 9, 12 — add 3). Some shrink (20, 16, 12 — subtract 4). Once you find the rule, you can extend the pattern forwards or even backwards, and fill in a missing middle term.",
+  "whyNeeded": "Spotting rules is the heart of maths — it's how we predict, how times tables work, and how tricky problems become easy. Patterns in numbers, shapes and even calendars all use the same 'find the rule' skill.",
+  "realLifeUses": [
+    "Times tables are add-the-same-number patterns",
+    "Calendar dates jump by 7 each week",
+    "Border and rangoli designs repeat a unit",
+    "Stair-step brick designs grow by a fixed amount"
+  ],
+  "vocabulary": [
+    { "term": "rule", "meaning": "What the pattern does each step (repeat a unit, or add/subtract a fixed number)." },
+    { "term": "term", "meaning": "One item in the pattern." },
+    { "term": "extend", "meaning": "Continue the pattern using the rule." }
+  ],
+  "story": {
+    "title": "The Missing Step",
+    "characters": ["Dev", "Miss Rao"],
+    "text": "Miss Rao writes 4, 8, ?, 16, 20 on the board and asks Dev for the missing number. Dev checks the jumps: 8 − 4 = 4, and 20 − 16 = 4. 'The rule is add 4 each time,' he says. 'So after 8 comes 8 + 4 = 12.' He fills in 12 and the row is perfect.",
+    "extractedProblem": "In 4, 8, ?, 16, 20, what is the missing number?",
+    "answerInStory": "12 — the rule is 'add 4'."
+  },
+  "visual": {
+    "component": "NumberTrack",
+    "props": {
+      "tracks": [
+        { "terms": [4, 8, "?", 16, 20], "jump": 4, "label": "add 4 each time" }
+      ]
+    },
+    "caption": "Jumps of 4: 4, 8, 12, 16, 20. Find the jump, then fill the gap."
+  },
+  "teachingGallery": [
+    {
+      "title": "Repeat, grow, or shrink",
+      "note": "Repeating patterns have a unit; number patterns have a jump.",
+      "examples": [
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [3, 6, 9, 12, 15], "jump": 3, "label": "add 3" } ] }, "caption": "Growing by 3 (like the 3 times table)." },
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [20, 16, 12, 8], "jump": 4, "label": "subtract 4" } ] }, "caption": "Shrinking by 4 each time." },
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": ["▲", "■", "▲", "■", "▲"], "label": "repeating unit" } ] }, "caption": "Repeating unit ▲■ → next is ■." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Find the rule (repeating unit, or the jump), then extend or fill the gap.",
+    "steps": [
+      "Check if it repeats (a unit like ▲■) or changes by a number.",
+      "For number patterns, find the jump between two pairs to be sure.",
+      "Add the jump to go forwards, subtract it to go backwards.",
+      "For a missing middle term, apply the jump to the term before it."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find the next two terms: 5, 10, 15, 20, …",
+      "steps": ["Jump: 10 − 5 = 5.", "20 + 5 = 25.", "25 + 5 = 30. Next two are 25, 30."],
+      "answer": "25, 30"
+    },
+    {
+      "problem": "Fill the gap: 30, 25, ?, 15, 10",
+      "steps": ["Jumps: 30 − 25 = 5, going down.", "Rule: subtract 5.", "25 − 5 = 20. Missing term is 20."],
+      "answer": "20"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "jump-guessed-once",
+      "mistake": "Deciding the jump from just one pair, so an odd sequence is misread.",
+      "fix": "Check the jump on at least two pairs before trusting it, then apply it consistently."
+    },
+    {
+      "mistakeTag": "direction-flip",
+      "mistake": "Adding when the pattern is shrinking (or subtracting when it is growing).",
+      "fix": "Notice if numbers get bigger (add) or smaller (subtract) and keep that direction."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "n18-e1", "type": "number",
+        "q": "3, 6, 9, 12, … what comes next?",
+        "answer": "15",
+        "hintLadder": ["Jump of 3.", "12 + 3.", "Fifteen."]
+      },
+      {
+        "id": "n18-e2", "type": "number",
+        "q": "10, 20, 30, 40, … what comes next?",
+        "answer": "50",
+        "hintLadder": ["Jump of 10.", "40 + 10.", "Fifty."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "n18-m1", "type": "number",
+        "q": "Fill the gap: 7, 14, ?, 28",
+        "answer": "21",
+        "hintLadder": ["Jump: 14 − 7 = 7.", "14 + 7.", "Twenty-one."]
+      },
+      {
+        "id": "n18-m2", "type": "number",
+        "q": "Shrinking pattern: 25, 20, 15, … what comes next?",
+        "answer": "10",
+        "hintLadder": ["Numbers get smaller.", "Subtract 5.", "15 − 5 = 10."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "n18-c1", "type": "number",
+        "q": "Fill the gap: 40, 34, ?, 22, 16",
+        "answer": "28",
+        "hintLadder": ["Jumps: 40 − 34 = 6, going down.", "34 − 6.", "Twenty-eight."]
+      },
+      {
+        "id": "n18-c2", "type": "mcq",
+        "q": "Aarti sees 2, 4, 8, 16 and says 'add 2 each time'. What's really happening?",
+        "options": [ { "label": "It DOUBLES each time (×2), so next is 32" }, { "label": "Add 2 each time", "mistakeTag": "jump-guessed-once" } ],
+        "answer": "It DOUBLES each time (×2), so next is 32",
+        "hintLadder": ["Check every pair: 4−2=2 but 8−4=4.", "The jump is not the same — it doubles.", "16 × 2 = 32."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "n18-x1", "type": "number",
+        "q": "2, 4, 6, 8, … what comes next?",
+        "answer": "10",
+        "hintLadder": ["Jump of 2.", "8 + 2.", "Ten."]
+      },
+      {
+        "id": "n18-x2", "type": "number",
+        "q": "Fill the gap: 5, 10, ?, 20, 25",
+        "answer": "15",
+        "hintLadder": ["Jump of 5.", "10 + 5.", "Fifteen."]
+      },
+      {
+        "id": "n18-x3", "type": "number",
+        "q": "Shrinking: 18, 15, 12, … what comes next?",
+        "answer": "9",
+        "hintLadder": ["Subtract 3.", "12 − 3.", "Nine."]
+      },
+      {
+        "id": "n18-x4", "type": "mcq",
+        "q": "To be sure of a number pattern's rule you should…",
+        "options": [ { "label": "Check the jump on two pairs" }, { "label": "Use the first pair only", "mistakeTag": "jump-guessed-once" } ],
+        "answer": "Check the jump on two pairs",
+        "hintLadder": ["One pair can trick you.", "Confirm with a second pair.", "Two pairs."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Make up two patterns for a grown-up — one that grows and one that shrinks — and leave a gap in the middle of each. Ask them to fill the gaps, then explain the rule you used.",
+  "revisionCard": {
+    "summary": "Find the rule: a repeating unit, or a jump (add/subtract the same number). Check the jump on two pairs. Add to go forward, subtract to go back. For a missing middle term, apply the jump to the term before it.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3 (number & shape patterns)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

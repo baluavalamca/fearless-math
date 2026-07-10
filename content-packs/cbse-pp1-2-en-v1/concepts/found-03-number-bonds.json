@@ -1,0 +1,702 @@
+{
+  "id": "found-03-number-bonds",
+  "name": "Number Bonds — The Ways to Make a Number",
+  "grade": 1,
+  "strand": "operations",
+  "prerequisites": [
+    "pp1-03-add-within-10"
+  ],
+  "whatIsIt": "A NUMBER BOND shows the two parts that join to make a whole. 10 can be made from 6 and 4, or 7 and 3, or 8 and 2 — these are the bonds of 10. Knowing them by heart (especially the pairs that MAKE TEN) turns adding and subtracting into instant recall instead of slow counting.",
+  "whyNeeded": "Bonds of ten are the secret engine of mental maths. A child who knows 'what makes 10' can add past ten, subtract quickly, and handle money and change with ease. It is the difference between counting on fingers forever and just KNOWING.",
+  "realLifeUses": [
+    "Knowing 3 more makes 10 when you have 7 sweets and want ten",
+    "Working out change: 10 rupees, spent 6, so 4 back",
+    "Splitting a group of 10 friends into two teams",
+    "Quick adding by making ten first"
+  ],
+  "vocabulary": [
+    {
+      "term": "whole",
+      "meaning": "The total number the two parts join to make."
+    },
+    {
+      "term": "part",
+      "meaning": "One of the two numbers that combine to make the whole."
+    },
+    {
+      "term": "number bond",
+      "meaning": "A pair of parts that make a whole, like 6 and 4 make 10."
+    },
+    {
+      "term": "make ten",
+      "meaning": "Finding the partner that adds with a number to reach ten."
+    }
+  ],
+  "story": {
+    "title": "Ten Flowers, Two Baskets",
+    "characters": [
+      "Meena",
+      "the temple priest"
+    ],
+    "text": "Meena helps carry 10 marigold flowers for the temple, sharing them between two baskets. 'Put 6 in this basket,' says the kind priest. 'How many in the other?' Meena counts on her fingers: '4!' 'Yes — 6 and 4 are a number bond that makes 10. Learn the pairs that make ten by heart, and you will never be slow at adding.'",
+    "extractedProblem": "10 flowers go into two baskets. If one basket has 6, how many are in the other?",
+    "answerInStory": "4 flowers — because 6 and 4 are a number bond that makes 10."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        {
+          "parts": [
+            {
+              "value": 6,
+              "label": "6"
+            },
+            {
+              "value": 4,
+              "label": "4"
+            }
+          ]
+        }
+      ]
+    },
+    "caption": "6 and 4 are two PARTS that make the WHOLE, 10. That's a number bond."
+  },
+  "teachingGallery": [
+    {
+      "title": "Two parts make a whole",
+      "note": "A number can be split into two parts. The parts always add back to the whole.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "apple"
+                ],
+                "label": "1"
+              },
+              {
+                "items": [
+                  "apple",
+                  "apple",
+                  "apple",
+                  "apple"
+                ],
+                "label": "4"
+              }
+            ]
+          },
+          "caption": "1 and 4 make 5."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "apple",
+                  "apple"
+                ],
+                "label": "2"
+              },
+              {
+                "items": [
+                  "apple",
+                  "apple",
+                  "apple"
+                ],
+                "label": "3"
+              }
+            ]
+          },
+          "caption": "2 and 3 make 5."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "6"
+              },
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "4"
+              }
+            ]
+          },
+          "caption": "6 and 4 make 10."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "7"
+              },
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "3"
+              }
+            ]
+          },
+          "caption": "7 and 3 make 10."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball"
+                ],
+                "label": "5"
+              },
+              {
+                "items": [
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball"
+                ],
+                "label": "5"
+              }
+            ]
+          },
+          "caption": "5 and 5 make 10."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Split the whole into two parts, or find the missing part: whole take away the known part gives the other part.",
+    "steps": [
+      "Know the WHOLE you are making (often 10).",
+      "If you know one PART, find the other: whole − part.",
+      "For bonds of ten, learn the pairs: 1-9, 2-8, 3-7, 4-6, 5-5.",
+      "Check: the two parts add back to the whole."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Ten-frame partners",
+      "whenToUse": "To find what makes ten.",
+      "steps": [
+        "Fill a ten-frame with the part you have.",
+        "Count the EMPTY spaces.",
+        "The empty spaces are the partner to ten."
+      ],
+      "example": "7 filled → 3 empty → 7 and 3 make 10."
+    },
+    {
+      "name": "Fingers-to-ten",
+      "whenToUse": "For bonds of ten on the go.",
+      "steps": [
+        "Hold up the first part on your fingers.",
+        "The folded-down fingers show the partner.",
+        "Together they make ten fingers."
+      ],
+      "example": "Show 6 fingers up, 4 are down → 6 and 4 make 10."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "10 is made of 8 and what?",
+      "steps": [
+        "The whole is 10, one part is 8.",
+        "Find the other part: 10 − 8.",
+        "Count up from 8 to 10: nine, ten — that's 2.",
+        "8 and 2 make 10."
+      ],
+      "answer": "2",
+      "visual": {
+        "component": "BarModel",
+        "props": {
+          "bars": [
+            {
+              "parts": [
+                {
+                  "value": 8,
+                  "label": "8"
+                },
+                {
+                  "value": 2,
+                  "label": "2"
+                }
+              ]
+            }
+          ]
+        },
+        "caption": "8 and 2 make 10."
+      }
+    },
+    {
+      "problem": "7 and 3 — what whole do they make?",
+      "steps": [
+        "Join the two parts.",
+        "7 and 3 more.",
+        "Count on: eight, nine, ten.",
+        "They make 10."
+      ],
+      "answer": "10"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Bonds of ten",
+    "intro": "Know the ten-partners by heart — they unlock almost every mental sum.",
+    "questions": [
+      {
+        "id": "f03-trick-bond1",
+        "type": "number",
+        "q": "1 + ? = 10",
+        "answer": "9",
+        "hintLadder": [
+          "How many more to FILL the ten-frame?",
+          "10 − 1.",
+          "= 9."
+        ],
+        "explain": "1 and 9 make 10."
+      },
+      {
+        "id": "f03-trick-bond2",
+        "type": "number",
+        "q": "2 + ? = 10",
+        "answer": "8",
+        "hintLadder": [
+          "How many more to FILL the ten-frame?",
+          "10 − 2.",
+          "= 8."
+        ],
+        "explain": "2 and 8 make 10."
+      },
+      {
+        "id": "f03-trick-bond3",
+        "type": "number",
+        "q": "3 + ? = 10",
+        "answer": "7",
+        "hintLadder": [
+          "How many more to FILL the ten-frame?",
+          "10 − 3.",
+          "= 7."
+        ],
+        "explain": "3 and 7 make 10."
+      },
+      {
+        "id": "f03-trick-bond4",
+        "type": "number",
+        "q": "4 + ? = 10",
+        "answer": "6",
+        "hintLadder": [
+          "How many more to FILL the ten-frame?",
+          "10 − 4.",
+          "= 6."
+        ],
+        "explain": "4 and 6 make 10."
+      },
+      {
+        "id": "f03-trick-bond5",
+        "type": "number",
+        "q": "5 + ? = 10",
+        "answer": "5",
+        "hintLadder": [
+          "How many more to FILL the ten-frame?",
+          "10 − 5.",
+          "= 5."
+        ],
+        "explain": "5 and 5 make 10."
+      },
+      {
+        "id": "f03-trick-bond6",
+        "type": "number",
+        "q": "6 + ? = 10",
+        "answer": "4",
+        "hintLadder": [
+          "How many more to FILL the ten-frame?",
+          "10 − 6.",
+          "= 4."
+        ],
+        "explain": "6 and 4 make 10."
+      },
+      {
+        "id": "f03-trick-bond7",
+        "type": "number",
+        "q": "7 + ? = 10",
+        "answer": "3",
+        "hintLadder": [
+          "How many more to FILL the ten-frame?",
+          "10 − 7.",
+          "= 3."
+        ],
+        "explain": "7 and 3 make 10."
+      },
+      {
+        "id": "f03-trick-bond8",
+        "type": "number",
+        "q": "8 + ? = 10",
+        "answer": "2",
+        "hintLadder": [
+          "How many more to FILL the ten-frame?",
+          "10 − 8.",
+          "= 2."
+        ],
+        "explain": "8 and 2 make 10."
+      },
+      {
+        "id": "f03-trick-bond9",
+        "type": "number",
+        "q": "9 + ? = 10",
+        "answer": "1",
+        "hintLadder": [
+          "How many more to FILL the ten-frame?",
+          "10 − 9.",
+          "= 1."
+        ],
+        "explain": "9 and 1 make 10."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "part-whole-confused",
+      "mistake": "Giving the whole when asked for the missing part (saying 10 for '8 and __ make 10').",
+      "fix": "The missing PART is smaller than the whole. 8 and __ make 10 → the part is 2, not 10. Whole − known part = missing part."
+    },
+    {
+      "mistakeTag": "bond-miscounted",
+      "mistake": "Getting the partner-to-ten wrong (7 and 2).",
+      "fix": "Count up to ten from your number: from 7 → 8, 9, 10 is THREE steps, so 7 and 3 (not 2) make ten. Or count the empty ten-frame spaces."
+    },
+    {
+      "mistakeTag": "added-past-whole",
+      "mistake": "Picking two parts that overshoot the whole (6 and 5 for ten).",
+      "fix": "The two parts must add to EXACTLY the whole. 6 and 5 make 11, too many. For ten, 6 partners with 4."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "found-03-e1",
+        "type": "number",
+        "q": "10 is made of 6 and __?",
+        "answer": "4",
+        "hintLadder": [
+          "Fill a ten-frame with 6.",
+          "Count the empty spaces.",
+          "Four."
+        ],
+        "explain": "6 and 4 make 10.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 6,
+                    "label": "6"
+                  },
+                  {
+                    "value": 4,
+                    "label": "4"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-03-e2",
+        "type": "number",
+        "q": "5 and 5 make what whole?",
+        "answer": "10",
+        "hintLadder": [
+          "Join both fives.",
+          "5 and 5 more.",
+          "Ten."
+        ],
+        "explain": "5 + 5 = 10."
+      }
+    ],
+    "medium": [
+      {
+        "id": "found-03-m1",
+        "type": "number",
+        "q": "10 is made of 7 and __?",
+        "answer": "3",
+        "hintLadder": [
+          "Count up from 7 to 10.",
+          "8, 9, 10 — how many steps?",
+          "Three."
+        ],
+        "explain": "7 and 3 make 10.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 7,
+                    "label": "7"
+                  },
+                  {
+                    "value": 3,
+                    "label": "3"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-03-m2",
+        "type": "number",
+        "q": "8 and 2 make what whole?",
+        "answer": "10",
+        "hintLadder": [
+          "Join the parts.",
+          "8 and 2 more.",
+          "Ten."
+        ],
+        "explain": "8 + 2 = 10."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "found-03-c1",
+        "type": "number",
+        "q": "10 is made of 9 and __?",
+        "answer": "1",
+        "hintLadder": [
+          "Almost ten already.",
+          "One more to reach 10.",
+          "One."
+        ],
+        "explain": "9 and 1 make 10."
+      },
+      {
+        "id": "found-03-c2",
+        "type": "number",
+        "q": "6 is made of 4 and __?",
+        "answer": "2",
+        "hintLadder": [
+          "Whole is 6 this time.",
+          "6 − 4.",
+          "Two."
+        ],
+        "explain": "4 and 2 make 6.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 4,
+                    "label": "4"
+                  },
+                  {
+                    "value": 2,
+                    "label": "2"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "found-03-x1",
+        "type": "number",
+        "q": "10 = 3 and __?",
+        "answer": "7",
+        "hintLadder": [
+          "Count up from 3 to 10.",
+          "Seven steps.",
+          "Seven."
+        ],
+        "explain": "3 and 7 make 10.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 3,
+                    "label": "3"
+                  },
+                  {
+                    "value": 7,
+                    "label": "7"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-03-x2",
+        "type": "number",
+        "q": "10 = 4 and __?",
+        "answer": "6",
+        "hintLadder": [
+          "Empty ten-frame spaces.",
+          "Six.",
+          "6."
+        ],
+        "explain": "4 and 6 make 10."
+      },
+      {
+        "id": "found-03-x3",
+        "type": "number",
+        "q": "2 and 8 make what whole?",
+        "answer": "10",
+        "hintLadder": [
+          "Join parts.",
+          "Ten.",
+          "10."
+        ],
+        "explain": "2 + 8 = 10."
+      },
+      {
+        "id": "found-03-x4",
+        "type": "number",
+        "q": "10 = 1 and __?",
+        "answer": "9",
+        "hintLadder": [
+          "One and how many more?",
+          "Nine.",
+          "9."
+        ],
+        "explain": "1 and 9 make 10."
+      },
+      {
+        "id": "found-03-x5",
+        "type": "number",
+        "q": "5 is made of 2 and __?",
+        "answer": "3",
+        "hintLadder": [
+          "Whole is 5.",
+          "5 − 2.",
+          "Three."
+        ],
+        "explain": "2 and 3 make 5.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 2,
+                    "label": "2"
+                  },
+                  {
+                    "value": 3,
+                    "label": "3"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "teachBackPrompt": "Use 10 buttons and two cups. Teach someone at home the bonds of ten by splitting the buttons different ways (6 and 4, 7 and 3...) and saying each pair. Explain why the missing PART is smaller than the whole.",
+  "revisionCard": {
+    "summary": "A number bond = two PARTS that make a WHOLE. Bonds of ten: 1-9, 2-8, 3-7, 4-6, 5-5. Missing part = whole − known part. Learn the ten-pairs by heart!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Adding Orchard (Little Sprouts)",
+    "title": "The Two Baskets",
+    "brief": "Split each whole into two baskets and learn every pair that makes ten by heart.",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "With 10 coins, keep splitting them into two piles and say the pair each time (7 and 3, 8 and 2...). Try to name all the bonds of ten from memory.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  },
+  "mentalMathMethod": {
+    "name": "Friends of ten by heart",
+    "whenToUse": "For instant recall of ten-pairs.",
+    "steps": [
+      "Learn the pairs that make ten: 1-9, 2-8, 3-7, 4-6, 5-5.",
+      "When you see one number, say its partner at once.",
+      "No counting — just recall."
+    ],
+    "example": "See 6 → say 4 (they make ten)."
+  },
+  "abacusMethod": {
+    "name": "See the whole in beads",
+    "whenToUse": "To picture a number bond.",
+    "steps": [
+      "Set the whole (say 10) in beads.",
+      "Slide some to one side — that is one part.",
+      "The beads left are the other part."
+    ],
+    "example": "10 split: 6 one side, 4 the other → bond 6 and 4.",
+    "visual": {
+      "component": "Abacus",
+      "props": {
+        "abaci": [
+          {
+            "value": 10,
+            "label": "10 = 6 and 4"
+          }
+        ]
+      },
+      "caption": "Ten beads split into two parts."
+    }
+  }
+}

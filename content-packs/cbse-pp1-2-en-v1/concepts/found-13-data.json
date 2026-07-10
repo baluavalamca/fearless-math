@@ -1,0 +1,174 @@
+{
+  "id": "found-13-data",
+  "name": "Sorting and Counting — Our First Picture Chart",
+  "grade": 2,
+  "strand": "data",
+  "prerequisites": ["found-05-skip-counting"],
+  "whatIsIt": "When we have lots of things, we SORT them into groups (by colour, type or kind), COUNT each group, and show the counts as a simple picture chart — one picture for each thing. Then a quick look tells us which group has the most and which has the least.",
+  "whyNeeded": "Sorting and counting turn a messy pile into a clear story. Which fruit is most liked? How many red buttons? Picture charts answer these at a glance, and they are the very first step towards graphs.",
+  "realLifeUses": [
+    "Sorting toys into cars, blocks and dolls, then counting each",
+    "A class chart of favourite colours",
+    "Counting how many of each fruit are in a basket",
+    "Sorting the laundry into shirts, socks and towels"
+  ],
+  "vocabulary": [
+    { "term": "sort", "meaning": "Put things into groups that are alike." },
+    { "term": "count", "meaning": "Find how many are in each group." },
+    { "term": "picture chart", "meaning": "One picture for each thing, so groups can be compared." }
+  ],
+  "story": {
+    "title": "Aarav Sorts the Fruit Basket",
+    "characters": ["Aarav", "Amma"],
+    "text": "Amma gives Aarav a mixed basket: apples, bananas and mangoes all jumbled. 'Make it neat,' she says. Aarav sorts them into three piles and counts: 3 apples, 5 bananas, 2 mangoes. He draws one picture for each fruit in rows. 'Bananas have the most — the banana row is the longest!' he says proudly.",
+    "extractedProblem": "Aarav sorts the basket: 3 apples, 5 bananas, 2 mangoes. Which fruit has the most?",
+    "answerInStory": "Bananas — 5, the longest row."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": {
+      "categories": [
+        { "label": "apple", "value": 3, "icon": "🍎" },
+        { "label": "banana", "value": 5, "icon": "🍌" },
+        { "label": "mango", "value": 2, "icon": "🥭" }
+      ],
+      "unit": "fruits"
+    },
+    "caption": "One picture per fruit. Longest row = most (bananas, 5); shortest = least (mangoes, 2)."
+  },
+  "teachingGallery": [
+    {
+      "title": "Sort, count, compare",
+      "note": "Group alike things, count each group, then compare the rows.",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [ { "label": "red", "value": 4, "icon": "🔴" }, { "label": "blue", "value": 6, "icon": "🔵" } ] }, "caption": "Blue has more buttons (6 vs 4)." },
+        { "component": "BarChart", "props": { "categories": [ { "label": "cat", "value": 2, "icon": "🐈" }, { "label": "dog", "value": 5, "icon": "🐕" }, { "label": "fish", "value": 3, "icon": "🐟" } ] }, "caption": "Dogs most (5), cats least (2)." },
+        { "component": "BarChart", "props": { "categories": [ { "label": "car", "value": 3, "icon": "🚗" }, { "label": "bus", "value": 3, "icon": "🚌" } ] }, "caption": "Equal rows → same number (3 each)." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Sort into groups, count each group, draw one picture per item, then compare rows.",
+    "steps": [
+      "SORT: put alike things together (all apples, all bananas).",
+      "COUNT: find how many in each group.",
+      "SHOW: draw one picture for each thing in a row.",
+      "COMPARE: longest row = most, shortest row = least."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A chart shows 🍎🍎🍎 apples, 🍌🍌🍌🍌🍌 bananas. How many MORE bananas than apples?",
+      "steps": ["Count each row: apples 3, bananas 5.", "'How many more' means subtract.", "5 − 3 = 2 more bananas."],
+      "answer": "2"
+    },
+    {
+      "problem": "Buttons sorted: red 4, blue 6, green 2. How many buttons in ALL?",
+      "steps": ["Add every group.", "4 + 6 + 2.", "= 12 buttons in all."],
+      "answer": "12"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "row-length-not-count",
+      "mistake": "Choosing the group whose pictures are drawn BIGGER instead of the group with MORE pictures.",
+      "fix": "Count the pictures, don't look at their size. More pictures = more, even if each one is tiny."
+    },
+    {
+      "mistakeTag": "most-instead-of-total",
+      "mistake": "Giving the biggest group's count when asked for the TOTAL.",
+      "fix": "Total means ALL groups added together, not just the biggest one."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "f13-e1", "type": "mcq",
+        "q": "Apples 3, bananas 5, mangoes 2 — which has the MOST?",
+        "options": [ { "label": "Bananas" }, { "label": "Mangoes", "mistakeTag": "row-length-not-count" } ],
+        "answer": "Bananas",
+        "hintLadder": ["Which number is biggest?", "5 is the most.", "Bananas."]
+      },
+      {
+        "id": "f13-e2", "type": "number",
+        "q": "The dog row has 5 pictures. How many dogs?",
+        "answer": "5",
+        "hintLadder": ["Count the pictures.", "Five in the row.", "Five."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "f13-m1", "type": "number",
+        "q": "Red buttons 6, blue buttons 4. How many MORE red than blue?",
+        "answer": "2",
+        "hintLadder": ["'How many more' = subtract.", "6 − 4.", "Two."]
+      },
+      {
+        "id": "f13-m2", "type": "number",
+        "q": "Cats 2, dogs 5, fish 3. How many pets in ALL?",
+        "answer": "10",
+        "hintLadder": ["Add all groups.", "2 + 5 + 3.", "Ten."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "f13-c1", "type": "mcq",
+        "q": "Riya has 4 big star stickers and 6 tiny dot stickers. Which group has MORE stickers?",
+        "options": [ { "label": "Dots — there are 6 of them" }, { "label": "Stars — they are bigger", "mistakeTag": "row-length-not-count" } ],
+        "answer": "Dots — there are 6 of them",
+        "hintLadder": ["Count, don't compare size.", "6 dots vs 4 stars.", "Dots are more."]
+      },
+      {
+        "id": "f13-c2", "type": "number",
+        "q": "Toys sorted: cars 5, blocks 8, dolls 2. What is the total number of toys?",
+        "answer": "15",
+        "hintLadder": ["Total = all groups.", "5 + 8 + 2.", "Fifteen."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "f13-x1", "type": "mcq",
+        "q": "In a picture chart, the group with the LONGEST row has the…",
+        "options": [ { "label": "Most" }, { "label": "Least", "mistakeTag": "row-length-not-count" } ],
+        "answer": "Most",
+        "hintLadder": ["Longer row = more pictures.", "More pictures = more.", "Most."]
+      },
+      {
+        "id": "f13-x2", "type": "number",
+        "q": "Green row has 7 pictures. How many green things?",
+        "answer": "7",
+        "hintLadder": ["Count the row.", "Seven pictures.", "Seven."]
+      },
+      {
+        "id": "f13-x3", "type": "number",
+        "q": "Apples 8, oranges 3. How many more apples?",
+        "answer": "5",
+        "hintLadder": ["'How many more' = subtract.", "8 − 3.", "Five."]
+      },
+      {
+        "id": "f13-x4", "type": "mcq",
+        "q": "Asked for the TOTAL of red 4, blue 6, green 2 you should…",
+        "options": [ { "label": "Add them: 4 + 6 + 2 = 12" }, { "label": "Say 6, the biggest group", "mistakeTag": "most-instead-of-total" } ],
+        "answer": "Add them: 4 + 6 + 2 = 12",
+        "hintLadder": ["Total means everyone.", "Add all groups.", "Twelve."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Sort a real pile at home (buttons, toys, or crayons) into groups, count each, and draw a quick picture chart. Show a grown-up which group has the most and how many there are in all.",
+  "revisionCard": {
+    "summary": "Sort alike things into groups, count each, draw one picture per item. Longest row = most, shortest = least. 'How many more' = subtract the two counts; 'total' = add ALL groups. Count pictures, not their size.",
+    "reviewAfterDays": [1, 3, 7]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 2 (data handling — sorting & picture charts)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

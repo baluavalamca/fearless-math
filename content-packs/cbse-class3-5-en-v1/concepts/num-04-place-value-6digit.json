@@ -1,0 +1,514 @@
+{
+  "id": "num-04-place-value-6digit",
+  "name": "Big Numbers — Place Value to 6 Digits",
+  "grade": 5,
+  "strand": "numbers",
+  "prerequisites": [
+    "num-01-place-value"
+  ],
+  "whatIsIt": "The Number Palace keeps growing leftward: after hundreds come THOUSANDS, TEN-THOUSANDS, and LAKHS! In India we write big numbers with commas the Indian way: 2,53,481 reads 'two lakh fifty-three thousand four hundred eighty-one'. Same palace rules — every digit's worth depends on its room.",
+  "whyNeeded": "Prices of bikes and cars, populations of towns, cricket stadium crowds, YouTube views — real-world numbers are BIG. The same place-value rules you know simply stretch further left; learn the new rooms and no number can scare you.",
+  "realLifeUses": [
+    "A motorcycle costs ₹95,000; a car costs ₹5,25,000",
+    "A cricket stadium holds 1,32,000 fans",
+    "A town's population: 2,53,481 people",
+    "Distances: the Moon is about 3,84,000 km away!"
+  ],
+  "vocabulary": [
+    {
+      "term": "thousand (1,000)",
+      "meaning": "Ten hundreds. The 4th room from the right."
+    },
+    {
+      "term": "lakh (1,00,000)",
+      "meaning": "A hundred thousand — India's own big-number word! The 6th room."
+    },
+    {
+      "term": "Indian commas",
+      "meaning": "First comma after 3 digits, then every 2: 2,53,481."
+    }
+  ],
+  "story": {
+    "title": "Counting the Great Fair Crowd",
+    "characters": [
+      "Meena",
+      "the news reporter"
+    ],
+    "text": "A reporter announces the great fair's crowd: 2,53,481 people! 'That is two lakh fifty-three thousand four hundred eighty-one,' reads Meena carefully. 'And the digit 5 — what is it worth?' The reporter points to the ten-thousands room: 'The 5 sits there, so it is worth 50,000. In big Indian numbers we count in lakhs, and every digit's room gives it its value.'",
+    "extractedProblem": "Read the number 253481 and find the value of its digit 5.",
+    "answerInStory": "2,53,481 — two lakh fifty-three thousand four hundred eighty-one. The 5 sits in the ten-thousands room: worth 50,000."
+  },
+  "visual": {
+    "component": "PlaceValueBlocks",
+    "props": {
+      "sets": [
+        {
+          "thousands": 3,
+          "hundreds": 4,
+          "tens": 8,
+          "ones": 1,
+          "label": "3,481 — and bigger rooms keep going left!"
+        }
+      ]
+    },
+    "caption": "Rooms from the right: ones, tens, hundreds, thousands, ten-thousands, lakhs. Indian commas: 2,53,481."
+  },
+  "teachingGallery": [
+    {
+      "title": "Big numbers — group with commas (Indian system)",
+      "note": "From the right: first comma after 3 digits, then every 2 digits. Th, then lakh.",
+      "examples": [
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 2,
+                "tens": 3,
+                "ones": 5,
+                "label": "235 → the last 3 digits (hundreds, tens, ones)"
+              }
+            ]
+          },
+          "caption": "Every big number ends in hundreds-tens-ones."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  10,
+                  100,
+                  1000,
+                  10000,
+                  100000
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "Each place is 10× the one before: 1, 10, 100, 1,000, 10,000, 1,00,000."
+        },
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 4,
+                "tens": 5,
+                "ones": 0,
+                "label": "…450 → thousands sit just left of this"
+              }
+            ]
+          },
+          "caption": "3,450 = 3 thousand + 450."
+        },
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 0,
+                "tens": 0,
+                "ones": 7,
+                "label": "…007 → zeros still hold the place"
+              }
+            ]
+          },
+          "caption": "In 20,007 the zeros keep the places open."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  100000,
+                  200000,
+                  300000,
+                  400000
+                ],
+                "jump": 100000
+              }
+            ]
+          },
+          "caption": "One lakh = 1,00,000. Count lakhs: 1, 2, 3, 4 lakh."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Comma the number Indian-style, then read room by room from the left.",
+    "steps": [
+      "From the RIGHT: place a comma after 3 digits, then after every 2. 253481 → 2,53,481.",
+      "Name the blocks: [2] lakhs, [53] thousands, [481] the rest.",
+      "Read: 'two lakh fifty-three thousand four hundred eighty-one'.",
+      "Digit value = digit × its room: the 5 in ten-thousands = 50,000."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Expanded form",
+      "whenToUse": "To see every digit's true worth at once.",
+      "steps": [
+        "Stretch the number room by room.",
+        "2,53,481 = 2,00,000 + 50,000 + 3,000 + 400 + 80 + 1.",
+        "Collapse it back to check."
+      ],
+      "example": "1,32,000 = 1,00,000 + 30,000 + 2,000."
+    },
+    {
+      "name": "Comparing big numbers",
+      "whenToUse": "Which town is bigger? Which price is higher?",
+      "steps": [
+        "Count digits first — more digits wins (the old bridge rule!).",
+        "Same digits? Compare from the LEFT, room by room.",
+        "98,750 vs 1,02,340: five digits vs six — the six-digit number wins even though 9 looks big!"
+      ],
+      "example": "2,53,481 vs 2,49,999: lakhs tie (2), ten-thousands 5 > 4 — first wins."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Write 4,07,265 in words.",
+      "steps": [
+        "Blocks: [4] lakh, [07] thousand, [265].",
+        "The 0 guards the ten-thousands room — 'seven thousand', not 'seventy'!",
+        "Four lakh seven thousand two hundred sixty-five."
+      ],
+      "answer": "Four lakh seven thousand two hundred sixty-five"
+    },
+    {
+      "problem": "Ravi says 98,750 > 1,02,340 'because 9 beats 1'. Bridge rules, Ravi!",
+      "steps": [
+        "COUNT DIGITS first: 98,750 has 5 digits; 1,02,340 has 6.",
+        "Six digits beat five — every lakh beats every ten-thousand!",
+        "1,02,340 > 98,750. The loudest digit still loses to a bigger army."
+      ],
+      "answer": "1,02,340 is bigger — count digits before comparing faces."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Commas from the right",
+    "intro": "Group from the right (3 then 2) and each digit's value pops out.",
+    "questions": [
+      {
+        "id": "num04-trick-34567-4",
+        "type": "number",
+        "q": "In 34,567 what is the VALUE of the digit 4?",
+        "answer": "4000",
+        "hintLadder": [
+          "Put commas from the RIGHT to see the places.",
+          "The 4 is in the thousands place: 4 × 1000.",
+          "Value = 4,000."
+        ],
+        "explain": "4 in thousands = 4,000."
+      },
+      {
+        "id": "num04-trick-28904-8",
+        "type": "number",
+        "q": "In 28,904 what is the VALUE of the digit 8?",
+        "answer": "8000",
+        "hintLadder": [
+          "Put commas from the RIGHT to see the places.",
+          "The 8 is in the thousands place: 8 × 1000.",
+          "Value = 8,000."
+        ],
+        "explain": "8 in thousands = 8,000."
+      },
+      {
+        "id": "num04-trick-52036-5",
+        "type": "number",
+        "q": "In 52,036 what is the VALUE of the digit 5?",
+        "answer": "50000",
+        "hintLadder": [
+          "Put commas from the RIGHT to see the places.",
+          "The 5 is in the ten-thousands place: 5 × 10000.",
+          "Value = 50,000."
+        ],
+        "explain": "5 in ten-thousands = 50,000."
+      },
+      {
+        "id": "num04-trick-90210-9",
+        "type": "number",
+        "q": "In 90,210 what is the VALUE of the digit 9?",
+        "answer": "90000",
+        "hintLadder": [
+          "Put commas from the RIGHT to see the places.",
+          "The 9 is in the ten-thousands place: 9 × 10000.",
+          "Value = 90,000."
+        ],
+        "explain": "9 in ten-thousands = 90,000."
+      },
+      {
+        "id": "num04-trick-13579-3",
+        "type": "number",
+        "q": "In 13,579 what is the VALUE of the digit 3?",
+        "answer": "3000",
+        "hintLadder": [
+          "Put commas from the RIGHT to see the places.",
+          "The 3 is in the thousands place: 3 × 1000.",
+          "Value = 3,000."
+        ],
+        "explain": "3 in thousands = 3,000."
+      },
+      {
+        "id": "num04-trick-46280-6",
+        "type": "number",
+        "q": "In 46,280 what is the VALUE of the digit 6?",
+        "answer": "6000",
+        "hintLadder": [
+          "Put commas from the RIGHT to see the places.",
+          "The 6 is in the thousands place: 6 × 1000.",
+          "Value = 6,000."
+        ],
+        "explain": "6 in thousands = 6,000."
+      },
+      {
+        "id": "num04-trick-70153-7",
+        "type": "number",
+        "q": "In 70,153 what is the VALUE of the digit 7?",
+        "answer": "70000",
+        "hintLadder": [
+          "Put commas from the RIGHT to see the places.",
+          "The 7 is in the ten-thousands place: 7 × 10000.",
+          "Value = 70,000."
+        ],
+        "explain": "7 in ten-thousands = 70,000."
+      },
+      {
+        "id": "num04-trick-21908-1",
+        "type": "number",
+        "q": "In 21,908 what is the VALUE of the digit 1?",
+        "answer": "1000",
+        "hintLadder": [
+          "Put commas from the RIGHT to see the places.",
+          "The 1 is in the thousands place: 1 × 1000.",
+          "Value = 1,000."
+        ],
+        "explain": "1 in thousands = 1,000."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "commas-western-style",
+      "mistake": "Placing commas every 3 digits (253,481) and losing the lakh block.",
+      "fix": "Indian system: 3 digits first, then TWO-two-two. 2,53,481 — the comma pattern IS the reading guide: lakh | thousand | rest."
+    },
+    {
+      "mistakeTag": "zero-room-skipped",
+      "mistake": "Reading 4,07,265 as 'four lakh seventy thousand…' — promoting the 7 because of the 0.",
+      "fix": "Zero still guards its room! 07 in the thousands block means SEVEN thousand. Read blocks exactly as the commas frame them."
+    },
+    {
+      "mistakeTag": "digit-count-ignored-big",
+      "mistake": "Comparing big numbers by their first digit (98,750 > 1,02,340 'because 9 > 1').",
+      "fix": "The More-or-Less Bridge rule scales up: COUNT DIGITS FIRST. A 6-digit number beats any 5-digit number, whatever their faces."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "What is the VALUE of the 5 in 2,53,481? (Type like 50000)",
+        "answer": "50000",
+        "hintLadder": [
+          "Which room does the 5 stand in? Count from the right.",
+          "Ones, tens, hundreds, thousands, TEN-thousands!",
+          "5 × 10,000."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "Put Indian commas into 253481:",
+        "options": [
+          {
+            "label": "2,53,481"
+          },
+          {
+            "label": "253,481",
+            "mistakeTag": "commas-western-style"
+          }
+        ],
+        "answer": "2,53,481",
+        "hintLadder": [
+          "Three digits first from the right...",
+          "...then every TWO.",
+          "481 | 53 | 2."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "mcq",
+        "q": "Which is greater: 98,750 or 1,02,340?",
+        "options": [
+          {
+            "label": "1,02,340 — it has six digits"
+          },
+          {
+            "label": "98,750 — nine is the biggest digit",
+            "mistakeTag": "digit-count-ignored-big"
+          }
+        ],
+        "answer": "1,02,340 — it has six digits",
+        "hintLadder": [
+          "Bridge rule: count digits FIRST.",
+          "5 digits vs 6 digits.",
+          "More digits always wins."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "Read 4,07,265 correctly:",
+        "options": [
+          {
+            "label": "Four lakh seven thousand two hundred sixty-five"
+          },
+          {
+            "label": "Four lakh seventy thousand two hundred sixty-five",
+            "mistakeTag": "zero-room-skipped"
+          }
+        ],
+        "answer": "Four lakh seven thousand two hundred sixty-five",
+        "hintLadder": [
+          "Look at the thousands block: 07.",
+          "The 0 guards ten-thousands — nothing there!",
+          "Seven thousand, not seventy."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "number",
+        "q": "Expanded form puzzle: 3,00,000 + 40,000 + 2,000 + 500 + 60 + 7 = ? (Type without commas)",
+        "answer": "342567",
+        "hintLadder": [
+          "Fill each room with its digit.",
+          "3 lakhs, 4 ten-thousands, 2 thousands, 5 hundreds, 6 tens, 7 ones.",
+          "3-4-2-5-6-7."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "A stadium holds 1,32,000 fans; 98,500 tickets are sold. How many seats remain? (Type without commas)",
+        "answer": "33500",
+        "hintLadder": [
+          "132000 − 98500 — borrow carefully or count up!",
+          "Count up: 98,500 → 1,00,000 is 1,500.",
+          "Then 1,00,000 → 1,32,000 is 32,000. Add the climbs."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "Value of the 3 in 3,45,210? (Type like 300000)",
+        "answer": "300000",
+        "hintLadder": [
+          "Which room, counting from the right?",
+          "The 6th room — lakhs!",
+          "3 × 1,00,000."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "One lakh equals…",
+        "options": [
+          {
+            "label": "1,00,000 — a hundred thousand"
+          },
+          {
+            "label": "10,000 — ten thousand",
+            "mistakeTag": "zero-room-skipped"
+          }
+        ],
+        "answer": "1,00,000 — a hundred thousand",
+        "hintLadder": [
+          "Count the zeros in a lakh.",
+          "Five zeros!",
+          "100 × 1000."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "Indian comma style for 640925:",
+        "options": [
+          {
+            "label": "6,40,925"
+          },
+          {
+            "label": "640,925",
+            "mistakeTag": "commas-western-style"
+          }
+        ],
+        "answer": "6,40,925",
+        "hintLadder": [
+          "Three from the right first.",
+          "Then two-by-two.",
+          "925 | 40 | 6."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "Which is greater: 9,99,999 or 10,00,000?",
+        "options": [
+          {
+            "label": "10,00,000 — seven digits beat six"
+          },
+          {
+            "label": "9,99,999 — it's all nines!",
+            "mistakeTag": "digit-count-ignored-big"
+          }
+        ],
+        "answer": "10,00,000 — seven digits beat six",
+        "hintLadder": [
+          "Count the digits of each.",
+          "6 vs 7.",
+          "Ten lakh beats every six-digit number — even all-nines!"
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Give a Lakh Tower tour! Write any 6-digit number, add Indian commas aloud (three, then two-two), read it in words for someone at home, and point out what each digit is truly worth.",
+  "revisionCard": {
+    "summary": "Rooms rightward: ones→tens→hundreds→thousands→ten-thousands→LAKHS (1,00,000). Indian commas: 3 digits, then 2-2 (2,53,481 = lakh|thousand|rest). Zeros still guard rooms (4,07,265 = seven thousand!). Comparing: count digits FIRST.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The Lakh Tower Inauguration",
+    "brief": "Visitors are flooding the new towers with unlabelled big numbers! Stamp Indian commas, read each number aloud for the crowd, and stop Ravi from announcing 98,750 as the jungle's biggest number.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Big-number hunt: find three real 5-or-6-digit numbers at home (a bike/appliance price tag, a population in a newspaper, views on a video). Write each with Indian commas and read it aloud in words.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 5 (numbers up to lakhs)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

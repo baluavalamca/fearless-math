@@ -1,0 +1,727 @@
+{
+  "id": "ops-11-area-multiplication",
+  "name": "Big Multiplication — The Break-Apart (Area) Method",
+  "grade": 4,
+  "strand": "operations",
+  "prerequisites": [
+    "ops-09-multiplication-groups"
+  ],
+  "whatIsIt": "To multiply big numbers, break them into friendly place-value pieces, multiply the easy pieces, and add. 24 × 5 becomes (20 × 5) + (4 × 5) = 100 + 20 = 120. Drawn as a rectangle split into parts, this is the AREA MODEL — you can SEE why the trick works.",
+  "whyNeeded": "Tables stop at 10, but life doesn't! 24 chocolates per box, 5 boxes — you need 24 × 5. Break-apart turns every big multiplication into small table facts you already know. It is also the secret engine inside the school column method AND the algebra you'll meet later.",
+  "realLifeUses": [
+    "Boxes: 24 chocolates per box × 5 boxes for the party",
+    "Money: 5 tickets at ₹32 each",
+    "Seats: 6 rows of 45 chairs in the school hall",
+    "Days: 3 weeks of reading 15 pages a day"
+  ],
+  "vocabulary": [
+    {
+      "term": "break apart",
+      "meaning": "Split a number into place-value pieces: 24 = 20 + 4."
+    },
+    {
+      "term": "area model",
+      "meaning": "A rectangle cut into parts — each part's area is one small multiplication."
+    },
+    {
+      "term": "partial products",
+      "meaning": "The small answers (100 and 20) that add up to the final product."
+    }
+  ],
+  "story": {
+    "title": "Counting the Coconut Grove",
+    "characters": [
+      "Ravi",
+      "the grove keeper"
+    ],
+    "text": "A coconut grove has 5 long rows, with 24 trees in each row. 'How many trees?' asks Ravi. The grove keeper breaks it apart: 'Split 24 into 20 and 4. Five rows of 20 is 100; five rows of 4 is 20. Add the two patches: 100 and 20 make 120 trees. Break a big number apart and multiplication gets easy!'",
+    "extractedProblem": "5 rows with 24 trees each. How many trees in the grove?",
+    "answerInStory": "120 — break 24 into 20 + 4, then 5×20=100 and 5×4=20, and 100+20=120."
+  },
+  "visual": {
+    "component": "AreaModel",
+    "props": {
+      "models": [
+        {
+          "rowParts": [
+            5
+          ],
+          "colParts": [
+            20,
+            4
+          ],
+          "label": "5 × 24 = 100 + 20 = 120"
+        }
+      ]
+    },
+    "caption": "One rectangle, split by the rope: 5×20=100 in the big part, 5×4=20 in the small part. Total area = 120."
+  },
+  "teachingGallery": [
+    {
+      "title": "Break the big number apart",
+      "note": "Split into tens and ones, multiply each piece, then add.",
+      "examples": [
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  5
+                ],
+                "colParts": [
+                  20,
+                  4
+                ],
+                "label": "5 × 24 = 100 + 20 = 120"
+              }
+            ]
+          },
+          "caption": "5 × 24 = 5×20 + 5×4 = 100 + 20 = 120."
+        },
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  6
+                ],
+                "colParts": [
+                  10,
+                  3
+                ],
+                "label": "6 × 13 = 60 + 18 = 78"
+              }
+            ]
+          },
+          "caption": "6 × 13 = 6×10 + 6×3 = 60 + 18 = 78."
+        },
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  4
+                ],
+                "colParts": [
+                  20,
+                  7
+                ],
+                "label": "4 × 27 = 80 + 28 = 108"
+              }
+            ]
+          },
+          "caption": "4 × 27 = 80 + 28 = 108."
+        },
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  3
+                ],
+                "colParts": [
+                  30,
+                  5
+                ],
+                "label": "3 × 35 = 90 + 15 = 105"
+              }
+            ]
+          },
+          "caption": "3 × 35 = 90 + 15 = 105."
+        },
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  7
+                ],
+                "colParts": [
+                  10,
+                  2
+                ],
+                "label": "7 × 12 = 70 + 14 = 84"
+              }
+            ]
+          },
+          "caption": "7 × 12 = 70 + 14 = 84."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Break the big number into tens and ones, multiply each piece, add the partial products.",
+    "steps": [
+      "Break apart: 24 = 20 + 4.",
+      "Multiply each piece: 5 × 20 = 100 and 5 × 4 = 20.",
+      "Add the partial products: 100 + 20 = 120.",
+      "Estimate check: 5 × 24 is near 5 × 25 = 125 ✓"
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Column method (school style)",
+      "whenToUse": "For exams — it is the SAME break-apart, written compactly.",
+      "steps": [
+        "Write 24 over × 5.",
+        "Ones: 5 × 4 = 20 → write 0, carry 2 (that's the small patch!).",
+        "Tens: 5 × 2 = 10, plus carry 2 = 12 (that's the big patch, squeezed).",
+        "Read: 120. Same partial products, hidden in the carries."
+      ],
+      "example": "36 × 4: ones 4×6=24 (write 4 carry 2); tens 4×3=12+2=14 → 144."
+    },
+    {
+      "name": "Doubling trick",
+      "whenToUse": "Mental shortcut when one factor is 2, 4, or 8.",
+      "steps": [
+        "×2 = double. ×4 = double twice. ×8 = double three times!",
+        "24 × 4: double 24 → 48, double again → 96."
+      ],
+      "example": "15 × 8: 30 → 60 → 120."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "5 movie tickets at ₹32 each. Total cost?",
+      "steps": [
+        "Break apart: 32 = 30 + 2.",
+        "5 × 30 = 150 and 5 × 2 = 10.",
+        "150 + 10 = ₹160.",
+        "Estimate: 5 × 30 = 150 — close ✓"
+      ],
+      "answer": "160",
+      "visual": {
+        "component": "AreaModel",
+        "props": {
+          "models": [
+            {
+              "rowParts": [
+                5
+              ],
+              "colParts": [
+                30,
+                2
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "problem": "Ravi computes 24 × 5 by breaking 24 into 20 + 4, then answers 100 + 4 = 104. Which piece did he forget to multiply?",
+      "steps": [
+        "He multiplied the big piece: 5 × 20 = 100 ✓",
+        "But he ADDED the 4 instead of multiplying it!",
+        "EVERY piece meets the 5: 5 × 4 = 20.",
+        "100 + 20 = 120. In the picture, he forgot the small rectangle exists."
+      ],
+      "answer": "120 — every broken piece must be multiplied."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Break-apart (area) method",
+    "intro": "Chop the big number into tens and ones, multiply each, add — no long column needed.",
+    "questions": [
+      {
+        "id": "ops11-trick-5x24",
+        "type": "number",
+        "q": "5 × 24 = ?",
+        "answer": "120",
+        "hintLadder": [
+          "Break 24 into 20 + 4.",
+          "5 × 20 = 100; 5 × 4 = 20.",
+          "Add: 100 + 20 = 120."
+        ],
+        "explain": "5×20+5×4 = 120.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  5
+                ],
+                "colParts": [
+                  20,
+                  4
+                ],
+                "label": "5×24=120"
+              }
+            ]
+          },
+          "caption": "5×24"
+        }
+      },
+      {
+        "id": "ops11-trick-6x13",
+        "type": "number",
+        "q": "6 × 13 = ?",
+        "answer": "78",
+        "hintLadder": [
+          "Break 13 into 10 + 3.",
+          "6 × 10 = 60; 6 × 3 = 18.",
+          "Add: 60 + 18 = 78."
+        ],
+        "explain": "6×10+6×3 = 78.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  6
+                ],
+                "colParts": [
+                  10,
+                  3
+                ],
+                "label": "6×13=78"
+              }
+            ]
+          },
+          "caption": "6×13"
+        }
+      },
+      {
+        "id": "ops11-trick-4x27",
+        "type": "number",
+        "q": "4 × 27 = ?",
+        "answer": "108",
+        "hintLadder": [
+          "Break 27 into 20 + 7.",
+          "4 × 20 = 80; 4 × 7 = 28.",
+          "Add: 80 + 28 = 108."
+        ],
+        "explain": "4×20+4×7 = 108.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  4
+                ],
+                "colParts": [
+                  20,
+                  7
+                ],
+                "label": "4×27=108"
+              }
+            ]
+          },
+          "caption": "4×27"
+        }
+      },
+      {
+        "id": "ops11-trick-3x35",
+        "type": "number",
+        "q": "3 × 35 = ?",
+        "answer": "105",
+        "hintLadder": [
+          "Break 35 into 30 + 5.",
+          "3 × 30 = 90; 3 × 5 = 15.",
+          "Add: 90 + 15 = 105."
+        ],
+        "explain": "3×30+3×5 = 105.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  3
+                ],
+                "colParts": [
+                  30,
+                  5
+                ],
+                "label": "3×35=105"
+              }
+            ]
+          },
+          "caption": "3×35"
+        }
+      },
+      {
+        "id": "ops11-trick-7x12",
+        "type": "number",
+        "q": "7 × 12 = ?",
+        "answer": "84",
+        "hintLadder": [
+          "Break 12 into 10 + 2.",
+          "7 × 10 = 70; 7 × 2 = 14.",
+          "Add: 70 + 14 = 84."
+        ],
+        "explain": "7×10+7×2 = 84.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  7
+                ],
+                "colParts": [
+                  10,
+                  2
+                ],
+                "label": "7×12=84"
+              }
+            ]
+          },
+          "caption": "7×12"
+        }
+      },
+      {
+        "id": "ops11-trick-8x23",
+        "type": "number",
+        "q": "8 × 23 = ?",
+        "answer": "184",
+        "hintLadder": [
+          "Break 23 into 20 + 3.",
+          "8 × 20 = 160; 8 × 3 = 24.",
+          "Add: 160 + 24 = 184."
+        ],
+        "explain": "8×20+8×3 = 184.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  8
+                ],
+                "colParts": [
+                  20,
+                  3
+                ],
+                "label": "8×23=184"
+              }
+            ]
+          },
+          "caption": "8×23"
+        }
+      },
+      {
+        "id": "ops11-trick-6x45",
+        "type": "number",
+        "q": "6 × 45 = ?",
+        "answer": "270",
+        "hintLadder": [
+          "Break 45 into 40 + 5.",
+          "6 × 40 = 240; 6 × 5 = 30.",
+          "Add: 240 + 30 = 270."
+        ],
+        "explain": "6×40+6×5 = 270.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  6
+                ],
+                "colParts": [
+                  40,
+                  5
+                ],
+                "label": "6×45=270"
+              }
+            ]
+          },
+          "caption": "6×45"
+        }
+      },
+      {
+        "id": "ops11-trick-9x16",
+        "type": "number",
+        "q": "9 × 16 = ?",
+        "answer": "144",
+        "hintLadder": [
+          "Break 16 into 10 + 6.",
+          "9 × 10 = 90; 9 × 6 = 54.",
+          "Add: 90 + 54 = 144."
+        ],
+        "explain": "9×10+9×6 = 144.",
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  9
+                ],
+                "colParts": [
+                  10,
+                  6
+                ],
+                "label": "9×16=144"
+              }
+            ]
+          },
+          "caption": "9×16"
+        }
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "piece-not-multiplied",
+      "mistake": "Breaking 24 into 20 + 4 but only multiplying the 20 (getting 100 + 4 = 104).",
+      "fix": "Both pieces of the orchard get rows of trees! Every piece × every piece: 5×20 AND 5×4. The area picture shows two rectangles — never leave one empty."
+    },
+    {
+      "mistakeTag": "broke-apart-wrongly",
+      "mistake": "Breaking 24 into 2 + 4 (dropping the place value of the 2).",
+      "fix": "Break along PLACE VALUE: the 2 in 24 is twenty! 24 = 20 + 4, never 2 + 4. Captain Count's palace rooms strike again."
+    },
+    {
+      "mistakeTag": "partials-multiplied-together",
+      "mistake": "Multiplying the partial products instead of adding: 100 × 20 = 2000.",
+      "fix": "The partial products are PARTS of one orchard — parts get ADDED. 100 + 20 = 120. Your estimate (about 125) instantly exposes 2000 as impossible!"
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "3 × 24 = ? (Break 24 into 20 + 4.)",
+        "answer": "72",
+        "hintLadder": [
+          "Big piece: 3 × 20 = ?",
+          "Small piece: 3 × 4 = ?",
+          "Add the two partial products: 60 + 12."
+        ],
+        "visual": {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  3
+                ],
+                "colParts": [
+                  20,
+                  4
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "To solve 5 × 32 by break-apart, 32 splits into…",
+        "options": [
+          {
+            "label": "30 + 2"
+          },
+          {
+            "label": "3 + 2",
+            "mistakeTag": "broke-apart-wrongly"
+          }
+        ],
+        "answer": "30 + 2",
+        "hintLadder": [
+          "Break along PLACE VALUE.",
+          "What is the 3 in 32 really worth?",
+          "Thirty! So 32 = 30 + 2."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "The school hall has 6 rows of 45 chairs. How many chairs? (45 = 40 + 5)",
+        "answer": "270",
+        "hintLadder": [
+          "6 × 40 = ?",
+          "6 × 5 = ?",
+          "240 + 30 = ?"
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "Doubling trick! 24 × 4 = ? (Double 24, then double again.)",
+        "answer": "96",
+        "hintLadder": [
+          "First double: 24 → ?",
+          "48. Now double once more.",
+          "48 + 48 = ?"
+        ],
+        "explain": "×4 = double twice: 24 → 48 → 96."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Ravi solved 24 × 5: '20 × 5 = 100, and 4 × 5 = 20... now 100 × 20 = 2000!' His estimate said 'about 125'. What went wrong at the last step?",
+        "options": [
+          {
+            "label": "The partial products are parts of one total — they must be ADDED, not multiplied"
+          },
+          {
+            "label": "He broke 24 wrongly",
+            "mistakeTag": "broke-apart-wrongly"
+          },
+          {
+            "label": "Nothing — 2000 is right",
+            "mistakeTag": "partials-multiplied-together"
+          }
+        ],
+        "answer": "The partial products are parts of one total — they must be ADDED, not multiplied",
+        "hintLadder": [
+          "Look at the orchard picture: two patches of trees.",
+          "To count ALL trees, do you add the patches or multiply them?",
+          "Add! 100 + 20 = 120 — and the estimate agrees."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "Reading marathon: 15 pages a day for 21 days. How many pages? (Break 21 into 20 + 1.)",
+        "answer": "315",
+        "hintLadder": [
+          "15 × 20 = ? (15 × 2 = 30, then ×10)",
+          "15 × 1 = ?",
+          "300 + 15 = ?"
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "4 × 26 = ? (Break 26 apart.)",
+        "answer": "104",
+        "hintLadder": [
+          "26 = 20 + 6.",
+          "4 × 20 = 80 and 4 × 6 = 24.",
+          "80 + 24 = ?"
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "After multiplying the pieces, the partial products are always…",
+        "options": [
+          {
+            "label": "Added together"
+          },
+          {
+            "label": "Multiplied together",
+            "mistakeTag": "partials-multiplied-together"
+          }
+        ],
+        "answer": "Added together",
+        "hintLadder": [
+          "The pieces are parts of ONE orchard.",
+          "Parts of a whole get…?",
+          "Added: 100 + 20 = 120."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "number",
+        "q": "7 tickets at ₹42 each. Total in rupees?",
+        "answer": "294",
+        "hintLadder": [
+          "42 = 40 + 2.",
+          "7 × 40 = 280 and 7 × 2 = 14.",
+          "280 + 14 = ?"
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "number",
+        "q": "Estimate guard: about how much is 6 × 38? (Round 38 first, give the estimate.)",
+        "answer": "240",
+        "hintLadder": [
+          "38 rounds to…?",
+          "40. Now 6 × 40 = ?",
+          "The exact answer (228) should live close to your estimate."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach Multi's rope trick to someone at home: draw the rectangle for 5 × 24, split it with the 'rope', fill in both patches, and explain why Ravi's 104 (and his wild 2000) were wrong.",
+  "revisionCard": {
+    "summary": "Big × small: BREAK the big number by place value (24 = 20+4), multiply EVERY piece (5×20=100, 5×4=20), ADD the partials (120). The area rectangle shows it; the column method hides the same trick in its carries. Estimate first — it catches runaway answers!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Multiplication Farm (Ganita Grove)",
+    "title": "The Orchard Rope Trick",
+    "brief": "Plant orchards fast! Split each planting order with Multi's rope, fill both patches with the right partial products, and add up before the mango truck arrives. Watch for Ravi leaving patches empty!",
+    "character": "Multi the Monkey"
+  },
+  "realLifeProject": "Find a real grid at home — a window grill, tile floor, or egg tray bigger than 10 in one direction. Split it with a 'rope' (string or a ruler), compute both patches, and add. Check by counting one full row × rows.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 4 (multiplication 2-digit by 1-digit)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "mentalMathMethod": {
+    "name": "Break apart by place value",
+    "whenToUse": "For 1-digit × 2-digit sums.",
+    "steps": [
+      "Split the 2-digit number into tens + ones.",
+      "Multiply each part by the single digit.",
+      "Add the two partial answers."
+    ],
+    "example": "6 × 34: 6×30=180, 6×4=24, 180+24=204."
+  },
+  "abacusMethod": {
+    "name": "Partial products on the rods",
+    "whenToUse": "To multiply on the abacus.",
+    "steps": [
+      "Multiply the ones, set the result.",
+      "Multiply the tens, add it in the right place.",
+      "Read the total across the rods."
+    ],
+    "example": "7 × 23: 7×3=21 and 7×20=140 → 161.",
+    "visual": {
+      "component": "Abacus",
+      "props": {
+        "abaci": [
+          {
+            "value": 161,
+            "label": "7 × 23 = 161"
+          }
+        ]
+      },
+      "caption": "Add the partial products in their place columns."
+    }
+  },
+  "vedicMethod": {
+    "name": "Vertically and Crosswise (Urdhva-Tiryagbhyam)",
+    "whenToUse": "For multiplying digit by digit.",
+    "steps": [
+      "Multiply the units vertically.",
+      "Cross-multiply and add the tens and units.",
+      "Multiply the tens vertically. Carry where needed."
+    ],
+    "example": "6 × 23: work digit-by-digit → 138."
+  }
+}

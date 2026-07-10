@@ -1,0 +1,505 @@
+{
+  "id": "ops-10-tables-patterns",
+  "name": "Times Tables — Patterns, Not Parroting",
+  "grade": 3,
+  "strand": "operations",
+  "prerequisites": [
+    "ops-09-multiplication-groups"
+  ],
+  "whatIsIt": "A times table is just skip-counting written down — and every table hides beautiful PATTERNS that make it easy: the 2s are all even, the 5s end in 5 or 0, the 9s' digits add to 9, the 10s just wear a zero. Learn the patterns and half the table learns itself!",
+  "whyNeeded": "Tables are the multiplication toolbox you'll reach for every single day — bills, big multiplications, division's twin trick. Parroting is boring and breaks under pressure; PATTERNS stick forever and rebuild any fact you forget.",
+  "realLifeUses": [
+    "Quick shop math: 4 pens at ₹5 each — table of 5!",
+    "Cricket: 6 balls per over — the table of 6 counts balls",
+    "Time: 5 minutes per clock number — the 5s again!",
+    "Sharing and packing — division uses the same tables backwards"
+  ],
+  "vocabulary": [
+    {
+      "term": "times table",
+      "meaning": "A list of one number's multiples: 4, 8, 12, 16… is the table of 4."
+    },
+    {
+      "term": "multiple",
+      "meaning": "A number in a table: 12 is a multiple of 4 (and of 3, 6, 2, 12!)."
+    },
+    {
+      "term": "pattern rule",
+      "meaning": "A shortcut hiding in a table, like '9s digits add to 9'."
+    }
+  ],
+  "story": {
+    "title": "The Nine-Times Finger Secret",
+    "characters": [
+      "Meena",
+      "her teacher"
+    ],
+    "text": "Meena dreads the nine-times table. Her teacher shows a clever trick: 'Hold up all ten fingers. For 9 × 4, fold down your 4th finger. Count the fingers to its LEFT — 3. Count the fingers to its RIGHT — 6. That is 36! And look: 3 + 6 = 9, every single time. A table is full of patterns, not just chanting.'",
+    "extractedProblem": "Find 9 × 4 using the digit pattern or the finger trick.",
+    "answerInStory": "36 — fold the 4th finger: 3 on the left, 6 on the right. And 3+6 = 9, the 9s' secret!"
+  },
+  "visual": {
+    "component": "NumberLine",
+    "props": {
+      "lines": [
+        {
+          "parts": 10,
+          "mark": 4,
+          "label": "4 jumps of 9 → 36",
+          "showLabels": false
+        }
+      ]
+    },
+    "caption": "A table is skip-counting: jump 9, 18, 27, 36... The patterns live in the landing numbers!"
+  },
+  "teachingGallery": [
+    {
+      "title": "Tables are patterns, not parroting",
+      "note": "Every table has a rhythm that makes it stick.",
+      "examples": [
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  2,
+                  4,
+                  6,
+                  8,
+                  10
+                ],
+                "jump": 2
+              }
+            ]
+          },
+          "caption": "2s are all EVEN."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  5,
+                  10,
+                  15,
+                  20,
+                  25
+                ],
+                "jump": 5
+              }
+            ]
+          },
+          "caption": "5s end in 5 or 0."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  10,
+                  20,
+                  30,
+                  40
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "10s just wear a zero."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  9,
+                  18,
+                  27,
+                  36,
+                  45
+                ],
+                "jump": 9
+              }
+            ]
+          },
+          "caption": "9s: the digits always add to 9."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 6,
+                "cols": 7,
+                "asGroups": false
+              }
+            ]
+          },
+          "caption": "6 × 7 as a rectangle = 42."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Build tables from skip-counting + patterns + the facts you already own.",
+    "steps": [
+      "Skip-count to build the table: 4 → 4, 8, 12, 16, 20…",
+      "Spy the pattern: 2s all even; 5s end 5/0; 9s digits add to 9; 10s add a zero.",
+      "Use turn-around facts: 7×4 = 4×7 — every fact you know buys you its twin!",
+      "Stuck on one? Build from a neighbour: 6×7 = 5×7 + one more 7 = 35+7 = 42."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "The 9s finger trick",
+      "whenToUse": "Any 9× fact, instantly.",
+      "steps": [
+        "Hold up all 10 fingers.",
+        "For 9 × n, fold the n-th finger from the left.",
+        "Fingers LEFT of the fold = tens; RIGHT = ones."
+      ],
+      "example": "9 × 7: fold finger 7 → 6 left, 3 right → 63."
+    },
+    {
+      "name": "Neighbour-fact building",
+      "whenToUse": "For the 'hard' facts like 6×7, 7×8.",
+      "steps": [
+        "Start from an easy neighbour (×5 or ×10).",
+        "Add or remove one group.",
+        "7×8 = 7×10 − 7×2 = 70 − 14 = 56."
+      ],
+      "example": "6×7: five 7s (35) plus one more 7 = 42."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Ravi forgot 6 × 8. Build it from a neighbour fact he knows: 5 × 8 = 40.",
+      "steps": [
+        "6 groups of 8 is just 5 groups of 8… plus ONE more 8.",
+        "40 + 8 = 48.",
+        "6 × 8 = 48 — no parroting needed, just a neighbour and a hop."
+      ],
+      "answer": "48"
+    },
+    {
+      "problem": "Is 73 in the table of 5? Decide WITHOUT skip-counting all the way.",
+      "steps": [
+        "Pattern rule: every multiple of 5 ends in 5 or 0.",
+        "73 ends in 3.",
+        "So 73 is NOT a multiple of 5 — the pattern answers instantly!"
+      ],
+      "answer": "No — multiples of 5 end in 5 or 0."
+    }
+  ],
+  "trickPractice": {
+    "trick": "The 9s finger trick",
+    "intro": "Your two hands are a 9× calculator — fold one finger and read the answer.",
+    "questions": [
+      {
+        "id": "ops10-trick-9x2",
+        "type": "number",
+        "q": "9 × 2 = ?",
+        "answer": "18",
+        "hintLadder": [
+          "Hold up all 10 fingers. Fold down finger number 2.",
+          "Fingers LEFT of the fold = tens = 1. Fingers RIGHT = ones = 8.",
+          "So 9 × 2 = 18."
+        ],
+        "explain": "Fold finger 2: 1 left, 8 right → 18."
+      },
+      {
+        "id": "ops10-trick-9x3",
+        "type": "number",
+        "q": "9 × 3 = ?",
+        "answer": "27",
+        "hintLadder": [
+          "Hold up all 10 fingers. Fold down finger number 3.",
+          "Fingers LEFT of the fold = tens = 2. Fingers RIGHT = ones = 7.",
+          "So 9 × 3 = 27."
+        ],
+        "explain": "Fold finger 3: 2 left, 7 right → 27."
+      },
+      {
+        "id": "ops10-trick-9x4",
+        "type": "number",
+        "q": "9 × 4 = ?",
+        "answer": "36",
+        "hintLadder": [
+          "Hold up all 10 fingers. Fold down finger number 4.",
+          "Fingers LEFT of the fold = tens = 3. Fingers RIGHT = ones = 6.",
+          "So 9 × 4 = 36."
+        ],
+        "explain": "Fold finger 4: 3 left, 6 right → 36."
+      },
+      {
+        "id": "ops10-trick-9x5",
+        "type": "number",
+        "q": "9 × 5 = ?",
+        "answer": "45",
+        "hintLadder": [
+          "Hold up all 10 fingers. Fold down finger number 5.",
+          "Fingers LEFT of the fold = tens = 4. Fingers RIGHT = ones = 5.",
+          "So 9 × 5 = 45."
+        ],
+        "explain": "Fold finger 5: 4 left, 5 right → 45."
+      },
+      {
+        "id": "ops10-trick-9x6",
+        "type": "number",
+        "q": "9 × 6 = ?",
+        "answer": "54",
+        "hintLadder": [
+          "Hold up all 10 fingers. Fold down finger number 6.",
+          "Fingers LEFT of the fold = tens = 5. Fingers RIGHT = ones = 4.",
+          "So 9 × 6 = 54."
+        ],
+        "explain": "Fold finger 6: 5 left, 4 right → 54."
+      },
+      {
+        "id": "ops10-trick-9x7",
+        "type": "number",
+        "q": "9 × 7 = ?",
+        "answer": "63",
+        "hintLadder": [
+          "Hold up all 10 fingers. Fold down finger number 7.",
+          "Fingers LEFT of the fold = tens = 6. Fingers RIGHT = ones = 3.",
+          "So 9 × 7 = 63."
+        ],
+        "explain": "Fold finger 7: 6 left, 3 right → 63."
+      },
+      {
+        "id": "ops10-trick-9x8",
+        "type": "number",
+        "q": "9 × 8 = ?",
+        "answer": "72",
+        "hintLadder": [
+          "Hold up all 10 fingers. Fold down finger number 8.",
+          "Fingers LEFT of the fold = tens = 7. Fingers RIGHT = ones = 2.",
+          "So 9 × 8 = 72."
+        ],
+        "explain": "Fold finger 8: 7 left, 2 right → 72."
+      },
+      {
+        "id": "ops10-trick-9x9",
+        "type": "number",
+        "q": "9 × 9 = ?",
+        "answer": "81",
+        "hintLadder": [
+          "Hold up all 10 fingers. Fold down finger number 9.",
+          "Fingers LEFT of the fold = tens = 8. Fingers RIGHT = ones = 1.",
+          "So 9 × 9 = 81."
+        ],
+        "explain": "Fold finger 9: 8 left, 1 right → 81."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "parrot-crash",
+      "mistake": "Memorising the chant only — then one forgotten line crashes the whole table.",
+      "fix": "Own the REBUILD tools: skip-count up, use a neighbour fact (6×7 = 5×7+7), or flip it (7×6). A pattern-owner can always rebuild; a parrot can only restart the chant."
+    },
+    {
+      "mistakeTag": "turnaround-missed",
+      "mistake": "Knowing 4×7 but freezing at 7×4 as if it's a new fact.",
+      "fix": "Turn-around twins! The array flipped sideways is the same array: a×b = b×a, always. Every fact you learn comes with a free twin."
+    },
+    {
+      "mistakeTag": "pattern-overstretched",
+      "mistake": "Stretching a pattern too far — like 'all multiples of 9 have digits adding to 9, so 89 must be one'.",
+      "fix": "Patterns point, checks prove! 8+9 = 17, not 9 — and 89 isn't in the 9s (81, 90 skip it). Use the pattern to filter, then verify with a quick skip-count or neighbour fact."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "Skip-count the 4s: 4, 8, 12, __? What comes next?",
+        "answer": "16",
+        "hintLadder": [
+          "Each jump adds 4.",
+          "12 + 4 = ?",
+          "Sixteen."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "Which of these is a multiple of 5?",
+        "options": [
+          {
+            "label": "40"
+          },
+          {
+            "label": "42",
+            "mistakeTag": "pattern-overstretched"
+          }
+        ],
+        "answer": "40",
+        "hintLadder": [
+          "The 5s pattern: how do they all end?",
+          "In 5 or 0.",
+          "Which one ends that way?"
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "Use the finger trick (or digit pattern): 9 × 6 = ?",
+        "answer": "54",
+        "hintLadder": [
+          "Fold the 6th finger.",
+          "5 fingers left, 4 right.",
+          "Check: 5+4 = 9 ✓"
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "You know 5 × 7 = 35. Build the neighbour: 6 × 7 = ?",
+        "answer": "42",
+        "hintLadder": [
+          "6 sevens = 5 sevens + one more 7.",
+          "35 + 7.",
+          "Forty-two."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "number",
+        "q": "The hard one — 7 × 8. Build it: 7 × 10 = 70, now remove two 7s.",
+        "answer": "56",
+        "hintLadder": [
+          "Two 7s = 14.",
+          "70 − 14.",
+          "Fifty-six! (5-6-7-8: 56 = 7×8 — a bonus pattern!)"
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "Ravi announces: '89's digits are big so it's in the 9 table!' Test him properly.",
+        "options": [
+          {
+            "label": "8+9 = 17 ≠ 9, and the 9s jump 81 → 90 — so no"
+          },
+          {
+            "label": "He's right — big digits mean big tables",
+            "mistakeTag": "pattern-overstretched"
+          },
+          {
+            "label": "Can't tell without the full chant",
+            "mistakeTag": "parrot-crash"
+          }
+        ],
+        "answer": "8+9 = 17 ≠ 9, and the 9s jump 81 → 90 — so no",
+        "hintLadder": [
+          "Run the 9s digit test on 89.",
+          "8 + 9 = ?",
+          "Not 9 — the pattern rejects it, and skip-counting confirms."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "9 × 8 = ? (finger trick!)",
+        "answer": "72",
+        "hintLadder": [
+          "Fold the 8th finger.",
+          "7 left, 2 right.",
+          "7+2 = 9 ✓"
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "You know 6 × 9 = 54. Then 9 × 6 is…",
+        "options": [
+          {
+            "label": "54 — the same array, turned around"
+          },
+          {
+            "label": "A totally new fact to memorise",
+            "mistakeTag": "turnaround-missed"
+          }
+        ],
+        "answer": "54 — the same array, turned around",
+        "hintLadder": [
+          "Turn the array sideways.",
+          "Do the dots change?",
+          "a×b = b×a, always."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "number",
+        "q": "Forgot 8 × 6? Build it from 8 × 5 = 40.",
+        "answer": "48",
+        "hintLadder": [
+          "8×6 = 8×5 + one more 8.",
+          "40 + 8.",
+          "Forty-eight."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "Every multiple of 2 is…",
+        "options": [
+          {
+            "label": "Even — it ends in 0, 2, 4, 6, or 8"
+          },
+          {
+            "label": "A number with a 2 in it",
+            "mistakeTag": "pattern-overstretched"
+          }
+        ],
+        "answer": "Even — it ends in 0, 2, 4, 6, or 8",
+        "hintLadder": [
+          "Skip-count the 2s and watch the endings.",
+          "2,4,6,8,10,12…",
+          "The last digit is always even."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "You're a pattern spy now! Teach someone at home the 9s finger trick AND one neighbour-build (like 6×7 from 5×7). Show them why you never need to panic about a forgotten fact.",
+  "revisionCard": {
+    "summary": "Tables = skip-counting + patterns: 2s even, 5s end 5/0, 9s digits sum to 9 (finger trick!), 10s add a zero. Turn-around twins (4×7 = 7×4). Forgot one? Neighbour-build: 6×7 = 5×7+7 = 42. Patterns point, checks prove!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Multiplication Farm (Ganita Grove)",
+    "title": "The Pattern Spy Academy",
+    "brief": "Multi's orchard rows hide secret table patterns! Crack the 5s gate, the 9s vault, and the turn-around twin doors — and rebuild the facts Ravi's parroting crashed.",
+    "character": "Multi the Monkey"
+  },
+  "realLifeProject": "Pattern hunt: write the 9 table down one side of a page and circle the tens and ones separately. Show a family member the up-and-down staircase pattern, then wow them with the finger trick.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3 (multiplication tables)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

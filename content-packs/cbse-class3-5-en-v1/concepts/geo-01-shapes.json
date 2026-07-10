@@ -1,0 +1,549 @@
+{
+  "id": "geo-01-shapes",
+  "name": "2D Shapes and Their Properties",
+  "grade": 3,
+  "strand": "geometry",
+  "prerequisites": [
+    "num-02-comparing"
+  ],
+  "whatIsIt": "Flat shapes are described by their SIDES and CORNERS: a triangle has 3 sides and 3 corners, a rectangle has 4 sides with opposite sides equal, a square is a special rectangle with ALL sides equal, and a circle has no corners at all — one smooth curved edge. Naming shapes means counting and comparing their parts.",
+  "whyNeeded": "Everything built has a shape: windows, roofs, wheels, kites, tiles, road signs. Builders, tailors, and artists talk in shapes. Knowing the properties (not just the names) lets you SPOT shapes anywhere — even squashed, tilted, or upside down!",
+  "realLifeUses": [
+    "Road signs: triangles warn, circles order, rectangles inform",
+    "Home: rectangular doors, square tiles, circular clocks and plates",
+    "Kites and samosas: triangles you can eat and fly!",
+    "Carrom board and chess board: squares inside squares"
+  ],
+  "vocabulary": [
+    {
+      "term": "side",
+      "meaning": "One straight edge of a shape."
+    },
+    {
+      "term": "corner (vertex)",
+      "meaning": "Where two sides meet."
+    },
+    {
+      "term": "square",
+      "meaning": "4 equal sides, 4 square corners — a special rectangle!"
+    },
+    {
+      "term": "rectangle",
+      "meaning": "4 sides, opposite sides equal, 4 square corners."
+    }
+  ],
+  "story": {
+    "title": "Shapes in the Festival Kites",
+    "characters": [
+      "Ravi",
+      "his kite-maker uncle"
+    ],
+    "text": "Ravi's uncle makes festival kites of every shape. 'Which one has 3 sides and 3 corners?' he asks. Ravi points: 'The triangle kite!' 'And which has NO corners at all?' 'The round one — the circle, one smooth curve.' 'Exactly! Sides and corners are how we tell shapes apart,' says his uncle.",
+    "extractedProblem": "Which shape has 3 sides and 3 corners, and which has no corners at all?",
+    "answerInStory": "The triangle has 3 sides and 3 corners; the circle has no corners — one smooth curve."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        {
+          "kind": "triangle",
+          "label": "triangle: 3 sides"
+        },
+        {
+          "kind": "square",
+          "w": 3,
+          "label": "square: 4 equal sides"
+        },
+        {
+          "kind": "rect",
+          "w": 5,
+          "h": 3,
+          "label": "rectangle: opposite sides equal"
+        },
+        {
+          "kind": "circle",
+          "label": "circle: no corners!"
+        }
+      ]
+    },
+    "caption": "Count sides and corners to name a shape. The square is a special rectangle whose sides are ALL equal."
+  },
+  "teachingGallery": [
+    {
+      "title": "Name a shape by its sides and corners",
+      "note": "Count the straight sides — that tells you the name.",
+      "examples": [
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "triangle",
+                "label": "triangle: 3 sides"
+              }
+            ]
+          },
+          "caption": "3 sides → triangle."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 3,
+                "label": "square: 4 equal sides"
+              }
+            ]
+          },
+          "caption": "4 equal sides → square."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "rect",
+                "w": 5,
+                "h": 3,
+                "label": "rectangle: 4 sides"
+              }
+            ]
+          },
+          "caption": "4 sides, opposite equal → rectangle."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "pentagon",
+                "label": "pentagon: 5 sides"
+              }
+            ]
+          },
+          "caption": "5 sides → pentagon."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "hexagon",
+                "label": "hexagon: 6 sides"
+              }
+            ]
+          },
+          "caption": "6 sides → hexagon."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "circle",
+                "label": "circle: no straight sides"
+              }
+            ]
+          },
+          "caption": "No corners, one curved edge → circle."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To name a shape: count sides, count corners, compare side lengths.",
+    "steps": [
+      "Count the SIDES (straight edges).",
+      "Count the CORNERS (where sides meet).",
+      "Compare sides: all equal? opposite pairs equal?",
+      "3 sides → triangle. 4 sides + opposite equal → rectangle. 4 sides ALL equal → square. No sides, one curve → circle."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Shape hunt (real-world spotting)",
+      "whenToUse": "To burn shapes into memory using your own house.",
+      "steps": [
+        "Pick a room and find 3 things per shape.",
+        "Trace each one's edges with your finger, counting aloud.",
+        "Tilted or big or small — the count never lies!"
+      ],
+      "example": "Door → rectangle (count 4 corners), plate → circle, samosa → triangle."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A shape has 4 sides. Its top and bottom are 5 cm; its left and right are 3 cm. Name it.",
+      "steps": [
+        "4 sides with square corners → rectangle family.",
+        "Are ALL sides equal? No — 5, 3, 5, 3.",
+        "Opposite sides equal but not all → a rectangle (not a square)."
+      ],
+      "answer": "rectangle"
+    },
+    {
+      "problem": "Ravi says a square turned 45° (standing on its corner like a diamond) 'is not a square any more.' Is he right?",
+      "steps": [
+        "Turning a shape changes NOTHING about its sides and corners.",
+        "Count: still 4 equal sides, still 4 square corners.",
+        "It is still a square — just tilted! Names come from properties, not poses."
+      ],
+      "answer": "Still a square — turning doesn't change properties."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Count the sides",
+    "intro": "The number of straight sides names the shape — 3 triangle, 5 pentagon, 6 hexagon.",
+    "questions": [
+      {
+        "id": "geo01-trick-3",
+        "type": "mcq",
+        "q": "A shape with 3 straight sides is a…",
+        "answer": "triangle",
+        "options": [
+          {
+            "label": "triangle"
+          },
+          {
+            "label": "square"
+          },
+          {
+            "label": "circle"
+          }
+        ],
+        "hintLadder": [
+          "Count the straight sides.",
+          "3 sides.",
+          "Triangle."
+        ],
+        "explain": "3 sides → triangle."
+      },
+      {
+        "id": "geo01-trick-4e",
+        "type": "mcq",
+        "q": "4 sides all equal, 4 square corners…",
+        "answer": "square",
+        "options": [
+          {
+            "label": "square"
+          },
+          {
+            "label": "rectangle"
+          },
+          {
+            "label": "pentagon"
+          }
+        ],
+        "hintLadder": [
+          "4 equal sides and right-angle corners.",
+          "That's a square.",
+          "Square."
+        ],
+        "explain": "4 equal → square."
+      },
+      {
+        "id": "geo01-trick-5",
+        "type": "mcq",
+        "q": "A shape with 5 sides is a…",
+        "answer": "pentagon",
+        "options": [
+          {
+            "label": "pentagon"
+          },
+          {
+            "label": "hexagon"
+          },
+          {
+            "label": "triangle"
+          }
+        ],
+        "hintLadder": [
+          "Count: 5 sides.",
+          "Penta = five.",
+          "Pentagon."
+        ],
+        "explain": "5 → pentagon."
+      },
+      {
+        "id": "geo01-trick-6",
+        "type": "mcq",
+        "q": "A shape with 6 sides is a…",
+        "answer": "hexagon",
+        "options": [
+          {
+            "label": "hexagon"
+          },
+          {
+            "label": "pentagon"
+          },
+          {
+            "label": "square"
+          }
+        ],
+        "hintLadder": [
+          "Count: 6 sides.",
+          "Hexa = six.",
+          "Hexagon."
+        ],
+        "explain": "6 → hexagon."
+      },
+      {
+        "id": "geo01-trick-0",
+        "type": "mcq",
+        "q": "A round shape with no corners is a…",
+        "answer": "circle",
+        "options": [
+          {
+            "label": "circle"
+          },
+          {
+            "label": "triangle"
+          },
+          {
+            "label": "square"
+          }
+        ],
+        "hintLadder": [
+          "No straight sides, no corners.",
+          "One curved edge.",
+          "Circle."
+        ],
+        "explain": "no corners → circle."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "tilted-shape-renamed",
+      "mistake": "Thinking a tilted square becomes a 'diamond' and stops being a square.",
+      "fix": "Shapes keep their names in every pose! Count sides and corners — if all 4 sides are equal with square corners, it's a square, however it stands."
+    },
+    {
+      "mistakeTag": "square-not-a-rectangle",
+      "mistake": "Saying a square is NOT a rectangle.",
+      "fix": "A square passes every rectangle test (4 sides, opposite sides equal, square corners) — it's a SPECIAL rectangle where all sides happen to be equal. Every square is a rectangle; not every rectangle is a square!"
+    },
+    {
+      "mistakeTag": "counted-curve-as-side",
+      "mistake": "Saying a circle has 1 side or counting curves as straight sides.",
+      "fix": "Sides are STRAIGHT edges. A circle has no straight edges and no corners — just one smooth curve all the way around."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "e1",
+        "type": "mcq",
+        "q": "Which shape has exactly 3 sides and 3 corners?",
+        "options": [
+          {
+            "label": "Triangle"
+          },
+          {
+            "label": "Circle",
+            "mistakeTag": "counted-curve-as-side"
+          },
+          {
+            "label": "Square",
+            "mistakeTag": "square-not-a-rectangle"
+          }
+        ],
+        "answer": "Triangle",
+        "hintLadder": [
+          "Count the sides in each shape's name-picture.",
+          "Tri- means three!",
+          "Three sides, three corners — the roof shape."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "number",
+        "q": "How many corners does a rectangle have?",
+        "answer": "4",
+        "hintLadder": [
+          "Picture a door.",
+          "Count where the edges meet.",
+          "Top-left, top-right, bottom-left, bottom-right."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "m1",
+        "type": "mcq",
+        "q": "All 4 sides of a shape are equal, and its corners are square. What is it?",
+        "options": [
+          {
+            "label": "A square (and it's also a special rectangle!)"
+          },
+          {
+            "label": "Only a rectangle, never a square",
+            "mistakeTag": "square-not-a-rectangle"
+          }
+        ],
+        "answer": "A square (and it's also a special rectangle!)",
+        "hintLadder": [
+          "ALL sides equal is the special clue.",
+          "Which shape demands all-equal sides?",
+          "It also passes the rectangle test — special rectangle!"
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "Geo tilts a square to stand on one corner. Ravi shouts 'It became a diamond — new shape!' What does Geo say?",
+        "options": [
+          {
+            "label": "Count the sides — still 4 equal sides, still a square!"
+          },
+          {
+            "label": "Ravi is right — tilting changes the shape",
+            "mistakeTag": "tilted-shape-renamed"
+          }
+        ],
+        "answer": "Count the sides — still 4 equal sides, still a square!",
+        "hintLadder": [
+          "Does turning change the number of sides?",
+          "Do the sides shrink or grow when tilted?",
+          "Properties decide names — not poses."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "TRUE or FALSE: every square is a rectangle.",
+        "options": [
+          {
+            "label": "True — a square passes every rectangle test"
+          },
+          {
+            "label": "False — they are different shapes",
+            "mistakeTag": "square-not-a-rectangle"
+          }
+        ],
+        "answer": "True — a square passes every rectangle test",
+        "hintLadder": [
+          "List the rectangle rules: 4 sides, opposite sides equal, square corners.",
+          "Does a square break any of them?",
+          "No — it just adds one MORE rule (all equal)."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "Geo builds a hexagon window. How many corners does it have?",
+        "answer": "6",
+        "hintLadder": [
+          "Hexa- is the clue.",
+          "Hexa means six!",
+          "Six sides always means six corners."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "How many sides does a triangle have?",
+        "answer": "3",
+        "hintLadder": [
+          "Tri- means…?",
+          "Like tricycle — three wheels!",
+          "Three."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "What makes a square SPECIAL among rectangles?",
+        "options": [
+          {
+            "label": "ALL four sides are equal"
+          },
+          {
+            "label": "It has more corners",
+            "mistakeTag": "counted-curve-as-side"
+          }
+        ],
+        "answer": "ALL four sides are equal",
+        "hintLadder": [
+          "Both have 4 corners.",
+          "Compare the sides of each.",
+          "Squares demand all-equal sides."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "How many corners does a circle have?",
+        "options": [
+          {
+            "label": "None — one smooth curve"
+          },
+          {
+            "label": "One",
+            "mistakeTag": "counted-curve-as-side"
+          }
+        ],
+        "answer": "None — one smooth curve",
+        "hintLadder": [
+          "Corners need straight sides meeting.",
+          "Does a circle have any straight edges?",
+          "No straight edges → no corners."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "A tilted rectangle is…",
+        "options": [
+          {
+            "label": "Still a rectangle — properties don't change with pose"
+          },
+          {
+            "label": "A new shape called a slanty",
+            "mistakeTag": "tilted-shape-renamed"
+          }
+        ],
+        "answer": "Still a rectangle — properties don't change with pose",
+        "hintLadder": [
+          "Count sides and corners after tilting.",
+          "Anything change?",
+          "Names come from properties."
+        ]
+      }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Be Geo's junior architect! Show someone at home one triangle, one square, one rectangle, and one circle IN your house, and prove each name by counting sides and corners aloud.",
+  "revisionCard": {
+    "summary": "Name shapes by properties: triangle 3 sides/corners; rectangle 4 sides, opposite equal; square = special rectangle, ALL sides equal; circle = no corners, one curve. Tilting never changes a shape's name!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Geometry City (Ganita Grove)",
+    "title": "The Shape City Site Inspection",
+    "brief": "Buildings are going up all over Shape City! Check every part — roofs, doors, windows, wheels — by counting sides and corners, and reject Ravi's mislabeled deliveries (especially his 'diamonds').",
+    "character": "Geo Giraffe"
+  },
+  "realLifeProject": "Shape safari: walk one room with a parent and list 8 objects with their shapes. Bonus: find one square and PROVE it's also a rectangle by checking the rectangle rules aloud.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 3 (2D shapes)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

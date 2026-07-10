@@ -1,0 +1,170 @@
+{
+  "id": "num-31-proportion",
+  "name": "Direct and Inverse Proportion",
+  "grade": 7,
+  "strand": "numbers",
+  "prerequisites": ["num-22-ratio-proportion"],
+  "whatIsIt": "In DIRECT proportion, two quantities grow (or shrink) together at the same rate — more items, more cost; double one, double the other. In INVERSE proportion, one goes UP while the other goes DOWN — more workers, less time; double the workers, halve the time. Spotting which kind you have tells you whether to multiply or divide.",
+  "whyNeeded": "Recipes, shopping, travel, and work planning all rely on proportion — scaling a recipe up, working out cost for more items, or how long a job takes with more people. It's the practical heart of ratios and a big idea in science.",
+  "realLifeUses": [
+    "5 pens cost ₹50, so 8 pens cost… (direct)",
+    "3 workers finish in 6 days, so 6 workers finish in… (inverse)",
+    "Doubling a recipe doubles every ingredient (direct)",
+    "Faster speed means less time for the same distance (inverse)"
+  ],
+  "vocabulary": [
+    { "term": "direct proportion", "meaning": "Both quantities increase or decrease together at the same rate." },
+    { "term": "inverse proportion", "meaning": "As one increases, the other decreases (their product stays fixed)." },
+    { "term": "unitary method", "meaning": "Find the value of ONE first, then scale to the amount you need." }
+  ],
+  "story": {
+    "title": "The Wall Painters",
+    "characters": ["Foreman", "Ravi"],
+    "text": "Ravi sees 5 pens cost ₹50 and needs 8. He finds one pen: 50 ÷ 5 = ₹10, so 8 cost ₹80 — direct proportion. Then the foreman says 3 painters finish a wall in 6 days; with 6 painters? Ravi thinks: twice the painters, half the time — 3 days. 'That's inverse,' he says, 'more workers, less time.'",
+    "extractedProblem": "5 pens cost ₹50. What do 8 pens cost?",
+    "answerInStory": "₹80 — one pen is ₹10 (direct proportion), so 8 × 10 = 80."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "5 pens = ₹50", "parts": [ { "value": 10 }, { "value": 10 }, { "value": 10 }, { "value": 10 }, { "value": 10 } ], "showTotal": true }
+      ]
+    },
+    "caption": "One pen = ₹10. Direct proportion: more pens → proportionally more cost (8 × 10 = ₹80)."
+  },
+  "teachingGallery": [
+    {
+      "title": "Together (direct) or opposite (inverse)",
+      "note": "Direct: ×/÷ the same way. Inverse: one up, the other down.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "2 kg = ₹80 → 1 kg = ₹40", "parts": [ { "value": 40 }, { "value": 40 } ], "showTotal": true } ] }, "caption": "Direct: find one, then scale." },
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 3, "cols": 6, "label": "3 workers × 6 days = 18" } ] }, "caption": "Inverse: workers × days stays 18." },
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 6, "cols": 3, "label": "6 workers × 3 days = 18" } ] }, "caption": "Double workers → half the days." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Decide direct or inverse, then use the unitary method (direct: find one, multiply) or keep the product fixed (inverse).",
+    "steps": [
+      "Ask: do both grow together (direct) or does one grow as the other shrinks (inverse)?",
+      "DIRECT: find the value of ONE (divide), then multiply for the amount you need.",
+      "INVERSE: the product stays the same — total = quantity × the other quantity; solve for the missing one.",
+      "Check the answer makes sense: more should cost more (direct); more workers should take less time (inverse)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "If 4 kg of rice cost ₹200, what do 7 kg cost?",
+      "steps": ["Direct proportion. One kg = 200 ÷ 4 = ₹50.", "7 kg = 7 × 50.", "= ₹350."],
+      "answer": "₹350"
+    },
+    {
+      "problem": "6 taps fill a tank in 4 hours. How long for 8 taps?",
+      "steps": ["Inverse: taps × hours is fixed = 6 × 4 = 24.", "With 8 taps: hours = 24 ÷ 8.", "= 3 hours."],
+      "answer": "3"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "inverse-treated-direct",
+      "mistake": "Multiplying up for an inverse situation (more workers → more time).",
+      "fix": "In inverse proportion, more of one means LESS of the other. Keep their PRODUCT fixed."
+    },
+    {
+      "mistakeTag": "forgot-find-one",
+      "mistake": "Scaling without first finding the value of one unit.",
+      "fix": "Use the unitary method: find the cost/time for ONE first, then scale to the number you need."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "n31-e1", "type": "number",
+        "q": "1 pen costs ₹10. What do 6 pens cost (in ₹)?",
+        "answer": "60",
+        "hintLadder": ["Direct proportion.", "6 × 10.", "60."]
+      },
+      {
+        "id": "n31-e2", "type": "mcq",
+        "q": "More workers to do a job means the time is…",
+        "options": [ { "label": "Less (inverse)" }, { "label": "More", "mistakeTag": "inverse-treated-direct" } ],
+        "answer": "Less (inverse)",
+        "hintLadder": ["More hands, quicker.", "Time goes down.", "Less."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "n31-m1", "type": "number",
+        "q": "3 kg cost ₹90. What do 5 kg cost (in ₹)?",
+        "answer": "150",
+        "hintLadder": ["One kg = 90 ÷ 3 = 30.", "5 × 30.", "150."]
+      },
+      {
+        "id": "n31-m2", "type": "number",
+        "q": "4 workers finish in 6 days. How many days for 8 workers?",
+        "answer": "3",
+        "hintLadder": ["Inverse: 4 × 6 = 24.", "24 ÷ 8.", "3."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "n31-c1", "type": "number",
+        "q": "5 books cost ₹250. What do 9 books cost (in ₹)?",
+        "answer": "450",
+        "hintLadder": ["One book = 250 ÷ 5 = 50.", "9 × 50.", "450."]
+      },
+      {
+        "id": "n31-c2", "type": "mcq",
+        "q": "6 taps fill a tank in 2 hours. Ravi says 12 taps take 4 hours. What's the fix?",
+        "options": [ { "label": "Inverse — 12 taps take 1 hour (product 12 stays)" }, { "label": "4 hours is right", "mistakeTag": "inverse-treated-direct" } ],
+        "answer": "Inverse — 12 taps take 1 hour (product 12 stays)",
+        "hintLadder": ["More taps, less time.", "6 × 2 = 12; 12 ÷ 12 = 1.", "1 hour."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "n31-x1", "type": "number",
+        "q": "1 kg costs ₹40. What do 5 kg cost (in ₹)?",
+        "answer": "200",
+        "hintLadder": ["Direct.", "5 × 40.", "200."]
+      },
+      {
+        "id": "n31-x2", "type": "number",
+        "q": "2 kg cost ₹100. What does 1 kg cost (in ₹)?",
+        "answer": "50",
+        "hintLadder": ["Find one.", "100 ÷ 2.", "50."]
+      },
+      {
+        "id": "n31-x3", "type": "number",
+        "q": "3 workers finish in 8 days. How many days for 6 workers?",
+        "answer": "4",
+        "hintLadder": ["Inverse: 3 × 8 = 24.", "24 ÷ 6.", "4."]
+      },
+      {
+        "id": "n31-x4", "type": "mcq",
+        "q": "When two quantities grow together at the same rate, it is…",
+        "options": [ { "label": "Direct proportion" }, { "label": "Inverse proportion", "mistakeTag": "inverse-treated-direct" } ],
+        "answer": "Direct proportion",
+        "hintLadder": ["Both increase together.", "Same direction.", "Direct."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Give a grown-up two everyday examples: one where more means more (buying more fruit costs more — direct), and one where more means less (more people share a chore, so it's faster — inverse). Explain how you'd calculate each.",
+  "revisionCard": {
+    "summary": "Direct proportion: both change together — find ONE (divide), then multiply. Inverse proportion: one up, the other down — keep the PRODUCT fixed (quantity × other = constant). Always sanity-check: more should cost more (direct), more workers → less time (inverse).",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 7-8 (direct & inverse proportion)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

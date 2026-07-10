@@ -1,0 +1,746 @@
+{
+  "id": "pp1-04-subtract-within-10",
+  "name": "Taking Away Within 10 — What Is Left?",
+  "grade": 1,
+  "strand": "operations",
+  "prerequisites": [
+    "pp1-03-add-within-10"
+  ],
+  "whatIsIt": "Taking away (subtracting) means starting with a group and removing some — then counting what is LEFT. The minus sign (−) means 'take away'. A quick way is to start at the big number and COUNT BACK: for 7 − 2, start at 7 and hop back two — six, five.",
+  "whyNeeded": "We take away all the time: biscuits eaten, money spent, passengers who got off the bus. Subtraction tells us how many remain, how many are gone, or how many more one group has than another. It is the twin of adding.",
+  "realLifeUses": [
+    "Knowing how many laddus are left after some are eaten",
+    "Finding the change left after spending some rupees",
+    "Counting how many passengers stay after some get off the bus",
+    "Seeing how many more one team scored than the other"
+  ],
+  "vocabulary": [
+    {
+      "term": "take away / minus (−)",
+      "meaning": "To remove some from a group; '−' is read as 'take away' or 'minus'."
+    },
+    {
+      "term": "left / remain",
+      "meaning": "How many are still there after some are removed — the answer."
+    },
+    {
+      "term": "count back",
+      "meaning": "Start at the big number and hop backward: 7... 6, 5."
+    },
+    {
+      "term": "check by adding back",
+      "meaning": "Add the answer to what you removed — it should give the number you started with."
+    }
+  ],
+  "story": {
+    "title": "Five Laddus on the Festival Plate",
+    "characters": [
+      "Meena",
+      "Chinni the squirrel"
+    ],
+    "text": "Meena has 5 laddus on her festival plate. She eats 2. 'How many are left?' asks Chinni the squirrel. Meena starts to recount them all. 'Quicker way,' says Chinni. 'Start at 5 and hop back two: four... three. Three laddus left!' Then she winks: 'Check it — the 3 left plus the 2 you ate make 5, right where we started.'",
+    "extractedProblem": "Meena has 5 laddus and eats 2. How many are left?",
+    "answerInStory": "3 laddus are left — start at 5, count back 2 (4, 3). Check: 3 + 2 = 5."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        {
+          "parts": [
+            {
+              "value": 3,
+              "label": "3 left"
+            },
+            {
+              "value": 2,
+              "label": "ate 2",
+              "shaded": false
+            }
+          ]
+        }
+      ]
+    },
+    "caption": "Start with 5, take away 2 (faded) — 3 are left. And 3 + 2 = 5 checks it."
+  },
+  "teachingGallery": [
+    {
+      "title": "Take away — what is left?",
+      "note": "Start with the whole group, then take some away and count what stays.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "apple",
+                  "apple",
+                  "apple",
+                  "apple",
+                  "apple"
+                ],
+                "showCount": true
+              }
+            ]
+          },
+          "caption": "5 apples. Take away 2 → 3 left."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "duck",
+                  "duck",
+                  "duck",
+                  "duck"
+                ],
+                "showCount": true
+              }
+            ]
+          },
+          "caption": "4 ducks. Take away 1 → 3 left."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "showCount": true
+              }
+            ]
+          },
+          "caption": "6 stars. Take away 3 → 3 left."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball"
+                ],
+                "showCount": true
+              }
+            ]
+          },
+          "caption": "5 balls. Take away 5 → 0 left (all gone!)."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon",
+                  "balloon"
+                ],
+                "showCount": true
+              }
+            ]
+          },
+          "caption": "7 balloons. Take away 2 → 5 left."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To take away: start with the whole group, remove the part that goes, and count what is left — then check by adding back.",
+    "steps": [
+      "Start at the big number (how many you had).",
+      "Count BACK by the number taken away, one hop at a time.",
+      "The number you land on is how many are LEFT.",
+      "Check: add the 'left' and the 'taken away' — you should get back the number you started with."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Remove-and-count objects",
+      "whenToUse": "When first learning, or with real objects.",
+      "steps": [
+        "Lay out the whole group.",
+        "Slide away the ones that are taken.",
+        "Count the ones that remain."
+      ],
+      "example": "6 − 2: lay 6, slide 2 away, count the 4 left."
+    },
+    {
+      "name": "Add-up (how many more)",
+      "whenToUse": "When the question asks 'how many more' rather than 'take away'.",
+      "steps": [
+        "Start at the smaller number.",
+        "Count UP to the bigger number.",
+        "How many steps you took is the difference."
+      ],
+      "example": "7 and 5: from 5 count up to 7 — that is 2 more."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "There are 6 mangoes. 2 are eaten. How many are left?",
+      "steps": [
+        "Start at 6.",
+        "Count back 2: five, four.",
+        "4 mangoes are left.",
+        "Check: 4 left + 2 eaten = 6. Correct!"
+      ],
+      "answer": "4",
+      "visual": {
+        "component": "BarModel",
+        "props": {
+          "bars": [
+            {
+              "parts": [
+                {
+                  "value": 4,
+                  "label": "4 left"
+                },
+                {
+                  "value": 2,
+                  "label": "eaten",
+                  "shaded": false
+                }
+              ]
+            }
+          ]
+        },
+        "caption": "6 take away 2 leaves 4; 4 + 2 = 6."
+      }
+    },
+    {
+      "problem": "A bus has 8 people. 3 get off. How many stay?",
+      "steps": [
+        "Start at 8.",
+        "Count back 3: seven, six, five.",
+        "5 people stay.",
+        "Check: 5 stay + 3 got off = 8. Correct!"
+      ],
+      "answer": "5",
+      "visual": {
+        "component": "BarModel",
+        "props": {
+          "bars": [
+            {
+              "parts": [
+                {
+                  "value": 5,
+                  "label": "5 stay"
+                },
+                {
+                  "value": 3,
+                  "label": "got off",
+                  "shaded": false
+                }
+              ]
+            }
+          ]
+        },
+        "caption": "8 take away 3 leaves 5; 5 + 3 = 8."
+      }
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "counted-start-as-step",
+      "mistake": "Counting the starting number itself as the first hop back (so the answer is one too big).",
+      "fix": "The FIRST hop back is already one less: from 5, the first hop lands on 4, not 5. Say the numbers you move TO, not the one you start on."
+    },
+    {
+      "mistakeTag": "added-instead-sub",
+      "mistake": "Adding instead of taking away when the words say 'left', 'eaten', or 'gone'.",
+      "fix": "'Left', 'eaten', 'gone', 'got off' all mean REMOVE — that is taking away, so the answer is SMALLER than you started with."
+    },
+    {
+      "mistakeTag": "reversed-subtraction",
+      "mistake": "Taking the big number away from the small one, or swapping which is which.",
+      "fix": "Always start with the bigger number — how many you HAD — and take the smaller away from it."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "pp1-04-e1",
+        "type": "number",
+        "q": "5 − 2 = ?",
+        "answer": "3",
+        "hintLadder": [
+          "Start at 5.",
+          "Count back 2: four, three.",
+          "Where did you land?"
+        ],
+        "explain": "5 − 2 = 3. Check: 3 + 2 = 5.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 3,
+                    "label": "3 left"
+                  },
+                  {
+                    "value": 2,
+                    "label": "take 2",
+                    "shaded": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-04-e2",
+        "type": "mcq",
+        "q": "There are 4 sweets. You eat 1. How many are left?",
+        "answer": "3",
+        "hintLadder": [
+          "'Left' means take away.",
+          "Start at 4, hop back 1.",
+          "Land on three."
+        ],
+        "options": [
+          {
+            "label": "3"
+          },
+          {
+            "label": "5",
+            "mistakeTag": "added-instead-sub"
+          },
+          {
+            "label": "4",
+            "mistakeTag": "counted-start-as-step"
+          }
+        ],
+        "explain": "4 − 1 = 3.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 3,
+                    "label": "3 left"
+                  },
+                  {
+                    "value": 1,
+                    "label": "ate 1",
+                    "shaded": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "medium": [
+      {
+        "id": "pp1-04-m1",
+        "type": "number",
+        "q": "7 − 3 = ?",
+        "answer": "4",
+        "hintLadder": [
+          "Start at 7.",
+          "Count back 3: 6, 5, 4.",
+          "Check by adding 3 back."
+        ],
+        "explain": "7 − 3 = 4. Check: 4 + 3 = 7.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 4,
+                    "label": "4 left"
+                  },
+                  {
+                    "value": 3,
+                    "label": "take 3",
+                    "shaded": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-04-m2",
+        "type": "mcq",
+        "q": "8 birds sit on a wire. 2 fly away. How many are left?",
+        "answer": "6",
+        "hintLadder": [
+          "'Fly away' means take away.",
+          "Start at 8, count back 2.",
+          "Seven, six."
+        ],
+        "options": [
+          {
+            "label": "6"
+          },
+          {
+            "label": "10",
+            "mistakeTag": "added-instead-sub"
+          },
+          {
+            "label": "7",
+            "mistakeTag": "counted-start-as-step"
+          }
+        ],
+        "explain": "8 − 2 = 6.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 6,
+                    "label": "6 left"
+                  },
+                  {
+                    "value": 2,
+                    "label": "flew",
+                    "shaded": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "pp1-04-c1",
+        "type": "number",
+        "q": "9 − 4 = ?",
+        "answer": "5",
+        "hintLadder": [
+          "Start at 9.",
+          "Count back 4: 8, 7, 6, 5.",
+          "Check: 5 + 4 = 9."
+        ],
+        "explain": "9 − 4 = 5.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 5,
+                    "label": "5 left"
+                  },
+                  {
+                    "value": 4,
+                    "label": "take 4",
+                    "shaded": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-04-c2",
+        "type": "number",
+        "q": "You had 6 rupees and spent 6. How many are left?",
+        "answer": "0",
+        "hintLadder": [
+          "Start at 6, take all 6 away.",
+          "Count back 6 hops.",
+          "Nothing remains."
+        ],
+        "explain": "6 − 6 = 0 — none left.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 6,
+                    "label": "spent all 6",
+                    "shaded": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "pp1-04-x1",
+        "type": "number",
+        "q": "5 − 1 = ?",
+        "answer": "4",
+        "hintLadder": [
+          "Start at 5.",
+          "Hop back 1: four.",
+          "Check: 4 + 1 = 5."
+        ],
+        "explain": "5 − 1 = 4.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 4,
+                    "label": "4 left"
+                  },
+                  {
+                    "value": 1,
+                    "label": "take 1",
+                    "shaded": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-04-x2",
+        "type": "number",
+        "q": "6 − 2 = ?",
+        "answer": "4",
+        "hintLadder": [
+          "Start at 6.",
+          "Count back 2: five, four.",
+          "Add 2 back to check."
+        ],
+        "explain": "6 − 2 = 4.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 4,
+                    "label": "4 left"
+                  },
+                  {
+                    "value": 2,
+                    "label": "take 2",
+                    "shaded": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-04-x3",
+        "type": "mcq",
+        "q": "7 laddus, 4 are eaten. How many are left?",
+        "answer": "3",
+        "hintLadder": [
+          "'Eaten' means take away.",
+          "Start at 7, count back 4.",
+          "6, 5, 4, 3."
+        ],
+        "options": [
+          {
+            "label": "3"
+          },
+          {
+            "label": "11",
+            "mistakeTag": "added-instead-sub"
+          },
+          {
+            "label": "4",
+            "mistakeTag": "counted-start-as-step"
+          }
+        ],
+        "explain": "7 − 4 = 3.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 3,
+                    "label": "3 left"
+                  },
+                  {
+                    "value": 4,
+                    "label": "eaten",
+                    "shaded": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-04-x4",
+        "type": "number",
+        "q": "8 − 5 = ?",
+        "answer": "3",
+        "hintLadder": [
+          "Start at 8.",
+          "Count back 5: 7,6,5,4,3.",
+          "Check: 3 + 5 = 8."
+        ],
+        "explain": "8 − 5 = 3.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 3,
+                    "label": "3 left"
+                  },
+                  {
+                    "value": 5,
+                    "label": "take 5",
+                    "shaded": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "pp1-04-x5",
+        "type": "mcq",
+        "q": "10 − 3 = ?",
+        "answer": "7",
+        "hintLadder": [
+          "Start at 10.",
+          "Count back 3: nine, eight, seven.",
+          "Check: 7 + 3 = 10."
+        ],
+        "options": [
+          {
+            "label": "7"
+          },
+          {
+            "label": "13",
+            "mistakeTag": "added-instead-sub"
+          },
+          {
+            "label": "8",
+            "mistakeTag": "counted-start-as-step"
+          }
+        ],
+        "explain": "10 − 3 = 7.",
+        "visual": {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "parts": [
+                  {
+                    "value": 7,
+                    "label": "7 left"
+                  },
+                  {
+                    "value": 3,
+                    "label": "take 3",
+                    "shaded": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "teachBackPrompt": "Be the teacher! Give someone at home 7 − 3. Show them how to start at 7 and count BACK three, and then prove your answer is right by adding the two parts back to 7.",
+  "revisionCard": {
+    "summary": "Take away = start big, COUNT BACK, count what's LEFT. First hop is already one less. Check by adding the parts back to the start.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Adding Orchard (Little Sprouts)",
+    "title": "What's Left on the Plate?",
+    "brief": "Help Meena and Captain Count take away and count what remains — then prove it by adding back.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Put 6 grapes on a plate. Eat some. Before you look, count back to say how many are left — then check by counting.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  },
+  "mentalMathMethod": {
+    "name": "Count up to find the difference",
+    "whenToUse": "When the two numbers are close.",
+    "steps": [
+      "Start at the smaller number.",
+      "Count up to the bigger number.",
+      "How many steps you took is the answer."
+    ],
+    "example": "7 − 5: from 5 count up to 7 → 2 steps → 2."
+  },
+  "abacusMethod": {
+    "name": "Beads down for taking away",
+    "whenToUse": "To subtract on the abacus.",
+    "steps": [
+      "Set the starting number in beads at the bar.",
+      "Push DOWN beads for the number taken away.",
+      "Read the beads still at the bar — that is what is left."
+    ],
+    "example": "7 − 3: set 7, push 3 down → 4.",
+    "visual": {
+      "component": "Abacus",
+      "props": {
+        "abaci": [
+          {
+            "value": 4,
+            "label": "7 − 3 = 4"
+          }
+        ]
+      },
+      "caption": "Set 7, push 3 beads away → 4 left."
+    }
+  }
+}

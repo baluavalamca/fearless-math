@@ -1,0 +1,170 @@
+{
+  "id": "num-36-functions-graphs",
+  "name": "Functions and Graphs",
+  "grade": 9,
+  "strand": "numbers",
+  "prerequisites": ["num-33-linear-equations", "geo-14-coordinate-geometry"],
+  "whatIsIt": "A FUNCTION is a rule that turns each input into ONE output — a machine: put in x, get out f(x). f(x) = 2x + 1 means 'double it and add one'. The set of allowed inputs is the DOMAIN; the outputs form the RANGE. Plotting the (input, output) pairs draws the GRAPH: a straight LINE for linear functions, a U-shaped PARABOLA for quadratics.",
+  "whyNeeded": "Functions describe how one thing depends on another — cost on quantity, distance on time, height on age. Reading and drawing their graphs is central to science, economics, data and all higher maths.",
+  "realLifeUses": [
+    "Cost = 50 × items (a linear function)",
+    "Distance travelled as a function of time",
+    "A ball's height over time (a parabola)",
+    "Reading a graph to predict a value"
+  ],
+  "vocabulary": [
+    { "term": "function f(x)", "meaning": "A rule giving one output for each input x." },
+    { "term": "domain / range", "meaning": "Allowed inputs (domain) and the outputs they give (range)." },
+    { "term": "linear / parabola", "meaning": "A straight-line graph (linear) or U-shaped curve (quadratic)." }
+  ],
+  "story": {
+    "title": "The Function Machine",
+    "characters": ["Ved", "Miss Rao"],
+    "text": "Miss Rao draws a machine: f(x) = 2x + 1. 'Feed in 3,' she says. Ved computes f(3) = 2×3 + 1 = 7. 'Feed in 0?' f(0) = 1. He plots (3, 7) and (0, 1) and joins them — a straight line. 'Every input gives exactly one output,' says Miss Rao. 'That's what makes it a function.'",
+    "extractedProblem": "For f(x) = 2x + 1, what is f(3)?",
+    "answerInStory": "7 — put x = 3 into the rule: 2×3 + 1."
+  },
+  "visual": {
+    "component": "NumberTrack",
+    "props": {
+      "tracks": [
+        { "terms": ["x: 0", "1", "2", "3"], "label": "input" },
+        { "terms": ["f: 1", "3", "5", "7"], "label": "output f(x)=2x+1" }
+      ]
+    },
+    "caption": "A function pairs each input with one output. f(x) = 2x+1 gives 1, 3, 5, 7 — plot them for a straight line."
+  },
+  "teachingGallery": [
+    {
+      "title": "Rule, table, graph",
+      "note": "Build a table of (x, f(x)), then plot the points.",
+      "examples": [
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [1, 2, 3, 4], "label": "x" }, { "terms": [3, 5, 7, 9], "label": "f(x)=2x+1" } ] }, "caption": "Linear: equal steps up → straight line." },
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 4, "cols": 4, "label": "plot (x, f(x)) on a grid" } ] }, "caption": "Plot points across then up." },
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [-2, -1, 0, 1, 2], "label": "x" }, { "terms": [4, 1, 0, 1, 4], "label": "f(x)=x² (parabola)" } ] }, "caption": "Quadratic: U-shaped parabola." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Apply the rule to inputs to get outputs; make a table of (x, f(x)); plot the points and join — a line for linear, a parabola for quadratic.",
+    "steps": [
+      "A function gives ONE output per input: f(x) is the rule.",
+      "Substitute inputs into the rule to get outputs (f(3) = 2·3+1 = 7).",
+      "Make a table of (x, f(x)) pairs.",
+      "Plot the points (x across, f(x) up) and join: straight line for linear (2x+1), U-shaped parabola for quadratic (x²)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "For f(x) = 3x − 2, find f(4).",
+      "steps": ["Substitute x = 4.", "3 × 4 − 2.", "= 10."],
+      "answer": "10"
+    },
+    {
+      "problem": "For f(x) = x², find f(3) and f(−3).",
+      "steps": ["f(3) = 3² = 9.", "f(−3) = (−3)² = 9.", "Both give 9 — the parabola is symmetric."],
+      "answer": "9 and 9"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "fx-not-multiply",
+      "mistake": "Reading f(3) as f times 3 instead of putting 3 into the rule.",
+      "fix": "f(3) means the OUTPUT when the input is 3 — substitute 3 into the rule, don't multiply f by 3."
+    },
+    {
+      "mistakeTag": "linear-vs-parabola",
+      "mistake": "Expecting a straight line for a quadratic like x².",
+      "fix": "Only linear rules (like 2x+1) give straight lines. An x² rule gives a U-shaped PARABOLA."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "n36-e1", "type": "number",
+        "q": "For f(x) = 2x, find f(5). (write like 10)",
+        "answer": "10",
+        "hintLadder": ["Put x = 5.", "2 × 5.", "10."]
+      },
+      {
+        "id": "n36-e2", "type": "number",
+        "q": "For f(x) = x + 3, find f(4). (write like 7)",
+        "answer": "7",
+        "hintLadder": ["Put x = 4.", "4 + 3.", "7."]
+      }
+    ],
+    "medium": [
+      {
+        "id": "n36-m1", "type": "number",
+        "q": "For f(x) = 2x + 1, find f(3). (write like 7)",
+        "answer": "7",
+        "hintLadder": ["2×3 + 1.", "6 + 1.", "7."]
+      },
+      {
+        "id": "n36-m2", "type": "number",
+        "q": "For f(x) = x², find f(4). (write like 16)",
+        "answer": "16",
+        "hintLadder": ["4².", "4 × 4.", "16."]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "n36-c1", "type": "number",
+        "q": "For f(x) = 3x − 5, find f(6). (write like 13)",
+        "answer": "13",
+        "hintLadder": ["3×6 − 5.", "18 − 5.", "13."]
+      },
+      {
+        "id": "n36-c2", "type": "mcq",
+        "q": "The graph of f(x) = x² is…",
+        "options": [ { "label": "A U-shaped parabola" }, { "label": "A straight line", "mistakeTag": "linear-vs-parabola" } ],
+        "answer": "A U-shaped parabola",
+        "hintLadder": ["x² curves.", "Symmetric U.", "Parabola."]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "n36-x1", "type": "number",
+        "q": "For f(x) = 2x, find f(6). (write like 12)",
+        "answer": "12",
+        "hintLadder": ["2 × 6.", "Substitute.", "12."]
+      },
+      {
+        "id": "n36-x2", "type": "number",
+        "q": "For f(x) = x + 5, find f(0). (write like 5)",
+        "answer": "5",
+        "hintLadder": ["0 + 5.", "Substitute 0.", "5."]
+      },
+      {
+        "id": "n36-x3", "type": "number",
+        "q": "For f(x) = x², find f(5). (write like 25)",
+        "answer": "25",
+        "hintLadder": ["5².", "5 × 5.", "25."]
+      },
+      {
+        "id": "n36-x4", "type": "mcq",
+        "q": "The graph of a LINEAR function like 2x + 1 is…",
+        "options": [ { "label": "A straight line" }, { "label": "A parabola", "mistakeTag": "linear-vs-parabola" } ],
+        "answer": "A straight line",
+        "hintLadder": ["Linear = line.", "Equal steps.", "Straight line."]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw a 'function machine' for a grown-up (like f(x) = 2x + 1). Feed in a few inputs, list the outputs in a table, plot the points on a grid, and show how linear rules make a straight line while x² makes a U-shaped parabola.",
+  "revisionCard": {
+    "summary": "Function = a rule giving ONE output per input: f(x). Domain = inputs, range = outputs. Find f(3) by substituting 3 into the rule. Make a table of (x, f(x)), plot and join: linear (2x+1) → straight line; quadratic (x²) → U-shaped parabola.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 8-10 (functions & graphs)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}
