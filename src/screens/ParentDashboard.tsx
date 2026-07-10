@@ -4,9 +4,16 @@
  * Default PIN: 1234 (changeable below; stored locally on this computer).
  */
 import { useEffect, useState } from "react";
-import { AiStatus, DashboardData, MediaStatus, MediaConfig, api } from "../api";
+import { AiStatus, DashboardData, MediaStatus, MediaConfig, ProviderInfo, api } from "../api";
 import { refreshVoiceStatus } from "../speech";
 import { CreateLesson } from "./CreateLesson";
+
+const FALLBACK_PROVIDERS: ProviderInfo[] = [
+  { id: "anthropic", label: "Claude (Anthropic)", kind: "anthropic", defaultModel: "claude-haiku-4-5", models: ["claude-haiku-4-5", "claude-sonnet-5"] },
+  { id: "openai", label: "OpenAI (GPT)", kind: "openai", defaultModel: "gpt-4o-mini", models: ["gpt-4o-mini", "gpt-4o"] },
+];
+
+const classLabel = (g: number) => (g <= 2 ? "🌱 Foundation (PP1–Class 2)" : `Class ${g}`);
 
 const PIN_KEY = "fm_parent_pin";
 const getPin = () => localStorage.getItem(PIN_KEY) || "1234";
@@ -29,6 +36,9 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
   const [ai, setAi] = useState<AiStatus | null>(null);
   const [aiKey, setAiKey] = useState("");
   const [aiSaved, setAiSaved] = useState(false);
+  const [providers, setProviders] = useState<ProviderInfo[]>([]);
+  const [customModel, setCustomModel] = useState(false);
+  const [modelInput, setModelInput] = useState("");
   const [media, setMedia] = useState<MediaStatus | null>(null);
   const [imgKey, setImgKey] = useState("");
   const [voiceKey, setVoiceKey] = useState("");
@@ -40,10 +50,15 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
       api.getDashboard().then(setData);
       api.aiStatus().then(setAi).catch(() => setAi(null));
       api.mediaStatus().then(setMedia).catch(() => setMedia(null));
+      if (typeof api.aiProviders === "function") {
+        api.aiProviders().then(setProviders).catch(() => setProviders(FALLBACK_PROVIDERS));
+      } else {
+        setProviders(FALLBACK_PROVIDERS);
+      }
     }
   }, [unlocked]);
 
-  async function saveAi(patch: { enabled?: boolean; provider?: string; apiKey?: string }) {
+  async function saveAi(patch: { enabled?: boolean; provider?: string; apiKey?: string; model?: string }) {
     const s = await api.aiConfigure(patch);
     setAi({ ...s, online: ai?.online ?? true });
     setAiSaved(true);
@@ -100,6 +115,21 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
     (c) => c.nextRevisionAt && new Date(c.nextRevisionAt) <= new Date()
   );
 
+  // Group the concept map by class for collapsible panels.
+  const classGroups = (() => {
+    const m = new Map<string, { label: string; order: number; items: typeof data.concepts }>();
+    for (const c of data.concepts) {
+      const key = c.grade <= 2 ? "foundation" : "c" + c.grade;
+      if (!m.has(key)) m.set(key, { label: classLabel(c.grade), order: c.grade <= 2 ? 0 : c.grade, items: [] });
+      m.get(key)!.items.push(c);
+    }
+    return [...m.values()].sort((a, b) => a.order - b.order);
+  })();
+
+  const provList = providers.length ? providers : FALLBACK_PROVIDERS;
+  const curProv = provList.find((p) => p.id === (ai?.provider ?? "anthropic")) ?? provList[0];
+  const curModel = ai?.model ?? "";
+
   return (
     <div className="fm-dashboard">
       <h1>👨‍👩‍👧 {data.profile.name}'s Progress</h1>
@@ -120,32 +150,51 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
       <CreateLesson />
 
       <h2>Concept map</h2>
-      <table className="fm-dash-table">
-        <thead>
-          <tr><th>Concept</th><th>Status</th><th>Accuracy</th><th>Tries</th><th>Hints</th></tr>
-        </thead>
-        <tbody>
-          {data.concepts.map((c) => {
-            const acc = c.attempts ? Math.round((c.correct / c.attempts) * 100) : null;
-            return (
-              <tr key={c.id}>
-                <td>{c.name}<div className="fm-dash-strand">{c.strand} · Class {c.grade}</div></td>
-                <td>{STATUS_LABEL[c.status] ?? c.status}</td>
-                <td>
-                  {acc === null ? "—" : (
-                    <div className="fm-acc">
-                      <div className="fm-acc-bar"><div style={{ width: `${acc}%` }} className={acc >= 70 ? "hi" : "lo"} /></div>
-                      <span>{acc}%</span>
-                    </div>
-                  )}
-                </td>
-                <td>{c.attempts || "—"}</td>
-                <td>{c.hints || "—"}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <p className="fm-dash-note">Each class is a panel — tap to open or close it.</p>
+      {classGroups.map((grp, gi) => {
+        const gMastered = grp.items.filter((c) => c.status === "mastered").length;
+        const gAtt = grp.items.reduce((s, c) => s + c.attempts, 0);
+        const gCor = grp.items.reduce((s, c) => s + c.correct, 0);
+        const gAcc = gAtt ? Math.round((gCor / gAtt) * 100) : null;
+        const pct = Math.round((gMastered / grp.items.length) * 100);
+        return (
+          <details className="fm-class-panel" key={grp.label} open={gi === 0}>
+            <summary>
+              <span className="fm-class-title">{grp.label}</span>
+              <span className="fm-class-meta">
+                ⭐ {gMastered}/{grp.items.length} mastered{gAcc !== null ? ` · ${gAcc}% accuracy` : ""}
+              </span>
+              <span className="fm-class-bar"><i style={{ width: `${pct}%` }} /></span>
+            </summary>
+            <table className="fm-dash-table">
+              <thead>
+                <tr><th>Concept</th><th>Status</th><th>Accuracy</th><th>Tries</th><th>Hints</th></tr>
+              </thead>
+              <tbody>
+                {grp.items.map((c) => {
+                  const acc = c.attempts ? Math.round((c.correct / c.attempts) * 100) : null;
+                  return (
+                    <tr key={c.id}>
+                      <td>{c.name}<div className="fm-dash-strand">{c.strand} · Class {c.grade}</div></td>
+                      <td>{STATUS_LABEL[c.status] ?? c.status}</td>
+                      <td>
+                        {acc === null ? "—" : (
+                          <div className="fm-acc">
+                            <div className="fm-acc-bar"><div style={{ width: `${acc}%` }} className={acc >= 70 ? "hi" : "lo"} /></div>
+                            <span>{acc}%</span>
+                          </div>
+                        )}
+                      </td>
+                      <td>{c.attempts || "—"}</td>
+                      <td>{c.hints || "—"}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </details>
+        );
+      })}
       <p className="fm-dash-note">
         Hints are GOOD — they mean your child asked for help instead of giving up. Never scold hint usage.
       </p>
@@ -186,14 +235,13 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
           />{" "}
           Enable AI Tutor
         </label>
-        <div className="fm-answer-row" style={{ maxWidth: 560 }}>
+        <div className="fm-answer-row" style={{ maxWidth: 620, flexWrap: "wrap" }}>
           <select
-            className="fm-input" style={{ maxWidth: 160 }}
+            className="fm-input" style={{ maxWidth: 240 }}
             value={ai?.provider ?? "anthropic"}
-            onChange={(e) => saveAi({ provider: e.target.value })}
+            onChange={(e) => { saveAi({ provider: e.target.value, model: "" }); setCustomModel(false); }}
           >
-            <option value="anthropic">Claude (Anthropic)</option>
-            <option value="openai">OpenAI</option>
+            {provList.map((p) => <option key={p.id} value={p.id}>{p.label}</option>)}
           </select>
           <input
             className="fm-input" type="password"
@@ -204,8 +252,40 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
             Save key
           </button>
         </div>
+        {curProv?.keyHint && (
+          <p className="fm-dash-note" style={{ marginTop: 2 }}>Get a {curProv.label} key at {curProv.keyHint}.</p>
+        )}
+
+        <div className="fm-answer-row" style={{ maxWidth: 620, flexWrap: "wrap" }}>
+          <label style={{ alignSelf: "center", fontWeight: 700 }}>Model:</label>
+          <select
+            className="fm-input" style={{ maxWidth: 300 }}
+            value={customModel ? "__custom" : curModel}
+            onChange={(e) => {
+              if (e.target.value === "__custom") { setCustomModel(true); setModelInput(curModel || (curProv?.defaultModel ?? "")); }
+              else { setCustomModel(false); saveAi({ model: e.target.value }); }
+            }}
+          >
+            <option value="">Provider default{curProv ? ` (${curProv.defaultModel})` : ""}</option>
+            {curProv?.models.map((m) => <option key={m} value={m}>{m}</option>)}
+            <option value="__custom">Custom model…</option>
+          </select>
+          {customModel && (
+            <>
+              <input
+                className="fm-input" style={{ maxWidth: 240 }} placeholder="exact model id, e.g. gpt-5.6"
+                value={modelInput} onChange={(e) => setModelInput(e.target.value)}
+              />
+              <button className="fm-secondary" disabled={!modelInput.trim()} onClick={() => saveAi({ model: modelInput.trim() })}>
+                Set model
+              </button>
+            </>
+          )}
+        </div>
         <p className="fm-dash-note">
-          Status: {ai?.enabled ? "enabled" : "disabled"} · key {ai?.hasKey ? "saved" : "not set"} ·
+          Provider: {curProv?.label ?? ai?.provider} · model {ai?.effectiveModel ?? curProv?.defaultModel}
+          {ai?.model ? "" : " (default)"} · key {ai?.hasKey ? "saved" : "not set"} ·
+          {ai?.enabled ? " enabled" : " disabled"} ·
           {ai?.online ? " online" : " offline (AI buttons hide automatically)"}
           {aiSaved && " · saved ✓"}
         </p>

@@ -20,8 +20,73 @@ let electron = null;
 try { electron = require("electron"); } catch { /* running under plain node (tests) */ }
 
 let dir = null;
-let settings = { enabled: false, provider: "anthropic", keyStored: null };
+let settings = { enabled: false, provider: "anthropic", model: "", keyStored: null };
 let cache = {};
+
+/* ---------------- provider registry (popular providers + models) ----------------
+ * kind "anthropic" => native Messages API; kind "openai" => any OpenAI-compatible
+ * /chat/completions endpoint with Bearer auth. Model can be overridden per user
+ * (dynamic config); an empty model falls back to the provider's defaultModel.
+ * Preset model IDs reflect popular options as of mid-2026 — the "Custom model"
+ * field lets a parent type any exact model string the provider supports. */
+const PROVIDERS = {
+  anthropic: {
+    label: "Claude (Anthropic)", kind: "anthropic",
+    url: "https://api.anthropic.com/v1/messages",
+    keyHint: "console.anthropic.com", defaultModel: "claude-haiku-4-5",
+    models: ["claude-haiku-4-5", "claude-sonnet-5", "claude-opus-4-8", "claude-fable-5"],
+  },
+  openai: {
+    label: "OpenAI (GPT)", kind: "openai",
+    url: "https://api.openai.com/v1/chat/completions",
+    keyHint: "platform.openai.com", defaultModel: "gpt-4o-mini",
+    models: ["gpt-4o-mini", "gpt-4o", "gpt-5.4-mini", "gpt-5.5", "gpt-5.6"],
+  },
+  google: {
+    label: "Google (Gemini)", kind: "openai",
+    url: "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+    keyHint: "aistudio.google.com", defaultModel: "gemini-2.5-flash",
+    models: ["gemini-2.5-flash", "gemini-3.1-flash-lite", "gemini-3.5-flash", "gemini-3.1-pro"],
+  },
+  groq: {
+    label: "Groq (fast open models)", kind: "openai",
+    url: "https://api.groq.com/openai/v1/chat/completions",
+    keyHint: "console.groq.com", defaultModel: "llama-3.3-70b-versatile",
+    models: ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "mixtral-8x7b-32768"],
+  },
+  mistral: {
+    label: "Mistral", kind: "openai",
+    url: "https://api.mistral.ai/v1/chat/completions",
+    keyHint: "console.mistral.ai", defaultModel: "mistral-small-latest",
+    models: ["mistral-small-latest", "mistral-large-latest", "open-mistral-nemo"],
+  },
+  deepseek: {
+    label: "DeepSeek", kind: "openai",
+    url: "https://api.deepseek.com/v1/chat/completions",
+    keyHint: "platform.deepseek.com", defaultModel: "deepseek-chat",
+    models: ["deepseek-chat", "deepseek-reasoner"],
+  },
+  xai: {
+    label: "xAI (Grok)", kind: "openai",
+    url: "https://api.x.ai/v1/chat/completions",
+    keyHint: "console.x.ai", defaultModel: "grok-4.3",
+    models: ["grok-4.3", "grok-4.5", "grok-beta"],
+  },
+  openrouter: {
+    label: "OpenRouter (any model)", kind: "openai",
+    url: "https://openrouter.ai/api/v1/chat/completions",
+    keyHint: "openrouter.ai", defaultModel: "openai/gpt-4o-mini",
+    models: ["openai/gpt-4o-mini", "anthropic/claude-haiku-4-5", "google/gemini-2.5-flash", "meta-llama/llama-3.3-70b-instruct"],
+  },
+};
+
+/** Public metadata for the settings UI (no secrets). */
+function providers() {
+  return Object.entries(PROVIDERS).map(([id, p]) => ({
+    id, label: p.label, kind: p.kind, keyHint: p.keyHint,
+    defaultModel: p.defaultModel, models: p.models,
+  }));
+}
 
 /* ---------------- init + settings ---------------- */
 
@@ -53,9 +118,10 @@ function decryptKey(stored) {
   return null;
 }
 
-function configure({ enabled, provider, apiKey }) {
+function configure({ enabled, provider, apiKey, model }) {
   if (typeof enabled === "boolean") settings.enabled = enabled;
-  if (provider) settings.provider = provider;
+  if (provider && PROVIDERS[provider]) settings.provider = provider;
+  if (typeof model === "string") settings.model = model.trim();
   if (apiKey) settings.keyStored = encryptKey(apiKey.trim());
   if (apiKey === "") settings.keyStored = null;
   saveSettings();
@@ -63,7 +129,14 @@ function configure({ enabled, provider, apiKey }) {
 }
 
 function getStatus() {
-  return { enabled: settings.enabled, provider: settings.provider, hasKey: !!settings.keyStored };
+  const p = PROVIDERS[settings.provider] || PROVIDERS.anthropic;
+  return {
+    enabled: settings.enabled,
+    provider: settings.provider,
+    model: settings.model || "",
+    effectiveModel: (settings.model && settings.model.trim()) || p.defaultModel,
+    hasKey: !!settings.keyStored,
+  };
 }
 
 /* ---------------- prompt building (pure, testable) ---------------- */
@@ -192,40 +265,39 @@ async function callProvider(prompt) {
   const key = decryptKey(settings.keyStored);
   if (!key) throw new Error("no-key");
 
-  if (settings.provider === "openai") {
-    const r = await fetch("https://api.openai.com/v1/chat/completions", {
+  const p = PROVIDERS[settings.provider] || PROVIDERS.anthropic;
+  const model = (settings.model && settings.model.trim()) || p.defaultModel;
+
+  if (p.kind === "anthropic") {
+    const r = await fetch(p.url, {
       method: "POST",
-      headers: { "content-type": "application/json", authorization: `Bearer ${key}` },
+      headers: {
+        "content-type": "application/json",
+        "x-api-key": key,
+        "anthropic-version": "2023-06-01",
+      },
       body: JSON.stringify({
-        model: "gpt-4o-mini",
-        max_tokens: 400,
-        temperature: 0.4,
+        model, max_tokens: 400, temperature: 0.4,
         messages: [{ role: "user", content: prompt }],
       }),
     });
     if (!r.ok) throw new Error("provider-" + r.status);
     const j = await r.json();
-    return j.choices?.[0]?.message?.content ?? "";
+    return (j.content || []).map((b) => b.text || "").join("");
   }
 
-  // default: anthropic
-  const r = await fetch("https://api.anthropic.com/v1/messages", {
+  // OpenAI-compatible /chat/completions (OpenAI, Gemini, Groq, Mistral, DeepSeek, xAI, OpenRouter)
+  const r = await fetch(p.url, {
     method: "POST",
-    headers: {
-      "content-type": "application/json",
-      "x-api-key": key,
-      "anthropic-version": "2023-06-01",
-    },
+    headers: { "content-type": "application/json", authorization: `Bearer ${key}` },
     body: JSON.stringify({
-      model: "claude-haiku-4-5",
-      max_tokens: 400,
-      temperature: 0.4,
+      model, max_tokens: 400, temperature: 0.4,
       messages: [{ role: "user", content: prompt }],
     }),
   });
   if (!r.ok) throw new Error("provider-" + r.status);
   const j = await r.json();
-  return (j.content || []).map((b) => b.text || "").join("");
+  return j.choices?.[0]?.message?.content ?? "";
 }
 
 /* ---------------- public features ---------------- */
@@ -654,7 +726,7 @@ async function generateConcept({ topic, grade, language, ground = true, verify =
 }
 
 module.exports = {
-  init, configure, getStatus, explain, whyWrong, coach, generateConcept,
+  init, configure, getStatus, providers, explain, whyWrong, coach, generateConcept,
   // pure functions exported for tests
   buildExplainPrompt, buildWhyWrongPrompt, buildCoachPrompt, coachLeaksAnswer, extractJson, validateAiResponse, cacheKey,
   conceptJsonSchema, buildConceptPrompt, sanitizeConcept, validateGenerated, cleanVisual, GEN_COMPONENTS, VISUAL_COMPONENTS,

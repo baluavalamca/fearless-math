@@ -174,6 +174,8 @@ function registerIpc() {
 
   ipcMain.handle("ai:configure", (_e, cfg) => ai.configure(cfg));
 
+  ipcMain.handle("ai:providers", () => ai.providers());
+
   ipcMain.handle("ai:explain", async (_e, { conceptId, style }) => {
     const c = content.concepts.get(conceptId);
     if (!c) return { ok: false, reason: "unknown-concept" };

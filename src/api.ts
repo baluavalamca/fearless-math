@@ -93,7 +93,8 @@ interface FmBridge {
   clinicList(): Promise<ClinicItem[]>;
   getDashboard(): Promise<DashboardData>;
   aiStatus(): Promise<AiStatus>;
-  aiConfigure(cfg: { enabled?: boolean; provider?: string; apiKey?: string }): Promise<AiStatus>;
+  aiConfigure(cfg: { enabled?: boolean; provider?: string; apiKey?: string; model?: string }): Promise<AiStatus>;
+  aiProviders(): Promise<ProviderInfo[]>;
   aiExplain(p: { conceptId: string; style: "simpler" | "story" | "real-life" }): Promise<AiExplain>;
   aiWhyWrong(p: { conceptId: string; questionId: string; answerGiven: string }): Promise<AiWhyWrong>;
   aiCoach(p: { conceptId: string; questionId: string; answerGiven: string; question?: Question }): Promise<AiCoach>;
@@ -128,7 +129,8 @@ export interface TtsResult { ok: boolean; mime?: string; audioBase64?: string; e
 export const imageUsable = (s: MediaStatus | null) => !!s && s.image.enabled && s.image.hasKey && s.online;
 export const sarvamUsable = (s: MediaStatus | null) => !!s && s.voice.provider === "sarvam" && s.voice.hasKey && s.online;
 
-export interface AiStatus { enabled: boolean; provider: string; hasKey: boolean; online: boolean }
+export interface AiStatus { enabled: boolean; provider: string; model?: string; effectiveModel?: string; hasKey: boolean; online: boolean }
+export interface ProviderInfo { id: string; label: string; kind: string; keyHint?: string; defaultModel: string; models: string[] }
 export interface AiExplain { ok: boolean; reason?: string; explanation?: string; example?: string }
 export interface AiWhyWrong { ok: boolean; reason?: string; explanation?: string; encouragement?: string }
 export interface AiCoach { ok: boolean; reason?: string; question?: string; diagnosis?: string; encouragement?: string }

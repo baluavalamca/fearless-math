@@ -1056,3 +1056,25 @@ body::before {
   .fm-stop, .fm-continue, .fm-option, .fm-region, .fm-stat, .fm-dash-stat, .fm-clinic-card {
     background: var(--card); }
 }
+
+/* ---- Parent dashboard: collapsible class panels ---- */
+.fm-class-panel {
+  border: 1px solid var(--glass-brd); border-radius: 16px; margin: 10px 0; overflow: hidden;
+  background: var(--gloss), var(--glass);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2); backdrop-filter: blur(12px) saturate(1.2);
+  box-shadow: var(--shadow-sm);
+}
+.fm-class-panel > summary {
+  cursor: pointer; list-style: none; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 14px 18px; font-weight: 800; font-size: 17px; color: var(--ink);
+  transition: background .15s ease;
+}
+.fm-class-panel > summary:hover { background: rgba(139,92,246,0.06); }
+.fm-class-panel > summary::-webkit-details-marker { display: none; }
+.fm-class-panel > summary::before { content: "▸"; color: var(--accent-dark); font-size: 14px; transition: transform .15s ease; }
+.fm-class-panel[open] > summary::before { transform: rotate(90deg); }
+.fm-class-title { flex: 0 0 auto; }
+.fm-class-meta { color: var(--muted); font-weight: 600; font-size: 14px; }
+.fm-class-bar { flex: 1 1 120px; min-width: 90px; max-width: 260px; height: 8px; border-radius: 999px; background: var(--fm-empty); overflow: hidden; }
+.fm-class-bar i { display: block; height: 100%; border-radius: 999px; background: var(--grad-brand); }
+.fm-class-panel .fm-dash-table { margin: 0 14px 14px; width: calc(100% - 28px); }

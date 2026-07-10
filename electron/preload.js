@@ -17,6 +17,7 @@ contextBridge.exposeInMainWorld("fm", {
   getDashboard: () => ipcRenderer.invoke("dashboard:get"),
   aiStatus: () => ipcRenderer.invoke("ai:status"),
   aiConfigure: (cfg) => ipcRenderer.invoke("ai:configure", cfg),
+  aiProviders: () => ipcRenderer.invoke("ai:providers"),
   aiExplain: (p) => ipcRenderer.invoke("ai:explain", p),
   aiWhyWrong: (p) => ipcRenderer.invoke("ai:whyWrong", p),
   aiCoach: (p) => ipcRenderer.invoke("ai:coach", p),
