@@ -1,14 +1,63 @@
-/* FearlessMath — Adventure skin (Class 3–5). Warm, calm, big targets. */
+/* FearlessMath — Liquid Glass skin. Vibrant, glossy, kid-friendly. Light default + dark. */
 :root {
-  --bg: #fffaf2;
-  --ink: #3d2f1e;
+  color-scheme: light;
+  --bg: #f7f5ff;
+  --ink: #2b2440;
   --accent: #ff9f43;
   --accent-dark: #e8842a;
   --good: #2e7d32;
   --card: #ffffff;
-  --line: #e8d9c0;
+  --line: #e7dff3;
   --fm-shade: #ff9f43;
   --fm-empty: #fdf3e3;
+
+  /* secondary / muted text */
+  --muted: #6d6588;
+
+  /* frosted glass surfaces */
+  --glass: rgba(255,255,255,0.62);
+  --glass-strong: rgba(255,255,255,0.84);
+  --glass-brd: rgba(255,255,255,0.7);
+  --blur: 16px;
+
+  /* gloss sheen painted on the top edge of glass */
+  --gloss: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0) 46%);
+
+  /* vibrant multicolour brand gradients */
+  --grad-brand: linear-gradient(120deg, #ff8a3d 0%, #ff5db1 34%, #8b5cf6 66%, #38bdf8 100%);
+  --grad-text: linear-gradient(120deg, #f97316, #ec4899 45%, #7c3aed 74%, #2563eb);
+  --grad-cool: linear-gradient(135deg, #6366f1, #22d3ee);
+
+  /* elevation + glow */
+  --shadow-sm: 0 4px 14px rgba(41,25,71,0.08);
+  --shadow-md: 0 14px 36px -12px rgba(41,25,71,0.24);
+  --shadow-glow: 0 16px 44px -10px rgba(236,72,153,0.42);
+  --radius: 18px;
+}
+
+/* ============================================================
+   DARK THEME — token remap. Set on <html data-theme="dark">.
+   ============================================================ */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #110f1c;
+  --ink: #efe9fb;
+  --accent: #ff9f43;
+  --accent-dark: #ffbe6e;
+  --good: #4ade80;
+  --card: #1c1830;
+  --line: #332c4d;
+  --fm-empty: #241f38;
+  --muted: #a79fc4;
+
+  --glass: rgba(42,35,66,0.52);
+  --glass-strong: rgba(24,20,42,0.82);
+  --glass-brd: rgba(150,130,205,0.26);
+
+  --gloss: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0) 46%);
+  --shadow-sm: 0 4px 14px rgba(0,0,0,0.42);
+  --shadow-md: 0 16px 40px -12px rgba(0,0,0,0.62);
+  --shadow-glow: 0 16px 46px -10px rgba(139,92,246,0.55);
 }
 * { box-sizing: border-box; }
 body {
@@ -841,3 +890,169 @@ body.skin-playful .fm-objemoji { font-size: 60px; }
   opacity: 0; transform: translateY(8px); animation: fm-pop 300ms ease forwards; }
 .fm-ntile.blank { color: var(--accent-dark); background: #fff2df; border: 3px dashed var(--accent); }
 .fm-njump { font-size: 12px; font-weight: 800; color: var(--accent-dark); }
+
+/* ============================================================
+   LIQUID GLASS 2026 THEME LAYER  (appended = overrides base)
+   Frosted glass surfaces, gloss sheen, animated multicolour
+   mesh, gradient accents, glowing hover-lift. Light + dark.
+   ============================================================ */
+
+/* Animated multicolour mesh behind everything (content stays crisp). */
+body { background: var(--bg); }
+body::before {
+  content: ""; position: fixed; inset: -25%; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(38% 38% at 18% 20%, rgba(255,138,61,0.30), transparent 70%),
+    radial-gradient(40% 40% at 82% 16%, rgba(236,72,153,0.26), transparent 70%),
+    radial-gradient(44% 44% at 14% 86%, rgba(56,189,248,0.26), transparent 70%),
+    radial-gradient(46% 46% at 88% 88%, rgba(139,92,246,0.26), transparent 70%);
+  filter: blur(34px) saturate(1.06);
+  animation: fm-mesh 26s ease-in-out infinite alternate;
+}
+@keyframes fm-mesh {
+  from { transform: translate3d(0,0,0) scale(1); }
+  to   { transform: translate3d(0,-3%,0) scale(1.08); }
+}
+[data-theme="dark"] body::before {
+  background:
+    radial-gradient(40% 40% at 18% 18%, rgba(124,58,237,0.50), transparent 70%),
+    radial-gradient(42% 42% at 82% 16%, rgba(236,72,153,0.34), transparent 70%),
+    radial-gradient(46% 46% at 12% 86%, rgba(37,99,235,0.42), transparent 70%),
+    radial-gradient(48% 48% at 90% 90%, rgba(34,211,238,0.30), transparent 70%);
+  filter: blur(42px) saturate(1.1);
+}
+
+/* Frosted glass card surfaces (both themes, token-driven). */
+.fm-canvas, .fm-practice, .fm-tool-card, .fm-dash-stat, .fm-stat,
+.fm-clinic-card, .fm-ai-settings, .fm-region {
+  background: var(--gloss), var(--glass);
+  -webkit-backdrop-filter: blur(var(--blur)) saturate(1.3);
+  backdrop-filter: blur(var(--blur)) saturate(1.3);
+  border: 1px solid var(--glass-brd);
+  box-shadow: var(--shadow-md);
+}
+.fm-region { box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.55); }
+
+/* Glass chrome: sticky nav + both popup sheets. */
+.fm-nav {
+  background: var(--glass-strong);
+  -webkit-backdrop-filter: blur(20px) saturate(1.35);
+  backdrop-filter: blur(20px) saturate(1.35);
+  border-bottom: 1px solid var(--glass-brd);
+  box-shadow: 0 8px 26px -14px rgba(41,25,71,0.4);
+}
+.fm-toolbox-sheet, .fm-adv-sheet {
+  background: var(--glass-strong);
+  -webkit-backdrop-filter: blur(26px) saturate(1.25);
+  backdrop-filter: blur(26px) saturate(1.25);
+}
+
+/* Gradient brand wordmark. */
+.fm-brand {
+  background: var(--grad-text); -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+}
+
+/* Glossy hover-lift on interactive tiles. */
+.fm-stop, .fm-continue { background: var(--gloss), var(--glass);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2); backdrop-filter: blur(12px) saturate(1.2);
+  border: 1px solid var(--glass-brd); box-shadow: var(--shadow-sm);
+  transition: transform .16s ease, box-shadow .18s ease, border-color .16s ease; }
+.fm-stop:not(:disabled):hover, .fm-continue:hover {
+  transform: translateY(-4px) scale(1.012); box-shadow: var(--shadow-glow); border-color: transparent; }
+.fm-option { background: var(--gloss), var(--glass);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  transition: transform .14s ease, box-shadow .16s ease, border-color .14s ease; }
+.fm-option:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); border-color: #8b5cf6; }
+
+/* Vibrant gradient on primary actions + active pills. */
+.fm-primary, .fm-node-start, .fm-continue-go {
+  background: var(--grad-brand); border: none; color: #fff;
+  box-shadow: 0 10px 22px -8px rgba(236,72,153,0.5), inset 0 1px 0 rgba(255,255,255,0.55);
+  transition: transform .14s ease, filter .14s ease; }
+.fm-primary:hover, .fm-node-start:hover { filter: brightness(1.05) saturate(1.05); transform: translateY(-1px); }
+.fm-tabs button.active, .fm-nav button.active, .fm-world-menu button.active,
+.fm-stage-tab.active, .fm-step.current, .fm-method-switch button.active {
+  background: var(--grad-brand); border-color: transparent; color: #fff;
+  box-shadow: 0 10px 22px -10px rgba(139,92,246,0.6); }
+
+/* Theme toggle (sun/moon) in the nav. */
+.fm-theme-toggle {
+  border: 1px solid var(--glass-brd); background: var(--glass);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-radius: 999px; min-height: 44px; padding: 9px 16px;
+  font-size: 15.5px; font-weight: 700; color: var(--ink); cursor: pointer;
+  transition: transform .14s ease, box-shadow .16s ease, border-color .14s ease; }
+.fm-theme-toggle:hover { border-color: #8b5cf6; box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+
+/* ---------- DARK-MODE surface patches for hardcoded light fills ---------- */
+[data-theme="dark"] .fm-worldmap { background: transparent; }
+[data-theme="dark"] .region-numbers, [data-theme="dark"] .region-operations,
+[data-theme="dark"] .region-fractions, [data-theme="dark"] .region-geometry,
+[data-theme="dark"] .region-measurement, [data-theme="dark"] .region-data,
+[data-theme="dark"] .fm-continue { background: var(--gloss), var(--glass); border-color: var(--glass-brd); }
+
+[data-theme="dark"] .fm-callout, [data-theme="dark"] .fm-mission,
+[data-theme="dark"] .fm-badge, [data-theme="dark"] .fm-user-chip,
+[data-theme="dark"] .fm-objbadge, [data-theme="dark"] .fm-ntile.blank,
+[data-theme="dark"] .fm-objtile.mark, [data-theme="dark"] .fm-speak,
+[data-theme="dark"] .fm-mission { background: rgba(255,159,67,0.16); color: var(--ink); }
+[data-theme="dark"] .fm-callout { border-left-color: var(--accent); }
+
+[data-theme="dark"] .fm-recap, [data-theme="dark"] .fm-option,
+[data-theme="dark"] .fm-ntile, [data-theme="dark"] .fm-node-dot,
+[data-theme="dark"] .fm-tool-tile, [data-theme="dark"] .fm-adv-tile,
+[data-theme="dark"] .fm-adv-input, [data-theme="dark"] .fm-adv-canvas,
+[data-theme="dark"] .fm-adv-stat, [data-theme="dark"] .fm-adv-card2,
+[data-theme="dark"] .fm-adv-formrow, [data-theme="dark"] .fm-dash-table,
+[data-theme="dark"] .fm-input, [data-theme="dark"] .fm-adv-matgrid.out,
+[data-theme="dark"] .fm-tool-card, [data-theme="dark"] .fm-tool-card-body,
+[data-theme="dark"] .fm-autoread, [data-theme="dark"] select.fm-input {
+  background: var(--card); color: var(--ink); border-color: var(--line); }
+[data-theme="dark"] .fm-tool-card-head { background: rgba(255,159,67,0.12); color: var(--ink); border-bottom-color: var(--line); }
+
+/* Info / blue helper boxes → deep indigo glass in dark. */
+[data-theme="dark"] .fm-tool-help, [data-theme="dark"] .fm-ai-panel,
+[data-theme="dark"] .fm-coach-panel, [data-theme="dark"] .fm-adv-help {
+  background: rgba(99,102,241,0.16); border-color: rgba(129,140,248,0.42); color: var(--ink); }
+[data-theme="dark"] .fm-generated { background: rgba(74,222,128,0.14); border-color: rgba(74,222,128,0.4); color: var(--ink); }
+[data-theme="dark"] .fm-adv-tip { background: rgba(255,203,84,0.15); border-color: rgba(255,203,84,0.42); }
+
+/* Popup chrome + accent headings in dark. */
+[data-theme="dark"] .fm-adv-overlay { background: rgba(0,0,0,0.6); }
+[data-theme="dark"] .fm-adv-close, [data-theme="dark"] .fm-adv-btn.ghost { background: #2a2444; color: #c9b8ff; }
+[data-theme="dark"] .fm-adv-rail, [data-theme="dark"] .fm-adv-head,
+[data-theme="dark"] .fm-tool-rail, [data-theme="dark"] .fm-adv-stagehead { border-color: var(--line); }
+[data-theme="dark"] .fm-adv-head h3, [data-theme="dark"] .fm-adv-stagehead h4,
+[data-theme="dark"] .fm-adv-big, [data-theme="dark"] .fm-adv-stat b,
+[data-theme="dark"] .fm-toolbox-top h2, [data-theme="dark"] .fm-adv-theme .fm-toolbox-top h2,
+[data-theme="dark"] .fm-coach-q, [data-theme="dark"] .fm-adv-formgrp h4,
+[data-theme="dark"] .fm-adv-matgrid.out span { color: #c9b8ff; }
+
+/* Muted secondary text → readable lilac-grey in dark. */
+[data-theme="dark"] .fm-sub, [data-theme="dark"] .fm-when, [data-theme="dark"] figcaption,
+[data-theme="dark"] .fm-hero-sub, [data-theme="dark"] .fm-stat span, [data-theme="dark"] .fm-continue-lbl,
+[data-theme="dark"] .fm-node-status, [data-theme="dark"] .fm-dash-stat span, [data-theme="dark"] .fm-clinic-tries,
+[data-theme="dark"] .fm-adv-note, [data-theme="dark"] .fm-adv-lbl, [data-theme="dark"] .fm-adv-tbl td,
+[data-theme="dark"] .fm-adv-tbl th, [data-theme="dark"] .fm-gen-note, [data-theme="dark"] .fm-dash-strand,
+[data-theme="dark"] .fm-dash-note, [data-theme="dark"] .fm-ai-label, [data-theme="dark"] .fm-adv-sub,
+[data-theme="dark"] .fm-adv-tile-bd, [data-theme="dark"] .fm-adv-tile-lb, [data-theme="dark"] .fm-adv-formrow span {
+  color: var(--muted); }
+[data-theme="dark"] .fm-adv-formrow b, [data-theme="dark"] .fm-adv-steps li,
+[data-theme="dark"] .fm-adv-tbl td b, [data-theme="dark"] .fm-node-name { color: var(--ink); }
+
+/* Accessibility guards: honour reduced transparency. */
+@media (prefers-reduced-transparency: reduce) {
+  .fm-canvas, .fm-practice, .fm-tool-card, .fm-dash-stat, .fm-stat, .fm-clinic-card,
+  .fm-ai-settings, .fm-region, .fm-nav, .fm-toolbox-sheet, .fm-adv-sheet,
+  .fm-stop, .fm-continue, .fm-option, .fm-theme-toggle {
+    -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+    background: var(--card) !important; }
+  body::before { display: none; }
+}
+/* Solid-surface fallback where backdrop-filter is unsupported. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .fm-canvas, .fm-practice, .fm-tool-card, .fm-nav, .fm-toolbox-sheet, .fm-adv-sheet,
+  .fm-stop, .fm-continue, .fm-option, .fm-region, .fm-stat, .fm-dash-stat, .fm-clinic-card {
+    background: var(--card); }
+}

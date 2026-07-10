@@ -18,10 +18,18 @@ export default function App() {
   const [concepts, setConcepts] = useState<ConceptCard[] | null>(null);
   const [open, setOpen] = useState<Concept | null>(null);
   const [autoRead, setAutoReadState] = useState(isAutoRead());
+  const [theme, setTheme] = useState<"light" | "dark">(
+    () => (localStorage.getItem("fm_theme") === "dark" ? "dark" : "light")
+  );
 
   function toggleAutoRead() { const next = !autoRead; setAutoRead(next); setAutoReadState(next); }
+  function toggleTheme() { setTheme((t) => (t === "dark" ? "light" : "dark")); }
 
   useEffect(() => { stopSpeaking(); }, [screen, open]);
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("fm_theme", theme);
+  }, [theme]);
   useEffect(() => {
     document.body.classList.toggle("skin-playful", localStorage.getItem("fm_skin") === "playful");
   }, []);
@@ -67,6 +75,10 @@ export default function App() {
         <button className={`fm-autoread ${autoRead ? "active" : ""}`} onClick={toggleAutoRead}
           title="When ON, the app reads every screen aloud automatically">
           {autoRead ? "🔊 Auto-read ON" : "🔇 Auto-read OFF"}
+        </button>
+        <button className="fm-theme-toggle" onClick={toggleTheme}
+          title="Switch between light and dark theme">
+          {theme === "dark" ? "☀️ Light" : "🌙 Dark"}
         </button>
       </nav>
       {screen === "map" && concepts && <WorldMap concepts={concepts} profile={profile} onOpen={openConcept} />}
