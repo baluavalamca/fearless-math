@@ -1664,3 +1664,7 @@ body.skin-playful .fm-objemoji { font-size: 74px; }
   .fm-doodle { animation: none; }
   .fm-hero-fox { animation: none; }
 }
+
+/* 3D emoji object icons (Fluent 3D) — soft grounded shadow for depth */
+.fm-obj3d { object-fit: contain; vertical-align: middle; filter: drop-shadow(0 3px 4px rgba(0,0,0,0.22)); }
+.fm-objtile.mark .fm-obj3d { filter: drop-shadow(0 0 7px color-mix(in srgb, var(--accent) 60%, transparent)); }

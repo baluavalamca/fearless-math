@@ -75,9 +75,50 @@ function resolve(name: string): string {
 const NAMES = Object.keys(ICONS);
 export const OBJECT_ICON_NAMES = NAMES;
 
-export function hasObjectIcon(name: string): boolean { return !!ICONS[resolve(name)]; }
+/* ---- 3D emoji (Microsoft Fluent Emoji 3D, MIT) bundled offline ----
+ * Real rendered 3D icons kids recognise instantly. Rendered when a match
+ * exists; otherwise we fall back to the crisp flat SVG above. */
+const rawUrls = (import.meta as unknown as {
+  glob: (p: string, o?: Record<string, unknown>) => Record<string, string>;
+}).glob("../assets/emoji3d/*.webp", { eager: true, query: "?url", import: "default" });
+const EMOJI3D: Record<string, string> = {};
+for (const p in rawUrls) {
+  const m = p.match(/([0-9a-f-]+)\.webp$/i);
+  if (m) EMOJI3D[m[1].toLowerCase()] = rawUrls[p];
+}
+
+/* icon-name → representative emoji so name-based objects also get a 3D image */
+const NAME_EMOJI: Record<string, string> = {
+  apple: "🍎", banana: "🍌", mango: "🥭", grapes: "🍇", duck: "🦆", fish: "🐟", cat: "🐱", bird: "🐦",
+  elephant: "🐘", butterfly: "🦋", car: "🚗", bus: "🚌", truck: "🚚", tree: "🌳", star: "⭐", flower: "🌸",
+  sun: "☀️", ball: "⚽", balloon: "🎈", cup: "🥤", mouse: "🐭", ant: "🐜", dog: "🐶", cow: "🐄", bike: "🚲",
+  man: "👨", woman: "👩", boy: "👦", girl: "👧", baby: "👶", monkey: "🐵", hen: "🐔", horse: "🐴", goat: "🐐",
+  house: "🏠", hut: "🛖", building: "🏢", box: "📦", book: "📚", pencil: "✏️", kite: "🪁", clock: "🕐",
+  coin: "🪙", note: "💵", roti: "🫓",
+};
+const isEmoji = (s: string) => !!s && /\p{Extended_Pictographic}/u.test(s);
+
+/** Return a bundled 3D image URL for a name/emoji, or null to use the SVG. */
+export function emoji3dUrl(name: string): string | null {
+  const r = resolve(name);
+  const emoji = NAME_EMOJI[r] ?? (isEmoji(name) ? name : NAME_EMOJI[(name || "").toLowerCase().trim()] ?? "");
+  if (!emoji) return null;
+  const hex = emoji.codePointAt(0)!.toString(16);
+  return EMOJI3D[hex] ?? null;
+}
+
+export function hasObjectIcon(name: string): boolean {
+  return !!ICONS[resolve(name)] || !!emoji3dUrl(name);
+}
 
 export function ObjectIcon({ name, size = 44 }: { name: string; size?: number }) {
+  const url = emoji3dUrl(name);
+  if (url) {
+    return (
+      <img className="fm-obj3d" src={url} width={size} height={size}
+        alt={name} draggable={false} loading="lazy" />
+    );
+  }
   const inner = ICONS[resolve(name)] ?? <circle cx="50" cy="50" r="30" fill="#ff9f43" />;
   return (
     <svg width={size} height={size} viewBox={V} role="img" aria-label={name}>{inner}</svg>
