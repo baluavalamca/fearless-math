@@ -10,7 +10,8 @@ import { AdvancedToolbox } from "./components/AdvancedToolbox";
 import { isAutoRead, setAutoRead, stopSpeaking } from "./speech";
 
 type Screen = "map" | "clinic" | "parent";
-type ThemeId = "light" | "dark" | "claude" | "nvidia" | "nike" | "taupe" | "matrix" | "sunflower" | "grape";
+type ThemeId = "light" | "dark" | "claude" | "nvidia" | "nike" | "taupe" | "matrix" | "sunflower" | "grape"
+  | "pastel" | "sage" | "rosewood" | "sapphire";
 
 const THEMES: { id: ThemeId; label: string; icon: string; mode: "light" | "dark" }[] = [
   { id: "light", label: "Light", icon: "☀️", mode: "light" },
@@ -22,6 +23,10 @@ const THEMES: { id: ThemeId; label: string; icon: string; mode: "light" | "dark"
   { id: "matrix", label: "Matrix", icon: "🟩", mode: "dark" },
   { id: "sunflower", label: "Sunflower", icon: "🌻", mode: "dark" },
   { id: "grape", label: "Grape", icon: "🍇", mode: "light" },
+  { id: "pastel", label: "Pastel", icon: "🪻", mode: "light" },
+  { id: "sage", label: "Sage", icon: "🌿", mode: "light" },
+  { id: "rosewood", label: "Rosewood", icon: "🌹", mode: "light" },
+  { id: "sapphire", label: "Sapphire", icon: "🔷", mode: "dark" },
 ];
 
 export default function App() {
