@@ -16,11 +16,11 @@ const STRAND_THEME: Record<string, { title: string; cls: string }> = {
 };
 const STRAND_ORDER = ["numbers", "operations", "fractions", "geometry", "measurement", "data"];
 
-const STAGES: { id: string; label: string; sub: string; grades: number[] }[] = [
-  { id: "foundation", label: "🌱 Foundation", sub: "PP1 – Class 2", grades: [0, 1, 2] },
-  { id: "class3", label: "3️⃣ Class 3", sub: "Getting strong", grades: [3] },
-  { id: "class4", label: "4️⃣ Class 4", sub: "Levelling up", grades: [4] },
-  { id: "class5", label: "5️⃣ Class 5", sub: "Big ideas", grades: [5] },
+const STAGES: { id: string; label: string; sub: string; grades: number[]; badge: string }[] = [
+  { id: "foundation", label: "Foundation", sub: "PP1 – Class 2", grades: [0, 1, 2], badge: "🌱" },
+  { id: "class3", label: "Class 3", sub: "Getting strong", grades: [3], badge: "3" },
+  { id: "class4", label: "Class 4", sub: "Levelling up", grades: [4], badge: "4" },
+  { id: "class5", label: "Class 5", sub: "Big ideas", grades: [5], badge: "5" },
 ];
 const bandOf = (g: number) => (g <= 2 ? "foundation" : "class" + g);
 const ACTIVE = ["available", "learning", "practicing"];
@@ -124,7 +124,10 @@ export function WorldMap({
           return (
             <button key={s.id} role="tab" aria-selected={stage === s.id}
               className={`fm-stage-tab ${stage === s.id ? "active" : ""}`} onClick={() => setStage(s.id)}>
-              <span className="fm-stage-label">{s.label}</span>
+              <span className="fm-stage-label">
+                <span className={`fm-numbadge${/^\d+$/.test(s.badge) ? "" : " emoji"}`}>{s.badge}</span>
+                {s.label}
+              </span>
               <span className="fm-stage-sub">{s.sub}</span>
               <span className="fm-stage-prog">⭐ {p.m}/{p.t}</span>
             </button>

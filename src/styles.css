@@ -1580,3 +1580,87 @@ input[type=range] { accent-color: var(--accent); }
 }
 /* keep the coloured mesh vivid but let black dominate for the glossy read */
 [data-mode="dark"] body::before { filter: blur(46px) saturate(1.18); opacity: 0.9; }
+
+/* ============================================================
+   3D GLOSSY ICONS (Apple-style squircle depth) + 3D NUMBER
+   BADGES + bigger, clearer visual icons + floating math
+   doodles in the empty gutters. All token-driven.
+   ============================================================ */
+
+/* Shared glossy-3D chip: specular sheen + bevel highlight + drop shadow */
+.fm-kpi-ic, .fm-pcard-ic, .fm-pin-ic, .fm-continue-ic, .fm-numbadge, .fm-hero-fox {
+  background:
+    radial-gradient(125% 90% at 28% 8%, rgba(255,255,255,0.62), rgba(255,255,255,0) 55%),
+    var(--grad-brand);
+  border-radius: 30%;
+  color: var(--on-accent);
+  text-shadow: 0 1px 1px rgba(0,0,0,0.28);
+  box-shadow:
+    0 9px 18px -6px rgba(0,0,0,0.40),
+    inset 0 2px 3px rgba(255,255,255,0.6),
+    inset 0 -5px 9px rgba(0,0,0,0.22);
+}
+.fm-kpi-ic, .fm-pcard-ic { transition: transform .18s ease; }
+.fm-kpi:hover .fm-kpi-ic, .fm-pcard:hover .fm-pcard-ic { transform: translateY(-2px) rotate(-3deg); }
+
+/* Hero mascot as a glossy 3D chip */
+.fm-hero-fox {
+  display: grid; place-items: center; width: 64px; height: 64px; flex: none;
+  font-size: 34px; filter: drop-shadow(0 3px 3px rgba(0,0,0,0.25));
+  animation: fm-fox-bob 4s ease-in-out infinite;
+}
+@keyframes fm-fox-bob { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-5px) rotate(2deg); } }
+
+/* Continue play button stays round */
+.fm-continue-ic { border-radius: 50%; }
+
+/* 3D number badge (replaces the ugly keycap emoji digits) */
+.fm-numbadge {
+  display: inline-grid; place-items: center; width: 30px; height: 30px; flex: none;
+  font-size: 17px; font-weight: 900; letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+}
+.fm-numbadge.emoji { font-size: 18px; text-shadow: none; }
+.fm-stage-label { display: flex; align-items: center; gap: 8px; }
+/* on the coloured active tab, flip the badge to a bright glossy chip so it pops */
+.fm-stage-tab.active .fm-numbadge {
+  background: radial-gradient(125% 90% at 28% 8%, #fff, rgba(255,255,255,0.85) 60%);
+  color: var(--accent-dark); text-shadow: none;
+  box-shadow: 0 4px 9px -3px rgba(0,0,0,0.35), inset 0 1px 2px rgba(255,255,255,0.9);
+}
+
+/* Glossy 3D path node dots */
+.fm-node-dot { box-shadow: 0 5px 10px -4px rgba(0,0,0,0.32), inset 0 2px 2px rgba(255,255,255,0.5); }
+.fm-node.mastered .fm-node-dot, .fm-node.current .fm-node-dot {
+  background: radial-gradient(125% 90% at 30% 10%, rgba(255,255,255,0.55), rgba(255,255,255,0) 55%), var(--grad-brand);
+  color: var(--on-accent); border-color: transparent;
+}
+
+/* Bigger, clearer icons inside lesson visuals + tools */
+.fm-objemoji { font-size: 58px; filter: drop-shadow(0 3px 3px rgba(0,0,0,0.18)); }
+body.skin-playful .fm-objemoji { font-size: 74px; }
+.fm-objbadge { font-size: 15px; padding: 3px 11px; }
+.fm-objtile.mark .fm-objemoji { filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 55%, transparent)); }
+.fm-ntile { min-width: 50px; height: 50px; font-size: 22px; }
+.fm-njump { font-size: 13px; }
+.fm-strip-label { font-size: 16px; }
+.fm-tool-tile-icon { font-size: 26px; width: 30px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.16)); }
+.fm-adv-tile-ic { font-size: 24px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.16)); }
+.fm-stop-icon { font-size: 32px; }
+.fm-region-title { display: flex; align-items: center; gap: 6px; }
+
+/* ---- Floating math doodles (ambient, gutter-filling) ---- */
+.fm-doodles { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.fm-doodle {
+  position: absolute; transform: translate(-50%, -50%); line-height: 1; font-weight: 900;
+  color: var(--accent); opacity: 0.12; will-change: transform;
+  animation: fm-doodle-float var(--dur, 10s) ease-in-out var(--delay, 0s) infinite alternate;
+}
+[data-mode="dark"] .fm-doodle { opacity: 0.17; }
+@keyframes fm-doodle-float {
+  from { transform: translate(-50%, -50%) translateY(0) rotate(var(--r0, 0deg)); }
+  to   { transform: translate(-50%, -50%) translateY(-24px) rotate(var(--r1, 8deg)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fm-doodle { animation: none; }
+  .fm-hero-fox { animation: none; }
+}

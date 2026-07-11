@@ -7,6 +7,7 @@ import { ParentDashboard } from "./screens/ParentDashboard";
 import { Onboarding } from "./screens/Onboarding";
 import { MathToolbox } from "./components/MathToolbox";
 import { AdvancedToolbox } from "./components/AdvancedToolbox";
+import { Doodles } from "./components/Doodles";
 import { isAutoRead, setAutoRead, stopSpeaking } from "./speech";
 
 type Screen = "map" | "clinic" | "parent";
@@ -81,6 +82,7 @@ export default function App() {
 
   if (open) {
     return <>
+      <Doodles />
       <LessonPlayer concept={open} onExit={() => { setOpen(null); refresh(); }} />
       <MathToolbox />
       <AdvancedToolbox />
@@ -89,6 +91,7 @@ export default function App() {
 
   return (
     <>
+      <Doodles />
       <nav className="fm-nav" aria-label="Main navigation">
         <span className="fm-brand" aria-hidden>🦊 FearlessMath</span>
         <button className={screen === "map" ? "active" : ""} onClick={() => { setScreen("map"); refresh(); }}>🌳 Ganita Grove</button>
