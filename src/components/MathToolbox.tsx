@@ -7,6 +7,7 @@
 import { useEffect, useRef, useState } from "react";
 import { VisualRenderer, VisualSpec } from "./VisualRenderer";
 import { SpeakButton } from "./SpeakButton";
+import { Emoji3D } from "./ObjectIcon";
 
 type ToolId =
   | "calc" | "sci" | "abacus" | "counters" | "hundred" | "times" | "roman"
@@ -155,7 +156,7 @@ export function MathToolbox() {
             <nav className="fm-tool-rail" aria-label="Choose a tool">
               {TOOLS.map((t) => (
                 <button key={t.id} className={`fm-tool-tile ${tool === t.id ? "active" : ""}`} onClick={() => pick(t.id)}>
-                  <span className="fm-tool-tile-icon" aria-hidden>{t.icon}</span>
+                  <span className="fm-tool-tile-icon" aria-hidden><Emoji3D char={t.icon} size={26} /></span>
                   <span>{t.label}</span>
                 </button>
               ))}
@@ -163,7 +164,7 @@ export function MathToolbox() {
             <section className="fm-tool-stage">
               <div className="fm-tool-card">
                 <header className="fm-tool-card-head">
-                  <span><span aria-hidden>{active.icon}</span> {active.label}</span>
+                  <span><Emoji3D char={active.icon} size={22} /> {active.label}</span>
                   <button className={`fm-tool-info ${showHelp ? "on" : ""}`} onClick={() => setShowHelp((v) => !v)}
                     aria-label={showHelp ? "Hide help" : "What is this tool?"} title={showHelp ? "Hide help" : "What is this? How to use it"}>
                     {showHelp ? "✕" : "ⓘ"}

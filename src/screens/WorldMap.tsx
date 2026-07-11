@@ -97,7 +97,7 @@ export function WorldMap({
   return (
     <div className="fm-worldmap">
       <div className="fm-hero">
-        <span className="fm-hero-fox">🦊</span>
+        <span className="fm-hero-fox"><Emoji3D char="🦊" size={38} /></span>
         <div className="fm-hero-text">
           <div className="fm-hero-hi">Hi {profile.name}! Ready for some maths?</div>
           <div className="fm-hero-sub">Mistakes are welcome here — let's keep going.</div>
