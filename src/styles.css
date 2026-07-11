@@ -1156,3 +1156,103 @@ body::before {
     radial-gradient(44% 44% at 90% 90%, rgba(250,84,0,0.26), transparent 70%);
   filter: blur(40px) saturate(1.12);
 }
+
+/* ============================================================
+   PARENT DASHBOARD 2.0 — header, KPI cards, titled glass
+   section cards, iOS switches, status pills, stacked fields.
+   All token-driven, so it adapts to every theme.
+   ============================================================ */
+.fm-dash-header { display: flex; align-items: center; gap: 16px; margin-bottom: 4px; }
+.fm-dash-header h1 { margin: 0; }
+.fm-dash-avatar { width: 54px; height: 54px; font-size: 27px; border-radius: 16px; }
+.fm-dash-sub { color: var(--muted); font-size: 14.5px; margin: 3px 0 0; max-width: 720px; line-height: 1.5; }
+
+.fm-kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin: 18px 0 10px; }
+.fm-kpi {
+  display: flex; align-items: center; gap: 13px; padding: 15px 18px; border-radius: 16px;
+  background: var(--gloss), var(--glass);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2); backdrop-filter: blur(12px) saturate(1.2);
+  border: 1px solid var(--glass-brd); box-shadow: var(--shadow-sm);
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+.fm-kpi:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.fm-kpi-ic {
+  width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; font-size: 22px;
+  background: var(--grad-brand); color: #fff; flex: none; box-shadow: 0 8px 18px -8px rgba(139,92,246,0.5);
+}
+.fm-kpi b { font-size: 27px; font-weight: 900; line-height: 1; color: var(--ink); display: block; }
+.fm-kpi span { font-size: 12.5px; color: var(--muted); }
+
+.fm-pcard {
+  background: var(--gloss), var(--glass);
+  -webkit-backdrop-filter: blur(16px) saturate(1.25); backdrop-filter: blur(16px) saturate(1.25);
+  border: 1px solid var(--glass-brd); border-radius: 20px; box-shadow: var(--shadow-sm);
+  padding: 18px 22px; margin: 16px 0;
+}
+.fm-pcard-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.fm-pcard-ic {
+  width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font-size: 20px;
+  background: var(--grad-brand); color: #fff; flex: none; box-shadow: 0 6px 16px -8px rgba(139,92,246,0.5);
+}
+.fm-pcard-h { font-size: 19px; font-weight: 800; margin: 0; color: var(--ink); }
+.fm-pcard-sub { font-size: 13px; color: var(--muted); margin: 1px 0 0; line-height: 1.45; }
+
+/* Setting row: description on the left, switch on the right */
+.fm-setting { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+  padding: 14px 0; border-top: 1px solid var(--line); }
+.fm-setting:first-of-type { border-top: none; padding-top: 2px; }
+.fm-setting-txt { flex: 1; min-width: 0; }
+.fm-setting-txt b { display: block; font-size: 15.5px; color: var(--ink); }
+.fm-setting-txt span { display: block; font-size: 13.5px; color: var(--muted); margin-top: 2px; line-height: 1.5; }
+
+/* iOS-style toggle switch */
+.fm-switch { position: relative; display: inline-flex; flex: none; cursor: pointer; align-self: center; }
+.fm-switch input { position: absolute; opacity: 0; width: 0; height: 0; }
+.fm-switch-track { width: 48px; height: 28px; border-radius: 999px; background: var(--fm-empty);
+  border: 1px solid var(--glass-brd); position: relative; transition: background .18s ease, border-color .18s ease; }
+.fm-switch-thumb { position: absolute; top: 2px; left: 2px; width: 22px; height: 22px; border-radius: 50%;
+  background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.3); transition: transform .2s cubic-bezier(0.2,0.8,0.2,1); }
+.fm-switch input:checked + .fm-switch-track { background: var(--grad-brand); border-color: transparent; }
+.fm-switch input:checked + .fm-switch-track .fm-switch-thumb { transform: translateX(20px); }
+.fm-switch input:focus-visible + .fm-switch-track { box-shadow: 0 0 0 3px rgba(139,92,246,0.35); }
+
+/* Stacked form field */
+.fm-field { display: flex; flex-direction: column; gap: 7px; margin-top: 14px; }
+.fm-field > label { font-size: 12px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.fm-key-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.fm-key-row .fm-input { flex: 1; min-width: 190px; }
+.fm-w-provider { flex: 0 0 auto !important; min-width: 200px; }
+.fm-w-model { flex: 0 0 auto !important; min-width: 220px; }
+.fm-w-qual { flex: 0 0 auto !important; min-width: 150px; }
+.fm-w-pin { flex: 0 0 auto !important; min-width: 160px; }
+
+/* Modern, compact fields inside the dashboard (lesson inputs stay large elsewhere) */
+.fm-pcard .fm-input, .fm-pin-card .fm-input {
+  font-size: 15.5px; padding: 11px 14px; border: 1px solid var(--line); border-radius: 12px;
+  background: var(--card); color: var(--ink); transition: border-color .15s ease, box-shadow .15s ease;
+}
+.fm-pcard .fm-input:focus, .fm-pin-card .fm-input:focus {
+  outline: none; border-color: #8b5cf6; box-shadow: 0 0 0 3px rgba(139,92,246,0.22);
+}
+.fm-pcard .fm-secondary {
+  min-height: 44px; padding: 9px 18px; border-radius: 12px; border: 1px solid var(--accent); background: var(--glass);
+  color: var(--accent-dark); font-weight: 700;
+}
+.fm-pcard .fm-secondary:hover:not(:disabled) { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.fm-pcard .fm-primary, .fm-pin-card .fm-primary { min-height: 46px; font-size: 16px; padding: 11px 22px; }
+
+/* Status pills */
+.fm-pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.fm-pill { font-size: 12.5px; font-weight: 700; padding: 5px 12px; border-radius: 999px;
+  background: var(--fm-empty); color: var(--muted); border: 1px solid var(--line); }
+.fm-pill.on { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); border-color: color-mix(in srgb, var(--good) 34%, transparent); }
+.fm-pill.warn { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent-dark); border-color: color-mix(in srgb, var(--accent) 34%, transparent); }
+
+/* PIN gate card */
+.fm-pin-card { max-width: 420px; margin: 6vh auto 0; text-align: center; padding: 32px 28px;
+  background: var(--gloss), var(--glass);
+  -webkit-backdrop-filter: blur(16px) saturate(1.25); backdrop-filter: blur(16px) saturate(1.25);
+  border: 1px solid var(--glass-brd); border-radius: 22px; box-shadow: var(--shadow-md); }
+.fm-pin-card h1 { margin: 8px 0 4px; font-size: 26px; }
+.fm-pin-ic { width: 58px; height: 58px; margin: 0 auto; border-radius: 18px; display: grid; place-items: center;
+  font-size: 28px; background: var(--grad-brand); color: #fff; box-shadow: var(--shadow-glow); }
