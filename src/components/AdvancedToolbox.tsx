@@ -6,6 +6,7 @@
  * Finance, Fraction/Decimal/Percent + Ratio, Formula Sheet.
  */
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Emoji3D } from "./ObjectIcon";
 
 /* ---------- shared helpers ---------- */
 
@@ -1382,7 +1383,7 @@ export function AdvancedToolbox() {
             <nav className="fm-tool-rail" aria-label="Choose a tool">
               {TOOLS.map((t) => (
                 <button key={t.id} className={`fm-tool-tile ${tool === t.id ? "active" : ""}`} onClick={() => pick(t.id)}>
-                  <span className="fm-tool-tile-icon" aria-hidden>{t.icon}</span>
+                  <span className="fm-tool-tile-icon" aria-hidden><Emoji3D char={t.icon} size={24} /></span>
                   <span>{t.label}</span>
                 </button>
               ))}
@@ -1390,7 +1391,7 @@ export function AdvancedToolbox() {
             <section className="fm-tool-stage">
               <div className="fm-tool-card">
                 <header className="fm-tool-card-head">
-                  <span><span aria-hidden>{meta.icon}</span> {meta.label}</span>
+                  <span><Emoji3D char={meta.icon} size={22} /> {meta.label}</span>
                   <button className={`fm-tool-info ${showHelp ? "on" : ""}`} onClick={() => setShowHelp((v) => !v)}
                     aria-label={showHelp ? "Hide help" : "What is this tool?"} title={showHelp ? "Hide help" : "What is this? How to use it"}>
                     {showHelp ? "✕" : "ⓘ"}
