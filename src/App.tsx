@@ -10,6 +10,15 @@ import { AdvancedToolbox } from "./components/AdvancedToolbox";
 import { isAutoRead, setAutoRead, stopSpeaking } from "./speech";
 
 type Screen = "map" | "clinic" | "parent";
+type ThemeId = "light" | "dark" | "claude" | "nvidia" | "nike";
+
+const THEMES: { id: ThemeId; label: string; icon: string; mode: "light" | "dark" }[] = [
+  { id: "light", label: "Light", icon: "☀️", mode: "light" },
+  { id: "dark", label: "Dark", icon: "🌙", mode: "dark" },
+  { id: "claude", label: "Claude", icon: "🟠", mode: "light" },
+  { id: "nvidia", label: "NVIDIA", icon: "🟢", mode: "dark" },
+  { id: "nike", label: "Nike", icon: "✔️", mode: "dark" },
+];
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>("map");
@@ -18,17 +27,22 @@ export default function App() {
   const [concepts, setConcepts] = useState<ConceptCard[] | null>(null);
   const [open, setOpen] = useState<Concept | null>(null);
   const [autoRead, setAutoReadState] = useState(isAutoRead());
-  const [theme, setTheme] = useState<"light" | "dark">(
-    () => (localStorage.getItem("fm_theme") === "dark" ? "dark" : "light")
-  );
+  const [theme, setTheme] = useState<ThemeId>(() => {
+    const s = localStorage.getItem("fm_theme");
+    return (THEMES.find((t) => t.id === s)?.id) ?? "light";
+  });
 
   function toggleAutoRead() { const next = !autoRead; setAutoRead(next); setAutoReadState(next); }
-  function toggleTheme() { setTheme((t) => (t === "dark" ? "light" : "dark")); }
+  function cycleTheme() {
+    setTheme((prev) => { const i = THEMES.findIndex((t) => t.id === prev); return THEMES[(i + 1) % THEMES.length].id; });
+  }
 
   useEffect(() => { stopSpeaking(); }, [screen, open]);
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("fm_theme", theme);
+    const t = THEMES.find((x) => x.id === theme) ?? THEMES[0];
+    document.documentElement.setAttribute("data-theme", t.id);
+    document.documentElement.setAttribute("data-mode", t.mode);
+    localStorage.setItem("fm_theme", t.id);
   }, [theme]);
   useEffect(() => {
     document.body.classList.toggle("skin-playful", localStorage.getItem("fm_skin") === "playful");
@@ -76,9 +90,10 @@ export default function App() {
           title="When ON, the app reads every screen aloud automatically">
           {autoRead ? "🔊 Auto-read ON" : "🔇 Auto-read OFF"}
         </button>
-        <button className="fm-theme-toggle" onClick={toggleTheme}
-          title="Switch between light and dark theme">
-          {theme === "dark" ? "☀️ Light" : "🌙 Dark"}
+        <button className="fm-theme-toggle" onClick={cycleTheme}
+          title="Switch theme: Light → Dark → Claude → NVIDIA → Nike">
+          {(THEMES.find((t) => t.id === theme) ?? THEMES[0]).icon}{" "}
+          {(THEMES.find((t) => t.id === theme) ?? THEMES[0]).label}
         </button>
       </nav>
       {screen === "map" && concepts && <WorldMap concepts={concepts} profile={profile} onOpen={openConcept} />}
