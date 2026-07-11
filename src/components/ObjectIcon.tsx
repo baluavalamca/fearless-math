@@ -124,3 +124,13 @@ export function ObjectIcon({ name, size = 44 }: { name: string; size?: number })
     <svg width={size} height={size} viewBox={V} role="img" aria-label={name}>{inner}</svg>
   );
 }
+
+/** Inline 3D emoji for labels (worlds, nav, tools). Falls back to the native
+ * glyph when no 3D asset exists, so it never breaks. */
+export function Emoji3D({ char, size = 24, className = "" }: { char: string; size?: number; className?: string }) {
+  const url = emoji3dUrl(char);
+  if (url) {
+    return <img className={("fm-emoji3d " + className).trim()} src={url} width={size} height={size} alt="" draggable={false} loading="lazy" />;
+  }
+  return <span className={className} aria-hidden>{char}</span>;
+}

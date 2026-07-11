@@ -8,6 +8,7 @@ import { Onboarding } from "./screens/Onboarding";
 import { MathToolbox } from "./components/MathToolbox";
 import { AdvancedToolbox } from "./components/AdvancedToolbox";
 import { Doodles } from "./components/Doodles";
+import { Emoji3D } from "./components/ObjectIcon";
 import { isAutoRead, setAutoRead, stopSpeaking } from "./speech";
 
 type Screen = "map" | "clinic" | "parent";
@@ -93,7 +94,7 @@ export default function App() {
     <>
       <Doodles />
       <nav className="fm-nav" aria-label="Main navigation">
-        <span className="fm-brand" aria-hidden>🦊 FearlessMath</span>
+        <span className="fm-brand"><Emoji3D char="🦊" size={24} /> FearlessMath</span>
         <button className={screen === "map" ? "active" : ""} onClick={() => { setScreen("map"); refresh(); }}>🌳 Ganita Grove</button>
         <button className={screen === "clinic" ? "active" : ""} onClick={() => setScreen("clinic")}>🏥 Mistake Clinic</button>
         <button className={screen === "parent" ? "active" : ""} onClick={() => setScreen("parent")}>👨‍👩‍👧 Parents</button>

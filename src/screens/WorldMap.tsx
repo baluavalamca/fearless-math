@@ -5,14 +5,15 @@
  */
 import { useEffect, useState } from "react";
 import { ConceptCard, Profile } from "../api";
+import { Emoji3D } from "../components/ObjectIcon";
 
-const STRAND_THEME: Record<string, { title: string; cls: string }> = {
-  numbers: { title: "🌴 Number Jungle", cls: "region-numbers" },
-  operations: { title: "🚜 Operations Farm", cls: "region-operations" },
-  fractions: { title: "🍳 Fraction Kitchen", cls: "region-fractions" },
-  geometry: { title: "🏙️ Geometry City", cls: "region-geometry" },
-  measurement: { title: "🏝️ Measurement Island", cls: "region-measurement" },
-  data: { title: "📰 Data Newsroom", cls: "region-data" },
+const STRAND_THEME: Record<string, { icon: string; name: string; cls: string }> = {
+  numbers: { icon: "🌴", name: "Number Jungle", cls: "region-numbers" },
+  operations: { icon: "🚜", name: "Operations Farm", cls: "region-operations" },
+  fractions: { icon: "🍳", name: "Fraction Kitchen", cls: "region-fractions" },
+  geometry: { icon: "🏙️", name: "Geometry City", cls: "region-geometry" },
+  measurement: { icon: "🏝️", name: "Measurement Island", cls: "region-measurement" },
+  data: { icon: "📰", name: "Data Newsroom", cls: "region-data" },
 };
 const STRAND_ORDER = ["numbers", "operations", "fractions", "geometry", "measurement", "data"];
 
@@ -112,7 +113,7 @@ export function WorldMap({
           <span className="fm-continue-ic">▶</span>
           <span className="fm-continue-body">
             <span className="fm-continue-lbl">{byId.get(lastId) && lastId === cont.id ? "Continue where you left off" : "Up next"}</span>
-            <span className="fm-continue-name">{cont.name} · {STRAND_THEME[cont.strand]?.title ?? cont.strand}</span>
+            <span className="fm-continue-name">{cont.name} · {STRAND_THEME[cont.strand]?.name ?? cont.strand}</span>
           </span>
           <span className="fm-continue-go">Go</span>
         </button>
@@ -136,10 +137,14 @@ export function WorldMap({
       </div>
 
       <nav className="fm-world-menu" aria-label="Choose world">
-        <button className={strand === "all" ? "active" : ""} onClick={() => setStrand("all")}>🗺️ All worlds</button>
+        <button className={strand === "all" ? "active" : ""} onClick={() => setStrand("all")}>
+          <Emoji3D char="🗺️" size={20} /> All worlds
+        </button>
         {worldsHere.map((s) => (
           <button key={s} className={strand === s ? "active" : ""} onClick={() => setStrand(s)}>
-            {STRAND_THEME[s]?.title ?? s}
+            {STRAND_THEME[s]
+              ? <><Emoji3D char={STRAND_THEME[s].icon} size={20} /> {STRAND_THEME[s].name}</>
+              : s}
           </button>
         ))}
       </nav>
@@ -147,10 +152,10 @@ export function WorldMap({
       {shownWorlds.map((s) => {
         const items = inStage.filter((c) => c.strand === s);
         if (!items.length) return null;
-        const theme = STRAND_THEME[s] ?? { title: s, cls: "" };
+        const theme = STRAND_THEME[s] ?? { icon: "", name: s, cls: "" };
         return (
           <section key={s} className={`fm-region ${theme.cls}`}>
-            <h2 className="fm-region-title">{theme.title}</h2>
+            <h2 className="fm-region-title"><Emoji3D char={theme.icon} size={30} /> {theme.name}</h2>
             <div className="fm-path-trail">{items.map(node)}</div>
           </section>
         );
