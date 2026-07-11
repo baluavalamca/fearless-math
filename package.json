@@ -15,6 +15,9 @@
     "dist": "vite build && electron-builder --win"
   },
   "dependencies": {
+    "@fontsource-variable/fredoka": "^5.2.10",
+    "canvas-confetti": "^1.9.4",
+    "lottie-react": "^2.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -22,6 +25,7 @@
     "better-sqlite3": "^11.3.0"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
@@ -36,12 +40,31 @@
   "build": {
     "appId": "com.fearlessmath.app",
     "productName": "FearlessMath",
-    "directories": { "output": "release", "buildResources": "build" },
-    "files": ["electron/**/*", "dist/**/*", "package.json"],
-    "extraResources": [{ "from": "content-packs", "to": "content-packs" }],
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "electron/**/*",
+      "dist/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "content-packs",
+        "to": "content-packs"
+      }
+    ],
     "asar": true,
     "win": {
-      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
       "icon": "build/icon.ico"
     },
     "nsis": {

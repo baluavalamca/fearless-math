@@ -34,6 +34,7 @@
   --shadow-glow: 0 16px 44px -10px rgba(236,72,153,0.42);
   --radius: 18px;
   --on-accent: #ffffff; /* readable text/icon colour on top of --accent / --grad-brand */
+  --font: "Fredoka Variable", "Segoe UI", system-ui, sans-serif; /* rounded kid-friendly */
 }
 
 /* ============================================================
@@ -63,7 +64,7 @@
 * { box-sizing: border-box; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
-  font-family: "Segoe UI", "Comic Sans MS", system-ui, sans-serif;
+  font-family: var(--font);
   font-size: 18px; line-height: 1.55;
 }
 h1 { font-size: 32px; } h2 { font-size: 24px; }

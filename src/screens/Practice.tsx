@@ -10,6 +10,7 @@ import { SpeakButton } from "../components/SpeakButton";
 import { Character } from "../components/Characters";
 import { ObjectIcon, hasObjectIcon } from "../components/ObjectIcon";
 import { autoSpeak } from "../speech";
+import { cheer, bigCheer } from "../celebrate";
 
 export function Practice({
   concept,
@@ -79,6 +80,7 @@ export function Practice({
 
   useEffect(() => {
     if (!verdict || !q) return;
+    if (verdict.correct) cheer();
     autoSpeak(
       verdict.correct
         ? `Wonderful! ${verdict.explain ?? "You got it!"}`
@@ -86,6 +88,8 @@ export function Practice({
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [verdict]);
+
+  useEffect(() => { if (!q) bigCheer(); }, [q]);
 
   if (!q) {
     return (
