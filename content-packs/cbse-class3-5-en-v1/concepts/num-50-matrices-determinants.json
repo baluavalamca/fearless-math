@@ -1,0 +1,119 @@
+{
+  "id": "num-50-matrices-determinants",
+  "name": "Matrices and Determinants — Grids of Numbers",
+  "grade": 11,
+  "strand": "numbers",
+  "prerequisites": ["num-32-expressions", "ops-17-properties"],
+  "whatIsIt": "A MATRIX is a rectangular grid of numbers arranged in rows and columns. Its ORDER is rows × columns (a 2×3 matrix has 2 rows, 3 columns, and 6 entries). Matrices of the same order add entry-by-entry. A DETERMINANT is a single number computed from a square matrix; for a 2×2 matrix [[a, b], [c, d]] it is ad − bc.",
+  "whyNeeded": "Matrices store and transform data compactly — solving systems of equations, computer graphics rotations, networks, and machine learning all run on matrices. The determinant tells you whether a system has a unique solution and measures how a transformation scales area.",
+  "realLifeUses": [
+    "Solving several equations at once (linear systems)",
+    "Rotating and scaling images in computer graphics",
+    "Representing networks and transitions (Markov chains)",
+    "Storing tables of data for machine learning"
+  ],
+  "vocabulary": [
+    { "term": "matrix", "meaning": "A rectangular grid of numbers in rows and columns." },
+    { "term": "order of a matrix", "meaning": "Rows × columns; e.g. a 2×3 matrix has 2 rows and 3 columns." },
+    { "term": "element", "meaning": "A single number in the matrix; there are (rows × columns) of them." },
+    { "term": "determinant (2×2)", "meaning": "For [[a, b], [c, d]] it is ad − bc — a single number." }
+  ],
+  "story": {
+    "title": "The Seating Grid",
+    "characters": ["Priya", "Miss"],
+    "text": "Miss writes the class's marks as a grid: 2 rows (two tests) and 3 columns (three students). 'That's a 2×3 matrix,' she says, 'with 2 × 3 = 6 numbers.' Then she writes a square 2×2 grid [[1, 2], [3, 4]] and asks its determinant. Priya computes ad − bc = 1×4 − 2×3 = 4 − 6 = −2. 'One number that captures the whole square,' Miss smiles.",
+    "extractedProblem": "Find the determinant of the 2×2 matrix [[1, 2], [3, 4]].",
+    "answerInStory": "−2 — determinant = ad − bc = 1×4 − 2×3 = 4 − 6 = −2."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        { "rows": 2, "cols": 3, "label": "a 2×3 matrix has 6 elements" }
+      ]
+    },
+    "caption": "A matrix is a grid: rows × columns gives its order and the number of entries (here 2 × 3 = 6)."
+  },
+  "teachingGallery": [
+    {
+      "title": "Order, then determinant",
+      "note": "Order = rows × columns. A 2×2 determinant is the diagonal product minus the anti-diagonal product.",
+      "examples": [
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 3, "cols": 3, "label": "3×3 matrix → 9 elements" } ] }, "caption": "A 3×3 matrix has 3 × 3 = 9 numbers." },
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 2, "cols": 2, "label": "det = ad − bc" } ] }, "caption": "For [[a, b], [c, d]], determinant = ad − bc." },
+        { "component": "BarModel", "props": { "parts": [4, 6], "label": "1×4 = 4 and 2×3 = 6" }, "caption": "ad = 4, bc = 6, so the determinant is 4 − 6 = −2." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Order = rows × columns (and that many elements). Add matrices of equal order entry-by-entry. For a 2×2 determinant, compute ad − bc.",
+    "steps": [
+      "State the order: count rows, then columns (rows × columns).",
+      "The number of elements equals rows × columns.",
+      "To add two matrices of the SAME order, add matching entries.",
+      "For a 2×2 matrix [[a, b], [c, d]], determinant = ad − bc (main diagonal minus other diagonal).",
+      "Check: a determinant is a single number, not a grid."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "How many elements are in a 2×3 matrix?",
+      "steps": ["Order is rows × columns.", "2 × 3.", "= 6 elements."],
+      "answer": "6"
+    },
+    {
+      "problem": "Find the determinant of [[2, 1], [3, 4]].",
+      "steps": ["Determinant = ad − bc.", "= (2 × 4) − (1 × 3) = 8 − 3.", "= 5."],
+      "answer": "5"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "det-added-not-cross",
+      "mistake": "Computing a determinant as ad + bc instead of ad − bc.",
+      "fix": "It is a SUBTRACTION: main diagonal ad MINUS the other diagonal bc."
+    },
+    {
+      "mistakeTag": "order-columns-first",
+      "mistake": "Writing the order as columns × rows.",
+      "fix": "Order is always ROWS × COLUMNS. A grid with 2 rows and 3 columns is 2×3, not 3×2."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "n50-e1", "type": "number", "q": "How many elements are in a 2×3 matrix?", "answer": "6", "hintLadder": ["Rows × columns.", "2 × 3.", "6."] },
+      { "id": "n50-e2", "type": "number", "q": "How many elements are in a 3×3 matrix?", "answer": "9", "hintLadder": ["Rows × columns.", "3 × 3.", "9."] }
+    ],
+    "medium": [
+      { "id": "n50-m1", "type": "number", "q": "Determinant of [[1, 2], [3, 4]] = (1×4) − (2×3) = ?", "answer": "-2", "hintLadder": ["ad = 4, bc = 6.", "4 − 6.", "−2."] },
+      { "id": "n50-m2", "type": "number", "q": "Determinant of [[2, 0], [0, 3]] = (2×3) − (0×0) = ?", "answer": "6", "hintLadder": ["ad = 6, bc = 0.", "6 − 0.", "6."] }
+    ],
+    "challenge": [
+      { "id": "n50-c1", "type": "number", "q": "Determinant of [[5, 2], [1, 1]] = (5×1) − (2×1) = ?", "answer": "3", "hintLadder": ["ad = 5, bc = 2.", "5 − 2.", "3."] },
+      { "id": "n50-c2", "type": "mcq", "q": "For [[3, 1], [2, 4]] a student writes 3×4 + 1×2. What's the fix?", "options": [ { "label": "Subtract: (3×4) − (1×2) = 12 − 2 = 10" }, { "label": "Adding is correct", "mistakeTag": "det-added-not-cross" } ], "answer": "Subtract: (3×4) − (1×2) = 12 − 2 = 10", "hintLadder": ["Determinant is ad − bc.", "It's a subtraction.", "12 − 2 = 10."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "n50-x1", "type": "number", "q": "Elements in a 4×2 matrix?", "answer": "8", "hintLadder": ["Rows × columns.", "4 × 2.", "8."] },
+      { "id": "n50-x2", "type": "number", "q": "Determinant of [[2, 3], [1, 4]] = (2×4) − (3×1) = ?", "answer": "5", "hintLadder": ["ad = 8, bc = 3.", "8 − 3.", "5."] },
+      { "id": "n50-x3", "type": "number", "q": "Determinant of [[6, 2], [2, 2]] = (6×2) − (2×2) = ?", "answer": "8", "hintLadder": ["ad = 12, bc = 4.", "12 − 4.", "8."] },
+      { "id": "n50-x4", "type": "mcq", "q": "The order of a matrix is written as…", "options": [ { "label": "Rows × Columns" }, { "label": "Columns × Rows", "mistakeTag": "order-columns-first" } ], "answer": "Rows × Columns", "hintLadder": ["Rows come first.", "Then columns.", "Rows × Columns."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw a 2×3 grid of numbers for a grown-up and explain its order is rows × columns = 6 elements. Then compute the determinant of [[1, 2], [3, 4]] as ad − bc = 4 − 6 = −2.",
+  "revisionCard": {
+    "summary": "Matrix = grid of numbers; order = ROWS × COLUMNS (= number of elements). Add matrices of equal order entry-by-entry. 2×2 determinant of [[a, b], [c, d]] = ad − bc (main diagonal minus the other). A determinant is one number, not a grid.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 11-12 (Matrices and Determinants)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

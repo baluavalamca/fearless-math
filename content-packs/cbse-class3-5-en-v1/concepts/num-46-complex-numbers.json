@@ -1,0 +1,119 @@
+{
+  "id": "num-46-complex-numbers",
+  "name": "Complex Numbers — Meeting i = √(−1)",
+  "grade": 10,
+  "strand": "numbers",
+  "prerequisites": ["num-35-quadratics", "num-30-number-systems"],
+  "whatIsIt": "Some equations, like x² = −1, have no real answer because no real number squares to a negative. Mathematicians invented the IMAGINARY UNIT i with i² = −1. A COMPLEX NUMBER is a + bi, where a is the real part and b the imaginary part. Its MODULUS (size) is |a + bi| = √(a² + b²). Powers of i cycle: i, −1, −i, 1.",
+  "whyNeeded": "Complex numbers solve every polynomial equation and are essential in electrical engineering (AC circuits), signal processing, physics and computer graphics. They also make rotations and waves easy to describe.",
+  "realLifeUses": [
+    "Analysing AC electricity and circuits",
+    "Signal and sound processing (Fourier methods)",
+    "Describing rotations and waves in physics",
+    "Computer graphics and control systems"
+  ],
+  "vocabulary": [
+    { "term": "imaginary unit (i)", "meaning": "The number with i² = −1, so i = √(−1)." },
+    { "term": "complex number", "meaning": "A number of the form a + bi, with real part a and imaginary part b." },
+    { "term": "modulus |a + bi|", "meaning": "Its distance from 0 on the plane: √(a² + b²)." },
+    { "term": "powers of i", "meaning": "They cycle every four: i¹ = i, i² = −1, i³ = −i, i⁴ = 1." }
+  ],
+  "story": {
+    "title": "The Impossible Square Root",
+    "characters": ["Dev", "Sir"],
+    "text": "Dev is stuck: x² = −1 has no real answer, since a square is never negative. Sir smiles: 'Mathematicians invented a new number, i, with i² = −1.' Now x = i works. Sir plots 3 + 4i on a grid and asks its size. Dev computes the modulus: √(3² + 4²) = √(9 + 16) = √25 = 5. 'A brand-new number system, and it's genuinely useful,' says Sir.",
+    "extractedProblem": "Find the modulus of the complex number 3 + 4i.",
+    "answerInStory": "5 — |3 + 4i| = √(3² + 4²) = √25 = 5."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "point", "label": "3 + 4i plotted on the Argand plane; distance from 0 is 5" }
+      ]
+    },
+    "caption": "A complex number a + bi is a point (a, b) on the plane; its modulus is its distance √(a² + b²) from the origin."
+  },
+  "teachingGallery": [
+    {
+      "title": "i² = −1 drives everything",
+      "note": "Replace i² by −1 wherever it appears; modulus is a Pythagoras distance.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "point", "label": "6 + 8i → modulus 10" } ] }, "caption": "|6 + 8i| = √(36 + 64) = √100 = 10." },
+        { "component": "NumberLine", "props": { "min": -1, "max": 1, "jumps": [-1, 1], "label": "i² = −1 sits off the real line" }, "caption": "No real number squares to −1, so i lives off the real number line." },
+        { "component": "BarModel", "props": { "parts": [3, 4], "label": "real part 3, imaginary part 4" }, "caption": "In 3 + 4i the real part is 3 and the imaginary part is 4." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Treat i like a variable but replace i² by −1. Add/subtract by matching real and imaginary parts. Modulus = √(real² + imaginary²).",
+    "steps": [
+      "Write each number as a + bi (real part a, imaginary part b).",
+      "Add or subtract by combining real parts together and imaginary parts together.",
+      "Multiply like binomials, then replace every i² with −1.",
+      "Modulus |a + bi| = √(a² + b²).",
+      "For powers of i, reduce using the cycle i, −1, −i, 1 (repeats every 4)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "What is i² ?",
+      "steps": ["By definition i = √(−1).", "So i² = (√(−1))².", "= −1."],
+      "answer": "-1"
+    },
+    {
+      "problem": "Find the modulus of 3 + 4i.",
+      "steps": ["|a + bi| = √(a² + b²).", "= √(3² + 4²) = √(9 + 16).", "= √25 = 5."],
+      "answer": "5"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "i-squared-positive",
+      "mistake": "Writing i² = 1 instead of −1.",
+      "fix": "By definition i² = −1. That negative sign is the whole point of complex numbers."
+    },
+    {
+      "mistakeTag": "added-real-to-imaginary",
+      "mistake": "Adding a real part to an imaginary part (e.g. 2 + 3i = 5).",
+      "fix": "Real and imaginary parts stay separate: 2 + 3i cannot be simplified to a single real number."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "n46-e1", "type": "number", "q": "What is i² ?", "answer": "-1", "hintLadder": ["i = √(−1).", "Square it.", "−1."] },
+      { "id": "n46-e2", "type": "number", "q": "In the complex number 7 + 2i, what is the real part?", "answer": "7", "hintLadder": ["Real part is the plain number.", "Not the i part.", "7."] }
+    ],
+    "medium": [
+      { "id": "n46-m1", "type": "number", "q": "Modulus of 3 + 4i = √(9 + 16) = √25 = ?", "answer": "5", "hintLadder": ["9 + 16 = 25.", "√25.", "5."] },
+      { "id": "n46-m2", "type": "number", "q": "What is i⁴ ? (i² = −1, so i⁴ = (−1)²)", "answer": "1", "hintLadder": ["i⁴ = (i²)².", "(−1)² .", "1."] }
+    ],
+    "challenge": [
+      { "id": "n46-c1", "type": "number", "q": "Modulus of 6 + 8i = √(36 + 64) = √100 = ?", "answer": "10", "hintLadder": ["36 + 64 = 100.", "√100.", "10."] },
+      { "id": "n46-c2", "type": "mcq", "q": "A student writes i² = 1. What's the fix?", "options": [ { "label": "i² = −1 by definition" }, { "label": "i² = 1 is correct", "mistakeTag": "i-squared-positive" } ], "answer": "i² = −1 by definition", "hintLadder": ["i is √(−1).", "Squaring undoes the root.", "i² = −1."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "n46-x1", "type": "number", "q": "i² = ?", "answer": "-1", "hintLadder": ["Definition of i.", "Square of √(−1).", "−1."] },
+      { "id": "n46-x2", "type": "number", "q": "Imaginary part of 5 + 9i ?", "answer": "9", "hintLadder": ["The number with i.", "b in a + bi.", "9."] },
+      { "id": "n46-x3", "type": "number", "q": "Modulus of 5 + 12i = √(25 + 144) = √169 = ?", "answer": "13", "hintLadder": ["25 + 144 = 169.", "√169.", "13."] },
+      { "id": "n46-x4", "type": "mcq", "q": "A complex number has the form…", "options": [ { "label": "a + bi, with real part a and imaginary part b" }, { "label": "Just one real number", "mistakeTag": "added-real-to-imaginary" } ], "answer": "a + bi, with real part a and imaginary part b", "hintLadder": ["Two parts, real and imaginary.", "They stay separate.", "a + bi."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Explain to a grown-up why x² = −1 needs a new number i with i² = −1, plot 3 + 4i as a point, and show its modulus is √(3² + 4²) = 5 — a Pythagoras distance.",
+  "revisionCard": {
+    "summary": "i = √(−1), so i² = −1. Complex number = a + bi (real a, imaginary b). Add by matching parts; multiply and replace i² by −1. Modulus |a + bi| = √(a² + b²). Powers of i cycle every 4: i, −1, −i, 1.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 11 (Complex Numbers)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

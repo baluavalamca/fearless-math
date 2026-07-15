@@ -1,0 +1,120 @@
+{
+  "id": "num-47-sequences-series",
+  "name": "Sequences and Series — GP and Special Sums",
+  "grade": 10,
+  "strand": "numbers",
+  "prerequisites": ["num-40-arithmetic-progressions", "num-27-squares-roots"],
+  "whatIsIt": "A GEOMETRIC PROGRESSION (GP) multiplies by the same number (the common ratio r) each step: 3, 6, 12, 24… Its nth term is a·r^(n−1) and the sum of n terms is S = a(r^n − 1)/(r − 1). Two famous quick sums also help: 1 + 2 + … + n = n(n + 1)/2, and 1² + 2² + … + n² = n(n + 1)(2n + 1)/6.",
+  "whyNeeded": "GPs model anything that grows or shrinks by a fixed factor — compound interest, doubling bacteria, a bouncing ball's heights, or population growth. The special sum formulas add long lists instantly, which is essential in finance, computing and physics.",
+  "realLifeUses": [
+    "Compound interest growing by a fixed factor each year",
+    "A population or virus doubling every fixed period",
+    "Heights of a bouncing ball falling by a fixed fraction",
+    "Adding 1 + 2 + … + 100 instantly with a formula"
+  ],
+  "vocabulary": [
+    { "term": "geometric progression (GP)", "meaning": "A list where each term is the previous one times a fixed ratio r." },
+    { "term": "common ratio (r)", "meaning": "The fixed multiplier between consecutive GP terms: r = term ÷ previous term." },
+    { "term": "series", "meaning": "The SUM of the terms of a sequence." },
+    { "term": "nth term of a GP", "meaning": "a·r^(n−1), where a is the first term." }
+  ],
+  "story": {
+    "title": "The Doubling Rice Grains",
+    "characters": ["Vivek", "Grandpa"],
+    "text": "Grandpa tells the old tale: 1 grain on the first square of a chessboard, then double each square — 1, 2, 4, 8, 16… 'That's a GP with ratio 2,' says Vivek. 'How many grains on the 5th square?' Grandpa asks. Vivek uses a·r^(n−1) = 1 × 2^4 = 16. And the first four squares together are 1 + 2 + 4 + 8 = 15 grains. 'Doubling explodes fast!' Grandpa laughs.",
+    "extractedProblem": "A GP starts at 1 with ratio 2. Find the 5th term.",
+    "answerInStory": "16 — the 5th term is 1 × 2^(5−1) = 2^4 = 16."
+  },
+  "visual": {
+    "component": "NumberLine",
+    "props": {
+      "min": 0,
+      "max": 16,
+      "jumps": [1, 2, 4, 8, 16],
+      "label": "GP with ratio 2: each hop DOUBLES the last (1, 2, 4, 8, 16)"
+    },
+    "caption": "In a GP the jumps grow by multiplying — here each term is double the one before (ratio r = 2)."
+  },
+  "teachingGallery": [
+    {
+      "title": "Multiply, don't add",
+      "note": "AP adds the same d; GP multiplies by the same r. Divide a term by the one before to find r.",
+      "examples": [
+        { "component": "NumberLine", "props": { "min": 0, "max": 24, "jumps": [3, 6, 12, 24], "label": "3, 6, 12, 24 → r = 2" }, "caption": "6 ÷ 3 = 2, 12 ÷ 6 = 2 — ratio r = 2." },
+        { "component": "BarModel", "props": { "parts": [1, 2, 4, 8], "label": "sum 1+2+4+8 = 15" }, "caption": "Sum of a finite GP: 1 + 2 + 4 + 8 = 15." },
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 4, "cols": 5, "label": "1+2+3+4 uses n(n+1)/2" } ] }, "caption": "1 + 2 + … + n = n(n + 1)/2 (a quick natural-number sum)." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "For a GP, find a and r = term ÷ previous. nth term = a·r^(n−1); sum of n terms = a(r^n − 1)/(r − 1). Use n(n+1)/2 for 1+…+n.",
+    "steps": [
+      "Find the first term a and the ratio r = any term ÷ the term before it.",
+      "For the nth term, compute a × r^(n−1).",
+      "For the sum of n terms (r ≠ 1), use a(r^n − 1)/(r − 1).",
+      "For 1 + 2 + … + n use n(n + 1)/2; for 1² + … + n² use n(n + 1)(2n + 1)/6.",
+      "Check: in a GP the ratio between consecutive terms stays the same."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find the 5th term of the GP 3, 6, 12, … (a = 3, r = 2).",
+      "steps": ["nth term = a·r^(n−1) = 3 × 2^(5−1).", "= 3 × 2^4 = 3 × 16.", "= 48."],
+      "answer": "48"
+    },
+    {
+      "problem": "Find 1 + 2 + 3 + … + 10.",
+      "steps": ["Use n(n + 1)/2 with n = 10.", "= 10 × 11 / 2 = 110 / 2.", "= 55."],
+      "answer": "55"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "gp-added-not-multiplied",
+      "mistake": "Treating a GP like an AP by adding a fixed number instead of multiplying by r.",
+      "fix": "A GP MULTIPLIES by r each step. For 3, 6, 12 the ratio is ×2, not +3."
+    },
+    {
+      "mistakeTag": "power-n-not-n-minus-1",
+      "mistake": "Using a·r^n instead of a·r^(n−1) for the nth term.",
+      "fix": "The first term already used no multiplication, so the nth term is a·r^(n−1) — one fewer power than n."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "n47-e1", "type": "number", "q": "In the GP 3, 6, 12, 24, what is the common ratio r?", "answer": "2", "hintLadder": ["r = term ÷ previous.", "6 ÷ 3.", "2."] },
+      { "id": "n47-e2", "type": "number", "q": "GP with a = 2, r = 3. The 2nd term is a·r = 2 × 3 = ?", "answer": "6", "hintLadder": ["2 × 3.", "Multiply.", "6."] }
+    ],
+    "medium": [
+      { "id": "n47-m1", "type": "number", "q": "5th term of 3, 6, 12, … : 3 × 2^4 = 3 × 16 = ?", "answer": "48", "hintLadder": ["2^4 = 16.", "3 × 16.", "48."] },
+      { "id": "n47-m2", "type": "number", "q": "Sum 1 + 2 + 4 + 8 (finite GP) = ?", "answer": "15", "hintLadder": ["Add them up.", "1+2+4+8.", "15."] }
+    ],
+    "challenge": [
+      { "id": "n47-c1", "type": "number", "q": "Sum 1 + 2 + 3 + … + 10 using n(n+1)/2 = 10×11/2 = ?", "answer": "55", "hintLadder": ["10 × 11 = 110.", "Divide by 2.", "55."] },
+      { "id": "n47-c2", "type": "mcq", "q": "For 5, 10, 20, 40 Dev says it grows by +5 each time. What's the fix?", "options": [ { "label": "It multiplies by 2 (a GP with r = 2)" }, { "label": "+5 each time is right", "mistakeTag": "gp-added-not-multiplied" } ], "answer": "It multiplies by 2 (a GP with r = 2)", "hintLadder": ["10 ÷ 5 = 2, 20 ÷ 10 = 2.", "It's a ratio, not a sum.", "r = 2."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "n47-x1", "type": "number", "q": "Common ratio of 2, 8, 32, …?", "answer": "4", "hintLadder": ["8 ÷ 2.", "Term ÷ previous.", "4."] },
+      { "id": "n47-x2", "type": "number", "q": "4th term of GP a = 2, r = 3: 2 × 3^3 = 2 × 27 = ?", "answer": "54", "hintLadder": ["3^3 = 27.", "2 × 27.", "54."] },
+      { "id": "n47-x3", "type": "number", "q": "Sum 1 + 2 + 3 + … + 20 = 20×21/2 = ?", "answer": "210", "hintLadder": ["20 × 21 = 420.", "Divide by 2.", "210."] },
+      { "id": "n47-x4", "type": "mcq", "q": "The nth term of a GP is…", "options": [ { "label": "a·r^(n−1)" }, { "label": "a·r^n", "mistakeTag": "power-n-not-n-minus-1" } ], "answer": "a·r^(n−1)", "hintLadder": ["The first term uses r^0 = 1.", "One fewer power than n.", "a·r^(n−1)."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Show a grown-up the doubling-rice story (1, 2, 4, 8, 16) as a GP with ratio 2, find a term with a·r^(n−1), and add 1 + 2 + … + 10 instantly using n(n + 1)/2 = 55.",
+  "revisionCard": {
+    "summary": "GP multiplies by ratio r each step. nth term = a·r^(n−1) (one fewer power than n). Sum of n terms = a(r^n − 1)/(r − 1). Quick sums: 1+…+n = n(n+1)/2; 1²+…+n² = n(n+1)(2n+1)/6. GP multiplies (not adds like an AP).",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 11 (Sequences and Series)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "id": "num-44-permutations-combinations",
+  "name": "Permutations and Combinations — Counting Cleverly",
+  "grade": 10,
+  "strand": "numbers",
+  "prerequisites": ["num-17-patterns", "ops-09-multiplication-groups"],
+  "whatIsIt": "This is the art of counting arrangements and selections without listing them all. A FACTORIAL n! = n × (n−1) × … × 1 counts full arrangements. A PERMUTATION nPr = n!/(n−r)! counts ordered arrangements (order matters). A COMBINATION nCr = n!/(r!(n−r)!) counts selections (order does NOT matter). By definition 0! = 1.",
+  "whyNeeded": "From seating people, forming teams, setting passwords, to lottery odds — you need to count possibilities fast. Permutations handle 'in how many orders', combinations handle 'in how many ways to choose', the backbone of probability and computer science.",
+  "realLifeUses": [
+    "How many ways to arrange books on a shelf (permutations)",
+    "How many teams of 2 from a group (combinations)",
+    "The number of possible PINs or passwords",
+    "Lottery and probability odds"
+  ],
+  "vocabulary": [
+    { "term": "factorial (n!)", "meaning": "The product n × (n−1) × … × 2 × 1. Example: 4! = 24. And 0! = 1." },
+    { "term": "permutation (nPr)", "meaning": "Arrangements of r items from n where ORDER matters: n!/(n−r)!." },
+    { "term": "combination (nCr)", "meaning": "Selections of r items from n where order does NOT matter: n!/(r!(n−r)!)." },
+    { "term": "order matters", "meaning": "The key question: is ABC different from CBA? If yes → permutation; if no → combination." }
+  ],
+  "story": {
+    "title": "The Ice-Cream Choice",
+    "characters": ["Sana", "Bhaiya"],
+    "text": "The stall has 5 flavours. 'How many ways can I pick 2 different scoops in a cup, where order doesn't matter?' asks Sana. Bhaiya says that's a combination: 5C2 = 5!/(2! × 3!) = (5 × 4)/(2 × 1) = 10 ways. 'But if I stacked them in a cone where the bottom scoop matters, it becomes 5P2 = 20 ways,' Sana realises. Order changes everything!",
+    "extractedProblem": "In how many ways can 2 scoops be chosen from 5 flavours if order does not matter?",
+    "answerInStory": "10 — 5C2 = (5 × 4)/(2 × 1) = 10."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        { "rows": 5, "cols": 4, "label": "5P2 = 20 ordered arrangements" }
+      ]
+    },
+    "caption": "5 choices for the first place × 4 for the second = 20 ordered arrangements (5P2). If order doesn't matter, halve to get 5C2 = 10."
+  },
+  "teachingGallery": [
+    {
+      "title": "Order matters? Then permutation",
+      "note": "Same items, different order = different permutation but the SAME combination.",
+      "examples": [
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 1, "cols": 6, "label": "3! = 6 orders of ABC" } ] }, "caption": "3 items arrange in 3! = 6 orders: ABC, ACB, BAC, BCA, CAB, CBA." },
+        { "component": "BarModel", "props": { "parts": [10, 10], "label": "5P2 = 20 = 2 × 5C2" }, "caption": "Each combination of 2 has 2! = 2 orders, so permutations are twice the combinations here." },
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 2, "cols": 5, "label": "choose 2 of 5 → 5C2 = 10" } ] }, "caption": "Selecting 2 from 5 (order ignored) gives 10 combinations." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Decide if order matters. Order matters → nPr = n!/(n−r)!. Order doesn't → nCr = n!/(r!(n−r)!). Use n! = n×(n−1)×…×1, and 0! = 1.",
+    "steps": [
+      "Ask: does the order of the chosen items matter?",
+      "If YES (arrangements): nPr = n!/(n−r)!.",
+      "If NO (selections): nCr = n!/(r!(n−r)!).",
+      "Compute factorials, cancelling common parts to keep numbers small.",
+      "Check: nCr should be smaller than nPr for the same n and r (order ignored means fewer)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Evaluate 5! .",
+      "steps": ["5! = 5 × 4 × 3 × 2 × 1.", "= 20 × 6.", "= 120."],
+      "answer": "120"
+    },
+    {
+      "problem": "Find 5C2 (choose 2 from 5, order ignored).",
+      "steps": ["5C2 = 5!/(2! × 3!) = (5 × 4)/(2 × 1).", "= 20 / 2.", "= 10."],
+      "answer": "10"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "used-perm-for-comb",
+      "mistake": "Using a permutation when order does not matter (over-counting).",
+      "fix": "If order does NOT matter, use nCr — divide by r! to remove the repeated orders. Teams and groups are combinations."
+    },
+    {
+      "mistakeTag": "zero-factorial-zero",
+      "mistake": "Thinking 0! = 0.",
+      "fix": "By definition 0! = 1 (there is exactly one way to arrange nothing)."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "n44-e1", "type": "number", "q": "What is 4! (4 × 3 × 2 × 1)?", "answer": "24", "hintLadder": ["4 × 3 = 12.", "12 × 2 × 1.", "24."] },
+      { "id": "n44-e2", "type": "number", "q": "What is 0! ?", "answer": "1", "hintLadder": ["It's a special definition.", "One way to arrange nothing.", "1."] }
+    ],
+    "medium": [
+      { "id": "n44-m1", "type": "number", "q": "Evaluate 5! .", "answer": "120", "hintLadder": ["5 × 4 × 3 × 2 × 1.", "= 120.", "120."] },
+      { "id": "n44-m2", "type": "number", "q": "Find 5C2 = (5 × 4)/(2 × 1).", "answer": "10", "hintLadder": ["Top 5 × 4 = 20.", "Bottom 2 × 1 = 2.", "20 ÷ 2 = 10."] }
+    ],
+    "challenge": [
+      { "id": "n44-c1", "type": "number", "q": "Find 5P2 = 5!/(3!) = 5 × 4.", "answer": "20", "hintLadder": ["Order matters here.", "5 × 4.", "20."] },
+      { "id": "n44-c2", "type": "mcq", "q": "Choosing a team of 3 from 10 people uses…", "options": [ { "label": "Combination 10C3 (order doesn't matter)" }, { "label": "Permutation 10P3", "mistakeTag": "used-perm-for-comb" } ], "answer": "Combination 10C3 (order doesn't matter)", "hintLadder": ["Does team order matter?", "A team is a group, not a line.", "Use nCr."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "n44-x1", "type": "number", "q": "Evaluate 3! .", "answer": "6", "hintLadder": ["3 × 2 × 1.", "= 6.", "6."] },
+      { "id": "n44-x2", "type": "number", "q": "Find 6C2 = (6 × 5)/(2 × 1).", "answer": "15", "hintLadder": ["30 on top.", "Divide by 2.", "15."] },
+      { "id": "n44-x3", "type": "number", "q": "Find 4P2 = 4 × 3.", "answer": "12", "hintLadder": ["Order matters.", "4 × 3.", "12."] },
+      { "id": "n44-x4", "type": "mcq", "q": "When ORDER matters, use…", "options": [ { "label": "A permutation nPr" }, { "label": "A combination nCr", "mistakeTag": "used-perm-for-comb" } ], "answer": "A permutation nPr", "hintLadder": ["Order matters → arrangement.", "That's a permutation.", "nPr."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Show a grown-up how choosing 2 ice-cream scoops from 5 is 5C2 = 10 when order doesn't matter, but 5P2 = 20 when it does. Explain n! and that 0! = 1.",
+  "revisionCard": {
+    "summary": "n! = n×(n−1)×…×1, and 0! = 1. Order matters → permutation nPr = n!/(n−r)!. Order doesn't matter → combination nCr = n!/(r!(n−r)!). Teams/groups are combinations; arrangements/PINs are permutations.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 11 (Permutations and Combinations)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}
