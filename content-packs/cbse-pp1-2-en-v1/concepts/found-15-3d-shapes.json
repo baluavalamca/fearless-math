@@ -1,0 +1,121 @@
+{
+  "id": "found-15-3d-shapes",
+  "name": "Solid Shapes Around Us — Roll, Slide and Stack",
+  "grade": 1,
+  "strand": "geometry",
+  "prerequisites": ["found-10-shapes"],
+  "whatIsIt": "Flat shapes live on paper, but real things are SOLID — you can hold them. A ball is a SPHERE (it rolls everywhere). A box or dice is a CUBE (it has 6 flat faces, and it stacks). A tin can is a CYLINDER (flat on top and bottom, round in the middle — it rolls AND stacks). An ice-cream cone is a CONE (round bottom, one point). Solids have FACES (flat sides), EDGES (where faces meet) and CORNERS (points).",
+  "whyNeeded": "Everything a child touches is a solid shape — balls, boxes, cans, dice, party hats. Knowing which shapes roll, slide, and stack helps in building blocks, packing, and understanding the world before moving on to their flat drawings.",
+  "realLifeUses": [
+    "A ball rolls because it is a sphere",
+    "Boxes stack neatly because they are cubes",
+    "A tin can rolls on its side but stacks on its ends",
+    "An ice-cream cone and a party hat are cones"
+  ],
+  "vocabulary": [
+    { "term": "sphere", "meaning": "A perfectly round solid like a ball — it rolls and has no corners." },
+    { "term": "cube", "meaning": "A box shape with 6 equal flat square faces, like a dice." },
+    { "term": "cylinder", "meaning": "A can shape — two flat round ends and a curved side." },
+    { "term": "face / edge / corner", "meaning": "A face is a flat side; an edge is where two faces meet; a corner is a point." }
+  ],
+  "story": {
+    "title": "Anu's Toy Basket",
+    "characters": ["Anu", "Dadi"],
+    "text": "Anu tips out her toy basket: a ball, a dice, and a tin of biscuits. 'Which ones roll?' asks Dadi. Anu pushes them: the ball rolls away, the tin rolls on its side, but the dice just slides and stops. 'The dice has flat faces — I can count them!' She touches each side: 1, 2, 3, 4, 5, 6. 'Six faces!' Dadi claps. 'That's a cube.'",
+    "extractedProblem": "How many flat faces does a dice (a cube) have?",
+    "answerInStory": "6 — Anu counts six flat square faces on the cube."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "circle", "label": "ball = sphere (rolls)" },
+        { "kind": "square", "w": 3, "h": 3, "label": "box = cube (stacks)" },
+        { "kind": "triangle", "label": "cone (point on top)" }
+      ]
+    },
+    "caption": "Real solids and their outlines: a ball looks round like a circle, a box's face is a square, a cone comes to a point. Balls roll; boxes stack."
+  },
+  "teachingGallery": [
+    {
+      "title": "Roll it or stack it?",
+      "note": "Round parts roll; flat faces let a shape stack and slide.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "circle", "label": "sphere → rolls" } ] }, "caption": "A ball (sphere) has no flat face, so it rolls anywhere." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "square", "w": 3, "h": 3, "label": "cube → 6 faces" } ] }, "caption": "A dice (cube) has 6 flat faces, 8 corners and 12 edges — it stacks." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "rect", "w": 3, "h": 4, "label": "can → cylinder" } ] }, "caption": "A tin can (cylinder) rolls on its side but stacks on its flat ends." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Pick up the solid. Feel for flat faces and round parts. Round parts roll; flat faces stack and slide. Count faces, corners and edges by touching each one.",
+    "steps": [
+      "Hold the object and look for FLAT faces and ROUND parts.",
+      "If it is all round (a ball), it is a sphere and it rolls.",
+      "If it has flat square faces (a dice), it is a cube — count the 6 faces.",
+      "A can (cylinder) has round ends and rolls on its side; a cone has one point.",
+      "Test it: does it roll, slide, or stack?"
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "How many flat faces does a cube (dice) have?",
+      "steps": ["Touch each flat side and count.", "Top, bottom, and the four around = 1,2,3,4,5,6.", "A cube has 6 faces."],
+      "answer": "6"
+    },
+    {
+      "problem": "Does a ball (sphere) roll or stack?",
+      "steps": ["A ball is round all over with no flat face.", "With no flat face it cannot sit still to stack.", "So a ball ROLLS."],
+      "answer": "It rolls"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "flat-vs-solid",
+      "mistake": "Calling a ball a 'circle' or a dice a 'square' — mixing flat shapes with solids.",
+      "fix": "A circle is FLAT (on paper); a ball is a SOLID you can hold (a sphere). A square is flat; a dice is a cube."
+    },
+    {
+      "mistakeTag": "faces-miscount",
+      "mistake": "Saying a cube has 4 faces (forgetting the top and bottom).",
+      "fix": "Count ALL sides: 4 around PLUS the top and bottom = 6 faces."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "f15-e1", "type": "number", "q": "How many flat faces does a cube (dice) have?", "answer": "6", "hintLadder": ["Count each flat side.", "4 around, plus top and bottom.", "6."] },
+      { "id": "f15-e2", "type": "mcq", "q": "Which one ROLLS?", "options": [ { "label": "A ball (sphere)" }, { "label": "A box (cube)", "mistakeTag": "flat-vs-solid" } ], "answer": "A ball (sphere)", "hintLadder": ["Round things roll.", "A box has flat faces.", "The ball rolls."] }
+    ],
+    "medium": [
+      { "id": "f15-m1", "type": "number", "q": "How many corners (points) does a cube have?", "answer": "8", "hintLadder": ["Count the pointy corners of a dice.", "4 on top, 4 on the bottom.", "8."] },
+      { "id": "f15-m2", "type": "mcq", "q": "A tin can is a…", "options": [ { "label": "Cylinder — rolls on its side, stacks on its ends" }, { "label": "Cube with 6 faces", "mistakeTag": "faces-miscount" } ], "answer": "Cylinder — rolls on its side, stacks on its ends", "hintLadder": ["It has round ends.", "Round ends + curved side.", "A cylinder."] }
+    ],
+    "challenge": [
+      { "id": "f15-c1", "type": "number", "q": "How many edges (where two faces meet) does a cube have?", "answer": "12", "hintLadder": ["Count the lines along a dice.", "4 on top, 4 on the bottom, 4 standing up.", "12."] },
+      { "id": "f15-c2", "type": "mcq", "q": "Riya calls a ball a 'circle'. What's the fix?", "options": [ { "label": "A ball is a solid SPHERE; a circle is flat on paper" }, { "label": "Ball and circle are the same", "mistakeTag": "flat-vs-solid" } ], "answer": "A ball is a solid SPHERE; a circle is flat on paper", "hintLadder": ["Can you hold a circle?", "A circle is flat; a ball is solid.", "The ball is a sphere."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "f15-x1", "type": "number", "q": "Flat faces on a cube?", "answer": "6", "hintLadder": ["Count each side.", "4 + top + bottom.", "6."] },
+      { "id": "f15-x2", "type": "mcq", "q": "Which shape STACKS best?", "options": [ { "label": "A box (cube) — it has flat faces" }, { "label": "A ball (sphere)", "mistakeTag": "flat-vs-solid" } ], "answer": "A box (cube) — it has flat faces", "hintLadder": ["Flat faces stack.", "A ball rolls away.", "The box stacks."] },
+      { "id": "f15-x3", "type": "number", "q": "Corners on a cube?", "answer": "8", "hintLadder": ["Points on a dice.", "4 top, 4 bottom.", "8."] },
+      { "id": "f15-x4", "type": "mcq", "q": "An ice-cream cone is a…", "options": [ { "label": "Cone — round bottom and one point" }, { "label": "Sphere like a ball", "mistakeTag": "flat-vs-solid" } ], "answer": "Cone — round bottom and one point", "hintLadder": ["It comes to a point.", "Round bottom, one tip.", "A cone."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Find a ball, a box and a tin at home. Show a grown-up which one rolls, which stacks, and which does both. Count the 6 faces of the box out loud, and name each solid: sphere, cube, cylinder.",
+  "revisionCard": {
+    "summary": "Solids are shapes you can hold. Sphere (ball) rolls, no corners. Cube (dice/box) has 6 flat faces, 8 corners, 12 edges — it stacks. Cylinder (can) rolls on its side, stacks on its ends. Cone has a round bottom and one point. Flat shapes live on paper; solids live in your hands.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT NEP Foundational — Class 1-2 (solid shapes)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}
