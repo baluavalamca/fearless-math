@@ -158,6 +158,30 @@
     "summary": "Linear equation: letter to the first power, with =. Solve by doing the SAME inverse operation to BOTH sides until the letter is alone; check by substituting. Inequalities (<, >, ≤, ≥) have a range of answers — solve the same way, but FLIP the sign if you multiply/divide by a negative.",
     "reviewAfterDays": [3, 7, 21]
   },
+  "vedicMethod": {
+    "name": "Vedic: Transpose and Adjust (Paravartya Yojayet)",
+    "whenToUse": "To solve a linear equation fast — move terms across the = sign instead of doing the same thing to both sides.",
+    "steps": [
+      "Take any term across the equals sign and FLIP its operation (+ becomes −, × becomes ÷).",
+      "For 2x + 3 = 11: move +3 across → 2x = 11 − 3 = 8.",
+      "Move the ×2 across → x = 8 ÷ 2 = 4.",
+      "Check: 2 × 4 + 3 = 11 ✓."
+    ],
+    "example": "5x − 2 = 13 → 5x = 13 + 2 = 15 → x = 15 ÷ 5 = 3."
+  },
+  "alternateMethods": [
+    {
+      "name": "Vedic: same total both sides = zero (Sunyam Samuccaye)",
+      "whenToUse": "When one identical term appears on BOTH sides of the equation.",
+      "steps": [
+        "Spot the term that is exactly the same on both sides (the 'samuccaya').",
+        "For 12x + 5 = 7x + 5, the +5 is common to both sides — cancel it.",
+        "That leaves 12x = 7x, so 5x = 0.",
+        "Therefore x = 0. (Check: both sides equal 5.)"
+      ],
+      "example": "9x + 4 = 4x + 4 → the +4 cancels → 5x = 0 → x = 0."
+    }
+  ],
   "meta": {
     "version": "1.0.0",
     "curriculum": "CBSE/NCERT Class 7-8 (linear equations & inequalities)",

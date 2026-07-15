@@ -444,6 +444,17 @@
     "character": "Fraction Fox"
   },
   "realLifeProject": "Kitchen translator: find 3 real items with decimal labels (0.5 L bottle, 0.25 kg pack…). Say each in fraction language. Then reverse: measure half a cup of rice and write it as a decimal.",
+  "vedicMethod": {
+    "name": "Vedic: recurring decimals by remainders (Sheshanyankena Charamena)",
+    "whenToUse": "To turn a fraction like 1/7 into its repeating decimal by watching the remainders.",
+    "steps": [
+      "Divide 1 by 7: 10 ÷ 7 = 1 remainder 3 → first digit 1.",
+      "Bring the remainder forward: 30 ÷ 7 = 4 remainder 2 → next digit 4.",
+      "Keep going with each new remainder: 20÷7=2 r6, 60÷7=8 r4, 40÷7=5 r5, 50÷7=7 r1.",
+      "The remainder 1 returns, so the block repeats: 1/7 = 0.142857 142857…"
+    ],
+    "example": "1/7 = 0.̅142857 (the six digits 142857 repeat forever)."
+  },
   "meta": {
     "version": "1.0.0",
     "curriculum": "CBSE/NCERT Class 5 (fraction-decimal relationship)",

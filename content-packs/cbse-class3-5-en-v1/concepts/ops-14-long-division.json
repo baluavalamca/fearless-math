@@ -498,6 +498,17 @@
     "character": "Divya Divider"
   },
   "realLifeProject": "Share a real pile: take 50-80 small things (buttons, beans) and share among 3 or 4 family members using deal-trade-deal with tens-bundles. Write the long division that matches what your hands did — including any remainder!",
+  "vedicMethod": {
+    "name": "Vedic: quick division by 9 (Nikhilam)",
+    "whenToUse": "To divide a 2-digit number by 9 in your head (9 is one less than the base 10).",
+    "steps": [
+      "The first digit is the quotient to start: for 23 ÷ 9, quotient starts at 2.",
+      "Add the two digits for the remainder: 2 + 3 = 5.",
+      "So 23 ÷ 9 = 2 remainder 5. (Check: 9 × 2 + 5 = 23 ✓.)",
+      "If the remainder reaches 9 or more, carry one more into the quotient."
+    ],
+    "example": "34 ÷ 9: quotient 3, remainder 3 + 4 = 7 → 3 remainder 7 (9×3+7 = 34)."
+  },
   "meta": {
     "version": "1.0.0",
     "curriculum": "CBSE/NCERT Class 5 (long division)",

@@ -107,6 +107,30 @@
     "summary": "Two unknowns need two equations. Elimination: same sign → subtract, opposite sign → add, to cancel one variable; solve, then back-substitute for the other. Graphically the solution is where the two lines cross. Always check both values in both equations.",
     "reviewAfterDays": [3, 7, 21]
   },
+  "vedicMethod": {
+    "name": "Vedic: by Addition and Subtraction (Sankalana-Vyavakalanabhyam)",
+    "whenToUse": "When the x and y coefficients are SWAPPED between the two equations (like 45x+23y and 23x+45y).",
+    "steps": [
+      "ADD the two equations: the coefficients become equal, giving (x + y).",
+      "45x+23y=113 and 23x+45y=91 → add → 68x+68y=204 → x + y = 3.",
+      "SUBTRACT them → 22x − 22y = 22 → x − y = 1.",
+      "Now x+y=3 and x−y=1 give x=2, y=1 at once."
+    ],
+    "example": "Add and subtract → x+y=3, x−y=1 → x=2, y=1."
+  },
+  "alternateMethods": [
+    {
+      "name": "Vedic: if one is in ratio, the other is zero (Anurupye Sunyamanyat)",
+      "whenToUse": "When the x-coefficients are in the same ratio as the constants (and the y-terms are not).",
+      "steps": [
+        "Check the ratio: in 6x+7y=6 and 12x+13y=12, the x-parts 6:12 match the constants 6:12.",
+        "The sutra says: then the OTHER variable is zero → y = 0.",
+        "Put y = 0 back: 6x = 6 → x = 1.",
+        "Check: 12×1 + 13×0 = 12 ✓."
+      ],
+      "example": "6x+7y=6, 12x+13y=12 → y = 0, x = 1."
+    }
+  ],
   "meta": {
     "version": "1.0.0",
     "curriculum": "CBSE/NCERT Class 10 (Pair of Linear Equations in Two Variables)",

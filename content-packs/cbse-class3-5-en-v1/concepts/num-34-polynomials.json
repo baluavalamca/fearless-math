@@ -163,6 +163,17 @@
     "summary": "Polynomial = terms with whole-number powers. Identities: (a+b)² = a²+2ab+b² (don't drop the 2ab); (a+b)(a−b) = a²−b². Factorise = reverse of expanding: take out the HIGHEST common factor, or spot a difference of squares. Check by expanding back.",
     "reviewAfterDays": [3, 7, 21]
   },
+  "vedicMethod": {
+    "name": "Vedic: factorisation check (Gunakasamuccayah)",
+    "whenToUse": "To CHECK a factorisation quickly — the sum of coefficients of the product must equal the product of the sums of the factors.",
+    "steps": [
+      "Take each factor and add its coefficients: (x+2) → 1+2 = 3; (x+3) → 1+3 = 4.",
+      "Multiply those sums: 3 × 4 = 12.",
+      "Expand the product: (x+2)(x+3) = x² + 5x + 6; add its coefficients: 1+5+6 = 12.",
+      "They match (12 = 12), so the factorisation is correct."
+    ],
+    "example": "(x+2)(x+3) = x²+5x+6: factor sums 3×4 = 12 = 1+5+6 ✓."
+  },
   "meta": {
     "version": "1.0.0",
     "curriculum": "CBSE/NCERT Class 8 (polynomials, identities, factorisation)",

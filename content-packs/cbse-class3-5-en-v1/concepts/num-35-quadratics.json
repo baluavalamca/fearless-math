@@ -166,6 +166,41 @@
     "summary": "Quadratic: ax² + bx + c = 0, usually TWO roots. x² = k → x = ±√k. Factorise x² + bx + c by finding two numbers that MULTIPLY to c and ADD to b; set each bracket = 0 (zero-product rule). Always check both roots.",
     "reviewAfterDays": [3, 7, 21]
   },
+  "vedicMethod": {
+    "name": "Vedic: Completing the Square (Puranapuranabhyam)",
+    "whenToUse": "To solve a quadratic by 'completing' it into a perfect square.",
+    "steps": [
+      "For x² + 6x + 5 = 0, take half the middle number: 6 ÷ 2 = 3.",
+      "Complete the square: x² + 6x + 9 = (x + 3)². We added 9, so 5 becomes 5, and (x+3)² = 9 − 5 = 4.",
+      "Take roots: x + 3 = ±2.",
+      "So x = −1 or x = −5. (Check: (−1)²+6(−1)+5 = 0 ✓.)"
+    ],
+    "example": "x² + 6x + 5 = 0 → (x+3)² = 4 → x = −1 or −5."
+  },
+  "alternateMethods": [
+    {
+      "name": "Vedic: roots as average ± gap (Vyashtisamashti)",
+      "whenToUse": "When the quadratic is x² − (sum)x + (product) and you can guess two numbers.",
+      "steps": [
+        "For x² − 10x + 21: the roots add to 10, so their average is 10 ÷ 2 = 5.",
+        "The roots are 5 − g and 5 + g for some gap g.",
+        "Their product is 21: (5−g)(5+g) = 25 − g² = 21 → g² = 4 → g = 2.",
+        "Roots: 5 − 2 = 3 and 5 + 2 = 7."
+      ],
+      "example": "x² − 10x + 21 → average 5, gap 2 → roots 3 and 7."
+    },
+    {
+      "name": "Vedic: difference of roots (Chalana-Kalanabhyam)",
+      "whenToUse": "To get how far apart the two roots are, straight from the numbers.",
+      "steps": [
+        "For ax² + bx + c, the gap between the roots is √(b² − 4ac) ÷ a.",
+        "For x² − 7x + 12: b² − 4ac = 49 − 48 = 1.",
+        "Difference of roots = √1 = 1.",
+        "Indeed the roots are 3 and 4, which differ by 1."
+      ],
+      "example": "x² − 7x + 12 → √(49−48) = 1 → roots 3 and 4 differ by 1."
+    }
+  ],
   "meta": {
     "version": "1.0.0",
     "curriculum": "CBSE/NCERT Class 9-10 (quadratic equations)",
