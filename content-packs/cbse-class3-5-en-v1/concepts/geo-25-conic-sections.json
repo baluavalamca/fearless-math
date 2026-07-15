@@ -1,0 +1,119 @@
+{
+  "id": "geo-25-conic-sections",
+  "name": "Conic Sections — Circle, Parabola, Ellipse, Hyperbola",
+  "grade": 10,
+  "strand": "geometry",
+  "prerequisites": ["geo-24-straight-lines", "geo-11-circles"],
+  "whatIsIt": "Slice a cone with a flat plane at different angles and you get four curves called CONIC SECTIONS: a CIRCLE (straight across), an ELLIPSE (tilted, a squashed circle), a PARABOLA (parallel to the slant side), and a HYPERBOLA (steep, two branches). Their equations: circle x² + y² = r²; parabola y² = 4ax; ellipse x²/a² + y²/b² = 1; hyperbola x²/a² − y²/b² = 1.",
+  "whyNeeded": "These curves are everywhere: planets travel in ellipses, a thrown ball or a torch beam makes a parabola, satellite dishes and headlights are parabolic, and navigation and comet paths use hyperbolas. One family of shapes, endless uses.",
+  "realLifeUses": [
+    "Planet and satellite orbits (ellipses)",
+    "The path of a thrown ball or water fountain (parabola)",
+    "Satellite dishes and car headlights (parabolic reflectors)",
+    "A circle for wheels, plates and clock faces"
+  ],
+  "vocabulary": [
+    { "term": "conic section", "meaning": "A curve made by slicing a cone: circle, ellipse, parabola or hyperbola." },
+    { "term": "circle x² + y² = r²", "meaning": "All points at distance r from the centre; r is the radius." },
+    { "term": "parabola", "meaning": "A single U-shaped curve, y² = 4ax; the path of a thrown object." },
+    { "term": "ellipse", "meaning": "A squashed circle, x²/a² + y²/b² = 1; the shape of an orbit." }
+  ],
+  "story": {
+    "title": "Slicing the Ice-Cream Cone",
+    "characters": ["Neha", "Sir"],
+    "text": "Sir holds a cone and slices it different ways. Straight across → a perfect circle. Tilt the knife a little → an oval ellipse. Cut parallel to the slanted side → an open parabola. Cut steeply down → a two-branch hyperbola. 'Four famous curves from one cone!' Neha marvels. Sir writes the circle's rule: x² + y² = r², so a circle x² + y² = 25 has radius 5.",
+    "extractedProblem": "A circle has equation x² + y² = 25. What is its radius?",
+    "answerInStory": "5 — because r² = 25, so r = √25 = 5."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "circle", "label": "circle x² + y² = r²" }
+      ]
+    },
+    "caption": "The circle is the simplest conic: every point is distance r from the centre, giving x² + y² = r²."
+  },
+  "teachingGallery": [
+    {
+      "title": "One cone, four curves",
+      "note": "The slice angle decides the curve: flat → circle, tilted → ellipse, parallel to slant → parabola, steep → hyperbola.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "circle", "label": "circle: x² + y² = r²" } ] }, "caption": "A flat slice gives a circle." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "parabola: y² = 4ax (thrown ball / dish)" } ] }, "caption": "A parabola — the path of a thrown ball and the shape of a dish." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "circle", "label": "ellipse: squashed circle (orbit)" } ] }, "caption": "An ellipse — a squashed circle, the shape of a planet's orbit." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Identify the conic from its equation, then read its key number. Circle x² + y² = r² → radius √(r²). Match real objects: orbits = ellipse, thrown ball / dish = parabola.",
+    "steps": [
+      "Look at the equation's form to name the conic.",
+      "Circle: x² + y² = r² → radius = √(the right-hand number).",
+      "Parabola y² = 4ax: one U-shaped branch (dishes, thrown objects).",
+      "Ellipse x²/a² + y²/b² = 1: a closed oval (orbits).",
+      "Hyperbola x²/a² − y²/b² = 1: two open branches (the minus sign is the giveaway)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find the radius of the circle x² + y² = 49.",
+      "steps": ["Compare with x² + y² = r².", "r² = 49.", "r = √49 = 7."],
+      "answer": "7"
+    },
+    {
+      "problem": "How many types of conic section are there?",
+      "steps": ["Slice a cone at different angles.", "Circle, ellipse, parabola, hyperbola.", "= 4 types."],
+      "answer": "4"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "radius-is-rhs",
+      "mistake": "Saying the radius of x² + y² = 25 is 25 instead of 5.",
+      "fix": "The right side is r² (the radius SQUARED). Take the square root: r = √25 = 5."
+    },
+    {
+      "mistakeTag": "ellipse-vs-hyperbola-sign",
+      "mistake": "Confusing an ellipse (plus) with a hyperbola (minus).",
+      "fix": "x²/a² + y²/b² = 1 is an ELLIPSE (plus, one closed loop). The MINUS version is a hyperbola (two branches)."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "g25-e1", "type": "number", "q": "How many types of conic section are there?", "answer": "4", "hintLadder": ["Circle, ellipse…", "…parabola, hyperbola.", "4."] },
+      { "id": "g25-e2", "type": "number", "q": "Circle x² + y² = 25. What is the radius?", "answer": "5", "hintLadder": ["r² = 25.", "√25.", "5."] }
+    ],
+    "medium": [
+      { "id": "g25-m1", "type": "number", "q": "Radius of x² + y² = 36?", "answer": "6", "hintLadder": ["r² = 36.", "√36.", "6."] },
+      { "id": "g25-m2", "type": "mcq", "q": "A satellite dish / torch reflector has the shape of a…", "options": [ { "label": "Parabola" }, { "label": "Ellipse", "mistakeTag": "ellipse-vs-hyperbola-sign" } ], "answer": "Parabola", "hintLadder": ["It focuses signals to one point.", "The U-shaped conic.", "Parabola."] }
+    ],
+    "challenge": [
+      { "id": "g25-c1", "type": "number", "q": "Radius of x² + y² = 100?", "answer": "10", "hintLadder": ["r² = 100.", "√100.", "10."] },
+      { "id": "g25-c2", "type": "mcq", "q": "For x² + y² = 25 a student says the radius is 25. What's the fix?", "options": [ { "label": "The right side is r²; take √25 = 5" }, { "label": "25 is correct", "mistakeTag": "radius-is-rhs" } ], "answer": "The right side is r²; take √25 = 5", "hintLadder": ["25 is the radius squared.", "Take the square root.", "r = 5."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "g25-x1", "type": "number", "q": "Number of conic-section types?", "answer": "4", "hintLadder": ["From slicing a cone.", "Circle, ellipse, parabola, hyperbola.", "4."] },
+      { "id": "g25-x2", "type": "number", "q": "Radius of x² + y² = 64?", "answer": "8", "hintLadder": ["r² = 64.", "√64.", "8."] },
+      { "id": "g25-x3", "type": "mcq", "q": "A planet's orbit is shaped like a…", "options": [ { "label": "Ellipse" }, { "label": "Parabola", "mistakeTag": "ellipse-vs-hyperbola-sign" } ], "answer": "Ellipse", "hintLadder": ["A closed, squashed circle.", "Orbits come back around.", "Ellipse."] },
+      { "id": "g25-x4", "type": "mcq", "q": "The equation with a MINUS (x²/a² − y²/b² = 1) is a…", "options": [ { "label": "Hyperbola (two branches)" }, { "label": "Ellipse", "mistakeTag": "ellipse-vs-hyperbola-sign" } ], "answer": "Hyperbola (two branches)", "hintLadder": ["Minus sign = two open branches.", "Not the closed ellipse.", "Hyperbola."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Slice a cone (or a cone of clay) different ways for a grown-up to show a circle, ellipse, parabola and hyperbola. Then show that x² + y² = 25 is a circle of radius 5 (√25), not 25.",
+  "revisionCard": {
+    "summary": "Conic sections = curves from slicing a cone: circle (x²+y²=r², radius √RHS), ellipse (x²/a²+y²/b²=1, orbit), parabola (y²=4ax, thrown ball/dish), hyperbola (x²/a²−y²/b²=1, minus sign, two branches). Radius is √(right-hand side), not the right-hand side.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 11 (Conic Sections)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

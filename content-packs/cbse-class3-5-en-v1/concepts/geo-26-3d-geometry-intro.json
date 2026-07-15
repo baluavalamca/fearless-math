@@ -1,0 +1,119 @@
+{
+  "id": "geo-26-3d-geometry-intro",
+  "name": "Three-Dimensional Geometry — Points in Space",
+  "grade": 10,
+  "strand": "geometry",
+  "prerequisites": ["geo-14-coordinate-geometry", "geo-13-pythagoras"],
+  "whatIsIt": "A flat page uses two numbers (x, y). Real space needs THREE: (x, y, z) — left/right, forward/back, and up/down. Three axes meet at the ORIGIN and split space into 8 regions called OCTANTS. The distance of a point (x, y, z) from the origin is √(x² + y² + z²) — Pythagoras in 3D. The distance between two points adds the squared differences of all three coordinates.",
+  "whyNeeded": "The world is 3D: GPS gives latitude, longitude AND altitude; games, robotics, architecture and physics all locate objects with three numbers. 3D coordinates are the foundation for vectors and 3D graphics.",
+  "realLifeUses": [
+    "GPS position: latitude, longitude and altitude",
+    "3D computer games and animation",
+    "A drone's position in the air (x, y, height)",
+    "Architecture and 3D printing"
+  ],
+  "vocabulary": [
+    { "term": "coordinate (x, y, z)", "meaning": "Three numbers that fix a point in space." },
+    { "term": "octant", "meaning": "One of the 8 regions the three axes split space into (like quadrants, but in 3D)." },
+    { "term": "distance from origin", "meaning": "√(x² + y² + z²) — Pythagoras extended to three dimensions." },
+    { "term": "axes", "meaning": "The three number lines (x, y, z) that meet at right angles at the origin." }
+  ],
+  "story": {
+    "title": "The Drone's Position",
+    "characters": ["Rohan", "Coach"],
+    "text": "Rohan's drone hovers 2 metres east, 3 metres north and 6 metres up from the launch pad. 'How far is it in a straight line?' asks Coach. Rohan uses 3D Pythagoras: distance = √(2² + 3² + 6²) = √(4 + 9 + 36) = √49 = 7 metres. 'Three numbers to place it, and one square root for the distance!' Coach nods.",
+    "extractedProblem": "A drone is at (2, 3, 6). How far is it from the origin?",
+    "answerInStory": "7 metres — √(4 + 9 + 36) = √49 = 7."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "rect", "w": 4, "h": 3, "label": "3 axes (x, y, z) meet at the origin → 8 octants" }
+      ]
+    },
+    "caption": "Space needs three axes (x, y, z) meeting at the origin. They divide space into 8 octants; distance from origin is √(x²+y²+z²)."
+  },
+  "teachingGallery": [
+    {
+      "title": "Three numbers, one distance",
+      "note": "Add the squares of all three coordinates, then square-root.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "distance = √(x²+y²+z²)" } ] }, "caption": "3D distance is Pythagoras with three squares under the root." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "(2,3,6)", "parts": [ { "value": 4 }, { "value": 9 }, { "value": 36 } ], "showTotal": true } ] }, "caption": "2²+3²+6² = 4+9+36 = 49, and √49 = 7." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "rect", "w": 3, "h": 3, "label": "8 octants in space" } ] }, "caption": "The three axes cut space into 8 octants (2D had 4 quadrants)." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Locate a point with (x, y, z). Distance from the origin = √(x² + y² + z²). Between two points, take the difference in each coordinate, square, add, and square-root.",
+    "steps": [
+      "Write the point as three coordinates (x, y, z).",
+      "Distance from the origin: square each coordinate, add, take the square root.",
+      "Between two points: subtract matching coordinates, square each difference, add, square-root.",
+      "Remember there are 3 axes and 8 octants.",
+      "Check the answer is positive (a distance is never negative)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find the distance of (2, 3, 6) from the origin.",
+      "steps": ["Square each: 2² + 3² + 6² = 4 + 9 + 36 = 49.", "Take the square root.", "√49 = 7."],
+      "answer": "7"
+    },
+    {
+      "problem": "How many octants does 3D space have?",
+      "steps": ["Three axes each split space in two.", "2 × 2 × 2.", "= 8 octants."],
+      "answer": "8"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "two-coords-3d",
+      "mistake": "Using only two coordinates (x, y) to locate a point in space.",
+      "fix": "Space needs THREE coordinates (x, y, z). Two numbers only fix a point on a flat plane."
+    },
+    {
+      "mistakeTag": "forgot-square-root-3d",
+      "mistake": "Reporting x² + y² + z² as the distance without the square root.",
+      "fix": "Distance = √(x² + y² + z²). For (2,3,6): the sum is 49, but the distance is √49 = 7."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "g26-e1", "type": "number", "q": "How many numbers (coordinates) are needed to fix a point in space?", "answer": "3", "hintLadder": ["Left/right, forward/back, up/down.", "Three directions.", "3."] },
+      { "id": "g26-e2", "type": "number", "q": "How many octants does 3D space have?", "answer": "8", "hintLadder": ["Three axes, each splitting in two.", "2 × 2 × 2.", "8."] }
+    ],
+    "medium": [
+      { "id": "g26-m1", "type": "number", "q": "Distance of (2, 3, 6) from origin = √(4+9+36) = √49 = ?", "answer": "7", "hintLadder": ["Sum is 49.", "√49.", "7."] },
+      { "id": "g26-m2", "type": "number", "q": "Distance of (1, 2, 2) from origin = √(1+4+4) = √9 = ?", "answer": "3", "hintLadder": ["Sum is 9.", "√9.", "3."] }
+    ],
+    "challenge": [
+      { "id": "g26-c1", "type": "number", "q": "Distance of (6, 6, 7) from origin = √(36+36+49) = √121 = ?", "answer": "11", "hintLadder": ["Sum is 121.", "√121.", "11."] },
+      { "id": "g26-c2", "type": "mcq", "q": "To locate a drone in the air, Ravi uses only (x, y). What's the fix?", "options": [ { "label": "Add height z → use (x, y, z)" }, { "label": "(x, y) is enough", "mistakeTag": "two-coords-3d" } ], "answer": "Add height z → use (x, y, z)", "hintLadder": ["The drone is up in the air.", "Height is a third number.", "(x, y, z)."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "g26-x1", "type": "number", "q": "Coordinates needed for a point in space?", "answer": "3", "hintLadder": ["Three directions.", "x, y, z.", "3."] },
+      { "id": "g26-x2", "type": "number", "q": "Octants in 3D space?", "answer": "8", "hintLadder": ["2 × 2 × 2.", "Eight.", "8."] },
+      { "id": "g26-x3", "type": "number", "q": "Distance of (2, 3, 6) from origin?", "answer": "7", "hintLadder": ["4+9+36 = 49.", "√49.", "7."] },
+      { "id": "g26-x4", "type": "mcq", "q": "The 3D distance from the origin is…", "options": [ { "label": "√(x² + y² + z²)" }, { "label": "x² + y² + z²", "mistakeTag": "forgot-square-root-3d" } ], "answer": "√(x² + y² + z²)", "hintLadder": ["Pythagoras uses a square root.", "Root of the sum of squares.", "√(x²+y²+z²)."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Use a corner of a room as the origin for a grown-up and give a point three numbers (along two walls and up). Show the straight-line distance is √(x²+y²+z²), e.g. (2,3,6) → √49 = 7.",
+  "revisionCard": {
+    "summary": "Space needs 3 coordinates (x, y, z). Three axes meet at the origin and make 8 octants. Distance from origin = √(x²+y²+z²) (Pythagoras in 3D). Between two points: square the differences of all three coordinates, add, square-root. Always take the root; a distance is positive.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 11 (Introduction to 3D Geometry)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

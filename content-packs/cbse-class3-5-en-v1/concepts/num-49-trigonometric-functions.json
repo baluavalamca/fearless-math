@@ -1,0 +1,119 @@
+{
+  "id": "num-49-trigonometric-functions",
+  "name": "Trigonometric Functions — Angles, Radians and the Unit Circle",
+  "grade": 10,
+  "strand": "geometry",
+  "prerequisites": ["geo-17-trigonometry", "num-43-relations-functions"],
+  "whatIsIt": "In Class 11, trigonometry grows up: angles are measured not just in DEGREES but in RADIANS (π radians = 180°), and sine, cosine and tangent become FUNCTIONS defined for every angle using the UNIT CIRCLE (a circle of radius 1). A point on the unit circle at angle θ has coordinates (cos θ, sin θ). Key identity: sin²θ + cos²θ = 1.",
+  "whyNeeded": "Radians and the unit circle unlock waves, circular motion, oscillations, and all of calculus with trig. Physics, engineering, music and signal processing describe repeating things with these functions.",
+  "realLifeUses": [
+    "Describing sound and light waves",
+    "Circular motion — a wheel or a planet's orbit",
+    "Alternating current in electricity",
+    "Modelling tides and seasons that repeat"
+  ],
+  "vocabulary": [
+    { "term": "radian", "meaning": "An angle measure where π radians = 180° (a full circle is 2π radians)." },
+    { "term": "unit circle", "meaning": "A circle of radius 1 centred at the origin; a point at angle θ is (cos θ, sin θ)." },
+    { "term": "identity sin²θ + cos²θ = 1", "meaning": "Always true — it comes from the circle's radius being 1 (Pythagoras)." },
+    { "term": "periodic", "meaning": "Repeats every 360° (2π): sin and cos come back to the same value." }
+  ],
+  "story": {
+    "title": "The Ferris Wheel Angle",
+    "characters": ["Aditya", "Guide"],
+    "text": "On a Ferris wheel, Aditya asks how high his seat is at the top-side. The guide says the seat's height follows the sine of the turning angle. 'Half a turn is 180°, or π radians,' she explains. At 90° (a quarter turn, π/2 radians) the seat is at its highest, and sin 90° = 1. 'The wheel keeps repeating every full turn — that's why sine is called periodic.'",
+    "extractedProblem": "Half a turn is 180°. How many radians is that?",
+    "answerInStory": "π radians — because π radians = 180° by definition."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "circle", "label": "unit circle: point at angle θ is (cos θ, sin θ)" }
+      ]
+    },
+    "caption": "On the unit circle (radius 1), the angle θ gives a point (cos θ, sin θ). Because the radius is 1, sin²θ + cos²θ = 1."
+  },
+  "teachingGallery": [
+    {
+      "title": "Degrees and radians",
+      "note": "π radians = 180°. Multiply degrees by π/180 to get radians.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "sin θ = opp/hyp, cos θ = adj/hyp" } ] }, "caption": "In a right triangle sin θ and cos θ are ratios; on the unit circle they are coordinates." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "circle", "label": "90° = π/2, 180° = π, 360° = 2π" } ] }, "caption": "A full circle is 360° = 2π radians; a quarter is 90° = π/2." },
+        { "component": "NumberLine", "props": { "lines": [ { "parts": 4, "mark": 2, "label": "sin repeats every 360°" } ] }, "caption": "Sine is periodic — it repeats its values every full turn." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Convert between degrees and radians with π = 180°. Use the unit circle: (cos θ, sin θ). Use sin²θ + cos²θ = 1 and known values (sin 30° = 1/2, etc.).",
+    "steps": [
+      "Degrees → radians: multiply by π/180. Radians → degrees: multiply by 180/π.",
+      "On the unit circle, the point at angle θ is (cos θ, sin θ).",
+      "Use standard values: sin 0° = 0, sin 30° = 1/2, sin 45° = 1/√2, sin 90° = 1 (cos is the mirror).",
+      "Apply the identity sin²θ + cos²θ = 1 to find one ratio from the other.",
+      "Remember the functions repeat every 360° (2π)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "How many degrees is π radians?",
+      "steps": ["By definition π radians = 180°.", "So π radians is exactly half a circle.", "= 180°."],
+      "answer": "180"
+    },
+    {
+      "problem": "What is sin 90°?",
+      "steps": ["At 90° the unit-circle point is (0, 1).", "sin is the y-coordinate.", "sin 90° = 1."],
+      "answer": "1"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "degree-radian-mixup",
+      "mistake": "Treating an angle in radians as if it were degrees (or vice versa).",
+      "fix": "π radians = 180°. Always convert first: to go from degrees to radians multiply by π/180."
+    },
+    {
+      "mistakeTag": "identity-plus-not-square",
+      "mistake": "Writing sin θ + cos θ = 1 instead of sin²θ + cos²θ = 1.",
+      "fix": "The identity uses SQUARES: sin²θ + cos²θ = 1 (from the radius-1 circle and Pythagoras)."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "n49-e1", "type": "number", "q": "How many degrees are in a full circle?", "answer": "360", "hintLadder": ["All the way around.", "Four right angles.", "360."] },
+      { "id": "n49-e2", "type": "number", "q": "π radians equals how many degrees?", "answer": "180", "hintLadder": ["Half a circle.", "π rad = 180°.", "180."] }
+    ],
+    "medium": [
+      { "id": "n49-m1", "type": "number", "q": "What is sin 90°?", "answer": "1", "hintLadder": ["Unit-circle point at 90° is (0,1).", "sin is the y-value.", "1."] },
+      { "id": "n49-m2", "type": "fraction", "q": "What is sin 30°? (write like 1/2)", "answer": "1/2", "hintLadder": ["A standard value.", "Half.", "1/2."] }
+    ],
+    "challenge": [
+      { "id": "n49-c1", "type": "number", "q": "2π radians is how many degrees?", "answer": "360", "hintLadder": ["π rad = 180°.", "Double it.", "360."] },
+      { "id": "n49-c2", "type": "mcq", "q": "Which is the correct identity?", "options": [ { "label": "sin²θ + cos²θ = 1" }, { "label": "sin θ + cos θ = 1", "mistakeTag": "identity-plus-not-square" } ], "answer": "sin²θ + cos²θ = 1", "hintLadder": ["It uses squares.", "From radius 1 and Pythagoras.", "sin²θ + cos²θ = 1."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "n49-x1", "type": "number", "q": "π radians = ? degrees", "answer": "180", "hintLadder": ["Half a circle.", "Definition.", "180."] },
+      { "id": "n49-x2", "type": "number", "q": "cos 0° = ?", "answer": "1", "hintLadder": ["Unit-circle point at 0° is (1,0).", "cos is the x-value.", "1."] },
+      { "id": "n49-x3", "type": "number", "q": "A full circle is how many radians in terms of π? Write the number multiplying π (2π → 2).", "answer": "2", "hintLadder": ["Full circle = 2π.", "The number in front of π.", "2."] },
+      { "id": "n49-x4", "type": "mcq", "q": "On the unit circle, the point at angle θ is…", "options": [ { "label": "(cos θ, sin θ)" }, { "label": "(sin θ, cos θ)", "mistakeTag": "degree-radian-mixup" } ], "answer": "(cos θ, sin θ)", "hintLadder": ["x-coordinate first.", "x = cos θ, y = sin θ.", "(cos θ, sin θ)."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw a unit circle for a grown-up and show that the point at angle θ is (cos θ, sin θ). Explain that π radians = 180°, that sin 90° = 1, and why sin²θ + cos²θ = 1.",
+  "revisionCard": {
+    "summary": "Radians: π rad = 180°, full circle = 2π (360°). Unit circle point at θ = (cos θ, sin θ). Identity sin²θ + cos²θ = 1 (squares!). Standard values: sin 30° = 1/2, sin 45° = 1/√2, sin 90° = 1. sin and cos repeat every 360° — they are periodic.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 11 (Trigonometric Functions)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

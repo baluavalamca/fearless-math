@@ -1,0 +1,124 @@
+{
+  "id": "data-09-statistics-dispersion",
+  "name": "Spread of Data — Range, Variance and Standard Deviation",
+  "grade": 10,
+  "strand": "data",
+  "prerequisites": ["data-08-grouped-statistics", "num-27-squares-roots"],
+  "whatIsIt": "An average tells you the CENTRE of data, but not how SPREAD OUT it is. Measures of spread (dispersion) fix that. RANGE = highest − lowest. VARIANCE = the average of the squared distances from the mean. STANDARD DEVIATION (SD) = √variance — it says, on average, how far the values sit from the mean, in the original units.",
+  "whyNeeded": "Two classes can have the same average mark but very different consistency. Spread measures tell you about reliability and risk — used in exam analysis, quality control, weather, and finance (a 'risky' investment has high SD).",
+  "realLifeUses": [
+    "Comparing how consistent two students' marks are",
+    "Quality control: are the parts all close to the target size?",
+    "Weather: how much daily temperature varies",
+    "Finance: a high standard deviation means a riskier, more volatile return"
+  ],
+  "vocabulary": [
+    { "term": "range", "meaning": "The simplest spread: highest value − lowest value." },
+    { "term": "variance", "meaning": "The average of the squared distances of values from the mean." },
+    { "term": "standard deviation (SD)", "meaning": "√variance — the typical distance of values from the mean, in original units." },
+    { "term": "deviation", "meaning": "How far one value is from the mean (value − mean)." }
+  ],
+  "story": {
+    "title": "Two Steady Batsmen",
+    "characters": ["Imran", "Coach"],
+    "text": "Two players both AVERAGE 5 runs, but one scores 4,5,5,6 and the other 0,2,8,10. 'Same average — are they the same?' Coach asks. Imran finds the spread. For 2,4,4,4,5,5,7,9 (mean 5) the squared deviations add to 32; variance = 32 ÷ 8 = 4, and SD = √4 = 2. 'A small SD means steady; a big SD means up-and-down,' Coach explains.",
+    "extractedProblem": "A data set has mean 5 and squared deviations adding to 32 over 8 values. Find the variance and SD.",
+    "answerInStory": "Variance 4 and SD 2 — variance = 32 ÷ 8 = 4, and SD = √4 = 2."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": {
+      "categories": [
+        { "label": "2", "value": 2 },
+        { "label": "4", "value": 4 },
+        { "label": "5", "value": 5 },
+        { "label": "7", "value": 7 },
+        { "label": "9", "value": 9 }
+      ],
+      "unit": "runs"
+    },
+    "caption": "The mean is the balance point; spread measures how far the bars stray from it. Range = 9 − 2 = 7; this data's SD is 2."
+  },
+  "teachingGallery": [
+    {
+      "title": "From deviations to SD",
+      "note": "Deviation → square it → average (variance) → square-root (SD).",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [ { "label": "low", "value": 4 }, { "label": "mean", "value": 5 }, { "label": "high", "value": 6 } ], "unit": "" }, "caption": "Tightly packed data (4,5,6) has a small spread." },
+        { "component": "BarChart", "props": { "categories": [ { "label": "low", "value": 0 }, { "label": "mean", "value": 5 }, { "label": "high", "value": 10 } ], "unit": "" }, "caption": "Widely scattered data (0,5,10) has a big spread — a larger SD." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "variance → SD", "parts": [ { "value": 4 } ], "showTotal": false } ] }, "caption": "SD = √variance: variance 4 → SD 2." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Range = max − min. For variance: find the mean, subtract it from each value (deviation), square each, average them. Standard deviation = √variance.",
+    "steps": [
+      "Range: subtract the smallest value from the largest.",
+      "Find the mean of the data.",
+      "For each value, find (value − mean) and SQUARE it.",
+      "Variance = average of those squared deviations.",
+      "Standard deviation = √variance."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find the range of 4, 9, 2, 7.",
+      "steps": ["Largest is 9, smallest is 2.", "Range = 9 − 2.", "= 7."],
+      "answer": "7"
+    },
+    {
+      "problem": "A data set has variance 9. Find its standard deviation.",
+      "steps": ["SD = √variance.", "= √9.", "= 3."],
+      "answer": "3"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "sd-is-variance",
+      "mistake": "Reporting the variance as the standard deviation (forgetting the square root).",
+      "fix": "SD = √variance. If the variance is 9, the SD is √9 = 3, not 9."
+    },
+    {
+      "mistakeTag": "range-added",
+      "mistake": "Adding the largest and smallest instead of subtracting for the range.",
+      "fix": "Range = largest − smallest (a subtraction). For 2 and 9 it is 9 − 2 = 7."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "d09-e1", "type": "number", "q": "Range of 4, 9, 2, 7?", "answer": "7", "hintLadder": ["Largest 9, smallest 2.", "9 − 2.", "7."] },
+      { "id": "d09-e2", "type": "number", "q": "Standard deviation when the variance is 16?", "answer": "4", "hintLadder": ["SD = √variance.", "√16.", "4."] }
+    ],
+    "medium": [
+      { "id": "d09-m1", "type": "number", "q": "Squared deviations add to 32 over 8 values. Variance = 32 ÷ 8 = ?", "answer": "4", "hintLadder": ["Variance = sum ÷ n.", "32 ÷ 8.", "4."] },
+      { "id": "d09-m2", "type": "number", "q": "If the variance is 4, the standard deviation is √4 = ?", "answer": "2", "hintLadder": ["SD = √variance.", "√4.", "2."] }
+    ],
+    "challenge": [
+      { "id": "d09-c1", "type": "number", "q": "Range of the marks 12, 5, 20, 8, 15?", "answer": "15", "hintLadder": ["Largest 20, smallest 5.", "20 − 5.", "15."] },
+      { "id": "d09-c2", "type": "mcq", "q": "A set has variance 25. Meena says the SD is 25. What's the fix?", "options": [ { "label": "SD = √25 = 5" }, { "label": "SD is 25", "mistakeTag": "sd-is-variance" } ], "answer": "SD = √25 = 5", "hintLadder": ["SD is the square root of variance.", "√25.", "5."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "d09-x1", "type": "number", "q": "Range of 3, 11, 7, 2?", "answer": "9", "hintLadder": ["Largest 11, smallest 2.", "11 − 2.", "9."] },
+      { "id": "d09-x2", "type": "number", "q": "SD when variance = 36?", "answer": "6", "hintLadder": ["√variance.", "√36.", "6."] },
+      { "id": "d09-x3", "type": "number", "q": "Squared deviations sum to 50 over 2 values. Variance?", "answer": "25", "hintLadder": ["50 ÷ 2.", "Sum ÷ n.", "25."] },
+      { "id": "d09-x4", "type": "mcq", "q": "Standard deviation is…", "options": [ { "label": "The square root of the variance" }, { "label": "The same as the variance", "mistakeTag": "sd-is-variance" } ], "answer": "The square root of the variance", "hintLadder": ["Undo the squaring.", "Take a root.", "√variance."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Give a grown-up two sets of scores with the same average but different spread (like 4,5,5,6 vs 0,2,8,10). Show that range = max − min, and explain that SD = √variance measures the typical distance from the mean.",
+  "revisionCard": {
+    "summary": "Spread measures how scattered data is. Range = max − min. Variance = average of the SQUARED deviations from the mean. Standard deviation = √variance (back in original units). Small SD = consistent; large SD = scattered/risky. Don't forget the square root: SD, not variance.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 11 (Statistics — measures of dispersion)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

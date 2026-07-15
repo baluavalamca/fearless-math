@@ -1,0 +1,119 @@
+{
+  "id": "data-10-probability-axiomatic",
+  "name": "Probability — Sample Space, Events and the Addition Rule",
+  "grade": 10,
+  "strand": "data",
+  "prerequisites": ["data-05-probability", "num-37-sets-logic"],
+  "whatIsIt": "The SAMPLE SPACE is the set of ALL possible outcomes of an experiment (rolling a die = {1,2,3,4,5,6}). An EVENT is a subset of those outcomes. For equally likely outcomes, P(event) = favourable ÷ total, always between 0 and 1. Rules: a sure event has P = 1, an impossible one P = 0, the complement P(A′) = 1 − P(A), and the addition rule P(A ∪ B) = P(A) + P(B) − P(A ∩ B).",
+  "whyNeeded": "Probability measures uncertainty precisely — games, weather forecasts, insurance, medical tests, and quality checks all rest on it. The sample-space view and the rules let you handle 'A or B' and 'not A' correctly.",
+  "realLifeUses": [
+    "Weather forecasts (a 30% chance of rain)",
+    "Games of chance — dice, cards, spinners",
+    "Insurance and risk pricing",
+    "Judging the reliability of a medical test"
+  ],
+  "vocabulary": [
+    { "term": "sample space", "meaning": "The set of all possible outcomes of an experiment." },
+    { "term": "event", "meaning": "A chosen subset of the sample space (like 'an even number')." },
+    { "term": "complement P(A′)", "meaning": "The probability that A does NOT happen: P(A′) = 1 − P(A)." },
+    { "term": "addition rule", "meaning": "P(A ∪ B) = P(A) + P(B) − P(A ∩ B) (subtract the overlap once)." }
+  ],
+  "story": {
+    "title": "The Fair Dice Game",
+    "characters": ["Zoya", "Nana"],
+    "text": "Zoya rolls a die. 'What's the chance of an even number?' asks Nana. She lists the sample space {1,2,3,4,5,6} — six outcomes. The evens are {2,4,6} — three favourable. So P(even) = 3 ÷ 6 = 1/2. 'And a number from 1 to 6 is SURE, so P = 1, while a 7 is impossible, P = 0,' Nana adds. 'Probability always sits between 0 and 1.'",
+    "extractedProblem": "Rolling a die, what is the probability of an even number?",
+    "answerInStory": "1/2 — three evens out of six outcomes: 3/6 = 1/2."
+  },
+  "visual": {
+    "component": "PizzaSlices",
+    "props": {
+      "pies": [
+        { "parts": 6, "shaded": 3, "label": "P(even) = 3/6 = 1/2" }
+      ]
+    },
+    "caption": "Six equally likely outcomes; three are even. The shaded fraction 3/6 = 1/2 is the probability of an even number."
+  },
+  "teachingGallery": [
+    {
+      "title": "Favourable over total",
+      "note": "Count the sample space, count the favourable outcomes, divide.",
+      "examples": [
+        { "component": "PizzaSlices", "props": { "pies": [ { "parts": 2, "shaded": 1, "label": "coin: P(head) = 1/2" } ] }, "caption": "A coin has 2 outcomes; P(head) = 1/2." },
+        { "component": "PizzaSlices", "props": { "pies": [ { "parts": 6, "shaded": 2, "label": "P(number > 4) = 2/6 = 1/3" } ] }, "caption": "On a die, {5,6} are > 4: P = 2/6 = 1/3." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "P(A) + P(A′) = 1", "parts": [ { "value": 1 }, { "value": 3 } ], "showTotal": true } ] }, "caption": "An event and its complement fill the whole space: P(A) + P(A′) = 1." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "List the sample space. P(event) = favourable ÷ total (between 0 and 1). Use P(A′) = 1 − P(A) for 'not', and P(A ∪ B) = P(A) + P(B) − P(A ∩ B) for 'or'.",
+    "steps": [
+      "Write the sample space — every equally likely outcome.",
+      "Count the favourable outcomes for your event.",
+      "P(event) = favourable ÷ total (it must be between 0 and 1).",
+      "For 'not A', use P(A′) = 1 − P(A).",
+      "For 'A or B', use P(A) + P(B) − P(A ∩ B) (subtract the overlap once)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "How many outcomes are in the sample space of rolling one die?",
+      "steps": ["List them: 1, 2, 3, 4, 5, 6.", "Count.", "= 6."],
+      "answer": "6"
+    },
+    {
+      "problem": "If P(A) = 1/4, find P(A′) (A does not happen).",
+      "steps": ["P(A′) = 1 − P(A).", "= 1 − 1/4.", "= 3/4."],
+      "answer": "3/4"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "prob-over-one",
+      "mistake": "Getting a probability bigger than 1 (or negative).",
+      "fix": "Probability is always between 0 and 1. If you get more than 1, you counted wrong — favourable can't exceed total."
+    },
+    {
+      "mistakeTag": "forgot-subtract-overlap",
+      "mistake": "Using P(A ∪ B) = P(A) + P(B) and forgetting to subtract the overlap.",
+      "fix": "Subtract the shared part once: P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Only if A and B can't both happen is the overlap 0."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "d10-e1", "type": "number", "q": "How many outcomes are in the sample space of one die?", "answer": "6", "hintLadder": ["List 1 to 6.", "Count them.", "6."] },
+      { "id": "d10-e2", "type": "number", "q": "The probability of a SURE event is?", "answer": "1", "hintLadder": ["It always happens.", "Certain.", "1."] }
+    ],
+    "medium": [
+      { "id": "d10-m1", "type": "fraction", "q": "Probability of an even number on a die = 3/6 = ? (write like 1/2)", "answer": "1/2", "hintLadder": ["Three evens of six.", "3/6 simplifies.", "1/2."] },
+      { "id": "d10-m2", "type": "fraction", "q": "If P(A) = 1/4, then P(A′) = 1 − 1/4 = ?", "answer": "3/4", "hintLadder": ["Complement rule.", "1 − 1/4.", "3/4."] }
+    ],
+    "challenge": [
+      { "id": "d10-c1", "type": "number", "q": "The probability of an IMPOSSIBLE event is?", "answer": "0", "hintLadder": ["It never happens.", "No favourable outcomes.", "0."] },
+      { "id": "d10-c2", "type": "mcq", "q": "For 'A or B', Ravi writes P(A) + P(B) and gets more than 1. What's the fix?", "options": [ { "label": "Subtract the overlap: P(A) + P(B) − P(A ∩ B)" }, { "label": "Probabilities over 1 are fine", "mistakeTag": "prob-over-one" } ], "answer": "Subtract the overlap: P(A) + P(B) − P(A ∩ B)", "hintLadder": ["He double-counted the overlap.", "Subtract P(A ∩ B) once.", "Then it stays ≤ 1."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "d10-x1", "type": "number", "q": "Outcomes in the sample space of one coin?", "answer": "2", "hintLadder": ["Head or tail.", "Two.", "2."] },
+      { "id": "d10-x2", "type": "fraction", "q": "P(head) on a fair coin? (write like 1/2)", "answer": "1/2", "hintLadder": ["One head of two.", "1 out of 2.", "1/2."] },
+      { "id": "d10-x3", "type": "fraction", "q": "If P(A) = 2/5, then P(A′) = ?", "answer": "3/5", "hintLadder": ["1 − 2/5.", "5/5 − 2/5.", "3/5."] },
+      { "id": "d10-x4", "type": "mcq", "q": "A probability must always be…", "options": [ { "label": "Between 0 and 1" }, { "label": "Any number", "mistakeTag": "prob-over-one" } ], "answer": "Between 0 and 1", "hintLadder": ["0 = impossible, 1 = sure.", "Never outside that.", "Between 0 and 1."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Roll a die for a grown-up and list the sample space {1..6}. Show P(even) = 3/6 = 1/2, that a sure event is 1 and an impossible one is 0, and explain P(A′) = 1 − P(A).",
+  "revisionCard": {
+    "summary": "Sample space = all outcomes; event = a subset. P(event) = favourable ÷ total, always between 0 and 1. Sure = 1, impossible = 0. Complement: P(A′) = 1 − P(A). Addition rule: P(A ∪ B) = P(A) + P(B) − P(A ∩ B) (subtract the overlap once).",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 11 (Probability)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}
