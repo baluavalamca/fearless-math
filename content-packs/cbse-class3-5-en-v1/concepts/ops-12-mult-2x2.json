@@ -190,6 +190,39 @@
         "Or 19 × 22 = 20×22 − 22 = 440 − 22 = 418."
       ],
       "example": "25 × 16 = 25 × 4 × 4 = 100 × 4 = 400 — spot the friendly 25×4!"
+    },
+    {
+      "name": "Vedic: near 100 below (Nikhilam)",
+      "whenToUse": "When both numbers are just below 100 (like 97 × 96).",
+      "steps": [
+        "Find each number's deficit from 100: 97 is −3, 96 is −4.",
+        "Cross-subtract for the left part: 97 − 4 = 93 (same as 96 − 3).",
+        "Multiply the deficits for the right part, as two digits: 3 × 4 = 12.",
+        "Join them: 97 × 96 = 9312."
+      ],
+      "example": "98 × 97: 98 − 3 = 95, and 2 × 3 = 06 → 9506."
+    },
+    {
+      "name": "Vedic: near 100 above (Nikhilam)",
+      "whenToUse": "When both numbers are just above 100 (like 103 × 104).",
+      "steps": [
+        "Find each number's excess over 100: 103 is +3, 104 is +4.",
+        "Cross-ADD for the left part: 103 + 4 = 107 (same as 104 + 3).",
+        "Multiply the excesses for the right part, two digits: 3 × 4 = 12.",
+        "Join them: 103 × 104 = 10712."
+      ],
+      "example": "102 × 103: 102 + 3 = 105, and 2 × 3 = 06 → 10506."
+    },
+    {
+      "name": "Vedic: last digits add to 10 (Antyayordasake'pi)",
+      "whenToUse": "When both numbers share the same tens digit and their units add to 10 (like 43 × 47).",
+      "steps": [
+        "Check: same front digit (4 and 4) and units add to 10 (3 + 7 = 10).",
+        "Left part: front × next number up → 4 × 5 = 20.",
+        "Right part: multiply the two units, as two digits → 3 × 7 = 21.",
+        "Join them: 43 × 47 = 2021."
+      ],
+      "example": "62 × 68: 6 × 7 = 42, and 2 × 8 = 16 → 4216."
     }
   ],
   "workedExamples": [

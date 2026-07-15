@@ -173,8 +173,30 @@
         "7×8 = 7×10 − 7×2 = 70 − 14 = 56."
       ],
       "example": "6×7: five 7s (35) plus one more 7 = 42."
+    },
+    {
+      "name": "Vedic: multiplying by 9, 99, 999 (Ekanyunena Purvena)",
+      "whenToUse": "To multiply a number by a same-length string of 9s (like 76 × 99).",
+      "steps": [
+        "Left part: take one less than the number → 76 − 1 = 75.",
+        "Right part: subtract the number from the round base → 100 − 76 = 24.",
+        "Join them: 76 × 99 = 7524.",
+        "Same idea for 999: use 1000 as the base."
+      ],
+      "example": "8 × 9: 8 − 1 = 7, and 10 − 8 = 2 → 72."
     }
   ],
+  "vedicMethod": {
+    "name": "Vedic: multiplying by 11 (add-the-neighbours)",
+    "whenToUse": "To multiply any number by 11 in your head.",
+    "steps": [
+      "Keep the outer digits where they are (for 32: the 3 and the 2).",
+      "Between each pair of neighbours, drop in their SUM (3 + 2 = 5).",
+      "So 32 × 11 = 3 | 5 | 2 = 352.",
+      "If a sum reaches 10 or more, carry the 1 to the left (78 × 11: 7 |15| 8 → 858)."
+    ],
+    "example": "45 × 11: 4 |(4+5)| 5 = 495."
+  },
   "workedExamples": [
     {
       "problem": "Ravi forgot 6 × 8. Build it from a neighbour fact he knows: 5 × 8 = 40.",

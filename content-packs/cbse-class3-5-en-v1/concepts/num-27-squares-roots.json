@@ -158,6 +158,42 @@
     "summary": "Square: n² = n × n (5² = 25). Cube: n³ = n × n × n (2³ = 8). Square root √ undoes squaring (√25 = 5); cube root ∛ undoes cubing (∛8 = 2). Squaring is NOT ×2. Learn perfect squares 1,4,9,16,25,36,49,64,81,100.",
     "reviewAfterDays": [3, 7, 21]
   },
+  "vedicMethod": {
+    "name": "Vedic: squares ending in 5 (Ekadhikena Purvena)",
+    "whenToUse": "To square ANY number that ends in 5 — instantly, in your head.",
+    "steps": [
+      "Look at the digits before the 5 (for 85, that is 8).",
+      "Multiply that by the next number up: 8 × 9 = 72.",
+      "Write 25 on the right of it.",
+      "So 85² = 7225 — no long multiplication needed."
+    ],
+    "example": "75²: 7 × 8 = 56, then append 25 → 5625."
+  },
+  "alternateMethods": [
+    {
+      "name": "Vedic: squaring near a base (Yaavadunam)",
+      "whenToUse": "To square a number close to 100 (like 98 or 103).",
+      "steps": [
+        "Find how far the number is from 100 (deficit or excess): 98 is −2.",
+        "Add that step to the number: 98 + (−2) = 96 — this is the left part.",
+        "Square the step for the right part, as two digits: (−2)² = 04.",
+        "Join them: 98² = 9604. (If the square has 3 digits, carry the hundreds left.)"
+      ],
+      "example": "103²: excess +3 → 103 + 3 = 106, then 3² = 09 → 10609."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Squares ending in 5 (Ekadhikena)",
+    "intro": "Numbers that end in 5 have a magic square: multiply the front by the next number, then stick 25 on the end.",
+    "questions": [
+      { "id": "n27-trick-35", "type": "number", "q": "35² = ?", "answer": "1225", "hintLadder": ["Front is 3.", "3 × 4 = 12, then 25.", "1225."] },
+      { "id": "n27-trick-45", "type": "number", "q": "45² = ?", "answer": "2025", "hintLadder": ["Front is 4.", "4 × 5 = 20, then 25.", "2025."] },
+      { "id": "n27-trick-65", "type": "number", "q": "65² = ?", "answer": "4225", "hintLadder": ["Front is 6.", "6 × 7 = 42, then 25.", "4225."] },
+      { "id": "n27-trick-85", "type": "number", "q": "85² = ?", "answer": "7225", "hintLadder": ["Front is 8.", "8 × 9 = 72, then 25.", "7225."] },
+      { "id": "n27-trick-95", "type": "number", "q": "95² = ?", "answer": "9025", "hintLadder": ["Front is 9.", "9 × 10 = 90, then 25.", "9025."] },
+      { "id": "n27-trick-25", "type": "number", "q": "25² = ?", "answer": "625", "hintLadder": ["Front is 2.", "2 × 3 = 6, then 25.", "625."] }
+    ]
+  },
   "meta": {
     "version": "1.0.0",
     "curriculum": "CBSE/NCERT Class 6-8 (squares, cubes, roots)",
