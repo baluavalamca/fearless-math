@@ -1,0 +1,122 @@
+{
+  "id": "data-08-grouped-statistics",
+  "name": "Statistics of Grouped Data — Mean, Median, Mode",
+  "grade": 9,
+  "strand": "data",
+  "prerequisites": ["data-06-statistics", "data-04-smart-charts"],
+  "whatIsIt": "When data is bundled into class intervals (like marks 0–10, 10–20…), we summarise it with three averages. MEAN (direct method) = Σ(f × x) ÷ Σf, where x is each class's midpoint (class mark) and f its frequency. MEDIAN is the middle value, found using cumulative frequency. MODE is the value (or class) that occurs most often. An OGIVE is the graph of cumulative frequency.",
+  "whyNeeded": "Real datasets — exam marks of a whole class, heights of a village, daily rainfall — are too many to list one by one, so they're grouped. Mean, median and mode each tell a different 'typical' story, and choosing the right one matters for fair conclusions in reports, surveys and science.",
+  "realLifeUses": [
+    "Average marks of a class from a grouped mark sheet",
+    "The most common shoe size a shop should stock (mode)",
+    "The middle income of a town, unaffected by a few very rich people (median)",
+    "Rainfall or temperature summaries over a month"
+  ],
+  "vocabulary": [
+    { "term": "class mark (x)", "meaning": "The midpoint of a class interval: (lower limit + upper limit) ÷ 2." },
+    { "term": "frequency (f)", "meaning": "How many data values fall in a class." },
+    { "term": "cumulative frequency", "meaning": "A running total of frequencies, used to find the median." },
+    { "term": "mode", "meaning": "The value or class that appears most often (the tallest bar)." }
+  ],
+  "story": {
+    "title": "The Class Marks Puzzle",
+    "characters": ["Rohan", "Teacher"],
+    "text": "The teacher groups the class's test marks: 0–10 had 2 students, 10–20 had 3, 20–30 had 5. 'What's the class average?' she asks Rohan. He takes each class's midpoint (5, 15, 25), multiplies by its frequency, adds: 5×2 + 15×3 + 25×5 = 10 + 45 + 125 = 180. There are 2 + 3 + 5 = 10 students, so the mean is 180 ÷ 10 = 18. 'The average mark is 18,' Rohan announces.",
+    "extractedProblem": "Classes 0–10, 10–20, 20–30 with frequencies 2, 3, 5. Find the mean using class marks 5, 15, 25.",
+    "answerInStory": "18 — Σfx = 180 and Σf = 10, so mean = 180 ÷ 10 = 18."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": {
+      "bars": [
+        { "label": "0-10", "value": 2 },
+        { "label": "10-20", "value": 3 },
+        { "label": "20-30", "value": 5 }
+      ],
+      "label": "frequency of each class — the tallest bar's class is the modal class"
+    },
+    "caption": "Grouped data as a bar chart: the tallest bar (20–30) is the modal class; midpoints × frequencies give the mean."
+  },
+  "teachingGallery": [
+    {
+      "title": "Midpoints, running totals",
+      "note": "Mean uses class marks × frequency; median uses the cumulative (running) total.",
+      "examples": [
+        { "component": "BarChart", "props": { "bars": [ { "label": "5", "value": 2 }, { "label": "15", "value": 3 }, { "label": "25", "value": 5 } ], "label": "class marks 5, 15, 25" }, "caption": "Class mark = midpoint of the interval; here 5, 15, 25." },
+        { "component": "BarChart", "props": { "bars": [ { "label": "cf 2", "value": 2 }, { "label": "cf 5", "value": 5 }, { "label": "cf 10", "value": 10 } ], "label": "cumulative frequency climbs to Σf" }, "caption": "Cumulative frequency: 2, then 2+3=5, then 5+5=10 — used for the median." },
+        { "component": "BarChart", "props": { "bars": [ { "label": "size 6", "value": 3 }, { "label": "size 7", "value": 7 }, { "label": "size 8", "value": 4 } ], "label": "tallest bar = mode" }, "caption": "The mode is the tallest bar — here shoe size 7." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Mean = Σ(f × class mark) ÷ Σf. Build cumulative frequencies to locate the median (the value at position Σf÷2). Mode is the class/value with the highest frequency.",
+    "steps": [
+      "Find each class mark x = (lower + upper) ÷ 2.",
+      "Multiply each class mark by its frequency, add them: Σfx.",
+      "Divide by the total frequency Σf to get the mean.",
+      "For the median, make a running total (cumulative frequency) and find where it passes Σf ÷ 2.",
+      "For the mode, pick the class with the largest frequency (tallest bar)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Classes 0–10, 10–20, 20–30 with frequencies 2, 3, 5. Find the mean.",
+      "steps": ["Class marks: 5, 15, 25.", "Σfx = 5×2 + 15×3 + 25×5 = 10 + 45 + 125 = 180.", "Σf = 10, so mean = 180 ÷ 10 = 18."],
+      "answer": "18"
+    },
+    {
+      "problem": "Frequencies 2, 3, 5 in three classes. Write the cumulative frequency of the last class.",
+      "steps": ["Running total: first 2, then 2 + 3 = 5.", "Then 5 + 5 = 10.", "Last cumulative frequency = 10 = total."],
+      "answer": "10"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "used-limit-not-midpoint",
+      "mistake": "Using a class limit (like 10 or 20) instead of the class MARK (midpoint) for the mean.",
+      "fix": "Use the MIDPOINT: class mark = (lower + upper) ÷ 2. For 10–20 that is 15, not 10 or 20."
+    },
+    {
+      "mistakeTag": "forgot-divide-by-sum-f",
+      "mistake": "Reporting Σfx as the mean without dividing by the total frequency.",
+      "fix": "Mean = Σfx ÷ Σf. Always divide the total by how many values there are."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "d08-e1", "type": "number", "q": "The class mark (midpoint) of the interval 10–20 is?", "answer": "15", "hintLadder": ["(lower + upper) ÷ 2.", "(10 + 20) ÷ 2.", "15."] },
+      { "id": "d08-e2", "type": "number", "q": "Total frequency Σf for frequencies 2, 3, 5?", "answer": "10", "hintLadder": ["Add them.", "2 + 3 + 5.", "10."] }
+    ],
+    "medium": [
+      { "id": "d08-m1", "type": "number", "q": "Σfx = 180 and Σf = 10. What is the mean?", "answer": "18", "hintLadder": ["Mean = Σfx ÷ Σf.", "180 ÷ 10.", "18."] },
+      { "id": "d08-m2", "type": "number", "q": "Frequencies 4, 6, 5. The cumulative frequency after the second class is?", "answer": "10", "hintLadder": ["Running total: 4, then 4 + 6.", "4 + 6.", "10."] }
+    ],
+    "challenge": [
+      { "id": "d08-c1", "type": "number", "q": "Class marks 5, 15, 25 with frequencies 2, 2, 6. Mean = (10 + 30 + 150) ÷ 10 = ?", "answer": "19", "hintLadder": ["Σfx = 10 + 30 + 150 = 190.", "Σf = 10.", "190 ÷ 10 = 19."] },
+      { "id": "d08-c2", "type": "mcq", "q": "For the mean of class 20–30, Sara uses x = 20. What's the fix?", "options": [ { "label": "Use the midpoint 25, not the limit 20" }, { "label": "20 is fine", "mistakeTag": "used-limit-not-midpoint" } ], "answer": "Use the midpoint 25, not the limit 20", "hintLadder": ["The class mark is the middle.", "(20 + 30) ÷ 2.", "25."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "d08-x1", "type": "number", "q": "Class mark of the interval 30–40?", "answer": "35", "hintLadder": ["(30 + 40) ÷ 2.", "70 ÷ 2.", "35."] },
+      { "id": "d08-x2", "type": "number", "q": "Σfx = 240, Σf = 12. Mean?", "answer": "20", "hintLadder": ["Mean = Σfx ÷ Σf.", "240 ÷ 12.", "20."] },
+      { "id": "d08-x3", "type": "number", "q": "Frequencies 3, 5, 2. Cumulative frequency of the last class (the total)?", "answer": "10", "hintLadder": ["3, then 3+5=8, then 8+2.", "8 + 2.", "10."] },
+      { "id": "d08-x4", "type": "mcq", "q": "The mode of grouped data is…", "options": [ { "label": "The class with the highest frequency (tallest bar)" }, { "label": "The Σfx total", "mistakeTag": "forgot-divide-by-sum-f" } ], "answer": "The class with the highest frequency (tallest bar)", "hintLadder": ["Mode = most common.", "Tallest bar.", "The highest-frequency class."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Show a grown-up a small grouped table (like test marks in 0–10, 10–20, 20–30) and find the mean using class MIDPOINTS × frequencies ÷ total. Explain how a running cumulative total finds the median and how the tallest bar is the mode.",
+  "revisionCard": {
+    "summary": "Grouped data: class mark x = (lower + upper) ÷ 2. Mean = Σ(f·x) ÷ Σf. Median: use cumulative (running) frequency to find the middle at Σf ÷ 2. Mode = class with the highest frequency. An ogive graphs cumulative frequency. Use midpoints, and always divide by Σf.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 10 (Statistics — grouped data)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

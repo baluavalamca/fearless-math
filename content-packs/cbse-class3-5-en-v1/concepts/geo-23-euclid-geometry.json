@@ -1,0 +1,118 @@
+{
+  "id": "geo-23-euclid-geometry",
+  "name": "Euclid's Geometry — Axioms and Postulates",
+  "grade": 8,
+  "strand": "geometry",
+  "prerequisites": ["geo-09-lines-angles"],
+  "whatIsIt": "Over 2000 years ago Euclid built all of geometry from a few simple, agreed-upon truths. AXIOMS are common truths used everywhere (like 'things equal to the same thing are equal to one another'). POSTULATES are the geometry-only starting rules (like 'a straight line can be drawn joining any two points'). From these, every other result is PROVED step by step as a theorem.",
+  "whyNeeded": "This is where mathematics becomes a chain of reasons, not just facts to memorise. Understanding axioms and proof is the foundation for all of high-school geometry and for logical thinking in science, law and computing — you learn to justify every claim.",
+  "realLifeUses": [
+    "Understanding why a proof is watertight, not just the answer",
+    "Logical reasoning used in debating, coding and law",
+    "Knowing a point, line and plane are ideal building blocks in design software",
+    "Seeing how big results are built from small agreed truths"
+  ],
+  "vocabulary": [
+    { "term": "axiom", "meaning": "A self-evident truth assumed without proof, used across all of mathematics (e.g. the whole is greater than a part)." },
+    { "term": "postulate", "meaning": "A basic assumption specific to geometry (e.g. two points determine a unique line)." },
+    { "term": "theorem", "meaning": "A statement PROVED true using axioms, postulates and earlier theorems." },
+    { "term": "point / line", "meaning": "A point has no length, breadth or thickness; a line has length only and extends endlessly." }
+  ],
+  "story": {
+    "title": "Grandfather's Balance",
+    "characters": ["Ira", "Nanaji"],
+    "text": "Nanaji has two bags that each weigh the same as a 2 kg brick. 'Do the two bags weigh the same as each other?' he asks Ira. 'Of course — they both equal the brick!' Ira says. Nanaji nods: 'That is Euclid's very first axiom — things equal to the same thing are equal to one another. All of geometry is built from tiny obvious truths like this.'",
+    "extractedProblem": "Bag A = 2 kg brick and Bag B = 2 kg brick. What can we say about Bag A and Bag B?",
+    "answerInStory": "They are equal — things equal to the same thing are equal to one another (Euclid's first axiom)."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "line", "label": "two points determine exactly one straight line" }
+      ]
+    },
+    "caption": "Euclid's first postulate: through any two points there is exactly one straight line — a starting truth needing no proof."
+  },
+  "teachingGallery": [
+    {
+      "title": "Truths we start from",
+      "note": "Axioms are general; postulates are about geometry; theorems are proved from them.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "line", "label": "one line through two points" } ] }, "caption": "Postulate: two points fix a unique straight line." },
+        { "component": "BarModel", "props": { "parts": [3, 2], "label": "the whole (5) is greater than a part (3)" }, "caption": "Axiom: the whole is greater than any of its parts." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "line", "label": "parallel lines never meet (5th postulate)" } ] }, "caption": "Euclid's famous 5th postulate leads to the idea of parallel lines." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Tell axioms (general truths) from postulates (geometry rules), and know that theorems are proved from them. Use the axioms to justify equal-adding or equal-subtracting steps.",
+    "steps": [
+      "Recognise an axiom: a truth used across all maths (equals added to equals stay equal; the whole exceeds a part).",
+      "Recognise a postulate: a geometry starting rule (two points → one line; all right angles are equal).",
+      "Understand a theorem must be PROVED from axioms and postulates, not just stated.",
+      "Apply axioms in reasoning: if a = b, then a + c = b + c (adding equals to equals)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "How many straight lines pass through two given distinct points?",
+      "steps": ["Euclid's first postulate covers this.", "Two distinct points fix a line uniquely.", "So exactly 1 line."],
+      "answer": "1"
+    },
+    {
+      "problem": "If AB = PQ and PQ = XY, what can we say about AB and XY? (name the number of the axiom used: Euclid's 1st)",
+      "steps": ["Things equal to the same thing (PQ) are equal to one another.", "So AB = XY.", "This is Euclid's 1st axiom."],
+      "answer": "1"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "axiom-vs-postulate",
+      "mistake": "Mixing up axioms (general truths) with postulates (geometry-specific rules).",
+      "fix": "Axioms apply to all of maths (the whole > a part). Postulates are about geometry (two points make one line)."
+    },
+    {
+      "mistakeTag": "theorem-needs-no-proof",
+      "mistake": "Thinking a theorem can be assumed true like an axiom.",
+      "fix": "A theorem must be PROVED from axioms, postulates and earlier theorems. Only axioms and postulates are assumed without proof."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "g23-e1", "type": "number", "q": "How many straight lines pass through two distinct points?", "answer": "1", "hintLadder": ["Euclid's first postulate.", "Two points fix a line.", "1."] },
+      { "id": "g23-e2", "type": "number", "q": "How many points are needed to fix a unique straight line?", "answer": "2", "hintLadder": ["One point lets many lines through.", "You need a second.", "2 points."] }
+    ],
+    "medium": [
+      { "id": "g23-m1", "type": "mcq", "q": "'The whole is greater than the part' is an example of a…", "options": [ { "label": "Axiom (a general truth)" }, { "label": "Postulate (a geometry rule)", "mistakeTag": "axiom-vs-postulate" } ], "answer": "Axiom (a general truth)", "hintLadder": ["Does it apply to all maths or just geometry?", "It's general.", "An axiom."] },
+      { "id": "g23-m2", "type": "mcq", "q": "'A straight line may be drawn from any point to any other point' is a…", "options": [ { "label": "Postulate (specific to geometry)" }, { "label": "Theorem needing proof", "mistakeTag": "theorem-needs-no-proof" } ], "answer": "Postulate (specific to geometry)", "hintLadder": ["It's a starting rule about lines.", "Assumed, not proved.", "A postulate."] }
+    ],
+    "challenge": [
+      { "id": "g23-c1", "type": "number", "q": "If a = b and b = c, then a = c. How many quantities were shown equal to each other in the end (a, b, c)?", "answer": "3", "hintLadder": ["Count the letters made equal.", "a, b and c.", "3."] },
+      { "id": "g23-c2", "type": "mcq", "q": "Ravi says a theorem is true without any proof, just like an axiom. What's the fix?", "options": [ { "label": "A theorem must be PROVED from axioms and postulates" }, { "label": "Theorems need no proof", "mistakeTag": "theorem-needs-no-proof" } ], "answer": "A theorem must be PROVED from axioms and postulates", "hintLadder": ["Only axioms/postulates are assumed.", "Theorems are earned by proof.", "Prove it from the basics."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "g23-x1", "type": "number", "q": "Lines through two distinct points?", "answer": "1", "hintLadder": ["First postulate.", "Exactly one.", "1."] },
+      { "id": "g23-x2", "type": "mcq", "q": "'Things equal to the same thing are equal to one another' is Euclid's…", "options": [ { "label": "First axiom" }, { "label": "A theorem to prove", "mistakeTag": "theorem-needs-no-proof" } ], "answer": "First axiom", "hintLadder": ["It's assumed, general truth.", "Used across maths.", "An axiom."] },
+      { "id": "g23-x3", "type": "mcq", "q": "Which is a POSTULATE (geometry-specific)?", "options": [ { "label": "All right angles are equal to one another" }, { "label": "The whole is greater than the part", "mistakeTag": "axiom-vs-postulate" } ], "answer": "All right angles are equal to one another", "hintLadder": ["Which one is only about geometry?", "Right angles are geometry.", "That's the postulate."] },
+      { "id": "g23-x4", "type": "number", "q": "Minimum points needed to fix a unique line?", "answer": "2", "hintLadder": ["One isn't enough.", "Add one more.", "2."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Tell a grown-up Euclid's first axiom using two bags that each equal the same brick, and explain the difference between an axiom (a general truth we assume), a postulate (a geometry starting rule), and a theorem (something we must prove).",
+  "revisionCard": {
+    "summary": "Euclid built geometry from AXIOMS (general truths: things equal to the same thing are equal; the whole > a part) and POSTULATES (geometry rules: two points → one line; all right angles equal). THEOREMS are proved from these. Only axioms and postulates are assumed without proof.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 9 (Introduction to Euclid's Geometry)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

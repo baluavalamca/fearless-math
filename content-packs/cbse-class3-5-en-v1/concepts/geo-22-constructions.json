@@ -1,0 +1,119 @@
+{
+  "id": "geo-22-constructions",
+  "name": "Constructions — Compass and Straightedge",
+  "grade": 8,
+  "strand": "geometry",
+  "prerequisites": ["geo-09-lines-angles", "geo-10-triangles-quads"],
+  "whatIsIt": "Constructions are exact drawings made with only a compass and a straightedge (ruler with no measuring). Core moves: bisect a line segment (build its perpendicular bisector), bisect an angle, copy an angle, make a 60° angle, and divide a segment into a given ratio by marking equal arcs on a ray. No protractor — the compass does the measuring.",
+  "whyNeeded": "Constructions teach WHY geometry works, not just answers. They are the basis of drafting, engineering drawings, tiling and design, where you must reproduce exact angles and equal divisions without a scale. They also prove that equal lengths and equal angles can be created purely from circles.",
+  "realLifeUses": [
+    "Marking the exact middle of a plank without measuring (perpendicular bisector)",
+    "Splitting a strip of land into a fixed ratio of parts",
+    "Drafting precise 60° and 30° angles in design",
+    "Copying an angle from one drawing to another"
+  ],
+  "vocabulary": [
+    { "term": "perpendicular bisector", "meaning": "A line that cuts a segment into two equal halves at 90°; every point on it is equidistant from the two ends." },
+    { "term": "angle bisector", "meaning": "A ray that splits an angle into two equal angles." },
+    { "term": "straightedge", "meaning": "A ruler used only to draw straight lines — its markings are not used to measure." },
+    { "term": "arc", "meaning": "Part of a circle drawn by the compass; where arcs cross gives exact points." }
+  ],
+  "story": {
+    "title": "The Fair Rope Cut",
+    "characters": ["Zoya", "Master Ji"],
+    "text": "Zoya must cut a 8 cm strip exactly in half, but her ruler's numbers have rubbed off. Master Ji shows her a construction: open the compass wide, draw arcs from each end above and below, join where they cross. That line is the perpendicular bisector — it meets the strip at its exact midpoint, 4 cm from each end. 'The compass measured it for you,' he smiles.",
+    "extractedProblem": "An 8 cm segment is cut by its perpendicular bisector. How far is the midpoint from each end?",
+    "answerInStory": "4 cm — the perpendicular bisector splits 8 cm into two equal halves of 4 cm."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "line", "label": "perpendicular bisector: arcs from each end cross above and below" }
+      ]
+    },
+    "caption": "Arcs of equal radius from both ends cross at two points; the line through them is the perpendicular bisector, meeting the segment at its exact midpoint."
+  },
+  "teachingGallery": [
+    {
+      "title": "Arcs create exact points",
+      "note": "Equal-radius arcs from two centres cross at points that are exactly equidistant — the key to every construction.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "line", "label": "angle bisector splits an angle in two" } ] }, "caption": "One arc across the angle, then two equal arcs, give the bisector." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "60° angle = an equilateral construction" } ] }, "caption": "A compass arc equal to the base makes a perfect 60° angle." },
+        { "component": "BarModel", "props": { "parts": [1, 1, 1, 1, 1], "label": "ratio 2:3 needs 2 + 3 = 5 equal marks" }, "caption": "To divide a segment in ratio 2:3, step off 5 equal arcs on a ray." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Use equal compass arcs to locate exact points, then join with the straightedge. Perpendicular bisector: arcs from both ends. Angle bisector: arc across the angle, then two equal arcs. Ratio division: mark (sum of ratio) equal arcs on a ray.",
+    "steps": [
+      "For a perpendicular bisector: from each end, draw arcs of the SAME radius (more than half the length) above and below; join the two crossings.",
+      "For an angle bisector: draw an arc cutting both arms, then equal arcs from those two points; join the vertex to where they cross.",
+      "For a 60° angle: from the vertex draw an arc; keep the same radius and mark it once along the arc; join — that is 60°.",
+      "To divide a segment in ratio m:n, draw a ray, step off (m + n) equal arcs, and connect the last to the endpoint, then draw parallels.",
+      "Check with the definition: halves equal, or the two new angles equal."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A 10 cm segment gets a perpendicular bisector. Where does it meet the segment?",
+      "steps": ["The perpendicular bisector passes through the midpoint.", "Midpoint of 10 cm is 10 ÷ 2.", "= 5 cm from each end."],
+      "answer": "5"
+    },
+    {
+      "problem": "A 90° angle is bisected. What is each new angle?",
+      "steps": ["Bisecting splits the angle into two equal parts.", "90 ÷ 2.", "= 45° each."],
+      "answer": "45"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "changed-compass-radius",
+      "mistake": "Changing the compass opening between the two arcs of a bisector.",
+      "fix": "The arcs must have the SAME radius. Keep the compass fixed so the crossing points are truly equidistant."
+    },
+    {
+      "mistakeTag": "ratio-wrong-count",
+      "mistake": "Marking m or n arcs instead of (m + n) when dividing a segment in ratio m:n.",
+      "fix": "Step off the SUM of the ratio parts. For 2:3 that is 2 + 3 = 5 equal arcs, then split at the 2nd mark."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "g22-e1", "type": "number", "q": "A perpendicular bisector meets a 6 cm segment at its midpoint. How far is that from each end?", "answer": "3", "hintLadder": ["Midpoint splits it in half.", "6 ÷ 2.", "3 cm."] },
+      { "id": "g22-e2", "type": "number", "q": "Bisecting a 60° angle gives two angles of how many degrees each?", "answer": "30", "hintLadder": ["Bisect = split in two equal.", "60 ÷ 2.", "30°."] }
+    ],
+    "medium": [
+      { "id": "g22-m1", "type": "number", "q": "To divide a segment in the ratio 2:3, how many equal arcs do you step off on the ray?", "answer": "5", "hintLadder": ["Add the ratio parts.", "2 + 3.", "5."] },
+      { "id": "g22-m2", "type": "number", "q": "A perpendicular bisector meets the segment at what angle (degrees)?", "answer": "90", "hintLadder": ["'Perpendicular' means…", "A right angle.", "90°."] }
+    ],
+    "challenge": [
+      { "id": "g22-c1", "type": "number", "q": "To divide a segment in the ratio 3:4, how many equal arcs on the ray?", "answer": "7", "hintLadder": ["Sum the ratio.", "3 + 4.", "7."] },
+      { "id": "g22-c2", "type": "mcq", "q": "Amir changes his compass width between the two bisector arcs. What's the fix?", "options": [ { "label": "Keep the SAME radius for both arcs" }, { "label": "Changing it is fine", "mistakeTag": "changed-compass-radius" } ], "answer": "Keep the SAME radius for both arcs", "hintLadder": ["Equal arcs give equal distances.", "Don't move the compass width.", "Same radius both times."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "g22-x1", "type": "number", "q": "Perpendicular bisector of a 12 cm segment — distance from midpoint to each end?", "answer": "6", "hintLadder": ["Half of 12.", "12 ÷ 2.", "6."] },
+      { "id": "g22-x2", "type": "number", "q": "Bisecting a 90° angle gives each angle as?", "answer": "45", "hintLadder": ["Split 90 in two.", "90 ÷ 2.", "45°."] },
+      { "id": "g22-x3", "type": "number", "q": "Dividing a segment in ratio 5:1 needs how many equal arcs?", "answer": "6", "hintLadder": ["Add the parts.", "5 + 1.", "6."] },
+      { "id": "g22-x4", "type": "mcq", "q": "In a pure construction you may use…", "options": [ { "label": "Only a compass and a straightedge (no protractor)" }, { "label": "A protractor to measure angles", "mistakeTag": "changed-compass-radius" } ], "answer": "Only a compass and a straightedge (no protractor)", "hintLadder": ["Constructions avoid measuring.", "The compass does the measuring.", "Compass + straightedge only."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "With a compass, show a grown-up how equal arcs from both ends of a line cross to give its exact midpoint (the perpendicular bisector), and explain why the two halves must be equal and meet at 90°.",
+  "revisionCard": {
+    "summary": "Constructions use only compass + straightedge. Perpendicular bisector: equal arcs from both ends → midpoint at 90°. Angle bisector: arc across arms then equal arcs → splits the angle in two. 60° angle: one radius stepped along an arc. Ratio m:n: step off (m + n) equal arcs. Never change the radius mid-arc.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 9-10 (Constructions)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

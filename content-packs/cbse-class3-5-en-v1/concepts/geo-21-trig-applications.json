@@ -1,0 +1,119 @@
+{
+  "id": "geo-21-trig-applications",
+  "name": "Applications of Trigonometry — Heights and Distances",
+  "grade": 9,
+  "strand": "geometry",
+  "prerequisites": ["geo-17-trigonometry", "geo-13-pythagoras"],
+  "whatIsIt": "This is trigonometry put to work to measure things you can't reach — a tower's height, a river's width, a kite's height. You look up at an object along a slanting line of sight; the angle above the horizontal is the ANGLE OF ELEVATION. Looking DOWN, the angle below horizontal is the ANGLE OF DEPRESSION. Then a right triangle plus tan, sin or cos gives the missing height or distance.",
+  "whyNeeded": "Surveyors, sailors, pilots and builders constantly need lengths that are impossible to measure directly. A single angle taken with an instrument, plus one known distance, unlocks the answer with tan θ = opposite ÷ adjacent.",
+  "realLifeUses": [
+    "Finding a tower or tree's height from its shadow and the sun's angle",
+    "Measuring the width of a river from one bank",
+    "A pilot judging distance to the runway (angle of depression)",
+    "Working out how high a kite flies from the string angle"
+  ],
+  "vocabulary": [
+    { "term": "angle of elevation", "meaning": "The angle above the horizontal when you look UP at an object." },
+    { "term": "angle of depression", "meaning": "The angle below the horizontal when you look DOWN at an object." },
+    { "term": "line of sight", "meaning": "The straight line from your eye to the object you look at." },
+    { "term": "tan θ", "meaning": "opposite ÷ adjacent — the ratio used most for heights and distances." }
+  ],
+  "story": {
+    "title": "The Temple Tower's Shadow",
+    "characters": ["Kavya", "Thatha"],
+    "text": "At the temple, the tower casts a shadow 20 m long, and the sun is at an angle of elevation of 45°. 'How tall is the tower?' Kavya asks. Thatha draws a right triangle: the tower is the opposite side, the shadow the adjacent. tan 45° = height ÷ 20, and tan 45° = 1, so height = 20 × 1 = 20 m. 'When the sun is at 45°, a thing's shadow equals its height!' Kavya beams.",
+    "extractedProblem": "A tower casts a 20 m shadow when the sun's elevation is 45°. Find the tower's height.",
+    "answerInStory": "20 m — tan 45° = height ÷ 20, and tan 45° = 1, so height = 20."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "triangle", "label": "elevation 45°: height = shadow when tan45 = 1" }
+      ]
+    },
+    "caption": "The tower (opposite), the shadow (adjacent) and the line of sight make a right triangle: tan θ = height ÷ distance."
+  },
+  "teachingGallery": [
+    {
+      "title": "Draw the right triangle first",
+      "note": "Mark the horizontal, the vertical height, and the angle of elevation; then pick tan = opposite/adjacent.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "elevation 45°, base 30 → height 30" } ] }, "caption": "tan 45° = 1, so height = base = 30." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "angle of depression from a cliff" } ] }, "caption": "Looking down, the angle of depression equals the elevation from the boat (alternate angles)." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "tan θ = opposite ÷ adjacent" } ] }, "caption": "Height is opposite the angle; the ground distance is adjacent — that's why tan fits." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Draw a right triangle, label the height (opposite) and ground distance (adjacent), and use tan θ = opposite ÷ adjacent (or sin/cos if the slant side is involved) to find the unknown.",
+    "steps": [
+      "Sketch the situation as a right triangle; mark the angle of elevation or depression.",
+      "Label which side is opposite the angle (usually the height) and which is adjacent (the ground distance).",
+      "Choose the ratio: tan for opposite/adjacent, sin for opposite/hypotenuse, cos for adjacent/hypotenuse.",
+      "Put in the known angle value (tan 45° = 1, tan 60° = √3, tan 30° = 1/√3) and solve.",
+      "Check the answer is sensible (a tower taller than a person, etc.)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A tower casts a 20 m shadow at a 45° angle of elevation. Find its height.",
+      "steps": ["tan 45° = height ÷ 20.", "tan 45° = 1, so 1 = height ÷ 20.", "height = 20 × 1 = 20 m."],
+      "answer": "20"
+    },
+    {
+      "problem": "From the top of a cliff, a boat has an angle of depression of 45°. The cliff is 50 m tall. How far is the boat from the base?",
+      "steps": ["Angle of depression 45° equals the angle of elevation from the boat.", "tan 45° = height ÷ distance = 50 ÷ distance.", "1 = 50 ÷ distance, so distance = 50 m."],
+      "answer": "50"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "swap-elevation-depression",
+      "mistake": "Mixing up elevation (looking up) and depression (looking down).",
+      "fix": "Elevation is measured UP from the horizontal; depression is measured DOWN. They are equal alternate angles, so the triangle is the same."
+    },
+    {
+      "mistakeTag": "wrong-side-for-tan",
+      "mistake": "Putting the height as adjacent instead of opposite the angle.",
+      "fix": "The height is OPPOSITE the angle of elevation; the ground distance is adjacent. tan θ = opposite ÷ adjacent = height ÷ distance."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "g21-e1", "type": "number", "q": "What is the value of tan 45°?", "answer": "1", "hintLadder": ["At 45° the two short sides are equal.", "opposite = adjacent.", "tan 45° = 1."] },
+      { "id": "g21-e2", "type": "number", "q": "The angle you look UP at the top of a tower is called the angle of elevation. Its size when your line of sight is horizontal (straight ahead) is how many degrees?", "answer": "0", "hintLadder": ["Horizontal means not tilted up at all.", "No lift.", "0 degrees."] }
+    ],
+    "medium": [
+      { "id": "g21-m1", "type": "number", "q": "Shadow 15 m, elevation 45°. Height = 15 × tan 45° = 15 × 1 = ?", "answer": "15", "hintLadder": ["tan 45° = 1.", "15 × 1.", "15."] },
+      { "id": "g21-m2", "type": "number", "q": "A 30 m cliff, boat at 45° depression. Distance = 30 ÷ tan 45° = 30 ÷ 1 = ?", "answer": "30", "hintLadder": ["tan 45° = 1.", "30 ÷ 1.", "30."] }
+    ],
+    "challenge": [
+      { "id": "g21-c1", "type": "number", "q": "Elevation 45°, ground distance 100 m to a tower. Height = 100 × tan 45° = ?", "answer": "100", "hintLadder": ["tan 45° = 1.", "100 × 1.", "100."] },
+      { "id": "g21-c2", "type": "mcq", "q": "Ravi labels the tower's height as ADJACENT to the elevation angle. What's the fix?", "options": [ { "label": "The height is OPPOSITE the angle; use tan = height ÷ distance" }, { "label": "Height is adjacent, that's fine", "mistakeTag": "wrong-side-for-tan" } ], "answer": "The height is OPPOSITE the angle; use tan = height ÷ distance", "hintLadder": ["Stand at the ground angle and look up.", "The height rises opposite you.", "tan = opposite ÷ adjacent = height ÷ distance."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "g21-x1", "type": "number", "q": "tan 45° = ?", "answer": "1", "hintLadder": ["Equal opposite and adjacent.", "Their ratio.", "1."] },
+      { "id": "g21-x2", "type": "number", "q": "Shadow 40 m, sun's elevation 45°. Tower height = 40 × tan 45° = ?", "answer": "40", "hintLadder": ["tan 45° = 1.", "40 × 1.", "40."] },
+      { "id": "g21-x3", "type": "number", "q": "A 25 m lighthouse, boat at 45° depression. Distance to boat = 25 ÷ tan 45° = ?", "answer": "25", "hintLadder": ["Depression 45° → tan 45° = 1.", "25 ÷ 1.", "25."] },
+      { "id": "g21-x4", "type": "mcq", "q": "Looking DOWN from a tower at a car, the angle is the angle of…", "options": [ { "label": "Depression" }, { "label": "Elevation", "mistakeTag": "swap-elevation-depression" } ], "answer": "Depression", "hintLadder": ["Down = depressed.", "Up = elevation.", "Looking down → depression."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Stand a pencil upright for a grown-up and shine a torch at 45°; show that its shadow equals its height because tan 45° = 1. Explain angle of elevation (looking up) versus depression (looking down) and how tan θ = height ÷ distance finds a tower's height.",
+  "revisionCard": {
+    "summary": "Angle of elevation = looking up; angle of depression = looking down (they are equal). Draw a right triangle: height is OPPOSITE the angle, ground distance is ADJACENT. Use tan θ = height ÷ distance. Handy: tan 45° = 1, tan 60° = √3, tan 30° = 1/√3.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 10 (Some Applications of Trigonometry)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}
