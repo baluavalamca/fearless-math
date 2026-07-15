@@ -1672,4 +1672,30 @@ body.skin-playful .fm-objemoji { font-size: 74px; }
 .fm-emoji3d { display: inline-block; vertical-align: middle; object-fit: contain; margin-right: 2px;
   filter: drop-shadow(0 1px 2px rgba(0,0,0,0.22)); }
 .fm-world-menu button, .fm-region-title { display: inline-flex; align-items: center; gap: 6px; }
+
+/* ---- FAB order: Math Tools on top, Advanced below it ---- */
+.fm-toolbox-fab { bottom: 78px; }
+.fm-adv-fab { bottom: 18px; }
+
+/* ---- Tap-to-count: objects are little buttons kids can poke to count ---- */
+.fm-objtap { cursor: pointer; background: none; border: none; padding: 6px; border-radius: 16px;
+  transition: transform .12s ease, background .12s ease; }
+.fm-objtap:hover { transform: translateY(-4px) scale(1.04); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.fm-objtap:active { transform: scale(0.93); }
+.fm-objtile.tapped { background: color-mix(in srgb, var(--good) 14%, transparent); }
+.fm-objcount {
+  display: inline-grid; place-items: center; min-width: 26px; height: 26px; padding: 0 6px; margin-top: 2px;
+  font-size: 15px; font-weight: 900; color: var(--on-accent); border-radius: 30%;
+  background: radial-gradient(125% 90% at 28% 8%, rgba(255,255,255,0.6), rgba(255,255,255,0) 55%), var(--grad-brand);
+  box-shadow: 0 6px 12px -4px rgba(0,0,0,0.35), inset 0 2px 3px rgba(255,255,255,0.55);
+  animation: fm-pop 260ms ease;
+}
+.fm-objreset { align-self: center; background: var(--glass); border: 1px solid var(--glass-brd); color: var(--ink);
+  border-radius: 999px; padding: 6px 14px; font-size: 13.5px; font-weight: 700; cursor: pointer; margin-left: 8px; }
+.fm-objreset:hover { border-color: var(--accent); }
+
+/* Lesson footer: Back on the left, Next on the right (thumb-friendly) */
+.fm-lesson-foot { display: flex; align-items: center; gap: 12px; text-align: initial; }
+.fm-foot-spacer { flex: 1; }
+.fm-lesson-foot .fm-secondary:disabled { opacity: 0.4; cursor: not-allowed; }
 .fm-objtile.mark .fm-obj3d { filter: drop-shadow(0 0 7px color-mix(in srgb, var(--accent) 60%, transparent)); }

@@ -9,7 +9,7 @@ import { VisualRenderer, VisualSpec } from "../components/VisualRenderer";
 import { SpeakButton } from "../components/SpeakButton";
 import { Character } from "../components/Characters";
 import { ObjectIcon, hasObjectIcon } from "../components/ObjectIcon";
-import { autoSpeak } from "../speech";
+import { autoSpeak, speak, isAutoRead, randomPraise } from "../speech";
 import { cheer, bigCheer } from "../celebrate";
 
 export function Practice({
@@ -80,12 +80,17 @@ export function Practice({
 
   useEffect(() => {
     if (!verdict || !q) return;
-    if (verdict.correct) cheer();
-    autoSpeak(
-      verdict.correct
-        ? `Wonderful! ${verdict.explain ?? "You got it!"}`
-        : `Let's look again together. ${verdict.mistake ? "Robo Reason says: " + verdict.mistake.fix : q.hintLadder[Math.min(hintsShown, q.hintLadder.length - 1)]}`
-    );
+    if (verdict.correct) {
+      cheer(); // confetti
+      // Always cheer aloud (kids love the encouragement); add the explanation only
+      // when auto-read is on so we don't over-talk.
+      const tail = isAutoRead() && verdict.explain ? " " + verdict.explain : "";
+      speak(randomPraise() + tail, undefined, { style: "praise" });
+    } else {
+      autoSpeak(
+        `Let's look again together. ${verdict.mistake ? "Robo Reason says: " + verdict.mistake.fix : q.hintLadder[Math.min(hintsShown, q.hintLadder.length - 1)]}`
+      );
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [verdict]);
 

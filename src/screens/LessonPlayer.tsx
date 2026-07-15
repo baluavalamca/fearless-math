@@ -345,9 +345,19 @@ export function LessonPlayer({
           )}
 
           <footer className="fm-lesson-foot">
-            <button className="fm-primary" onClick={startPractice}>
-              I'm ready to try! ✏️
-            </button>
+            {(() => {
+              const ci = tabs.findIndex((t) => t.id === tab);
+              return (
+                <>
+                  <button className="fm-secondary" disabled={ci <= 0}
+                    onClick={() => { if (ci > 0) setTab(tabs[ci - 1].id); }}>← Back</button>
+                  <span className="fm-foot-spacer" />
+                  {ci < tabs.length - 1
+                    ? <button className="fm-primary" onClick={() => setTab(tabs[ci + 1].id)}>Next →</button>
+                    : <button className="fm-primary" onClick={startPractice}>I'm ready to try! ✏️</button>}
+                </>
+              );
+            })()}
           </footer>
         </>
       )}

@@ -14,14 +14,26 @@ let chosenVoice: SpeechSynthesisVoice | null = null;
  * slowly and animatedly (like a teacher reading to little ones), while a concept
  * is explained clearly. A warm, higher pitch makes the built-in voice sound
  * friendly to children. */
-export type SpeakStyle = "story" | "concept" | "board";
+export type SpeakStyle = "story" | "concept" | "board" | "praise";
 interface VoicePreset { rate: number; pitch: number; pace: number; temperature: number }
 const PRESETS: Record<SpeakStyle, VoicePreset> = {
   // rate/pitch → browser voice;  pace/temperature → Sarvam bulbul:v3
-  story:   { rate: 0.88, pitch: 1.32, pace: 0.82, temperature: 1.0 },
-  concept: { rate: 0.95, pitch: 1.15, pace: 0.95, temperature: 0.5 },
-  board:   { rate: 0.93, pitch: 1.10, pace: 0.92, temperature: 0.45 },
+  // Slower + a warmer, higher pitch reads friendlier to little ones.
+  story:   { rate: 0.86, pitch: 1.34, pace: 0.82, temperature: 1.0 },
+  concept: { rate: 0.90, pitch: 1.22, pace: 0.94, temperature: 0.5 },
+  board:   { rate: 0.90, pitch: 1.18, pace: 0.92, temperature: 0.45 },
+  praise:  { rate: 0.98, pitch: 1.38, pace: 1.0,  temperature: 1.15 }, // bright + excited
 };
+
+/** Short, varied cheers spoken when a child answers correctly. */
+const PRAISES = [
+  "Wonderful!", "You did it!", "Brilliant work!", "Yes — that's right!", "Superb!",
+  "Well done!", "Amazing!", "You're a maths star!", "Fantastic!", "Great thinking!",
+  "Awesome job!", "Perfect!", "Way to go!", "You nailed it!",
+];
+export function randomPraise(): string {
+  return PRAISES[Math.floor(Math.random() * PRAISES.length)];
+}
 
 /* ---- Sarvam AI voice (optional, warm Indian voice) with browser fallback ---- */
 let sarvamOn = false;
@@ -42,18 +54,27 @@ if (typeof window !== "undefined" && (window as unknown as { fm?: unknown }).fm)
 function pickVoice(): SpeechSynthesisVoice | null {
   const voices = window.speechSynthesis.getVoices();
   if (!voices.length) return null;
-  const en = voices.filter((v) => v.lang?.toLowerCase().startsWith("en"));
-  const pool = en.length ? en : voices;
-  // Prefer warm, friendly, typically-female voices that sound nicer to kids.
-  const warm = /female|zira|heera|swara|kajal|priya|neerja|aria|jenny|samantha|karen|tessa|kids?|child/i;
-  const inIndia = pool.filter((v) => v.lang?.toLowerCase().startsWith("en-in"));
-  return (
-    inIndia.find((v) => warm.test(v.name)) ||
-    pool.find((v) => warm.test(v.name)) ||
-    inIndia[0] ||
-    pool.find((v) => v.lang?.toLowerCase().startsWith("en-gb")) ||
-    pool[0]
-  );
+  // Score every voice; the highest wins. "Natural"/"Neural"/"Online" voices are
+  // a big quality jump over the old robotic default, so we strongly prefer them,
+  // then warm female names, then an Indian → British → US English preference.
+  const warm = /female|zira|heera|swara|kajal|priya|neerja|aria|jenny|samantha|karen|tessa|libby|sonia|mia|ava|emma|clara|nova|salli|joanna|kimberly/i;
+  const robotic = /david|mark|george|guy|ravi|prabhat|male|richard|william|eric/i;
+  const score = (v: SpeechSynthesisVoice): number => {
+    const n = (v.name || "").toLowerCase();
+    const lang = (v.lang || "").toLowerCase();
+    let s = 0;
+    if (!lang.startsWith("en")) s -= 60;
+    if (/natural|neural|online|premium|enhanced/.test(n)) s += 60; // much nicer
+    if (warm.test(n)) s += 22;
+    if (/child|kid/.test(n)) s += 16;
+    if (lang.startsWith("en-in")) s += 14;
+    else if (lang.startsWith("en-gb")) s += 9;
+    else if (lang.startsWith("en-us")) s += 6;
+    if (robotic.test(n)) s -= 18;
+    if (v.localService) s += 3; // works fully offline
+    return s;
+  };
+  return [...voices].sort((a, b) => score(b) - score(a))[0] ?? null;
 }
 
 // Voices load asynchronously in some engines
