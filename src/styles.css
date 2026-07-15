@@ -1693,6 +1693,11 @@ body.skin-playful .fm-objemoji { font-size: 74px; }
 .fm-objreset { align-self: center; background: var(--glass); border: 1px solid var(--glass-brd); color: var(--ink);
   border-radius: 999px; padding: 6px 14px; font-size: 13.5px; font-weight: 700; cursor: pointer; margin-left: 8px; }
 .fm-objreset:hover { border-color: var(--accent); }
+/* Counting-mode toggle: 1 2 3  ↔  A B C (numbers is the default) */
+.fm-objmode { align-self: center; background: color-mix(in srgb, var(--accent) 12%, var(--glass)); border: 1px solid var(--glass-brd);
+  color: var(--ink); border-radius: 999px; padding: 6px 14px; font-size: 13.5px; font-weight: 700; cursor: pointer; margin-left: 8px;
+  transition: border-color .15s ease, background .15s ease; }
+.fm-objmode:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 20%, var(--glass)); }
 
 /* Lesson footer: Back on the left, Next on the right (thumb-friendly) */
 .fm-lesson-foot { display: flex; align-items: center; gap: 12px; text-align: initial; }

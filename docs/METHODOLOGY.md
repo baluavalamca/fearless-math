@@ -50,6 +50,34 @@ Every concept JSON MUST contain:
 | `masteryCheck` | questions + `passThreshold` + `requireTeachBack` |
 | `teachBackPrompt`, `revisionCard` | teach-back = mastery; spaced revision |
 
+### 2.1 How the Contract maps to NEP 2020 / NCERT (the 5E model)
+
+CBSE/NCERT schools are being moved (under NEP 2020 and NCF) from rote learning to a
+**constructivist, competency-based, experiential** style, delivered through the **5E lesson
+model: Engage → Explore → Explain → Elaborate → Evaluate.** The Concept Contract is
+deliberately built to follow that same flow, so every FearlessMath lesson is NEP-aligned by
+construction — not by accident.
+
+| 5E stage | What NEP/NCERT expects | Concept Contract field(s) that deliver it |
+|---|---|---|
+| **Engage** | hook curiosity with a real, relatable context | `story` (an Indian/local story) → `extractedProblem` |
+| **Explore** | concrete-before-abstract, "learning by doing" (CRA) | `visual` hero + `teachingGallery[]` (👀 See it) + tap-to-count objects |
+| **Explain** | teacher makes the idea + vocabulary explicit | `whatIsIt`, `whyNeeded`, `vocabulary[]`, `standardMethod`, `workedExamples[]` |
+| **Elaborate** | apply, extend, connect to life; easy/efficient methods | `realLifeUses[]`, `mentalMathMethod`/`abacusMethod`/`vedicMethod`, `trickPractice`, graded `practice` |
+| **Evaluate** | competency check + reflection + retention | `masteryCheck` (+ `passThreshold`), `teachBackPrompt` (peer-teaching), `commonMistakes[]`, `revisionCard` (spaced revision) |
+
+Notes on alignment:
+- **Constructivist / experiential:** the child meets the idea as a *problem in a story* and a
+  *picture they can touch* before any formula — matching NCF's "learning through doing."
+- **Competency-based:** `masteryCheck` gates on a competency threshold and a **teach-back**, not
+  on marks — the child must be able to *explain* the idea, which is also low-cost **peer teaching**
+  (the technique NEP recommends for India's large classrooms).
+- **Fear-free:** hint ladders (≥3 hints before any answer), a mistake *clinic* instead of a red ✗,
+  and warm spoken praise support the "joyful, engaging" classroom NEP asks for.
+- **What we keep from traditional Indian classrooms on purpose:** plenty of **repeated practice**
+  (≥25 self-verifying questions per level) and **revision**, because those genuinely work — the app
+  bridges the NEP-preferred style and the exam reality most students still face.
+
 ---
 
 ## 3. The "See it" gallery (`teachingGallery`)
