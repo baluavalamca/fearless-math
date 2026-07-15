@@ -78,6 +78,45 @@ const PROVIDERS = {
     keyHint: "openrouter.ai", defaultModel: "openai/gpt-4o-mini",
     models: ["openai/gpt-4o-mini", "anthropic/claude-haiku-4-5", "google/gemini-2.5-flash", "meta-llama/llama-3.3-70b-instruct"],
   },
+  sarvam: {
+    // Indic-focused LLM (built for Indian languages) — a natural fit for this app.
+    // Sarvam authenticates with an "api-subscription-key" header, not Bearer.
+    label: "Sarvam AI (Indic)", kind: "openai", authHeader: "api-subscription-key",
+    url: "https://api.sarvam.ai/v1/chat/completions",
+    keyHint: "dashboard.sarvam.ai", defaultModel: "sarvam-m",
+    models: ["sarvam-m"],
+  },
+  perplexity: {
+    label: "Perplexity (Sonar)", kind: "openai",
+    url: "https://api.perplexity.ai/chat/completions",
+    keyHint: "perplexity.ai/settings/api", defaultModel: "sonar",
+    models: ["sonar", "sonar-pro", "sonar-reasoning-pro", "sonar-deep-research"],
+  },
+  together: {
+    label: "Together AI (open models)", kind: "openai",
+    url: "https://api.together.xyz/v1/chat/completions",
+    keyHint: "api.together.ai", defaultModel: "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    models: ["meta-llama/Llama-3.3-70B-Instruct-Turbo", "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8", "Qwen/Qwen2.5-72B-Instruct-Turbo"],
+  },
+  fireworks: {
+    label: "Fireworks AI", kind: "openai",
+    url: "https://api.fireworks.ai/inference/v1/chat/completions",
+    keyHint: "fireworks.ai", defaultModel: "accounts/fireworks/models/llama-v3p3-70b-instruct",
+    models: ["accounts/fireworks/models/llama-v3p3-70b-instruct", "accounts/fireworks/models/qwen2p5-72b-instruct"],
+  },
+  qwen: {
+    // Alibaba Model Studio (DashScope) OpenAI-compatible international endpoint.
+    label: "Alibaba Qwen", kind: "openai",
+    url: "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions",
+    keyHint: "Alibaba Model Studio (dashscope)", defaultModel: "qwen-plus",
+    models: ["qwen-plus", "qwen-max", "qwen-flash", "qwen3-max"],
+  },
+  moonshot: {
+    label: "Moonshot (Kimi)", kind: "openai",
+    url: "https://api.moonshot.ai/v1/chat/completions",
+    keyHint: "platform.moonshot.ai", defaultModel: "kimi-k2.6",
+    models: ["kimi-k2.6", "moonshot-v1-8k", "moonshot-v1-32k"],
+  },
 };
 
 /** Public metadata for the settings UI (no secrets). */
@@ -286,10 +325,16 @@ async function callProvider(prompt) {
     return (j.content || []).map((b) => b.text || "").join("");
   }
 
-  // OpenAI-compatible /chat/completions (OpenAI, Gemini, Groq, Mistral, DeepSeek, xAI, OpenRouter)
+  // OpenAI-compatible /chat/completions (OpenAI, Gemini, Groq, Mistral, DeepSeek,
+  // xAI, OpenRouter, Sarvam, Perplexity, Together, Fireworks, Qwen, Moonshot).
+  // Most use "Authorization: Bearer"; a provider may set authHeader for a custom
+  // key header (e.g. Sarvam's "api-subscription-key").
+  const headers = { "content-type": "application/json" };
+  if (p.authHeader) headers[p.authHeader] = key;
+  else headers.authorization = `Bearer ${key}`;
   const r = await fetch(p.url, {
     method: "POST",
-    headers: { "content-type": "application/json", authorization: `Bearer ${key}` },
+    headers,
     body: JSON.stringify({
       model, max_tokens: 400, temperature: 0.4,
       messages: [{ role: "user", content: prompt }],

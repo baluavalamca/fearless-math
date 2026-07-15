@@ -8,7 +8,7 @@
  * layer) — see the practice:submit IPC, which accepts an inline question.
  */
 import type { Question } from "./api";
-import type { VisualSpec } from "./components/VisualRenderer";
+import type { VisualSpec } from "./components/visualTypes";
 
 export type Level = "easy" | "medium" | "challenge";
 export type GenQuestion = Omit<Question, "id">;

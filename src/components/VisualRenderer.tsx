@@ -13,12 +13,11 @@ import { PizzaSlices, PieSpec } from "./PizzaSlices";
 import { Abacus, AbacusSpec } from "./Abacus";
 import { ObjectRow, SeqSpec } from "./ObjectRow";
 import { NumberTrack, TrackSpec } from "./NumberTrack";
+import type { VisualSpec } from "./visualTypes";
 
-export interface VisualSpec {
-  component: string;
-  props: Record<string, unknown>;
-  caption?: string;
-}
+// Re-exported so existing importers (`import { VisualSpec } from "./VisualRenderer"`)
+// keep working; the type itself now lives in the React-free visualTypes module.
+export type { VisualSpec };
 
 /** Safety net: a malformed spec (e.g. from an AI-generated lesson) must never
  *  crash a whole lesson — fall back to the caption text instead. */
