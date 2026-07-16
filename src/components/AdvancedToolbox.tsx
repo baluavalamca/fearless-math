@@ -7,6 +7,7 @@
  */
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Emoji3D } from "./ObjectIcon";
+import { Surface3D } from "./Surface3D";
 
 /* ---------- shared helpers ---------- */
 
@@ -1271,47 +1272,15 @@ function evalXY(srcRaw: string, x: number, y: number): number {
 
 function Surface3DTool() {
   const [fxy, setFxy] = useState("x^2 + y^2");
-  const [az, setAz] = useState(45);
-  const ref = useRef<HTMLCanvasElement | null>(null);
   const presets = ["x^2 + y^2", "x^2 - y^2", "sin(x)*cos(y)", "sin(sqrt(x^2+y^2))"];
 
-  useEffect(() => {
-    const cv = ref.current; const ctx = cv?.getContext("2d"); if (!cv || !ctx) return;
-    const W = cv.width, H = cv.height, cx = W / 2, cy = H / 2 + 30;
-    ctx.clearRect(0, 0, W, H);
-    const N = 22, span = 3;
-    const A = (az * Math.PI) / 180, el = (28 * Math.PI) / 180;
-    const cosA = Math.cos(A), sinA = Math.sin(A), cosE = Math.cos(el), sinE = Math.sin(el);
-    // sample grid + track z-range
-    const Z: number[][] = []; let zmin = Infinity, zmax = -Infinity;
-    for (let ix = 0; ix <= N; ix++) {
-      Z[ix] = [];
-      for (let iy = 0; iy <= N; iy++) {
-        const x = -span + (2 * span * ix) / N, y = -span + (2 * span * iy) / N;
-        let z: number; try { z = evalXY(fxy, x, y); } catch { z = NaN; }
-        if (!isFinite(z)) z = NaN;
-        Z[ix][iy] = z;
-        if (isFinite(z)) { zmin = Math.min(zmin, z); zmax = Math.max(zmax, z); }
-      }
-    }
-    const zr = zmax - zmin || 1, scale = 42, zScale = 60 / zr;
-    const proj = (ix: number, iy: number): [number, number, number] | null => {
-      const z = Z[ix][iy]; if (!isFinite(z)) return null;
-      const x = -span + (2 * span * ix) / N, y = -span + (2 * span * iy) / N;
-      const zc = (z - (zmin + zmax) / 2) * zScale / scale * span; // centred height in world units
-      const xr = x * cosA - y * sinA, yr = x * sinA + y * cosA;
-      const yv = yr * cosE - zc * sinE, zv = yr * sinE + zc * cosE;
-      void yv;
-      return [cx + xr * scale, cy - zv * scale, z];
+  // Stable sampler recomputed only when the expression changes, so the 3D mesh
+  // rebuilds on a new formula but not on every render.
+  const sample = useMemo(() => {
+    return (x: number, y: number): number => {
+      try { return evalXY(fxy, x, y); } catch { return NaN; }
     };
-    const colorFor = (z: number) => { const t = (z - zmin) / zr; const r = Math.round(40 + t * 200), b = Math.round(240 - t * 160); return `rgb(${r},${90 + Math.round(t * 60)},${b})`; };
-    ctx.lineWidth = 1;
-    for (let ix = 0; ix < N; ix++) for (let iy = 0; iy < N; iy++) {
-      const p = proj(ix, iy), pr = proj(ix + 1, iy), pd = proj(ix, iy + 1);
-      if (p && pr) { ctx.strokeStyle = colorFor((p[2] + pr[2]) / 2); ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(pr[0], pr[1]); ctx.stroke(); }
-      if (p && pd) { ctx.strokeStyle = colorFor((p[2] + pd[2]) / 2); ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(pd[0], pd[1]); ctx.stroke(); }
-    }
-  }, [fxy, az]);
+  }, [fxy]);
 
   return (
     <div className="fm-adv-pad fm-adv-2col">
@@ -1321,12 +1290,10 @@ function Surface3DTool() {
         <div className="fm-adv-chips">
           {presets.map((p) => <button key={p} className={"fm-adv-chip" + (fxy === p ? " on" : "")} onClick={() => setFxy(p)}>{p}</button>)}
         </div>
-        <div className="fm-adv-row"><label className="fm-adv-lbl">Rotate {az}°</label>
-          <input type="range" min={0} max={360} value={az} onChange={(e) => setAz(+e.target.value)} style={{ flex: 1 }} /></div>
-        <p className="fm-adv-note">Colour = height. Spin to see the shape (bowl, saddle, ripples…).</p>
+        <p className="fm-adv-note">Real 3D — <b>drag to spin</b>, scroll to zoom. Colour = height. Try a bowl (x²+y²), a saddle (x²−y²) or ripples.</p>
       </div>
       <div className="fm-adv-col-right">
-        <canvas ref={ref} width={620} height={500} className="fm-adv-canvas" />
+        <Surface3D sample={sample} />
       </div>
     </div>
   );

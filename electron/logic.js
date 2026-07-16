@@ -48,7 +48,13 @@ function checkAnswer(question, given) {
   }
 
   if (question.type === "number") {
-    const correct = Number(g) === Number(key) && g !== "";
+    if (g === "") return { correct: false, mistakeTag: null, explain: null };
+    const a = Number(g), b = Number(key);
+    if (!Number.isFinite(a) || !Number.isFinite(b))
+      return { correct: false, mistakeTag: null, explain: null };
+    // Exact for integers/clean decimals; a tiny relative epsilon only absorbs
+    // floating-point representation error (e.g. 0.1+0.2) — never accepts a near-miss.
+    const correct = a === b || Math.abs(a - b) <= 1e-9 * Math.max(1, Math.abs(b));
     return { correct, mistakeTag: null, explain: correct ? question.explain || null : null };
   }
 

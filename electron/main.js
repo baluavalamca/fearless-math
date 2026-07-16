@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, net } = require("electron");
+const { app, BrowserWindow, ipcMain, net, shell } = require("electron");
 const path = require("path");
 const fs = require("fs");
 const { createStore } = require("./db");
@@ -257,6 +257,19 @@ function createWindow() {
       sandbox: true,
     },
   });
+  // --- Security hardening: this is a self-contained local app, so never let it
+  // navigate away from its own page or spawn arbitrary windows. Any genuine
+  // external link (e.g. from an AI explanation) opens in the OS browser instead. ---
+  win.webContents.setWindowOpenHandler(({ url }) => {
+    if (/^https?:\/\//i.test(url)) shell.openExternal(url).catch(() => {});
+    return { action: "deny" };
+  });
+  win.webContents.on("will-navigate", (e, url) => {
+    const dev = process.env.ELECTRON_START_URL;
+    const allowed = url.startsWith("file://") || (dev && url.startsWith(dev));
+    if (!allowed) { e.preventDefault(); if (/^https?:\/\//i.test(url)) shell.openExternal(url).catch(() => {}); }
+  });
+
   const devUrl = process.env.ELECTRON_START_URL;
   if (devUrl) win.loadURL(devUrl);
   else win.loadFile(path.join(__dirname, "..", "dist", "index.html"));
