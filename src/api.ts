@@ -38,6 +38,10 @@ export interface Concept {
   masteryCheck: { questions: Question[]; passThreshold: number; requireTeachBack: boolean };
   teachBackPrompt: string;
   revisionCard: { summary: string; reviewAfterDays: number[] };
+  /** Optional "Did you know?" facts shown in the glossary tab (else generated on demand by AI). */
+  funFacts?: string[];
+  /** Optional authored flashcards; if absent, cards are auto-derived from the glossary + revision card. */
+  flashcards?: { front: string; back: string }[];
   gameMission?: { world: string; title: string; brief: string; character?: string };
   realLifeProject?: string;
 }
@@ -95,7 +99,7 @@ interface FmBridge {
   aiStatus(): Promise<AiStatus>;
   aiConfigure(cfg: { enabled?: boolean; provider?: string; apiKey?: string; model?: string }): Promise<AiStatus>;
   aiProviders(): Promise<ProviderInfo[]>;
-  aiExplain(p: { conceptId: string; style: "simpler" | "story" | "real-life" }): Promise<AiExplain>;
+  aiExplain(p: { conceptId: string; style: "simpler" | "story" | "real-life" | "more-examples" | "fun-fact" }): Promise<AiExplain>;
   aiWhyWrong(p: { conceptId: string; questionId: string; answerGiven: string }): Promise<AiWhyWrong>;
   aiCoach(p: { conceptId: string; questionId: string; answerGiven: string; question?: Question }): Promise<AiCoach>;
   mediaStatus(): Promise<MediaStatus>;

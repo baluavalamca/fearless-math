@@ -12,11 +12,13 @@ import { generatePractice, hasPracticeGen } from "../practiceFactory";
 import { autoSpeak, stopSpeaking } from "../speech";
 import { Character } from "../components/Characters";
 import { ConceptImageModal } from "../components/ConceptImageModal";
+import { Flashcards } from "../components/Flashcards";
+import { ConceptInfographic } from "../components/ConceptInfographic";
 import { Practice } from "./Practice";
 
-type Tab = "story" | "picture" | "gallery" | "meaning" | "steps" | "anotherWay" | "examples";
+type Tab = "story" | "picture" | "gallery" | "meaning" | "steps" | "anotherWay" | "examples" | "flashcards" | "infographic";
 
-const STEP_NAME: Record<string, string> = { story: "Story", picture: "Picture", gallery: "See it", meaning: "Meaning", steps: "Steps", anotherWay: "Another way", examples: "Examples" };
+const STEP_NAME: Record<string, string> = { story: "Story", picture: "Picture", gallery: "See it", meaning: "Meaning", steps: "Steps", anotherWay: "Another way", examples: "Examples", flashcards: "Cards", infographic: "Poster" };
 type UIMethod = { kind: string; name: string; whenToUse: string; steps: string[]; example: string; visual?: unknown };
 /** Gather every taught method into one ordered, labeled list — the Methodology Engine. */
 function collectMethods(c: Concept): UIMethod[] {
@@ -49,7 +51,7 @@ export function LessonPlayer({
 
   useEffect(() => { api.aiStatus().then(setAi).catch(() => setAi(null)); }, []);
 
-  async function askAi(style: "simpler" | "story" | "real-life") {
+  async function askAi(style: "simpler" | "story" | "real-life" | "more-examples" | "fun-fact") {
     setAiBusy(true);
     setAiText(null);
     const r = await api.aiExplain({ conceptId: concept.id, style });
@@ -89,6 +91,10 @@ export function LessonPlayer({
         const extra = gen ? ` Fresh example: ${gen.problem} ${gen.steps.join(" ")} Answer: ${gen.answer}.` : "";
         return authored + extra;
       }
+      case "flashcards":
+        return "Flashcards. Flip each card, then rate yourself: got it, or review.";
+      case "infographic":
+        return `${concept.name} — one-page summary. ${concept.revisionCard.summary}`;
     }
   }
 
@@ -102,6 +108,9 @@ export function LessonPlayer({
     t.push({ id: "steps", label: "🪜 Steps" });
     if (methods.length) t.push({ id: "anotherWay", label: "🔀 Another Way" });
     t.push({ id: "examples", label: "✅ Examples" });
+    // Optional review tabs (do not gate practice) — study cards + a one-page poster.
+    t.push({ id: "flashcards", label: "🃏 Cards" });
+    t.push({ id: "infographic", label: "📊 Poster" });
     return t;
   }, [concept]);
 
@@ -149,15 +158,17 @@ export function LessonPlayer({
   }
 
   const stepIdx = tabs.findIndex((t) => t.id === tab);
-  // Track the furthest teaching step the learner has reached. Practice unlocks
-  // only after they have seen the whole lesson (through the last step).
+  // Practice unlocks once the learner has reached "Examples" (the end of the core
+  // teaching flow). The Cards + Poster tabs after it are OPTIONAL review, so they
+  // never block practice.
+  const coreLast = useMemo(() => { const i = tabs.findIndex((t) => t.id === "examples"); return i >= 0 ? i : tabs.length - 1; }, [tabs]);
   useEffect(() => { setMaxStep((m) => Math.max(m, stepIdx)); }, [stepIdx]);
-  const canPractice = maxStep >= tabs.length - 1;
+  const canPractice = maxStep >= coreLast;
   const startPractice = () => {
     if (canPractice) { setGateMsg(null); setMode("practice"); }
     else {
-      setGateMsg("Let's learn it first! 🦊 Read to the last step, then Practice opens.");
-      setTab(tabs[Math.min(maxStep + 1, tabs.length - 1)].id);
+      setGateMsg("Let's learn it first! 🦊 Read through to Examples, then Practice opens.");
+      setTab(tabs[Math.min(maxStep + 1, coreLast)].id);
     }
   };
 
@@ -253,6 +264,9 @@ export function LessonPlayer({
                     <span key={v.term} className="fm-vocab-chip"><strong>{v.term}</strong> — {v.meaning}</span>
                   ))}
                 </div>
+                {(concept.funFacts ?? []).map((f, i) => (
+                  <p key={i} className="fm-funfact">💡 <strong>Did you know?</strong> {f}</p>
+                ))}
                 <button className="fm-picture-btn" onClick={() => setImgStyle("poster")}>✨ Picture this concept</button>
               </article>
             )}
@@ -326,14 +340,27 @@ export function LessonPlayer({
                 )}
               </article>
             )}
+            {tab === "flashcards" && (
+              <article>
+                <p className="fm-tab-intro">🃏 Flip each card, then rate yourself — the best way to make it stick.</p>
+                <Flashcards concept={concept} />
+              </article>
+            )}
+            {tab === "infographic" && (
+              <article>
+                <ConceptInfographic concept={concept} />
+              </article>
+            )}
           </main>
 
           {aiUsable(ai) && (
             <div className="fm-ai-row">
-              <span className="fm-ai-label">🤖 Robo can explain another way:</span>
+              <span className="fm-ai-label">🤖 Robo can help more:</span>
               <button className="fm-secondary" disabled={aiBusy} onClick={() => askAi("simpler")}>Simpler words</button>
+              <button className="fm-secondary" disabled={aiBusy} onClick={() => askAi("more-examples")}>➕ More examples</button>
               <button className="fm-secondary" disabled={aiBusy} onClick={() => askAi("story")}>As a story</button>
               <button className="fm-secondary" disabled={aiBusy} onClick={() => askAi("real-life")}>Real-life example</button>
+              <button className="fm-secondary" disabled={aiBusy} onClick={() => askAi("fun-fact")}>✨ Fun fact</button>
             </div>
           )}
           {aiBusy && <p className="fm-ai-busy">🤖 Robo Reason is thinking…</p>}

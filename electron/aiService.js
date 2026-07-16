@@ -201,6 +201,8 @@ const STYLE_INSTRUCTION = {
   simpler: "Explain it again in even simpler words, shorter sentences, for a younger child.",
   story: "Explain it as a very short new story with the same characters from the lesson.",
   "real-life": "Explain it using one fresh real-life example an Indian child would recognise (food, cricket, shops, school).",
+  "more-examples": "Give TWO fresh, fully worked examples of this idea, each showing the steps and the final answer clearly. Keep them at the same level as the lesson.",
+  "fun-fact": "Share ONE true, surprising 'Did you know?' fun fact closely related to this topic that would delight a child. Keep it accurate and short.",
 };
 
 function buildExplainPrompt(concept, style) {

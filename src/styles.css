@@ -1704,3 +1704,50 @@ body.skin-playful .fm-objemoji { font-size: 74px; }
 .fm-foot-spacer { flex: 1; }
 .fm-lesson-foot .fm-secondary:disabled { opacity: 0.4; cursor: not-allowed; }
 .fm-objtile.mark .fm-obj3d { filter: drop-shadow(0 0 7px color-mix(in srgb, var(--accent) 60%, transparent)); }
+
+/* ---- Study toolkit: fun fact, flashcards, infographic ---- */
+.fm-tab-intro { color: var(--muted); font-weight: 600; margin: 2px 0 12px; }
+.fm-funfact { margin-top: 14px; background: color-mix(in srgb, var(--accent) 12%, var(--card)); border: 1px solid var(--glass-brd);
+  border-radius: 14px; padding: 10px 14px; color: var(--ink); }
+
+/* Flashcards */
+.fm-flashcards { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.fm-fc-progress { color: var(--muted); font-weight: 700; }
+.fm-fc-card { width: 100%; max-width: 460px; min-height: 190px; border-radius: 20px; cursor: pointer;
+  border: 2px solid var(--glass-brd); background: var(--grad-brand); color: var(--on-accent);
+  box-shadow: var(--shadow-md, 0 8px 22px rgba(0,0,0,.14)); transition: transform .12s ease, filter .12s ease; padding: 0; }
+.fm-fc-card:hover { transform: translateY(-3px); filter: brightness(1.03); }
+.fm-fc-card.flipped { background: var(--card); color: var(--ink); border-color: var(--accent); }
+.fm-fc-face { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  min-height: 190px; padding: 22px 24px; text-align: center; }
+.fm-fc-tag { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; opacity: .8; }
+.fm-fc-text { font-size: 19px; font-weight: 700; line-height: 1.35; }
+.fm-fc-hint { font-size: 12px; opacity: .7; margin-top: 4px; }
+.fm-fc-actions { display: flex; gap: 12px; }
+.fm-fc-done { text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center; padding: 18px; }
+.fm-fc-score { font-size: 20px; }
+.fm-muted { color: var(--muted); }
+
+/* Infographic poster */
+.fm-infographic { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px;
+  box-shadow: var(--shadow-md, 0 8px 22px rgba(0,0,0,.12)); color: var(--ink); }
+.fm-ig-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  border-bottom: 2px solid var(--accent); padding-bottom: 8px; margin-bottom: 12px; }
+.fm-ig-head h3 { margin: 0; font-size: 22px; }
+.fm-ig-sub { color: var(--muted); font-size: 13px; font-weight: 600; }
+.fm-ig-label { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .04em; color: var(--accent-dark); margin-bottom: 4px; }
+.fm-ig-def p { margin: 0 0 12px; font-size: 15.5px; line-height: 1.5; }
+.fm-ig-visual { margin: 8px 0 14px; }
+.fm-ig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.fm-ig-card { background: var(--fm-empty); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.fm-ig-card ol, .fm-ig-card ul { margin: 4px 0 0; padding-left: 20px; }
+.fm-ig-card li { margin: 3px 0; line-height: 1.35; }
+.fm-ig-warn { background: color-mix(in srgb, var(--accent) 12%, var(--fm-empty)); }
+.fm-ig-ex-q { margin: 2px 0; font-weight: 600; }
+.fm-ig-ex-a { margin: 4px 0 0; color: var(--good); }
+.fm-ig-terms { margin-top: 14px; }
+.fm-ig-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.fm-ig-chip { background: var(--glass); border: 1px solid var(--glass-brd); border-radius: 999px; padding: 4px 12px; font-weight: 700; font-size: 13px; }
+.fm-ig-remember { margin-top: 14px; background: var(--grad-brand); color: var(--on-accent); border-radius: 12px; padding: 10px 14px; font-weight: 700; }
+.fm-ig-print { margin-top: 12px; }
+@media (max-width: 560px) { .fm-ig-grid { grid-template-columns: 1fr; } }

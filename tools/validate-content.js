@@ -129,6 +129,16 @@ function validateConcept(file) {
   if (!c.revisionCard || !isStr(c.revisionCard.summary) || !isArr(c.revisionCard.reviewAfterDays, 1))
     err("revisionCard with summary + reviewAfterDays required (spaced revision)");
 
+  // Optional study-toolkit extras (fun facts + authored flashcards).
+  if (c.funFacts !== undefined) {
+    if (!Array.isArray(c.funFacts) || !c.funFacts.every((f) => isStr(f, 5)))
+      err("funFacts must be an array of non-empty strings");
+  }
+  if (c.flashcards !== undefined) {
+    if (!Array.isArray(c.flashcards) || !c.flashcards.every((f) => f && isStr(f.front) && isStr(f.back)))
+      err("flashcards must be an array of { front, back } strings");
+  }
+
   checkMethod(c.mentalMathMethod, "mentalMathMethod");
   checkMethod(c.abacusMethod, "abacusMethod");
   checkMethod(c.vedicMethod, "vedicMethod");
