@@ -1,0 +1,122 @@
+{
+  "id": "num-55-integrals",
+  "name": "Integrals — Undoing the Derivative and Adding Up",
+  "grade": 11,
+  "strand": "numbers",
+  "prerequisites": ["num-53-continuity-differentiability", "num-48-limits-derivatives"],
+  "whatIsIt": "Integration is the REVERSE of differentiation. The indefinite integral ∫xⁿ dx = xⁿ⁺¹/(n+1) + C (add one to the power, divide by the new power, add a constant C). A DEFINITE integral ∫ from a to b gives a single number — the total, found by substituting the top and bottom limits and subtracting.",
+  "whyNeeded": "Integration adds up infinitely many tiny pieces — distance from speed, total charge from current, area under a curve, volume of a shape. It's the other half of calculus, essential across physics and engineering.",
+  "realLifeUses": [
+    "Total distance travelled from a speed graph",
+    "Area under a curve",
+    "Total water flow from a changing rate",
+    "Work done by a varying force"
+  ],
+  "vocabulary": [
+    { "term": "integral ∫", "meaning": "The reverse of the derivative; also a way to add up tiny pieces." },
+    { "term": "power rule for integration", "meaning": "∫xⁿ dx = xⁿ⁺¹/(n+1) + C (add one to the power, divide by it)." },
+    { "term": "constant of integration C", "meaning": "An unknown constant added to every indefinite integral (its derivative is 0)." },
+    { "term": "definite integral", "meaning": "∫ from a to b — substitute both limits and subtract to get a number." }
+  ],
+  "story": {
+    "title": "Distance from Speed",
+    "characters": ["Tara", "Sir"],
+    "text": "Tara knows a scooter's speed changes, and asks how far it went. Sir says: 'Speed is the derivative of distance, so distance is the INTEGRAL of speed — integration undoes it.' For a speed of 2x, distance = ∫2x dx = x² + C. Over the interval 0 to 3, that is [x²] from 0 to 3 = 9 − 0 = 9 metres. 'Integration added up all the little bits of distance,' Tara smiles.",
+    "extractedProblem": "Evaluate the definite integral ∫ from 0 to 3 of 2x dx.",
+    "answerInStory": "9 — ∫2x dx = x², and x² from 0 to 3 is 9 − 0 = 9."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": {
+      "categories": [
+        { "label": "x=1", "value": 2 },
+        { "label": "x=2", "value": 4 },
+        { "label": "x=3", "value": 6 }
+      ],
+      "unit": "strips"
+    },
+    "caption": "A definite integral adds up thin strips under a curve to give the total (here the area under y = 2x). Integration is the reverse of differentiation."
+  },
+  "teachingGallery": [
+    {
+      "title": "Add one to the power",
+      "note": "∫xⁿ dx = xⁿ⁺¹/(n+1) + C — the opposite of the derivative's 'bring down and drop'.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "∫x dx = x²/2 + C", "parts": [ { "value": 1 } ], "showTotal": false } ] }, "caption": "∫x dx: power 1 → 2, divide by 2 → x²/2 + C." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "∫x² dx = x³/3 + C", "parts": [ { "value": 1 } ], "showTotal": false } ] }, "caption": "∫x² dx: power 2 → 3, divide by 3 → x³/3 + C." },
+        { "component": "BarChart", "props": { "categories": [ { "label": "0→3", "value": 9 } ], "unit": "" }, "caption": "Definite: ∫₀³ 2x dx = [x²]₀³ = 9." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Integrate xⁿ by adding one to the power and dividing by the new power, plus C. For a definite integral, drop C, substitute the top and bottom limits, and subtract.",
+    "steps": [
+      "For ∫xⁿ dx: new power is n+1; divide by n+1 and add C.",
+      "Check by differentiating — you should get back the original.",
+      "For a definite integral, find the antiderivative (no C needed).",
+      "Substitute the upper limit, then the lower limit.",
+      "Subtract: (value at top) − (value at bottom)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Evaluate ∫ from 0 to 3 of 2x dx.",
+      "steps": ["Antiderivative of 2x is x².", "At 3: 3² = 9. At 0: 0.", "9 − 0 = 9."],
+      "answer": "9"
+    },
+    {
+      "problem": "Evaluate ∫ from 0 to 2 of x dx.",
+      "steps": ["Antiderivative of x is x²/2.", "At 2: 4/2 = 2. At 0: 0.", "2 − 0 = 2."],
+      "answer": "2"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "forgot-constant-c",
+      "mistake": "Leaving out the + C on an indefinite integral.",
+      "fix": "Every indefinite integral needs + C, since the derivative of any constant is 0. ∫x dx = x²/2 + C."
+    },
+    {
+      "mistakeTag": "integrate-like-derivative",
+      "mistake": "Bringing the power DOWN (like differentiating) instead of adding one to it.",
+      "fix": "Integration ADDS one to the power and divides: ∫x² dx = x³/3 + C, not 2x."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "n55-e1", "type": "number", "q": "In ∫x² dx = x³/3 + C, what is the new power of x?", "answer": "3", "hintLadder": ["Add one to the power.", "2 + 1.", "3."] },
+      { "id": "n55-e2", "type": "number", "q": "∫ from 0 to 2 of x dx = [x²/2] = 2 − 0 = ?", "answer": "2", "hintLadder": ["Antiderivative x²/2.", "At 2: 4/2 = 2.", "2."] }
+    ],
+    "medium": [
+      { "id": "n55-m1", "type": "number", "q": "∫ from 0 to 3 of 2x dx = [x²] = 9 − 0 = ?", "answer": "9", "hintLadder": ["Antiderivative x².", "At 3: 9.", "9."] },
+      { "id": "n55-m2", "type": "number", "q": "∫ from 0 to 4 of x dx = [x²/2] = 8 − 0 = ?", "answer": "8", "hintLadder": ["x²/2 at 4 = 16/2.", "= 8.", "8."] }
+    ],
+    "challenge": [
+      { "id": "n55-c1", "type": "number", "q": "∫ from 0 to 5 of 2x dx = [x²] = ?", "answer": "25", "hintLadder": ["Antiderivative x².", "At 5: 25.", "25."] },
+      { "id": "n55-c2", "type": "mcq", "q": "A student writes ∫x² dx = 2x. What's the fix?", "options": [ { "label": "Add one to the power: x³/3 + C" }, { "label": "2x is correct", "mistakeTag": "integrate-like-derivative" } ], "answer": "Add one to the power: x³/3 + C", "hintLadder": ["Integration is the reverse of differentiation.", "Add one to the power, divide.", "x³/3 + C."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "n55-x1", "type": "number", "q": "New power of x in ∫x³ dx = x⁴/4 + C?", "answer": "4", "hintLadder": ["Add one.", "3 + 1.", "4."] },
+      { "id": "n55-x2", "type": "number", "q": "∫ from 0 to 3 of 2x dx?", "answer": "9", "hintLadder": ["Antiderivative x².", "9 − 0.", "9."] },
+      { "id": "n55-x3", "type": "number", "q": "∫ from 0 to 2 of x dx?", "answer": "2", "hintLadder": ["x²/2 at 2 = 2.", "minus 0.", "2."] },
+      { "id": "n55-x4", "type": "mcq", "q": "Integration is…", "options": [ { "label": "The reverse of differentiation" }, { "label": "The same as differentiation", "mistakeTag": "integrate-like-derivative" } ], "answer": "The reverse of differentiation", "hintLadder": ["It undoes the derivative.", "Opposite operation.", "The reverse."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Show a grown-up that ∫x dx = x²/2 + C reverses the derivative (differentiate it back to check). Then evaluate ∫ from 0 to 3 of 2x dx = 9 by substituting the limits into x².",
+  "revisionCard": {
+    "summary": "Integration reverses differentiation. ∫xⁿ dx = xⁿ⁺¹/(n+1) + C (add one to the power, divide, +C). Definite ∫ₐᵇ: substitute top and bottom limits and subtract (no C). E.g. ∫₀³ 2x dx = [x²]₀³ = 9. Don't bring the power down — ADD one.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 12 (Integrals)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

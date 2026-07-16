@@ -1,0 +1,118 @@
+{
+  "id": "num-52-inverse-trigonometry",
+  "name": "Inverse Trigonometric Functions — Finding the Angle",
+  "grade": 11,
+  "strand": "geometry",
+  "prerequisites": ["num-49-trigonometric-functions", "geo-17-trigonometry"],
+  "whatIsIt": "Ordinary trig takes an angle and gives a ratio (sin 30° = 1/2). INVERSE trig does the opposite: it takes the ratio and gives back the angle. sin⁻¹(1/2) = 30° asks 'which angle has sine 1/2?'. To keep the answer single, each inverse has a PRINCIPAL VALUE range: sin⁻¹ ∈ [−90°, 90°], cos⁻¹ ∈ [0°, 180°], tan⁻¹ ∈ (−90°, 90°).",
+  "whyNeeded": "Whenever you know a ratio and need the angle — the angle a ramp makes, the direction of a force, the tilt of a satellite dish — inverse trig gives it. It's essential in physics, navigation, engineering and computer graphics.",
+  "realLifeUses": [
+    "Finding the angle of a ramp from its height and length",
+    "The launch angle of a projectile from its speeds",
+    "Navigation and bearings",
+    "The tilt angle for a solar panel or dish"
+  ],
+  "vocabulary": [
+    { "term": "inverse trig (sin⁻¹, cos⁻¹, tan⁻¹)", "meaning": "Functions that give the ANGLE from a known ratio." },
+    { "term": "principal value", "meaning": "The single chosen answer in a fixed range, so the inverse is a proper function." },
+    { "term": "sin⁻¹ range", "meaning": "[−90°, 90°] — the allowed answers for arcsine." },
+    { "term": "cos⁻¹ range", "meaning": "[0°, 180°] — the allowed answers for arccosine." }
+  ],
+  "story": {
+    "title": "The Ladder's Angle",
+    "characters": ["Farah", "Uncle"],
+    "text": "A ladder leans so that its height up the wall over its length is 1/2. 'What angle does it make with the ground?' asks Farah. Uncle says the sine of the angle is 1/2, so the angle is sin⁻¹(1/2). 'Which angle has sine one-half?' Farah remembers: 30°. 'Inverse trig turned the ratio back into the angle!' Uncle nods.",
+    "extractedProblem": "The sine of a ladder's angle is 1/2. What is the angle?",
+    "answerInStory": "30° — because sin⁻¹(1/2) = 30° (sin 30° = 1/2)."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "triangle", "label": "sin⁻¹(1/2) = 30°: ratio in, angle out" }
+      ]
+    },
+    "caption": "Inverse trig runs the triangle backwards: give it the ratio (like sine = 1/2) and it hands back the angle (30°)."
+  },
+  "teachingGallery": [
+    {
+      "title": "Ratio in, angle out",
+      "note": "Ask 'which angle gives this ratio?' — inside the principal range.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "sin⁻¹(1) = 90°" } ] }, "caption": "sin⁻¹(1) = 90°, because sin 90° = 1." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "tan⁻¹(1) = 45°" } ] }, "caption": "tan⁻¹(1) = 45°, because tan 45° = 1." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "cos⁻¹(1) = 0°" } ] }, "caption": "cos⁻¹(1) = 0°, because cos 0° = 1." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To evaluate an inverse, ask 'which angle in the principal range gives this ratio?' Use known values in reverse (sin 30° = 1/2 ⇒ sin⁻¹(1/2) = 30°).",
+    "steps": [
+      "Read the ratio you're given (like sin⁻¹ of 1/2).",
+      "Recall which standard angle produces that ratio.",
+      "Pick the answer inside the principal range (sin⁻¹: −90° to 90°; cos⁻¹: 0° to 180°).",
+      "Remember sin(sin⁻¹ x) = x — the two undo each other."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Evaluate sin⁻¹(1) in degrees.",
+      "steps": ["Ask: which angle has sine 1?", "sin 90° = 1.", "So sin⁻¹(1) = 90°."],
+      "answer": "90"
+    },
+    {
+      "problem": "Evaluate tan⁻¹(1) in degrees.",
+      "steps": ["Which angle has tangent 1?", "tan 45° = 1.", "So tan⁻¹(1) = 45°."],
+      "answer": "45"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "inverse-is-reciprocal",
+      "mistake": "Reading sin⁻¹ x as 1/sin x (a reciprocal) instead of 'the angle whose sine is x'.",
+      "fix": "sin⁻¹ is the INVERSE FUNCTION (gives an angle), not 1/sin. sin⁻¹(1/2) = 30°, not 2."
+    },
+    {
+      "mistakeTag": "ignored-principal-range",
+      "mistake": "Giving any angle with the right ratio, ignoring the principal range.",
+      "fix": "Choose the answer inside the principal range so the inverse is single-valued (sin⁻¹ between −90° and 90°)."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "n52-e1", "type": "number", "q": "sin⁻¹(1) = ? degrees", "answer": "90", "hintLadder": ["Which angle has sine 1?", "sin 90° = 1.", "90."] },
+      { "id": "n52-e2", "type": "number", "q": "cos⁻¹(1) = ? degrees", "answer": "0", "hintLadder": ["Which angle has cosine 1?", "cos 0° = 1.", "0."] }
+    ],
+    "medium": [
+      { "id": "n52-m1", "type": "number", "q": "sin⁻¹(1/2) = ? degrees", "answer": "30", "hintLadder": ["sin 30° = 1/2.", "Reverse it.", "30."] },
+      { "id": "n52-m2", "type": "number", "q": "tan⁻¹(1) = ? degrees", "answer": "45", "hintLadder": ["tan 45° = 1.", "Reverse it.", "45."] }
+    ],
+    "challenge": [
+      { "id": "n52-c1", "type": "number", "q": "sin⁻¹(0) = ? degrees", "answer": "0", "hintLadder": ["Which angle has sine 0?", "sin 0° = 0.", "0."] },
+      { "id": "n52-c2", "type": "mcq", "q": "A student writes sin⁻¹(1/2) = 2. What's the fix?", "options": [ { "label": "sin⁻¹ gives an ANGLE: sin⁻¹(1/2) = 30°" }, { "label": "1/sin so 2 is right", "mistakeTag": "inverse-is-reciprocal" } ], "answer": "sin⁻¹ gives an ANGLE: sin⁻¹(1/2) = 30°", "hintLadder": ["sin⁻¹ is not 1/sin.", "It returns the angle.", "30°."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "n52-x1", "type": "number", "q": "sin⁻¹(1) in degrees?", "answer": "90", "hintLadder": ["sin 90° = 1.", "Reverse.", "90."] },
+      { "id": "n52-x2", "type": "number", "q": "tan⁻¹(1) in degrees?", "answer": "45", "hintLadder": ["tan 45° = 1.", "Reverse.", "45."] },
+      { "id": "n52-x3", "type": "number", "q": "cos⁻¹(1) in degrees?", "answer": "0", "hintLadder": ["cos 0° = 1.", "Reverse.", "0."] },
+      { "id": "n52-x4", "type": "mcq", "q": "sin⁻¹ x means…", "options": [ { "label": "The angle whose sine is x" }, { "label": "1 divided by sin x", "mistakeTag": "inverse-is-reciprocal" } ], "answer": "The angle whose sine is x", "hintLadder": ["It's an inverse function.", "Ratio in, angle out.", "The angle whose sine is x."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Show a grown-up a ramp whose height/length is 1/2 and explain the angle is sin⁻¹(1/2) = 30°. Make clear sin⁻¹ gives the ANGLE (not 1/sin), and that each inverse has a principal-value range.",
+  "revisionCard": {
+    "summary": "Inverse trig gives the ANGLE from a ratio: sin⁻¹(1/2) = 30°, tan⁻¹(1) = 45°, cos⁻¹(1) = 0°, sin⁻¹(1) = 90°. Principal ranges keep answers single: sin⁻¹ ∈ [−90°,90°], cos⁻¹ ∈ [0°,180°], tan⁻¹ ∈ (−90°,90°). sin⁻¹ is NOT 1/sin.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 12 (Inverse Trigonometric Functions)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

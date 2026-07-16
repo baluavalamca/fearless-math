@@ -1,0 +1,119 @@
+{
+  "id": "num-53-continuity-differentiability",
+  "name": "Continuity and Differentiability — Smooth Curves and Their Rules",
+  "grade": 11,
+  "strand": "numbers",
+  "prerequisites": ["num-48-limits-derivatives", "num-36-functions-graphs"],
+  "whatIsIt": "A function is CONTINUOUS if its graph has no breaks, holes or jumps — you can draw it without lifting your pen. It is DIFFERENTIABLE where it is smooth (has a clear tangent slope). Class 12 adds the rules for differentiating combinations: the PRODUCT rule, the QUOTIENT rule, and the powerful CHAIN rule for a 'function inside a function'.",
+  "whyNeeded": "Continuity and differentiability are the ground rules of calculus — they say where rates of change even make sense. The product, quotient and chain rules let you differentiate almost any formula in physics, economics and engineering.",
+  "realLifeUses": [
+    "Modelling smooth motion (no sudden jumps in position)",
+    "Rates in economics — cost and revenue functions",
+    "Signal processing and control systems",
+    "Anywhere a smooth rate of change is needed"
+  ],
+  "vocabulary": [
+    { "term": "continuous", "meaning": "No breaks, holes or jumps — drawable without lifting the pen." },
+    { "term": "differentiable", "meaning": "Smooth enough to have a single tangent slope at each point." },
+    { "term": "chain rule", "meaning": "Differentiate the outside function, then multiply by the derivative of the inside." },
+    { "term": "product rule", "meaning": "d(uv) = u·(dv) + v·(du) — differentiate one, keep the other, then swap and add." }
+  ],
+  "story": {
+    "title": "The Smooth Slide",
+    "characters": ["Ishaan", "Sir"],
+    "text": "Ishaan draws a slide with a sudden step in the middle. 'A ball can't roll smoothly over a jump,' says Sir — 'that break means the function isn't continuous there.' Ishaan redraws it smooth. 'Now it's continuous AND smooth, so it has a slope everywhere.' Sir asks for the slope rule of x³: by the power rule d/dx(x³) = 3x², which at x = 2 is 3 × 4 = 12.",
+    "extractedProblem": "Differentiate x³ and find its value at x = 2.",
+    "answerInStory": "12 — d/dx(x³) = 3x², and at x = 2 that is 3 × 4 = 12."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "line", "label": "smooth curve with a tangent — differentiable; a break would not be" }
+      ]
+    },
+    "caption": "A continuous, smooth curve has a clear tangent slope at each point (differentiable). A jump or sharp corner breaks that."
+  },
+  "teachingGallery": [
+    {
+      "title": "Rules for slopes",
+      "note": "Power rule for simple terms; chain rule for a function inside a function.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "line", "label": "d/dx x³ = 3x²" } ] }, "caption": "Power rule: x³ → 3x²." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "line", "label": "chain: d/dx (2x)³ = 3(2x)²·2" } ] }, "caption": "Chain rule: outside derivative × inside derivative." },
+        { "component": "NumberLine", "props": { "lines": [ { "parts": 5, "mark": 2, "label": "continuous: no break at x=2" } ] }, "caption": "A continuous function has no jump — the graph flows through." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Check continuity (no breaks). Differentiate with the power rule term by term; use product/quotient rules for products/ratios and the chain rule for nested functions.",
+    "steps": [
+      "Continuity: is there any break, hole or jump? If not, it is continuous.",
+      "Power rule: d/dx(xⁿ) = n·xⁿ⁻¹; constants have derivative 0.",
+      "Product rule: d(uv) = u·v′ + v·u′.",
+      "Chain rule: d/dx f(g(x)) = f′(g(x)) · g′(x) (outside derivative × inside derivative).",
+      "Substitute the point to get the slope there."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Differentiate x³ and evaluate at x = 2.",
+      "steps": ["Power rule: d/dx(x³) = 3x².", "At x = 2: 3 × 2².", "= 3 × 4 = 12."],
+      "answer": "12"
+    },
+    {
+      "problem": "Differentiate 3x² and evaluate at x = 1.",
+      "steps": ["d/dx(3x²) = 3 × 2x = 6x.", "At x = 1: 6 × 1.", "= 6."],
+      "answer": "6"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "forgot-chain",
+      "mistake": "Differentiating a nested function without multiplying by the inside's derivative.",
+      "fix": "Use the chain rule: after the outside derivative, multiply by the derivative of the inside function."
+    },
+    {
+      "mistakeTag": "break-still-differentiable",
+      "mistake": "Thinking a function with a jump or sharp corner is still differentiable there.",
+      "fix": "No smooth tangent at a break or corner → not differentiable there. Differentiable needs continuous AND smooth."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "n53-e1", "type": "number", "q": "In d/dx(x⁵) = 5x⁴, what number comes to the front?", "answer": "5", "hintLadder": ["Power rule brings the exponent down.", "The exponent is 5.", "5."] },
+      { "id": "n53-e2", "type": "number", "q": "Derivative of the constant 7?", "answer": "0", "hintLadder": ["Constants don't change.", "Rate of change is…", "0."] }
+    ],
+    "medium": [
+      { "id": "n53-m1", "type": "number", "q": "d/dx(x³) at x = 2 (derivative 3x²)?", "answer": "12", "hintLadder": ["3x² at x = 2.", "3 × 4.", "12."] },
+      { "id": "n53-m2", "type": "number", "q": "d/dx(3x²) at x = 1 (derivative 6x)?", "answer": "6", "hintLadder": ["6x at x = 1.", "6 × 1.", "6."] }
+    ],
+    "challenge": [
+      { "id": "n53-c1", "type": "number", "q": "d/dx(x⁴) at x = 1 (derivative 4x³)?", "answer": "4", "hintLadder": ["4x³ at x = 1.", "4 × 1.", "4."] },
+      { "id": "n53-c2", "type": "mcq", "q": "A graph has a sudden jump at x = 3. There it is…", "options": [ { "label": "Not continuous (and not differentiable)" }, { "label": "Still smooth and differentiable", "mistakeTag": "break-still-differentiable" } ], "answer": "Not continuous (and not differentiable)", "hintLadder": ["A jump is a break.", "No break allowed for continuity.", "Not continuous."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "n53-x1", "type": "number", "q": "Front number in d/dx(x⁶) = 6x⁵?", "answer": "6", "hintLadder": ["Bring the exponent down.", "6.", "6."] },
+      { "id": "n53-x2", "type": "number", "q": "d/dx(x³) at x = 2?", "answer": "12", "hintLadder": ["3x².", "3 × 4.", "12."] },
+      { "id": "n53-x3", "type": "number", "q": "Derivative of a constant number?", "answer": "0", "hintLadder": ["It never changes.", "Rate of change.", "0."] },
+      { "id": "n53-x4", "type": "mcq", "q": "To differentiate a function inside a function you use the…", "options": [ { "label": "Chain rule" }, { "label": "Just the power rule alone", "mistakeTag": "forgot-chain" } ], "answer": "Chain rule", "hintLadder": ["Nested functions.", "Outside × inside derivative.", "Chain rule."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw a smooth curve and a broken one for a grown-up; explain which is continuous and differentiable. Then use the power rule to show d/dx(x³) = 3x² = 12 at x = 2, and describe the chain rule in one line.",
+  "revisionCard": {
+    "summary": "Continuous = no breaks (drawable without lifting the pen). Differentiable = smooth, has a tangent slope. Power rule: d/dx(xⁿ) = n·xⁿ⁻¹, constants → 0. Product: u·v′ + v·u′. Chain: outside derivative × inside derivative. A break or corner is not differentiable.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 12 (Continuity and Differentiability)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

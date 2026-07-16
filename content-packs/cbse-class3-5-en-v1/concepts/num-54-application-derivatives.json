@@ -1,0 +1,119 @@
+{
+  "id": "num-54-application-derivatives",
+  "name": "Applications of Derivatives — Slopes, Maxima and Minima",
+  "grade": 11,
+  "strand": "numbers",
+  "prerequisites": ["num-53-continuity-differentiability", "num-48-limits-derivatives"],
+  "whatIsIt": "The derivative f′(x) is the slope of the curve. That single idea does a lot: where f′(x) > 0 the function is INCREASING, where f′(x) < 0 it is DECREASING, and where f′(x) = 0 the curve is momentarily flat — a possible MAXIMUM or MINIMUM (a turning point). The slope of the TANGENT line at a point is just f′ at that point.",
+  "whyNeeded": "This is optimisation — finding the biggest profit, the least cost, the fastest route, the strongest box from a sheet of card. Engineers, economists and scientists set the derivative to zero to find best and worst cases.",
+  "realLifeUses": [
+    "Maximising profit or minimising cost",
+    "The largest volume box from a fixed sheet of card",
+    "Fastest/most fuel-efficient speed",
+    "Finding the highest point of a thrown object's path"
+  ],
+  "vocabulary": [
+    { "term": "increasing / decreasing", "meaning": "Rising where f′(x) > 0, falling where f′(x) < 0." },
+    { "term": "turning point (maximum / minimum)", "meaning": "Where the curve is momentarily flat: f′(x) = 0." },
+    { "term": "tangent slope", "meaning": "The slope of the line just touching the curve — equal to f′ at that point." },
+    { "term": "optimisation", "meaning": "Finding the best (max or min) value by setting the derivative to zero." }
+  ],
+  "story": {
+    "title": "The Highest Throw",
+    "characters": ["Neel", "Coach"],
+    "text": "Neel throws a ball; its height rises then falls. 'When is it highest?' asks Coach. 'When it stops rising and hasn't started falling — the slope is zero!' Neel realises. For the bowl-shaped curve y = x², the slope is f′ = 2x, which is 0 at x = 0 — its lowest point. 'Set the derivative to zero to find the turning point,' Coach nods.",
+    "extractedProblem": "For y = x² (slope 2x), where is the turning point?",
+    "answerInStory": "At x = 0 — because 2x = 0 gives x = 0, the minimum of the bowl."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "line", "label": "tangent slope = f′(x); flat (slope 0) at a turning point" }
+      ]
+    },
+    "caption": "The tangent's slope is f′(x). It is positive going up, negative going down, and exactly zero at a maximum or minimum."
+  },
+  "teachingGallery": [
+    {
+      "title": "Read the slope",
+      "note": "f′ > 0 rising, f′ < 0 falling, f′ = 0 flat (turning point).",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "line", "label": "f′ > 0 → increasing" } ] }, "caption": "Positive slope: the function is increasing." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "tangent to y=x² at x=3 has slope 6" } ] }, "caption": "Tangent slope = f′(3) = 2×3 = 6." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "circle", "label": "f′ = 0 at the bottom of the bowl" } ] }, "caption": "At the minimum the tangent is flat: f′ = 0." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Differentiate to get f′(x). f′ > 0 → increasing, f′ < 0 → decreasing. Set f′(x) = 0 to find turning points. The tangent slope at a point is f′ there.",
+    "steps": [
+      "Find the derivative f′(x).",
+      "Where f′(x) > 0 the curve rises; where f′(x) < 0 it falls.",
+      "Set f′(x) = 0 and solve to find turning points (max or min).",
+      "The slope of the tangent at x = a is f′(a).",
+      "Check whether a turning point is a max or min from the curve's shape."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find the slope of the tangent to y = x² at x = 3.",
+      "steps": ["Derivative f′(x) = 2x.", "At x = 3: 2 × 3.", "= 6."],
+      "answer": "6"
+    },
+    {
+      "problem": "Where is the turning point of y = x²?",
+      "steps": ["f′(x) = 2x. Set it to 0.", "2x = 0.", "x = 0 (the minimum)."],
+      "answer": "0"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "turning-not-zero",
+      "mistake": "Looking for a maximum or minimum where f′ is largest, instead of where f′ = 0.",
+      "fix": "At a turning point the curve is momentarily FLAT, so f′(x) = 0 — not where the slope is biggest."
+    },
+    {
+      "mistakeTag": "increasing-sign",
+      "mistake": "Mixing up increasing and decreasing signs of f′.",
+      "fix": "f′ > 0 means RISING (increasing); f′ < 0 means FALLING (decreasing)."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "n54-e1", "type": "number", "q": "At a maximum or minimum, the derivative f′(x) equals?", "answer": "0", "hintLadder": ["The curve is momentarily flat.", "Flat slope.", "0."] },
+      { "id": "n54-e2", "type": "number", "q": "Slope of the tangent to y = x² at x = 3 (f′ = 2x)?", "answer": "6", "hintLadder": ["2x at x = 3.", "2 × 3.", "6."] }
+    ],
+    "medium": [
+      { "id": "n54-m1", "type": "number", "q": "Slope of the tangent to y = x² at x = 4?", "answer": "8", "hintLadder": ["2x at x = 4.", "2 × 4.", "8."] },
+      { "id": "n54-m2", "type": "number", "q": "y = x² has its minimum at x = ? (solve 2x = 0)", "answer": "0", "hintLadder": ["Set 2x = 0.", "Divide by 2.", "0."] }
+    ],
+    "challenge": [
+      { "id": "n54-c1", "type": "number", "q": "For y = x², is the slope at x = 5 positive? Enter that slope (2x).", "answer": "10", "hintLadder": ["2x at x = 5.", "2 × 5.", "10 (positive → increasing)."] },
+      { "id": "n54-c2", "type": "mcq", "q": "Where f′(x) < 0, the function is…", "options": [ { "label": "Decreasing (falling)" }, { "label": "Increasing", "mistakeTag": "increasing-sign" } ], "answer": "Decreasing (falling)", "hintLadder": ["Negative slope.", "Going down.", "Decreasing."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "n54-x1", "type": "number", "q": "At a turning point, f′(x) = ?", "answer": "0", "hintLadder": ["Flat curve.", "Zero slope.", "0."] },
+      { "id": "n54-x2", "type": "number", "q": "Tangent slope to y = x² at x = 2?", "answer": "4", "hintLadder": ["2x at x = 2.", "2 × 2.", "4."] },
+      { "id": "n54-x3", "type": "number", "q": "Minimum of y = x² is at x = ?", "answer": "0", "hintLadder": ["2x = 0.", "Solve.", "0."] },
+      { "id": "n54-x4", "type": "mcq", "q": "Where f′(x) > 0 the function is…", "options": [ { "label": "Increasing (rising)" }, { "label": "Decreasing", "mistakeTag": "increasing-sign" } ], "answer": "Increasing (rising)", "hintLadder": ["Positive slope.", "Going up.", "Increasing."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw y = x² for a grown-up and show the tangent slope f′ = 2x: it's 6 at x = 3 (rising) and 0 at x = 0 (the minimum). Explain that setting f′ = 0 finds the max/min.",
+  "revisionCard": {
+    "summary": "f′(x) is the slope. f′ > 0 increasing, f′ < 0 decreasing, f′ = 0 at a turning point (max/min). Tangent slope at x = a is f′(a). To optimise (biggest/smallest), set f′(x) = 0 and solve. For y = x²: slope 2x, minimum at x = 0.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 12 (Application of Derivatives)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

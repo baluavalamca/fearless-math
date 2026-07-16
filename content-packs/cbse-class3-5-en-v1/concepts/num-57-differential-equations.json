@@ -1,0 +1,119 @@
+{
+  "id": "num-57-differential-equations",
+  "name": "Differential Equations — Equations with Derivatives",
+  "grade": 11,
+  "strand": "numbers",
+  "prerequisites": ["num-55-integrals", "num-53-continuity-differentiability"],
+  "whatIsIt": "A DIFFERENTIAL EQUATION is an equation that contains a derivative — it links a quantity to its rate of change. Its ORDER is the highest derivative that appears (dy/dx is order 1, d²y/dx² is order 2). Its DEGREE is the power of that highest derivative. The simplest ones are solved by integrating: dy/dx = 2x gives y = x² + C.",
+  "whyNeeded": "Nature speaks in rates: population growth, cooling of a drink, radioactive decay, motion under gravity, and the spread of disease are all described by differential equations. Solving them predicts the future from a rule about change.",
+  "realLifeUses": [
+    "Population growth and decay",
+    "A hot drink cooling to room temperature",
+    "Radioactive decay and carbon dating",
+    "Motion of objects under forces"
+  ],
+  "vocabulary": [
+    { "term": "differential equation", "meaning": "An equation containing a derivative (a rate of change)." },
+    { "term": "order", "meaning": "The highest derivative in the equation: dy/dx → 1, d²y/dx² → 2." },
+    { "term": "degree", "meaning": "The power to which the highest-order derivative is raised." },
+    { "term": "variable separable", "meaning": "A type you solve by getting the y's on one side and x's on the other, then integrating." }
+  ],
+  "story": {
+    "title": "The Cooling Chai",
+    "characters": ["Ali", "Ammi"],
+    "text": "Ammi's chai cools fastest when it's hottest and slows as it nears room temperature. 'Its rate of cooling depends on its temperature — that's a differential equation,' says Ali. For the simplest rule dy/dx = 2x (the slope IS 2x), he integrates both sides: y = ∫2x dx = x² + C. 'Solving a differential equation means finding the function from its rate,' Ammi nods.",
+    "extractedProblem": "Solve the differential equation dy/dx = 2x.",
+    "answerInStory": "y = x² + C — integrating 2x gives x², plus a constant C."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "line", "label": "dy/dx = 2x defines the slope everywhere; solving gives y = x² + C" }
+      ]
+    },
+    "caption": "A differential equation gives a RULE for the slope (dy/dx). Solving it (by integrating) recovers the family of curves y = x² + C."
+  },
+  "teachingGallery": [
+    {
+      "title": "Order and solving",
+      "note": "Order = highest derivative. Solve simple ones by integrating both sides.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "line", "label": "dy/dx → order 1" } ] }, "caption": "dy/dx is a first-order equation." },
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "line", "label": "d²y/dx² → order 2" } ] }, "caption": "d²y/dx² is second order." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "dy/dx = 2x → y = x² + C", "parts": [ { "value": 1 } ], "showTotal": false } ] }, "caption": "Integrate both sides to solve: y = x² + C." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Identify order (highest derivative) and degree (its power). Solve a simple dy/dx = f(x) by integrating both sides, remembering + C.",
+    "steps": [
+      "Find the highest derivative — that's the ORDER.",
+      "The power of that highest derivative is the DEGREE.",
+      "For dy/dx = f(x), integrate both sides: y = ∫f(x) dx + C.",
+      "For variable-separable types, put all y-terms one side, x-terms the other, then integrate.",
+      "Include the constant C (use extra info to find it if given)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "What is the order of the equation dy/dx = 3x?",
+      "steps": ["The highest derivative is dy/dx.", "That is a first derivative.", "Order = 1."],
+      "answer": "1"
+    },
+    {
+      "problem": "Solve dy/dx = 2x. What is the power of x in the solution?",
+      "steps": ["Integrate: y = ∫2x dx = x² + C.", "The x term is x².", "Its power is 2."],
+      "answer": "2"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "order-vs-degree",
+      "mistake": "Confusing order (highest derivative) with degree (its power).",
+      "fix": "ORDER = which derivative is highest; DEGREE = the power it is raised to. For (dy/dx)² the order is 1 but the degree is 2."
+    },
+    {
+      "mistakeTag": "solution-no-constant",
+      "mistake": "Solving dy/dx = 2x as y = x² and forgetting + C.",
+      "fix": "Integrating always adds a constant: y = x² + C. Many curves share the same slope rule."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "n57-e1", "type": "number", "q": "Order of the differential equation dy/dx = 5?", "answer": "1", "hintLadder": ["Highest derivative is dy/dx.", "First derivative.", "1."] },
+      { "id": "n57-e2", "type": "number", "q": "Order of d²y/dx² + y = 0?", "answer": "2", "hintLadder": ["Highest derivative is d²y/dx².", "Second derivative.", "2."] }
+    ],
+    "medium": [
+      { "id": "n57-m1", "type": "number", "q": "Solve dy/dx = 2x → y = x² + C. What is the power of x?", "answer": "2", "hintLadder": ["Integrate 2x.", "x² + C.", "2."] },
+      { "id": "n57-m2", "type": "number", "q": "Order of d³y/dx³ = x?", "answer": "3", "hintLadder": ["Highest derivative.", "Third derivative.", "3."] }
+    ],
+    "challenge": [
+      { "id": "n57-c1", "type": "number", "q": "Degree of the equation (dy/dx)² + y = 0 (power of the highest derivative)?", "answer": "2", "hintLadder": ["Highest derivative is dy/dx.", "It is squared.", "Degree 2."] },
+      { "id": "n57-c2", "type": "mcq", "q": "Solving dy/dx = 2x, a student writes y = x² (no C). What's the fix?", "options": [ { "label": "Add the constant: y = x² + C" }, { "label": "y = x² is complete", "mistakeTag": "solution-no-constant" } ], "answer": "Add the constant: y = x² + C", "hintLadder": ["Integration adds a constant.", "Many curves share the slope.", "y = x² + C."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "n57-x1", "type": "number", "q": "Order of dy/dx = x + 1?", "answer": "1", "hintLadder": ["Highest derivative dy/dx.", "First.", "1."] },
+      { "id": "n57-x2", "type": "number", "q": "Order of d²y/dx² = 4?", "answer": "2", "hintLadder": ["d²y/dx².", "Second.", "2."] },
+      { "id": "n57-x3", "type": "number", "q": "Solve dy/dx = 2x. Power of x in the solution?", "answer": "2", "hintLadder": ["Integrate to x² + C.", "Power of x.", "2."] },
+      { "id": "n57-x4", "type": "mcq", "q": "The ORDER of a differential equation is…", "options": [ { "label": "The highest derivative that appears" }, { "label": "The power of the highest derivative", "mistakeTag": "order-vs-degree" } ], "answer": "The highest derivative that appears", "hintLadder": ["Which derivative is highest?", "That's the order.", "Highest derivative."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Explain to a grown-up that a differential equation links a quantity to its rate of change (like chai cooling faster when hotter). Show the order of dy/dx is 1, and solve dy/dx = 2x to y = x² + C by integrating.",
+  "revisionCard": {
+    "summary": "A differential equation contains a derivative. ORDER = highest derivative (dy/dx → 1, d²y/dx² → 2). DEGREE = power of that highest derivative. Solve dy/dx = f(x) by integrating both sides, adding + C: dy/dx = 2x → y = x² + C. Order ≠ degree.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 12 (Differential Equations)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}

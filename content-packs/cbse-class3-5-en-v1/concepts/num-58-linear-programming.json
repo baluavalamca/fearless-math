@@ -1,0 +1,119 @@
+{
+  "id": "num-58-linear-programming",
+  "name": "Linear Programming — Best Value Under Constraints",
+  "grade": 11,
+  "strand": "numbers",
+  "prerequisites": ["num-51-linear-inequalities", "num-33-linear-equations"],
+  "whatIsIt": "Linear programming finds the BEST value (maximum profit or minimum cost) of a linear OBJECTIVE FUNCTION, like P = 2x + 3y, when the choices are limited by linear CONSTRAINTS (inequalities). The constraints carve out a FEASIBLE REGION — the shape of all allowed (x, y). A key fact: the best value always lands at a CORNER (vertex) of that region, so you only test the corners.",
+  "whyNeeded": "Businesses and planners must do the most with limited resources — maximise profit with limited materials, minimise cost while meeting demand, plan diets, transport and schedules. Linear programming is the mathematics of making the best decision under limits.",
+  "realLifeUses": [
+    "Maximising factory profit with limited materials and hours",
+    "Minimising the cost of a balanced diet",
+    "Planning transport and delivery routes",
+    "Allocating a limited budget for the best return"
+  ],
+  "vocabulary": [
+    { "term": "objective function", "meaning": "The quantity to maximise or minimise, like P = 2x + 3y." },
+    { "term": "constraints", "meaning": "The limiting inequalities (e.g. x + y ≤ 8, x ≥ 0)." },
+    { "term": "feasible region", "meaning": "All (x, y) that satisfy every constraint — the allowed area." },
+    { "term": "corner (vertex)", "meaning": "A corner of the feasible region; the optimum is always at one of these." }
+  ],
+  "story": {
+    "title": "The Toy Workshop",
+    "characters": ["Isha", "Papa"],
+    "text": "Isha's workshop makes x cars and y dolls, earning profit P = 2x + 3y (in hundreds). Time and wood limit her to a feasible region whose corners are (0,0), (5,0), (0,5) and (4,5). 'Where is profit biggest?' asks Papa. Isha tests each corner and finds (4,5) gives P = 2×4 + 3×5 = 8 + 15 = 23 — the highest. 'Only the corners matter!' she realises.",
+    "extractedProblem": "Maximise P = 2x + 3y. At the corner (4, 5), what is P?",
+    "answerInStory": "23 — P = 2×4 + 3×5 = 8 + 15 = 23, the largest corner value."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        { "kind": "pentagon", "label": "feasible region — test each corner for the best P" }
+      ]
+    },
+    "caption": "Constraints fence off a feasible region. The objective P = 2x + 3y hits its best value at a CORNER, so you only evaluate the corners."
+  },
+  "teachingGallery": [
+    {
+      "title": "Test the corners",
+      "note": "Evaluate the objective at every corner; pick the biggest (max) or smallest (min).",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "rect", "w": 4, "h": 3, "label": "feasible region bounded by constraints" } ] }, "caption": "The allowed choices form a shaded region with corners." },
+        { "component": "BarChart", "props": { "categories": [ { "label": "(5,0)", "value": 10 }, { "label": "(0,5)", "value": 15 }, { "label": "(4,5)", "value": 23 } ], "unit": "P" }, "caption": "P = 2x + 3y at each corner: (4,5) wins with 23." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "P = 2(4) + 3(5) = 23", "parts": [ { "value": 8 }, { "value": 15 } ], "showTotal": true } ] }, "caption": "8 + 15 = 23 at the best corner." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Write the objective and the constraints. Draw the feasible region and find its corners. Evaluate the objective at each corner and choose the max or min.",
+    "steps": [
+      "Write the objective function (what to maximise or minimise).",
+      "List the constraints as inequalities and shade the feasible region.",
+      "Find the corner points (vertices) of that region.",
+      "Put each corner into the objective function.",
+      "Pick the largest value (for a maximum) or smallest (for a minimum)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Maximise P = 2x + 3y. Evaluate P at the corner (4, 5).",
+      "steps": ["P = 2x + 3y = 2×4 + 3×5.", "= 8 + 15.", "= 23."],
+      "answer": "23"
+    },
+    {
+      "problem": "Maximise P = 5x + 4y. Evaluate P at the corner (2, 3).",
+      "steps": ["P = 5×2 + 4×3.", "= 10 + 12.", "= 22."],
+      "answer": "22"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "optimum-inside",
+      "mistake": "Looking for the best value in the MIDDLE of the feasible region.",
+      "fix": "For a linear objective, the best value is always at a CORNER (vertex). Test the corners, not the interior."
+    },
+    {
+      "mistakeTag": "ignored-constraints",
+      "mistake": "Choosing an (x, y) that breaks a constraint.",
+      "fix": "Only points inside the feasible region are allowed. Check every constraint before using a point."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "n58-e1", "type": "number", "q": "P = 2x + 3y at the point (4, 5) = 8 + 15 = ?", "answer": "23", "hintLadder": ["2×4 = 8, 3×5 = 15.", "Add.", "23."] },
+      { "id": "n58-e2", "type": "number", "q": "P = 3x + 2y at the point (5, 0) = ?", "answer": "15", "hintLadder": ["3×5 + 2×0.", "15 + 0.", "15."] }
+    ],
+    "medium": [
+      { "id": "n58-m1", "type": "number", "q": "P = 5x + 4y at the corner (2, 3) = ?", "answer": "22", "hintLadder": ["10 + 12.", "Add.", "22."] },
+      { "id": "n58-m2", "type": "number", "q": "P = 2x + 3y at the corner (0, 5) = ?", "answer": "15", "hintLadder": ["0 + 15.", "3×5.", "15."] }
+    ],
+    "challenge": [
+      { "id": "n58-c1", "type": "number", "q": "Corners give P = 10, 15 and 23. The MAXIMUM is?", "answer": "23", "hintLadder": ["Pick the biggest.", "Compare 10, 15, 23.", "23."] },
+      { "id": "n58-c2", "type": "mcq", "q": "Where does the best value of a linear objective occur?", "options": [ { "label": "At a corner (vertex) of the feasible region" }, { "label": "In the middle of the region", "mistakeTag": "optimum-inside" } ], "answer": "At a corner (vertex) of the feasible region", "hintLadder": ["Not the interior.", "Check the vertices.", "At a corner."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "n58-x1", "type": "number", "q": "P = 2x + 3y at (4, 5)?", "answer": "23", "hintLadder": ["8 + 15.", "Add.", "23."] },
+      { "id": "n58-x2", "type": "number", "q": "P = 4x + y at (3, 2)?", "answer": "14", "hintLadder": ["12 + 2.", "Add.", "14."] },
+      { "id": "n58-x3", "type": "number", "q": "Corners give P = 12, 20, 18. The maximum is?", "answer": "20", "hintLadder": ["Biggest value.", "Compare.", "20."] },
+      { "id": "n58-x4", "type": "mcq", "q": "The feasible region is…", "options": [ { "label": "All points satisfying every constraint" }, { "label": "Any points you like", "mistakeTag": "ignored-constraints" } ], "answer": "All points satisfying every constraint", "hintLadder": ["Bounded by the inequalities.", "Only allowed points.", "Satisfy every constraint."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Give a grown-up a simple 'make x cars and y dolls' profit P = 2x + 3y with a few corner points, and show that testing corners like (4,5) → 23 finds the maximum. Explain the best value is always at a corner of the feasible region.",
+  "revisionCard": {
+    "summary": "Linear programming: maximise/minimise a linear objective (P = 2x + 3y) under linear constraints. The constraints make a feasible region; the optimum is always at a CORNER (vertex). Method: find corners → evaluate objective at each → pick max/min. Only points satisfying all constraints are allowed.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 12 (Linear Programming)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  }
+}
