@@ -15,8 +15,10 @@ import { ObjectRow, SeqSpec } from "./ObjectRow";
 import { NumberTrack, TrackSpec } from "./NumberTrack";
 import { FunctionPlot, PlotSpec } from "./FunctionPlot";
 import type { SolidSpec } from "./Solid3D";
-// Three.js 3D solids are code-split — only loaded when a 3D visual actually appears.
+import type { Scene3DSpec } from "./Scene3D";
+// Three.js 3D visuals are code-split — only loaded when a 3D visual actually appears.
 const Solid3D = lazy(() => import("./Solid3D").then((m) => ({ default: m.Solid3D })));
+const Scene3D = lazy(() => import("./Scene3D").then((m) => ({ default: m.Scene3D })));
 import type { VisualSpec } from "./visualTypes";
 
 // Re-exported so existing importers (`import { VisualSpec } from "./VisualRenderer"`)
@@ -90,6 +92,12 @@ function VisualSwitch({ visual }: { visual: VisualSpec }) {
       return (
         <Suspense fallback={<p className="fm-callout">{visual.caption ?? "Loading 3D…"}</p>}>
           <Solid3D solids={visual.props.solids as SolidSpec[]} caption={visual.caption} />
+        </Suspense>
+      );
+    case "Scene3D":
+      return (
+        <Suspense fallback={<p className="fm-callout">{visual.caption ?? "Loading 3D…"}</p>}>
+          <Scene3D spec={visual.props as unknown as Scene3DSpec} caption={visual.caption} />
         </Suspense>
       );
     default:
