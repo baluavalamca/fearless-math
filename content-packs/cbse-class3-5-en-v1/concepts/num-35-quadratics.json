@@ -25,13 +25,13 @@
     "answerInStory": "x = −2 or x = −3 — because (x+2)(x+3)=0."
   },
   "visual": {
-    "component": "AreaModel",
+    "component": "FunctionPlot",
     "props": {
-      "models": [
-        { "rowParts": [1, 2], "colParts": [1, 3], "label": "(x+2)(x+3) = x² + 5x + 6" }
+      "plots": [
+        { "poly": [6, -5, 1], "domain": [0, 5], "label": "y = x² − 5x + 6", "color": "accent" }
       ]
     },
-    "caption": "The area of an (x+2) by (x+3) rectangle is x² + 5x + 6 — factorising finds the two side lengths."
+    "caption": "The parabola y = x² − 5x + 6 crosses the x-axis at x = 2 and x = 3 — exactly the two solutions (roots) of the quadratic."
   },
   "teachingGallery": [
     {

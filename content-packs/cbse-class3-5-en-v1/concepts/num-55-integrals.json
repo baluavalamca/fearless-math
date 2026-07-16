@@ -26,16 +26,13 @@
     "answerInStory": "9 — ∫2x dx = x², and x² from 0 to 3 is 9 − 0 = 9."
   },
   "visual": {
-    "component": "BarChart",
+    "component": "FunctionPlot",
     "props": {
-      "categories": [
-        { "label": "x=1", "value": 2 },
-        { "label": "x=2", "value": 4 },
-        { "label": "x=3", "value": 6 }
-      ],
-      "unit": "strips"
+      "plots": [
+        { "poly": [0, 2], "domain": [-1, 4], "shade": [0, 3], "label": "y = 2x", "color": "accent" }
+      ]
     },
-    "caption": "A definite integral adds up thin strips under a curve to give the total (here the area under y = 2x). Integration is the reverse of differentiation."
+    "caption": "The shaded area under y = 2x from x = 0 to 3 is the definite integral ∫₀³ 2x dx = 9. Integration adds up the region under the curve."
   },
   "teachingGallery": [
     {
@@ -110,6 +107,17 @@
   "revisionCard": {
     "summary": "Integration reverses differentiation. ∫xⁿ dx = xⁿ⁺¹/(n+1) + C (add one to the power, divide, +C). Definite ∫ₐᵇ: substitute top and bottom limits and subtract (no C). E.g. ∫₀³ 2x dx = [x²]₀³ = 9. Don't bring the power down — ADD one.",
     "reviewAfterDays": [3, 7, 21]
+  },
+  "trickPractice": {
+    "trick": "Definite-integral quick-fire",
+    "intro": "Antiderivative, substitute the limits, subtract. Fast rounds of ∫ₐᵇ.",
+    "questions": [
+      { "id": "n55-trick-1", "type": "number", "q": "∫ from 0 to 2 of x dx = [x²/2]?", "answer": "2", "hintLadder": ["x²/2 at 2 = 2.", "minus 0.", "2."] },
+      { "id": "n55-trick-2", "type": "number", "q": "∫ from 0 to 3 of 2x dx = [x²]?", "answer": "9", "hintLadder": ["x² at 3.", "9 − 0.", "9."] },
+      { "id": "n55-trick-3", "type": "number", "q": "∫ from 0 to 4 of x dx = [x²/2]?", "answer": "8", "hintLadder": ["16/2.", "= 8.", "8."] },
+      { "id": "n55-trick-4", "type": "number", "q": "New power of x in ∫x⁴ dx?", "answer": "5", "hintLadder": ["Add one to the power.", "4 + 1.", "5."] },
+      { "id": "n55-trick-5", "type": "number", "q": "∫ from 0 to 5 of 2x dx = [x²]?", "answer": "25", "hintLadder": ["x² at 5.", "25 − 0.", "25."] }
+    ]
   },
   "meta": {
     "version": "1.0.0",

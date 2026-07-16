@@ -13,6 +13,7 @@ import { PizzaSlices, PieSpec } from "./PizzaSlices";
 import { Abacus, AbacusSpec } from "./Abacus";
 import { ObjectRow, SeqSpec } from "./ObjectRow";
 import { NumberTrack, TrackSpec } from "./NumberTrack";
+import { FunctionPlot, PlotSpec } from "./FunctionPlot";
 import type { VisualSpec } from "./visualTypes";
 
 // Re-exported so existing importers (`import { VisualSpec } from "./VisualRenderer"`)
@@ -80,6 +81,8 @@ function VisualSwitch({ visual }: { visual: VisualSpec }) {
           caption={visual.caption}
         />
       );
+    case "FunctionPlot":
+      return <FunctionPlot plots={visual.props.plots as PlotSpec[]} caption={visual.caption} />;
     default:
       // Unknown component: fail soft, never break a lesson
       return visual.caption ? <p className="fm-callout">{visual.caption}</p> : null;

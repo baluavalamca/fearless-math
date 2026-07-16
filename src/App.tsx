@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { api, Concept, ConceptCard, Profile } from "./api";
 import { WorldMap } from "./screens/WorldMap";
 import { LessonPlayer } from "./screens/LessonPlayer";
 import { MistakeClinic } from "./screens/MistakeClinic";
 import { ParentDashboard } from "./screens/ParentDashboard";
 import { Onboarding } from "./screens/Onboarding";
-import { MathToolbox } from "./components/MathToolbox";
-import { AdvancedToolbox } from "./components/AdvancedToolbox";
+// Heavy calculator/tool popups are code-split into their own chunks so the main
+// bundle stays small and loads fast on low-end devices.
+const MathToolbox = lazy(() => import("./components/MathToolbox").then((m) => ({ default: m.MathToolbox })));
+const AdvancedToolbox = lazy(() => import("./components/AdvancedToolbox").then((m) => ({ default: m.AdvancedToolbox })));
 import { Doodles } from "./components/Doodles";
 import { Emoji3D } from "./components/ObjectIcon";
 import { isAutoRead, setAutoRead, stopSpeaking } from "./speech";
@@ -85,8 +87,7 @@ export default function App() {
     return <>
       <Doodles />
       <LessonPlayer concept={open} onExit={() => { setOpen(null); refresh(); }} />
-      <MathToolbox />
-      <AdvancedToolbox />
+      <Suspense fallback={null}><MathToolbox /><AdvancedToolbox /></Suspense>
     </>;
   }
 
@@ -113,8 +114,7 @@ export default function App() {
       {screen === "map" && !concepts && <div className="fm-loading">Loading…</div>}
       {screen === "clinic" && <MistakeClinic />}
       {screen === "parent" && <ParentDashboard autoUnlock={profile.role !== "student"} />}
-      <MathToolbox />
-      <AdvancedToolbox />
+      <Suspense fallback={null}><MathToolbox /><AdvancedToolbox /></Suspense>
     </>
   );
 }

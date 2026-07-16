@@ -26,13 +26,13 @@
     "answerInStory": "6 — d/dx(x²) = 2x, and at x = 3 that is 2 × 3 = 6."
   },
   "visual": {
-    "component": "GeometryCanvas",
+    "component": "FunctionPlot",
     "props": {
-      "shapes": [
-        { "kind": "line", "label": "tangent to y = x² at a point — its slope is the derivative 2x" }
+      "plots": [
+        { "poly": [0, 0, 1], "domain": [-3.5, 3.5], "tangentAt": 3, "label": "y = x²", "color": "accent" }
       ]
     },
-    "caption": "The derivative is the slope of the tangent line touching the curve at a point; for y = x² that slope is 2x."
+    "caption": "The derivative is the slope of the tangent line touching the curve. For y = x² the tangent at x = 3 has slope 2×3 = 6."
   },
   "teachingGallery": [
     {
@@ -107,6 +107,17 @@
   "revisionCard": {
     "summary": "Limit: value f(x) approaches as x → a (for nice functions, substitute). Derivative = instantaneous slope/rate of change. Power rule: d/dx(xⁿ) = n·xⁿ⁻¹ (bring power down, reduce by 1). Derivative of a constant = 0. Slope at a point: substitute x into the derivative.",
     "reviewAfterDays": [3, 7, 21]
+  },
+  "trickPractice": {
+    "trick": "Power-rule quick-fire",
+    "intro": "Bring the power down, drop it by one. Rapid-fire the power rule and evaluate at a point.",
+    "questions": [
+      { "id": "n48-trick-1", "type": "number", "q": "d/dx(x²) at x = 5 (derivative 2x)?", "answer": "10", "hintLadder": ["2x at 5.", "2 × 5.", "10."] },
+      { "id": "n48-trick-2", "type": "number", "q": "d/dx(x³) at x = 2 (derivative 3x²)?", "answer": "12", "hintLadder": ["3x² at 2.", "3 × 4.", "12."] },
+      { "id": "n48-trick-3", "type": "number", "q": "Front number of d/dx(x⁷)?", "answer": "7", "hintLadder": ["Bring the exponent down.", "The exponent is 7.", "7."] },
+      { "id": "n48-trick-4", "type": "number", "q": "Derivative of the constant 12?", "answer": "0", "hintLadder": ["Constants don't change.", "Rate = 0.", "0."] },
+      { "id": "n48-trick-5", "type": "number", "q": "d/dx(x⁴) at x = 1 (derivative 4x³)?", "answer": "4", "hintLadder": ["4x³ at 1.", "4 × 1.", "4."] }
+    ]
   },
   "meta": {
     "version": "1.0.0",

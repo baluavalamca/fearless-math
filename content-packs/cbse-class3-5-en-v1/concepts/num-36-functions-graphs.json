@@ -25,14 +25,13 @@
     "answerInStory": "7 — put x = 3 into the rule: 2×3 + 1."
   },
   "visual": {
-    "component": "NumberTrack",
+    "component": "FunctionPlot",
     "props": {
-      "tracks": [
-        { "terms": ["x: 0", "1", "2", "3"], "label": "input" },
-        { "terms": ["f: 1", "3", "5", "7"], "label": "output f(x)=2x+1" }
+      "plots": [
+        { "poly": [1, 2], "domain": [-3, 3], "label": "f(x) = 2x + 1", "color": "accent" }
       ]
     },
-    "caption": "A function pairs each input with one output. f(x) = 2x+1 gives 1, 3, 5, 7 — plot them for a straight line."
+    "caption": "A function pairs each input x with one output f(x). Graphed, f(x) = 2x + 1 is a straight line rising 2 for every 1 across, crossing the y-axis at 1."
   },
   "teachingGallery": [
     {

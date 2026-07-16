@@ -96,9 +96,9 @@ function validateConcept(file) {
     err("story needs text(>=50 chars), extractedProblem, answerInStory (story->math->story rule)");
   if (!c.visual || !c.visual.component)
     err("visual explanation required (never formula-first rule)");
-  else if (!["NumberLine","BarModel","ArrayGrid","FractionStrip","AreaModel","PlaceValueBlocks","GeometryCanvas","ClockFace","BarChart","PizzaSlices","Abacus","ObjectRow","NumberTrack"].includes(c.visual.component))
+  else if (!["NumberLine","BarModel","ArrayGrid","FractionStrip","AreaModel","PlaceValueBlocks","GeometryCanvas","ClockFace","BarChart","PizzaSlices","Abacus","ObjectRow","NumberTrack","FunctionPlot"].includes(c.visual.component))
     err(`visual.component "${c.visual.component}" is not a built component`);
-  const COMP = ["NumberLine","BarModel","ArrayGrid","FractionStrip","AreaModel","PlaceValueBlocks","GeometryCanvas","ClockFace","BarChart","PizzaSlices","Abacus","ObjectRow","NumberTrack"];
+  const COMP = ["NumberLine","BarModel","ArrayGrid","FractionStrip","AreaModel","PlaceValueBlocks","GeometryCanvas","ClockFace","BarChart","PizzaSlices","Abacus","ObjectRow","NumberTrack","FunctionPlot"];
   if (c.teachingGallery !== undefined) {
     if (!Array.isArray(c.teachingGallery)) err("teachingGallery must be an array of {title, examples[]}");
     else c.teachingGallery.forEach((g, gi) => {

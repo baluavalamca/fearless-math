@@ -26,13 +26,13 @@
     "answerInStory": "At x = 0 — because 2x = 0 gives x = 0, the minimum of the bowl."
   },
   "visual": {
-    "component": "GeometryCanvas",
+    "component": "FunctionPlot",
     "props": {
-      "shapes": [
-        { "kind": "line", "label": "tangent slope = f′(x); flat (slope 0) at a turning point" }
+      "plots": [
+        { "poly": [0, 0, 1], "domain": [-3.5, 3.5], "tangentAt": 0, "label": "y = x²", "color": "accent" }
       ]
     },
-    "caption": "The tangent's slope is f′(x). It is positive going up, negative going down, and exactly zero at a maximum or minimum."
+    "caption": "f′(x) is the slope. On y = x² the tangent is flat (slope 0) at the bottom x = 0 — the minimum; positive to the right (rising), negative to the left (falling)."
   },
   "teachingGallery": [
     {
@@ -107,6 +107,17 @@
   "revisionCard": {
     "summary": "f′(x) is the slope. f′ > 0 increasing, f′ < 0 decreasing, f′ = 0 at a turning point (max/min). Tangent slope at x = a is f′(a). To optimise (biggest/smallest), set f′(x) = 0 and solve. For y = x²: slope 2x, minimum at x = 0.",
     "reviewAfterDays": [3, 7, 21]
+  },
+  "trickPractice": {
+    "trick": "Tangent-slope & turning-point quick-fire",
+    "intro": "The slope is f′(x); set it to zero for a turning point. Rapid rounds on y = x² (f′ = 2x).",
+    "questions": [
+      { "id": "n54-trick-1", "type": "number", "q": "Tangent slope to y = x² at x = 3?", "answer": "6", "hintLadder": ["2x at 3.", "2 × 3.", "6."] },
+      { "id": "n54-trick-2", "type": "number", "q": "Tangent slope to y = x² at x = 4?", "answer": "8", "hintLadder": ["2x at 4.", "2 × 4.", "8."] },
+      { "id": "n54-trick-3", "type": "number", "q": "At a turning point, f′(x) = ?", "answer": "0", "hintLadder": ["Flat curve.", "Zero slope.", "0."] },
+      { "id": "n54-trick-4", "type": "number", "q": "y = x² has its minimum at x = ? (solve 2x = 0)", "answer": "0", "hintLadder": ["2x = 0.", "Divide by 2.", "0."] },
+      { "id": "n54-trick-5", "type": "number", "q": "Tangent slope to y = x² at x = 7?", "answer": "14", "hintLadder": ["2x at 7.", "2 × 7.", "14."] }
+    ]
   },
   "meta": {
     "version": "1.0.0",

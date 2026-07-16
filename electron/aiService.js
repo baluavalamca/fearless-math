@@ -422,7 +422,7 @@ async function coach(concept, question, answerGiven, mistake) {
 
 const STRANDS = ["numbers", "operations", "fractions", "geometry", "measurement", "data"];
 // Components the offline renderer can draw (must match VisualRenderer + validator).
-const VISUAL_COMPONENTS = ["NumberLine", "BarModel", "ArrayGrid", "FractionStrip", "AreaModel", "PlaceValueBlocks", "GeometryCanvas", "ClockFace", "BarChart", "PizzaSlices", "Abacus", "ObjectRow", "NumberTrack"];
+const VISUAL_COMPONENTS = ["NumberLine", "BarModel", "ArrayGrid", "FractionStrip", "AreaModel", "PlaceValueBlocks", "GeometryCanvas", "ClockFace", "BarChart", "PizzaSlices", "Abacus", "ObjectRow", "NumberTrack", "FunctionPlot"];
 // A curated, easy-to-author subset the generator is allowed to emit.
 const GEN_COMPONENTS = ["NumberLine", "ArrayGrid", "BarModel", "FractionStrip", "PizzaSlices", "BarChart"];
 

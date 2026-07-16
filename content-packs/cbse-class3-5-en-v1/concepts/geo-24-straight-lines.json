@@ -26,13 +26,13 @@
     "answerInStory": "2 — slope = (4 − 0)/(2 − 0) = 4/2 = 2."
   },
   "visual": {
-    "component": "GeometryCanvas",
+    "component": "FunctionPlot",
     "props": {
-      "shapes": [
-        { "kind": "line", "label": "y = 2x: rise 4 over run 2 → slope 2" }
+      "plots": [
+        { "poly": [0, 2], "domain": [-4, 4], "label": "y = 2x", "color": "accent" }
       ]
     },
-    "caption": "Slope is rise over run: this line climbs 4 for every 2 across, so m = 2, and it passes through the origin (c = 0)."
+    "caption": "The line y = 2x on real axes: it climbs 2 up for every 1 across (slope 2) and passes through the origin (c = 0)."
   },
   "teachingGallery": [
     {

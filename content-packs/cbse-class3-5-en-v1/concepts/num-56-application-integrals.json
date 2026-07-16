@@ -26,16 +26,13 @@
     "answerInStory": "9 — ∫ from 0 to 3 of 2x dx = [x²]₀³ = 9 (and ½ × 3 × 6 = 9 agrees)."
   },
   "visual": {
-    "component": "BarChart",
+    "component": "FunctionPlot",
     "props": {
-      "categories": [
-        { "label": "0-1", "value": 1 },
-        { "label": "1-2", "value": 3 },
-        { "label": "2-3", "value": 5 }
-      ],
-      "unit": "area strips"
+      "plots": [
+        { "poly": [0, 2], "domain": [-1, 4], "shade": [0, 3], "label": "y = 2x", "color": "good" }
+      ]
     },
-    "caption": "Thin strips fill the region under y = 2x from 0 to 3; adding them (the integral) gives the exact area 9."
+    "caption": "The shaded region under y = 2x from x = 0 to 3 is the area ∫₀³ 2x dx = 9 — matching the triangle ½ × 3 × 6 = 9."
   },
   "teachingGallery": [
     {
