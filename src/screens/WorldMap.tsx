@@ -22,8 +22,20 @@ const STAGES: { id: string; label: string; sub: string; grades: number[]; badge:
   { id: "class3", label: "Class 3", sub: "Getting strong", grades: [3], badge: "3" },
   { id: "class4", label: "Class 4", sub: "Levelling up", grades: [4], badge: "4" },
   { id: "class5", label: "Class 5", sub: "Big ideas", grades: [5], badge: "5" },
+  { id: "class6", label: "Class 6", sub: "Middle school", grades: [6], badge: "6" },
+  { id: "class7", label: "Class 7", sub: "Middle school", grades: [7], badge: "7" },
+  { id: "class8", label: "Class 8 – 9", sub: "Pre-board", grades: [8], badge: "8" },
+  { id: "class10", label: "Class 10", sub: "Board year", grades: [9], badge: "10" },
+  { id: "class11", label: "Class 11", sub: "Senior secondary", grades: [10], badge: "11" },
+  { id: "class12", label: "Class 12", sub: "IIT-JEE foundation", grades: [11], badge: "12" },
 ];
-const bandOf = (g: number) => (g <= 2 ? "foundation" : "class" + g);
+// Map a learner's class number to the matching stage tab.
+const bandOf = (g: number) =>
+  g <= 2 ? "foundation" :
+  g <= 7 ? "class" + g :          // Classes 3,4,5,6,7 have their own tabs
+  g <= 9 ? "class8" :             // Classes 8 & 9 share the Class 8–9 tab
+  g === 10 ? "class10" :
+  g === 11 ? "class11" : "class12";
 const ACTIVE = ["available", "learning", "practicing"];
 const statusText = (s: string) =>
   s === "mastered" ? "Mastered ⭐" : s === "learning" ? "Learning" : s === "practicing" ? "Keep practicing" : s === "locked" ? "Locked" : "Ready";
