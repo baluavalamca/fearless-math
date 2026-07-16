@@ -3,7 +3,9 @@
   "name": "Solid Shapes — Faces, Edges and Corners",
   "grade": 4,
   "strand": "geometry",
-  "prerequisites": ["geo-01-shapes"],
+  "prerequisites": [
+    "geo-01-shapes"
+  ],
   "whatIsIt": "Flat shapes are 2D; SOLID shapes are 3D — you can hold them. A CUBE (dice) and CUBOID (brick) have flat faces, straight edges and pointy corners (vertices). A SPHERE (ball) is fully round. A CYLINDER (tin) and CONE (party hat) mix flat and curved surfaces. We describe solids by counting faces, edges and vertices.",
   "whyNeeded": "The real world is 3D — boxes, balls, tins, ice-cream cones. Knowing faces, edges and corners helps you describe objects, build models, and later understand surface area and volume.",
   "realLifeUses": [
@@ -13,34 +15,100 @@
     "An ice-cream cone and a party hat are cones"
   ],
   "vocabulary": [
-    { "term": "face", "meaning": "A flat (or curved) surface of a solid." },
-    { "term": "edge", "meaning": "The line where two faces meet." },
-    { "term": "vertex (corner)", "meaning": "A point where edges meet." }
+    {
+      "term": "face",
+      "meaning": "A flat (or curved) surface of a solid."
+    },
+    {
+      "term": "edge",
+      "meaning": "The line where two faces meet."
+    },
+    {
+      "term": "vertex (corner)",
+      "meaning": "A point where edges meet."
+    }
   ],
   "story": {
     "title": "The Toy Box Sort",
-    "characters": ["Tara", "Nana"],
+    "characters": [
+      "Tara",
+      "Nana"
+    ],
     "text": "Tara empties her toy box: a dice, a ball, a tin and a party hat. 'Sort them by how they roll or stack,' says Nana. 'The dice stacks — it has flat faces and corners. The ball rolls everywhere — it's round with no corners. The tin rolls on its side but stacks on its flat ends.' 'How many corners does the dice have?' asks Nana. Tara counts: 8.",
     "extractedProblem": "A dice (cube) — how many corners (vertices) does it have?",
     "answerInStory": "8 corners."
   },
   "visual": {
-    "component": "ObjectRow",
+    "component": "Solid3D",
     "props": {
-      "sequences": [
-        { "items": ["🎲", "⚽", "🥫", "🎉"], "label": "cube · sphere · cylinder · cone" }
+      "solids": [
+        {
+          "kind": "cube",
+          "label": "cube"
+        },
+        {
+          "kind": "sphere",
+          "label": "sphere"
+        },
+        {
+          "kind": "cylinder",
+          "label": "cylinder"
+        },
+        {
+          "kind": "cone",
+          "label": "cone"
+        }
       ]
     },
-    "caption": "Solids around us: cube (dice), sphere (ball), cylinder (tin), cone (party hat)."
+    "caption": "Solids around us in real 3D — drag to rotate: cube (dice), sphere (ball), cylinder (tin), cone (party hat)."
   },
   "teachingGallery": [
     {
       "title": "Count faces, edges, corners",
       "note": "Cubes/cuboids: 6 faces, 12 edges, 8 corners. Round solids have curved surfaces.",
       "examples": [
-        { "component": "ObjectRow", "props": { "sequences": [ { "items": ["🎲"], "label": "cube: 6 faces, 12 edges, 8 corners" } ] }, "caption": "A cube — all faces are equal squares." },
-        { "component": "ObjectRow", "props": { "sequences": [ { "items": ["📦"], "label": "cuboid: 6 faces, 12 edges, 8 corners" } ] }, "caption": "A cuboid — faces are rectangles." },
-        { "component": "ObjectRow", "props": { "sequences": [ { "items": ["🥫"], "label": "cylinder: 2 flat + 1 curved, 0 corners" } ] }, "caption": "A cylinder rolls on its side, stacks on its ends." }
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "🎲"
+                ],
+                "label": "cube: 6 faces, 12 edges, 8 corners"
+              }
+            ]
+          },
+          "caption": "A cube — all faces are equal squares."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "📦"
+                ],
+                "label": "cuboid: 6 faces, 12 edges, 8 corners"
+              }
+            ]
+          },
+          "caption": "A cuboid — faces are rectangles."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "🥫"
+                ],
+                "label": "cylinder: 2 flat + 1 curved, 0 corners"
+              }
+            ]
+          },
+          "caption": "A cylinder rolls on its side, stacks on its ends."
+        }
       ]
     }
   ],
@@ -56,12 +124,20 @@
   "workedExamples": [
     {
       "problem": "How many faces, edges and vertices does a cube have?",
-      "steps": ["A cube has 6 square faces.", "Edges where faces meet: 12.", "Corners: 8. So 6 faces, 12 edges, 8 vertices."],
+      "steps": [
+        "A cube has 6 square faces.",
+        "Edges where faces meet: 12.",
+        "Corners: 8. So 6 faces, 12 edges, 8 vertices."
+      ],
       "answer": "6 faces, 12 edges, 8 vertices"
     },
     {
       "problem": "A tin of food is which solid, and how many corners does it have?",
-      "steps": ["It has two flat circular ends and a curved side → cylinder.", "A cylinder has no pointy corners.", "So it has 0 vertices."],
+      "steps": [
+        "It has two flat circular ends and a curved side → cylinder.",
+        "A cylinder has no pointy corners.",
+        "So it has 0 vertices."
+      ],
       "answer": "Cylinder, 0 vertices"
     }
   ],
@@ -80,77 +156,167 @@
   "practice": {
     "easy": [
       {
-        "id": "g07-e1", "type": "number",
+        "id": "g07-e1",
+        "type": "number",
         "q": "How many faces does a cube have?",
         "answer": "6",
-        "hintLadder": ["Think of a dice.", "Top, bottom and four sides.", "Six."]
+        "hintLadder": [
+          "Think of a dice.",
+          "Top, bottom and four sides.",
+          "Six."
+        ]
       },
       {
-        "id": "g07-e2", "type": "mcq",
+        "id": "g07-e2",
+        "type": "mcq",
         "q": "A ball is which solid?",
-        "options": [ { "label": "Sphere" }, { "label": "Cube", "mistakeTag": "2d-3d-confusion" } ],
+        "options": [
+          {
+            "label": "Sphere"
+          },
+          {
+            "label": "Cube",
+            "mistakeTag": "2d-3d-confusion"
+          }
+        ],
         "answer": "Sphere",
-        "hintLadder": ["It is fully round.", "No flat faces.", "Sphere."]
+        "hintLadder": [
+          "It is fully round.",
+          "No flat faces.",
+          "Sphere."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "g07-m1", "type": "number",
+        "id": "g07-m1",
+        "type": "number",
         "q": "How many corners (vertices) does a cuboid have?",
         "answer": "8",
-        "hintLadder": ["Same as a cube.", "Count the pointy corners of a box.", "Eight."]
+        "hintLadder": [
+          "Same as a cube.",
+          "Count the pointy corners of a box.",
+          "Eight."
+        ]
       },
       {
-        "id": "g07-m2", "type": "mcq",
+        "id": "g07-m2",
+        "type": "mcq",
         "q": "A party hat is which solid?",
-        "options": [ { "label": "Cone" }, { "label": "Cylinder", "mistakeTag": "miscount-faces-edges" } ],
+        "options": [
+          {
+            "label": "Cone"
+          },
+          {
+            "label": "Cylinder",
+            "mistakeTag": "miscount-faces-edges"
+          }
+        ],
         "answer": "Cone",
-        "hintLadder": ["One round base and a point on top.", "That is a cone.", "Cone."]
+        "hintLadder": [
+          "One round base and a point on top.",
+          "That is a cone.",
+          "Cone."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "g07-c1", "type": "number",
+        "id": "g07-c1",
+        "type": "number",
         "q": "How many edges does a cube have?",
         "answer": "12",
-        "hintLadder": ["Edges are lines where faces meet.", "4 on top, 4 on bottom, 4 uprights.", "Twelve."]
+        "hintLadder": [
+          "Edges are lines where faces meet.",
+          "4 on top, 4 on bottom, 4 uprights.",
+          "Twelve."
+        ]
       },
       {
-        "id": "g07-c2", "type": "mcq",
+        "id": "g07-c2",
+        "type": "mcq",
         "q": "Rohan calls a dice a 'square'. What should he say?",
-        "options": [ { "label": "A cube — its faces are squares" }, { "label": "A square is correct", "mistakeTag": "2d-3d-confusion" } ],
+        "options": [
+          {
+            "label": "A cube — its faces are squares"
+          },
+          {
+            "label": "A square is correct",
+            "mistakeTag": "2d-3d-confusion"
+          }
+        ],
         "answer": "A cube — its faces are squares",
-        "hintLadder": ["A dice is solid, not flat.", "Its faces are squares.", "The solid is a cube."]
+        "hintLadder": [
+          "A dice is solid, not flat.",
+          "Its faces are squares.",
+          "The solid is a cube."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "g07-x1", "type": "number",
+        "id": "g07-x1",
+        "type": "number",
         "q": "A cuboid has how many faces?",
         "answer": "6",
-        "hintLadder": ["Think of a matchbox.", "Six flat faces.", "Six."]
+        "hintLadder": [
+          "Think of a matchbox.",
+          "Six flat faces.",
+          "Six."
+        ]
       },
       {
-        "id": "g07-x2", "type": "mcq",
+        "id": "g07-x2",
+        "type": "mcq",
         "q": "A tin of food is a…",
-        "options": [ { "label": "Cylinder" }, { "label": "Cube", "mistakeTag": "miscount-faces-edges" } ],
+        "options": [
+          {
+            "label": "Cylinder"
+          },
+          {
+            "label": "Cube",
+            "mistakeTag": "miscount-faces-edges"
+          }
+        ],
         "answer": "Cylinder",
-        "hintLadder": ["Flat round ends, curved side.", "Rolls on its side.", "Cylinder."]
+        "hintLadder": [
+          "Flat round ends, curved side.",
+          "Rolls on its side.",
+          "Cylinder."
+        ]
       },
       {
-        "id": "g07-x3", "type": "number",
+        "id": "g07-x3",
+        "type": "number",
         "q": "How many corners does a sphere have?",
         "answer": "0",
-        "hintLadder": ["A ball is fully round.", "No pointy corners.", "Zero."]
+        "hintLadder": [
+          "A ball is fully round.",
+          "No pointy corners.",
+          "Zero."
+        ]
       },
       {
-        "id": "g07-x4", "type": "mcq",
+        "id": "g07-x4",
+        "type": "mcq",
         "q": "An EDGE of a solid is…",
-        "options": [ { "label": "The line where two faces meet" }, { "label": "A flat surface", "mistakeTag": "miscount-faces-edges" } ],
+        "options": [
+          {
+            "label": "The line where two faces meet"
+          },
+          {
+            "label": "A flat surface",
+            "mistakeTag": "miscount-faces-edges"
+          }
+        ],
         "answer": "The line where two faces meet",
-        "hintLadder": ["A face is a surface.", "An edge is a line.", "Where two faces meet."]
+        "hintLadder": [
+          "A face is a surface.",
+          "An edge is a line.",
+          "Where two faces meet."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -159,7 +325,11 @@
   "teachBackPrompt": "Find four solid objects at home (a box, a ball, a tin, a cone-shaped thing). Name each solid and tell a grown-up its faces, edges and corners — and which ones roll, stack, or slide.",
   "revisionCard": {
     "summary": "Solids are 3D. Cube & cuboid: 6 faces, 12 edges, 8 corners. Sphere: round, 0 corners. Cylinder: 2 flat + 1 curved surface, 0 corners. Cone: 1 flat + 1 curved, 1 corner. Face = surface, edge = line, vertex = corner.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",

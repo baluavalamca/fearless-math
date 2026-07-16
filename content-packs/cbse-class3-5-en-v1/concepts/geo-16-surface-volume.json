@@ -3,7 +3,10 @@
   "name": "Surface Area and Volume of Solids",
   "grade": 8,
   "strand": "geometry",
-  "prerequisites": ["geo-07-3d-shapes", "meas-04-volume"],
+  "prerequisites": [
+    "geo-07-3d-shapes",
+    "meas-04-volume"
+  ],
   "whatIsIt": "For 3D solids there are two measures. VOLUME is the space INSIDE (in cubic units): a cuboid holds length × breadth × height; a cube holds side³. SURFACE AREA is the total of all the OUTSIDE faces (in square units): a cuboid has 6 rectangular faces to add; a cube has 6 equal squares = 6 × side². Volume fills; surface area wraps.",
   "whyNeeded": "Packing, building and manufacturing need both: how much a tank or box HOLDS (volume) and how much material WRAPS it — paint, paper, metal sheet (surface area). Mixing them up wastes material or money.",
   "realLifeUses": [
@@ -13,34 +16,91 @@
     "Paint needed for the outside of a container (surface area)"
   ],
   "vocabulary": [
-    { "term": "volume", "meaning": "Space inside a solid, in cubic units (cm³, m³)." },
-    { "term": "surface area", "meaning": "Total area of all outside faces, in square units." },
-    { "term": "cubic units", "meaning": "The unit for volume — unit cubes that fill the space." }
+    {
+      "term": "volume",
+      "meaning": "Space inside a solid, in cubic units (cm³, m³)."
+    },
+    {
+      "term": "surface area",
+      "meaning": "Total area of all outside faces, in square units."
+    },
+    {
+      "term": "cubic units",
+      "meaning": "The unit for volume — unit cubes that fill the space."
+    }
   ],
   "story": {
     "title": "The Gift and the Fish Tank",
-    "characters": ["Rehan", "Mummy"],
+    "characters": [
+      "Rehan",
+      "Mummy"
+    ],
     "text": "Rehan's gift box is 10 by 8 by 5 cm. 'How much paper to wrap it?' asks Mummy — that's surface area. Later his cube fish tank has side 20 cm. 'How much water?' — that's volume, 20³ = 8000 cm³. 'Paper wraps the outside; water fills the inside,' Rehan realises. 'Two different jobs.'",
     "extractedProblem": "A cube tank has side 20 cm. How much water does it hold (volume)?",
     "answerInStory": "8000 cm³ — volume of a cube is side³ = 20 × 20 × 20."
   },
   "visual": {
-    "component": "ObjectRow",
+    "component": "Solid3D",
     "props": {
-      "sequences": [
-        { "items": ["📦", "🎁"], "label": "volume fills · surface area wraps" }
+      "solids": [
+        {
+          "kind": "cuboid",
+          "label": "cuboid: V = l×b×h"
+        },
+        {
+          "kind": "cube",
+          "label": "cube: 6 equal faces"
+        }
       ]
     },
-    "caption": "Cuboid volume = length × breadth × height (inside). Surface area = add all 6 faces (outside wrap)."
+    "caption": "Volume fills the inside (l×b×h); surface area wraps the outside (add all faces). Spin to see every face."
   },
   "teachingGallery": [
     {
       "title": "Fill vs wrap",
       "note": "Volume in cubic units; surface area in square units.",
       "examples": [
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 3, "cols": 4, "label": "one layer 4×3 = 12" } ] }, "caption": "Cuboid: layer area × height gives volume." },
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "square", "w": 3, "h": 3, "label": "one face = side²" } ] }, "caption": "Cube surface = 6 equal square faces." },
-        { "component": "ObjectRow", "props": { "sequences": [ { "items": ["🧊"], "label": "cube: V = side³, SA = 6 × side²" } ] }, "caption": "Cube of side 2: V = 8, SA = 24." }
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 4,
+                "label": "one layer 4×3 = 12"
+              }
+            ]
+          },
+          "caption": "Cuboid: layer area × height gives volume."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 3,
+                "h": 3,
+                "label": "one face = side²"
+              }
+            ]
+          },
+          "caption": "Cube surface = 6 equal square faces."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "🧊"
+                ],
+                "label": "cube: V = side³, SA = 6 × side²"
+              }
+            ]
+          },
+          "caption": "Cube of side 2: V = 8, SA = 24."
+        }
       ]
     }
   ],
@@ -56,12 +116,20 @@
   "workedExamples": [
     {
       "problem": "Find the volume of a cuboid 5 × 3 × 2.",
-      "steps": ["Volume = length × breadth × height.", "5 × 3 × 2.", "= 30 cubic units."],
+      "steps": [
+        "Volume = length × breadth × height.",
+        "5 × 3 × 2.",
+        "= 30 cubic units."
+      ],
       "answer": "30"
     },
     {
       "problem": "Find the surface area of a cube of side 4.",
-      "steps": ["Surface area = 6 × side².", "6 × 4 × 4 = 6 × 16.", "= 96 square units."],
+      "steps": [
+        "Surface area = 6 × side².",
+        "6 × 4 × 4 = 6 × 16.",
+        "= 96 square units."
+      ],
       "answer": "96"
     }
   ],
@@ -80,74 +148,140 @@
   "practice": {
     "easy": [
       {
-        "id": "g16-e1", "type": "number",
+        "id": "g16-e1",
+        "type": "number",
         "q": "Cuboid 2 × 3 × 4 — volume (cubic units)?",
         "answer": "24",
-        "hintLadder": ["l × b × h.", "2 × 3 × 4.", "24."]
+        "hintLadder": [
+          "l × b × h.",
+          "2 × 3 × 4.",
+          "24."
+        ]
       },
       {
-        "id": "g16-e2", "type": "number",
+        "id": "g16-e2",
+        "type": "number",
         "q": "Cube side 3 — volume (cubic units)?",
         "answer": "27",
-        "hintLadder": ["side³.", "3 × 3 × 3.", "27."]
+        "hintLadder": [
+          "side³.",
+          "3 × 3 × 3.",
+          "27."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "g16-m1", "type": "number",
+        "id": "g16-m1",
+        "type": "number",
         "q": "Cube side 2 — surface area (square units)?",
         "answer": "24",
-        "hintLadder": ["6 × side².", "6 × 4.", "24."]
+        "hintLadder": [
+          "6 × side².",
+          "6 × 4.",
+          "24."
+        ]
       },
       {
-        "id": "g16-m2", "type": "number",
+        "id": "g16-m2",
+        "type": "number",
         "q": "Cuboid 5 × 2 × 3 — volume (cubic units)?",
         "answer": "30",
-        "hintLadder": ["l × b × h.", "5 × 2 × 3.", "30."]
+        "hintLadder": [
+          "l × b × h.",
+          "5 × 2 × 3.",
+          "30."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "g16-c1", "type": "number",
+        "id": "g16-c1",
+        "type": "number",
         "q": "Cube side 5 — surface area (square units)?",
         "answer": "150",
-        "hintLadder": ["6 × side².", "6 × 25.", "150."]
+        "hintLadder": [
+          "6 × side².",
+          "6 × 25.",
+          "150."
+        ]
       },
       {
-        "id": "g16-c2", "type": "mcq",
+        "id": "g16-c2",
+        "type": "mcq",
         "q": "For wrapping paper to cover a box you need the…",
-        "options": [ { "label": "Surface area" }, { "label": "Volume", "mistakeTag": "volume-surface-mix" } ],
+        "options": [
+          {
+            "label": "Surface area"
+          },
+          {
+            "label": "Volume",
+            "mistakeTag": "volume-surface-mix"
+          }
+        ],
         "answer": "Surface area",
-        "hintLadder": ["Paper wraps the outside.", "Outside = surface area.", "Surface area."]
+        "hintLadder": [
+          "Paper wraps the outside.",
+          "Outside = surface area.",
+          "Surface area."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "g16-x1", "type": "number",
+        "id": "g16-x1",
+        "type": "number",
         "q": "Cuboid 4 × 4 × 2 — volume (cubic units)?",
         "answer": "32",
-        "hintLadder": ["l × b × h.", "4 × 4 × 2.", "32."]
+        "hintLadder": [
+          "l × b × h.",
+          "4 × 4 × 2.",
+          "32."
+        ]
       },
       {
-        "id": "g16-x2", "type": "number",
+        "id": "g16-x2",
+        "type": "number",
         "q": "Cube side 4 — volume (cubic units)?",
         "answer": "64",
-        "hintLadder": ["side³.", "4 × 4 × 4.", "64."]
+        "hintLadder": [
+          "side³.",
+          "4 × 4 × 4.",
+          "64."
+        ]
       },
       {
-        "id": "g16-x3", "type": "number",
+        "id": "g16-x3",
+        "type": "number",
         "q": "Cube side 3 — surface area (square units)?",
         "answer": "54",
-        "hintLadder": ["6 × side².", "6 × 9.", "54."]
+        "hintLadder": [
+          "6 × side².",
+          "6 × 9.",
+          "54."
+        ]
       },
       {
-        "id": "g16-x4", "type": "mcq",
+        "id": "g16-x4",
+        "type": "mcq",
         "q": "How much water a tank holds is its…",
-        "options": [ { "label": "Volume" }, { "label": "Surface area", "mistakeTag": "volume-surface-mix" } ],
+        "options": [
+          {
+            "label": "Volume"
+          },
+          {
+            "label": "Surface area",
+            "mistakeTag": "volume-surface-mix"
+          }
+        ],
         "answer": "Volume",
-        "hintLadder": ["Water fills the inside.", "Inside = volume.", "Volume."]
+        "hintLadder": [
+          "Water fills the inside.",
+          "Inside = volume.",
+          "Volume."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -156,7 +290,11 @@
   "teachBackPrompt": "Take a box at home. Show a grown-up how you'd find its VOLUME (multiply length × breadth × height — what it holds) and its SURFACE AREA (add up all six faces — the paper to wrap it), and explain why they use different units.",
   "revisionCard": {
     "summary": "Volume = space inside (cubic units): cuboid = l × b × h; cube = side³. Surface area = all outside faces (square units): cuboid = 2(lb + bh + lh); cube = 6 × side². Volume fills, surface area wraps — pick by the job.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",

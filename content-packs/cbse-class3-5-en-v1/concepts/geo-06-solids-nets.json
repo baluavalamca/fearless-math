@@ -47,17 +47,17 @@
     "answerInStory": "6 squares — a cube has 6 faces, so its net is 6 squares."
   },
   "visual": {
-    "component": "GeometryCanvas",
+    "component": "Solid3D",
     "props": {
-      "shapes": [
+      "solids": [
         {
-          "kind": "square",
-          "w": 3,
-          "label": "one face"
+          "kind": "cube",
+          "size": 2,
+          "label": "Cube: 6 faces · 12 edges · 8 vertices"
         }
       ]
     },
-    "caption": "A cube has 6 square FACES, 12 EDGES, 8 VERTICES. Unfold it and you get a net of 6 squares."
+    "caption": "Spin the cube to count its 6 square FACES, 12 EDGES and 8 VERTICES. Unfold it and you get a net of 6 squares."
   },
   "teachingGallery": [
     {

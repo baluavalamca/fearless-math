@@ -1,5 +1,5 @@
 /** Dispatches a content-authored visual spec to the right offline component. */
-import { Component, ReactNode } from "react";
+import { Component, ReactNode, lazy, Suspense } from "react";
 import { FractionStrip, StripSpec } from "./FractionStrip";
 import { NumberLine, LineSpec } from "./NumberLine";
 import { ArrayGrid, GridSpec } from "./ArrayGrid";
@@ -14,6 +14,9 @@ import { Abacus, AbacusSpec } from "./Abacus";
 import { ObjectRow, SeqSpec } from "./ObjectRow";
 import { NumberTrack, TrackSpec } from "./NumberTrack";
 import { FunctionPlot, PlotSpec } from "./FunctionPlot";
+import type { SolidSpec } from "./Solid3D";
+// Three.js 3D solids are code-split — only loaded when a 3D visual actually appears.
+const Solid3D = lazy(() => import("./Solid3D").then((m) => ({ default: m.Solid3D })));
 import type { VisualSpec } from "./visualTypes";
 
 // Re-exported so existing importers (`import { VisualSpec } from "./VisualRenderer"`)
@@ -83,6 +86,12 @@ function VisualSwitch({ visual }: { visual: VisualSpec }) {
       );
     case "FunctionPlot":
       return <FunctionPlot plots={visual.props.plots as PlotSpec[]} caption={visual.caption} />;
+    case "Solid3D":
+      return (
+        <Suspense fallback={<p className="fm-callout">{visual.caption ?? "Loading 3D…"}</p>}>
+          <Solid3D solids={visual.props.solids as SolidSpec[]} caption={visual.caption} />
+        </Suspense>
+      );
     default:
       // Unknown component: fail soft, never break a lesson
       return visual.caption ? <p className="fm-callout">{visual.caption}</p> : null;
