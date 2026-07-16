@@ -74,10 +74,15 @@ export default function App() {
   function switchUser() { stopSpeaking(); setProfile(null); setConcepts(null); setOpen(null); }
 
   async function openConcept(id: string) {
-    const c = await api.getConcept(id);
-    await api.lessonStarted(id);
-    localStorage.setItem("fm_last_" + (profile?.id ?? 0), id);
-    setOpen(c);
+    try {
+      const c = await api.getConcept(id);
+      await api.lessonStarted(id);
+      localStorage.setItem("fm_last_" + (profile?.id ?? 0), id);
+      setOpen(c);
+    } catch (e) {
+      // A failed lesson load shouldn't dead-end the child on a frozen tile.
+      console.error("Could not open lesson:", id, e);
+    }
   }
 
   if (booting) return <div className="fm-loading">Waking up Fraction Fox… 🦊</div>;
@@ -105,7 +110,7 @@ export default function App() {
           {autoRead ? "🔊 Auto-read ON" : "🔇 Auto-read OFF"}
         </button>
         <button className="fm-theme-toggle" onClick={cycleTheme}
-          title="Switch theme: Light → Dark → Claude → NVIDIA → Nike">
+          title={`Switch theme (${THEMES.length} available)`}>
           {(THEMES.find((t) => t.id === theme) ?? THEMES[0]).icon}{" "}
           {(THEMES.find((t) => t.id === theme) ?? THEMES[0]).label}
         </button>

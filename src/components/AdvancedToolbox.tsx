@@ -8,6 +8,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Emoji3D } from "./ObjectIcon";
 import { Surface3D } from "./Surface3D";
+import { Solid3D, SolidSpec } from "./Solid3D";
 
 /* ---------- shared helpers ---------- */
 
@@ -506,6 +507,10 @@ const SOLIDS: Shape[] = [
   { id: "cone", name: "Cone", dims: ["radius", "height"], area: (d) => (1 / 3) * Math.PI * d[0] ** 2 * d[1], extra: (d) => `Slant l = ${fmt(Math.hypot(d[0], d[1]))}` },
 ];
 
+const SOLID_KIND: Record<string, SolidSpec["kind"]> = {
+  cube: "cube", cuboid: "cuboid", cylinder: "cylinder", sphere: "sphere", cone: "cone",
+};
+
 function MensurationTool() {
   const [is3d, setIs3d] = useState(false);
   const list = is3d ? SOLIDS : SHAPES;
@@ -537,6 +542,12 @@ function MensurationTool() {
         <p className="fm-adv-big">{is3d ? "Volume" : "Area"} = <b>{fmt(shape.area(d))}</b> {is3d ? "cube" : "sq"} units</p>
         <p className="fm-adv-note">{shape.extra(d)}</p>
       </div>
+      {is3d && SOLID_KIND[shape.id] && (
+        <Solid3D
+          solids={[{ kind: SOLID_KIND[shape.id], label: shape.name }]}
+          caption="Drag to spin the solid — see the faces, edges and corners you're measuring."
+        />
+      )}
     </div>
   );
 }

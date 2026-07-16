@@ -72,9 +72,10 @@ function registerIpc() {
   });
 
   ipcMain.handle("lesson:started", (_e, conceptId) =>
-    store.upsertProgress(profile.id, conceptId, { status: "learning" }));
+    profile ? store.upsertProgress(profile.id, conceptId, { status: "learning" }) : null);
 
   ipcMain.handle("practice:submit", (_e, { conceptId, questionId, context, answer, hintsUsed, question }) => {
+    if (!profile) return { correct: false, mistakeTag: null, mistake: null, hintLadder: [] };
     const c = content.concepts.get(conceptId);
     if (!c) throw new Error("Unknown concept");
     // Generated practice sends the question inline; authored questions are looked up by id.
@@ -98,6 +99,7 @@ function registerIpc() {
   });
 
   ipcMain.handle("mastery:finish", (_e, { conceptId, teachBackDone }) => {
+    if (!profile) return { status: "incomplete", score: null };
     const c = content.concepts.get(conceptId);
     const attempts = store.masteryAttempts(profile.id, conceptId);
     const result = logic.masteryResult(c, attempts, !!teachBackDone);
@@ -117,10 +119,11 @@ function registerIpc() {
     return result;
   });
 
-  ipcMain.handle("badges:list", () => store.badges(profile.id));
+  ipcMain.handle("badges:list", () => (profile ? store.badges(profile.id) : []));
 
   /** Mistake Clinic: the child's own not-yet-fixed wrong answers as fix-it puzzles. */
   ipcMain.handle("clinic:list", () => {
+    if (!profile) return [];
     return store.wrongQuestions(profile.id).flatMap((w) => {
       const c = content.concepts.get(w.conceptId);
       if (!c) return [];
@@ -135,6 +138,7 @@ function registerIpc() {
 
   /** Parent dashboard: mastery, accuracy, hints, revision dates, badges, home tips. */
   ipcMain.handle("dashboard:get", () => {
+    if (!profile) return { profile: null, concepts: [], badges: [], tips: [] };
     const progress = new Map(store.getProgress(profile.id).map((p) => [p.concept_id, p]));
     const stats = new Map(store.stats(profile.id).map((s) => [s.conceptId, s]));
     const conceptsOut = [...content.concepts.values()].map((c) => {

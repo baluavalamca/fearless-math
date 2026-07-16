@@ -24,28 +24,28 @@ a well-isolated "math truth" layer. Findings below; the safe ones are already fi
 ## 🔧 Remaining findings — do in the verified pass (edit → tsc → build)
 
 ### Architecture / robustness
-- **Null-profile guards (medium).** `electron/main.js` handlers `lesson:started`, `practice:submit`,
-  `mastery:finish`, `badges:list`, `dashboard:get`, `clinic:list` use `profile.id` with no null check.
-  The UI gates on onboarding so it's not hit in practice, but a guard (`if (!profile) return …`) is safer.
-- **Async error handling (low).** `App.openConcept` / `refresh` have no `try/catch`; if an IPC call rejects,
-  the click silently does nothing. Wrap with a friendly toast/fallback. (The new ErrorBoundary only catches render errors, not promise rejections.)
-- **Content-Security-Policy (low).** No CSP on the BrowserWindow. For a local app it's minor, but add a
-  restrictive `Content-Security-Policy` meta/header before public release.
-- **`logic.test.js` hardcoded concept count** must be bumped whenever concepts are added (process smell — consider deriving it).
+- ✅ **Null-profile guards (medium)** — FIXED. `electron/main.js` handlers `lesson:started`, `practice:submit`,
+  `mastery:finish`, `badges:list`, `dashboard:get`, `clinic:list` now return safe defaults if no active profile.
+- ✅ **Async error handling (low)** — FIXED. `App.openConcept` wrapped in `try/catch` so a failed lesson load
+  can't produce an unhandled rejection / frozen tile.
+- ⏸ **Content-Security-Policy (low) — DEFERRED (verify-risk).** A CSP mistake white-screens only at runtime,
+  and dev (HMR) vs prod need different policies. Do via `session.onHeadersReceived` gated on `app.isPackaged`,
+  tested live — not blind. `connect-src` can stay tight since AI/media fetches run in the main process.
+- **`logic.test.js` hardcoded concept count** must be bumped whenever concepts are added (consider deriving it).
 
 ### Design / UX
 - **Full design-QA sweep (medium).** The onboarding bug proves spot-checks miss unstyled elements.
   Do a deliberate screen × theme pass (Home/WorldMap, LessonPlayer, ParentDashboard, MistakeClinic,
   both toolboxes, all popups) in light + dark + each of the 13 themes, at min and max window size.
   _Needs the running app — do it right after the build is green._
-- **Stale tooltip (trivial).** `App.tsx` theme-toggle `title` still says "Light → Dark → Claude → NVIDIA → Nike"
-  but there are now 13 themes. Update or make it generic ("Switch theme").
+- ✅ **Stale tooltip (trivial)** — FIXED. Theme-toggle `title` is now generic (`Switch theme (N available)`).
 - **Accessibility (medium).** Keyboard focus states, WCAG-AA contrast per theme, and honour
   `prefers-reduced-motion` for the 3D auto-rotate (Solid3D/Scene3D/Surface3D `controls.autoRotate`).
 
 ### Code quality
-- **Duplicated visual-component list** lives in 3 places (`validate-content.js` ×2, `aiService.js`).
-  Extract a single shared constant to prevent drift when a new visual is added.
+- ⏸ **Duplicated visual-component list — DEFERRED (verify-risk).** Lives in 3 places (`validate-content.js` ×2,
+  `aiService.js`). Extracting a shared module means a cross-dir `require`; a wrong path fails only at app runtime
+  (vite doesn't bundle main-process files), so do it with a live run, not a blind edit.
 - **`AdvancedToolbox.tsx` is very large** (~1300 lines, many tools in one file). Consider splitting per-tool
   for maintainability (non-urgent; it's already lazy-loaded).
 
