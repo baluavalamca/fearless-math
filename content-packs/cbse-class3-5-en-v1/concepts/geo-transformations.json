@@ -1,0 +1,105 @@
+{
+  "id": "geo-transformations",
+  "name": "Transformations — Slide, Flip, Turn and Resize",
+  "grade": 8,
+  "strand": "geometry",
+  "prerequisites": ["geo-04-symmetry"],
+  "whatIsIt": "A TRANSFORMATION moves or resizes a shape. There are four kinds: TRANSLATION (slide the shape without turning), REFLECTION (flip it over a mirror line), ROTATION (turn it about a point by an angle), and ENLARGEMENT (scale it bigger or smaller by a factor). In a translation, reflection and rotation the shape keeps its SIZE (congruent). In an enlargement the shape keeps its SHAPE but changes size (similar).",
+  "whyNeeded": "Transformations describe how patterns, tiles, logos, animations and mirror images are built. They explain symmetry, why a reflection swaps left and right, and are a core topic in ICSE, IGCSE and international geometry — appearing in almost every exam.",
+  "realLifeUses": [
+    "Sliding a chess piece across the board (translation)",
+    "Your mirror image in a mirror (reflection)",
+    "The hands of a clock turning (rotation)",
+    "Zooming a photo bigger on a phone (enlargement)"
+  ],
+  "vocabulary": [
+    { "term": "translation", "meaning": "A slide — every point moves the same distance and direction, no turning." },
+    { "term": "reflection", "meaning": "A flip across a mirror line; the image is the same distance behind the line." },
+    { "term": "rotation", "meaning": "A turn about a fixed point by a given angle and direction." },
+    { "term": "enlargement", "meaning": "A resize by a scale factor from a centre; shape stays the same, size changes." }
+  ],
+  "story": {
+    "title": "The Rangoli Pattern",
+    "characters": ["Meera", "Nani"],
+    "text": "Meera draws one petal for her Diwali rangoli. Nani says, 'Now don't redraw it — TRANSFORM it!' Meera slides a copy to the right (translation), flips one across a line to face the other way (reflection), and turns copies around the centre point (rotation) to make a full flower. Then she makes a giant version for the doorway by scaling every length ×3 (enlargement). 'Four moves,' says Nani, 'and one petal became a whole rangoli.'",
+    "extractedProblem": "Meera turns a petal around the centre so 4 copies fill the circle equally. Through what angle is each copy rotated?",
+    "answerInStory": "90° each — a full turn of 360° shared by 4 copies is 360 ÷ 4 = 90°."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": { "shapes": [{ "kind": "triangle", "label": "original" }, { "kind": "triangle", "label": "translated (slid right)" }] },
+    "caption": "A translation slides the shape to a new place without turning or resizing it — the image is congruent to the original."
+  },
+  "teachingGallery": [
+    {
+      "title": "The four transformations",
+      "note": "Slide, flip, turn keep the size; enlarge changes it.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "rect", "w": 2, "h": 1, "label": "before" }, { "kind": "rect", "w": 2, "h": 1, "label": "after slide (translation)" }] }, "caption": "Translation: same size, new position." },
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "triangle", "label": "shape" }, { "kind": "triangle", "label": "mirror image (reflection)" }] }, "caption": "Reflection: flipped across a mirror line." },
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "square", "w": 1, "h": 1, "label": "small" }, { "kind": "square", "w": 3, "h": 3, "label": "×3 enlargement" }] }, "caption": "Enlargement: same shape, scaled ×3." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Name the transformation, then apply its rule. Translation: shift every point by the same vector. Reflection: each point goes the same distance to the other side of the mirror line. Rotation: turn every point about the centre by the angle. Enlargement: multiply each distance from the centre by the scale factor.",
+    "steps": [
+      "Decide which of the four transformations is happening (slide, flip, turn, resize).",
+      "For a translation, move every corner the same right/left and up/down amount.",
+      "For a reflection, place each point the same distance on the opposite side of the mirror line.",
+      "For a rotation, turn each point about the centre by the given angle; for an enlargement, multiply each length from the centre by the scale factor."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A point at (2, 3) is translated 4 right and 1 down. Where does it land?",
+      "steps": ["Right adds to x: 2 + 4 = 6.", "Down subtracts from y: 3 - 1 = 2.", "New point (6, 2)."],
+      "answer": "(6, 2)"
+    },
+    {
+      "problem": "A shape is enlarged by scale factor 3. A side of 5 cm becomes how long?",
+      "steps": ["Enlargement multiplies each length by the factor.", "5 × 3.", "= 15 cm."],
+      "answer": "15"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "translation-changes-size", "mistake": "Thinking a slide, flip or turn changes the size of the shape.", "fix": "Translation, reflection and rotation keep the SIZE — the image is congruent. Only an ENLARGEMENT changes size." },
+    { "mistakeTag": "reflection-wrong-side", "mistake": "Drawing the reflection on the same side as the shape.", "fix": "A reflection is on the OPPOSITE side of the mirror line, the SAME distance away as the original point." },
+    { "mistakeTag": "wrong-transformation-named", "mistake": "Naming the wrong transformation for a move (e.g. calling a flip an enlargement).", "fix": "Match the move: slide = translation, flip = reflection, turn = rotation, resize = enlargement." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "trf-e1", "type": "mcq", "q": "Sliding a shape without turning it is a…", "options": [{ "label": "Translation" }, { "label": "Rotation", "mistakeTag": "translation-changes-size" }], "answer": "Translation", "hintLadder": ["A pure slide.", "No turning, no resize.", "Translation."] },
+      { "id": "trf-e2", "type": "mcq", "q": "Your image in a flat mirror is a…", "options": [{ "label": "Reflection" }, { "label": "Enlargement", "mistakeTag": "wrong-transformation-named" }], "answer": "Reflection", "hintLadder": ["A flip.", "Left–right swap.", "Reflection."] }
+    ],
+    "medium": [
+      { "id": "trf-m1", "type": "mcq", "q": "Which transformation CHANGES the size of a shape?", "options": [{ "label": "Enlargement" }, { "label": "Translation", "mistakeTag": "translation-changes-size" }], "answer": "Enlargement", "hintLadder": ["Resize by a factor.", "Bigger or smaller.", "Enlargement."] },
+      { "id": "trf-m2", "type": "number", "q": "A shape turns fully (360°) into 4 equal copies around a point. Each rotation is how many degrees?", "answer": "90", "hintLadder": ["Share 360 among 4.", "360 ÷ 4.", "90°."] }
+    ],
+    "challenge": [
+      { "id": "trf-c1", "type": "number", "q": "Point (1, 5) is translated 3 right and 2 down. Its new y-coordinate?", "answer": "3", "hintLadder": ["Down subtracts from y.", "5 - 2.", "3."] },
+      { "id": "trf-c2", "type": "number", "q": "Enlargement scale factor 4. A 6 cm side becomes (cm)?", "answer": "24", "hintLadder": ["Multiply by the factor.", "6 × 4.", "24."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "trf-x1", "type": "mcq", "q": "A flip across a mirror line is a…", "options": [{ "label": "Reflection" }, { "label": "Translation", "mistakeTag": "reflection-wrong-side" }], "answer": "Reflection", "hintLadder": ["Mirror.", "Opposite side.", "Reflection."] },
+      { "id": "trf-x2", "type": "mcq", "q": "A turn about a point is a…", "options": [{ "label": "Rotation" }, { "label": "Reflection", "mistakeTag": "wrong-transformation-named" }], "answer": "Rotation", "hintLadder": ["Like a clock hand.", "Turn by an angle.", "Rotation."] },
+      { "id": "trf-x3", "type": "mcq", "q": "Which keeps the shape's size the SAME?", "options": [{ "label": "Translation" }, { "label": "Enlargement", "mistakeTag": "translation-changes-size" }], "answer": "Translation", "hintLadder": ["A slide.", "Congruent image.", "Translation."] },
+      { "id": "trf-x4", "type": "number", "q": "Enlargement scale factor 5; a 3 cm side becomes (cm)?", "answer": "15", "hintLadder": ["× factor.", "3 × 5.", "15."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Cut out a paper triangle. Show a grown-up all four transformations: slide it (translation), flip it over a pencil line (reflection), turn it around a pin (rotation), and describe an enlargement ×2. Explain which three keep the size the same and which one changes it.",
+  "revisionCard": {
+    "summary": "Four transformations: TRANSLATION (slide), REFLECTION (flip over a mirror line), ROTATION (turn about a point), ENLARGEMENT (resize by a scale factor). Slide/flip/turn keep size (congruent); enlargement keeps shape but changes size (similar).",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "IGCSE / ICSE / Common Core G8 (transformations)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Slide, Flip, Turn, Resize = Translate, Reflect, Rotate, Enlarge", "unpack": "First three keep size (congruent); enlargement changes size (similar)." },
+  "studentQuestions": [
+    { "q": "Which transformations keep the shape congruent?", "a": "Translation, reflection and rotation — they move the shape but never change its size or shape." },
+    { "q": "What does a negative scale factor do in an enlargement?", "a": "It enlarges AND flips the shape to the other side of the centre point (an upside-down, resized image)." }
+  ]
+}

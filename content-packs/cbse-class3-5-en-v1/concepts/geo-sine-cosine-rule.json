@@ -1,0 +1,108 @@
+{
+  "id": "geo-sine-cosine-rule",
+  "name": "Sine Rule and Cosine Rule — Any Triangle",
+  "grade": 10,
+  "strand": "geometry",
+  "prerequisites": ["geo-17-trigonometry"],
+  "whatIsIt": "Basic trigonometry (SOH-CAH-TOA) only works in right-angled triangles. For ANY triangle we use two powerful rules. The SINE RULE, a/sinA = b/sinB = c/sinC, links each side to the sine of its OPPOSITE angle. The COSINE RULE, a² = b² + c² − 2bc·cosA, is like the Pythagoras theorem with a correction term, and finds a side (or angle) from the other two sides and the angle between them.",
+  "whyNeeded": "Not every triangle has a right angle. Surveyors, sailors, engineers and architects find distances and angles in slanted, real triangles using these two rules. They are core ICSE Class 10 and IGCSE topics and appear in almost every trigonometry exam paper.",
+  "realLifeUses": [
+    "A surveyor finding the distance across a river from two angles",
+    "A ship computing distance from two bearings (sine rule)",
+    "Finding the third side of a triangular plot from two sides and the angle between (cosine rule)",
+    "Engineers finding forces along slanted beams"
+  ],
+  "vocabulary": [
+    { "term": "sine rule", "meaning": "a/sinA = b/sinB = c/sinC — each side over the sine of its opposite angle is equal." },
+    { "term": "cosine rule", "meaning": "a² = b² + c² − 2bc·cosA — Pythagoras plus a −2bc·cosA correction." },
+    { "term": "included angle", "meaning": "The angle BETWEEN two known sides; needed for the cosine rule." },
+    { "term": "opposite angle", "meaning": "The angle facing a given side (side a is opposite angle A)." }
+  ],
+  "story": {
+    "title": "Measuring Across the River",
+    "characters": ["Arjun", "Guide"],
+    "text": "Arjun cannot walk across the river to measure it. The guide says, 'Stand here, measure the angle to that tree, walk along the bank, measure again — now you have two angles and one side.' Arjun uses the SINE RULE to find the far distance without getting wet. Later, for a triangular field, he knows two sides and the angle between them, so he uses the COSINE RULE to get the third side. 'Two rules,' says the guide, 'and any triangle gives up its secrets.'",
+    "extractedProblem": "A triangular field has two sides of 6 m and 8 m with a right angle (90°) between them. Using the cosine rule, how long is the third side?",
+    "answerInStory": "10 m — a² = 6² + 8² − 2·6·8·cos90° = 36 + 64 − 0 = 100, so a = 10."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": { "shapes": [{ "kind": "triangle", "label": "sides a, b, c opposite angles A, B, C" }] },
+    "caption": "Label each side with the SAME letter as its opposite angle: side a faces angle A. The sine rule pairs a with sinA; the cosine rule uses two sides and the angle between them."
+  },
+  "teachingGallery": [
+    {
+      "title": "Which rule to use",
+      "note": "Match what you're given to the right rule.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "triangle", "label": "know a side + its opposite angle → SINE rule" }] }, "caption": "Two angles and a side, or a side–opposite-angle pair → sine rule." },
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "triangle", "label": "know two sides + included angle → COSINE rule" }] }, "caption": "Two sides and the angle between them → cosine rule." },
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "triangle", "label": "know all three sides → COSINE rule for an angle" }] }, "caption": "Three sides, want an angle → rearrange the cosine rule." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Choose by what you know. A side and its opposite angle (plus one more piece) → sine rule. Two sides and the included angle, or all three sides → cosine rule. Substitute, then solve.",
+    "steps": [
+      "Label sides a, b, c opposite angles A, B, C.",
+      "If you have a side with its OPPOSITE angle, use the sine rule a/sinA = b/sinB.",
+      "If you have TWO sides and the INCLUDED angle, use the cosine rule a² = b² + c² − 2bc·cosA.",
+      "Substitute the known values and solve for the unknown side or angle."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A triangle has two sides 6 and 8 with a 90° angle between them. Find the third side with the cosine rule.",
+      "steps": ["a² = 6² + 8² − 2·6·8·cos90°.", "cos90° = 0, so the last term is 0.", "a² = 36 + 64 = 100, so a = 10."],
+      "answer": "10"
+    },
+    {
+      "problem": "You know two angles and one side of a triangle. Which rule finds another side?",
+      "steps": ["Two angles give the third (they sum to 180°).", "Now you have a side and its opposite angle.", "Use the sine rule."],
+      "answer": "sine rule"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "forgot-2bc-term", "mistake": "Writing the cosine rule as a² = b² + c² (dropping the −2bc·cosA term).", "fix": "The cosine rule ALWAYS has the correction: a² = b² + c² − 2bc·cosA. It only becomes Pythagoras when A = 90° (because cos90° = 0)." },
+    { "mistakeTag": "sine-needs-opposite-pair", "mistake": "Using the sine rule with two sides and the angle between them.", "fix": "The sine rule needs a side AND its OPPOSITE angle. Two sides with the included angle need the COSINE rule instead." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "sc-e1", "type": "mcq", "q": "You know two angles and one side. Which rule finds a second side?", "options": [{ "label": "Sine rule" }, { "label": "Cosine rule", "mistakeTag": "sine-needs-opposite-pair" }], "answer": "Sine rule", "hintLadder": ["Angle–side pairs.", "Side over sine of opposite angle.", "Sine rule."] },
+      { "id": "sc-e2", "type": "mcq", "q": "Two sides and the angle BETWEEN them are known. Which rule?", "options": [{ "label": "Cosine rule" }, { "label": "Sine rule", "mistakeTag": "sine-needs-opposite-pair" }], "answer": "Cosine rule", "hintLadder": ["Included angle.", "Pythagoras with a correction.", "Cosine rule."] }
+    ],
+    "medium": [
+      { "id": "sc-m1", "type": "number", "q": "Cosine rule: sides 6 and 8 with 90° between them. Third side = ?", "answer": "10", "hintLadder": ["cos90° = 0.", "√(36 + 64).", "√100 = 10."] },
+      { "id": "sc-m2", "type": "mcq", "q": "The sine rule states a/sinA equals…", "options": [{ "label": "b/sinB" }, { "label": "b·sinB", "mistakeTag": "sine-needs-opposite-pair" }], "answer": "b/sinB", "hintLadder": ["Side over sine of opposite angle.", "All ratios equal.", "b/sinB."] }
+    ],
+    "challenge": [
+      { "id": "sc-c1", "type": "number", "q": "Cosine rule, right angle between sides 5 and 12. Third side?", "answer": "13", "hintLadder": ["cos90° = 0.", "√(25 + 144).", "√169 = 13."] },
+      { "id": "sc-c2", "type": "mcq", "q": "Ravi writes a² = b² + c². What did he forget?", "options": [{ "label": "The −2bc·cosA term" }, { "label": "Nothing", "mistakeTag": "forgot-2bc-term" }], "answer": "The −2bc·cosA term", "hintLadder": ["That's only Pythagoras.", "Cosine rule has a correction.", "−2bc·cosA."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "sc-x1", "type": "mcq", "q": "Two sides and the included angle → use the…", "options": [{ "label": "Cosine rule" }, { "label": "Sine rule", "mistakeTag": "sine-needs-opposite-pair" }], "answer": "Cosine rule", "hintLadder": ["Angle between the sides.", "b² + c² − 2bc cosA.", "Cosine rule."] },
+      { "id": "sc-x2", "type": "number", "q": "Cosine rule, 90° between sides 8 and 15. Third side?", "answer": "17", "hintLadder": ["cos90° = 0.", "√(64 + 225).", "√289 = 17."] },
+      { "id": "sc-x3", "type": "mcq", "q": "The sine rule pairs each side with the sine of its…", "options": [{ "label": "Opposite angle" }, { "label": "Included angle", "mistakeTag": "sine-needs-opposite-pair" }], "answer": "Opposite angle", "hintLadder": ["Side a faces angle A.", "a/sinA.", "Opposite angle."] },
+      { "id": "sc-x4", "type": "mcq", "q": "The cosine rule becomes the Pythagoras theorem when the angle is…", "options": [{ "label": "90°" }, { "label": "60°", "mistakeTag": "forgot-2bc-term" }], "answer": "90°", "hintLadder": ["cos of it must be 0.", "cos90° = 0.", "90°."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw a non-right triangle. Explain to a grown-up when you'd use the sine rule (a side with its opposite angle) versus the cosine rule (two sides and the included angle), and why the cosine rule turns into the Pythagoras theorem when the angle is 90°.",
+  "revisionCard": {
+    "summary": "For ANY triangle: SINE RULE a/sinA = b/sinB = c/sinC (needs a side + its opposite angle). COSINE RULE a² = b² + c² − 2bc·cosA (needs two sides + the included angle, or all three sides for an angle). Cosine rule → Pythagoras when A = 90°.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "ICSE Class 10 / IGCSE / JEE (sine & cosine rule)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Sine: side/sin(opposite). Cosine: a² = b² + c² − 2bc·cosA", "unpack": "Side–opposite-angle pair → sine rule. Two sides + included angle → cosine rule." },
+  "studentQuestions": [
+    { "q": "How do I choose the rule?", "a": "Look at what's given: a side WITH its opposite angle → sine rule; two sides WITH the angle between them (or all three sides) → cosine rule." },
+    { "q": "Why is the cosine rule like Pythagoras?", "a": "Because a² = b² + c² − 2bc·cosA, and when A = 90° the cos term is 0, leaving a² = b² + c² — exactly Pythagoras." }
+  ],
+  "formulas": [
+    { "name": "Sine rule", "formula": "a/sinA = b/sinB = c/sinC", "remember": "each side over the sine of its opposite angle", "whenToUse": "A side with its opposite angle is known." },
+    { "name": "Cosine rule", "formula": "a² = b² + c² − 2bc·cosA", "remember": "Pythagoras plus a −2bc cosA correction", "whenToUse": "Two sides and the included angle, or all three sides." }
+  ]
+}

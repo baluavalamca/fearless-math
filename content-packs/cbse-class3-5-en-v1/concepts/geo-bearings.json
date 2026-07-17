@@ -1,0 +1,106 @@
+{
+  "id": "geo-bearings",
+  "name": "Bearings — Directions by Angle",
+  "grade": 9,
+  "strand": "geometry",
+  "prerequisites": ["geo-05-angles"],
+  "whatIsIt": "A BEARING is a direction given as an angle, always measured CLOCKWISE from NORTH, and always written with THREE figures from 000° to 360°. North is 000°, East is 090°, South is 180°, West is 270°. The BACK BEARING is the direction of the return journey: add 180° if the bearing is under 180°, or subtract 180° if it is 180° or more.",
+  "whyNeeded": "Ships, planes, hikers and rescue teams describe directions with bearings because 'a bit left of that hill' is useless on a map. Bearings turn direction into a precise number anyone can follow. They are standard in ICSE and IGCSE geometry.",
+  "realLifeUses": [
+    "A ship's captain steering on a bearing of 075°",
+    "A pilot given a heading by air traffic control",
+    "A hiker following a compass bearing to a campsite",
+    "A rescue team reporting a location's direction from base"
+  ],
+  "vocabulary": [
+    { "term": "bearing", "meaning": "A direction measured clockwise from North, written with three figures (e.g. 060°)." },
+    { "term": "back bearing", "meaning": "The bearing for the return trip: bearing ± 180°." },
+    { "term": "three-figure form", "meaning": "Bearings always use three digits, so 40° is written 040°." }
+  ],
+  "story": {
+    "title": "Finding the Way Back",
+    "characters": ["Captain", "Rohan"],
+    "text": "The captain sails from the harbour on a bearing of 070° — 70° clockwise from North. Rohan asks, 'How do we get back?' 'The BACK bearing,' says the captain. 'Since 070 is under 180, we ADD 180: 070 + 180 = 250°.' They turn to 250° and head straight home. Rohan grins: 'A direction is just a clockwise angle from North — and the way back is half a turn added on.'",
+    "extractedProblem": "The harbour to the island is a bearing of 070°. What is the back bearing (island to harbour)?",
+    "answerInStory": "250° — since 070 < 180, back bearing = 070 + 180 = 250."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": { "shapes": [{ "kind": "triangle", "label": "N at top; bearing measured clockwise from North" }] },
+    "caption": "Always start at North (up) and sweep CLOCKWISE. North 000°, East 090°, South 180°, West 270°."
+  },
+  "teachingGallery": [
+    {
+      "title": "The four main bearings",
+      "note": "Clockwise from North, in three figures.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "square", "w": 2, "h": 2, "label": "North = 000°, East = 090°" }] }, "caption": "North 000°, a quarter-turn clockwise is East 090°." },
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "square", "w": 2, "h": 2, "label": "South = 180°, West = 270°" }] }, "caption": "Half-turn is South 180°; three-quarters is West 270°." },
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "triangle", "label": "060° and its back bearing 240°" }] }, "caption": "A bearing of 060° has back bearing 060 + 180 = 240°." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To state a bearing, measure the angle clockwise from North and write it with three figures. To find a back bearing, add 180° if the bearing is below 180°, or subtract 180° if it is 180° or more.",
+    "steps": [
+      "Face North and turn CLOCKWISE to the target direction.",
+      "Read the angle and write it with three digits (e.g. 45° becomes 045°).",
+      "For the back bearing, if the bearing < 180°, add 180°.",
+      "If the bearing ≥ 180°, subtract 180° instead. The answer is always between 000° and 360°."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Write the direction East as a three-figure bearing.",
+      "steps": ["East is a quarter turn clockwise from North.", "A quarter of 360° is 90°.", "Three-figure form: 090°."],
+      "answer": "90"
+    },
+    {
+      "problem": "A bearing is 040°. Find the back bearing.",
+      "steps": ["040 is less than 180, so add 180.", "040 + 180.", "= 220°."],
+      "answer": "220"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "not-three-figures", "mistake": "Writing a bearing as 40° instead of 040°.", "fix": "Bearings ALWAYS use three figures, so write 040°, 090°, 007° — pad with leading zeros." },
+    { "mistakeTag": "back-bearing-wrong", "mistake": "Guessing the back bearing instead of using ± 180°.", "fix": "Back bearing = bearing ± 180°: ADD 180 if the bearing is under 180°, SUBTRACT 180 if it is 180° or more." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "brg-e1", "type": "mcq", "q": "Bearings are measured clockwise from…", "options": [{ "label": "North" }, { "label": "East", "mistakeTag": "not-three-figures" }], "answer": "North", "hintLadder": ["Top of the compass.", "Start line.", "North."] },
+      { "id": "brg-e2", "type": "number", "q": "East as a three-figure bearing is how many degrees?", "answer": "90", "hintLadder": ["Quarter turn.", "360 ÷ 4.", "090°."] }
+    ],
+    "medium": [
+      { "id": "brg-m1", "type": "number", "q": "South as a bearing (degrees)?", "answer": "180", "hintLadder": ["Half turn.", "360 ÷ 2.", "180°."] },
+      { "id": "brg-m2", "type": "number", "q": "Back bearing of 040°?", "answer": "220", "hintLadder": ["Under 180, so add 180.", "40 + 180.", "220°."] }
+    ],
+    "challenge": [
+      { "id": "brg-c1", "type": "number", "q": "Back bearing of 310°?", "answer": "130", "hintLadder": ["310 ≥ 180, so subtract 180.", "310 - 180.", "130°."] },
+      { "id": "brg-c2", "type": "mcq", "q": "How many figures does a bearing always use?", "options": [{ "label": "Three" }, { "label": "Two", "mistakeTag": "not-three-figures" }], "answer": "Three", "hintLadder": ["Pad with zeros.", "045°, 007°.", "Three figures."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "brg-x1", "type": "mcq", "q": "A bearing is measured which way from North?", "options": [{ "label": "Clockwise" }, { "label": "Anticlockwise", "mistakeTag": "back-bearing-wrong" }], "answer": "Clockwise", "hintLadder": ["Like clock hands.", "To the right first.", "Clockwise."] },
+      { "id": "brg-x2", "type": "number", "q": "West as a three-figure bearing (degrees)?", "answer": "270", "hintLadder": ["Three-quarter turn.", "3 × 90.", "270°."] },
+      { "id": "brg-x3", "type": "number", "q": "Back bearing of 050°?", "answer": "230", "hintLadder": ["Under 180, add 180.", "50 + 180.", "230°."] },
+      { "id": "brg-x4", "type": "number", "q": "Back bearing of 200°?", "answer": "20", "hintLadder": ["200 ≥ 180, subtract 180.", "200 - 180.", "020°."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Use a compass or a phone compass with a grown-up. Point to something and give its bearing in three figures (measured clockwise from North). Then work out and explain the back bearing you'd follow to return.",
+  "revisionCard": {
+    "summary": "A bearing is a direction measured CLOCKWISE from NORTH, in THREE figures (000°–360°): N 000°, E 090°, S 180°, W 270°. Back bearing = bearing ± 180° (add if < 180°, subtract if ≥ 180°).",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "ICSE / IGCSE (bearings)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Clockwise from North, three figures; back bearing = ± 180°", "unpack": "N 000, E 090, S 180, W 270. Add 180 if under 180, else subtract 180." },
+  "studentQuestions": [
+    { "q": "Why three figures?", "a": "So directions never get confused — 040° can't be misread as 400°, and every bearing looks the same length." },
+    { "q": "Why does the back bearing use 180°?", "a": "Turning around is a half-turn, and half of a full 360° circle is 180°, so the return direction is 180° away." }
+  ],
+  "formulas": [
+    { "name": "Back bearing", "formula": "back bearing = bearing ± 180°", "remember": "add 180 if under 180, else subtract 180", "whenToUse": "Finding the return direction." }
+  ]
+}

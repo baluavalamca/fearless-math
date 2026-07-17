@@ -1,0 +1,106 @@
+{
+  "id": "meas-temperature",
+  "name": "Temperature — Reading the Thermometer",
+  "grade": 3,
+  "strand": "measurement",
+  "prerequisites": ["num-02-comparing"],
+  "whatIsIt": "TEMPERATURE tells us how hot or cold something is. We measure it with a THERMOMETER, and the number is read in DEGREES CELSIUS (°C). A higher number means hotter; a lower number means colder. When it is very cold, temperature can even go BELOW zero, like -3°C on a winter morning in the hills.",
+  "whyNeeded": "We check temperature every day — the weather report, a fever thermometer, the oven, the fridge, and boiling water for tea. Reading a scale correctly and knowing hotter means a bigger number keeps us safe and healthy.",
+  "realLifeUses": [
+    "Checking if you have a fever (normal body is about 37°C)",
+    "Reading the weather — 42°C in a Delhi summer is very hot",
+    "Setting the fridge cold and the oven hot",
+    "Knowing water boils at 100°C and ice melts at 0°C"
+  ],
+  "vocabulary": [
+    { "term": "temperature", "meaning": "How hot or cold something is." },
+    { "term": "thermometer", "meaning": "The tool that measures temperature." },
+    { "term": "degree Celsius (°C)", "meaning": "The unit we use to write temperature." }
+  ],
+  "story": {
+    "title": "Anaya's Fever Check",
+    "characters": ["Anaya", "Amma"],
+    "text": "Anaya felt warm, so Amma put a thermometer under her arm. 'It shows 39°C,' said Amma. 'Normal is about 37°C, so 39 is a little fever.' Later they saw the news: the hill station was only 4°C, but their city was 38°C. 'The bigger number is hotter,' Anaya smiled, 'so our city is much warmer than the hills today.'",
+    "extractedProblem": "Anaya's thermometer reads 39°C and normal is 37°C. Is that a fever, and by how many degrees is it above normal?",
+    "answerInStory": "Yes, a small fever — 2°C above normal (39 - 37 = 2)."
+  },
+  "visual": {
+    "component": "NumberLine",
+    "props": { "lines": [{ "parts": 10, "mark": 4, "label": "0°C to 100°C — mark shows a cool 40°C", "showLabels": true }] },
+    "caption": "Think of a thermometer as an upright number line: 0°C at freezing, 100°C at boiling. The higher the mark, the hotter."
+  },
+  "teachingGallery": [
+    {
+      "title": "Hotter means higher",
+      "note": "As the reading goes up, it gets hotter.",
+      "examples": [
+        { "component": "NumberLine", "props": { "lines": [{ "parts": 10, "mark": 0, "label": "0°C — ice melts", "showLabels": true }] }, "caption": "0°C: water freezes into ice." },
+        { "component": "NumberLine", "props": { "lines": [{ "parts": 10, "mark": 4, "label": "37°C — body temperature", "showLabels": true }] }, "caption": "About 37°C: a healthy body." },
+        { "component": "NumberLine", "props": { "lines": [{ "parts": 10, "mark": 10, "label": "100°C — water boils", "showLabels": true }] }, "caption": "100°C: water boils for tea." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Find the mark the thermometer points to, read the number, and add the unit °C. To compare, remember the bigger number is hotter.",
+    "steps": [
+      "Look at where the liquid or pointer stops on the thermometer.",
+      "Read the nearest number on the scale.",
+      "Write it with the unit, like 30°C.",
+      "To compare two temperatures, the larger number is hotter; below 0 (like -2°C) is colder than 0°C."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A thermometer reads 30°C in the morning and 38°C at noon. How much hotter is noon?",
+      "steps": ["Hotter means a bigger number.", "Subtract: 38 - 30.", "= 8, so noon is 8°C hotter."],
+      "answer": "8"
+    },
+    {
+      "problem": "Ice melts at 0°C. A freezer is at -6°C. Is the freezer warmer or colder than melting ice?",
+      "steps": ["-6 is below 0.", "Below zero is colder.", "So the freezer is colder than 0°C."],
+      "answer": "colder"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "bigger-means-colder", "mistake": "Thinking a bigger number means colder.", "fix": "A BIGGER temperature number means HOTTER. 40°C is hotter than 20°C." },
+    { "mistakeTag": "forgot-unit", "mistake": "Writing just the number without °C.", "fix": "Always add the unit: temperature is written in degrees Celsius, like 25°C." },
+    { "mistakeTag": "wrong-measuring-tool", "mistake": "Choosing a length tool (like a ruler) to measure temperature.", "fix": "Temperature is measured with a THERMOMETER; a ruler measures length." },
+    { "mistakeTag": "mixed-boil-freeze", "mistake": "Swapping the boiling and freezing points of water.", "fix": "Water FREEZES/melts at 0°C and BOILS at 100°C — the high number is boiling." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "temp-e1", "type": "mcq", "q": "Which is HOTTER?", "options": [{ "label": "45°C" }, { "label": "20°C", "mistakeTag": "bigger-means-colder" }], "answer": "45°C", "hintLadder": ["Bigger number = hotter.", "Compare 45 and 20.", "45°C is hotter."] },
+      { "id": "temp-e2", "type": "mcq", "q": "What tool measures temperature?", "options": [{ "label": "Thermometer" }, { "label": "Ruler", "mistakeTag": "wrong-measuring-tool" }], "answer": "Thermometer", "hintLadder": ["It shows hot or cold.", "Not for length.", "A thermometer."] }
+    ],
+    "medium": [
+      { "id": "temp-m1", "type": "number", "q": "Morning 22°C, afternoon 31°C. How many degrees warmer is the afternoon?", "answer": "9", "hintLadder": ["Subtract the two.", "31 - 22.", "9."] },
+      { "id": "temp-m2", "type": "mcq", "q": "Water boils at about…", "options": [{ "label": "100°C" }, { "label": "0°C", "mistakeTag": "mixed-boil-freeze" }], "answer": "100°C", "hintLadder": ["Very hot!", "Boiling is the top.", "100°C."] }
+    ],
+    "challenge": [
+      { "id": "temp-c1", "type": "number", "q": "A fever is 40°C and normal is 37°C. How many degrees above normal?", "answer": "3", "hintLadder": ["Above normal = subtract.", "40 - 37.", "3."] },
+      { "id": "temp-c2", "type": "mcq", "q": "Which morning is COLDEST?", "options": [{ "label": "-4°C" }, { "label": "2°C", "mistakeTag": "bigger-means-colder" }], "answer": "-4°C", "hintLadder": ["Below zero is very cold.", "-4 is below 0.", "-4°C is coldest."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "temp-x1", "type": "mcq", "q": "A bigger temperature number means it is…", "options": [{ "label": "Hotter" }, { "label": "Colder", "mistakeTag": "bigger-means-colder" }], "answer": "Hotter", "hintLadder": ["Up the scale.", "More degrees.", "Hotter."] },
+      { "id": "temp-x2", "type": "number", "q": "Noon 36°C, evening 29°C. How many degrees did it drop?", "answer": "7", "hintLadder": ["Subtract.", "36 - 29.", "7."] },
+      { "id": "temp-x3", "type": "mcq", "q": "Ice melts (water freezes) at…", "options": [{ "label": "0°C" }, { "label": "50°C", "mistakeTag": "mixed-boil-freeze" }], "answer": "0°C", "hintLadder": ["Freezing point.", "The bottom of the scale.", "0°C."] },
+      { "id": "temp-x4", "type": "mcq", "q": "We write temperature with the unit…", "options": [{ "label": "°C (degrees Celsius)" }, { "label": "cm", "mistakeTag": "forgot-unit" }], "answer": "°C (degrees Celsius)", "hintLadder": ["cm is for length.", "Temperature unit.", "°C."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Look at a weather app or the news with a grown-up. Read today's temperature aloud with the unit (like '34°C'), and say whether it is hotter or colder than yesterday and by how many degrees.",
+  "revisionCard": {
+    "summary": "Temperature = how hot or cold, measured by a thermometer in degrees Celsius (°C). Bigger number = hotter. 0°C = ice melts, 37°C = body, 100°C = water boils. Below 0 (like -3°C) is colder than 0.",
+    "reviewAfterDays": [1, 3, 7]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Cambridge/Common Core/UK primary measurement (temperature)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Higher number = hotter; 0 freeze, 37 body, 100 boil", "unpack": "Read the mark, add °C. Below zero is colder than zero." },
+  "studentQuestions": [
+    { "q": "Why does the news say °C?", "a": "°C means degrees Celsius — the unit India and most countries use for temperature." },
+    { "q": "Can temperature be less than zero?", "a": "Yes! On cold mountains it can be -2°C or lower — colder than freezing." }
+  ],
+  "funFacts": ["Normal human body temperature is about 37°C — that's why a thermometer reading much above it means a fever."]
+}

@@ -1,0 +1,107 @@
+{
+  "id": "data-pie-charts",
+  "name": "Pie Charts — Sharing the Whole Circle",
+  "grade": 7,
+  "strand": "data",
+  "prerequisites": ["data-06-statistics"],
+  "whatIsIt": "A PIE CHART (circle graph) shows how a whole is split into parts. The full circle is the total (100%, or 360° of turning). Each slice's size shows its share: a bigger slice means a bigger part. To draw a slice we turn its fraction of the total into an angle: angle = (part ÷ total) × 360°.",
+  "whyNeeded": "Pie charts make shares easy to SEE at a glance — how a monthly budget is spent, how a class voted, or how a day is divided into sleep, school and play. Newspapers, election results and survey reports use them everywhere.",
+  "realLifeUses": [
+    "A family budget split into food, rent, savings and travel",
+    "How a class voted for their favourite sport",
+    "How your 24-hour day is spent (sleep, school, play, meals)",
+    "Market share of phone brands in a survey"
+  ],
+  "vocabulary": [
+    { "term": "pie chart", "meaning": "A circle split into slices to show parts of a whole." },
+    { "term": "sector (slice)", "meaning": "One wedge of the circle showing one part's share." },
+    { "term": "central angle", "meaning": "The angle of a slice at the centre; the whole circle is 360°." }
+  ],
+  "story": {
+    "title": "Ravi's Pocket Money",
+    "characters": ["Ravi", "Sir"],
+    "text": "Ravi gets ₹200 pocket money. He spends ₹100 on books, ₹50 on snacks and saves ₹50. Sir says, 'Draw it as a pie!' Books are half the money, so half the circle — 180°. Snacks and savings are a quarter each, so 90° each. Ravi shades the biggest slice for books and grins: 'One picture shows exactly where my money goes.'",
+    "extractedProblem": "Ravi spends ₹100 of ₹200 on books. What angle should the 'books' slice have in the pie chart?",
+    "answerInStory": "180° — books are half of ₹200, and half of 360° is 180°."
+  },
+  "visual": {
+    "component": "PizzaSlices",
+    "props": { "pies": [{ "parts": 4, "shaded": 2, "label": "Books = half the circle (2 of 4 quarters)" }] },
+    "caption": "Ravi's money as a pie: books fill half the circle (180°), with snacks and savings a quarter (90°) each."
+  },
+  "teachingGallery": [
+    {
+      "title": "Fraction of the circle → angle",
+      "note": "Half = 180°, quarter = 90°, and each fraction turns into its own angle.",
+      "examples": [
+        { "component": "PizzaSlices", "props": { "pies": [{ "parts": 2, "shaded": 1, "label": "1/2 → 180°" }] }, "caption": "Half the circle is 180°." },
+        { "component": "PizzaSlices", "props": { "pies": [{ "parts": 4, "shaded": 1, "label": "1/4 → 90°" }] }, "caption": "A quarter is 90°." },
+        { "component": "PizzaSlices", "props": { "pies": [{ "parts": 8, "shaded": 3, "label": "3/8 → 135°" }] }, "caption": "3/8 of 360° = 135°." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Turn each part into a fraction of the total, multiply by 360° to get its angle, then draw the slices. To read a chart, do the reverse: angle ÷ 360° × total.",
+    "steps": [
+      "Add all parts to get the total.",
+      "For each part, find part ÷ total (its fraction of the whole).",
+      "Multiply that fraction by 360° to get the slice's central angle.",
+      "Draw each slice with a protractor; check all angles add to 360°."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "In a class of 40, 10 like cricket. What angle is the cricket slice?",
+      "steps": ["Fraction = 10 ÷ 40 = 1/4.", "Angle = 1/4 × 360°.", "= 90°."],
+      "answer": "90"
+    },
+    {
+      "problem": "A slice has an angle of 72° in a survey of 30 people. How many people does it represent?",
+      "steps": ["Fraction = 72 ÷ 360 = 1/5.", "People = 1/5 × 30.", "= 6."],
+      "answer": "6"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "angles-not-360", "mistake": "Slice angles that don't add up to 360°.", "fix": "All the central angles in a pie chart must total 360° — check your sum before drawing." },
+    { "mistakeTag": "used-100-not-360", "mistake": "Multiplying the fraction by 100 instead of 360 to get the angle.", "fix": "Percentages use 100, but a pie ANGLE uses 360°. Angle = fraction × 360°." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "pie-e1", "type": "number", "q": "The whole pie chart is how many degrees?", "answer": "360", "hintLadder": ["A full turn.", "Whole circle.", "360°."] },
+      { "id": "pie-e2", "type": "mcq", "q": "A bigger slice in a pie chart means…", "options": [{ "label": "A bigger share" }, { "label": "A smaller share", "mistakeTag": "angles-not-360" }], "answer": "A bigger share", "hintLadder": ["Slice size = share.", "Bigger wedge.", "Bigger share."] }
+    ],
+    "medium": [
+      { "id": "pie-m1", "type": "number", "q": "Half of the data is one category. Its slice angle is?", "answer": "180", "hintLadder": ["Half of 360.", "360 ÷ 2.", "180°."] },
+      { "id": "pie-m2", "type": "number", "q": "8 of 24 students walk to school. Angle of the 'walk' slice?", "answer": "120", "hintLadder": ["Fraction 8/24 = 1/3.", "1/3 × 360.", "120°."] }
+    ],
+    "challenge": [
+      { "id": "pie-c1", "type": "number", "q": "A slice is 90° in a survey of 20 people. How many people is that?", "answer": "5", "hintLadder": ["90/360 = 1/4.", "1/4 × 20.", "5."] },
+      { "id": "pie-c2", "type": "mcq", "q": "To find a slice's angle you multiply its fraction by…", "options": [{ "label": "360" }, { "label": "100", "mistakeTag": "used-100-not-360" }], "answer": "360", "hintLadder": ["Angle, not percent.", "Full circle degrees.", "360."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "pie-x1", "type": "number", "q": "All slice angles in a pie chart add up to?", "answer": "360", "hintLadder": ["Whole circle.", "Full turn.", "360°."] },
+      { "id": "pie-x2", "type": "number", "q": "A quarter of the data — what slice angle?", "answer": "90", "hintLadder": ["360 ÷ 4.", "Quarter.", "90°."] },
+      { "id": "pie-x3", "type": "number", "q": "12 of 36 like maths. Angle of that slice?", "answer": "120", "hintLadder": ["12/36 = 1/3.", "1/3 × 360.", "120°."] },
+      { "id": "pie-x4", "type": "mcq", "q": "For a pie ANGLE, multiply the fraction by…", "options": [{ "label": "360" }, { "label": "100", "mistakeTag": "used-100-not-360" }], "answer": "360", "hintLadder": ["Not percent.", "Degrees in a circle.", "360."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "With a grown-up, split your day (24 hours) into sleep, school, play and meals. Turn each into a fraction of 24, multiply by 360°, and sketch a pie chart. Explain why all your slice angles must add to 360°.",
+  "revisionCard": {
+    "summary": "A pie chart splits a whole circle (360°) into slices. Slice angle = (part ÷ total) × 360°. Bigger slice = bigger share. All angles add to 360°. To read: people = (angle ÷ 360) × total.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 8 / ICSE / IGCSE (pie / circle graphs)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Angle = fraction × 360° — the whole pie is 360°", "unpack": "Percent uses 100; a pie ANGLE uses 360. Slices must sum to 360°." },
+  "studentQuestions": [
+    { "q": "Pie chart or bar graph — which to use?", "a": "Use a pie chart to show PARTS OF A WHOLE (shares). Use a bar graph to COMPARE separate amounts." },
+    { "q": "Why 360?", "a": "A full circle is 360°, so the whole data set fills 360° and each part takes its fair slice of it." }
+  ],
+  "formulas": [
+    { "name": "Slice angle", "formula": "angle = (part ÷ total) × 360°", "remember": "fraction of the whole, times a full turn", "whenToUse": "Drawing a slice from data." },
+    { "name": "Read a slice", "formula": "value = (angle ÷ 360°) × total", "remember": "reverse of drawing", "whenToUse": "Finding how much a given slice represents." }
+  ]
+}

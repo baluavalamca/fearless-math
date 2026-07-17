@@ -1,0 +1,107 @@
+{
+  "id": "data-cumulative-frequency",
+  "name": "Cumulative Frequency, Quartiles and Spread",
+  "grade": 9,
+  "strand": "data",
+  "prerequisites": ["data-08-grouped-statistics"],
+  "whatIsIt": "CUMULATIVE FREQUENCY is a running total — for each value (or class), you add up all the frequencies so far, answering 'how many are AT MOST this much?'. Plotting cumulative frequency gives an S-shaped OGIVE. From it we read the MEDIAN (the middle, at half the total), the LOWER and UPPER QUARTILES (at a quarter and three-quarters), and the INTERQUARTILE RANGE (IQR = upper quartile − lower quartile), which measures the spread of the middle half of the data.",
+  "whyNeeded": "Cumulative frequency answers 'how many scored below the pass mark?' or 'what mark do the top 25% beat?'. Quartiles and IQR describe how spread out data is without being fooled by one extreme value — essential in exams (ICSE, IGCSE), science and any data report.",
+  "realLifeUses": [
+    "Finding how many students scored below 50 in a test",
+    "The mark the top 25% of a class beat (upper quartile)",
+    "Comparing the spread of two classes' results fairly (IQR)",
+    "Percentile ranks on a growth chart or an entrance exam"
+  ],
+  "vocabulary": [
+    { "term": "cumulative frequency", "meaning": "The running total of frequencies up to and including a value." },
+    { "term": "median (Q2)", "meaning": "The middle value; at half the total on the ogive." },
+    { "term": "quartiles (Q1, Q3)", "meaning": "Values at one-quarter (Q1) and three-quarters (Q3) of the data." },
+    { "term": "interquartile range (IQR)", "meaning": "Q3 − Q1: the spread of the middle 50% of the data." }
+  ],
+  "story": {
+    "title": "The Class Test",
+    "characters": ["Sir", "Priya"],
+    "text": "Sir has 20 test scores. Priya asks, 'How many scored 30 or less?' Sir adds the frequencies up to 30 — a running total — and says '8'. 'That's cumulative frequency!' Then he finds the score at position 10 (half of 20): the MEDIAN. The score a quarter of the way up is Q1, three-quarters up is Q3, and Q3 − Q1 tells him how spread out the middle of the class is. 'One running total,' smiles Priya, 'unlocks all of it.'",
+    "extractedProblem": "In 20 scores, Q1 = 25 and Q3 = 45. What is the interquartile range?",
+    "answerInStory": "20 — IQR = Q3 − Q1 = 45 − 25 = 20."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": { "categories": [{ "label": "≤10", "value": 3 }, { "label": "≤20", "value": 8 }, { "label": "≤30", "value": 14 }, { "label": "≤40", "value": 20 }], "unit": "students (running total)" },
+    "caption": "Cumulative frequency: each bar is the running total 'at most this score'. The bars only rise, ending at the grand total (20). Joined by a smooth curve this is the ogive."
+  },
+  "teachingGallery": [
+    {
+      "title": "Building the running total",
+      "note": "Add each new frequency to the total so far — it never goes down.",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [{ "label": "10", "value": 3 }, { "label": "20", "value": 5 }, { "label": "30", "value": 6 }, { "label": "40", "value": 6 }], "unit": "frequency (each class)" }, "caption": "Ordinary frequency: how many in EACH class (3, 5, 6, 6)." },
+        { "component": "BarChart", "props": { "categories": [{ "label": "≤10", "value": 3 }, { "label": "≤20", "value": 8 }, { "label": "≤30", "value": 14 }, { "label": "≤40", "value": 20 }], "unit": "cumulative" }, "caption": "Cumulative: running totals 3, 8, 14, 20 — always rising." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Make a cumulative-frequency column by adding each frequency to the running total. Plot cumulative frequency against the upper boundary of each class to get the ogive. Read the median at N/2, Q1 at N/4, Q3 at 3N/4, then IQR = Q3 − Q1.",
+    "steps": [
+      "List classes in order and add each frequency to the running total (the last total = N, the number of items).",
+      "Plot cumulative frequency (up) against the upper class boundary (across) and join with a smooth curve — the ogive.",
+      "Read across from N/2 to the curve, then down, for the MEDIAN; from N/4 for Q1; from 3N/4 for Q3.",
+      "Compute the interquartile range: IQR = Q3 − Q1."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Frequencies for four classes are 3, 5, 6, 6. Write the cumulative frequencies.",
+      "steps": ["Start: 3.", "3 + 5 = 8.", "8 + 6 = 14, then 14 + 6 = 20.", "Cumulative: 3, 8, 14, 20."],
+      "answer": "3, 8, 14, 20"
+    },
+    {
+      "problem": "For a data set Q1 = 32 and Q3 = 58. Find the interquartile range.",
+      "steps": ["IQR = Q3 − Q1.", "58 − 32.", "= 26."],
+      "answer": "26"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "cumfreq-can-drop", "mistake": "Letting a cumulative frequency value go DOWN as you move along.", "fix": "Cumulative frequency is a RUNNING TOTAL — it can only stay the same or increase, never decrease, ending at N." },
+    { "mistakeTag": "iqr-added", "mistake": "Adding the quartiles (Q3 + Q1) to find the IQR.", "fix": "IQR is a SUBTRACTION: IQR = Q3 − Q1 (the spread of the middle half)." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "cf-e1", "type": "mcq", "q": "Cumulative frequency is a…", "options": [{ "label": "Running total" }, { "label": "Single class count", "mistakeTag": "cumfreq-can-drop" }], "answer": "Running total", "hintLadder": ["Add as you go.", "Totals so far.", "Running total."] },
+      { "id": "cf-e2", "type": "number", "q": "Frequencies 2, 4, 5. The last cumulative frequency (total) is?", "answer": "11", "hintLadder": ["Add all.", "2 + 4 + 5.", "11."] }
+    ],
+    "medium": [
+      { "id": "cf-m1", "type": "number", "q": "Q1 = 20, Q3 = 44. Find the IQR.", "answer": "24", "hintLadder": ["Subtract.", "44 - 20.", "24."] },
+      { "id": "cf-m2", "type": "number", "q": "N = 40. The median is read at cumulative frequency…", "answer": "20", "hintLadder": ["Median is at N/2.", "40 ÷ 2.", "20."] }
+    ],
+    "challenge": [
+      { "id": "cf-c1", "type": "number", "q": "N = 60. At what cumulative frequency do you read the upper quartile Q3?", "answer": "45", "hintLadder": ["Q3 is at 3N/4.", "3 × 60 ÷ 4.", "45."] },
+      { "id": "cf-c2", "type": "number", "q": "Frequencies 5, 7, 3. Second cumulative value?", "answer": "12", "hintLadder": ["5 then add 7.", "5 + 7.", "12."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "cf-x1", "type": "mcq", "q": "As you move along, cumulative frequency can…", "options": [{ "label": "Only stay or rise" }, { "label": "Rise or fall", "mistakeTag": "cumfreq-can-drop" }], "answer": "Only stay or rise", "hintLadder": ["Running total.", "Never loses items.", "Only rises."] },
+      { "id": "cf-x2", "type": "number", "q": "Q1 = 30, Q3 = 55. IQR = ?", "answer": "25", "hintLadder": ["Q3 − Q1.", "55 - 30.", "25."] },
+      { "id": "cf-x3", "type": "number", "q": "N = 80. Median read at cumulative frequency?", "answer": "40", "hintLadder": ["N/2.", "80 ÷ 2.", "40."] },
+      { "id": "cf-x4", "type": "mcq", "q": "The IQR is found by…", "options": [{ "label": "Q3 − Q1" }, { "label": "Q3 + Q1", "mistakeTag": "iqr-added" }], "answer": "Q3 − Q1", "hintLadder": ["It's a spread.", "Subtract.", "Q3 − Q1."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Take 10 test or game scores. Build a cumulative-frequency (running-total) table, then explain to a grown-up how you'd find the median at half the total and the IQR as Q3 − Q1 — and why the running total never goes down.",
+  "revisionCard": {
+    "summary": "Cumulative frequency = running total ('at most'). Plot vs upper boundary → ogive (S-curve, always rising, ends at N). Median at N/2, Q1 at N/4, Q3 at 3N/4. IQR = Q3 − Q1 = spread of the middle 50%.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "ICSE / IGCSE / A-level (cumulative frequency, quartiles, IQR)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Running total → ogive; Median N/2, Q1 N/4, Q3 3N/4; IQR = Q3 − Q1", "unpack": "Cumulative frequency only rises to N. Quartiles cut the data into four; IQR is the middle-half spread." },
+  "studentQuestions": [
+    { "q": "Why use IQR instead of range?", "a": "The full range can be ruined by one extreme value; the IQR looks only at the middle 50%, so it's a fairer measure of spread." },
+    { "q": "What is a box plot?", "a": "A box-and-whisker diagram drawn from the minimum, Q1, median, Q3 and maximum — a quick picture of spread built from these same quartiles." }
+  ],
+  "formulas": [
+    { "name": "Interquartile range", "formula": "IQR = Q3 − Q1", "remember": "upper quartile minus lower quartile", "whenToUse": "Measuring the spread of the middle half." },
+    { "name": "Reading positions", "formula": "Median at N/2, Q1 at N/4, Q3 at 3N/4", "remember": "half, quarter, three-quarters up the ogive", "whenToUse": "Reading quartiles off a cumulative-frequency curve." }
+  ]
+}
