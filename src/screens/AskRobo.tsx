@@ -86,9 +86,11 @@ export function AskRobo({ profile, concepts, onOpen }: {
         }]);
         autoSpeak(r.answer + (r.tryYourself ? " Now you try: " + r.tryYourself : ""));
       } else {
-        const why = r.reason === "disabled"
-          ? "The AI Tutor is switched off. A grown-up can turn it on in Parents' Corner."
-          : "Robo couldn't answer that just now. Try asking in a different way, or ask about a maths idea.";
+        const why =
+          r.reason === "disabled" ? "The AI Tutor is switched off. A grown-up can turn it on in Parents' Corner → AI Tutor." :
+          r.reason === "local-unreachable" ? "Robo's offline model isn't running. Ask a grown-up to start Ollama / LM Studio, or switch to a cloud provider (like OpenAI or Claude) in Parents' Corner → AI Tutor." :
+          r.reason === "bad-key" ? "The AI provider rejected the key. A grown-up can re-check the API key in Parents' Corner → AI Tutor." :
+          "Robo couldn't answer that just now. Please try again, or ask in a different way.";
         setMsgs((prev) => [...prev, { role: "bot", text: why, error: true }]);
       }
     } catch {

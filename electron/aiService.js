@@ -519,7 +519,13 @@ async function askTutor({ question, grade, history }) {
     if (ck) { cache[ck] = out; saveCache(); }
     return { ok: true, ...out };
   } catch (e) {
-    return { ok: false, reason: String(e?.message || e) };
+    const msg = String(e?.message || e);
+    // A local model that isn't running is the most common failure — say so clearly.
+    if (p.local && /fetch failed|ECONNREFUSED|network|Failed to fetch|socket|refused/i.test(msg)) {
+      return { ok: false, reason: "local-unreachable" };
+    }
+    if (/provider-401|provider-403/i.test(msg)) return { ok: false, reason: "bad-key" };
+    return { ok: false, reason: msg };
   }
 }
 
