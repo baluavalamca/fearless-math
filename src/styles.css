@@ -1212,6 +1212,13 @@ body::before {
   padding: 18px 22px; margin: 16px 0;
 }
 .fm-pcard-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+/* Collapsible card header (button reset + chevron). */
+.fm-pcard-toggle { width: 100%; background: none; border: 0; padding: 0; text-align: left; cursor: pointer; font: inherit; color: inherit; }
+.fm-pcard.collapsed .fm-pcard-toggle { margin-bottom: 0; }
+.fm-pcard-chev { margin-left: auto; font-size: 22px; line-height: 1; color: var(--muted); transition: transform .18s ease; flex: none; }
+.fm-pcard-chev.open { transform: rotate(180deg); }
+.fm-pcard-toggle:hover .fm-pcard-chev { color: var(--accent); }
+.fm-pcard-body { animation: fm-fade-in .18s ease; }
 .fm-pcard-ic {
   width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font-size: 20px;
   background: var(--grad-brand); color: #fff; flex: none; box-shadow: 0 6px 16px -8px rgba(139,92,246,0.5);

@@ -11,6 +11,9 @@ import { CreateLesson } from "./CreateLesson";
 const FALLBACK_PROVIDERS: ProviderInfo[] = [
   { id: "anthropic", label: "Claude (Anthropic)", kind: "anthropic", defaultModel: "claude-haiku-4-5", models: ["claude-haiku-4-5", "claude-sonnet-5"] },
   { id: "openai", label: "OpenAI (GPT)", kind: "openai", defaultModel: "gpt-4o-mini", models: ["gpt-4o-mini", "gpt-4o"] },
+  { id: "openrouter", label: "OpenRouter (any model)", kind: "openai", defaultModel: "openai/gpt-4o-mini", models: ["openai/gpt-4o-mini", "anthropic/claude-haiku-4-5"] },
+  { id: "ollama", label: "Ollama (local, offline)", kind: "openai", local: true, defaultModel: "llama3.2", defaultUrl: "http://localhost:11434/v1/chat/completions", models: ["llama3.2", "qwen2.5", "mistral"] },
+  { id: "lmstudio", label: "LM Studio (local, offline)", kind: "openai", local: true, defaultModel: "local-model", defaultUrl: "http://localhost:1234/v1/chat/completions", models: ["local-model"] },
 ];
 
 const classLabel = (g: number) => (g <= 2 ? "🌱 Foundation (PP1–Class 2)" : `Class ${g}`);
@@ -42,14 +45,25 @@ function Switch({ checked, defaultChecked, onChange }: { checked?: boolean; defa
   );
 }
 
-function Section({ icon, title, sub, children }: { icon: string; title: string; sub?: string; children: ReactNode; }) {
+/** Collapsible card. `id` persists the open/closed choice across sessions. */
+function Section({ icon, title, sub, id, defaultOpen = true, children }: { icon: string; title: string; sub?: string; id?: string; defaultOpen?: boolean; children: ReactNode; }) {
+  const storeKey = id ? `fm_sec_${id}` : null;
+  const [open, setOpen] = useState(() => {
+    if (!storeKey) return defaultOpen;
+    const v = localStorage.getItem(storeKey);
+    return v === null ? defaultOpen : v === "1";
+  });
+  function toggle() {
+    setOpen((o) => { const n = !o; if (storeKey) localStorage.setItem(storeKey, n ? "1" : "0"); return n; });
+  }
   return (
-    <section className="fm-pcard">
-      <div className="fm-pcard-head">
+    <section className={`fm-pcard ${open ? "" : "collapsed"}`}>
+      <button className="fm-pcard-head fm-pcard-toggle" onClick={toggle} aria-expanded={open}>
         <span className="fm-pcard-ic">{icon}</span>
         <div><h2 className="fm-pcard-h">{title}</h2>{sub && <p className="fm-pcard-sub">{sub}</p>}</div>
-      </div>
-      {children}
+        <span className={`fm-pcard-chev ${open ? "open" : ""}`} aria-hidden>⌄</span>
+      </button>
+      {open && <div className="fm-pcard-body">{children}</div>}
     </section>
   );
 }
@@ -67,6 +81,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
   const [providers, setProviders] = useState<ProviderInfo[]>([]);
   const [customModel, setCustomModel] = useState(false);
   const [modelInput, setModelInput] = useState("");
+  const [urlInput, setUrlInput] = useState("");
   const [media, setMedia] = useState<MediaStatus | null>(null);
   const [imgKey, setImgKey] = useState("");
   const [voiceKey, setVoiceKey] = useState("");
@@ -89,7 +104,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
     }
   }, [unlocked]);
 
-  async function saveAi(patch: { enabled?: boolean; provider?: string; apiKey?: string; model?: string }) {
+  async function saveAi(patch: { enabled?: boolean; provider?: string; apiKey?: string; model?: string; baseUrl?: string }) {
     const s = await api.aiConfigure(patch);
     setAi({ ...s, online: ai?.online ?? true });
     setAiSaved(true); setTimeout(() => setAiSaved(false), 2000);
@@ -151,6 +166,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
   const provList = providers.length ? providers : FALLBACK_PROVIDERS;
   const curProv = provList.find((p) => p.id === (ai?.provider ?? "anthropic")) ?? provList[0];
   const curModel = ai?.model ?? "";
+  const curLocal = !!(ai?.local ?? curProv?.local);
   const aiOn = !!ai?.enabled, aiKeyed = !!ai?.hasKey, aiOnline = ai?.online !== false;
 
   return (
@@ -183,7 +199,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
             <p className="fm-callout">🔔 Memory boosters due: {dueRevisions.map((c) => c.name).join(", ")}. A 5-minute revisit keeps mastery strong!</p>
           )}
           {data.tips.length > 0 && (
-            <Section icon="🏠" title="How to help at home" sub="Gentle, specific things to try together.">
+            <Section id="home-tips" icon="🏠" title="How to help at home" sub="Gentle, specific things to try together.">
               {data.tips.map((t) => (
                 <div key={t.concept} className="fm-callout">
                   <strong>{t.concept}</strong>
@@ -193,7 +209,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
               ))}
             </Section>
           )}
-          <Section icon="🏅" title="Badges" sub="Milestones your child has earned.">
+          <Section id="badges" icon="🏅" title="Badges" sub="Milestones your child has earned.">
             <div className="fm-badge-row">
               {data.badges.length
                 ? data.badges.map((b) => <span key={b.badge_id} className="fm-badge">🏅 {b.badge_id.replace(/-/g, " ")}</span>)
@@ -205,7 +221,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
 
       {/* -------- PROGRESS -------- */}
       {tab === "progress" && (
-        <Section icon="🗺️" title="Concept map" sub="Progress by class — tap a class to expand its lessons.">
+        <Section id="conceptmap" icon="🗺️" title="Concept map" sub="Progress by class — tap a class to expand its lessons.">
           {classGroups.map((grp, gi) => {
             const gMastered = grp.items.filter((c) => c.status === "mastered").length;
             const gAtt = grp.items.reduce((s, c) => s + c.attempts, 0);
@@ -245,7 +261,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
 
       {/* -------- CREATE -------- */}
       {tab === "create" && (
-        <Section icon="✏️" title="Create a lesson" sub="Extend the syllabus with a new AI-authored, verified lesson.">
+        <Section id="create" icon="✏️" title="Create a lesson" sub="Extend the syllabus with a new AI-authored, verified lesson.">
           <CreateLesson />
         </Section>
       )}
@@ -253,24 +269,47 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
       {/* -------- AI & MEDIA -------- */}
       {tab === "tutor" && (
         <>
-          <Section icon="🤖" title="AI Tutor" sub="Online, optional. Grounded in verified lessons; math answers come only from built-in keys.">
+          <Section id="ai-tutor" icon="🤖" title="AI Tutor" sub="Optional. Grounded in verified lessons. Cloud providers or a fully-offline local model (Ollama / LM Studio).">
             <div className="fm-setting">
               <div className="fm-setting-txt"><b>Enable AI Tutor</b><span>Robo Reason can rephrase lessons and explain mistakes. Only lesson content and the current question are ever sent — never your child's name or history. Keys are stored encrypted on this computer.</span></div>
               <Switch checked={aiOn} onChange={(v) => saveAi({ enabled: v })} />
             </div>
             <div className="fm-field">
-              <label>Provider &amp; API key</label>
+              <label>Provider</label>
               <div className="fm-key-row">
                 <select className="fm-input fm-w-provider" value={ai?.provider ?? "anthropic"}
-                  onChange={(e) => { saveAi({ provider: e.target.value, model: "" }); setCustomModel(false); }}>
-                  {provList.map((p) => <option key={p.id} value={p.id}>{p.label}</option>)}
+                  onChange={(e) => { saveAi({ provider: e.target.value, model: "" }); setCustomModel(false); setAiKey(""); setUrlInput(""); }}>
+                  <optgroup label="☁️ Cloud (needs API key)">
+                    {provList.filter((p) => !p.local).map((p) => <option key={p.id} value={p.id}>{p.label}</option>)}
+                  </optgroup>
+                  <optgroup label="💻 On-device (no key, offline)">
+                    {provList.filter((p) => p.local).map((p) => <option key={p.id} value={p.id}>{p.label}</option>)}
+                  </optgroup>
                 </select>
-                <input className="fm-input" type="password" placeholder={aiKeyed ? "API key saved ✓ (paste to replace)" : "Paste your API key"}
-                  value={aiKey} onChange={(e) => setAiKey(e.target.value)} />
-                <button className="fm-secondary" disabled={!aiKey} onClick={() => { saveAi({ apiKey: aiKey }); setAiKey(""); }}>Save</button>
               </div>
-              {curProv?.keyHint && <p className="fm-dash-note" style={{ margin: 0 }}>Get a {curProv.label} key at {curProv.keyHint}.</p>}
             </div>
+            {curLocal ? (
+              <div className="fm-field">
+                <label>Local server URL</label>
+                <div className="fm-key-row">
+                  <input className="fm-input" placeholder={ai?.baseUrl || curProv?.defaultUrl || "http://localhost:11434/v1/chat/completions"}
+                    value={urlInput} onChange={(e) => setUrlInput(e.target.value)} />
+                  <button className="fm-secondary" disabled={!urlInput.trim()} onClick={() => { saveAi({ baseUrl: urlInput.trim() }); setUrlInput(""); }}>Save</button>
+                  {ai?.baseUrl && <button className="fm-secondary" onClick={() => saveAi({ baseUrl: "" })}>Reset</button>}
+                </div>
+                <p className="fm-dash-note" style={{ margin: 0 }}>Runs entirely on this computer — no key, no internet, private. {curProv?.keyHint ? `Setup: ${curProv.keyHint}.` : ""} Default endpoint is used unless you set one.</p>
+              </div>
+            ) : (
+              <div className="fm-field">
+                <label>API key</label>
+                <div className="fm-key-row">
+                  <input className="fm-input" type="password" placeholder={aiKeyed ? "API key saved ✓ (paste to replace)" : "Paste your API key"}
+                    value={aiKey} onChange={(e) => setAiKey(e.target.value)} />
+                  <button className="fm-secondary" disabled={!aiKey} onClick={() => { saveAi({ apiKey: aiKey }); setAiKey(""); }}>Save</button>
+                </div>
+                {curProv?.keyHint && <p className="fm-dash-note" style={{ margin: 0 }}>Get a {curProv.label} key at {curProv.keyHint}.</p>}
+              </div>
+            )}
             <div className="fm-field">
               <label>Model</label>
               <div className="fm-key-row">
@@ -285,8 +324,10 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
             </div>
             <div className="fm-pill-row">
               <span className={`fm-pill ${aiOn ? "on" : "off"}`}>{aiOn ? "● Enabled" : "○ Disabled"}</span>
-              <span className={`fm-pill ${aiKeyed ? "on" : "off"}`}>{aiKeyed ? "Key saved" : "No key"}</span>
-              <span className={`fm-pill ${aiOnline ? "on" : "warn"}`}>{aiOnline ? "Online" : "Offline"}</span>
+              {curLocal
+                ? <span className="fm-pill on">💻 On-device · no key needed</span>
+                : <span className={`fm-pill ${aiKeyed ? "on" : "off"}`}>{aiKeyed ? "Key saved" : "No key"}</span>}
+              {!curLocal && <span className={`fm-pill ${aiOnline ? "on" : "warn"}`}>{aiOnline ? "Online" : "Offline"}</span>}
               <span className="fm-pill">Model: {ai?.effectiveModel ?? curProv?.defaultModel}{ai?.model ? "" : " (default)"}</span>
               {aiSaved && <span className="fm-pill on">Saved ✓</span>}
             </div>
@@ -295,7 +336,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
           {!bridgeReady && <p className="fm-gate-msg" style={{ maxWidth: 640 }}>⚠️ Picture posters and Sarvam voice need a full restart. Please <strong>fully close and reopen FearlessMath</strong> (not just reload) so these settings can be saved.</p>}
           {mediaMsg && <p className="fm-gate-msg" style={{ maxWidth: 640 }}>{mediaMsg}</p>}
 
-          <Section icon="✨" title="Picture posters" sub="Online, optional. Illustrated posters saved on this computer and reused instantly.">
+          <Section id="posters" icon="✨" title="Picture posters" sub="Online, optional. Illustrated posters saved on this computer and reused instantly.">
             <div className="fm-setting">
               <div className="fm-setting-txt"><b>Enable picture posters</b><span>A “✨ Picture it” button appears on stories and concepts. Images are cached locally and never re-generated unless you ask.</span></div>
               <Switch checked={!!media?.image.enabled} onChange={(v) => saveMedia({ image: { enabled: v } })} />
@@ -326,7 +367,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
             <div style={{ marginTop: 12 }}><button className="fm-secondary" disabled={!bridgeReady} onClick={clearMediaCache}>Clear saved pictures &amp; voice</button></div>
           </Section>
 
-          <Section icon="🔊" title="Voice readout" sub="Built-in works offline; Sarvam AI gives a warm Indian voice (falls back automatically).">
+          <Section id="voice" icon="🔊" title="Voice readout" sub="Built-in works offline; Sarvam AI gives a warm Indian voice (falls back automatically).">
             <div className="fm-field">
               <label>Voice provider &amp; key</label>
               <div className="fm-key-row">
@@ -357,7 +398,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
       {/* -------- SETTINGS -------- */}
       {tab === "settings" && (
         <>
-          <Section icon="🔑" title="Kid login PINs" sub="Give each child a 4–6 digit PIN they'll type to log in. Leave blank for no PIN.">
+          <Section id="kidpins" icon="🔑" title="Kid login PINs" sub="Give each child a 4–6 digit PIN they'll type to log in. Leave blank for no PIN.">
             {kids.length === 0 && <p className="fm-dash-note">No child profiles yet. Add one from the login screen (Switch user → Add user).</p>}
             {kids.map((k) => (
               <div className="fm-field fm-kidpin" key={k.id}>
@@ -374,7 +415,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
             {pinMsg && <p className="fm-dash-note" style={{ color: "var(--good)" }}>{pinMsg}</p>}
           </Section>
 
-          <Section icon="⚙️" title="App settings" sub="Guardrails and the parent PIN.">
+          <Section id="appsettings" icon="⚙️" title="App settings" sub="Guardrails and the parent PIN.">
             <div className="fm-setting">
               <div className="fm-setting-txt"><b>Explorer mode</b><span>Locked concepts become previewable (🔍) so you can review all content. Turn OFF before handing the app to your child, so the learning path stays guided.</span></div>
               <Switch defaultChecked={localStorage.getItem("fm_explore") === "1"} onChange={(v) => localStorage.setItem("fm_explore", v ? "1" : "0")} />

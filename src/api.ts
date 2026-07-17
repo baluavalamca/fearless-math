@@ -105,7 +105,7 @@ interface FmBridge {
   clinicList(): Promise<ClinicItem[]>;
   getDashboard(): Promise<DashboardData>;
   aiStatus(): Promise<AiStatus>;
-  aiConfigure(cfg: { enabled?: boolean; provider?: string; apiKey?: string; model?: string }): Promise<AiStatus>;
+  aiConfigure(cfg: { enabled?: boolean; provider?: string; apiKey?: string; model?: string; baseUrl?: string }): Promise<AiStatus>;
   aiProviders(): Promise<ProviderInfo[]>;
   aiExplain(p: { conceptId: string; style: "simpler" | "story" | "real-life" | "more-examples" | "fun-fact" }): Promise<AiExplain>;
   aiWhyWrong(p: { conceptId: string; questionId: string; answerGiven: string }): Promise<AiWhyWrong>;
@@ -141,14 +141,16 @@ export interface TtsResult { ok: boolean; mime?: string; audioBase64?: string; e
 export const imageUsable = (s: MediaStatus | null) => !!s && s.image.enabled && s.image.hasKey && s.online;
 export const sarvamUsable = (s: MediaStatus | null) => !!s && s.voice.provider === "sarvam" && s.voice.hasKey && s.online;
 
-export interface AiStatus { enabled: boolean; provider: string; model?: string; effectiveModel?: string; hasKey: boolean; online: boolean }
-export interface ProviderInfo { id: string; label: string; kind: string; keyHint?: string; defaultModel: string; models: string[] }
+export interface AiStatus { enabled: boolean; provider: string; model?: string; effectiveModel?: string; hasKey: boolean; online: boolean; local?: boolean; ready?: boolean; baseUrl?: string; defaultUrl?: string }
+export interface ProviderInfo { id: string; label: string; kind: string; keyHint?: string; defaultModel: string; models: string[]; local?: boolean; defaultUrl?: string }
 export interface AiExplain { ok: boolean; reason?: string; explanation?: string; example?: string }
 export interface AiWhyWrong { ok: boolean; reason?: string; explanation?: string; encouragement?: string }
 export interface AiCoach { ok: boolean; reason?: string; question?: string; diagnosis?: string; encouragement?: string }
 
-/** AI features are usable only when all three are true. */
-export const aiUsable = (s: AiStatus | null) => !!s && s.enabled && s.hasKey && s.online;
+/** AI features are usable when enabled + online + has a key.
+ *  Local providers (Ollama, LM Studio) run on-device, so they need no key and no internet. */
+export const aiUsable = (s: AiStatus | null) =>
+  !!s && s.enabled && (s.local ? true : (s.hasKey && s.online));
 
 declare global { interface Window { fm: FmBridge } }
 

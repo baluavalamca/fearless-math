@@ -20,7 +20,8 @@ let electron = null;
 try { electron = require("electron"); } catch { /* running under plain node (tests) */ }
 
 let dir = null;
-let settings = { enabled: false, provider: "anthropic", model: "", keyStored: null };
+// baseUrls: per-provider endpoint overrides (used by local providers like Ollama).
+let settings = { enabled: false, provider: "anthropic", model: "", keyStored: null, baseUrls: {} };
 let cache = {};
 
 /* ---------------- provider registry (popular providers + models) ----------------
@@ -117,6 +118,22 @@ const PROVIDERS = {
     keyHint: "platform.moonshot.ai", defaultModel: "kimi-k2.6",
     models: ["kimi-k2.6", "moonshot-v1-8k", "moonshot-v1-32k"],
   },
+  ollama: {
+    // Local, offline, free. Runs on the parent's own machine — no API key, no data
+    // leaves the computer. OpenAI-compatible endpoint. Base URL is configurable
+    // (default localhost:11434) so it can point at another host/port on the LAN.
+    label: "Ollama (local, offline)", kind: "openai", local: true,
+    url: "http://localhost:11434/v1/chat/completions",
+    keyHint: "ollama.com (install & `ollama pull llama3.2`)", defaultModel: "llama3.2",
+    models: ["llama3.2", "llama3.1", "qwen2.5", "qwen3", "mistral", "phi3", "gemma2", "gemma3"],
+  },
+  lmstudio: {
+    // Local, offline, free — LM Studio's OpenAI-compatible server (default :1234).
+    label: "LM Studio (local, offline)", kind: "openai", local: true,
+    url: "http://localhost:1234/v1/chat/completions",
+    keyHint: "lmstudio.ai (start the local server)", defaultModel: "local-model",
+    models: ["local-model"],
+  },
 };
 
 /** Public metadata for the settings UI (no secrets). */
@@ -124,6 +141,7 @@ function providers() {
   return Object.entries(PROVIDERS).map(([id, p]) => ({
     id, label: p.label, kind: p.kind, keyHint: p.keyHint,
     defaultModel: p.defaultModel, models: p.models,
+    local: !!p.local, defaultUrl: p.url,
   }));
 }
 
@@ -157,24 +175,43 @@ function decryptKey(stored) {
   return null;
 }
 
-function configure({ enabled, provider, apiKey, model }) {
+function configure({ enabled, provider, apiKey, model, baseUrl }) {
   if (typeof enabled === "boolean") settings.enabled = enabled;
   if (provider && PROVIDERS[provider]) settings.provider = provider;
   if (typeof model === "string") settings.model = model.trim();
   if (apiKey) settings.keyStored = encryptKey(apiKey.trim());
   if (apiKey === "") settings.keyStored = null;
+  if (typeof baseUrl === "string") {
+    if (!settings.baseUrls) settings.baseUrls = {};
+    const u = baseUrl.trim();
+    if (u) settings.baseUrls[settings.provider] = u;
+    else delete settings.baseUrls[settings.provider];
+  }
   saveSettings();
   return getStatus();
 }
 
+/** Endpoint for the active provider — a saved base URL override wins (local providers). */
+function providerUrl(id, p) {
+  const override = settings.baseUrls?.[id];
+  return (typeof override === "string" && override.trim()) ? override.trim() : p.url;
+}
+
 function getStatus() {
-  const p = PROVIDERS[settings.provider] || PROVIDERS.anthropic;
+  const id = settings.provider;
+  const p = PROVIDERS[id] || PROVIDERS.anthropic;
+  const local = !!p.local;
   return {
     enabled: settings.enabled,
-    provider: settings.provider,
+    provider: id,
     model: settings.model || "",
     effectiveModel: (settings.model && settings.model.trim()) || p.defaultModel,
     hasKey: !!settings.keyStored,
+    local,
+    // Local providers run on-device and need no API key, so they're "ready" without one.
+    ready: local ? true : !!settings.keyStored,
+    baseUrl: settings.baseUrls?.[id] || "",
+    defaultUrl: p.url,
   };
 }
 
@@ -303,14 +340,16 @@ function cacheKey(kind, conceptId, extra) {
 /* ---------------- provider calls ---------------- */
 
 async function callProvider(prompt) {
-  const key = decryptKey(settings.keyStored);
-  if (!key) throw new Error("no-key");
-
   const p = PROVIDERS[settings.provider] || PROVIDERS.anthropic;
+  const key = decryptKey(settings.keyStored);
+  // Local providers (Ollama, LM Studio) run on-device and need no key.
+  if (!key && !p.local) throw new Error("no-key");
+
   const model = (settings.model && settings.model.trim()) || p.defaultModel;
+  const url = providerUrl(settings.provider, p);
 
   if (p.kind === "anthropic") {
-    const r = await fetch(p.url, {
+    const r = await fetch(url, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -332,9 +371,11 @@ async function callProvider(prompt) {
   // Most use "Authorization: Bearer"; a provider may set authHeader for a custom
   // key header (e.g. Sarvam's "api-subscription-key").
   const headers = { "content-type": "application/json" };
-  if (p.authHeader) headers[p.authHeader] = key;
-  else headers.authorization = `Bearer ${key}`;
-  const r = await fetch(p.url, {
+  if (key) {
+    if (p.authHeader) headers[p.authHeader] = key;
+    else headers.authorization = `Bearer ${key}`;
+  }
+  const r = await fetch(url, {
     method: "POST",
     headers,
     body: JSON.stringify({
