@@ -11,7 +11,7 @@ import { speak, stopSpeaking, isSpeechAvailable } from "../speech";
 type StyleKey = "story" | "poster" | "board";
 const STYLES: { key: StyleKey; label: string }[] = [
   { key: "story", label: "📖 Story scene" },
-  { key: "poster", label: "🌈 Concept poster" },
+  { key: "poster", label: "🌈 Concept art" },
   { key: "board", label: "🧑‍🏫 Blackboard" },
 ];
 

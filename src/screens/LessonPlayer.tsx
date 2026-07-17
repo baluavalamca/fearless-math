@@ -19,7 +19,7 @@ import { Practice } from "./Practice";
 
 type Tab = "story" | "picture" | "gallery" | "meaning" | "steps" | "anotherWay" | "examples" | "flashcards" | "infographic";
 
-const STEP_NAME: Record<string, string> = { story: "Story", picture: "Picture", gallery: "See it", meaning: "Meaning", steps: "Steps", anotherWay: "Another way", examples: "Examples", flashcards: "Cards", infographic: "Poster" };
+const STEP_NAME: Record<string, string> = { story: "Story", picture: "Picture", gallery: "See it", meaning: "Meaning", steps: "Steps", anotherWay: "Another way", examples: "Examples", flashcards: "Cards", infographic: "Recap" };
 type UIMethod = { kind: string; name: string; whenToUse: string; steps: string[]; example: string; visual?: unknown };
 /** Gather every taught method into one ordered, labeled list — the Methodology Engine. */
 function collectMethods(c: Concept): UIMethod[] {
@@ -73,10 +73,12 @@ export function LessonPlayer({
         return `${concept.story.title}. ${concept.story.text} The math inside the story: ${concept.story.extractedProblem} Answer: ${concept.story.answerInStory}`;
       case "picture":
         return concept.visual.caption;
-      case "gallery":
-        return (concept.teachingGallery ?? [])
+      case "gallery": {
+        const galleryText = (concept.teachingGallery ?? [])
           .map((g) => `${g.title}. ${g.note ?? ""} ${g.examples.map((e) => e.caption).join(". ")}`)
           .join(" Next: ");
+        return `${concept.visual.caption}${galleryText ? " Next: " + galleryText : ""}`;
+      }
       case "meaning": {
         const remember = concept.rememberIt ? ` Remember it: ${concept.rememberIt.hook}. ${concept.rememberIt.unpack ?? ""}` : "";
         const faq = (concept.studentQuestions ?? []).map((qa) => `${qa.q} ${qa.a}`).join(" ");
@@ -107,16 +109,17 @@ export function LessonPlayer({
   const tabs = useMemo(() => {
     const t: { id: Tab; label: string }[] = [
       { id: "story", label: "📖 Story" },
-      { id: "picture", label: "🖼️ Picture" },
+      // "See it" now hosts the main picture first, then any gallery examples —
+      // one visual tab instead of a separate "Picture" + "See it".
+      { id: "gallery", label: "👀 See it" },
     ];
-    if (concept.teachingGallery?.length) t.push({ id: "gallery", label: "👀 See it" });
     t.push({ id: "meaning", label: "💡 Meaning" });
     t.push({ id: "steps", label: "🪜 Steps" });
     if (methods.length) t.push({ id: "anotherWay", label: "🔀 Another Way" });
     t.push({ id: "examples", label: "✅ Examples" });
-    // Optional review tabs (do not gate practice) — study cards + a one-page poster.
+    // Optional review tabs (do not gate practice) — study cards + a one-page recap.
     t.push({ id: "flashcards", label: "🃏 Cards" });
-    t.push({ id: "infographic", label: "📊 Poster" });
+    t.push({ id: "infographic", label: "📊 Recap" });
     return t;
   }, [concept]);
 
@@ -241,10 +244,12 @@ export function LessonPlayer({
                 <button className="fm-picture-btn" onClick={() => setImgStyle("story")}>✨ Picture this story</button>
               </article>
             )}
-            {tab === "picture" && <VisualRenderer visual={concept.visual} />}
             {tab === "gallery" && (
               <article className="fm-gallery">
                 <p className="fm-gallery-lead">👀 <strong>See it first.</strong> Look at each picture — the word will make sense when you can SEE it.</p>
+                <section className="fm-gallery-group">
+                  <div className="fm-gallery-grid"><VisualRenderer visual={concept.visual} /></div>
+                </section>
                 {(concept.teachingGallery ?? []).map((g, gi) => (
                   <section className="fm-gallery-group" key={gi}>
                     <h2>{g.title}</h2>
