@@ -13,13 +13,15 @@ import { ConceptCard, Profile } from "../api";
 import { Emoji3D } from "../components/ObjectIcon";
 import { GameHud } from "../components/GameHud";
 
-const STRAND_THEME: Record<string, { icon: string; name: string; cls: string }> = {
-  numbers: { icon: "🌴", name: "Number Jungle", cls: "region-numbers" },
-  operations: { icon: "🚜", name: "Operations Farm", cls: "region-operations" },
-  fractions: { icon: "🍳", name: "Fraction Kitchen", cls: "region-fractions" },
-  geometry: { icon: "🏙️", name: "Geometry City", cls: "region-geometry" },
-  measurement: { icon: "🏝️", name: "Measurement Island", cls: "region-measurement" },
-  data: { icon: "📰", name: "Data Newsroom", cls: "region-data" },
+// `name` = the real maths topic (shown as the primary label so it's clear, not generic).
+// `world` = the playful theme name, kept as a small subtitle for kid-friendly flavour.
+const STRAND_THEME: Record<string, { icon: string; name: string; world: string; cls: string }> = {
+  numbers: { icon: "🌴", name: "Numbers & Algebra", world: "Number Jungle", cls: "region-numbers" },
+  operations: { icon: "🚜", name: "Operations", world: "Operations Farm", cls: "region-operations" },
+  fractions: { icon: "🍳", name: "Fractions & Decimals", world: "Fraction Kitchen", cls: "region-fractions" },
+  geometry: { icon: "🏙️", name: "Geometry & Trigonometry", world: "Geometry City", cls: "region-geometry" },
+  measurement: { icon: "🏝️", name: "Measurement", world: "Measurement Island", cls: "region-measurement" },
+  data: { icon: "📰", name: "Data & Probability", world: "Data Newsroom", cls: "region-data" },
 };
 const STRAND_ORDER = ["numbers", "operations", "fractions", "geometry", "measurement", "data"];
 
@@ -247,12 +249,14 @@ export function WorldMap({
             </div>
           </div>
 
-          <nav className="fm-world-menu" aria-label="Choose world">
+          <p className="fm-world-menu-label">Jump to a topic in {stageDef.label}:</p>
+          <nav className="fm-world-menu" aria-label="Filter by topic">
             <button className={strand === "all" ? "active" : ""} onClick={() => setStrand("all")}>
-              <Emoji3D char="🗺️" size={20} /> All worlds
+              <Emoji3D char="🗺️" size={20} /> All topics
             </button>
             {worldsHere.map((s) => (
-              <button key={s} className={strand === s ? "active" : ""} onClick={() => setStrand(s)}>
+              <button key={s} className={strand === s ? "active" : ""} onClick={() => setStrand(s)}
+                title={STRAND_THEME[s] ? `${STRAND_THEME[s].name} · ${STRAND_THEME[s].world}` : s}>
                 {STRAND_THEME[s] ? <><Emoji3D char={STRAND_THEME[s].icon} size={20} /> {STRAND_THEME[s].name}</> : s}
               </button>
             ))}
@@ -265,10 +269,13 @@ export function WorldMap({
             shownWorlds.map((s) => {
               const items = inStage.filter((c) => c.strand === s);
               if (!items.length) return null;
-              const theme = STRAND_THEME[s] ?? { icon: "", name: s, cls: "" };
+              const theme = STRAND_THEME[s] ?? { icon: "", name: s, world: "", cls: "" };
               return (
                 <section key={s} className={`fm-region ${theme.cls}`}>
-                  <h2 className="fm-region-title"><Emoji3D char={theme.icon} size={30} /> {theme.name}</h2>
+                  <h2 className="fm-region-title">
+                    <Emoji3D char={theme.icon} size={30} /> {theme.name}
+                    {theme.world && <span className="fm-region-world">{theme.world}</span>}
+                  </h2>
                   <div className="fm-path-trail">{items.map(pathNode)}</div>
                 </section>
               );
@@ -283,7 +290,7 @@ export function WorldMap({
                   {shownWorlds.map((s) => {
                     const items = inStage.filter((c) => c.strand === s);
                     if (!items.length) return null;
-                    const theme = STRAND_THEME[s] ?? { icon: "", name: s, cls: "" };
+                    const theme = STRAND_THEME[s] ?? { icon: "", name: s, world: "", cls: "" };
                     return (
                       <div key={s} className={`fm-mm-branch ${theme.cls}`}>
                         <div className="fm-mm-strand"><Emoji3D char={theme.icon} size={18} /> {theme.name} <span className="fm-mm-count">{items.length}</span></div>
