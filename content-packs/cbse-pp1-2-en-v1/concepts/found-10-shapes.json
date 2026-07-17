@@ -3,7 +3,9 @@
   "name": "Shapes Around Us — Circles, Squares, Triangles",
   "grade": 1,
   "strand": "geometry",
-  "prerequisites": ["found-01-prenumber"],
+  "prerequisites": [
+    "found-01-prenumber"
+  ],
   "whatIsIt": "Everything you see has a shape. A CIRCLE is perfectly round with no corners. A SQUARE has 4 equal sides and 4 corners. A TRIANGLE has 3 sides and 3 corners. A RECTANGLE has 4 sides too, but two are long and two are short. We name a shape by counting its SIDES and CORNERS.",
   "whyNeeded": "Shapes are everywhere — a roti is a circle, a window is a rectangle, a slice of watermelon is a triangle. Naming shapes helps us describe the world, build with blocks, and later learn about area, symmetry and drawing.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "A carrom board and many tiles are squares"
   ],
   "vocabulary": [
-    { "term": "side", "meaning": "A straight edge of a shape." },
-    { "term": "corner (vertex)", "meaning": "The point where two sides meet." },
-    { "term": "circle", "meaning": "A perfectly round shape with no sides and no corners." }
+    {
+      "term": "side",
+      "meaning": "A straight edge of a shape."
+    },
+    {
+      "term": "corner (vertex)",
+      "meaning": "The point where two sides meet."
+    },
+    {
+      "term": "circle",
+      "meaning": "A perfectly round shape with no sides and no corners."
+    }
   ],
   "story": {
     "title": "Anya's Shape Walk",
-    "characters": ["Anya", "Papa"],
+    "characters": [
+      "Anya",
+      "Papa"
+    ],
     "text": "Anya walks around her house with Papa, hunting for shapes. 'The clock is round like a circle,' she says. 'The window has four sides — two long, two short — it is a rectangle!' Then she finds a slice of watermelon. 'This one has three sides and three corners,' says Papa. 'What shape is it?' Anya counts and smiles.",
     "extractedProblem": "A watermelon slice has 3 sides and 3 corners. What shape is it?",
     "answerInStory": "A triangle — 3 sides and 3 corners."
@@ -28,10 +42,26 @@
     "component": "GeometryCanvas",
     "props": {
       "shapes": [
-        { "kind": "circle", "label": "circle" },
-        { "kind": "square", "w": 3, "h": 3, "label": "square" },
-        { "kind": "triangle", "label": "triangle" },
-        { "kind": "rect", "w": 4, "h": 2, "label": "rectangle" }
+        {
+          "kind": "circle",
+          "label": "circle"
+        },
+        {
+          "kind": "square",
+          "w": 3,
+          "h": 3,
+          "label": "square"
+        },
+        {
+          "kind": "triangle",
+          "label": "triangle"
+        },
+        {
+          "kind": "rect",
+          "w": 4,
+          "h": 2,
+          "label": "rectangle"
+        }
       ]
     },
     "caption": "Count sides and corners: circle (0), triangle (3), square (4), rectangle (4)."
@@ -41,9 +71,44 @@
       "title": "Name it by counting sides & corners",
       "note": "No corners = circle. 3 = triangle. 4 equal = square. 4 with long & short = rectangle.",
       "examples": [
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "3 sides" } ] }, "caption": "3 sides, 3 corners → triangle." },
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "square", "w": 3, "h": 3, "label": "4 equal" } ] }, "caption": "4 equal sides → square." },
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "circle", "label": "round" } ] }, "caption": "No corners → circle." }
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "triangle",
+                "label": "3 sides"
+              }
+            ]
+          },
+          "caption": "3 sides, 3 corners → triangle."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 3,
+                "h": 3,
+                "label": "4 equal"
+              }
+            ]
+          },
+          "caption": "4 equal sides → square."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "circle",
+                "label": "round"
+              }
+            ]
+          },
+          "caption": "No corners → circle."
+        }
       ]
     }
   ],
@@ -58,12 +123,18 @@
   "workedExamples": [
     {
       "problem": "A road sign has 3 straight sides and 3 corners. Name the shape.",
-      "steps": ["Count the corners: 3.", "3 corners and 3 sides is a triangle."],
+      "steps": [
+        "Count the corners: 3.",
+        "3 corners and 3 sides is a triangle."
+      ],
       "answer": "triangle"
     },
     {
       "problem": "A biscuit is perfectly round with no corners. Name the shape.",
-      "steps": ["Look for corners — there are none.", "No corners means it is a circle."],
+      "steps": [
+        "Look for corners — there are none.",
+        "No corners means it is a circle."
+      ],
       "answer": "circle"
     }
   ],
@@ -82,78 +153,176 @@
   "practice": {
     "easy": [
       {
-        "id": "f10-e1", "type": "mcq",
+        "id": "f10-e1",
+        "type": "mcq",
         "q": "Which shape has NO corners?",
-        "options": [ { "label": "Circle" }, { "label": "Triangle", "mistakeTag": "miscounts-corners" } ],
+        "options": [
+          {
+            "label": "Circle"
+          },
+          {
+            "label": "Triangle",
+            "mistakeTag": "miscounts-corners"
+          }
+        ],
         "answer": "Circle",
-        "hintLadder": ["Look for the round one.", "Corners are pointy — a circle has none.", "It is the circle."]
+        "hintLadder": [
+          "Look for the round one.",
+          "Corners are pointy — a circle has none.",
+          "It is the circle."
+        ]
       },
       {
-        "id": "f10-e2", "type": "number",
+        "id": "f10-e2",
+        "type": "number",
         "q": "How many corners does a triangle have?",
         "answer": "3",
-        "hintLadder": ["Count the pointy corners.", "A triangle has three sides.", "Three."]
+        "hintLadder": [
+          "Count the pointy corners.",
+          "A triangle has three sides.",
+          "Three."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "f10-m1", "type": "mcq",
+        "id": "f10-m1",
+        "type": "mcq",
         "q": "A window has two long sides and two short sides. What shape is it?",
-        "options": [ { "label": "Rectangle" }, { "label": "Square", "mistakeTag": "square-rectangle-mixup" } ],
+        "options": [
+          {
+            "label": "Rectangle"
+          },
+          {
+            "label": "Square",
+            "mistakeTag": "square-rectangle-mixup"
+          }
+        ],
         "answer": "Rectangle",
-        "hintLadder": ["Are all four sides equal?", "Two are long, two are short.", "That is a rectangle."]
+        "hintLadder": [
+          "Are all four sides equal?",
+          "Two are long, two are short.",
+          "That is a rectangle."
+        ]
       },
       {
-        "id": "f10-m2", "type": "number",
+        "id": "f10-m2",
+        "type": "number",
         "q": "How many sides does a square have?",
         "answer": "4",
-        "hintLadder": ["Count each straight edge.", "A square has equal edges all around.", "Four."]
+        "hintLadder": [
+          "Count each straight edge.",
+          "A square has equal edges all around.",
+          "Four."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "f10-c1", "type": "mcq",
+        "id": "f10-c1",
+        "type": "mcq",
         "q": "A carrom board has 4 equal sides. Ravi calls it a rectangle. What is it really?",
-        "options": [ { "label": "Square — all four sides are equal" }, { "label": "Rectangle", "mistakeTag": "square-rectangle-mixup" } ],
+        "options": [
+          {
+            "label": "Square — all four sides are equal"
+          },
+          {
+            "label": "Rectangle",
+            "mistakeTag": "square-rectangle-mixup"
+          }
+        ],
         "answer": "Square — all four sides are equal",
-        "hintLadder": ["Rectangles have long and short sides.", "Here all four are equal.", "Equal sides → square."]
+        "hintLadder": [
+          "Rectangles have long and short sides.",
+          "Here all four are equal.",
+          "Equal sides → square."
+        ]
       },
       {
-        "id": "f10-c2", "type": "number",
+        "id": "f10-c2",
+        "type": "number",
         "q": "A shape has 3 corners. How many sides does it have?",
         "answer": "3",
-        "hintLadder": ["Corners and sides match in these shapes.", "3 corners means 3 sides.", "Three."]
+        "hintLadder": [
+          "Corners and sides match in these shapes.",
+          "3 corners means 3 sides.",
+          "Three."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "f10-x1", "type": "mcq",
+        "id": "f10-x1",
+        "type": "mcq",
         "q": "Which shape has 3 sides and 3 corners?",
-        "options": [ { "label": "Triangle" }, { "label": "Square", "mistakeTag": "miscounts-corners" } ],
+        "options": [
+          {
+            "label": "Triangle"
+          },
+          {
+            "label": "Square",
+            "mistakeTag": "miscounts-corners"
+          }
+        ],
         "answer": "Triangle",
-        "hintLadder": ["Three of each.", "Think of a samosa.", "Triangle."]
+        "hintLadder": [
+          "Three of each.",
+          "Think of a samosa.",
+          "Triangle."
+        ]
       },
       {
-        "id": "f10-x2", "type": "number",
+        "id": "f10-x2",
+        "type": "number",
         "q": "How many corners does a rectangle have?",
         "answer": "4",
-        "hintLadder": ["Count the corners of a window.", "Same as a square.", "Four."]
+        "hintLadder": [
+          "Count the corners of a window.",
+          "Same as a square.",
+          "Four."
+        ]
       },
       {
-        "id": "f10-x3", "type": "mcq",
+        "id": "f10-x3",
+        "type": "mcq",
         "q": "The full moon is shaped like a…",
-        "options": [ { "label": "Circle" }, { "label": "Triangle", "mistakeTag": "miscounts-corners" } ],
+        "options": [
+          {
+            "label": "Circle"
+          },
+          {
+            "label": "Triangle",
+            "mistakeTag": "miscounts-corners"
+          }
+        ],
         "answer": "Circle",
-        "hintLadder": ["It is round.", "No corners.", "Circle."]
+        "hintLadder": [
+          "It is round.",
+          "No corners.",
+          "Circle."
+        ]
       },
       {
-        "id": "f10-x4", "type": "mcq",
+        "id": "f10-x4",
+        "type": "mcq",
         "q": "A shape with 4 sides where two are long and two are short is a…",
-        "options": [ { "label": "Rectangle" }, { "label": "Square", "mistakeTag": "square-rectangle-mixup" } ],
+        "options": [
+          {
+            "label": "Rectangle"
+          },
+          {
+            "label": "Square",
+            "mistakeTag": "square-rectangle-mixup"
+          }
+        ],
         "answer": "Rectangle",
-        "hintLadder": ["Not all sides equal.", "Long and short pairs.", "Rectangle."]
+        "hintLadder": [
+          "Not all sides equal.",
+          "Long and short pairs.",
+          "Rectangle."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -162,7 +331,11 @@
   "teachBackPrompt": "Take your grown-up on a 'shape walk' around one room. Find a circle, a square, a rectangle and a triangle, and tell them how you know each one by counting sides and corners.",
   "revisionCard": {
     "summary": "Name a shape by its corners: 0 corners = circle, 3 = triangle, 4 equal = square, 4 (long & short) = rectangle. Sides and corners match in number.",
-    "reviewAfterDays": [1, 3, 7]
+    "reviewAfterDays": [
+      1,
+      3,
+      7
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -171,5 +344,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Count the sides to name the shape",
+    "unpack": "3 sides = triangle, 4 = square/rectangle, 5 = pentagon, 6 = hexagon. A circle has no straight sides - it is a curve."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I tell a square from a rectangle?",
+      "a": "Both have 4 sides and 4 square corners. A square's sides are ALL equal; a rectangle has two long and two short."
+    },
+    {
+      "q": "How many sides does a circle have?",
+      "a": "None straight - it is one smooth curved line all the way round."
+    }
+  ]
 }

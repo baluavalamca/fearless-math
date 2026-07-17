@@ -3,7 +3,10 @@
   "name": "Arithmetic Progressions — Numbers in Steady Steps",
   "grade": 9,
   "strand": "numbers",
-  "prerequisites": ["num-17-patterns", "num-32-expressions"],
+  "prerequisites": [
+    "num-17-patterns",
+    "num-32-expressions"
+  ],
   "whatIsIt": "An Arithmetic Progression (AP) is a list of numbers where each term jumps by the SAME amount every time. That fixed jump is the common difference d. The first term is a. Any term is a_n = a + (n − 1)d, and the sum of the first n terms is S_n = n/2 × [2a + (n − 1)d], which is also n/2 × (first + last).",
   "whyNeeded": "APs describe anything that grows or shrinks by equal steps: saving a fixed amount each month, seats increasing row by row in a theatre, a salary that rises by a fixed raise, or stacked pipes. Instead of adding term by term, one formula jumps straight to the 100th term or the total.",
   "realLifeUses": [
@@ -13,14 +16,29 @@
     "Total bricks in a stack that narrows by one each layer"
   ],
   "vocabulary": [
-    { "term": "common difference (d)", "meaning": "The fixed amount added to get from one term to the next: d = a_2 − a_1." },
-    { "term": "first term (a)", "meaning": "The starting number of the AP." },
-    { "term": "nth term (a_n)", "meaning": "The term in position n, found by a_n = a + (n − 1)d." },
-    { "term": "sum S_n", "meaning": "The total of the first n terms: S_n = n/2 × (2a + (n − 1)d)." }
+    {
+      "term": "common difference (d)",
+      "meaning": "The fixed amount added to get from one term to the next: d = a_2 − a_1."
+    },
+    {
+      "term": "first term (a)",
+      "meaning": "The starting number of the AP."
+    },
+    {
+      "term": "nth term (a_n)",
+      "meaning": "The term in position n, found by a_n = a + (n − 1)d."
+    },
+    {
+      "term": "sum S_n",
+      "meaning": "The total of the first n terms: S_n = n/2 × (2a + (n − 1)d)."
+    }
   ],
   "story": {
     "title": "Meera's Piggy Bank Plan",
-    "characters": ["Meera", "Amma"],
+    "characters": [
+      "Meera",
+      "Amma"
+    ],
     "text": "Meera puts 100 rupees in her piggy bank in the first month, then 20 rupees more each month than the month before: 100, 120, 140, 160… 'How much will I add in the 12th month?' she asks. Amma smiles: 'Same jump every time — that's an AP. The 12th month is 100 + 11 × 20 = 320 rupees.' Meera also wants the total saved in a year, and Amma shows her the sum shortcut.",
     "extractedProblem": "An AP starts at 100 and increases by 20 each month. What is the 12th term?",
     "answerInStory": "320 — because a_12 = 100 + (12 − 1) × 20 = 100 + 220 = 320."
@@ -30,7 +48,14 @@
     "props": {
       "min": 0,
       "max": 24,
-      "jumps": [3, 7, 11, 15, 19, 23],
+      "jumps": [
+        3,
+        7,
+        11,
+        15,
+        19,
+        23
+      ],
       "label": "Equal jumps of 4: 3, 7, 11, 15… an AP with a = 3, d = 4"
     },
     "caption": "Every hop is the same size (d = 4). That equal step is what makes it an arithmetic progression."
@@ -40,9 +65,52 @@
       "title": "Spot the common difference",
       "note": "Subtract any term from the next; if it's always the same, it's an AP.",
       "examples": [
-        { "component": "NumberLine", "props": { "min": 0, "max": 20, "jumps": [2, 5, 8, 11, 14, 17], "label": "a = 2, d = 3" }, "caption": "2, 5, 8, 11… each hop is +3, so d = 3." },
-        { "component": "NumberLine", "props": { "min": 0, "max": 30, "jumps": [5, 10, 15, 20, 25], "label": "a = 5, d = 5" }, "caption": "5, 10, 15, 20, 25 — the 5 times table is an AP with d = 5." },
-        { "component": "BarModel", "props": { "parts": [3, 3, 3, 3], "label": "n − 1 jumps of d reach the nth term" }, "caption": "To reach the 5th term you take 4 jumps: a_5 = a + 4d." }
+        {
+          "component": "NumberLine",
+          "props": {
+            "min": 0,
+            "max": 20,
+            "jumps": [
+              2,
+              5,
+              8,
+              11,
+              14,
+              17
+            ],
+            "label": "a = 2, d = 3"
+          },
+          "caption": "2, 5, 8, 11… each hop is +3, so d = 3."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "min": 0,
+            "max": 30,
+            "jumps": [
+              5,
+              10,
+              15,
+              20,
+              25
+            ],
+            "label": "a = 5, d = 5"
+          },
+          "caption": "5, 10, 15, 20, 25 — the 5 times table is an AP with d = 5."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "parts": [
+              3,
+              3,
+              3,
+              3
+            ],
+            "label": "n − 1 jumps of d reach the nth term"
+          },
+          "caption": "To reach the 5th term you take 4 jumps: a_5 = a + 4d."
+        }
       ]
     }
   ],
@@ -58,12 +126,20 @@
   "workedExamples": [
     {
       "problem": "Find the 10th term of the AP 3, 7, 11, 15, …",
-      "steps": ["a = 3, d = 7 − 3 = 4.", "a_10 = a + (10 − 1)d = 3 + 9 × 4.", "= 3 + 36 = 39."],
+      "steps": [
+        "a = 3, d = 7 − 3 = 4.",
+        "a_10 = a + (10 − 1)d = 3 + 9 × 4.",
+        "= 3 + 36 = 39."
+      ],
       "answer": "39"
     },
     {
       "problem": "Find the sum of the first 10 terms of 3, 7, 11, 15, …",
-      "steps": ["a = 3, d = 4, n = 10.", "S_10 = 10/2 × (2 × 3 + 9 × 4) = 5 × (6 + 36).", "= 5 × 42 = 210."],
+      "steps": [
+        "a = 3, d = 4, n = 10.",
+        "S_10 = 10/2 × (2 × 3 + 9 × 4) = 5 × (6 + 36).",
+        "= 5 × 42 = 210."
+      ],
       "answer": "210"
     }
   ],
@@ -81,24 +157,142 @@
   ],
   "practice": {
     "easy": [
-      { "id": "g40-e1", "type": "number", "q": "In the AP 2, 5, 8, 11, … what is the common difference d?", "answer": "3", "hintLadder": ["d = second term − first term.", "5 − 2.", "3."] },
-      { "id": "g40-e2", "type": "number", "q": "AP with a = 5 and d = 2. What is the 3rd term? (a + 2d)", "answer": "9", "hintLadder": ["a_3 = a + (3 − 1)d.", "5 + 2 × 2.", "9."] }
+      {
+        "id": "g40-e1",
+        "type": "number",
+        "q": "In the AP 2, 5, 8, 11, … what is the common difference d?",
+        "answer": "3",
+        "hintLadder": [
+          "d = second term − first term.",
+          "5 − 2.",
+          "3."
+        ]
+      },
+      {
+        "id": "g40-e2",
+        "type": "number",
+        "q": "AP with a = 5 and d = 2. What is the 3rd term? (a + 2d)",
+        "answer": "9",
+        "hintLadder": [
+          "a_3 = a + (3 − 1)d.",
+          "5 + 2 × 2.",
+          "9."
+        ]
+      }
     ],
     "medium": [
-      { "id": "g40-m1", "type": "number", "q": "Find the 10th term of 2, 5, 8, 11, … (a = 2, d = 3)", "answer": "29", "hintLadder": ["a_10 = a + 9d.", "2 + 9 × 3 = 2 + 27.", "29."] },
-      { "id": "g40-m2", "type": "number", "q": "Sum of the first 5 terms of 4, 7, 10, … (a = 4, d = 3)", "answer": "50", "hintLadder": ["S_5 = 5/2 × (2×4 + 4×3).", "= 5/2 × (8 + 12) = 5/2 × 20.", "50."] }
+      {
+        "id": "g40-m1",
+        "type": "number",
+        "q": "Find the 10th term of 2, 5, 8, 11, … (a = 2, d = 3)",
+        "answer": "29",
+        "hintLadder": [
+          "a_10 = a + 9d.",
+          "2 + 9 × 3 = 2 + 27.",
+          "29."
+        ]
+      },
+      {
+        "id": "g40-m2",
+        "type": "number",
+        "q": "Sum of the first 5 terms of 4, 7, 10, … (a = 4, d = 3)",
+        "answer": "50",
+        "hintLadder": [
+          "S_5 = 5/2 × (2×4 + 4×3).",
+          "= 5/2 × (8 + 12) = 5/2 × 20.",
+          "50."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "g40-c1", "type": "number", "q": "Sum of the first 100 whole numbers 1 + 2 + … + 100 (a = 1, d = 1)", "answer": "5050", "hintLadder": ["S_100 = 100/2 × (first + last).", "= 50 × (1 + 100).", "50 × 101 = 5050."] },
-      { "id": "g40-c2", "type": "mcq", "q": "Sunil finds the 6th term of a = 2, d = 3 as 2 + 6 × 3 = 20. What is the fix?", "options": [ { "label": "Use a + (n − 1)d = 2 + 5 × 3 = 17" }, { "label": "20 is correct", "mistakeTag": "n-not-n-minus-1" } ], "answer": "Use a + (n − 1)d = 2 + 5 × 3 = 17", "hintLadder": ["The 6th term needs how many jumps?", "Only 5 jumps, not 6.", "2 + 5 × 3 = 17."] }
+      {
+        "id": "g40-c1",
+        "type": "number",
+        "q": "Sum of the first 100 whole numbers 1 + 2 + … + 100 (a = 1, d = 1)",
+        "answer": "5050",
+        "hintLadder": [
+          "S_100 = 100/2 × (first + last).",
+          "= 50 × (1 + 100).",
+          "50 × 101 = 5050."
+        ]
+      },
+      {
+        "id": "g40-c2",
+        "type": "mcq",
+        "q": "Sunil finds the 6th term of a = 2, d = 3 as 2 + 6 × 3 = 20. What is the fix?",
+        "options": [
+          {
+            "label": "Use a + (n − 1)d = 2 + 5 × 3 = 17"
+          },
+          {
+            "label": "20 is correct",
+            "mistakeTag": "n-not-n-minus-1"
+          }
+        ],
+        "answer": "Use a + (n − 1)d = 2 + 5 × 3 = 17",
+        "hintLadder": [
+          "The 6th term needs how many jumps?",
+          "Only 5 jumps, not 6.",
+          "2 + 5 × 3 = 17."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "g40-x1", "type": "number", "q": "Common difference of 7, 12, 17, 22, …?", "answer": "5", "hintLadder": ["12 − 7.", "Next minus previous.", "5."] },
-      { "id": "g40-x2", "type": "number", "q": "10th term of the AP with a = 1, d = 4?", "answer": "37", "hintLadder": ["1 + 9 × 4.", "1 + 36.", "37."] },
-      { "id": "g40-x3", "type": "number", "q": "Sum of the first 20 terms of 1, 3, 5, 7, … (a = 1, d = 2)?", "answer": "400", "hintLadder": ["S_20 = 20/2 × (2×1 + 19×2).", "= 10 × (2 + 38) = 10 × 40.", "400."] },
-      { "id": "g40-x4", "type": "mcq", "q": "Which list is an AP?", "options": [ { "label": "3, 6, 9, 12 (equal jump of 3)" }, { "label": "2, 4, 8, 16 (doubling)", "mistakeTag": "wrong-d-sign" } ], "answer": "3, 6, 9, 12 (equal jump of 3)", "hintLadder": ["An AP adds the same each time.", "Doubling multiplies, not adds.", "3, 6, 9, 12."] }
+      {
+        "id": "g40-x1",
+        "type": "number",
+        "q": "Common difference of 7, 12, 17, 22, …?",
+        "answer": "5",
+        "hintLadder": [
+          "12 − 7.",
+          "Next minus previous.",
+          "5."
+        ]
+      },
+      {
+        "id": "g40-x2",
+        "type": "number",
+        "q": "10th term of the AP with a = 1, d = 4?",
+        "answer": "37",
+        "hintLadder": [
+          "1 + 9 × 4.",
+          "1 + 36.",
+          "37."
+        ]
+      },
+      {
+        "id": "g40-x3",
+        "type": "number",
+        "q": "Sum of the first 20 terms of 1, 3, 5, 7, … (a = 1, d = 2)?",
+        "answer": "400",
+        "hintLadder": [
+          "S_20 = 20/2 × (2×1 + 19×2).",
+          "= 10 × (2 + 38) = 10 × 40.",
+          "400."
+        ]
+      },
+      {
+        "id": "g40-x4",
+        "type": "mcq",
+        "q": "Which list is an AP?",
+        "options": [
+          {
+            "label": "3, 6, 9, 12 (equal jump of 3)"
+          },
+          {
+            "label": "2, 4, 8, 16 (doubling)",
+            "mistakeTag": "wrong-d-sign"
+          }
+        ],
+        "answer": "3, 6, 9, 12 (equal jump of 3)",
+        "hintLadder": [
+          "An AP adds the same each time.",
+          "Doubling multiplies, not adds.",
+          "3, 6, 9, 12."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -106,7 +300,11 @@
   "teachBackPrompt": "Show a grown-up a savings plan that adds the same amount each month, and explain how a_n = a + (n − 1)d jumps to the 12th month without listing every month, and how S_n adds them all at once.",
   "revisionCard": {
     "summary": "AP = same jump d every time. nth term a_n = a + (n − 1)d (one fewer jump than n). Sum S_n = n/2 × (2a + (n − 1)d) = n/2 × (first + last). A falling AP has negative d.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -115,5 +313,33 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "AP: same step every time. nth term = a + (n-1)d",
+    "unpack": "a = first term, d = common difference (add the same each time). Sum S = n/2 [2a + (n-1)d] = n/2 x (first + last)."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I find d?",
+      "a": "Subtract any term from the next: d = a2 - a1. It is the same all the way through an AP."
+    },
+    {
+      "q": "Why (n-1)d and not n x d?",
+      "a": "The first term already sits at position 1 with no steps added. To reach the nth term you take (n-1) steps of size d."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "nth term",
+      "formula": "a_n = a + (n-1) d",
+      "remember": "(n-1) steps from the first term",
+      "whenToUse": "Find any term."
+    },
+    {
+      "name": "Sum of n terms",
+      "formula": "S_n = n/2 [2a + (n-1)d]",
+      "remember": "= n/2 x (first + last)",
+      "whenToUse": "Add the first n terms."
+    }
+  ]
 }

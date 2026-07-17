@@ -522,5 +522,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "Add/subtract: LINE UP the dots. Multiply: count the decimal places",
+    "unpack": "When adding, keep decimal points under each other. When multiplying, the answer has as many decimal places as both numbers together (0.2 x 0.3 = 0.06, two places)."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why line up the decimal points?",
+      "a": "So tenths add to tenths and ones to ones. Misaligning mixes up place values and gives a wrong answer."
+    },
+    {
+      "q": "0.2 x 0.3 = 0.06 - why so small?",
+      "a": "You are taking a fraction of a fraction. Count decimal places: 1 + 1 = 2, so the answer has 2 decimal places."
+    }
+  ]
 }

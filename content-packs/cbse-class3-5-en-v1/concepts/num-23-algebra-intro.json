@@ -3,7 +3,9 @@
   "name": "A Letter for the Unknown — First Algebra",
   "grade": 6,
   "strand": "numbers",
-  "prerequisites": ["num-17-patterns"],
+  "prerequisites": [
+    "num-17-patterns"
+  ],
   "whatIsIt": "Sometimes we don't yet know a number. We use a box □ or a letter (like x) to stand for it. 'x + 3 = 10' asks: what number plus 3 makes 10? To find x, do the OPPOSITE operation: 10 − 3 = 7, so x = 7. A letter is just a placeholder for the mystery number until we work it out.",
   "whyNeeded": "Using a letter for an unknown is the single biggest doorway into higher maths — algebra, equations, formulas, and everything in science and engineering. It also mirrors real thinking: 'how many more do I need?', 'what number makes this true?'",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Formulas like area = length × breadth use letters for any number"
   ],
   "vocabulary": [
-    { "term": "variable", "meaning": "A letter or box that stands for an unknown number." },
-    { "term": "equation", "meaning": "A statement that two things are equal, like x + 3 = 10." },
-    { "term": "solve", "meaning": "Find the value of the unknown that makes the equation true." }
+    {
+      "term": "variable",
+      "meaning": "A letter or box that stands for an unknown number."
+    },
+    {
+      "term": "equation",
+      "meaning": "A statement that two things are equal, like x + 3 = 10."
+    },
+    {
+      "term": "solve",
+      "meaning": "Find the value of the unknown that makes the equation true."
+    }
   ],
   "story": {
     "title": "The Missing Marbles",
-    "characters": ["Vihaan", "Didi"],
+    "characters": [
+      "Vihaan",
+      "Didi"
+    ],
     "text": "Vihaan had some marbles, won 5 more, and now has 12. 'How many did you start with?' asks Didi. Vihaan writes it as a puzzle: □ + 5 = 12. 'To undo the +5, I subtract: 12 − 5 = 7.' He checks: 7 + 5 = 12. 'I started with 7!' Didi grins — 'you just did algebra.'",
     "extractedProblem": "Vihaan won 5 marbles and now has 12. He started with □. What is □?",
     "answerInStory": "7 — because □ + 5 = 12 means □ = 12 − 5 = 7."
@@ -28,7 +42,18 @@
     "component": "BarModel",
     "props": {
       "bars": [
-        { "label": "x + 5 = 12", "parts": [ { "value": 7 }, { "value": 5 } ], "showTotal": true }
+        {
+          "label": "x + 5 = 12",
+          "parts": [
+            {
+              "value": 7
+            },
+            {
+              "value": 5
+            }
+          ],
+          "showTotal": true
+        }
       ]
     },
     "caption": "The whole bar is 12; the known part is 5; the unknown part x fills the rest: x = 12 − 5 = 7."
@@ -38,9 +63,60 @@
       "title": "Undo to find the unknown",
       "note": "Do the opposite operation to free the letter.",
       "examples": [
-        { "component": "BarModel", "props": { "bars": [ { "label": "x + 3 = 10", "parts": [ { "value": 7 }, { "value": 3 } ], "showTotal": true } ] }, "caption": "x = 10 − 3 = 7 (subtract to undo +3)." },
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 3, "cols": 4, "asGroups": true, "label": "3 × x = 12 → x = 4" } ] }, "caption": "3 equal groups make 12 → each x = 12 ÷ 3 = 4." },
-        { "component": "BarModel", "props": { "bars": [ { "label": "x + 8 = 20", "parts": [ { "value": 12 }, { "value": 8 } ], "showTotal": true } ] }, "caption": "x = 20 − 8 = 12." }
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "x + 3 = 10",
+                "parts": [
+                  {
+                    "value": 7
+                  },
+                  {
+                    "value": 3
+                  }
+                ],
+                "showTotal": true
+              }
+            ]
+          },
+          "caption": "x = 10 − 3 = 7 (subtract to undo +3)."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 4,
+                "asGroups": true,
+                "label": "3 × x = 12 → x = 4"
+              }
+            ]
+          },
+          "caption": "3 equal groups make 12 → each x = 12 ÷ 3 = 4."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "x + 8 = 20",
+                "parts": [
+                  {
+                    "value": 12
+                  },
+                  {
+                    "value": 8
+                  }
+                ],
+                "showTotal": true
+              }
+            ]
+          },
+          "caption": "x = 20 − 8 = 12."
+        }
       ]
     }
   ],
@@ -56,12 +132,20 @@
   "workedExamples": [
     {
       "problem": "Solve x + 6 = 15.",
-      "steps": ["The +6 is stuck to x; undo it with −6.", "x = 15 − 6.", "x = 9. Check: 9 + 6 = 15. ✓"],
+      "steps": [
+        "The +6 is stuck to x; undo it with −6.",
+        "x = 15 − 6.",
+        "x = 9. Check: 9 + 6 = 15. ✓"
+      ],
       "answer": "9"
     },
     {
       "problem": "Solve 4 × x = 20.",
-      "steps": ["x is multiplied by 4; undo with ÷4.", "x = 20 ÷ 4.", "x = 5. Check: 4 × 5 = 20. ✓"],
+      "steps": [
+        "x is multiplied by 4; undo with ÷4.",
+        "x = 20 ÷ 4.",
+        "x = 5. Check: 4 × 5 = 20. ✓"
+      ],
       "answer": "5"
     }
   ],
@@ -80,75 +164,149 @@
   "practice": {
     "easy": [
       {
-        "id": "n23-e1", "type": "number",
+        "id": "n23-e1",
+        "type": "number",
         "q": "Solve: x + 2 = 9. What is x?",
         "answer": "7",
-        "hintLadder": ["Undo +2 with −2.", "9 − 2.", "Seven."]
+        "hintLadder": [
+          "Undo +2 with −2.",
+          "9 − 2.",
+          "Seven."
+        ]
       },
       {
-        "id": "n23-e2", "type": "mcq",
+        "id": "n23-e2",
+        "type": "mcq",
         "q": "To solve x + 4 = 10 you should…",
-        "options": [ { "label": "Subtract 4 from 10" }, { "label": "Add 4 to 10", "mistakeTag": "same-operation-not-opposite" } ],
+        "options": [
+          {
+            "label": "Subtract 4 from 10"
+          },
+          {
+            "label": "Add 4 to 10",
+            "mistakeTag": "same-operation-not-opposite"
+          }
+        ],
         "answer": "Subtract 4 from 10",
-        "hintLadder": ["Do the opposite of +4.", "That's −4.", "10 − 4."]
+        "hintLadder": [
+          "Do the opposite of +4.",
+          "That's −4.",
+          "10 − 4."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n23-m1", "type": "number",
+        "id": "n23-m1",
+        "type": "number",
         "q": "Solve: x − 5 = 8. What is x?",
         "answer": "13",
-        "hintLadder": ["Undo −5 with +5.", "8 + 5.", "Thirteen."]
+        "hintLadder": [
+          "Undo −5 with +5.",
+          "8 + 5.",
+          "Thirteen."
+        ]
       },
       {
-        "id": "n23-m2", "type": "number",
+        "id": "n23-m2",
+        "type": "number",
         "q": "Solve: 3 × x = 18. What is x?",
         "answer": "6",
-        "hintLadder": ["Undo ×3 with ÷3.", "18 ÷ 3.", "Six."]
+        "hintLadder": [
+          "Undo ×3 with ÷3.",
+          "18 ÷ 3.",
+          "Six."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n23-c1", "type": "number",
+        "id": "n23-c1",
+        "type": "number",
         "q": "Riya has ₹x, spends ₹30, and is left with ₹45. How much did she start with?",
         "answer": "75",
-        "hintLadder": ["x − 30 = 45.", "Undo −30 with +30.", "45 + 30 = 75."]
+        "hintLadder": [
+          "x − 30 = 45.",
+          "Undo −30 with +30.",
+          "45 + 30 = 75."
+        ]
       },
       {
-        "id": "n23-c2", "type": "mcq",
+        "id": "n23-c2",
+        "type": "mcq",
         "q": "Sam solves x + 7 = 20 by writing x = 27. What went wrong?",
-        "options": [ { "label": "He added instead of subtracting — x = 20 − 7 = 13" }, { "label": "Nothing, x = 27", "mistakeTag": "same-operation-not-opposite" } ],
+        "options": [
+          {
+            "label": "He added instead of subtracting — x = 20 − 7 = 13"
+          },
+          {
+            "label": "Nothing, x = 27",
+            "mistakeTag": "same-operation-not-opposite"
+          }
+        ],
         "answer": "He added instead of subtracting — x = 20 − 7 = 13",
-        "hintLadder": ["Undo +7 with −7.", "20 − 7.", "x = 13."]
+        "hintLadder": [
+          "Undo +7 with −7.",
+          "20 − 7.",
+          "x = 13."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n23-x1", "type": "number",
+        "id": "n23-x1",
+        "type": "number",
         "q": "Solve: x + 3 = 12. What is x?",
         "answer": "9",
-        "hintLadder": ["Undo +3 with −3.", "12 − 3.", "Nine."]
+        "hintLadder": [
+          "Undo +3 with −3.",
+          "12 − 3.",
+          "Nine."
+        ]
       },
       {
-        "id": "n23-x2", "type": "number",
+        "id": "n23-x2",
+        "type": "number",
         "q": "Solve: x − 4 = 6. What is x?",
         "answer": "10",
-        "hintLadder": ["Undo −4 with +4.", "6 + 4.", "Ten."]
+        "hintLadder": [
+          "Undo −4 with +4.",
+          "6 + 4.",
+          "Ten."
+        ]
       },
       {
-        "id": "n23-x3", "type": "number",
+        "id": "n23-x3",
+        "type": "number",
         "q": "Solve: 5 × x = 35. What is x?",
         "answer": "7",
-        "hintLadder": ["Undo ×5 with ÷5.", "35 ÷ 5.", "Seven."]
+        "hintLadder": [
+          "Undo ×5 with ÷5.",
+          "35 ÷ 5.",
+          "Seven."
+        ]
       },
       {
-        "id": "n23-x4", "type": "mcq",
+        "id": "n23-x4",
+        "type": "mcq",
         "q": "After solving an equation you should always…",
-        "options": [ { "label": "Check by putting the answer back in" }, { "label": "Move on straight away", "mistakeTag": "no-check" } ],
+        "options": [
+          {
+            "label": "Check by putting the answer back in"
+          },
+          {
+            "label": "Move on straight away",
+            "mistakeTag": "no-check"
+          }
+        ],
         "answer": "Check by putting the answer back in",
-        "hintLadder": ["Catch slips.", "Substitute your answer.", "It must make it true."]
+        "hintLadder": [
+          "Catch slips.",
+          "Substitute your answer.",
+          "It must make it true."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -157,7 +315,11 @@
   "teachBackPrompt": "Make up a 'mystery number' puzzle for a grown-up (like '□ + 6 = 14'). Explain how you use a box or letter for the unknown and do the opposite operation to solve it — then check your answer together.",
   "revisionCard": {
     "summary": "A letter (or □) stands for an unknown number. Write the words as an equation, then do the OPPOSITE operation to free the letter: + undoes −, × undoes ÷. Always check by putting the answer back in. This is the doorway to algebra.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -166,5 +328,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "A letter is just a box for an unknown number",
+    "unpack": "x means 'the number we do not know yet'. 3x means 3 times x. Whatever you do to one side of '=', do to the other."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why use letters instead of numbers?",
+      "a": "A letter holds a number we do not know yet, so we can write a rule for ANY value. x is a placeholder."
+    },
+    {
+      "q": "What does 3x mean?",
+      "a": "3 times x. A number stuck to a letter means multiply - there is a hidden times sign."
+    }
+  ]
 }

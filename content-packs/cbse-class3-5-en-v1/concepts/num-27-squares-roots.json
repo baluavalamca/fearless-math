@@ -3,7 +3,9 @@
   "name": "Squares, Cubes and Roots",
   "grade": 7,
   "strand": "numbers",
-  "prerequisites": ["num-24-primes"],
+  "prerequisites": [
+    "num-24-primes"
+  ],
   "whatIsIt": "A SQUARE of a number multiplies it by itself: 5² = 5 × 5 = 25. A CUBE multiplies it three times: 2³ = 2 × 2 × 2 = 8. A SQUARE ROOT undoes squaring: √25 = 5. A CUBE ROOT undoes cubing: ∛8 = 2. Square numbers make a perfect square of dots (25 = a 5×5 grid); cube numbers fill a cube.",
   "whyNeeded": "Squares and roots run through area (a square of side 5 has area 25), the Pythagoras theorem, algebra, and physics. Recognising perfect squares and cubes speeds up all later maths.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Pythagoras and distances use squares and square roots"
   ],
   "vocabulary": [
-    { "term": "square (n²)", "meaning": "A number multiplied by itself: 4² = 16." },
-    { "term": "cube (n³)", "meaning": "A number multiplied by itself three times: 3³ = 27." },
-    { "term": "square root (√)", "meaning": "The number that was squared: √36 = 6." }
+    {
+      "term": "square (n²)",
+      "meaning": "A number multiplied by itself: 4² = 16."
+    },
+    {
+      "term": "cube (n³)",
+      "meaning": "A number multiplied by itself three times: 3³ = 27."
+    },
+    {
+      "term": "square root (√)",
+      "meaning": "The number that was squared: √36 = 6."
+    }
   ],
   "story": {
     "title": "The Square Tiles",
-    "characters": ["Karan", "Bhaiya"],
+    "characters": [
+      "Karan",
+      "Bhaiya"
+    ],
     "text": "Karan lays tiles in a perfect square: 6 rows of 6. 'How many tiles?' asks Bhaiya. Karan says 6² = 36. Later Bhaiya says 'I have 49 tiles — will they make a perfect square?' Karan thinks: what times itself is 49? √49 = 7. 'Yes — a 7 by 7 square!' The root gives the side back.",
     "extractedProblem": "49 tiles make a perfect square. How many tiles are on each side?",
     "answerInStory": "7 — because √49 = 7 (7 × 7 = 49)."
@@ -28,7 +42,11 @@
     "component": "ArrayGrid",
     "props": {
       "grids": [
-        { "rows": 5, "cols": 5, "label": "5² = 25 (a perfect square)" }
+        {
+          "rows": 5,
+          "cols": 5,
+          "label": "5² = 25 (a perfect square)"
+        }
       ]
     },
     "caption": "A square number fills a perfect square grid: 5 × 5 = 25. The square ROOT of 25 is 5 (the side)."
@@ -38,9 +56,50 @@
       "title": "Squares and their roots",
       "note": "n² fills a square; √ gives the side back.",
       "examples": [
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 3, "cols": 3, "label": "3² = 9" } ] }, "caption": "3 × 3 = 9, so √9 = 3." },
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 4, "cols": 4, "label": "4² = 16" } ] }, "caption": "4 × 4 = 16, so √16 = 4." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [1, 4, 9, 16, 25], "label": "square numbers" } ] }, "caption": "The square numbers: 1, 4, 9, 16, 25…" }
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 3,
+                "label": "3² = 9"
+              }
+            ]
+          },
+          "caption": "3 × 3 = 9, so √9 = 3."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 4,
+                "cols": 4,
+                "label": "4² = 16"
+              }
+            ]
+          },
+          "caption": "4 × 4 = 16, so √16 = 4."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  4,
+                  9,
+                  16,
+                  25
+                ],
+                "label": "square numbers"
+              }
+            ]
+          },
+          "caption": "The square numbers: 1, 4, 9, 16, 25…"
+        }
       ]
     }
   ],
@@ -56,12 +115,20 @@
   "workedExamples": [
     {
       "problem": "Find 8².",
-      "steps": ["Square means multiply by itself.", "8 × 8.", "= 64."],
+      "steps": [
+        "Square means multiply by itself.",
+        "8 × 8.",
+        "= 64."
+      ],
       "answer": "64"
     },
     {
       "problem": "Find √81.",
-      "steps": ["Ask: what number times itself is 81?", "9 × 9 = 81.", "So √81 = 9."],
+      "steps": [
+        "Ask: what number times itself is 81?",
+        "9 × 9 = 81.",
+        "So √81 = 9."
+      ],
       "answer": "9"
     }
   ],
@@ -80,74 +147,140 @@
   "practice": {
     "easy": [
       {
-        "id": "n27-e1", "type": "number",
+        "id": "n27-e1",
+        "type": "number",
         "q": "What is 3²?",
         "answer": "9",
-        "hintLadder": ["3 × 3.", "Multiply by itself.", "9."]
+        "hintLadder": [
+          "3 × 3.",
+          "Multiply by itself.",
+          "9."
+        ]
       },
       {
-        "id": "n27-e2", "type": "number",
+        "id": "n27-e2",
+        "type": "number",
         "q": "What is √16?",
         "answer": "4",
-        "hintLadder": ["What times itself is 16?", "4 × 4 = 16.", "4."]
+        "hintLadder": [
+          "What times itself is 16?",
+          "4 × 4 = 16.",
+          "4."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n27-m1", "type": "number",
+        "id": "n27-m1",
+        "type": "number",
         "q": "What is 6²?",
         "answer": "36",
-        "hintLadder": ["6 × 6.", "Square it.", "36."]
+        "hintLadder": [
+          "6 × 6.",
+          "Square it.",
+          "36."
+        ]
       },
       {
-        "id": "n27-m2", "type": "number",
+        "id": "n27-m2",
+        "type": "number",
         "q": "What is 2³?",
         "answer": "8",
-        "hintLadder": ["2 × 2 × 2.", "Cube it.", "8."]
+        "hintLadder": [
+          "2 × 2 × 2.",
+          "Cube it.",
+          "8."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n27-c1", "type": "number",
+        "id": "n27-c1",
+        "type": "number",
         "q": "A square field has area 64 m². What is the length of one side (in m)?",
         "answer": "8",
-        "hintLadder": ["Side = √area.", "√64.", "8 m."]
+        "hintLadder": [
+          "Side = √area.",
+          "√64.",
+          "8 m."
+        ]
       },
       {
-        "id": "n27-c2", "type": "mcq",
+        "id": "n27-c2",
+        "type": "mcq",
         "q": "Riya says 4² = 8. What's the fix?",
-        "options": [ { "label": "4² = 4 × 4 = 16" }, { "label": "She's right, 4² = 8", "mistakeTag": "square-means-times-two" } ],
+        "options": [
+          {
+            "label": "4² = 4 × 4 = 16"
+          },
+          {
+            "label": "She's right, 4² = 8",
+            "mistakeTag": "square-means-times-two"
+          }
+        ],
         "answer": "4² = 4 × 4 = 16",
-        "hintLadder": ["Square = times itself.", "4 × 4.", "16."]
+        "hintLadder": [
+          "Square = times itself.",
+          "4 × 4.",
+          "16."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n27-x1", "type": "number",
+        "id": "n27-x1",
+        "type": "number",
         "q": "What is 5²?",
         "answer": "25",
-        "hintLadder": ["5 × 5.", "Square it.", "25."]
+        "hintLadder": [
+          "5 × 5.",
+          "Square it.",
+          "25."
+        ]
       },
       {
-        "id": "n27-x2", "type": "number",
+        "id": "n27-x2",
+        "type": "number",
         "q": "What is √49?",
         "answer": "7",
-        "hintLadder": ["What times itself is 49?", "7 × 7.", "7."]
+        "hintLadder": [
+          "What times itself is 49?",
+          "7 × 7.",
+          "7."
+        ]
       },
       {
-        "id": "n27-x3", "type": "number",
+        "id": "n27-x3",
+        "type": "number",
         "q": "What is 3³?",
         "answer": "27",
-        "hintLadder": ["3 × 3 × 3.", "Cube it.", "27."]
+        "hintLadder": [
+          "3 × 3 × 3.",
+          "Cube it.",
+          "27."
+        ]
       },
       {
-        "id": "n27-x4", "type": "mcq",
+        "id": "n27-x4",
+        "type": "mcq",
         "q": "The square root of a number…",
-        "options": [ { "label": "Undoes squaring (√25 = 5)" }, { "label": "Halves the number", "mistakeTag": "square-means-times-two" } ],
+        "options": [
+          {
+            "label": "Undoes squaring (√25 = 5)"
+          },
+          {
+            "label": "Halves the number",
+            "mistakeTag": "square-means-times-two"
+          }
+        ],
         "answer": "Undoes squaring (√25 = 5)",
-        "hintLadder": ["Root reverses square.", "√25 = 5 because 5² = 25.", "Undoes squaring."]
+        "hintLadder": [
+          "Root reverses square.",
+          "√25 = 5 because 5² = 25.",
+          "Undoes squaring."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -156,7 +289,11 @@
   "teachBackPrompt": "Draw a square of dots (say 4 by 4) and show a grown-up that it equals 4² = 16, then explain that √16 = 4 gives the side back. Bonus: build a 2×2×2 cube of blocks to show 2³ = 8.",
   "revisionCard": {
     "summary": "Square: n² = n × n (5² = 25). Cube: n³ = n × n × n (2³ = 8). Square root √ undoes squaring (√25 = 5); cube root ∛ undoes cubing (∛8 = 2). Squaring is NOT ×2. Learn perfect squares 1,4,9,16,25,36,49,64,81,100.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "vedicMethod": {
     "name": "Vedic: squares ending in 5 (Ekadhikena Purvena)",
@@ -186,12 +323,72 @@
     "trick": "Squares ending in 5 (Ekadhikena)",
     "intro": "Numbers that end in 5 have a magic square: multiply the front by the next number, then stick 25 on the end.",
     "questions": [
-      { "id": "n27-trick-35", "type": "number", "q": "35² = ?", "answer": "1225", "hintLadder": ["Front is 3.", "3 × 4 = 12, then 25.", "1225."] },
-      { "id": "n27-trick-45", "type": "number", "q": "45² = ?", "answer": "2025", "hintLadder": ["Front is 4.", "4 × 5 = 20, then 25.", "2025."] },
-      { "id": "n27-trick-65", "type": "number", "q": "65² = ?", "answer": "4225", "hintLadder": ["Front is 6.", "6 × 7 = 42, then 25.", "4225."] },
-      { "id": "n27-trick-85", "type": "number", "q": "85² = ?", "answer": "7225", "hintLadder": ["Front is 8.", "8 × 9 = 72, then 25.", "7225."] },
-      { "id": "n27-trick-95", "type": "number", "q": "95² = ?", "answer": "9025", "hintLadder": ["Front is 9.", "9 × 10 = 90, then 25.", "9025."] },
-      { "id": "n27-trick-25", "type": "number", "q": "25² = ?", "answer": "625", "hintLadder": ["Front is 2.", "2 × 3 = 6, then 25.", "625."] }
+      {
+        "id": "n27-trick-35",
+        "type": "number",
+        "q": "35² = ?",
+        "answer": "1225",
+        "hintLadder": [
+          "Front is 3.",
+          "3 × 4 = 12, then 25.",
+          "1225."
+        ]
+      },
+      {
+        "id": "n27-trick-45",
+        "type": "number",
+        "q": "45² = ?",
+        "answer": "2025",
+        "hintLadder": [
+          "Front is 4.",
+          "4 × 5 = 20, then 25.",
+          "2025."
+        ]
+      },
+      {
+        "id": "n27-trick-65",
+        "type": "number",
+        "q": "65² = ?",
+        "answer": "4225",
+        "hintLadder": [
+          "Front is 6.",
+          "6 × 7 = 42, then 25.",
+          "4225."
+        ]
+      },
+      {
+        "id": "n27-trick-85",
+        "type": "number",
+        "q": "85² = ?",
+        "answer": "7225",
+        "hintLadder": [
+          "Front is 8.",
+          "8 × 9 = 72, then 25.",
+          "7225."
+        ]
+      },
+      {
+        "id": "n27-trick-95",
+        "type": "number",
+        "q": "95² = ?",
+        "answer": "9025",
+        "hintLadder": [
+          "Front is 9.",
+          "9 × 10 = 90, then 25.",
+          "9025."
+        ]
+      },
+      {
+        "id": "n27-trick-25",
+        "type": "number",
+        "q": "25² = ?",
+        "answer": "625",
+        "hintLadder": [
+          "Front is 2.",
+          "2 × 3 = 6, then 25.",
+          "625."
+        ]
+      }
     ]
   },
   "meta": {
@@ -201,5 +398,30 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Square = number times itself. Square root undoes it",
+    "unpack": "7^2 = 49, so sqrt(49) = 7. Perfect squares: 1,4,9,16,25,36,49,64,81,100. Learn these and roots become instant."
+  },
+  "studentQuestions": [
+    {
+      "q": "What does 'squared' mean?",
+      "a": "Multiply the number by itself. 5^2 = 5 x 5 = 25. It is called 'square' because it is the area of a square of that side."
+    },
+    {
+      "q": "What is a square root?",
+      "a": "The number that was squared to get it. sqrt(36) = 6 because 6 x 6 = 36. Root undoes square."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Square",
+      "formula": "n^2 = n x n"
+    },
+    {
+      "name": "Square root",
+      "formula": "sqrt(n^2) = n",
+      "remember": "Root undoes square"
+    }
+  ]
 }

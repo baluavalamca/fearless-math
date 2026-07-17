@@ -455,5 +455,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "Skip counting = counting in jumps: 2,4,6... or 5,10,15...",
+    "unpack": "Count in 2s for pairs, 5s for hands and the clock, 10s for tens. Skip counting is the start of your times tables!"
+  },
+  "studentQuestions": [
+    {
+      "q": "Why skip numbers when counting?",
+      "a": "It is faster for groups! Counting socks in 2s or fingers in 5s beats one-by-one, and it builds your times tables."
+    },
+    {
+      "q": "Which is easiest to skip-count in?",
+      "a": "10s (10,20,30) and 5s (5,10,15). Your fingers and toes help!"
+    }
+  ]
 }

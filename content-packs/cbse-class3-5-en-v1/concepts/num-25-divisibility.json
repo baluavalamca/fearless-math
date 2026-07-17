@@ -3,7 +3,9 @@
   "name": "Divisibility Rules — Quick Checks",
   "grade": 5,
   "strand": "numbers",
-  "prerequisites": ["num-16-factors-multiples"],
+  "prerequisites": [
+    "num-16-factors-multiples"
+  ],
   "whatIsIt": "Divisibility rules let you tell if one number divides another EXACTLY, without doing the full division. By 2: even last digit. By 5: ends in 0 or 5. By 10: ends in 0. By 3: digit sum divisible by 3. By 9: digit sum divisible by 9. By 4: last two digits divisible by 4. By 6: divisible by 2 AND 3.",
   "whyNeeded": "These quick checks make factoring, simplifying fractions and mental maths fast. Instead of long division you glance at the number and know — a real time-saver for the rest of maths.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Splitting a bill evenly among people"
   ],
   "vocabulary": [
-    { "term": "divisible", "meaning": "Divides exactly, leaving no remainder." },
-    { "term": "digit sum", "meaning": "The sum of all the digits (for 342 it is 3+4+2 = 9)." },
-    { "term": "even number", "meaning": "A number ending in 0, 2, 4, 6 or 8 (divisible by 2)." }
+    {
+      "term": "divisible",
+      "meaning": "Divides exactly, leaving no remainder."
+    },
+    {
+      "term": "digit sum",
+      "meaning": "The sum of all the digits (for 342 it is 3+4+2 = 9)."
+    },
+    {
+      "term": "even number",
+      "meaning": "A number ending in 0, 2, 4, 6 or 8 (divisible by 2)."
+    }
   ],
   "story": {
     "title": "The Prize Packets",
-    "characters": ["Sir", "Dev"],
+    "characters": [
+      "Sir",
+      "Dev"
+    ],
     "text": "Sir has 342 stickers and asks Dev if they'll share equally among 3 groups. Dev doesn't divide — he adds the digits: 3 + 4 + 2 = 9, and 9 is divisible by 3. 'Yes Sir, 342 divides by 3!' Sir is impressed: 'You used the rule instead of long division.'",
     "extractedProblem": "Is 342 divisible by 3? Use the digit-sum rule.",
     "answerInStory": "Yes — 3 + 4 + 2 = 9, and 9 is divisible by 3."
@@ -28,7 +42,18 @@
     "component": "NumberTrack",
     "props": {
       "tracks": [
-        { "terms": [3, 6, 9, 12, 15, 18], "jump": 3, "label": "multiples of 3" }
+        {
+          "terms": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18
+          ],
+          "jump": 3,
+          "label": "multiples of 3"
+        }
       ]
     },
     "caption": "Multiples of 3 all have a digit sum divisible by 3. Rules spot them without dividing."
@@ -38,9 +63,63 @@
       "title": "The quick rules",
       "note": "Look at last digit(s) or the digit sum.",
       "examples": [
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [2, 4, 6, 8, 10], "jump": 2, "label": "÷2: even last digit" } ] }, "caption": "Ends in 0,2,4,6,8 → divisible by 2." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [5, 10, 15, 20, 25], "jump": 5, "label": "÷5: ends 0 or 5" } ] }, "caption": "Ends in 0 or 5 → divisible by 5." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [9, 18, 27, 36, 45], "jump": 9, "label": "÷9: digit sum ÷9" } ] }, "caption": "Digit sum divisible by 9 → divisible by 9." }
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  2,
+                  4,
+                  6,
+                  8,
+                  10
+                ],
+                "jump": 2,
+                "label": "÷2: even last digit"
+              }
+            ]
+          },
+          "caption": "Ends in 0,2,4,6,8 → divisible by 2."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  5,
+                  10,
+                  15,
+                  20,
+                  25
+                ],
+                "jump": 5,
+                "label": "÷5: ends 0 or 5"
+              }
+            ]
+          },
+          "caption": "Ends in 0 or 5 → divisible by 5."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  9,
+                  18,
+                  27,
+                  36,
+                  45
+                ],
+                "jump": 9,
+                "label": "÷9: digit sum ÷9"
+              }
+            ]
+          },
+          "caption": "Digit sum divisible by 9 → divisible by 9."
+        }
       ]
     }
   ],
@@ -56,12 +135,20 @@
   "workedExamples": [
     {
       "problem": "Is 435 divisible by 5? By 3?",
-      "steps": ["By 5: last digit is 5 → yes.", "By 3: 4 + 3 + 5 = 12, and 12 ÷ 3 works → yes.", "So 435 is divisible by both 5 and 3."],
+      "steps": [
+        "By 5: last digit is 5 → yes.",
+        "By 3: 4 + 3 + 5 = 12, and 12 ÷ 3 works → yes.",
+        "So 435 is divisible by both 5 and 3."
+      ],
       "answer": "yes to both"
     },
     {
       "problem": "Is 128 divisible by 4?",
-      "steps": ["By 4: look at the last two digits, 28.", "28 ÷ 4 = 7 exactly.", "So 128 is divisible by 4."],
+      "steps": [
+        "By 4: look at the last two digits, 28.",
+        "28 ÷ 4 = 7 exactly.",
+        "So 128 is divisible by 4."
+      ],
       "answer": "yes"
     }
   ],
@@ -80,82 +167,212 @@
   "practice": {
     "easy": [
       {
-        "id": "n25-e1", "type": "mcq",
+        "id": "n25-e1",
+        "type": "mcq",
         "q": "Which number is divisible by 5?",
-        "options": [ { "label": "40" }, { "label": "42", "mistakeTag": "wrong-rule-used" } ],
+        "options": [
+          {
+            "label": "40"
+          },
+          {
+            "label": "42",
+            "mistakeTag": "wrong-rule-used"
+          }
+        ],
         "answer": "40",
-        "hintLadder": ["Ends in 0 or 5?", "40 ends in 0.", "40."]
+        "hintLadder": [
+          "Ends in 0 or 5?",
+          "40 ends in 0.",
+          "40."
+        ]
       },
       {
-        "id": "n25-e2", "type": "mcq",
+        "id": "n25-e2",
+        "type": "mcq",
         "q": "Is 36 divisible by 2?",
-        "options": [ { "label": "Yes — it ends in an even digit" }, { "label": "No", "mistakeTag": "wrong-rule-used" } ],
+        "options": [
+          {
+            "label": "Yes — it ends in an even digit"
+          },
+          {
+            "label": "No",
+            "mistakeTag": "wrong-rule-used"
+          }
+        ],
         "answer": "Yes — it ends in an even digit",
-        "hintLadder": ["Last digit even?", "6 is even.", "Yes."]
+        "hintLadder": [
+          "Last digit even?",
+          "6 is even.",
+          "Yes."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n25-m1", "type": "mcq",
+        "id": "n25-m1",
+        "type": "mcq",
         "q": "Is 123 divisible by 3?",
-        "options": [ { "label": "Yes — 1+2+3 = 6" }, { "label": "No", "mistakeTag": "wrong-rule-used" } ],
+        "options": [
+          {
+            "label": "Yes — 1+2+3 = 6"
+          },
+          {
+            "label": "No",
+            "mistakeTag": "wrong-rule-used"
+          }
+        ],
         "answer": "Yes — 1+2+3 = 6",
-        "hintLadder": ["Add the digits.", "1+2+3 = 6, and 6 ÷ 3 works.", "Yes."]
+        "hintLadder": [
+          "Add the digits.",
+          "1+2+3 = 6, and 6 ÷ 3 works.",
+          "Yes."
+        ]
       },
       {
-        "id": "n25-m2", "type": "mcq",
+        "id": "n25-m2",
+        "type": "mcq",
         "q": "Is 250 divisible by 10?",
-        "options": [ { "label": "Yes — it ends in 0" }, { "label": "No", "mistakeTag": "wrong-rule-used" } ],
+        "options": [
+          {
+            "label": "Yes — it ends in 0"
+          },
+          {
+            "label": "No",
+            "mistakeTag": "wrong-rule-used"
+          }
+        ],
         "answer": "Yes — it ends in 0",
-        "hintLadder": ["Ends in 0?", "Yes.", "Divisible by 10."]
+        "hintLadder": [
+          "Ends in 0?",
+          "Yes.",
+          "Divisible by 10."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n25-c1", "type": "mcq",
+        "id": "n25-c1",
+        "type": "mcq",
         "q": "Is 114 divisible by 6?",
-        "options": [ { "label": "Yes — even AND digit sum 6 divides by 3" }, { "label": "No", "mistakeTag": "six-only-one-check" } ],
+        "options": [
+          {
+            "label": "Yes — even AND digit sum 6 divides by 3"
+          },
+          {
+            "label": "No",
+            "mistakeTag": "six-only-one-check"
+          }
+        ],
         "answer": "Yes — even AND digit sum 6 divides by 3",
-        "hintLadder": ["6 needs both rules.", "114 is even; 1+1+4 = 6 divides by 3.", "Yes."]
+        "hintLadder": [
+          "6 needs both rules.",
+          "114 is even; 1+1+4 = 6 divides by 3.",
+          "Yes."
+        ]
       },
       {
-        "id": "n25-c2", "type": "mcq",
+        "id": "n25-c2",
+        "type": "mcq",
         "q": "Ravi says 13 divides by 3 'because it ends in 3'. What's the fix?",
-        "options": [ { "label": "Use the digit sum: 1+3 = 4, not divisible by 3" }, { "label": "He's right", "mistakeTag": "wrong-rule-used" } ],
+        "options": [
+          {
+            "label": "Use the digit sum: 1+3 = 4, not divisible by 3"
+          },
+          {
+            "label": "He's right",
+            "mistakeTag": "wrong-rule-used"
+          }
+        ],
         "answer": "Use the digit sum: 1+3 = 4, not divisible by 3",
-        "hintLadder": ["The 3-rule uses digit sum.", "1 + 3 = 4.", "Not divisible by 3."]
+        "hintLadder": [
+          "The 3-rule uses digit sum.",
+          "1 + 3 = 4.",
+          "Not divisible by 3."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n25-x1", "type": "mcq",
+        "id": "n25-x1",
+        "type": "mcq",
         "q": "Is 90 divisible by 5?",
-        "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "wrong-rule-used" } ],
+        "options": [
+          {
+            "label": "Yes"
+          },
+          {
+            "label": "No",
+            "mistakeTag": "wrong-rule-used"
+          }
+        ],
         "answer": "Yes",
-        "hintLadder": ["Ends in 0 or 5?", "Ends in 0.", "Yes."]
+        "hintLadder": [
+          "Ends in 0 or 5?",
+          "Ends in 0.",
+          "Yes."
+        ]
       },
       {
-        "id": "n25-x2", "type": "mcq",
+        "id": "n25-x2",
+        "type": "mcq",
         "q": "Is 81 divisible by 9?",
-        "options": [ { "label": "Yes — 8+1 = 9" }, { "label": "No", "mistakeTag": "wrong-rule-used" } ],
+        "options": [
+          {
+            "label": "Yes — 8+1 = 9"
+          },
+          {
+            "label": "No",
+            "mistakeTag": "wrong-rule-used"
+          }
+        ],
         "answer": "Yes — 8+1 = 9",
-        "hintLadder": ["Add digits.", "8 + 1 = 9.", "Yes."]
+        "hintLadder": [
+          "Add digits.",
+          "8 + 1 = 9.",
+          "Yes."
+        ]
       },
       {
-        "id": "n25-x3", "type": "mcq",
+        "id": "n25-x3",
+        "type": "mcq",
         "q": "Is 47 divisible by 2?",
-        "options": [ { "label": "No — it ends in an odd digit" }, { "label": "Yes", "mistakeTag": "wrong-rule-used" } ],
+        "options": [
+          {
+            "label": "No — it ends in an odd digit"
+          },
+          {
+            "label": "Yes",
+            "mistakeTag": "wrong-rule-used"
+          }
+        ],
         "answer": "No — it ends in an odd digit",
-        "hintLadder": ["Last digit even?", "7 is odd.", "No."]
+        "hintLadder": [
+          "Last digit even?",
+          "7 is odd.",
+          "No."
+        ]
       },
       {
-        "id": "n25-x4", "type": "mcq",
+        "id": "n25-x4",
+        "type": "mcq",
         "q": "For divisibility by 6 you must check…",
-        "options": [ { "label": "Both 2 and 3" }, { "label": "Only 3", "mistakeTag": "six-only-one-check" } ],
+        "options": [
+          {
+            "label": "Both 2 and 3"
+          },
+          {
+            "label": "Only 3",
+            "mistakeTag": "six-only-one-check"
+          }
+        ],
         "answer": "Both 2 and 3",
-        "hintLadder": ["6 = 2 × 3.", "Need both rules.", "2 and 3."]
+        "hintLadder": [
+          "6 = 2 × 3.",
+          "Need both rules.",
+          "2 and 3."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -164,7 +381,11 @@
   "teachBackPrompt": "Give a grown-up a 3-digit number and quickly say which of 2, 3, 5, 9 and 10 divide it — then prove one with the actual division. Explain the digit-sum trick for 3 and 9.",
   "revisionCard": {
     "summary": "÷2: even last digit. ÷5: ends 0 or 5. ÷10: ends 0. ÷3: digit sum ÷3. ÷9: digit sum ÷9. ÷4: last two digits ÷4. ÷6: passes BOTH 2 and 3. Use digit SUM for 3 and 9 (not the last digit).",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -173,5 +394,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Quick tests: 2 (even), 3 (digit sum /3), 5 (ends 0 or 5), 9 (digit sum /9), 10 (ends 0)",
+    "unpack": "4: last two digits /4. 6: divisible by 2 AND 3. 8: last three digits /8."
+  },
+  "studentQuestions": [
+    {
+      "q": "Fastest check for divisible by 3?",
+      "a": "Add the digits. If the total is divisible by 3, so is the number. 123 -> 1+2+3 = 6 -> yes."
+    },
+    {
+      "q": "How do I check divisible by 6?",
+      "a": "It must pass BOTH the 2-rule (even) and the 3-rule (digit sum divisible by 3)."
+    }
+  ]
 }

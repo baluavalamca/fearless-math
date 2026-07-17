@@ -3,7 +3,10 @@
   "name": "Polynomials, Identities and Factorisation",
   "grade": 8,
   "strand": "numbers",
-  "prerequisites": ["num-32-expressions", "num-27-squares-roots"],
+  "prerequisites": [
+    "num-32-expressions",
+    "num-27-squares-roots"
+  ],
   "whatIsIt": "A POLYNOMIAL is an expression of terms with whole-number powers, like x² + 3x + 2. IDENTITIES are expansions that are always true: (a + b)² = a² + 2ab + b² and (a + b)(a − b) = a² − b². FACTORISATION is the reverse of expanding — writing an expression as a product: take out a common factor (6x + 9 = 3(2x + 3)) or use an identity (x² − 9 = (x + 3)(x − 3)).",
   "whyNeeded": "Identities speed up mental maths (99² = (100−1)² ) and factorisation is the key to solving quadratics and simplifying algebra — the backbone of higher maths, physics and engineering.",
   "realLifeUses": [
@@ -13,13 +16,25 @@
     "Setting up and solving quadratic problems"
   ],
   "vocabulary": [
-    { "term": "polynomial", "meaning": "An expression of terms with whole-number powers, like x² + 3x + 2." },
-    { "term": "identity", "meaning": "An equation always true for every value, like (a+b)² = a²+2ab+b²." },
-    { "term": "factorise", "meaning": "Write an expression as a product of factors (the reverse of expanding)." }
+    {
+      "term": "polynomial",
+      "meaning": "An expression of terms with whole-number powers, like x² + 3x + 2."
+    },
+    {
+      "term": "identity",
+      "meaning": "An equation always true for every value, like (a+b)² = a²+2ab+b²."
+    },
+    {
+      "term": "factorise",
+      "meaning": "Write an expression as a product of factors (the reverse of expanding)."
+    }
   ],
   "story": {
     "title": "The Quick Square",
-    "characters": ["Aman", "Sir"],
+    "characters": [
+      "Aman",
+      "Sir"
+    ],
     "text": "Sir asks for 101² without a calculator. Aman uses an identity: (100 + 1)² = 100² + 2×100×1 + 1² = 10000 + 200 + 1 = 10201. 'The identity did the heavy lifting!' Then Sir writes 6x + 9. Aman factors out 3: 3(2x + 3). 'Expanding and factorising are opposites,' Sir smiles.",
     "extractedProblem": "Use an identity to find 101².",
     "answerInStory": "10201 — (100+1)² = 100² + 2·100·1 + 1²."
@@ -28,7 +43,16 @@
     "component": "AreaModel",
     "props": {
       "models": [
-        { "rowParts": [3], "colParts": [2, 3], "label": "3(2x + 3) = 6x + 9" }
+        {
+          "rowParts": [
+            3
+          ],
+          "colParts": [
+            2,
+            3
+          ],
+          "label": "3(2x + 3) = 6x + 9"
+        }
       ]
     },
     "caption": "Area model: 3 × (2x + 3) splits into 3·2x + 3·3 = 6x + 9. Factorising reads it backwards."
@@ -38,9 +62,60 @@
       "title": "Expand and factorise",
       "note": "Distribute to expand; find common factors or identities to factorise.",
       "examples": [
-        { "component": "AreaModel", "props": { "models": [ { "rowParts": [5], "colParts": [10, 2], "label": "5(x + 2) type split" } ] }, "caption": "Common factor pulled out front." },
-        { "component": "AreaModel", "props": { "models": [ { "rowParts": [1, 1], "colParts": [1, 1], "label": "(a+b)² parts: a², ab, ab, b²" } ] }, "caption": "(a+b)² = a² + 2ab + b²." },
-        { "component": "BarModel", "props": { "bars": [ { "label": "x² − 9 = (x+3)(x−3)", "parts": [ { "value": 1 } ], "showTotal": false } ] }, "caption": "Difference of squares identity." }
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  5
+                ],
+                "colParts": [
+                  10,
+                  2
+                ],
+                "label": "5(x + 2) type split"
+              }
+            ]
+          },
+          "caption": "Common factor pulled out front."
+        },
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  1,
+                  1
+                ],
+                "colParts": [
+                  1,
+                  1
+                ],
+                "label": "(a+b)² parts: a², ab, ab, b²"
+              }
+            ]
+          },
+          "caption": "(a+b)² = a² + 2ab + b²."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "x² − 9 = (x+3)(x−3)",
+                "parts": [
+                  {
+                    "value": 1
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "Difference of squares identity."
+        }
       ]
     }
   ],
@@ -56,12 +131,20 @@
   "workedExamples": [
     {
       "problem": "Factorise 6x + 9.",
-      "steps": ["Common factor of 6 and 9 is 3.", "6x + 9 = 3 × 2x + 3 × 3.", "= 3(2x + 3)."],
+      "steps": [
+        "Common factor of 6 and 9 is 3.",
+        "6x + 9 = 3 × 2x + 3 × 3.",
+        "= 3(2x + 3)."
+      ],
       "answer": "3(2x + 3)"
     },
     {
       "problem": "Expand (x + 4)² using the identity.",
-      "steps": ["(a + b)² = a² + 2ab + b² with a = x, b = 4.", "x² + 2·x·4 + 4².", "= x² + 8x + 16."],
+      "steps": [
+        "(a + b)² = a² + 2ab + b² with a = x, b = 4.",
+        "x² + 2·x·4 + 4².",
+        "= x² + 8x + 16."
+      ],
       "answer": "x² + 8x + 16"
     }
   ],
@@ -80,79 +163,185 @@
   "practice": {
     "easy": [
       {
-        "id": "n34-e1", "type": "mcq",
+        "id": "n34-e1",
+        "type": "mcq",
         "q": "Factorise 4x + 8.",
-        "options": [ { "label": "4(x + 2)" }, { "label": "4x + 8 (can't factor)", "mistakeTag": "not-highest-factor" } ],
+        "options": [
+          {
+            "label": "4(x + 2)"
+          },
+          {
+            "label": "4x + 8 (can't factor)",
+            "mistakeTag": "not-highest-factor"
+          }
+        ],
         "answer": "4(x + 2)",
-        "hintLadder": ["Common factor 4.", "4x + 8 = 4(x + 2).", "4(x + 2)."]
+        "hintLadder": [
+          "Common factor 4.",
+          "4x + 8 = 4(x + 2).",
+          "4(x + 2)."
+        ]
       },
       {
-        "id": "n34-e2", "type": "number",
+        "id": "n34-e2",
+        "type": "number",
         "q": "Using (a+b)² = a²+2ab+b², find (10+1)². (write like 121)",
         "answer": "121",
-        "hintLadder": ["100 + 20 + 1.", "Add.", "121."]
+        "hintLadder": [
+          "100 + 20 + 1.",
+          "Add.",
+          "121."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n34-m1", "type": "mcq",
+        "id": "n34-m1",
+        "type": "mcq",
         "q": "Expand (x + 3)².",
-        "options": [ { "label": "x² + 6x + 9" }, { "label": "x² + 9", "mistakeTag": "square-of-sum-wrong" } ],
+        "options": [
+          {
+            "label": "x² + 6x + 9"
+          },
+          {
+            "label": "x² + 9",
+            "mistakeTag": "square-of-sum-wrong"
+          }
+        ],
         "answer": "x² + 6x + 9",
-        "hintLadder": ["a²+2ab+b².", "x² + 2·3·x + 9.", "x² + 6x + 9."]
+        "hintLadder": [
+          "a²+2ab+b².",
+          "x² + 2·3·x + 9.",
+          "x² + 6x + 9."
+        ]
       },
       {
-        "id": "n34-m2", "type": "mcq",
+        "id": "n34-m2",
+        "type": "mcq",
         "q": "Factorise 6x + 12.",
-        "options": [ { "label": "6(x + 2)" }, { "label": "3(2x + 4)", "mistakeTag": "not-highest-factor" } ],
+        "options": [
+          {
+            "label": "6(x + 2)"
+          },
+          {
+            "label": "3(2x + 4)",
+            "mistakeTag": "not-highest-factor"
+          }
+        ],
         "answer": "6(x + 2)",
-        "hintLadder": ["Highest common factor is 6.", "6x + 12 = 6(x + 2).", "6(x + 2)."]
+        "hintLadder": [
+          "Highest common factor is 6.",
+          "6x + 12 = 6(x + 2).",
+          "6(x + 2)."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n34-c1", "type": "mcq",
+        "id": "n34-c1",
+        "type": "mcq",
         "q": "Factorise x² − 16 (difference of squares).",
-        "options": [ { "label": "(x + 4)(x − 4)" }, { "label": "(x − 4)²", "mistakeTag": "square-of-sum-wrong" } ],
+        "options": [
+          {
+            "label": "(x + 4)(x − 4)"
+          },
+          {
+            "label": "(x − 4)²",
+            "mistakeTag": "square-of-sum-wrong"
+          }
+        ],
         "answer": "(x + 4)(x − 4)",
-        "hintLadder": ["a² − b² = (a+b)(a−b).", "b = 4.", "(x+4)(x−4)."]
+        "hintLadder": [
+          "a² − b² = (a+b)(a−b).",
+          "b = 4.",
+          "(x+4)(x−4)."
+        ]
       },
       {
-        "id": "n34-c2", "type": "number",
+        "id": "n34-c2",
+        "type": "number",
         "q": "Use (100−1)² to find 99². (write like 9801)",
         "answer": "9801",
-        "hintLadder": ["10000 − 200 + 1.", "Compute.", "9801."]
+        "hintLadder": [
+          "10000 − 200 + 1.",
+          "Compute.",
+          "9801."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n34-x1", "type": "mcq",
+        "id": "n34-x1",
+        "type": "mcq",
         "q": "Factorise 3x + 6.",
-        "options": [ { "label": "3(x + 2)" }, { "label": "3x + 6 (no factor)", "mistakeTag": "not-highest-factor" } ],
+        "options": [
+          {
+            "label": "3(x + 2)"
+          },
+          {
+            "label": "3x + 6 (no factor)",
+            "mistakeTag": "not-highest-factor"
+          }
+        ],
         "answer": "3(x + 2)",
-        "hintLadder": ["Common factor 3.", "3(x + 2).", "3(x + 2)."]
+        "hintLadder": [
+          "Common factor 3.",
+          "3(x + 2).",
+          "3(x + 2)."
+        ]
       },
       {
-        "id": "n34-x2", "type": "mcq",
+        "id": "n34-x2",
+        "type": "mcq",
         "q": "Expand (x + 2)².",
-        "options": [ { "label": "x² + 4x + 4" }, { "label": "x² + 4", "mistakeTag": "square-of-sum-wrong" } ],
+        "options": [
+          {
+            "label": "x² + 4x + 4"
+          },
+          {
+            "label": "x² + 4",
+            "mistakeTag": "square-of-sum-wrong"
+          }
+        ],
         "answer": "x² + 4x + 4",
-        "hintLadder": ["a²+2ab+b².", "x² + 4x + 4.", "middle term 4x."]
+        "hintLadder": [
+          "a²+2ab+b².",
+          "x² + 4x + 4.",
+          "middle term 4x."
+        ]
       },
       {
-        "id": "n34-x3", "type": "number",
+        "id": "n34-x3",
+        "type": "number",
         "q": "Find (20+1)² using the identity. (write like 441)",
         "answer": "441",
-        "hintLadder": ["400 + 40 + 1.", "Add.", "441."]
+        "hintLadder": [
+          "400 + 40 + 1.",
+          "Add.",
+          "441."
+        ]
       },
       {
-        "id": "n34-x4", "type": "mcq",
+        "id": "n34-x4",
+        "type": "mcq",
         "q": "x² − 25 factorises to…",
-        "options": [ { "label": "(x + 5)(x − 5)" }, { "label": "(x − 5)²", "mistakeTag": "square-of-sum-wrong" } ],
+        "options": [
+          {
+            "label": "(x + 5)(x − 5)"
+          },
+          {
+            "label": "(x − 5)²",
+            "mistakeTag": "square-of-sum-wrong"
+          }
+        ],
         "answer": "(x + 5)(x − 5)",
-        "hintLadder": ["Difference of squares.", "b = 5.", "(x+5)(x−5)."]
+        "hintLadder": [
+          "Difference of squares.",
+          "b = 5.",
+          "(x+5)(x−5)."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -161,7 +350,11 @@
   "teachBackPrompt": "Show a grown-up a quick mental-maths trick using an identity — like squaring 21 as (20+1)² = 400 + 40 + 1 = 441 — and explain how factorising 6x + 9 into 3(2x + 3) is just the reverse of expanding.",
   "revisionCard": {
     "summary": "Polynomial = terms with whole-number powers. Identities: (a+b)² = a²+2ab+b² (don't drop the 2ab); (a+b)(a−b) = a²−b². Factorise = reverse of expanding: take out the HIGHEST common factor, or spot a difference of squares. Check by expanding back.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "vedicMethod": {
     "name": "Vedic: factorisation check (Gunakasamuccayah)",
@@ -181,5 +374,30 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Degree = highest power. Roots = where it equals 0",
+    "unpack": "A root is where the graph crosses the x-axis. Number of roots is at most the degree. Quadratic: sum of roots = -b/a, product = c/a."
+  },
+  "studentQuestions": [
+    {
+      "q": "What is a 'root' or 'zero'?",
+      "a": "A value of x that makes the polynomial equal 0 - where its graph touches or crosses the x-axis."
+    },
+    {
+      "q": "How many roots can it have?",
+      "a": "At most as many as its degree: a quadratic (degree 2) up to 2, a cubic up to 3."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Sum of roots (quadratic)",
+      "formula": "alpha + beta = -b/a"
+    },
+    {
+      "name": "Product of roots (quadratic)",
+      "formula": "alpha x beta = c/a",
+      "remember": "-b/a and c/a"
+    }
+  ]
 }

@@ -484,5 +484,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "5 or more, round up. 4 or less, stay",
+    "unpack": "Look at the digit just AFTER the place you are rounding to. 5,6,7,8,9 -> round up; 0,1,2,3,4 -> stay the same."
+  },
+  "studentQuestions": [
+    {
+      "q": "Do I look at all the digits or just one?",
+      "a": "Just the one digit right after your rounding place. To round 47 to the nearest ten, look at the 7 -> round up to 50."
+    },
+    {
+      "q": "What about exactly 5?",
+      "a": "5 rounds UP by the usual rule. 45 to the nearest ten becomes 50."
+    }
+  ]
 }

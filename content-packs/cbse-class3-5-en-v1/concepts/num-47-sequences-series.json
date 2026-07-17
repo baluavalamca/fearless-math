@@ -3,7 +3,10 @@
   "name": "Sequences and Series — GP and Special Sums",
   "grade": 10,
   "strand": "numbers",
-  "prerequisites": ["num-40-arithmetic-progressions", "num-27-squares-roots"],
+  "prerequisites": [
+    "num-40-arithmetic-progressions",
+    "num-27-squares-roots"
+  ],
   "whatIsIt": "A GEOMETRIC PROGRESSION (GP) multiplies by the same number (the common ratio r) each step: 3, 6, 12, 24… Its nth term is a·r^(n−1) and the sum of n terms is S = a(r^n − 1)/(r − 1). Two famous quick sums also help: 1 + 2 + … + n = n(n + 1)/2, and 1² + 2² + … + n² = n(n + 1)(2n + 1)/6.",
   "whyNeeded": "GPs model anything that grows or shrinks by a fixed factor — compound interest, doubling bacteria, a bouncing ball's heights, or population growth. The special sum formulas add long lists instantly, which is essential in finance, computing and physics.",
   "realLifeUses": [
@@ -13,14 +16,29 @@
     "Adding 1 + 2 + … + 100 instantly with a formula"
   ],
   "vocabulary": [
-    { "term": "geometric progression (GP)", "meaning": "A list where each term is the previous one times a fixed ratio r." },
-    { "term": "common ratio (r)", "meaning": "The fixed multiplier between consecutive GP terms: r = term ÷ previous term." },
-    { "term": "series", "meaning": "The SUM of the terms of a sequence." },
-    { "term": "nth term of a GP", "meaning": "a·r^(n−1), where a is the first term." }
+    {
+      "term": "geometric progression (GP)",
+      "meaning": "A list where each term is the previous one times a fixed ratio r."
+    },
+    {
+      "term": "common ratio (r)",
+      "meaning": "The fixed multiplier between consecutive GP terms: r = term ÷ previous term."
+    },
+    {
+      "term": "series",
+      "meaning": "The SUM of the terms of a sequence."
+    },
+    {
+      "term": "nth term of a GP",
+      "meaning": "a·r^(n−1), where a is the first term."
+    }
   ],
   "story": {
     "title": "The Doubling Rice Grains",
-    "characters": ["Vivek", "Grandpa"],
+    "characters": [
+      "Vivek",
+      "Grandpa"
+    ],
     "text": "Grandpa tells the old tale: 1 grain on the first square of a chessboard, then double each square — 1, 2, 4, 8, 16… 'That's a GP with ratio 2,' says Vivek. 'How many grains on the 5th square?' Grandpa asks. Vivek uses a·r^(n−1) = 1 × 2^4 = 16. And the first four squares together are 1 + 2 + 4 + 8 = 15 grains. 'Doubling explodes fast!' Grandpa laughs.",
     "extractedProblem": "A GP starts at 1 with ratio 2. Find the 5th term.",
     "answerInStory": "16 — the 5th term is 1 × 2^(5−1) = 2^4 = 16."
@@ -30,7 +48,13 @@
     "props": {
       "min": 0,
       "max": 16,
-      "jumps": [1, 2, 4, 8, 16],
+      "jumps": [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
       "label": "GP with ratio 2: each hop DOUBLES the last (1, 2, 4, 8, 16)"
     },
     "caption": "In a GP the jumps grow by multiplying — here each term is double the one before (ratio r = 2)."
@@ -40,9 +64,47 @@
       "title": "Multiply, don't add",
       "note": "AP adds the same d; GP multiplies by the same r. Divide a term by the one before to find r.",
       "examples": [
-        { "component": "NumberLine", "props": { "min": 0, "max": 24, "jumps": [3, 6, 12, 24], "label": "3, 6, 12, 24 → r = 2" }, "caption": "6 ÷ 3 = 2, 12 ÷ 6 = 2 — ratio r = 2." },
-        { "component": "BarModel", "props": { "parts": [1, 2, 4, 8], "label": "sum 1+2+4+8 = 15" }, "caption": "Sum of a finite GP: 1 + 2 + 4 + 8 = 15." },
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 4, "cols": 5, "label": "1+2+3+4 uses n(n+1)/2" } ] }, "caption": "1 + 2 + … + n = n(n + 1)/2 (a quick natural-number sum)." }
+        {
+          "component": "NumberLine",
+          "props": {
+            "min": 0,
+            "max": 24,
+            "jumps": [
+              3,
+              6,
+              12,
+              24
+            ],
+            "label": "3, 6, 12, 24 → r = 2"
+          },
+          "caption": "6 ÷ 3 = 2, 12 ÷ 6 = 2 — ratio r = 2."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "parts": [
+              1,
+              2,
+              4,
+              8
+            ],
+            "label": "sum 1+2+4+8 = 15"
+          },
+          "caption": "Sum of a finite GP: 1 + 2 + 4 + 8 = 15."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 4,
+                "cols": 5,
+                "label": "1+2+3+4 uses n(n+1)/2"
+              }
+            ]
+          },
+          "caption": "1 + 2 + … + n = n(n + 1)/2 (a quick natural-number sum)."
+        }
       ]
     }
   ],
@@ -59,12 +121,20 @@
   "workedExamples": [
     {
       "problem": "Find the 5th term of the GP 3, 6, 12, … (a = 3, r = 2).",
-      "steps": ["nth term = a·r^(n−1) = 3 × 2^(5−1).", "= 3 × 2^4 = 3 × 16.", "= 48."],
+      "steps": [
+        "nth term = a·r^(n−1) = 3 × 2^(5−1).",
+        "= 3 × 2^4 = 3 × 16.",
+        "= 48."
+      ],
       "answer": "48"
     },
     {
       "problem": "Find 1 + 2 + 3 + … + 10.",
-      "steps": ["Use n(n + 1)/2 with n = 10.", "= 10 × 11 / 2 = 110 / 2.", "= 55."],
+      "steps": [
+        "Use n(n + 1)/2 with n = 10.",
+        "= 10 × 11 / 2 = 110 / 2.",
+        "= 55."
+      ],
       "answer": "55"
     }
   ],
@@ -82,24 +152,142 @@
   ],
   "practice": {
     "easy": [
-      { "id": "n47-e1", "type": "number", "q": "In the GP 3, 6, 12, 24, what is the common ratio r?", "answer": "2", "hintLadder": ["r = term ÷ previous.", "6 ÷ 3.", "2."] },
-      { "id": "n47-e2", "type": "number", "q": "GP with a = 2, r = 3. The 2nd term is a·r = 2 × 3 = ?", "answer": "6", "hintLadder": ["2 × 3.", "Multiply.", "6."] }
+      {
+        "id": "n47-e1",
+        "type": "number",
+        "q": "In the GP 3, 6, 12, 24, what is the common ratio r?",
+        "answer": "2",
+        "hintLadder": [
+          "r = term ÷ previous.",
+          "6 ÷ 3.",
+          "2."
+        ]
+      },
+      {
+        "id": "n47-e2",
+        "type": "number",
+        "q": "GP with a = 2, r = 3. The 2nd term is a·r = 2 × 3 = ?",
+        "answer": "6",
+        "hintLadder": [
+          "2 × 3.",
+          "Multiply.",
+          "6."
+        ]
+      }
     ],
     "medium": [
-      { "id": "n47-m1", "type": "number", "q": "5th term of 3, 6, 12, … : 3 × 2^4 = 3 × 16 = ?", "answer": "48", "hintLadder": ["2^4 = 16.", "3 × 16.", "48."] },
-      { "id": "n47-m2", "type": "number", "q": "Sum 1 + 2 + 4 + 8 (finite GP) = ?", "answer": "15", "hintLadder": ["Add them up.", "1+2+4+8.", "15."] }
+      {
+        "id": "n47-m1",
+        "type": "number",
+        "q": "5th term of 3, 6, 12, … : 3 × 2^4 = 3 × 16 = ?",
+        "answer": "48",
+        "hintLadder": [
+          "2^4 = 16.",
+          "3 × 16.",
+          "48."
+        ]
+      },
+      {
+        "id": "n47-m2",
+        "type": "number",
+        "q": "Sum 1 + 2 + 4 + 8 (finite GP) = ?",
+        "answer": "15",
+        "hintLadder": [
+          "Add them up.",
+          "1+2+4+8.",
+          "15."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "n47-c1", "type": "number", "q": "Sum 1 + 2 + 3 + … + 10 using n(n+1)/2 = 10×11/2 = ?", "answer": "55", "hintLadder": ["10 × 11 = 110.", "Divide by 2.", "55."] },
-      { "id": "n47-c2", "type": "mcq", "q": "For 5, 10, 20, 40 Dev says it grows by +5 each time. What's the fix?", "options": [ { "label": "It multiplies by 2 (a GP with r = 2)" }, { "label": "+5 each time is right", "mistakeTag": "gp-added-not-multiplied" } ], "answer": "It multiplies by 2 (a GP with r = 2)", "hintLadder": ["10 ÷ 5 = 2, 20 ÷ 10 = 2.", "It's a ratio, not a sum.", "r = 2."] }
+      {
+        "id": "n47-c1",
+        "type": "number",
+        "q": "Sum 1 + 2 + 3 + … + 10 using n(n+1)/2 = 10×11/2 = ?",
+        "answer": "55",
+        "hintLadder": [
+          "10 × 11 = 110.",
+          "Divide by 2.",
+          "55."
+        ]
+      },
+      {
+        "id": "n47-c2",
+        "type": "mcq",
+        "q": "For 5, 10, 20, 40 Dev says it grows by +5 each time. What's the fix?",
+        "options": [
+          {
+            "label": "It multiplies by 2 (a GP with r = 2)"
+          },
+          {
+            "label": "+5 each time is right",
+            "mistakeTag": "gp-added-not-multiplied"
+          }
+        ],
+        "answer": "It multiplies by 2 (a GP with r = 2)",
+        "hintLadder": [
+          "10 ÷ 5 = 2, 20 ÷ 10 = 2.",
+          "It's a ratio, not a sum.",
+          "r = 2."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "n47-x1", "type": "number", "q": "Common ratio of 2, 8, 32, …?", "answer": "4", "hintLadder": ["8 ÷ 2.", "Term ÷ previous.", "4."] },
-      { "id": "n47-x2", "type": "number", "q": "4th term of GP a = 2, r = 3: 2 × 3^3 = 2 × 27 = ?", "answer": "54", "hintLadder": ["3^3 = 27.", "2 × 27.", "54."] },
-      { "id": "n47-x3", "type": "number", "q": "Sum 1 + 2 + 3 + … + 20 = 20×21/2 = ?", "answer": "210", "hintLadder": ["20 × 21 = 420.", "Divide by 2.", "210."] },
-      { "id": "n47-x4", "type": "mcq", "q": "The nth term of a GP is…", "options": [ { "label": "a·r^(n−1)" }, { "label": "a·r^n", "mistakeTag": "power-n-not-n-minus-1" } ], "answer": "a·r^(n−1)", "hintLadder": ["The first term uses r^0 = 1.", "One fewer power than n.", "a·r^(n−1)."] }
+      {
+        "id": "n47-x1",
+        "type": "number",
+        "q": "Common ratio of 2, 8, 32, …?",
+        "answer": "4",
+        "hintLadder": [
+          "8 ÷ 2.",
+          "Term ÷ previous.",
+          "4."
+        ]
+      },
+      {
+        "id": "n47-x2",
+        "type": "number",
+        "q": "4th term of GP a = 2, r = 3: 2 × 3^3 = 2 × 27 = ?",
+        "answer": "54",
+        "hintLadder": [
+          "3^3 = 27.",
+          "2 × 27.",
+          "54."
+        ]
+      },
+      {
+        "id": "n47-x3",
+        "type": "number",
+        "q": "Sum 1 + 2 + 3 + … + 20 = 20×21/2 = ?",
+        "answer": "210",
+        "hintLadder": [
+          "20 × 21 = 420.",
+          "Divide by 2.",
+          "210."
+        ]
+      },
+      {
+        "id": "n47-x4",
+        "type": "mcq",
+        "q": "The nth term of a GP is…",
+        "options": [
+          {
+            "label": "a·r^(n−1)"
+          },
+          {
+            "label": "a·r^n",
+            "mistakeTag": "power-n-not-n-minus-1"
+          }
+        ],
+        "answer": "a·r^(n−1)",
+        "hintLadder": [
+          "The first term uses r^0 = 1.",
+          "One fewer power than n.",
+          "a·r^(n−1)."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -107,7 +295,11 @@
   "teachBackPrompt": "Show a grown-up the doubling-rice story (1, 2, 4, 8, 16) as a GP with ratio 2, find a term with a·r^(n−1), and add 1 + 2 + … + 10 instantly using n(n + 1)/2 = 55.",
   "revisionCard": {
     "summary": "GP multiplies by ratio r each step. nth term = a·r^(n−1) (one fewer power than n). Sum of n terms = a(r^n − 1)/(r − 1). Quick sums: 1+…+n = n(n+1)/2; 1²+…+n² = n(n+1)(2n+1)/6. GP multiplies (not adds like an AP).",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -116,5 +308,35 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "GP: multiply by the same r each time. nth term = a r^(n-1)",
+    "unpack": "r = common ratio (divide a term by the one before). Sum S = a(r^n - 1)/(r - 1). Infinite sum (|r| < 1) = a/(1 - r)."
+  },
+  "studentQuestions": [
+    {
+      "q": "AP or GP - how do I tell?",
+      "a": "AP adds the same number each time; GP multiplies by the same number each time. 2,4,6 is AP; 2,4,8 is GP."
+    },
+    {
+      "q": "When does an infinite GP add up to a finite number?",
+      "a": "Only when |r| < 1 - the terms shrink to nothing, so they total the finite a/(1 - r)."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "nth term",
+      "formula": "a_n = a r^(n-1)"
+    },
+    {
+      "name": "Sum of n terms",
+      "formula": "S_n = a(r^n - 1)/(r - 1)",
+      "whenToUse": "r not equal to 1"
+    },
+    {
+      "name": "Infinite sum",
+      "formula": "S = a/(1 - r)",
+      "remember": "Only when |r| < 1"
+    }
+  ]
 }

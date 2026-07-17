@@ -592,5 +592,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Even ends in 0,2,4,6,8 (splits in two). Odd ends in 1,3,5,7,9",
+    "unpack": "Even + even = even, odd + odd = even, even + odd = odd. Only the LAST digit decides."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I check a big number like 3458?",
+      "a": "Only the last digit matters. 8 is even, so 3458 is even."
+    },
+    {
+      "q": "Is zero even or odd?",
+      "a": "Even - it splits into two equal halves and sits between two odd numbers."
+    }
+  ]
 }

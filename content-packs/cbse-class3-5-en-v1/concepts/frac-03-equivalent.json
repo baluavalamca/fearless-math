@@ -553,5 +553,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Equivalent = same amount, different numbers. Times/divide top AND bottom by the same",
+    "unpack": "1/2 = 2/4 = 3/6 = 50/100. Do the same thing to top and bottom and the value does not change."
+  },
+  "studentQuestions": [
+    {
+      "q": "How can 1/2 equal 2/4?",
+      "a": "Same slice of pizza cut differently. Multiply top and bottom of 1/2 by 2 -> 2/4. Same amount."
+    },
+    {
+      "q": "How do I make an equivalent fraction?",
+      "a": "Multiply (or divide) BOTH top and bottom by the same number. 2/3 times 3 -> 6/9."
+    }
+  ]
 }

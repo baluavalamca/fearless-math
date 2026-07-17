@@ -529,5 +529,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "'of' means multiply. Fraction of an amount: divide by the bottom, times the top",
+    "unpack": "3/4 of 20: divide by 4 (=5), times 3 (=15). Bottom = how many pieces, top = how many you take."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I find 3/4 of 20?",
+      "a": "Divide by the bottom (20/4 = 5), then multiply by the top (5 x 3 = 15)."
+    },
+    {
+      "q": "What do the top and bottom mean?",
+      "a": "Bottom (denominator) = how many equal pieces the whole is cut into. Top (numerator) = how many of those pieces you take."
+    }
+  ]
 }

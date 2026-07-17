@@ -3,7 +3,10 @@
   "name": "Pair of Linear Equations — Two Clues, Two Unknowns",
   "grade": 9,
   "strand": "numbers",
-  "prerequisites": ["num-33-linear-equations", "num-36-functions-graphs"],
+  "prerequisites": [
+    "num-33-linear-equations",
+    "num-36-functions-graphs"
+  ],
   "whatIsIt": "When a problem has two unknowns (say x and y), you need TWO equations to pin them down. Together they are a pair of linear equations. You can solve them three ways: by substitution (put one variable in terms of the other), by elimination (add or subtract to cancel one variable), or graphically (draw both lines; where they cross is the answer).",
   "whyNeeded": "Real problems often mix two things: the cost of apples AND bananas, the speed of a boat AND the current, the number of coins of two kinds. One equation isn't enough to find both — a second clue is what makes the answer certain.",
   "realLifeUses": [
@@ -13,14 +16,29 @@
     "Mixing two solutions to reach a target amount"
   ],
   "vocabulary": [
-    { "term": "substitution", "meaning": "Write one variable in terms of the other, then put it into the second equation." },
-    { "term": "elimination", "meaning": "Add or subtract the two equations so one variable cancels out." },
-    { "term": "solution of the pair", "meaning": "The (x, y) that makes BOTH equations true at once." },
-    { "term": "point of intersection", "meaning": "Where the two lines cross on a graph — the graphical solution." }
+    {
+      "term": "substitution",
+      "meaning": "Write one variable in terms of the other, then put it into the second equation."
+    },
+    {
+      "term": "elimination",
+      "meaning": "Add or subtract the two equations so one variable cancels out."
+    },
+    {
+      "term": "solution of the pair",
+      "meaning": "The (x, y) that makes BOTH equations true at once."
+    },
+    {
+      "term": "point of intersection",
+      "meaning": "Where the two lines cross on a graph — the graphical solution."
+    }
   ],
   "story": {
     "title": "The Fruit Bill Mystery",
-    "characters": ["Arjun", "Shopkeeper"],
+    "characters": [
+      "Arjun",
+      "Shopkeeper"
+    ],
     "text": "Arjun sees two bills pinned at the shop. Bill one: one apple and one banana cost 10 rupees. Bill two: one apple minus one banana is 2 rupees more, meaning apple − banana = 2. 'What is each fruit?' he wonders. He adds the two clues: (a + b) + (a − b) = 10 + 2, so 2a = 12 and a = 6. Then b = 10 − 6 = 4. 'Apple 6, banana 4!' the shopkeeper claps.",
     "extractedProblem": "a + b = 10 and a − b = 2. Find a and b.",
     "answerInStory": "a = 6, b = 4 — adding the equations gives 2a = 12, so a = 6 and b = 4."
@@ -28,7 +46,10 @@
   "visual": {
     "component": "BarModel",
     "props": {
-      "parts": [6, 4],
+      "parts": [
+        6,
+        4
+      ],
       "label": "a + b = 10, with a − b = 2 → a = 6, b = 4"
     },
     "caption": "Two clues split the total 10 into a = 6 and b = 4. On a graph the two lines would cross exactly at (6, 4)."
@@ -38,9 +59,40 @@
       "title": "Eliminate by adding or subtracting",
       "note": "Line up the equations; add to cancel a −y with a +y, or subtract to cancel a matching term.",
       "examples": [
-        { "component": "BarModel", "props": { "parts": [7, 3], "label": "x + y = 10" }, "caption": "x + y = 10 and x − y = 4 add to 2x = 14, so x = 7, y = 3." },
-        { "component": "BarModel", "props": { "parts": [3, 1], "label": "2x + y = 7" }, "caption": "2x + y = 7 minus x + y = 4 leaves x = 3, then y = 1." },
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "line", "label": "two lines crossing at the solution" } ] }, "caption": "Graphically, each equation is a line; their crossing point is the (x, y) that solves both." }
+        {
+          "component": "BarModel",
+          "props": {
+            "parts": [
+              7,
+              3
+            ],
+            "label": "x + y = 10"
+          },
+          "caption": "x + y = 10 and x − y = 4 add to 2x = 14, so x = 7, y = 3."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "parts": [
+              3,
+              1
+            ],
+            "label": "2x + y = 7"
+          },
+          "caption": "2x + y = 7 minus x + y = 4 leaves x = 3, then y = 1."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "line",
+                "label": "two lines crossing at the solution"
+              }
+            ]
+          },
+          "caption": "Graphically, each equation is a line; their crossing point is the (x, y) that solves both."
+        }
       ]
     }
   ],
@@ -57,12 +109,20 @@
   "workedExamples": [
     {
       "problem": "Solve x + y = 10 and x − y = 2.",
-      "steps": ["Add the equations: (x + y) + (x − y) = 10 + 2 → 2x = 12.", "x = 6.", "Put x = 6 into x + y = 10 → y = 4."],
+      "steps": [
+        "Add the equations: (x + y) + (x − y) = 10 + 2 → 2x = 12.",
+        "x = 6.",
+        "Put x = 6 into x + y = 10 → y = 4."
+      ],
       "answer": "x = 6, y = 4"
     },
     {
       "problem": "Solve 2x + y = 7 and x + y = 4 by elimination.",
-      "steps": ["Subtract the second from the first: (2x + y) − (x + y) = 7 − 4 → x = 3.", "Put x = 3 into x + y = 4 → y = 1.", "Check: 2×3 + 1 = 7 ✓."],
+      "steps": [
+        "Subtract the second from the first: (2x + y) − (x + y) = 7 − 4 → x = 3.",
+        "Put x = 3 into x + y = 4 → y = 1.",
+        "Check: 2×3 + 1 = 7 ✓."
+      ],
       "answer": "x = 3, y = 1"
     }
   ],
@@ -80,24 +140,142 @@
   ],
   "practice": {
     "easy": [
-      { "id": "g41-e1", "type": "number", "q": "x + y = 10 and x − y = 2. Add them: 2x = 12, so x = ?", "answer": "6", "hintLadder": ["Adding cancels y.", "2x = 12.", "x = 6."] },
-      { "id": "g41-e2", "type": "number", "q": "From x + y = 10 with x = 6, what is y?", "answer": "4", "hintLadder": ["Put x = 6 in x + y = 10.", "6 + y = 10.", "y = 4."] }
+      {
+        "id": "g41-e1",
+        "type": "number",
+        "q": "x + y = 10 and x − y = 2. Add them: 2x = 12, so x = ?",
+        "answer": "6",
+        "hintLadder": [
+          "Adding cancels y.",
+          "2x = 12.",
+          "x = 6."
+        ]
+      },
+      {
+        "id": "g41-e2",
+        "type": "number",
+        "q": "From x + y = 10 with x = 6, what is y?",
+        "answer": "4",
+        "hintLadder": [
+          "Put x = 6 in x + y = 10.",
+          "6 + y = 10.",
+          "y = 4."
+        ]
+      }
     ],
     "medium": [
-      { "id": "g41-m1", "type": "number", "q": "x + y = 8 and x − y = 4. Find x.", "answer": "6", "hintLadder": ["Add: 2x = 12.", "Divide by 2.", "x = 6."] },
-      { "id": "g41-m2", "type": "number", "q": "2x + y = 7 and x + y = 4. Subtract to find x.", "answer": "3", "hintLadder": ["(2x + y) − (x + y) cancels y.", "x = 7 − 4.", "x = 3."] }
+      {
+        "id": "g41-m1",
+        "type": "number",
+        "q": "x + y = 8 and x − y = 4. Find x.",
+        "answer": "6",
+        "hintLadder": [
+          "Add: 2x = 12.",
+          "Divide by 2.",
+          "x = 6."
+        ]
+      },
+      {
+        "id": "g41-m2",
+        "type": "number",
+        "q": "2x + y = 7 and x + y = 4. Subtract to find x.",
+        "answer": "3",
+        "hintLadder": [
+          "(2x + y) − (x + y) cancels y.",
+          "x = 7 − 4.",
+          "x = 3."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "g41-c1", "type": "number", "q": "3x + 2y = 16 and x + 2y = 8. Subtract to find x.", "answer": "4", "hintLadder": ["2y cancels when you subtract.", "2x = 16 − 8 = 8.", "x = 4."] },
-      { "id": "g41-c2", "type": "mcq", "q": "To solve x + y = 9 and x − y = 1, Riya adds them to remove y. Is her plan right?", "options": [ { "label": "Yes — +y and −y cancel when added, giving 2x = 10" }, { "label": "No, she should subtract", "mistakeTag": "add-when-should-subtract" } ], "answer": "Yes — +y and −y cancel when added, giving 2x = 10", "hintLadder": ["Opposite signs on y.", "Opposite signs → add to cancel.", "2x = 10, x = 5."] }
+      {
+        "id": "g41-c1",
+        "type": "number",
+        "q": "3x + 2y = 16 and x + 2y = 8. Subtract to find x.",
+        "answer": "4",
+        "hintLadder": [
+          "2y cancels when you subtract.",
+          "2x = 16 − 8 = 8.",
+          "x = 4."
+        ]
+      },
+      {
+        "id": "g41-c2",
+        "type": "mcq",
+        "q": "To solve x + y = 9 and x − y = 1, Riya adds them to remove y. Is her plan right?",
+        "options": [
+          {
+            "label": "Yes — +y and −y cancel when added, giving 2x = 10"
+          },
+          {
+            "label": "No, she should subtract",
+            "mistakeTag": "add-when-should-subtract"
+          }
+        ],
+        "answer": "Yes — +y and −y cancel when added, giving 2x = 10",
+        "hintLadder": [
+          "Opposite signs on y.",
+          "Opposite signs → add to cancel.",
+          "2x = 10, x = 5."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "g41-x1", "type": "number", "q": "x + y = 12 and x − y = 4. Find x.", "answer": "8", "hintLadder": ["Add: 2x = 16.", "Halve it.", "x = 8."] },
-      { "id": "g41-x2", "type": "number", "q": "With x = 8 and x + y = 12, find y.", "answer": "4", "hintLadder": ["8 + y = 12.", "Subtract 8.", "y = 4."] },
-      { "id": "g41-x3", "type": "number", "q": "2x + y = 10 and x + y = 6. Subtract to find x.", "answer": "4", "hintLadder": ["y cancels.", "x = 10 − 6.", "x = 4."] },
-      { "id": "g41-x4", "type": "mcq", "q": "You found x = 5 for a pair. What must you still do?", "options": [ { "label": "Back-substitute to find y and check both equations" }, { "label": "Nothing, x is the answer", "mistakeTag": "forgot-back-substitute" } ], "answer": "Back-substitute to find y and check both equations", "hintLadder": ["Two unknowns need two answers.", "Find y too.", "Then check both."] }
+      {
+        "id": "g41-x1",
+        "type": "number",
+        "q": "x + y = 12 and x − y = 4. Find x.",
+        "answer": "8",
+        "hintLadder": [
+          "Add: 2x = 16.",
+          "Halve it.",
+          "x = 8."
+        ]
+      },
+      {
+        "id": "g41-x2",
+        "type": "number",
+        "q": "With x = 8 and x + y = 12, find y.",
+        "answer": "4",
+        "hintLadder": [
+          "8 + y = 12.",
+          "Subtract 8.",
+          "y = 4."
+        ]
+      },
+      {
+        "id": "g41-x3",
+        "type": "number",
+        "q": "2x + y = 10 and x + y = 6. Subtract to find x.",
+        "answer": "4",
+        "hintLadder": [
+          "y cancels.",
+          "x = 10 − 6.",
+          "x = 4."
+        ]
+      },
+      {
+        "id": "g41-x4",
+        "type": "mcq",
+        "q": "You found x = 5 for a pair. What must you still do?",
+        "options": [
+          {
+            "label": "Back-substitute to find y and check both equations"
+          },
+          {
+            "label": "Nothing, x is the answer",
+            "mistakeTag": "forgot-back-substitute"
+          }
+        ],
+        "answer": "Back-substitute to find y and check both equations",
+        "hintLadder": [
+          "Two unknowns need two answers.",
+          "Find y too.",
+          "Then check both."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -105,7 +283,11 @@
   "teachBackPrompt": "Give a grown-up two clues about two prices (like 'an apple and a banana cost 10, and the apple is 2 more than the banana') and show how adding or subtracting the equations cancels one unknown so you can find both.",
   "revisionCard": {
     "summary": "Two unknowns need two equations. Elimination: same sign → subtract, opposite sign → add, to cancel one variable; solve, then back-substitute for the other. Graphically the solution is where the two lines cross. Always check both values in both equations.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "vedicMethod": {
     "name": "Vedic: by Addition and Subtraction (Sankalana-Vyavakalanabhyam)",
@@ -138,5 +320,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Two equations, two unknowns: substitute or eliminate",
+    "unpack": "Substitution: solve one for a letter, plug into the other. Elimination: add/subtract to cancel a letter. On a graph, the answer is where the lines cross."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why do I need two equations?",
+      "a": "Two unknowns need two clues. One equation has endless solutions; a second pins down the single pair that fits both."
+    },
+    {
+      "q": "Substitution or elimination - which?",
+      "a": "Substitution if one letter is already alone; elimination if adding or subtracting cancels a letter neatly."
+    }
+  ]
 }

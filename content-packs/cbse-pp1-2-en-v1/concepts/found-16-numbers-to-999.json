@@ -3,7 +3,9 @@
   "name": "Numbers to 999 — Hundreds, Tens and Ones",
   "grade": 2,
   "strand": "numbers",
-  "prerequisites": ["num-00-counting-to-100"],
+  "prerequisites": [
+    "num-00-counting-to-100"
+  ],
   "whatIsIt": "After 99 comes a brand-new bundle: a HUNDRED (ten tens make one hundred). Big numbers up to 999 are built from three kinds of bundles — HUNDREDS, TENS and ONES. In 235 there are 2 hundreds (200), 3 tens (30) and 5 ones (5): 200 + 30 + 5 = 235. Each digit's PLACE tells you which bundle it counts.",
   "whyNeeded": "Real life quickly goes past 100 — 250 rupees, 365 days, house number 428, 500 grams. To read, write, say and compare these numbers, a child needs the hundreds place. It's the bridge from counting to 100 into all bigger numbers.",
   "realLifeUses": [
@@ -13,14 +15,29 @@
     "Pages in a storybook or steps counted on a walk"
   ],
   "vocabulary": [
-    { "term": "hundred", "meaning": "Ten tens bundled together — written 100." },
-    { "term": "place value", "meaning": "What a digit is worth by WHERE it sits: hundreds, tens or ones." },
-    { "term": "three-digit number", "meaning": "A number from 100 to 999 with a hundreds, tens and ones digit." },
-    { "term": "expanded form", "meaning": "Writing a number as its bundles: 235 = 200 + 30 + 5." }
+    {
+      "term": "hundred",
+      "meaning": "Ten tens bundled together — written 100."
+    },
+    {
+      "term": "place value",
+      "meaning": "What a digit is worth by WHERE it sits: hundreds, tens or ones."
+    },
+    {
+      "term": "three-digit number",
+      "meaning": "A number from 100 to 999 with a hundreds, tens and ones digit."
+    },
+    {
+      "term": "expanded form",
+      "meaning": "Writing a number as its bundles: 235 = 200 + 30 + 5."
+    }
   ],
   "story": {
     "title": "The Big Bead Jar",
-    "characters": ["Kabir", "Teacher"],
+    "characters": [
+      "Kabir",
+      "Teacher"
+    ],
     "text": "Kabir's class strings beads into tens. When they get ten tens, Teacher says, 'That whole bundle is ONE HUNDRED!' They make 2 hundred-bundles, 3 ten-sticks, and 5 loose beads. 'How many beads in all?' asks Teacher. Kabir reads the places: 2 hundreds is 200, 3 tens is 30, 5 ones is 5. '200 + 30 + 5 = 235 beads!'",
     "extractedProblem": "2 hundreds, 3 tens and 5 ones — what number is that?",
     "answerInStory": "235 — because 200 + 30 + 5 = 235."
@@ -29,7 +46,12 @@
     "component": "PlaceValueBlocks",
     "props": {
       "sets": [
-        { "hundreds": 2, "tens": 3, "ones": 5, "label": "235 = 200 + 30 + 5" }
+        {
+          "hundreds": 2,
+          "tens": 3,
+          "ones": 5,
+          "label": "235 = 200 + 30 + 5"
+        }
       ]
     },
     "caption": "235 built from blocks: 2 hundred-flats, 3 ten-rods, 5 one-cubes. The place of each digit tells which bundle it counts."
@@ -39,9 +61,48 @@
       "title": "Ten tens make a hundred",
       "note": "Bundle ten ten-rods and you get one hundred-flat.",
       "examples": [
-        { "component": "PlaceValueBlocks", "props": { "sets": [ { "hundreds": 1, "tens": 0, "ones": 0, "label": "100 = ten tens" } ] }, "caption": "One hundred is ten ten-rods bundled together." },
-        { "component": "PlaceValueBlocks", "props": { "sets": [ { "hundreds": 3, "tens": 4, "ones": 2, "label": "342 = 300 + 40 + 2" } ] }, "caption": "342: the 3 is worth 300, the 4 is worth 40, the 2 is worth 2." },
-        { "component": "PlaceValueBlocks", "props": { "sets": [ { "hundreds": 9, "tens": 9, "ones": 9, "label": "999 — the biggest 3-digit number" } ] }, "caption": "999 is the largest three-digit number; one more makes 1000." }
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 1,
+                "tens": 0,
+                "ones": 0,
+                "label": "100 = ten tens"
+              }
+            ]
+          },
+          "caption": "One hundred is ten ten-rods bundled together."
+        },
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 3,
+                "tens": 4,
+                "ones": 2,
+                "label": "342 = 300 + 40 + 2"
+              }
+            ]
+          },
+          "caption": "342: the 3 is worth 300, the 4 is worth 40, the 2 is worth 2."
+        },
+        {
+          "component": "PlaceValueBlocks",
+          "props": {
+            "sets": [
+              {
+                "hundreds": 9,
+                "tens": 9,
+                "ones": 9,
+                "label": "999 — the biggest 3-digit number"
+              }
+            ]
+          },
+          "caption": "999 is the largest three-digit number; one more makes 1000."
+        }
       ]
     }
   ],
@@ -58,12 +119,20 @@
   "workedExamples": [
     {
       "problem": "What is the value of the 3 in 342?",
-      "steps": ["The 3 is the FIRST digit — the hundreds place.", "3 hundreds = 3 × 100.", "= 300."],
+      "steps": [
+        "The 3 is the FIRST digit — the hundreds place.",
+        "3 hundreds = 3 × 100.",
+        "= 300."
+      ],
       "answer": "300"
     },
     {
       "problem": "What number comes right after 199?",
-      "steps": ["199 is 1 hundred, 9 tens, 9 ones — the ones are full.", "Add one: the tens fill up too, so they all bundle up.", "1 hundred + another hundred = 200."],
+      "steps": [
+        "199 is 1 hundred, 9 tens, 9 ones — the ones are full.",
+        "Add one: the tens fill up too, so they all bundle up.",
+        "1 hundred + another hundred = 200."
+      ],
       "answer": "200"
     }
   ],
@@ -81,24 +150,142 @@
   ],
   "practice": {
     "easy": [
-      { "id": "f16-e1", "type": "number", "q": "How many tens make one hundred?", "answer": "10", "hintLadder": ["Count ten-sticks into a bundle.", "Ten tens.", "10."] },
-      { "id": "f16-e2", "type": "number", "q": "In 235, what is the ONES digit?", "answer": "5", "hintLadder": ["The last digit.", "2 - 3 - 5.", "5."] }
+      {
+        "id": "f16-e1",
+        "type": "number",
+        "q": "How many tens make one hundred?",
+        "answer": "10",
+        "hintLadder": [
+          "Count ten-sticks into a bundle.",
+          "Ten tens.",
+          "10."
+        ]
+      },
+      {
+        "id": "f16-e2",
+        "type": "number",
+        "q": "In 235, what is the ONES digit?",
+        "answer": "5",
+        "hintLadder": [
+          "The last digit.",
+          "2 - 3 - 5.",
+          "5."
+        ]
+      }
     ],
     "medium": [
-      { "id": "f16-m1", "type": "number", "q": "What is the value of the 3 in 342? (hundreds place)", "answer": "300", "hintLadder": ["3 is the first digit.", "3 hundreds.", "300."] },
-      { "id": "f16-m2", "type": "number", "q": "2 hundreds + 3 tens + 5 ones = ?", "answer": "235", "hintLadder": ["200 + 30 + 5.", "Add them.", "235."] }
+      {
+        "id": "f16-m1",
+        "type": "number",
+        "q": "What is the value of the 3 in 342? (hundreds place)",
+        "answer": "300",
+        "hintLadder": [
+          "3 is the first digit.",
+          "3 hundreds.",
+          "300."
+        ]
+      },
+      {
+        "id": "f16-m2",
+        "type": "number",
+        "q": "2 hundreds + 3 tens + 5 ones = ?",
+        "answer": "235",
+        "hintLadder": [
+          "200 + 30 + 5.",
+          "Add them.",
+          "235."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "f16-c1", "type": "number", "q": "What number comes right after 199?", "answer": "200", "hintLadder": ["199 is nearly a full 200.", "Add one more.", "200."] },
-      { "id": "f16-c2", "type": "mcq", "q": "In 428, how much is the 4 worth?", "options": [ { "label": "400 — it is in the hundreds place" }, { "label": "Just 4", "mistakeTag": "digit-vs-value" } ], "answer": "400 — it is in the hundreds place", "hintLadder": ["Where does the 4 sit?", "First digit = hundreds.", "4 hundreds = 400."] }
+      {
+        "id": "f16-c1",
+        "type": "number",
+        "q": "What number comes right after 199?",
+        "answer": "200",
+        "hintLadder": [
+          "199 is nearly a full 200.",
+          "Add one more.",
+          "200."
+        ]
+      },
+      {
+        "id": "f16-c2",
+        "type": "mcq",
+        "q": "In 428, how much is the 4 worth?",
+        "options": [
+          {
+            "label": "400 — it is in the hundreds place"
+          },
+          {
+            "label": "Just 4",
+            "mistakeTag": "digit-vs-value"
+          }
+        ],
+        "answer": "400 — it is in the hundreds place",
+        "hintLadder": [
+          "Where does the 4 sit?",
+          "First digit = hundreds.",
+          "4 hundreds = 400."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "f16-x1", "type": "number", "q": "Ten tens make how many?", "answer": "100", "hintLadder": ["Bundle ten ten-sticks.", "That is one hundred.", "100."] },
-      { "id": "f16-x2", "type": "number", "q": "Value of the 3 in 342?", "answer": "300", "hintLadder": ["Hundreds place.", "3 × 100.", "300."] },
-      { "id": "f16-x3", "type": "number", "q": "3 hundreds + 4 tens + 2 ones = ?", "answer": "342", "hintLadder": ["300 + 40 + 2.", "Add the bundles.", "342."] },
-      { "id": "f16-x4", "type": "mcq", "q": "The biggest three-digit number is…", "options": [ { "label": "999" }, { "label": "100", "mistakeTag": "skip-hundred" } ], "answer": "999", "hintLadder": ["Fill every place with the biggest digit.", "9 hundreds, 9 tens, 9 ones.", "999."] }
+      {
+        "id": "f16-x1",
+        "type": "number",
+        "q": "Ten tens make how many?",
+        "answer": "100",
+        "hintLadder": [
+          "Bundle ten ten-sticks.",
+          "That is one hundred.",
+          "100."
+        ]
+      },
+      {
+        "id": "f16-x2",
+        "type": "number",
+        "q": "Value of the 3 in 342?",
+        "answer": "300",
+        "hintLadder": [
+          "Hundreds place.",
+          "3 × 100.",
+          "300."
+        ]
+      },
+      {
+        "id": "f16-x3",
+        "type": "number",
+        "q": "3 hundreds + 4 tens + 2 ones = ?",
+        "answer": "342",
+        "hintLadder": [
+          "300 + 40 + 2.",
+          "Add the bundles.",
+          "342."
+        ]
+      },
+      {
+        "id": "f16-x4",
+        "type": "mcq",
+        "q": "The biggest three-digit number is…",
+        "options": [
+          {
+            "label": "999"
+          },
+          {
+            "label": "100",
+            "mistakeTag": "skip-hundred"
+          }
+        ],
+        "answer": "999",
+        "hintLadder": [
+          "Fill every place with the biggest digit.",
+          "9 hundreds, 9 tens, 9 ones.",
+          "999."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -106,7 +293,11 @@
   "teachBackPrompt": "Use bundles (straws or beans in tens) to show a grown-up that ten tens make one hundred. Build 235 with hundreds, tens and ones, and say what each digit is worth: 200, 30, 5.",
   "revisionCard": {
     "summary": "After 99 comes hundreds (ten tens = 100). A 3-digit number has hundreds, tens and ones places. 235 = 200 + 30 + 5. A digit's worth depends on its PLACE (the 2 in 235 = 200). After 199 comes 200. The biggest 3-digit number is 999.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -115,5 +306,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Three digits: hundreds, tens, ones",
+    "unpack": "352 = 3 hundreds + 5 tens + 2 ones. Read left to right: 'three hundred fifty-two'."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I read a number like 352?",
+      "a": "Break it into hundreds, tens, ones: 3 hundreds, 5 tens, 2 ones -> 'three hundred fifty-two'."
+    },
+    {
+      "q": "What is the biggest 3-digit number?",
+      "a": "999 - nine hundreds, nine tens, nine ones. Add one more and you get 1000."
+    }
+  ]
 }

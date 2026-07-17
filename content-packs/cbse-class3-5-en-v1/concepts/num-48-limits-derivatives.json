@@ -3,7 +3,10 @@
   "name": "Limits and Derivatives — The Idea of Calculus",
   "grade": 11,
   "strand": "numbers",
-  "prerequisites": ["num-36-functions-graphs", "num-34-polynomials"],
+  "prerequisites": [
+    "num-36-functions-graphs",
+    "num-34-polynomials"
+  ],
   "whatIsIt": "A LIMIT asks: what value does f(x) head towards as x gets very close to some number? A DERIVATIVE measures the instantaneous rate of change — the slope of the curve at a point. The key shortcut is the POWER RULE: d/dx(xⁿ) = n·xⁿ⁻¹. The derivative of a constant is 0, and constants multiply through: d/dx(k·xⁿ) = k·n·xⁿ⁻¹.",
   "whyNeeded": "Calculus is how we describe change precisely: instantaneous speed, the slope of a curve, how fast anything grows or shrinks. Derivatives power physics, economics, machine learning and engineering — anywhere a rate of change matters.",
   "realLifeUses": [
@@ -13,14 +16,29 @@
     "Finding maximum or minimum values (optimisation)"
   ],
   "vocabulary": [
-    { "term": "limit", "meaning": "The value f(x) approaches as x nears a chosen number, written lim(x→a) f(x)." },
-    { "term": "derivative", "meaning": "The instantaneous rate of change / slope of the curve, written f′(x) or df/dx." },
-    { "term": "power rule", "meaning": "d/dx(xⁿ) = n·xⁿ⁻¹ — bring the power down, reduce it by one." },
-    { "term": "rate of change", "meaning": "How fast the output changes as the input changes." }
+    {
+      "term": "limit",
+      "meaning": "The value f(x) approaches as x nears a chosen number, written lim(x→a) f(x)."
+    },
+    {
+      "term": "derivative",
+      "meaning": "The instantaneous rate of change / slope of the curve, written f′(x) or df/dx."
+    },
+    {
+      "term": "power rule",
+      "meaning": "d/dx(xⁿ) = n·xⁿ⁻¹ — bring the power down, reduce it by one."
+    },
+    {
+      "term": "rate of change",
+      "meaning": "How fast the output changes as the input changes."
+    }
   ],
   "story": {
     "title": "The Speedometer Secret",
-    "characters": ["Karan", "Chachu"],
+    "characters": [
+      "Karan",
+      "Chachu"
+    ],
     "text": "In the car, Karan asks how the speedometer knows the speed at one instant, not the average. Chachu says, 'It measures the rate of change of distance — that's a derivative.' Later, given the curve y = x², Chachu asks its slope rule. Karan uses the power rule: d/dx(x²) = 2x. At x = 3 the slope is 2 × 3 = 6. 'That's how steep the curve is right there,' Chachu nods.",
     "extractedProblem": "Using the power rule, find the derivative of x², then its value at x = 3.",
     "answerInStory": "6 — d/dx(x²) = 2x, and at x = 3 that is 2 × 3 = 6."
@@ -29,7 +47,20 @@
     "component": "FunctionPlot",
     "props": {
       "plots": [
-        { "poly": [0, 0, 1], "domain": [-3.5, 3.5], "tangentAt": 3, "label": "y = x²", "color": "accent" }
+        {
+          "poly": [
+            0,
+            0,
+            1
+          ],
+          "domain": [
+            -3.5,
+            3.5
+          ],
+          "tangentAt": 3,
+          "label": "y = x²",
+          "color": "accent"
+        }
       ]
     },
     "caption": "The derivative is the slope of the tangent line touching the curve. For y = x² the tangent at x = 3 has slope 2×3 = 6."
@@ -39,9 +70,45 @@
       "title": "Bring the power down",
       "note": "Power rule: the exponent jumps to the front, then drops by one.",
       "examples": [
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "line", "label": "d/dx x² = 2x" } ] }, "caption": "x² → 2x¹ = 2x." },
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "line", "label": "d/dx x³ = 3x²" } ] }, "caption": "x³ → 3x²." },
-        { "component": "NumberLine", "props": { "min": 0, "max": 5, "jumps": [1, 2, 3, 4], "label": "as x→2, x approaches 2" }, "caption": "A limit: as x creeps toward 2, f(x) heads to its limiting value." }
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "line",
+                "label": "d/dx x² = 2x"
+              }
+            ]
+          },
+          "caption": "x² → 2x¹ = 2x."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "line",
+                "label": "d/dx x³ = 3x²"
+              }
+            ]
+          },
+          "caption": "x³ → 3x²."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "min": 0,
+            "max": 5,
+            "jumps": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "label": "as x→2, x approaches 2"
+          },
+          "caption": "A limit: as x creeps toward 2, f(x) heads to its limiting value."
+        }
       ]
     }
   ],
@@ -58,12 +125,20 @@
   "workedExamples": [
     {
       "problem": "Find lim(x→2) of x².",
-      "steps": ["x² is continuous, so substitute x = 2.", "= 2².", "= 4."],
+      "steps": [
+        "x² is continuous, so substitute x = 2.",
+        "= 2².",
+        "= 4."
+      ],
       "answer": "4"
     },
     {
       "problem": "Differentiate x³ and give its value at x = 2.",
-      "steps": ["Power rule: d/dx(x³) = 3x².", "At x = 2: 3 × 2².", "= 3 × 4 = 12."],
+      "steps": [
+        "Power rule: d/dx(x³) = 3x².",
+        "At x = 2: 3 × 2².",
+        "= 3 × 4 = 12."
+      ],
       "answer": "12"
     }
   ],
@@ -81,24 +156,142 @@
   ],
   "practice": {
     "easy": [
-      { "id": "n48-e1", "type": "number", "q": "Find lim(x→4) of x (substitute x = 4).", "answer": "4", "hintLadder": ["Just substitute.", "x = 4.", "4."] },
-      { "id": "n48-e2", "type": "number", "q": "What is the derivative of the constant 10?", "answer": "0", "hintLadder": ["A constant doesn't change.", "Rate of change is…", "0."] }
+      {
+        "id": "n48-e1",
+        "type": "number",
+        "q": "Find lim(x→4) of x (substitute x = 4).",
+        "answer": "4",
+        "hintLadder": [
+          "Just substitute.",
+          "x = 4.",
+          "4."
+        ]
+      },
+      {
+        "id": "n48-e2",
+        "type": "number",
+        "q": "What is the derivative of the constant 10?",
+        "answer": "0",
+        "hintLadder": [
+          "A constant doesn't change.",
+          "Rate of change is…",
+          "0."
+        ]
+      }
     ],
     "medium": [
-      { "id": "n48-m1", "type": "number", "q": "d/dx(x²) = 2x. Its value at x = 5 is?", "answer": "10", "hintLadder": ["2x at x = 5.", "2 × 5.", "10."] },
-      { "id": "n48-m2", "type": "number", "q": "In d/dx(x⁵) = 5x⁴, what number comes to the front?", "answer": "5", "hintLadder": ["Power rule brings the exponent down.", "The exponent is 5.", "5."] }
+      {
+        "id": "n48-m1",
+        "type": "number",
+        "q": "d/dx(x²) = 2x. Its value at x = 5 is?",
+        "answer": "10",
+        "hintLadder": [
+          "2x at x = 5.",
+          "2 × 5.",
+          "10."
+        ]
+      },
+      {
+        "id": "n48-m2",
+        "type": "number",
+        "q": "In d/dx(x⁵) = 5x⁴, what number comes to the front?",
+        "answer": "5",
+        "hintLadder": [
+          "Power rule brings the exponent down.",
+          "The exponent is 5.",
+          "5."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "n48-c1", "type": "number", "q": "d/dx(x³) = 3x². Its value at x = 2 is 3 × 4 = ?", "answer": "12", "hintLadder": ["3x² at x = 2.", "2² = 4, times 3.", "12."] },
-      { "id": "n48-c2", "type": "mcq", "q": "A student writes d/dx(x²) = 2x². What's the fix?", "options": [ { "label": "Reduce the power: 2x¹ = 2x" }, { "label": "2x² is correct", "mistakeTag": "power-not-reduced" } ], "answer": "Reduce the power: 2x¹ = 2x", "hintLadder": ["Power rule lowers the exponent by 1.", "x² → x¹.", "2x."] }
+      {
+        "id": "n48-c1",
+        "type": "number",
+        "q": "d/dx(x³) = 3x². Its value at x = 2 is 3 × 4 = ?",
+        "answer": "12",
+        "hintLadder": [
+          "3x² at x = 2.",
+          "2² = 4, times 3.",
+          "12."
+        ]
+      },
+      {
+        "id": "n48-c2",
+        "type": "mcq",
+        "q": "A student writes d/dx(x²) = 2x². What's the fix?",
+        "options": [
+          {
+            "label": "Reduce the power: 2x¹ = 2x"
+          },
+          {
+            "label": "2x² is correct",
+            "mistakeTag": "power-not-reduced"
+          }
+        ],
+        "answer": "Reduce the power: 2x¹ = 2x",
+        "hintLadder": [
+          "Power rule lowers the exponent by 1.",
+          "x² → x¹.",
+          "2x."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "n48-x1", "type": "number", "q": "lim(x→3) of x = ?", "answer": "3", "hintLadder": ["Substitute.", "x = 3.", "3."] },
-      { "id": "n48-x2", "type": "number", "q": "d/dx(x²) at x = 6 (derivative is 2x)?", "answer": "12", "hintLadder": ["2x at x = 6.", "2 × 6.", "12."] },
-      { "id": "n48-x3", "type": "number", "q": "d/dx(x⁴) = 4x³. The number in front is?", "answer": "4", "hintLadder": ["Bring the exponent down.", "The exponent is 4.", "4."] },
-      { "id": "n48-x4", "type": "mcq", "q": "The power rule says d/dx(xⁿ) = …", "options": [ { "label": "n·xⁿ⁻¹" }, { "label": "n·xⁿ", "mistakeTag": "power-not-reduced" } ], "answer": "n·xⁿ⁻¹", "hintLadder": ["Bring n down.", "Then lower the power by 1.", "n·xⁿ⁻¹."] }
+      {
+        "id": "n48-x1",
+        "type": "number",
+        "q": "lim(x→3) of x = ?",
+        "answer": "3",
+        "hintLadder": [
+          "Substitute.",
+          "x = 3.",
+          "3."
+        ]
+      },
+      {
+        "id": "n48-x2",
+        "type": "number",
+        "q": "d/dx(x²) at x = 6 (derivative is 2x)?",
+        "answer": "12",
+        "hintLadder": [
+          "2x at x = 6.",
+          "2 × 6.",
+          "12."
+        ]
+      },
+      {
+        "id": "n48-x3",
+        "type": "number",
+        "q": "d/dx(x⁴) = 4x³. The number in front is?",
+        "answer": "4",
+        "hintLadder": [
+          "Bring the exponent down.",
+          "The exponent is 4.",
+          "4."
+        ]
+      },
+      {
+        "id": "n48-x4",
+        "type": "mcq",
+        "q": "The power rule says d/dx(xⁿ) = …",
+        "options": [
+          {
+            "label": "n·xⁿ⁻¹"
+          },
+          {
+            "label": "n·xⁿ",
+            "mistakeTag": "power-not-reduced"
+          }
+        ],
+        "answer": "n·xⁿ⁻¹",
+        "hintLadder": [
+          "Bring n down.",
+          "Then lower the power by 1.",
+          "n·xⁿ⁻¹."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -106,17 +299,71 @@
   "teachBackPrompt": "Explain to a grown-up that a derivative is the slope of a curve at a point (like a speedometer reading), and use the power rule to show d/dx(x²) = 2x, which is 6 at x = 3.",
   "revisionCard": {
     "summary": "Limit: value f(x) approaches as x → a (for nice functions, substitute). Derivative = instantaneous slope/rate of change. Power rule: d/dx(xⁿ) = n·xⁿ⁻¹ (bring power down, reduce by 1). Derivative of a constant = 0. Slope at a point: substitute x into the derivative.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "trickPractice": {
     "trick": "Power-rule quick-fire",
     "intro": "Bring the power down, drop it by one. Rapid-fire the power rule and evaluate at a point.",
     "questions": [
-      { "id": "n48-trick-1", "type": "number", "q": "d/dx(x²) at x = 5 (derivative 2x)?", "answer": "10", "hintLadder": ["2x at 5.", "2 × 5.", "10."] },
-      { "id": "n48-trick-2", "type": "number", "q": "d/dx(x³) at x = 2 (derivative 3x²)?", "answer": "12", "hintLadder": ["3x² at 2.", "3 × 4.", "12."] },
-      { "id": "n48-trick-3", "type": "number", "q": "Front number of d/dx(x⁷)?", "answer": "7", "hintLadder": ["Bring the exponent down.", "The exponent is 7.", "7."] },
-      { "id": "n48-trick-4", "type": "number", "q": "Derivative of the constant 12?", "answer": "0", "hintLadder": ["Constants don't change.", "Rate = 0.", "0."] },
-      { "id": "n48-trick-5", "type": "number", "q": "d/dx(x⁴) at x = 1 (derivative 4x³)?", "answer": "4", "hintLadder": ["4x³ at 1.", "4 × 1.", "4."] }
+      {
+        "id": "n48-trick-1",
+        "type": "number",
+        "q": "d/dx(x²) at x = 5 (derivative 2x)?",
+        "answer": "10",
+        "hintLadder": [
+          "2x at 5.",
+          "2 × 5.",
+          "10."
+        ]
+      },
+      {
+        "id": "n48-trick-2",
+        "type": "number",
+        "q": "d/dx(x³) at x = 2 (derivative 3x²)?",
+        "answer": "12",
+        "hintLadder": [
+          "3x² at 2.",
+          "3 × 4.",
+          "12."
+        ]
+      },
+      {
+        "id": "n48-trick-3",
+        "type": "number",
+        "q": "Front number of d/dx(x⁷)?",
+        "answer": "7",
+        "hintLadder": [
+          "Bring the exponent down.",
+          "The exponent is 7.",
+          "7."
+        ]
+      },
+      {
+        "id": "n48-trick-4",
+        "type": "number",
+        "q": "Derivative of the constant 12?",
+        "answer": "0",
+        "hintLadder": [
+          "Constants don't change.",
+          "Rate = 0.",
+          "0."
+        ]
+      },
+      {
+        "id": "n48-trick-5",
+        "type": "number",
+        "q": "d/dx(x⁴) at x = 1 (derivative 4x³)?",
+        "answer": "4",
+        "hintLadder": [
+          "4x³ at 1.",
+          "4 × 1.",
+          "4."
+        ]
+      }
     ]
   },
   "meta": {
@@ -126,5 +373,31 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Derivative = instant rate of change = slope of the curve",
+    "unpack": "Power rule: d/dx(x^n) = n x^(n-1) (bring the power down, drop it by 1). A limit is the value a function approaches as x nears a point."
+  },
+  "studentQuestions": [
+    {
+      "q": "What does a derivative actually mean?",
+      "a": "How fast something changes at an instant - the slope of the curve at that exact point (like speed from a distance-time graph)."
+    },
+    {
+      "q": "What is the fastest rule?",
+      "a": "The power rule: for x^n, bring n to the front and reduce the power by 1. x^3 -> 3 x^2."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Power rule",
+      "formula": "d/dx(x^n) = n x^(n-1)",
+      "remember": "Bring the power down, drop it by 1"
+    },
+    {
+      "name": "Product rule",
+      "formula": "(uv)' = u'v + uv'",
+      "remember": "first x d(second) + second x d(first)"
+    }
+  ]
 }

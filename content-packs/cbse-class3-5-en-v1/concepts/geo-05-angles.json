@@ -625,5 +625,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "Acute < 90 ('a cute' small angle), Right = 90, Obtuse > 90, Straight = 180",
+    "unpack": "Angles on a straight line add to 180. Around a point they add to 360. A right angle is the corner of a square."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I remember acute vs obtuse?",
+      "a": "Acute is 'a cute' little angle (small, under 90). Obtuse is the big blunt one (over 90)."
+    },
+    {
+      "q": "What do angles on a straight line add up to?",
+      "a": "180 degrees - a half turn. So if one is 120, the other is 60."
+    }
+  ]
 }

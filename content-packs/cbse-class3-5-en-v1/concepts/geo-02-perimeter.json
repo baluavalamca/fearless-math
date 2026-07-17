@@ -475,5 +475,29 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Perimeter = the fence AROUND (add all the sides)",
+    "unpack": "'Peri' = around, 'meter' = measure. Rectangle = 2(l + b). Square = 4 x side. It is a LENGTH (cm, m), not an area."
+  },
+  "studentQuestions": [
+    {
+      "q": "Perimeter or area - what is the difference?",
+      "a": "Perimeter is the distance AROUND the edge (the fence). Area is the space INSIDE (the grass). Perimeter uses cm/m; area uses square units."
+    },
+    {
+      "q": "Quick rectangle perimeter?",
+      "a": "Add length and breadth, then double: 2(l + b). You have two of each side."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Rectangle perimeter",
+      "formula": "P = 2(l + b)"
+    },
+    {
+      "name": "Square perimeter",
+      "formula": "P = 4 x side"
+    }
+  ]
 }

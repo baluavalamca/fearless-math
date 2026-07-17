@@ -732,5 +732,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "More = bigger pile, fewer = smaller pile. Match one-to-one",
+    "unpack": "Pair them up like socks: whoever has leftovers has MORE; whoever runs out first has FEWER."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I know which group has more without counting?",
+      "a": "Match them one-to-one, like pairing socks. The group with leftovers has MORE."
+    },
+    {
+      "q": "What does 'fewer' mean?",
+      "a": "Less - the smaller group. If you have 3 sweets and I have 5, you have fewer."
+    }
+  ]
 }

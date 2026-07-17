@@ -3,7 +3,9 @@
   "name": "Integers — Numbers Below Zero",
   "grade": 6,
   "strand": "numbers",
-  "prerequisites": ["num-04-place-value-6digit"],
+  "prerequisites": [
+    "num-04-place-value-6digit"
+  ],
   "whatIsIt": "Numbers don't stop at zero. INTEGERS include the counting numbers (1, 2, 3…), zero, AND their opposites below zero (−1, −2, −3…). On a two-way number line, positives go RIGHT of zero and negatives go LEFT. A minus sign means 'the opposite' — below zero, owed, or below a starting point.",
   "whyNeeded": "Real life goes below zero all the time: temperature on a cold morning, money you owe, floors below the ground, a submarine under the sea. Integers let us record and calculate with 'less than nothing', and they open the door to algebra and coordinates.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "A submarine 20 m below sea level = −20 m"
   ],
   "vocabulary": [
-    { "term": "integer", "meaning": "A whole number that can be positive, negative, or zero." },
-    { "term": "negative number", "meaning": "A number less than zero, written with a minus sign (−)." },
-    { "term": "opposite", "meaning": "The same distance from zero on the other side (+5 and −5)." }
+    {
+      "term": "integer",
+      "meaning": "A whole number that can be positive, negative, or zero."
+    },
+    {
+      "term": "negative number",
+      "meaning": "A number less than zero, written with a minus sign (−)."
+    },
+    {
+      "term": "opposite",
+      "meaning": "The same distance from zero on the other side (+5 and −5)."
+    }
   ],
   "story": {
     "title": "The Cold Morning Report",
-    "characters": ["Tenzin", "Grandpa"],
+    "characters": [
+      "Tenzin",
+      "Grandpa"
+    ],
     "text": "In Leh the thermometer reads −4 °C at dawn. By noon it climbs 9 degrees. 'What does it read now?' asks Grandpa. Tenzin pictures a number line: start at −4, jump 9 steps to the right. He lands on +5. 'It's 5 °C now!' Grandpa smiles: 'Below zero and back — that's integers at work.'",
     "extractedProblem": "The temperature starts at −4 °C and rises 9 degrees. What is the new temperature?",
     "answerInStory": "5 °C — start at −4 and move 9 steps right to +5."
@@ -28,7 +42,21 @@
     "component": "NumberTrack",
     "props": {
       "tracks": [
-        { "terms": [-4, -3, -2, -1, 0, 1, 2, 3, 4, 5], "label": "start −4, jump +9 → +5" }
+        {
+          "terms": [
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "label": "start −4, jump +9 → +5"
+        }
       ]
     },
     "caption": "A two-way number line: negatives left of 0, positives right. Adding moves right, subtracting moves left."
@@ -38,9 +66,64 @@
       "title": "Read and move on the number line",
       "note": "Left = smaller/negative, right = bigger/positive.",
       "examples": [
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [-3, -2, -1, 0, 1, 2, 3], "label": "opposites around zero" } ] }, "caption": "−3 and +3 are opposites, equally far from 0." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [-5, -4, -3, -2, -1, 0], "label": "colder ← ... → warmer" } ] }, "caption": "The further left, the smaller: −5 < −2." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [2, 1, 0, -1, -2, -3], "label": "count down past zero" } ] }, "caption": "Counting back: 2, 1, 0, −1, −2…" }
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  -3,
+                  -2,
+                  -1,
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "label": "opposites around zero"
+              }
+            ]
+          },
+          "caption": "−3 and +3 are opposites, equally far from 0."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  -5,
+                  -4,
+                  -3,
+                  -2,
+                  -1,
+                  0
+                ],
+                "label": "colder ← ... → warmer"
+              }
+            ]
+          },
+          "caption": "The further left, the smaller: −5 < −2."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -2,
+                  -3
+                ],
+                "label": "count down past zero"
+              }
+            ]
+          },
+          "caption": "Counting back: 2, 1, 0, −1, −2…"
+        }
       ]
     }
   ],
@@ -56,12 +139,20 @@
   "workedExamples": [
     {
       "problem": "A diver is at −15 m and rises 6 m. What is her new depth?",
-      "steps": ["Start at −15 on the number line.", "Rising means moving right (+6): −15 + 6.", "= −9 m (still 9 m below the surface)."],
+      "steps": [
+        "Start at −15 on the number line.",
+        "Rising means moving right (+6): −15 + 6.",
+        "= −9 m (still 9 m below the surface)."
+      ],
       "answer": "-9"
     },
     {
       "problem": "Which is colder: −2 °C or −7 °C?",
-      "steps": ["On the number line, −7 is further LEFT than −2.", "Further left = smaller = colder.", "So −7 °C is colder."],
+      "steps": [
+        "On the number line, −7 is further LEFT than −2.",
+        "Further left = smaller = colder.",
+        "So −7 °C is colder."
+      ],
       "answer": "-7"
     }
   ],
@@ -80,77 +171,167 @@
   "practice": {
     "easy": [
       {
-        "id": "n21-e1", "type": "mcq",
+        "id": "n21-e1",
+        "type": "mcq",
         "q": "Which number is to the LEFT of zero on the number line?",
-        "options": [ { "label": "−3" }, { "label": "3", "mistakeTag": "sign-dropped" } ],
+        "options": [
+          {
+            "label": "−3"
+          },
+          {
+            "label": "3",
+            "mistakeTag": "sign-dropped"
+          }
+        ],
         "answer": "−3",
-        "hintLadder": ["Negatives sit left of zero.", "−3 has a minus sign.", "−3."]
+        "hintLadder": [
+          "Negatives sit left of zero.",
+          "−3 has a minus sign.",
+          "−3."
+        ]
       },
       {
-        "id": "n21-e2", "type": "number",
+        "id": "n21-e2",
+        "type": "number",
         "q": "Start at 0 and go 4 steps left. Where do you land? (write like -4)",
         "answer": "-4",
-        "hintLadder": ["Left of zero is negative.", "Four steps left.", "−4."]
+        "hintLadder": [
+          "Left of zero is negative.",
+          "Four steps left.",
+          "−4."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n21-m1", "type": "mcq",
+        "id": "n21-m1",
+        "type": "mcq",
         "q": "Which is colder: −6 °C or −1 °C?",
-        "options": [ { "label": "−6 °C" }, { "label": "−1 °C", "mistakeTag": "bigger-digit-bigger" } ],
+        "options": [
+          {
+            "label": "−6 °C"
+          },
+          {
+            "label": "−1 °C",
+            "mistakeTag": "bigger-digit-bigger"
+          }
+        ],
         "answer": "−6 °C",
-        "hintLadder": ["Further left = colder.", "−6 is further left than −1.", "−6 °C."]
+        "hintLadder": [
+          "Further left = colder.",
+          "−6 is further left than −1.",
+          "−6 °C."
+        ]
       },
       {
-        "id": "n21-m2", "type": "number",
+        "id": "n21-m2",
+        "type": "number",
         "q": "Temperature −5 °C rises by 8 degrees. What is it now? (write like 3)",
         "answer": "3",
-        "hintLadder": ["Start at −5, move 8 right.", "−5 + 8.", "3."]
+        "hintLadder": [
+          "Start at −5, move 8 right.",
+          "−5 + 8.",
+          "3."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n21-c1", "type": "number",
+        "id": "n21-c1",
+        "type": "number",
         "q": "A lift at floor −2 goes up 5 floors. Which floor now? (write like 3)",
         "answer": "3",
-        "hintLadder": ["Up means move right.", "−2 + 5.", "3."]
+        "hintLadder": [
+          "Up means move right.",
+          "−2 + 5.",
+          "3."
+        ]
       },
       {
-        "id": "n21-c2", "type": "mcq",
+        "id": "n21-c2",
+        "type": "mcq",
         "q": "Ravi says −8 is greater than −3 'because 8 > 3'. What's the fix?",
-        "options": [ { "label": "−3 is greater — it's closer to zero (further right)" }, { "label": "Ravi is right", "mistakeTag": "bigger-digit-bigger" } ],
+        "options": [
+          {
+            "label": "−3 is greater — it's closer to zero (further right)"
+          },
+          {
+            "label": "Ravi is right",
+            "mistakeTag": "bigger-digit-bigger"
+          }
+        ],
         "answer": "−3 is greater — it's closer to zero (further right)",
-        "hintLadder": ["Negatives flip the order.", "−3 is right of −8.", "So −3 > −8."]
+        "hintLadder": [
+          "Negatives flip the order.",
+          "−3 is right of −8.",
+          "So −3 > −8."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n21-x1", "type": "number",
+        "id": "n21-x1",
+        "type": "number",
         "q": "Go 3 steps left of zero. Where? (write like -3)",
         "answer": "-3",
-        "hintLadder": ["Left = negative.", "Three left.", "−3."]
+        "hintLadder": [
+          "Left = negative.",
+          "Three left.",
+          "−3."
+        ]
       },
       {
-        "id": "n21-x2", "type": "mcq",
+        "id": "n21-x2",
+        "type": "mcq",
         "q": "Which is bigger: −4 or −9?",
-        "options": [ { "label": "−4" }, { "label": "−9", "mistakeTag": "bigger-digit-bigger" } ],
+        "options": [
+          {
+            "label": "−4"
+          },
+          {
+            "label": "−9",
+            "mistakeTag": "bigger-digit-bigger"
+          }
+        ],
         "answer": "−4",
-        "hintLadder": ["Further right = bigger.", "−4 is right of −9.", "−4."]
+        "hintLadder": [
+          "Further right = bigger.",
+          "−4 is right of −9.",
+          "−4."
+        ]
       },
       {
-        "id": "n21-x3", "type": "number",
+        "id": "n21-x3",
+        "type": "number",
         "q": "−7 + 10 = ? (write like 3)",
         "answer": "3",
-        "hintLadder": ["Start at −7, move 10 right.", "Cross zero.", "3."]
+        "hintLadder": [
+          "Start at −7, move 10 right.",
+          "Cross zero.",
+          "3."
+        ]
       },
       {
-        "id": "n21-x4", "type": "mcq",
+        "id": "n21-x4",
+        "type": "mcq",
         "q": "The opposite of +6 is…",
-        "options": [ { "label": "−6" }, { "label": "6", "mistakeTag": "sign-dropped" } ],
+        "options": [
+          {
+            "label": "−6"
+          },
+          {
+            "label": "6",
+            "mistakeTag": "sign-dropped"
+          }
+        ],
         "answer": "−6",
-        "hintLadder": ["Same distance, other side of zero.", "Add the minus sign.", "−6."]
+        "hintLadder": [
+          "Same distance, other side of zero.",
+          "Add the minus sign.",
+          "−6."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -159,7 +340,11 @@
   "teachBackPrompt": "Draw a number line from −5 to +5 and mark zero. Show a grown-up a real 'below zero' example (temperature, a basement floor, or owing money) and explain how adding moves right and subtracting moves left across zero.",
   "revisionCard": {
     "summary": "Integers = positives, zero, and negatives. Two-way number line: negatives LEFT, positives RIGHT of zero. Add → move right, subtract → move left. Further LEFT = SMALLER, so −7 < −2. Opposites (+n, −n) are equal distances from zero.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -168,5 +353,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Number line: left = smaller, right = bigger. Negatives sit below zero",
+    "unpack": "-5 is LESS than -2 (further left). Adding moves right, subtracting moves left. Two minuses touching make a plus: -(-3) = +3."
+  },
+  "studentQuestions": [
+    {
+      "q": "Is -5 bigger or smaller than -2?",
+      "a": "Smaller. On the number line -5 is further left. Think temperature: -5 degrees is colder than -2."
+    },
+    {
+      "q": "Why does minus a minus become plus?",
+      "a": "Taking away a loss makes you better off. Removing a -3 (a debt) adds +3."
+    }
+  ]
 }

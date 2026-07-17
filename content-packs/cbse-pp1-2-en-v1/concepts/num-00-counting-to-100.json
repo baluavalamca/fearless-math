@@ -866,5 +866,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "Count in tens to reach 100: 10,20,...,100",
+    "unpack": "On a 100 square: go RIGHT to add 1, go DOWN to add 10. Every new row is a new ten."
+  },
+  "studentQuestions": [
+    {
+      "q": "What is the easiest way to count to 100?",
+      "a": "In tens: 10,20,30... ten tens make 100. On a hundred square, each row down adds ten."
+    },
+    {
+      "q": "What comes after 29?",
+      "a": "30 - when the ones reach 9, the next number rolls into a new ten (29 -> 30, 39 -> 40)."
+    }
+  ]
 }

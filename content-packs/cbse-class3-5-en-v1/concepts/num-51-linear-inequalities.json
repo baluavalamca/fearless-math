@@ -3,7 +3,9 @@
   "name": "Linear Inequalities — Ranges, Not Just One Answer",
   "grade": 10,
   "strand": "numbers",
-  "prerequisites": ["num-33-linear-equations"],
+  "prerequisites": [
+    "num-33-linear-equations"
+  ],
   "whatIsIt": "An inequality uses <, >, ≤ or ≥ instead of =, so the answer is a RANGE of values, not a single number. You solve it like an equation — do the same thing to both sides — with ONE golden rule: if you multiply or divide both sides by a NEGATIVE number, you must FLIP the inequality sign. Solutions are shown on a number line (an open circle ○ for < or >, a filled circle ● for ≤ or ≥).",
   "whyNeeded": "Real limits are ranges: 'spend at most ₹500', 'score at least 40 to pass', 'the lift holds up to 8 people'. Inequalities model budgets, safety limits, and optimisation — the maths of 'no more than' and 'at least'.",
   "realLifeUses": [
@@ -13,14 +15,29 @@
     "Age limits: must be 18 or older"
   ],
   "vocabulary": [
-    { "term": "inequality", "meaning": "A statement with <, >, ≤, or ≥ instead of =, giving a range of answers." },
-    { "term": "flip the sign", "meaning": "Reverse < to > (and ≤ to ≥) when multiplying or dividing by a negative number." },
-    { "term": "open vs closed circle", "meaning": "○ (open) for < or > (not included); ● (closed) for ≤ or ≥ (included)." },
-    { "term": "solution set", "meaning": "All the values that make the inequality true." }
+    {
+      "term": "inequality",
+      "meaning": "A statement with <, >, ≤, or ≥ instead of =, giving a range of answers."
+    },
+    {
+      "term": "flip the sign",
+      "meaning": "Reverse < to > (and ≤ to ≥) when multiplying or dividing by a negative number."
+    },
+    {
+      "term": "open vs closed circle",
+      "meaning": "○ (open) for < or > (not included); ● (closed) for ≤ or ≥ (included)."
+    },
+    {
+      "term": "solution set",
+      "meaning": "All the values that make the inequality true."
+    }
   ],
   "story": {
     "title": "The Ticket Budget",
-    "characters": ["Sara", "Bhai"],
+    "characters": [
+      "Sara",
+      "Bhai"
+    ],
     "text": "Sara has ₹200 and each ride costs ₹40. 'How many rides can I take?' she asks. Bhai writes 40x ≤ 200, meaning the cost must be at most 200. Divide both sides by 40: x ≤ 5. 'You can take up to 5 rides,' he smiles. 'Not exactly 5 — 5 OR FEWER. That's the difference an inequality makes.'",
     "extractedProblem": "Each ride is ₹40 and Sara has ₹200. Solve 40x ≤ 200 for x.",
     "answerInStory": "x ≤ 5 — she can take at most 5 rides (200 ÷ 40 = 5)."
@@ -29,7 +46,11 @@
     "component": "NumberLine",
     "props": {
       "lines": [
-        { "parts": 10, "mark": 5, "label": "x ≤ 5 — filled circle at 5, shaded to the left" }
+        {
+          "parts": 10,
+          "mark": 5,
+          "label": "x ≤ 5 — filled circle at 5, shaded to the left"
+        }
       ]
     },
     "caption": "The solution x ≤ 5 is a whole range on the number line: everything up to and including 5 (a filled circle ● at 5)."
@@ -39,9 +60,55 @@
       "title": "Solve, then flip if negative",
       "note": "Same steps as an equation; flip the sign only when you multiply or divide by a negative.",
       "examples": [
-        { "component": "NumberLine", "props": { "lines": [ { "parts": 10, "mark": 4, "label": "x > 4 — open circle at 4" } ] }, "caption": "x > 4: open circle ○ (4 not included), shaded to the right." },
-        { "component": "NumberLine", "props": { "lines": [ { "parts": 8, "mark": 3, "label": "−2x > 6 → x < −3 (sign flipped)" } ] }, "caption": "Dividing by −2 FLIPS >, giving x < −3." },
-        { "component": "BarModel", "props": { "bars": [ { "label": "cost ≤ budget", "parts": [ { "value": 40 }, { "value": 40 }, { "value": 40 } ], "showTotal": true } ] }, "caption": "Budget inequality: repeated cost must stay under the total." }
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 4,
+                "label": "x > 4 — open circle at 4"
+              }
+            ]
+          },
+          "caption": "x > 4: open circle ○ (4 not included), shaded to the right."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 8,
+                "mark": 3,
+                "label": "−2x > 6 → x < −3 (sign flipped)"
+              }
+            ]
+          },
+          "caption": "Dividing by −2 FLIPS >, giving x < −3."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "cost ≤ budget",
+                "parts": [
+                  {
+                    "value": 40
+                  },
+                  {
+                    "value": 40
+                  },
+                  {
+                    "value": 40
+                  }
+                ],
+                "showTotal": true
+              }
+            ]
+          },
+          "caption": "Budget inequality: repeated cost must stay under the total."
+        }
       ]
     }
   ],
@@ -58,12 +125,20 @@
   "workedExamples": [
     {
       "problem": "Solve 2x < 10.",
-      "steps": ["Divide both sides by 2 (positive → no flip).", "x < 10 ÷ 2.", "x < 5."],
+      "steps": [
+        "Divide both sides by 2 (positive → no flip).",
+        "x < 10 ÷ 2.",
+        "x < 5."
+      ],
       "answer": "x < 5"
     },
     {
       "problem": "Solve −2x > 6.",
-      "steps": ["Divide both sides by −2 — NEGATIVE, so flip > to <.", "x < 6 ÷ (−2).", "x < −3."],
+      "steps": [
+        "Divide both sides by −2 — NEGATIVE, so flip > to <.",
+        "x < 6 ÷ (−2).",
+        "x < −3."
+      ],
       "answer": "x < −3"
     }
   ],
@@ -81,24 +156,142 @@
   ],
   "practice": {
     "easy": [
-      { "id": "n51-e1", "type": "number", "q": "Solve 2x < 10. The largest WHOLE number x can be is?", "answer": "4", "hintLadder": ["x < 5.", "Largest whole number below 5.", "4."] },
-      { "id": "n51-e2", "type": "number", "q": "Solve x + 3 > 7. The smallest WHOLE number x can be is?", "answer": "5", "hintLadder": ["x > 4.", "Smallest whole number above 4.", "5."] }
+      {
+        "id": "n51-e1",
+        "type": "number",
+        "q": "Solve 2x < 10. The largest WHOLE number x can be is?",
+        "answer": "4",
+        "hintLadder": [
+          "x < 5.",
+          "Largest whole number below 5.",
+          "4."
+        ]
+      },
+      {
+        "id": "n51-e2",
+        "type": "number",
+        "q": "Solve x + 3 > 7. The smallest WHOLE number x can be is?",
+        "answer": "5",
+        "hintLadder": [
+          "x > 4.",
+          "Smallest whole number above 4.",
+          "5."
+        ]
+      }
     ],
     "medium": [
-      { "id": "n51-m1", "type": "number", "q": "Solve 3x ≤ 12. The largest value x can be is?", "answer": "4", "hintLadder": ["Divide by 3.", "x ≤ 4.", "4 (included)."] },
-      { "id": "n51-m2", "type": "number", "q": "Solve −2x > 6. The largest WHOLE number x can be is?", "answer": "-4", "hintLadder": ["Flip when dividing by −2: x < −3.", "Largest whole number below −3.", "−4."] }
+      {
+        "id": "n51-m1",
+        "type": "number",
+        "q": "Solve 3x ≤ 12. The largest value x can be is?",
+        "answer": "4",
+        "hintLadder": [
+          "Divide by 3.",
+          "x ≤ 4.",
+          "4 (included)."
+        ]
+      },
+      {
+        "id": "n51-m2",
+        "type": "number",
+        "q": "Solve −2x > 6. The largest WHOLE number x can be is?",
+        "answer": "-4",
+        "hintLadder": [
+          "Flip when dividing by −2: x < −3.",
+          "Largest whole number below −3.",
+          "−4."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "n51-c1", "type": "number", "q": "40x ≤ 200 (ride budget). Most rides x?", "answer": "5", "hintLadder": ["Divide by 40.", "x ≤ 5.", "5."] },
-      { "id": "n51-c2", "type": "mcq", "q": "Solving −x < 2, Ravi writes x < −2. What's the fix?", "options": [ { "label": "Multiply by −1 and FLIP: x > −2" }, { "label": "x < −2 is correct", "mistakeTag": "forgot-flip-sign" } ], "answer": "Multiply by −1 and FLIP: x > −2", "hintLadder": ["Multiplying by −1 flips the sign.", "< becomes >.", "x > −2."] }
+      {
+        "id": "n51-c1",
+        "type": "number",
+        "q": "40x ≤ 200 (ride budget). Most rides x?",
+        "answer": "5",
+        "hintLadder": [
+          "Divide by 40.",
+          "x ≤ 5.",
+          "5."
+        ]
+      },
+      {
+        "id": "n51-c2",
+        "type": "mcq",
+        "q": "Solving −x < 2, Ravi writes x < −2. What's the fix?",
+        "options": [
+          {
+            "label": "Multiply by −1 and FLIP: x > −2"
+          },
+          {
+            "label": "x < −2 is correct",
+            "mistakeTag": "forgot-flip-sign"
+          }
+        ],
+        "answer": "Multiply by −1 and FLIP: x > −2",
+        "hintLadder": [
+          "Multiplying by −1 flips the sign.",
+          "< becomes >.",
+          "x > −2."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "n51-x1", "type": "number", "q": "Solve 5x < 20. Largest whole number x?", "answer": "3", "hintLadder": ["x < 4.", "Largest whole number below 4.", "3."] },
-      { "id": "n51-x2", "type": "number", "q": "Solve x − 2 ≥ 3. Smallest value x can be?", "answer": "5", "hintLadder": ["x ≥ 5.", "Smallest included value.", "5."] },
-      { "id": "n51-x3", "type": "number", "q": "Solve −3x ≥ 9. Largest value x can be?", "answer": "-3", "hintLadder": ["Divide by −3 and flip: x ≤ −3.", "Largest included value.", "−3."] },
-      { "id": "n51-x4", "type": "mcq", "q": "For x ≤ 5 on a number line you draw…", "options": [ { "label": "A filled circle ● at 5" }, { "label": "An open circle ○ at 5", "mistakeTag": "wrong-circle" } ], "answer": "A filled circle ● at 5", "hintLadder": ["≤ includes 5.", "Included → filled.", "Filled circle ●."] }
+      {
+        "id": "n51-x1",
+        "type": "number",
+        "q": "Solve 5x < 20. Largest whole number x?",
+        "answer": "3",
+        "hintLadder": [
+          "x < 4.",
+          "Largest whole number below 4.",
+          "3."
+        ]
+      },
+      {
+        "id": "n51-x2",
+        "type": "number",
+        "q": "Solve x − 2 ≥ 3. Smallest value x can be?",
+        "answer": "5",
+        "hintLadder": [
+          "x ≥ 5.",
+          "Smallest included value.",
+          "5."
+        ]
+      },
+      {
+        "id": "n51-x3",
+        "type": "number",
+        "q": "Solve −3x ≥ 9. Largest value x can be?",
+        "answer": "-3",
+        "hintLadder": [
+          "Divide by −3 and flip: x ≤ −3.",
+          "Largest included value.",
+          "−3."
+        ]
+      },
+      {
+        "id": "n51-x4",
+        "type": "mcq",
+        "q": "For x ≤ 5 on a number line you draw…",
+        "options": [
+          {
+            "label": "A filled circle ● at 5"
+          },
+          {
+            "label": "An open circle ○ at 5",
+            "mistakeTag": "wrong-circle"
+          }
+        ],
+        "answer": "A filled circle ● at 5",
+        "hintLadder": [
+          "≤ includes 5.",
+          "Included → filled.",
+          "Filled circle ●."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -106,7 +299,11 @@
   "teachBackPrompt": "Show a grown-up a budget like 40x ≤ 200 and solve it to x ≤ 5, explaining it means 'at most 5'. Then show −2x > 6 and explain why dividing by −2 FLIPS the sign to x < −3.",
   "revisionCard": {
     "summary": "Inequalities (<, >, ≤, ≥) give a RANGE. Solve like an equation, but FLIP the sign when multiplying/dividing by a negative. Number line: ○ open for < / > (not included), ● filled for ≤ / ≥ (included). Shade the side that makes it true.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -115,5 +312,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Solve like an equation - but FLIP the sign when you x or / by a negative",
+    "unpack": "-2x < 6 -> divide by -2 AND flip -> x > -3. The answer is a RANGE, not one number."
+  },
+  "studentQuestions": [
+    {
+      "q": "When do I flip the inequality sign?",
+      "a": "Only when you multiply or divide BOTH sides by a NEGATIVE number. Then < becomes > and vice versa."
+    },
+    {
+      "q": "How is it different from an equation?",
+      "a": "Same steps to isolate x, but the answer is a range (like x > 3), not a single value - and watch the negative-flip."
+    }
+  ]
 }

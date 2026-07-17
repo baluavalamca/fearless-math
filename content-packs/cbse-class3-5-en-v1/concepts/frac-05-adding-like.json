@@ -561,5 +561,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Same bottom? Add the tops, keep the bottom",
+    "unpack": "2/7 + 3/7 = 5/7. The bottom (piece size) stays the same; you are just counting more pieces. Different bottoms -> make them the same first."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why not add the bottoms too?",
+      "a": "The bottom tells the PIECE SIZE, which does not change. 2 sevenths + 3 sevenths = 5 sevenths, not 5 fourteenths."
+    },
+    {
+      "q": "What if the bottoms are different?",
+      "a": "Make them the same first using equivalent fractions, THEN add the tops."
+    }
+  ]
 }

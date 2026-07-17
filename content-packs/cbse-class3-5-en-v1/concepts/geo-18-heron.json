@@ -3,7 +3,10 @@
   "name": "Heron's Formula — Area from Three Sides",
   "grade": 8,
   "strand": "geometry",
-  "prerequisites": ["geo-15-area-formulas", "num-27-squares-roots"],
+  "prerequisites": [
+    "geo-15-area-formulas",
+    "num-27-squares-roots"
+  ],
   "whatIsIt": "Heron's formula finds the area of ANY triangle when you know its three sides — no height needed. First find the semi-perimeter s = (a + b + c) ÷ 2 (half the perimeter). Then Area = √(s(s − a)(s − b)(s − c)).",
   "whyNeeded": "The usual area = ½ × base × height needs the height, which is often hard to measure on a slanted or scalene triangle — like a triangular plot of land or a park. Heron's formula only needs the three side lengths you can measure with a tape.",
   "realLifeUses": [
@@ -13,13 +16,25 @@
     "Splitting a quadrilateral field into two triangles to find its area"
   ],
   "vocabulary": [
-    { "term": "semi-perimeter (s)", "meaning": "Half the perimeter: s = (a + b + c) ÷ 2." },
-    { "term": "scalene triangle", "meaning": "A triangle with all three sides of different length." },
-    { "term": "Heron's formula", "meaning": "Area = √(s(s − a)(s − b)(s − c)), using the three sides a, b, c." }
+    {
+      "term": "semi-perimeter (s)",
+      "meaning": "Half the perimeter: s = (a + b + c) ÷ 2."
+    },
+    {
+      "term": "scalene triangle",
+      "meaning": "A triangle with all three sides of different length."
+    },
+    {
+      "term": "Heron's formula",
+      "meaning": "Area = √(s(s − a)(s − b)(s − c)), using the three sides a, b, c."
+    }
   ],
   "story": {
     "title": "The Triangular Garden",
-    "characters": ["Farhan", "Nana"],
+    "characters": [
+      "Farhan",
+      "Nana"
+    ],
     "text": "Nana's little garden is a triangle with sides 3 m, 4 m and 5 m. 'How much space is inside?' asks Farhan. There's no obvious height. Nana teaches him Heron's way: s = (3 + 4 + 5) ÷ 2 = 6. Then Area = √(6 × (6−3) × (6−4) × (6−5)) = √(6 × 3 × 2 × 1) = √36 = 6 square metres. 'Three sides were enough!' Farhan grins.",
     "extractedProblem": "A triangle has sides 3 m, 4 m, 5 m. Find its area using Heron's formula.",
     "answerInStory": "6 square metres — s = 6, and √(6·3·2·1) = √36 = 6."
@@ -28,7 +43,10 @@
     "component": "GeometryCanvas",
     "props": {
       "shapes": [
-        { "kind": "triangle", "label": "sides 3, 4, 5 — area by Heron = 6" }
+        {
+          "kind": "triangle",
+          "label": "sides 3, 4, 5 — area by Heron = 6"
+        }
       ]
     },
     "caption": "Heron's formula gives the area from the three sides alone: s = 6, Area = √(6·3·2·1) = 6."
@@ -38,9 +56,42 @@
       "title": "Half the perimeter, then the square root",
       "note": "Add the sides, halve for s, then multiply s(s−a)(s−b)(s−c) and take the root.",
       "examples": [
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "13, 14, 15 → area 84" } ] }, "caption": "s = 21; √(21·8·7·6) = √7056 = 84." },
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "equal sides 5, 5, 6" } ] }, "caption": "s = 8; √(8·3·3·2) = √144 = 12." },
-        { "component": "BarModel", "props": { "parts": [3, 4, 5], "label": "perimeter 12 → s = 6" }, "caption": "The perimeter is 3+4+5 = 12, so the semi-perimeter s is 6." }
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "triangle",
+                "label": "13, 14, 15 → area 84"
+              }
+            ]
+          },
+          "caption": "s = 21; √(21·8·7·6) = √7056 = 84."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "triangle",
+                "label": "equal sides 5, 5, 6"
+              }
+            ]
+          },
+          "caption": "s = 8; √(8·3·3·2) = √144 = 12."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "parts": [
+              3,
+              4,
+              5
+            ],
+            "label": "perimeter 12 → s = 6"
+          },
+          "caption": "The perimeter is 3+4+5 = 12, so the semi-perimeter s is 6."
+        }
       ]
     }
   ],
@@ -57,12 +108,20 @@
   "workedExamples": [
     {
       "problem": "Find the area of a triangle with sides 3, 4, 5.",
-      "steps": ["s = (3 + 4 + 5) ÷ 2 = 12 ÷ 2 = 6.", "s − a, s − b, s − c = 3, 2, 1.", "Area = √(6 × 3 × 2 × 1) = √36 = 6."],
+      "steps": [
+        "s = (3 + 4 + 5) ÷ 2 = 12 ÷ 2 = 6.",
+        "s − a, s − b, s − c = 3, 2, 1.",
+        "Area = √(6 × 3 × 2 × 1) = √36 = 6."
+      ],
       "answer": "6"
     },
     {
       "problem": "Find the area of a triangle with sides 13, 14, 15.",
-      "steps": ["s = (13 + 14 + 15) ÷ 2 = 42 ÷ 2 = 21.", "s − a, s − b, s − c = 8, 7, 6.", "Area = √(21 × 8 × 7 × 6) = √7056 = 84."],
+      "steps": [
+        "s = (13 + 14 + 15) ÷ 2 = 42 ÷ 2 = 21.",
+        "s − a, s − b, s − c = 8, 7, 6.",
+        "Area = √(21 × 8 × 7 × 6) = √7056 = 84."
+      ],
       "answer": "84"
     }
   ],
@@ -80,24 +139,142 @@
   ],
   "practice": {
     "easy": [
-      { "id": "g18-e1", "type": "number", "q": "A triangle has sides 3, 4, 5. What is the semi-perimeter s? (half the perimeter)", "answer": "6", "hintLadder": ["Perimeter = 3 + 4 + 5 = 12.", "Half of 12.", "6."] },
-      { "id": "g18-e2", "type": "number", "q": "Semi-perimeter of a triangle with sides 5, 6, 7?", "answer": "9", "hintLadder": ["5 + 6 + 7 = 18.", "Divide by 2.", "9."] }
+      {
+        "id": "g18-e1",
+        "type": "number",
+        "q": "A triangle has sides 3, 4, 5. What is the semi-perimeter s? (half the perimeter)",
+        "answer": "6",
+        "hintLadder": [
+          "Perimeter = 3 + 4 + 5 = 12.",
+          "Half of 12.",
+          "6."
+        ]
+      },
+      {
+        "id": "g18-e2",
+        "type": "number",
+        "q": "Semi-perimeter of a triangle with sides 5, 6, 7?",
+        "answer": "9",
+        "hintLadder": [
+          "5 + 6 + 7 = 18.",
+          "Divide by 2.",
+          "9."
+        ]
+      }
     ],
     "medium": [
-      { "id": "g18-m1", "type": "number", "q": "Sides 3, 4, 5: area = √(6 × 3 × 2 × 1) = √36 = ?", "answer": "6", "hintLadder": ["6×3×2×1 = 36.", "√36.", "6."] },
-      { "id": "g18-m2", "type": "number", "q": "Sides 5, 5, 6: s = 8, area = √(8 × 3 × 3 × 2) = √144 = ?", "answer": "12", "hintLadder": ["8×3×3×2 = 144.", "√144.", "12."] }
+      {
+        "id": "g18-m1",
+        "type": "number",
+        "q": "Sides 3, 4, 5: area = √(6 × 3 × 2 × 1) = √36 = ?",
+        "answer": "6",
+        "hintLadder": [
+          "6×3×2×1 = 36.",
+          "√36.",
+          "6."
+        ]
+      },
+      {
+        "id": "g18-m2",
+        "type": "number",
+        "q": "Sides 5, 5, 6: s = 8, area = √(8 × 3 × 3 × 2) = √144 = ?",
+        "answer": "12",
+        "hintLadder": [
+          "8×3×3×2 = 144.",
+          "√144.",
+          "12."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "g18-c1", "type": "number", "q": "Sides 13, 14, 15: s = 21, area = √(21 × 8 × 7 × 6) = √7056 = ?", "answer": "84", "hintLadder": ["21×8×7×6 = 7056.", "√7056.", "84."] },
-      { "id": "g18-c2", "type": "mcq", "q": "For sides 3, 4, 5 a student writes the area as 6 × 3 × 2 × 1 = 36. What's the fix?", "options": [ { "label": "Take the square root: √36 = 6" }, { "label": "36 is correct", "mistakeTag": "forgot-square-root" } ], "answer": "Take the square root: √36 = 6", "hintLadder": ["Heron's formula ends in a √.", "√36.", "Area = 6."] }
+      {
+        "id": "g18-c1",
+        "type": "number",
+        "q": "Sides 13, 14, 15: s = 21, area = √(21 × 8 × 7 × 6) = √7056 = ?",
+        "answer": "84",
+        "hintLadder": [
+          "21×8×7×6 = 7056.",
+          "√7056.",
+          "84."
+        ]
+      },
+      {
+        "id": "g18-c2",
+        "type": "mcq",
+        "q": "For sides 3, 4, 5 a student writes the area as 6 × 3 × 2 × 1 = 36. What's the fix?",
+        "options": [
+          {
+            "label": "Take the square root: √36 = 6"
+          },
+          {
+            "label": "36 is correct",
+            "mistakeTag": "forgot-square-root"
+          }
+        ],
+        "answer": "Take the square root: √36 = 6",
+        "hintLadder": [
+          "Heron's formula ends in a √.",
+          "√36.",
+          "Area = 6."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "g18-x1", "type": "number", "q": "Semi-perimeter of sides 6, 8, 10?", "answer": "12", "hintLadder": ["6 + 8 + 10 = 24.", "Half of 24.", "12."] },
-      { "id": "g18-x2", "type": "number", "q": "Sides 6, 8, 10: s = 12, area = √(12 × 6 × 4 × 2) = √576 = ?", "answer": "24", "hintLadder": ["12×6×4×2 = 576.", "√576.", "24."] },
-      { "id": "g18-x3", "type": "number", "q": "Sides 3, 4, 5: area by Heron?", "answer": "6", "hintLadder": ["s = 6.", "√(6·3·2·1) = √36.", "6."] },
-      { "id": "g18-x4", "type": "mcq", "q": "In Heron's formula, s stands for…", "options": [ { "label": "Half the perimeter, (a + b + c) ÷ 2" }, { "label": "The full perimeter", "mistakeTag": "forgot-halve-perimeter" } ], "answer": "Half the perimeter, (a + b + c) ÷ 2", "hintLadder": ["'Semi' means half.", "Add sides, divide by 2.", "That is s."] }
+      {
+        "id": "g18-x1",
+        "type": "number",
+        "q": "Semi-perimeter of sides 6, 8, 10?",
+        "answer": "12",
+        "hintLadder": [
+          "6 + 8 + 10 = 24.",
+          "Half of 24.",
+          "12."
+        ]
+      },
+      {
+        "id": "g18-x2",
+        "type": "number",
+        "q": "Sides 6, 8, 10: s = 12, area = √(12 × 6 × 4 × 2) = √576 = ?",
+        "answer": "24",
+        "hintLadder": [
+          "12×6×4×2 = 576.",
+          "√576.",
+          "24."
+        ]
+      },
+      {
+        "id": "g18-x3",
+        "type": "number",
+        "q": "Sides 3, 4, 5: area by Heron?",
+        "answer": "6",
+        "hintLadder": [
+          "s = 6.",
+          "√(6·3·2·1) = √36.",
+          "6."
+        ]
+      },
+      {
+        "id": "g18-x4",
+        "type": "mcq",
+        "q": "In Heron's formula, s stands for…",
+        "options": [
+          {
+            "label": "Half the perimeter, (a + b + c) ÷ 2"
+          },
+          {
+            "label": "The full perimeter",
+            "mistakeTag": "forgot-halve-perimeter"
+          }
+        ],
+        "answer": "Half the perimeter, (a + b + c) ÷ 2",
+        "hintLadder": [
+          "'Semi' means half.",
+          "Add sides, divide by 2.",
+          "That is s."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -105,7 +282,11 @@
   "teachBackPrompt": "Draw a triangle with sides 3, 4, 5 for a grown-up and show how s = 6 and Area = √(6·3·2·1) = 6, explaining that Heron's formula needs only the three sides — no height at all.",
   "revisionCard": {
     "summary": "Heron's formula: s = (a + b + c) ÷ 2, then Area = √(s(s − a)(s − b)(s − c)). Works for ANY triangle from just its three sides. Remember to HALVE the perimeter for s and to take the final SQUARE ROOT.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -114,5 +295,30 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Heron: area from 3 sides using s, the semi-perimeter",
+    "unpack": "s = (a+b+c)/2. Area = sqrt(s(s-a)(s-b)(s-c)). No height needed!"
+  },
+  "studentQuestions": [
+    {
+      "q": "When do I use Heron's formula?",
+      "a": "When you know all THREE sides but not the height. It skips needing the height entirely."
+    },
+    {
+      "q": "What is s?",
+      "a": "The semi-perimeter - half of (a+b+c). Work it out first, then plug it into the root."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Semi-perimeter",
+      "formula": "s = (a + b + c) / 2"
+    },
+    {
+      "name": "Heron's area",
+      "formula": "Area = sqrt(s(s-a)(s-b)(s-c))",
+      "remember": "Find s first; no height required"
+    }
+  ]
 }

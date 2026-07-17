@@ -3,7 +3,11 @@
   "name": "Real Numbers — Rational, Irrational and the HCF·LCM Link",
   "grade": 9,
   "strand": "numbers",
-  "prerequisites": ["num-30-number-systems", "num-26-hcf-lcm", "num-24-primes"],
+  "prerequisites": [
+    "num-30-number-systems",
+    "num-26-hcf-lcm",
+    "num-24-primes"
+  ],
   "whatIsIt": "Real numbers are every number on the number line. Some are RATIONAL (can be written as a fraction p/q, like 3/4 or 0.5) and some are IRRATIONAL (never a neat fraction, never a repeating or ending decimal, like √2 or π). Two key Class-10 ideas: for any two numbers, HCF × LCM = the product of the numbers; and a fraction gives a TERMINATING decimal exactly when its lowest-term denominator is made of only 2s and 5s.",
   "whyNeeded": "Knowing whether a number is rational or irrational, and using HCF × LCM = product, lets you simplify surds, predict whether a fraction ends or repeats, and solve real problems like when two blinking lights line up again (LCM) or the largest equal group size (HCF).",
   "realLifeUses": [
@@ -13,14 +17,29 @@
     "Simplifying square roots in measurement and construction"
   ],
   "vocabulary": [
-    { "term": "rational number", "meaning": "A number that can be written as p/q with whole numbers p and q (q ≠ 0); its decimal ends or repeats." },
-    { "term": "irrational number", "meaning": "A number that is NOT a fraction; its decimal goes on forever with no repeat, like √2 = 1.41421… or π." },
-    { "term": "terminating decimal", "meaning": "A decimal that ends. Happens when the fraction's lowest-term denominator has only factors 2 and 5." },
-    { "term": "HCF × LCM rule", "meaning": "For two numbers a and b: HCF(a, b) × LCM(a, b) = a × b." }
+    {
+      "term": "rational number",
+      "meaning": "A number that can be written as p/q with whole numbers p and q (q ≠ 0); its decimal ends or repeats."
+    },
+    {
+      "term": "irrational number",
+      "meaning": "A number that is NOT a fraction; its decimal goes on forever with no repeat, like √2 = 1.41421… or π."
+    },
+    {
+      "term": "terminating decimal",
+      "meaning": "A decimal that ends. Happens when the fraction's lowest-term denominator has only factors 2 and 5."
+    },
+    {
+      "term": "HCF × LCM rule",
+      "meaning": "For two numbers a and b: HCF(a, b) × LCM(a, b) = a × b."
+    }
   ],
   "story": {
     "title": "The Two Blinking Lamps",
-    "characters": ["Nisha", "Dadu"],
+    "characters": [
+      "Nisha",
+      "Dadu"
+    ],
     "text": "On Diwali, one lamp blinks every 12 seconds and another every 18 seconds. 'When do they blink together?' Nisha asks. Dadu says: 'That's the LCM.' They also spot HCF(12, 18) = 6. Dadu smiles: 'Check the rule — HCF × LCM should equal 12 × 18.' Since 12 × 18 = 216 and HCF = 6, the LCM must be 216 ÷ 6 = 36 seconds. The lamps blink together every 36 seconds.",
     "extractedProblem": "HCF(12, 18) = 6 and 12 × 18 = 216. What is the LCM?",
     "answerInStory": "36 — because HCF × LCM = product, so LCM = 216 ÷ 6 = 36."
@@ -30,7 +49,13 @@
     "props": {
       "min": 0,
       "max": 3,
-      "jumps": [1, 1.41, 2, 2.24, 3],
+      "jumps": [
+        1,
+        1.41,
+        2,
+        2.24,
+        3
+      ],
       "label": "√2 ≈ 1.41 and √5 ≈ 2.24 sit between whole numbers — irrational points on the line"
     },
     "caption": "Rational numbers (like 1, 2, 3) and irrational ones (like √2 ≈ 1.41) all live on the real number line."
@@ -40,9 +65,33 @@
       "title": "Ends or repeats?",
       "note": "A fraction terminates only when its lowest-term denominator is built from 2s and 5s.",
       "examples": [
-        { "component": "FractionStrip", "props": { "numerator": 3, "denominator": 8, "label": "3/8 = 0.375" }, "caption": "8 = 2×2×2, only 2s → 3/8 = 0.375 ends." },
-        { "component": "FractionStrip", "props": { "numerator": 7, "denominator": 20, "label": "7/20 = 0.35" }, "caption": "20 = 2×2×5, only 2s and 5s → terminates." },
-        { "component": "FractionStrip", "props": { "numerator": 1, "denominator": 3, "label": "1/3 = 0.333…" }, "caption": "3 is not 2 or 5 → 1/3 repeats forever, it does not end." }
+        {
+          "component": "FractionStrip",
+          "props": {
+            "numerator": 3,
+            "denominator": 8,
+            "label": "3/8 = 0.375"
+          },
+          "caption": "8 = 2×2×2, only 2s → 3/8 = 0.375 ends."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "numerator": 7,
+            "denominator": 20,
+            "label": "7/20 = 0.35"
+          },
+          "caption": "20 = 2×2×5, only 2s and 5s → terminates."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "numerator": 1,
+            "denominator": 3,
+            "label": "1/3 = 0.333…"
+          },
+          "caption": "3 is not 2 or 5 → 1/3 repeats forever, it does not end."
+        }
       ]
     }
   ],
@@ -58,12 +107,20 @@
   "workedExamples": [
     {
       "problem": "HCF(12, 18) = 6. Find the LCM using HCF × LCM = product.",
-      "steps": ["Product = 12 × 18 = 216.", "LCM = product ÷ HCF = 216 ÷ 6.", "= 36."],
+      "steps": [
+        "Product = 12 × 18 = 216.",
+        "LCM = product ÷ HCF = 216 ÷ 6.",
+        "= 36."
+      ],
       "answer": "36"
     },
     {
       "problem": "Does 7/8 give a terminating decimal?",
-      "steps": ["Denominator 8 = 2 × 2 × 2.", "Only the prime 2 appears (no other primes).", "So 7/8 terminates: 7/8 = 0.875."],
+      "steps": [
+        "Denominator 8 = 2 × 2 × 2.",
+        "Only the prime 2 appears (no other primes).",
+        "So 7/8 terminates: 7/8 = 0.875."
+      ],
       "answer": "Yes, it terminates (0.875)"
     }
   ],
@@ -81,24 +138,160 @@
   ],
   "practice": {
     "easy": [
-      { "id": "g42-e1", "type": "number", "q": "HCF × LCM = 200 and HCF = 10. What is the LCM?", "answer": "20", "hintLadder": ["LCM = product ÷ HCF.", "200 ÷ 10.", "20."] },
-      { "id": "g42-e2", "type": "number", "q": "What is √16? (a whole number)", "answer": "4", "hintLadder": ["What times itself is 16?", "4 × 4 = 16.", "4."] }
+      {
+        "id": "g42-e1",
+        "type": "number",
+        "q": "HCF × LCM = 200 and HCF = 10. What is the LCM?",
+        "answer": "20",
+        "hintLadder": [
+          "LCM = product ÷ HCF.",
+          "200 ÷ 10.",
+          "20."
+        ]
+      },
+      {
+        "id": "g42-e2",
+        "type": "number",
+        "q": "What is √16? (a whole number)",
+        "answer": "4",
+        "hintLadder": [
+          "What times itself is 16?",
+          "4 × 4 = 16.",
+          "4."
+        ]
+      }
     ],
     "medium": [
-      { "id": "g42-m1", "type": "number", "q": "For 15 and 20, HCF = 5. Since 15 × 20 = 300, find the LCM.", "answer": "60", "hintLadder": ["LCM = 300 ÷ HCF.", "300 ÷ 5.", "60."] },
-      { "id": "g42-m2", "type": "mcq", "q": "Which fraction gives a TERMINATING decimal?", "options": [ { "label": "3/8 (denominator only 2s)" }, { "label": "1/3 (denominator 3)", "mistakeTag": "denominator-not-reduced" } ], "answer": "3/8 (denominator only 2s)", "hintLadder": ["Terminates if denominator is only 2s and 5s.", "8 = 2×2×2; 3 is neither.", "3/8 ends at 0.375."] }
+      {
+        "id": "g42-m1",
+        "type": "number",
+        "q": "For 15 and 20, HCF = 5. Since 15 × 20 = 300, find the LCM.",
+        "answer": "60",
+        "hintLadder": [
+          "LCM = 300 ÷ HCF.",
+          "300 ÷ 5.",
+          "60."
+        ]
+      },
+      {
+        "id": "g42-m2",
+        "type": "mcq",
+        "q": "Which fraction gives a TERMINATING decimal?",
+        "options": [
+          {
+            "label": "3/8 (denominator only 2s)"
+          },
+          {
+            "label": "1/3 (denominator 3)",
+            "mistakeTag": "denominator-not-reduced"
+          }
+        ],
+        "answer": "3/8 (denominator only 2s)",
+        "hintLadder": [
+          "Terminates if denominator is only 2s and 5s.",
+          "8 = 2×2×2; 3 is neither.",
+          "3/8 ends at 0.375."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "g42-c1", "type": "number", "q": "Two numbers have HCF 6 and LCM 72. If one number is 24, find the other. (product = HCF × LCM)", "answer": "18", "hintLadder": ["Product of the two = 6 × 72 = 432.", "Other = 432 ÷ 24.", "18."] },
-      { "id": "g42-c2", "type": "mcq", "q": "Is √25 rational or irrational?", "options": [ { "label": "Rational — √25 = 5" }, { "label": "Irrational, all roots are", "mistakeTag": "root-always-irrational" } ], "answer": "Rational — √25 = 5", "hintLadder": ["Is 25 a perfect square?", "5 × 5 = 25.", "√25 = 5, a whole number → rational."] }
+      {
+        "id": "g42-c1",
+        "type": "number",
+        "q": "Two numbers have HCF 6 and LCM 72. If one number is 24, find the other. (product = HCF × LCM)",
+        "answer": "18",
+        "hintLadder": [
+          "Product of the two = 6 × 72 = 432.",
+          "Other = 432 ÷ 24.",
+          "18."
+        ]
+      },
+      {
+        "id": "g42-c2",
+        "type": "mcq",
+        "q": "Is √25 rational or irrational?",
+        "options": [
+          {
+            "label": "Rational — √25 = 5"
+          },
+          {
+            "label": "Irrational, all roots are",
+            "mistakeTag": "root-always-irrational"
+          }
+        ],
+        "answer": "Rational — √25 = 5",
+        "hintLadder": [
+          "Is 25 a perfect square?",
+          "5 × 5 = 25.",
+          "√25 = 5, a whole number → rational."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "g42-x1", "type": "number", "q": "HCF × LCM = 144 and LCM = 36. Find the HCF.", "answer": "4", "hintLadder": ["HCF = product ÷ LCM.", "144 ÷ 36.", "4."] },
-      { "id": "g42-x2", "type": "number", "q": "HCF(8, 12) = 4 and 8 × 12 = 96. Find the LCM.", "answer": "24", "hintLadder": ["LCM = 96 ÷ HCF.", "96 ÷ 4.", "24."] },
-      { "id": "g42-x3", "type": "mcq", "q": "Which number is irrational?", "options": [ { "label": "√2 (never ends or repeats)" }, { "label": "√9", "mistakeTag": "root-always-irrational" } ], "answer": "√2 (never ends or repeats)", "hintLadder": ["√9 = 3 is a whole number.", "2 is not a perfect square.", "√2 = 1.414… is irrational."] },
-      { "id": "g42-x4", "type": "mcq", "q": "Does 9/25 terminate?", "options": [ { "label": "Yes — 25 = 5×5, only 5s" }, { "label": "No, it repeats", "mistakeTag": "denominator-not-reduced" } ], "answer": "Yes — 25 = 5×5, only 5s", "hintLadder": ["Denominator only 2s and 5s?", "25 = 5 × 5.", "9/25 = 0.36, it ends."] }
+      {
+        "id": "g42-x1",
+        "type": "number",
+        "q": "HCF × LCM = 144 and LCM = 36. Find the HCF.",
+        "answer": "4",
+        "hintLadder": [
+          "HCF = product ÷ LCM.",
+          "144 ÷ 36.",
+          "4."
+        ]
+      },
+      {
+        "id": "g42-x2",
+        "type": "number",
+        "q": "HCF(8, 12) = 4 and 8 × 12 = 96. Find the LCM.",
+        "answer": "24",
+        "hintLadder": [
+          "LCM = 96 ÷ HCF.",
+          "96 ÷ 4.",
+          "24."
+        ]
+      },
+      {
+        "id": "g42-x3",
+        "type": "mcq",
+        "q": "Which number is irrational?",
+        "options": [
+          {
+            "label": "√2 (never ends or repeats)"
+          },
+          {
+            "label": "√9",
+            "mistakeTag": "root-always-irrational"
+          }
+        ],
+        "answer": "√2 (never ends or repeats)",
+        "hintLadder": [
+          "√9 = 3 is a whole number.",
+          "2 is not a perfect square.",
+          "√2 = 1.414… is irrational."
+        ]
+      },
+      {
+        "id": "g42-x4",
+        "type": "mcq",
+        "q": "Does 9/25 terminate?",
+        "options": [
+          {
+            "label": "Yes — 25 = 5×5, only 5s"
+          },
+          {
+            "label": "No, it repeats",
+            "mistakeTag": "denominator-not-reduced"
+          }
+        ],
+        "answer": "Yes — 25 = 5×5, only 5s",
+        "hintLadder": [
+          "Denominator only 2s and 5s?",
+          "25 = 5 × 5.",
+          "9/25 = 0.36, it ends."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -106,7 +299,11 @@
   "teachBackPrompt": "Show a grown-up two blinking-light times, find their HCF and use HCF × LCM = product to get the LCM. Then explain why 3/8 ends but 1/3 repeats, and why √2 is irrational but √9 isn't.",
   "revisionCard": {
     "summary": "Real numbers = rational (fractions; decimals end or repeat) + irrational (√2, π; never end or repeat). HCF × LCM = product of the two numbers. A fraction terminates only if its lowest-term denominator has just 2s and 5s. √ of a perfect square is rational.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -115,5 +312,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Every number is rational (a fraction) or irrational (never-ending, non-repeating)",
+    "unpack": "Rational = p/q. Irrational = sqrt(2), pi, ... A decimal that ends OR repeats is rational."
+  },
+  "studentQuestions": [
+    {
+      "q": "Is a repeating decimal rational?",
+      "a": "Yes - 0.333... = 1/3. A decimal that ends OR repeats is rational. Only never-ending, never-repeating decimals (like sqrt 2) are irrational."
+    },
+    {
+      "q": "Why is sqrt(2) irrational?",
+      "a": "You can prove no fraction p/q equals it - assuming one exists leads to a contradiction. So it cannot be written as a fraction."
+    }
+  ]
 }

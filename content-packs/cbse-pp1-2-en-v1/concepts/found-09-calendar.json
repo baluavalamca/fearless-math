@@ -469,5 +469,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "7 days a week, 12 months a year - knuckle trick for long months",
+    "unpack": "Make a fist: knuckles = 31-day months, the dips between = 30 (or 28/29 for Feb). '30 days has September, April, June, and November.'"
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I remember which months have 31 days?",
+      "a": "Make a fist - knuckles are 31-day months, the dips between are shorter. Or the rhyme '30 days has September...'"
+    },
+    {
+      "q": "Why is February short?",
+      "a": "It is the leftover month - 28 days, or 29 in a leap year (every 4 years)."
+    }
+  ]
 }

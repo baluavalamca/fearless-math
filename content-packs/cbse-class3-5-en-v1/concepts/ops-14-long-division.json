@@ -526,5 +526,19 @@
       "Add the chunks to get the quotient."
     ],
     "example": "96 ÷ 4: 4×20=80 (20 groups), 16 left, 4×4=16 (4 more) → 24."
-  }
+  },
+  "rememberIt": {
+    "hook": "DMSB: Divide, Multiply, Subtract, Bring down (repeat)",
+    "unpack": "'Does McDonald's Sell Burgers?' Divide, Multiply, Subtract, Bring down the next digit, then repeat until no digits are left."
+  },
+  "studentQuestions": [
+    {
+      "q": "I keep forgetting the steps - is there an order?",
+      "a": "DMSB: Divide, Multiply, Subtract, Bring down. Repeat. 'Does McDonald's Sell Burgers?'"
+    },
+    {
+      "q": "What if a digit is too small to divide?",
+      "a": "Put a 0 in the answer for that place and bring down the next digit to make a bigger number."
+    }
+  ]
 }

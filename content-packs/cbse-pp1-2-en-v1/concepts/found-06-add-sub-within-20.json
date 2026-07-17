@@ -645,5 +645,19 @@
       "Take back the extra you added."
     ],
     "example": "9 + 6: 10 + 6 = 16, take back 1 → 15."
-  }
+  },
+  "rememberIt": {
+    "hook": "Make a ten to add across 10",
+    "unpack": "8 + 5: take 2 from the 5 to make 8 into 10, then 10 + 3 = 13. Subtraction is just adding backwards."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I add 8 + 5 in my head?",
+      "a": "Make a ten: give 2 to the 8 (now 10), 3 is left over, 10 + 3 = 13."
+    },
+    {
+      "q": "Is subtraction just adding backwards?",
+      "a": "Yes! 13 - 5 asks 'what adds to 5 to make 13?' - so 8. Add and subtract are a team."
+    }
+  ]
 }

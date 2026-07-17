@@ -3,7 +3,9 @@
   "name": "Prime and Composite Numbers",
   "grade": 5,
   "strand": "numbers",
-  "prerequisites": ["num-16-factors-multiples"],
+  "prerequisites": [
+    "num-16-factors-multiples"
+  ],
   "whatIsIt": "Every whole number bigger than 1 is either PRIME or COMPOSITE. A PRIME has exactly TWO factors — 1 and itself (2, 3, 5, 7, 11…). A COMPOSITE has MORE than two factors (4, 6, 8, 9…). The number 1 is neither. Primes are the 'building blocks' — every composite number can be built by multiplying primes.",
   "whyNeeded": "Primes are the atoms of numbers: they explain factors, help simplify fractions, and power HCF/LCM, cryptography and computer security. Spotting primes builds strong number sense.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Sharing into equal groups only works for composite totals"
   ],
   "vocabulary": [
-    { "term": "prime number", "meaning": "A number with exactly two factors: 1 and itself." },
-    { "term": "composite number", "meaning": "A number with more than two factors." },
-    { "term": "factor", "meaning": "A number that divides another exactly, with no remainder." }
+    {
+      "term": "prime number",
+      "meaning": "A number with exactly two factors: 1 and itself."
+    },
+    {
+      "term": "composite number",
+      "meaning": "A number with more than two factors."
+    },
+    {
+      "term": "factor",
+      "meaning": "A number that divides another exactly, with no remainder."
+    }
   ],
   "story": {
     "title": "The Marching Band",
-    "characters": ["Coach", "Riya"],
+    "characters": [
+      "Coach",
+      "Riya"
+    ],
     "text": "The band has 7 players and Coach wants equal rows. Riya tries: 7 in one row works, but 2 rows won't share 7 evenly, nor 3, nor any group. 'Only 1 × 7 works,' she says. 'That's because 7 is PRIME — its only factors are 1 and 7.' With 12 players, though, she finds 2×6, 3×4 and more — 12 is composite.",
     "extractedProblem": "Can 7 players be arranged in equal rows (more than one row)? Why?",
     "answerInStory": "No — 7 is prime, so only 1 × 7 works; it has just two factors."
@@ -28,8 +42,16 @@
     "component": "ArrayGrid",
     "props": {
       "grids": [
-        { "rows": 1, "cols": 7, "label": "7 is prime: only 1 × 7" },
-        { "rows": 3, "cols": 4, "label": "12 is composite: 3 × 4" }
+        {
+          "rows": 1,
+          "cols": 7,
+          "label": "7 is prime: only 1 × 7"
+        },
+        {
+          "rows": 3,
+          "cols": 4,
+          "label": "12 is composite: 3 × 4"
+        }
       ]
     },
     "caption": "A prime makes only a single row (1 × itself). A composite makes neat rectangles too."
@@ -39,9 +61,45 @@
       "title": "Prime or composite?",
       "note": "Count the factors: exactly two → prime; more → composite.",
       "examples": [
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 1, "cols": 5, "label": "5 prime (1×5 only)" } ] }, "caption": "5 → factors 1, 5 → prime." },
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 2, "cols": 3, "label": "6 = 2 × 3" } ] }, "caption": "6 → 1,2,3,6 → composite." },
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 3, "cols": 3, "label": "9 = 3 × 3" } ] }, "caption": "9 → 1,3,9 → composite." }
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 1,
+                "cols": 5,
+                "label": "5 prime (1×5 only)"
+              }
+            ]
+          },
+          "caption": "5 → factors 1, 5 → prime."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 3,
+                "label": "6 = 2 × 3"
+              }
+            ]
+          },
+          "caption": "6 → 1,2,3,6 → composite."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 3,
+                "label": "9 = 3 × 3"
+              }
+            ]
+          },
+          "caption": "9 → 1,3,9 → composite."
+        }
       ]
     }
   ],
@@ -57,12 +115,20 @@
   "workedExamples": [
     {
       "problem": "Is 13 prime or composite?",
-      "steps": ["Try to divide 13 by 2, 3, 4… none work exactly.", "Its only factors are 1 and 13.", "Two factors → 13 is prime."],
+      "steps": [
+        "Try to divide 13 by 2, 3, 4… none work exactly.",
+        "Its only factors are 1 and 13.",
+        "Two factors → 13 is prime."
+      ],
       "answer": "prime"
     },
     {
       "problem": "Is 15 prime or composite?",
-      "steps": ["15 ÷ 3 = 5, and 15 ÷ 5 = 3.", "Factors: 1, 3, 5, 15 — four of them.", "More than two → 15 is composite."],
+      "steps": [
+        "15 ÷ 3 = 5, and 15 ÷ 5 = 3.",
+        "Factors: 1, 3, 5, 15 — four of them.",
+        "More than two → 15 is composite."
+      ],
       "answer": "composite"
     }
   ],
@@ -81,80 +147,194 @@
   "practice": {
     "easy": [
       {
-        "id": "n24-e1", "type": "mcq",
+        "id": "n24-e1",
+        "type": "mcq",
         "q": "Which of these is a prime number?",
-        "options": [ { "label": "7" }, { "label": "9", "mistakeTag": "all-odd-prime" } ],
+        "options": [
+          {
+            "label": "7"
+          },
+          {
+            "label": "9",
+            "mistakeTag": "all-odd-prime"
+          }
+        ],
         "answer": "7",
-        "hintLadder": ["Only two factors?", "7 → 1 and 7.", "7 is prime."]
+        "hintLadder": [
+          "Only two factors?",
+          "7 → 1 and 7.",
+          "7 is prime."
+        ]
       },
       {
-        "id": "n24-e2", "type": "number",
+        "id": "n24-e2",
+        "type": "number",
         "q": "How many factors does a prime number have?",
         "answer": "2",
-        "hintLadder": ["1 and itself.", "Count them.", "Two."]
+        "hintLadder": [
+          "1 and itself.",
+          "Count them.",
+          "Two."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n24-m1", "type": "mcq",
+        "id": "n24-m1",
+        "type": "mcq",
         "q": "Is 21 prime or composite?",
-        "options": [ { "label": "Composite (3 × 7)" }, { "label": "Prime", "mistakeTag": "all-odd-prime" } ],
+        "options": [
+          {
+            "label": "Composite (3 × 7)"
+          },
+          {
+            "label": "Prime",
+            "mistakeTag": "all-odd-prime"
+          }
+        ],
         "answer": "Composite (3 × 7)",
-        "hintLadder": ["Does 3 divide it?", "21 ÷ 3 = 7.", "So composite."]
+        "hintLadder": [
+          "Does 3 divide it?",
+          "21 ÷ 3 = 7.",
+          "So composite."
+        ]
       },
       {
-        "id": "n24-m2", "type": "mcq",
+        "id": "n24-m2",
+        "type": "mcq",
         "q": "Which is the only EVEN prime number?",
-        "options": [ { "label": "2" }, { "label": "4", "mistakeTag": "all-odd-prime" } ],
+        "options": [
+          {
+            "label": "2"
+          },
+          {
+            "label": "4",
+            "mistakeTag": "all-odd-prime"
+          }
+        ],
         "answer": "2",
-        "hintLadder": ["Its factors are 1 and 2.", "Every other even number has 2 as an extra factor.", "2."]
+        "hintLadder": [
+          "Its factors are 1 and 2.",
+          "Every other even number has 2 as an extra factor.",
+          "2."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n24-c1", "type": "mcq",
+        "id": "n24-c1",
+        "type": "mcq",
         "q": "Which list is ALL primes?",
-        "options": [ { "label": "2, 3, 5, 7, 11" }, { "label": "2, 3, 4, 5, 6", "mistakeTag": "all-odd-prime" } ],
+        "options": [
+          {
+            "label": "2, 3, 5, 7, 11"
+          },
+          {
+            "label": "2, 3, 4, 5, 6",
+            "mistakeTag": "all-odd-prime"
+          }
+        ],
         "answer": "2, 3, 5, 7, 11",
-        "hintLadder": ["Each must have exactly two factors.", "4 and 6 are composite.", "2, 3, 5, 7, 11."]
+        "hintLadder": [
+          "Each must have exactly two factors.",
+          "4 and 6 are composite.",
+          "2, 3, 5, 7, 11."
+        ]
       },
       {
-        "id": "n24-c2", "type": "mcq",
+        "id": "n24-c2",
+        "type": "mcq",
         "q": "Meena says 1 is prime. What's the fix?",
-        "options": [ { "label": "1 has only one factor, so it is neither prime nor composite" }, { "label": "She's right", "mistakeTag": "one-is-prime" } ],
+        "options": [
+          {
+            "label": "1 has only one factor, so it is neither prime nor composite"
+          },
+          {
+            "label": "She's right",
+            "mistakeTag": "one-is-prime"
+          }
+        ],
         "answer": "1 has only one factor, so it is neither prime nor composite",
-        "hintLadder": ["Prime needs exactly TWO factors.", "1 has just itself.", "Neither."]
+        "hintLadder": [
+          "Prime needs exactly TWO factors.",
+          "1 has just itself.",
+          "Neither."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n24-x1", "type": "mcq",
+        "id": "n24-x1",
+        "type": "mcq",
         "q": "Is 11 prime or composite?",
-        "options": [ { "label": "Prime" }, { "label": "Composite", "mistakeTag": "all-odd-prime" } ],
+        "options": [
+          {
+            "label": "Prime"
+          },
+          {
+            "label": "Composite",
+            "mistakeTag": "all-odd-prime"
+          }
+        ],
         "answer": "Prime",
-        "hintLadder": ["Factors of 11?", "Only 1 and 11.", "Prime."]
+        "hintLadder": [
+          "Factors of 11?",
+          "Only 1 and 11.",
+          "Prime."
+        ]
       },
       {
-        "id": "n24-x2", "type": "mcq",
+        "id": "n24-x2",
+        "type": "mcq",
         "q": "Is 9 prime or composite?",
-        "options": [ { "label": "Composite" }, { "label": "Prime", "mistakeTag": "all-odd-prime" } ],
+        "options": [
+          {
+            "label": "Composite"
+          },
+          {
+            "label": "Prime",
+            "mistakeTag": "all-odd-prime"
+          }
+        ],
         "answer": "Composite",
-        "hintLadder": ["9 = 3 × 3.", "Factors 1, 3, 9.", "Composite."]
+        "hintLadder": [
+          "9 = 3 × 3.",
+          "Factors 1, 3, 9.",
+          "Composite."
+        ]
       },
       {
-        "id": "n24-x3", "type": "number",
+        "id": "n24-x3",
+        "type": "number",
         "q": "How many factors does 6 have? (1, 2, 3, 6)",
         "answer": "4",
-        "hintLadder": ["List them: 1, 2, 3, 6.", "Count.", "Four."]
+        "hintLadder": [
+          "List them: 1, 2, 3, 6.",
+          "Count.",
+          "Four."
+        ]
       },
       {
-        "id": "n24-x4", "type": "mcq",
+        "id": "n24-x4",
+        "type": "mcq",
         "q": "The number 1 is…",
-        "options": [ { "label": "Neither prime nor composite" }, { "label": "Prime", "mistakeTag": "one-is-prime" } ],
+        "options": [
+          {
+            "label": "Neither prime nor composite"
+          },
+          {
+            "label": "Prime",
+            "mistakeTag": "one-is-prime"
+          }
+        ],
         "answer": "Neither prime nor composite",
-        "hintLadder": ["It has one factor.", "Not two, not more.", "Neither."]
+        "hintLadder": [
+          "It has one factor.",
+          "Not two, not more.",
+          "Neither."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -163,7 +343,11 @@
   "teachBackPrompt": "Take a handful of counters (say 7, then 12). Show a grown-up how 7 can only make one row (prime) but 12 makes several rectangles (composite), and explain that a prime has exactly two factors.",
   "revisionCard": {
     "summary": "Prime = exactly two factors (1 and itself): 2, 3, 5, 7, 11… Composite = more than two factors: 4, 6, 8, 9… 1 is neither. 2 is the only even prime. Odd doesn't mean prime (9, 15 are composite) — always check the factors.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -172,5 +356,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Prime = exactly TWO factors: 1 and itself",
+    "unpack": "2,3,5,7,11,13... 2 is the only even prime. 1 is NOT prime (it has only one factor). Numbers with more factors are 'composite'."
+  },
+  "studentQuestions": [
+    {
+      "q": "Is 1 a prime number?",
+      "a": "No. A prime needs exactly two different factors; 1 has only one (itself). So 1 is neither prime nor composite."
+    },
+    {
+      "q": "Why is 2 special?",
+      "a": "It is the only EVEN prime - every other even number is divisible by 2, giving it an extra factor."
+    }
+  ]
 }

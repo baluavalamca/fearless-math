@@ -448,5 +448,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "100 paise = 1 rupee. Count big coins first",
+    "unpack": "Count notes and big coins first, then the small ones. To give change, count UP from the price to the amount paid."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I work out change?",
+      "a": "Count UP from the price to what you paid. Bought for 30, gave 50: 30 -> 40 -> 50 is 20 change."
+    },
+    {
+      "q": "Which coins do I count first?",
+      "a": "Biggest first (notes, then big coins), then the small ones - faster, and you will not lose track."
+    }
+  ]
 }

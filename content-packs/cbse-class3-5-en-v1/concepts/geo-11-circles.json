@@ -3,7 +3,9 @@
   "name": "Circles — Radius, Diameter and Around",
   "grade": 6,
   "strand": "geometry",
-  "prerequisites": ["geo-01-shapes"],
+  "prerequisites": [
+    "geo-01-shapes"
+  ],
   "whatIsIt": "A circle is all the points the same distance from a centre. The RADIUS goes from the centre to the edge; the DIAMETER goes right across through the centre and is TWICE the radius (d = 2r). A CHORD joins two edge points; the CIRCUMFERENCE is the distance all the way around. The circumference is a little more than 3 diameters (about π = 3.14 times the diameter).",
   "whyNeeded": "Wheels, plates, clocks, coins and pipes are circles. Knowing radius, diameter and circumference lets you measure round things, and it's the foundation for area of a circle and later trigonometry.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Pipes and lids measured across (diameter)"
   ],
   "vocabulary": [
-    { "term": "radius", "meaning": "The distance from the centre to the edge." },
-    { "term": "diameter", "meaning": "The distance across through the centre; diameter = 2 × radius." },
-    { "term": "circumference", "meaning": "The distance all the way around the circle (≈ π × diameter)." }
+    {
+      "term": "radius",
+      "meaning": "The distance from the centre to the edge."
+    },
+    {
+      "term": "diameter",
+      "meaning": "The distance across through the centre; diameter = 2 × radius."
+    },
+    {
+      "term": "circumference",
+      "meaning": "The distance all the way around the circle (≈ π × diameter)."
+    }
   ],
   "story": {
     "title": "The Pizza Measure",
-    "characters": ["Sofia", "Chef"],
+    "characters": [
+      "Sofia",
+      "Chef"
+    ],
     "text": "Chef says the pizza has a radius of 15 cm. 'So how wide is it across?' asks Sofia. She knows the diameter is twice the radius: 2 × 15 = 30 cm. 'Thirty centimetres across!' Chef adds, 'and the crust all the way round is about 3 times that.' Sofia estimates ≈ 90 cm of crust.",
     "extractedProblem": "A pizza has radius 15 cm. What is its diameter?",
     "answerInStory": "30 cm — the diameter is twice the radius (2 × 15)."
@@ -28,7 +42,10 @@
     "component": "GeometryCanvas",
     "props": {
       "shapes": [
-        { "kind": "circle", "label": "radius, diameter, circumference" }
+        {
+          "kind": "circle",
+          "label": "radius, diameter, circumference"
+        }
       ]
     },
     "caption": "Centre to edge = radius; straight across through centre = diameter (2 × radius); all the way around = circumference."
@@ -38,9 +55,46 @@
       "title": "Parts of a circle",
       "note": "Diameter = 2 × radius; circumference ≈ 3.14 × diameter.",
       "examples": [
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "circle", "label": "r = 5 → d = 10" } ] }, "caption": "Radius 5 → diameter 10." },
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "circle", "label": "d = 14 → r = 7" } ] }, "caption": "Diameter 14 → radius 7." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": ["d", "≈ 3.14 × d", "= circumference"], "label": "around ≈ π × d" } ] }, "caption": "Circumference is a bit over 3 diameters." }
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "circle",
+                "label": "r = 5 → d = 10"
+              }
+            ]
+          },
+          "caption": "Radius 5 → diameter 10."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "circle",
+                "label": "d = 14 → r = 7"
+              }
+            ]
+          },
+          "caption": "Diameter 14 → radius 7."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  "d",
+                  "≈ 3.14 × d",
+                  "= circumference"
+                ],
+                "label": "around ≈ π × d"
+              }
+            ]
+          },
+          "caption": "Circumference is a bit over 3 diameters."
+        }
       ]
     }
   ],
@@ -56,12 +110,20 @@
   "workedExamples": [
     {
       "problem": "A circle has radius 7 cm. Find its diameter.",
-      "steps": ["Diameter = 2 × radius.", "2 × 7.", "= 14 cm."],
+      "steps": [
+        "Diameter = 2 × radius.",
+        "2 × 7.",
+        "= 14 cm."
+      ],
       "answer": "14"
     },
     {
       "problem": "A circle has diameter 10 cm. Estimate its circumference (π ≈ 3.14).",
-      "steps": ["Circumference ≈ π × diameter.", "3.14 × 10.", "≈ 31.4 cm."],
+      "steps": [
+        "Circumference ≈ π × diameter.",
+        "3.14 × 10.",
+        "≈ 31.4 cm."
+      ],
       "answer": "31.4"
     }
   ],
@@ -80,74 +142,140 @@
   "practice": {
     "easy": [
       {
-        "id": "g11-e1", "type": "number",
+        "id": "g11-e1",
+        "type": "number",
         "q": "A circle has radius 5 cm. What is the diameter (in cm)?",
         "answer": "10",
-        "hintLadder": ["Diameter = 2 × radius.", "2 × 5.", "10."]
+        "hintLadder": [
+          "Diameter = 2 × radius.",
+          "2 × 5.",
+          "10."
+        ]
       },
       {
-        "id": "g11-e2", "type": "number",
+        "id": "g11-e2",
+        "type": "number",
         "q": "A circle has diameter 12 cm. What is the radius (in cm)?",
         "answer": "6",
-        "hintLadder": ["Radius = diameter ÷ 2.", "12 ÷ 2.", "6."]
+        "hintLadder": [
+          "Radius = diameter ÷ 2.",
+          "12 ÷ 2.",
+          "6."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "g11-m1", "type": "number",
+        "id": "g11-m1",
+        "type": "number",
         "q": "Radius 9 cm — diameter (cm)?",
         "answer": "18",
-        "hintLadder": ["2 × radius.", "2 × 9.", "18."]
+        "hintLadder": [
+          "2 × radius.",
+          "2 × 9.",
+          "18."
+        ]
       },
       {
-        "id": "g11-m2", "type": "number",
+        "id": "g11-m2",
+        "type": "number",
         "q": "Diameter 20 cm — circumference (cm), using π ≈ 3.14? (write like 62.8)",
         "answer": "62.8",
-        "hintLadder": ["π × diameter.", "3.14 × 20.", "62.8."]
+        "hintLadder": [
+          "π × diameter.",
+          "3.14 × 20.",
+          "62.8."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "g11-c1", "type": "number",
+        "id": "g11-c1",
+        "type": "number",
         "q": "A wheel has radius 10 cm. What is its diameter (cm)?",
         "answer": "20",
-        "hintLadder": ["2 × radius.", "2 × 10.", "20."]
+        "hintLadder": [
+          "2 × radius.",
+          "2 × 10.",
+          "20."
+        ]
       },
       {
-        "id": "g11-c2", "type": "mcq",
+        "id": "g11-c2",
+        "type": "mcq",
         "q": "Ravi says a circle's circumference equals its diameter. What's the fix?",
-        "options": [ { "label": "It's about 3.14 × the diameter" }, { "label": "They're equal", "mistakeTag": "circumference-equals-diameter" } ],
+        "options": [
+          {
+            "label": "It's about 3.14 × the diameter"
+          },
+          {
+            "label": "They're equal",
+            "mistakeTag": "circumference-equals-diameter"
+          }
+        ],
         "answer": "It's about 3.14 × the diameter",
-        "hintLadder": ["Around is much longer.", "≈ π × d.", "≈ 3.14 × d."]
+        "hintLadder": [
+          "Around is much longer.",
+          "≈ π × d.",
+          "≈ 3.14 × d."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "g11-x1", "type": "number",
+        "id": "g11-x1",
+        "type": "number",
         "q": "Radius 8 cm — diameter (cm)?",
         "answer": "16",
-        "hintLadder": ["2 × radius.", "2 × 8.", "16."]
+        "hintLadder": [
+          "2 × radius.",
+          "2 × 8.",
+          "16."
+        ]
       },
       {
-        "id": "g11-x2", "type": "number",
+        "id": "g11-x2",
+        "type": "number",
         "q": "Diameter 18 cm — radius (cm)?",
         "answer": "9",
-        "hintLadder": ["Diameter ÷ 2.", "18 ÷ 2.", "9."]
+        "hintLadder": [
+          "Diameter ÷ 2.",
+          "18 ÷ 2.",
+          "9."
+        ]
       },
       {
-        "id": "g11-x3", "type": "number",
+        "id": "g11-x3",
+        "type": "number",
         "q": "Diameter 10 cm — circumference (cm), π ≈ 3.14? (write like 31.4)",
         "answer": "31.4",
-        "hintLadder": ["π × diameter.", "3.14 × 10.", "31.4."]
+        "hintLadder": [
+          "π × diameter.",
+          "3.14 × 10.",
+          "31.4."
+        ]
       },
       {
-        "id": "g11-x4", "type": "mcq",
+        "id": "g11-x4",
+        "type": "mcq",
         "q": "The line from the centre to the edge of a circle is the…",
-        "options": [ { "label": "Radius" }, { "label": "Diameter", "mistakeTag": "radius-diameter-swap" } ],
+        "options": [
+          {
+            "label": "Radius"
+          },
+          {
+            "label": "Diameter",
+            "mistakeTag": "radius-diameter-swap"
+          }
+        ],
         "answer": "Radius",
-        "hintLadder": ["Centre to edge.", "Half the diameter.", "Radius."]
+        "hintLadder": [
+          "Centre to edge.",
+          "Half the diameter.",
+          "Radius."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -156,7 +284,11 @@
   "teachBackPrompt": "Find a round object at home (plate, lid, bangle). Measure across through the middle (diameter) and show a grown-up that the radius is half of it. Wrap a string around to estimate the circumference and see it's about 3 times the diameter.",
   "revisionCard": {
     "summary": "Circle parts: radius (centre→edge), diameter (across through centre = 2 × radius), chord (edge to edge), circumference (around ≈ π × diameter ≈ 3.14 × d). Radius = diameter ÷ 2. The diameter is the longest chord.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -165,5 +297,30 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Radius = centre to edge. Diameter = 2 x radius (all the way across)",
+    "unpack": "Circumference (distance around) = 2 pi r = pi d. Area = pi r^2. pi is about 3.14."
+  },
+  "studentQuestions": [
+    {
+      "q": "Radius or diameter?",
+      "a": "Radius is centre to edge; diameter goes all the way across through the centre. Diameter = 2 x radius."
+    },
+    {
+      "q": "Circumference vs area?",
+      "a": "Circumference is the distance AROUND (2 pi r). Area is the space INSIDE (pi r^2)."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Circumference",
+      "formula": "C = 2 pi r = pi d"
+    },
+    {
+      "name": "Area",
+      "formula": "A = pi r^2",
+      "remember": "'Pie are squared'"
+    }
+  ]
 }

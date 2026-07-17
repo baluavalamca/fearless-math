@@ -563,5 +563,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Each place is 10 times the one to its right",
+    "unpack": "Ones, Tens, Hundreds, Thousands... every step left is x10. The 5 in 50 means five TENS; the 5 in 500 means five HUNDREDS."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why does the same digit mean different amounts?",
+      "a": "Its PLACE decides its value. The 3 in 30 is thirty; the 3 in 300 is three hundred. Position is everything."
+    },
+    {
+      "q": "What does the 0 do in a number like 305?",
+      "a": "It holds the tens place empty so the 3 stays in hundreds. Without it, 305 would shrink to 35."
+    }
+  ]
 }

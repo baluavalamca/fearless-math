@@ -500,5 +500,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "I V X L C D M = 1 5 10 50 100 500 1000",
+    "unpack": "'I Value Xylophones Like Cows Do Milk'. Smaller BEFORE bigger = subtract (IV=4, IX=9). Smaller after = add (VI=6). Never four in a row."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why is 4 written IV, not IIII?",
+      "a": "A smaller numeral BEFORE a bigger one means subtract: IV = 5-1 = 4. It avoids four in a row."
+    },
+    {
+      "q": "How do I read a mix like XIV?",
+      "a": "Left to right, adding, but subtract when a smaller symbol sits before a bigger one. X + IV = 10 + 4 = 14."
+    }
+  ]
 }

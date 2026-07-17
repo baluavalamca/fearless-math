@@ -3,7 +3,9 @@
   "name": "Chance and Probability — How Likely Is It?",
   "grade": 7,
   "strand": "data",
-  "prerequisites": ["data-04-smart-charts"],
+  "prerequisites": [
+    "data-04-smart-charts"
+  ],
   "whatIsIt": "Probability measures how LIKELY something is. Some events are certain (the sun will rise), some impossible (rolling a 7 on a normal dice), most are in between: impossible → unlikely → even chance → likely → certain. We can put a number on it: probability = favourable outcomes ÷ total outcomes. Tossing a coin gives heads a 1 out of 2 chance.",
   "whyNeeded": "Weather forecasts, games, fairness ('is this a fair coin?'), risk, and later statistics and data science all rest on chance. Thinking clearly about 'how likely' helps you make better decisions and spot when something is unfair.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "The chance of rolling a six in a board game"
   ],
   "vocabulary": [
-    { "term": "outcome", "meaning": "One possible result (like heads, or rolling a 3)." },
-    { "term": "favourable outcome", "meaning": "An outcome we're asking about (e.g. rolling an even number)." },
-    { "term": "probability", "meaning": "favourable outcomes ÷ total outcomes; from 0 (impossible) to 1 (certain)." }
+    {
+      "term": "outcome",
+      "meaning": "One possible result (like heads, or rolling a 3)."
+    },
+    {
+      "term": "favourable outcome",
+      "meaning": "An outcome we're asking about (e.g. rolling an even number)."
+    },
+    {
+      "term": "probability",
+      "meaning": "favourable outcomes ÷ total outcomes; from 0 (impossible) to 1 (certain)."
+    }
   ],
   "story": {
     "title": "Who Bats First?",
-    "characters": ["Isha", "Rehan"],
+    "characters": [
+      "Isha",
+      "Rehan"
+    ],
     "text": "Isha and Rehan flip a coin to decide who bats first. 'Is this fair?' asks Rehan. Isha thinks: a coin has two sides, heads and tails. 'Each has 1 out of 2 chance — an even chance. It's perfectly fair.' Rehan calls heads, the coin lands tails, and Isha bats. 'Fair is fair,' he laughs.",
     "extractedProblem": "A coin is tossed. What is the chance of getting heads?",
     "answerInStory": "1 out of 2 — an even chance, because there are 2 equally likely sides."
@@ -28,7 +42,11 @@
     "component": "PizzaSlices",
     "props": {
       "pies": [
-        { "parts": 2, "shaded": 1, "label": "heads: 1 of 2" }
+        {
+          "parts": 2,
+          "shaded": 1,
+          "label": "heads: 1 of 2"
+        }
       ]
     },
     "caption": "A coin toss: 1 favourable (heads) out of 2 total → probability 1/2, an even chance."
@@ -38,9 +56,48 @@
       "title": "From impossible to certain",
       "note": "Probability = favourable ÷ total, between 0 and 1.",
       "examples": [
-        { "component": "PizzaSlices", "props": { "pies": [ { "parts": 6, "shaded": 1, "label": "rolling a 6: 1 of 6" } ] }, "caption": "One face out of six → 1/6, unlikely." },
-        { "component": "PizzaSlices", "props": { "pies": [ { "parts": 6, "shaded": 3, "label": "even number: 3 of 6" } ] }, "caption": "2, 4, 6 → 3/6 = 1/2, even chance." },
-        { "component": "BarChart", "props": { "categories": [ { "label": "red", "value": 3 }, { "label": "blue", "value": 1 } ] }, "caption": "3 red, 1 blue → red is more likely (3 of 4)." }
+        {
+          "component": "PizzaSlices",
+          "props": {
+            "pies": [
+              {
+                "parts": 6,
+                "shaded": 1,
+                "label": "rolling a 6: 1 of 6"
+              }
+            ]
+          },
+          "caption": "One face out of six → 1/6, unlikely."
+        },
+        {
+          "component": "PizzaSlices",
+          "props": {
+            "pies": [
+              {
+                "parts": 6,
+                "shaded": 3,
+                "label": "even number: 3 of 6"
+              }
+            ]
+          },
+          "caption": "2, 4, 6 → 3/6 = 1/2, even chance."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "red",
+                "value": 3
+              },
+              {
+                "label": "blue",
+                "value": 1
+              }
+            ]
+          },
+          "caption": "3 red, 1 blue → red is more likely (3 of 4)."
+        }
       ]
     }
   ],
@@ -56,12 +113,20 @@
   "workedExamples": [
     {
       "problem": "A dice is rolled. What is the probability of getting an even number?",
-      "steps": ["Total outcomes: 1, 2, 3, 4, 5, 6 → 6.", "Favourable (even): 2, 4, 6 → 3.", "Probability = 3/6 = 1/2."],
+      "steps": [
+        "Total outcomes: 1, 2, 3, 4, 5, 6 → 6.",
+        "Favourable (even): 2, 4, 6 → 3.",
+        "Probability = 3/6 = 1/2."
+      ],
       "answer": "1/2"
     },
     {
       "problem": "A bag has 3 red and 1 blue ball. What is the chance of drawing a red one?",
-      "steps": ["Total balls = 3 + 1 = 4.", "Favourable (red) = 3.", "Probability = 3/4."],
+      "steps": [
+        "Total balls = 3 + 1 = 4.",
+        "Favourable (red) = 3.",
+        "Probability = 3/4."
+      ],
       "answer": "3/4"
     }
   ],
@@ -80,76 +145,158 @@
   "practice": {
     "easy": [
       {
-        "id": "d05-e1", "type": "mcq",
+        "id": "d05-e1",
+        "type": "mcq",
         "q": "Rolling a 7 on a normal six-sided dice is…",
-        "options": [ { "label": "Impossible" }, { "label": "Likely", "mistakeTag": "certain-vs-likely" } ],
+        "options": [
+          {
+            "label": "Impossible"
+          },
+          {
+            "label": "Likely",
+            "mistakeTag": "certain-vs-likely"
+          }
+        ],
         "answer": "Impossible",
-        "hintLadder": ["A dice only has 1 to 6.", "There is no 7.", "Impossible."]
+        "hintLadder": [
+          "A dice only has 1 to 6.",
+          "There is no 7.",
+          "Impossible."
+        ]
       },
       {
-        "id": "d05-e2", "type": "fraction",
+        "id": "d05-e2",
+        "type": "fraction",
         "q": "What is the probability of heads on a coin toss? (write like 1/2)",
         "answer": "1/2",
-        "hintLadder": ["1 favourable (heads).", "Out of 2 sides.", "1/2."]
+        "hintLadder": [
+          "1 favourable (heads).",
+          "Out of 2 sides.",
+          "1/2."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "d05-m1", "type": "fraction",
+        "id": "d05-m1",
+        "type": "fraction",
         "q": "A dice is rolled. Probability of getting a 3? (write like 1/6)",
         "answer": "1/6",
-        "hintLadder": ["One favourable face (3).", "Out of 6 total.", "1/6."]
+        "hintLadder": [
+          "One favourable face (3).",
+          "Out of 6 total.",
+          "1/6."
+        ]
       },
       {
-        "id": "d05-m2", "type": "fraction",
+        "id": "d05-m2",
+        "type": "fraction",
         "q": "A bag has 2 red and 2 green balls. Probability of red? (write like 1/2)",
         "answer": "1/2",
-        "hintLadder": ["Favourable red = 2.", "Total = 4.", "2/4 = 1/2."]
+        "hintLadder": [
+          "Favourable red = 2.",
+          "Total = 4.",
+          "2/4 = 1/2."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "d05-c1", "type": "fraction",
+        "id": "d05-c1",
+        "type": "fraction",
         "q": "A dice is rolled. Probability of an even number? (write like 1/2)",
         "answer": "1/2",
-        "hintLadder": ["Even faces: 2, 4, 6 → 3.", "Out of 6.", "3/6 = 1/2."]
+        "hintLadder": [
+          "Even faces: 2, 4, 6 → 3.",
+          "Out of 6.",
+          "3/6 = 1/2."
+        ]
       },
       {
-        "id": "d05-c2", "type": "mcq",
+        "id": "d05-c2",
+        "type": "mcq",
         "q": "A bag has 3 red and 1 blue. Ravi says the chance of red is 3/1. What's the fix?",
-        "options": [ { "label": "It's 3 out of 4 total = 3/4" }, { "label": "3/1 is right", "mistakeTag": "favourable-over-favourable" } ],
+        "options": [
+          {
+            "label": "It's 3 out of 4 total = 3/4"
+          },
+          {
+            "label": "3/1 is right",
+            "mistakeTag": "favourable-over-favourable"
+          }
+        ],
         "answer": "It's 3 out of 4 total = 3/4",
-        "hintLadder": ["Divide by TOTAL, not the others.", "Total = 4.", "3/4."]
+        "hintLadder": [
+          "Divide by TOTAL, not the others.",
+          "Total = 4.",
+          "3/4."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "d05-x1", "type": "mcq",
+        "id": "d05-x1",
+        "type": "mcq",
         "q": "The sun rising tomorrow is…",
-        "options": [ { "label": "Certain" }, { "label": "Unlikely", "mistakeTag": "certain-vs-likely" } ],
+        "options": [
+          {
+            "label": "Certain"
+          },
+          {
+            "label": "Unlikely",
+            "mistakeTag": "certain-vs-likely"
+          }
+        ],
         "answer": "Certain",
-        "hintLadder": ["It always happens.", "Probability 1.", "Certain."]
+        "hintLadder": [
+          "It always happens.",
+          "Probability 1.",
+          "Certain."
+        ]
       },
       {
-        "id": "d05-x2", "type": "fraction",
+        "id": "d05-x2",
+        "type": "fraction",
         "q": "Probability of tails on a coin? (write like 1/2)",
         "answer": "1/2",
-        "hintLadder": ["1 favourable of 2.", "Even chance.", "1/2."]
+        "hintLadder": [
+          "1 favourable of 2.",
+          "Even chance.",
+          "1/2."
+        ]
       },
       {
-        "id": "d05-x3", "type": "fraction",
+        "id": "d05-x3",
+        "type": "fraction",
         "q": "A bag has 1 red and 3 blue. Probability of red? (write like 1/4)",
         "answer": "1/4",
-        "hintLadder": ["Favourable = 1.", "Total = 4.", "1/4."]
+        "hintLadder": [
+          "Favourable = 1.",
+          "Total = 4.",
+          "1/4."
+        ]
       },
       {
-        "id": "d05-x4", "type": "mcq",
+        "id": "d05-x4",
+        "type": "mcq",
         "q": "Probability equals…",
-        "options": [ { "label": "favourable ÷ total outcomes" }, { "label": "favourable ÷ other outcomes", "mistakeTag": "favourable-over-favourable" } ],
+        "options": [
+          {
+            "label": "favourable ÷ total outcomes"
+          },
+          {
+            "label": "favourable ÷ other outcomes",
+            "mistakeTag": "favourable-over-favourable"
+          }
+        ],
         "answer": "favourable ÷ total outcomes",
-        "hintLadder": ["Compare to the whole.", "Divide by total.", "favourable ÷ total."]
+        "hintLadder": [
+          "Compare to the whole.",
+          "Divide by total.",
+          "favourable ÷ total."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -158,7 +305,11 @@
   "teachBackPrompt": "Toss a coin or roll a dice several times with a grown-up. Predict how likely each result is as a fraction, then explain why probability is favourable outcomes divided by the total — and why a fair coin gives an even chance.",
   "revisionCard": {
     "summary": "Probability = how likely, from 0 (impossible) to 1 (certain): impossible → unlikely → even → likely → certain. Number form: favourable ÷ TOTAL outcomes. Coin heads = 1/2; rolling a 6 = 1/6; even on a dice = 3/6 = 1/2.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -167,5 +318,31 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "P(event) = favourable / total, always between 0 and 1",
+    "unpack": "0 = impossible, 1 = certain. P(not A) = 1 - P(A). All outcome probabilities add up to 1."
+  },
+  "studentQuestions": [
+    {
+      "q": "Can a probability be more than 1?",
+      "a": "Never. It runs from 0 (impossible) to 1 (certain). If you get more than 1, something is wrong."
+    },
+    {
+      "q": "Quickest way to find 'at least one'?",
+      "a": "Use P(at least one) = 1 - P(none). Usually far easier than counting all the cases."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Probability",
+      "formula": "P(A) = favourable outcomes / total outcomes",
+      "remember": "Always between 0 and 1"
+    },
+    {
+      "name": "Complement",
+      "formula": "P(not A) = 1 - P(A)",
+      "remember": "Great for 'at least one' problems"
+    }
+  ]
 }

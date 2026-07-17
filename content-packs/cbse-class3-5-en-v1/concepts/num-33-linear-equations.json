@@ -3,7 +3,9 @@
   "name": "Linear Equations and Inequalities",
   "grade": 8,
   "strand": "numbers",
-  "prerequisites": ["num-32-expressions"],
+  "prerequisites": [
+    "num-32-expressions"
+  ],
   "whatIsIt": "A LINEAR EQUATION like 2x + 3 = 11 has a letter to the first power and an equals sign. To SOLVE, do the SAME thing to BOTH sides to get x alone: subtract 3 (→ 2x = 8), then divide by 2 (→ x = 4). An INEQUALITY uses <, >, ≤ or ≥ and has a RANGE of answers (x + 2 > 5 means x > 3). Solve it the same way — but flip the sign if you multiply or divide by a negative.",
   "whyNeeded": "Equations model real unknowns — 'how many tickets can I buy with ₹500?'. Solving them is the core skill of algebra and appears in every science, finance and engineering formula.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Break-even points in simple business maths"
   ],
   "vocabulary": [
-    { "term": "linear equation", "meaning": "An equation with a letter to the first power and an = sign." },
-    { "term": "balance", "meaning": "Do the SAME operation to both sides to keep the equation true." },
-    { "term": "inequality", "meaning": "A statement with <, >, ≤ or ≥ that has a range of solutions." }
+    {
+      "term": "linear equation",
+      "meaning": "An equation with a letter to the first power and an = sign."
+    },
+    {
+      "term": "balance",
+      "meaning": "Do the SAME operation to both sides to keep the equation true."
+    },
+    {
+      "term": "inequality",
+      "meaning": "A statement with <, >, ≤ or ≥ that has a range of solutions."
+    }
   ],
   "story": {
     "title": "The Balanced Scale",
-    "characters": ["Meera", "Sir"],
+    "characters": [
+      "Meera",
+      "Sir"
+    ],
     "text": "Sir writes 2x + 3 = 11 and calls it a balance scale. 'Keep it level,' he says. Meera takes 3 from both sides: 2x = 8. Then she halves both sides: x = 4. 'Whatever I do to one side, I do to the other,' she says. Sir checks: 2×4 + 3 = 11. Balanced!",
     "extractedProblem": "Solve 2x + 3 = 11.",
     "answerInStory": "x = 4 — take 3 from both sides (2x = 8), then divide by 2."
@@ -28,7 +42,18 @@
     "component": "BarModel",
     "props": {
       "bars": [
-        { "label": "2x + 3 = 11 → 2x = 8", "parts": [ { "value": 8 }, { "value": 3 } ], "showTotal": true }
+        {
+          "label": "2x + 3 = 11 → 2x = 8",
+          "parts": [
+            {
+              "value": 8
+            },
+            {
+              "value": 3
+            }
+          ],
+          "showTotal": true
+        }
       ]
     },
     "caption": "The bar is 11; remove the constant 3 from both sides → 2x = 8; halve → x = 4."
@@ -38,9 +63,57 @@
       "title": "Do the same to both sides",
       "note": "Undo with opposite operations to isolate the letter.",
       "examples": [
-        { "component": "BarModel", "props": { "bars": [ { "label": "x + 5 = 12 → x = 7", "parts": [ { "value": 7 }, { "value": 5 } ], "showTotal": true } ] }, "caption": "Subtract 5 from both sides." },
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 3, "cols": 4, "asGroups": true, "label": "3x = 12 → x = 4" } ] }, "caption": "Divide both sides by 3." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [4, 5, 6, 7], "label": "x > 3: 4, 5, 6, …" } ] }, "caption": "An inequality has a RANGE of answers." }
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "x + 5 = 12 → x = 7",
+                "parts": [
+                  {
+                    "value": 7
+                  },
+                  {
+                    "value": 5
+                  }
+                ],
+                "showTotal": true
+              }
+            ]
+          },
+          "caption": "Subtract 5 from both sides."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 4,
+                "asGroups": true,
+                "label": "3x = 12 → x = 4"
+              }
+            ]
+          },
+          "caption": "Divide both sides by 3."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "label": "x > 3: 4, 5, 6, …"
+              }
+            ]
+          },
+          "caption": "An inequality has a RANGE of answers."
+        }
       ]
     }
   ],
@@ -56,12 +129,20 @@
   "workedExamples": [
     {
       "problem": "Solve 3x − 4 = 11.",
-      "steps": ["Add 4 to both sides: 3x = 15.", "Divide by 3: x = 5.", "Check: 3×5 − 4 = 11. ✓"],
+      "steps": [
+        "Add 4 to both sides: 3x = 15.",
+        "Divide by 3: x = 5.",
+        "Check: 3×5 − 4 = 11. ✓"
+      ],
       "answer": "5"
     },
     {
       "problem": "Solve the inequality x + 2 > 6.",
-      "steps": ["Subtract 2 from both sides.", "x > 4.", "So any number bigger than 4 works."],
+      "steps": [
+        "Subtract 2 from both sides.",
+        "x > 4.",
+        "So any number bigger than 4 works."
+      ],
       "answer": "x > 4"
     }
   ],
@@ -80,74 +161,140 @@
   "practice": {
     "easy": [
       {
-        "id": "n33-e1", "type": "number",
+        "id": "n33-e1",
+        "type": "number",
         "q": "Solve x + 4 = 9. What is x?",
         "answer": "5",
-        "hintLadder": ["Subtract 4 both sides.", "9 − 4.", "5."]
+        "hintLadder": [
+          "Subtract 4 both sides.",
+          "9 − 4.",
+          "5."
+        ]
       },
       {
-        "id": "n33-e2", "type": "number",
+        "id": "n33-e2",
+        "type": "number",
         "q": "Solve 2x = 10. What is x?",
         "answer": "5",
-        "hintLadder": ["Divide both sides by 2.", "10 ÷ 2.", "5."]
+        "hintLadder": [
+          "Divide both sides by 2.",
+          "10 ÷ 2.",
+          "5."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n33-m1", "type": "number",
+        "id": "n33-m1",
+        "type": "number",
         "q": "Solve 2x + 3 = 11. What is x?",
         "answer": "4",
-        "hintLadder": ["Subtract 3: 2x = 8.", "Divide by 2.", "4."]
+        "hintLadder": [
+          "Subtract 3: 2x = 8.",
+          "Divide by 2.",
+          "4."
+        ]
       },
       {
-        "id": "n33-m2", "type": "number",
+        "id": "n33-m2",
+        "type": "number",
         "q": "Solve 3x − 2 = 13. What is x?",
         "answer": "5",
-        "hintLadder": ["Add 2: 3x = 15.", "Divide by 3.", "5."]
+        "hintLadder": [
+          "Add 2: 3x = 15.",
+          "Divide by 3.",
+          "5."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n33-c1", "type": "number",
+        "id": "n33-c1",
+        "type": "number",
         "q": "Solve 5x + 4 = 24. What is x?",
         "answer": "4",
-        "hintLadder": ["Subtract 4: 5x = 20.", "Divide by 5.", "4."]
+        "hintLadder": [
+          "Subtract 4: 5x = 20.",
+          "Divide by 5.",
+          "4."
+        ]
       },
       {
-        "id": "n33-c2", "type": "mcq",
+        "id": "n33-c2",
+        "type": "mcq",
         "q": "Solve x + 3 > 7. Which describes x?",
-        "options": [ { "label": "x > 4" }, { "label": "x > 10", "mistakeTag": "one-side-only" } ],
+        "options": [
+          {
+            "label": "x > 4"
+          },
+          {
+            "label": "x > 10",
+            "mistakeTag": "one-side-only"
+          }
+        ],
         "answer": "x > 4",
-        "hintLadder": ["Subtract 3 from both sides.", "7 − 3.", "x > 4."]
+        "hintLadder": [
+          "Subtract 3 from both sides.",
+          "7 − 3.",
+          "x > 4."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n33-x1", "type": "number",
+        "id": "n33-x1",
+        "type": "number",
         "q": "Solve x − 5 = 3. What is x?",
         "answer": "8",
-        "hintLadder": ["Add 5 both sides.", "3 + 5.", "8."]
+        "hintLadder": [
+          "Add 5 both sides.",
+          "3 + 5.",
+          "8."
+        ]
       },
       {
-        "id": "n33-x2", "type": "number",
+        "id": "n33-x2",
+        "type": "number",
         "q": "Solve 4x = 20. What is x?",
         "answer": "5",
-        "hintLadder": ["Divide by 4.", "20 ÷ 4.", "5."]
+        "hintLadder": [
+          "Divide by 4.",
+          "20 ÷ 4.",
+          "5."
+        ]
       },
       {
-        "id": "n33-x3", "type": "number",
+        "id": "n33-x3",
+        "type": "number",
         "q": "Solve 2x + 1 = 9. What is x?",
         "answer": "4",
-        "hintLadder": ["Subtract 1: 2x = 8.", "Divide by 2.", "4."]
+        "hintLadder": [
+          "Subtract 1: 2x = 8.",
+          "Divide by 2.",
+          "4."
+        ]
       },
       {
-        "id": "n33-x4", "type": "mcq",
+        "id": "n33-x4",
+        "type": "mcq",
         "q": "To keep an equation true you must…",
-        "options": [ { "label": "Do the same to both sides" }, { "label": "Change one side only", "mistakeTag": "one-side-only" } ],
+        "options": [
+          {
+            "label": "Do the same to both sides"
+          },
+          {
+            "label": "Change one side only",
+            "mistakeTag": "one-side-only"
+          }
+        ],
         "answer": "Do the same to both sides",
-        "hintLadder": ["Keep the balance.", "Both sides.", "Same operation."]
+        "hintLadder": [
+          "Keep the balance.",
+          "Both sides.",
+          "Same operation."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -156,7 +303,11 @@
   "teachBackPrompt": "Show a grown-up how an equation is like a balance scale: write 2x + 3 = 11 and explain each step (take 3 from both sides, then halve both sides) to find x = 4 — and check it balances.",
   "revisionCard": {
     "summary": "Linear equation: letter to the first power, with =. Solve by doing the SAME inverse operation to BOTH sides until the letter is alone; check by substituting. Inequalities (<, >, ≤, ≥) have a range of answers — solve the same way, but FLIP the sign if you multiply/divide by a negative.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "vedicMethod": {
     "name": "Vedic: Transpose and Adjust (Paravartya Yojayet)",
@@ -189,5 +340,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Get x alone: do the SAME to both sides, undoing with opposites",
+    "unpack": "Opposite of + is -, of x is /. x + 5 = 12 -> subtract 5 -> x = 7. Keep the equation balanced like a see-saw."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I get x by itself?",
+      "a": "Undo whatever is attached to x using the opposite operation, and do it to BOTH sides. +5 -> subtract 5 from both."
+    },
+    {
+      "q": "Why do the same to both sides?",
+      "a": "The '=' is a balance. Change one side only and it tips - do the same to both and it stays true."
+    }
+  ]
 }

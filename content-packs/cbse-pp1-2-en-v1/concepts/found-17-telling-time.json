@@ -3,7 +3,10 @@
   "name": "Telling Time — O'clock and Half Past",
   "grade": 2,
   "strand": "measurement",
-  "prerequisites": ["found-05-skip-counting", "num-00-counting-to-100"],
+  "prerequisites": [
+    "found-05-skip-counting",
+    "num-00-counting-to-100"
+  ],
   "whatIsIt": "A clock has two hands. The SHORT hand shows the HOUR. The LONG hand shows the MINUTES. When the long hand points straight up to 12, it is exactly 'o'clock' (like 3 o'clock). When the long hand points straight down to 6, half the hour has gone — that is 'half past' (like half past 3, or 3:30). There are 60 minutes in one hour.",
   "whyNeeded": "Time runs a child's whole day — school at 8 o'clock, lunch at half past 12, cartoons at 5. Reading a clock lets them follow a routine, be on time, and understand 'before' and 'after' in real life.",
   "realLifeUses": [
@@ -13,14 +16,29 @@
     "A TV show at half past 5"
   ],
   "vocabulary": [
-    { "term": "hour hand", "meaning": "The SHORT hand — it points to the hour." },
-    { "term": "minute hand", "meaning": "The LONG hand — it points to the minutes." },
-    { "term": "o'clock", "meaning": "When the long hand points to 12 — a whole hour, no extra minutes." },
-    { "term": "half past", "meaning": "When the long hand points to 6 — 30 minutes past the hour." }
+    {
+      "term": "hour hand",
+      "meaning": "The SHORT hand — it points to the hour."
+    },
+    {
+      "term": "minute hand",
+      "meaning": "The LONG hand — it points to the minutes."
+    },
+    {
+      "term": "o'clock",
+      "meaning": "When the long hand points to 12 — a whole hour, no extra minutes."
+    },
+    {
+      "term": "half past",
+      "meaning": "When the long hand points to 6 — 30 minutes past the hour."
+    }
   ],
   "story": {
     "title": "Meera's School Bell",
-    "characters": ["Meera", "Amma"],
+    "characters": [
+      "Meera",
+      "Amma"
+    ],
     "text": "Amma points to the clock. 'The short hand is on 8 and the long hand is straight up on 12,' she says. 'What time is it?' Meera remembers: long hand on 12 means o'clock. '8 o'clock — time for school!' Later the long hand has walked halfway round to the 6. 'Now it's half past 8,' Meera grins, 'thirty minutes gone!'",
     "extractedProblem": "The short hand is on 8 and the long hand points to 12. What time is it?",
     "answerInStory": "8 o'clock — the long hand on 12 means a whole hour, no extra minutes."
@@ -29,8 +47,16 @@
     "component": "ClockFace",
     "props": {
       "clocks": [
-        { "hour": 3, "minute": 0, "label": "3 o'clock (long hand on 12)" },
-        { "hour": 3, "minute": 30, "label": "half past 3 (long hand on 6)" }
+        {
+          "hour": 3,
+          "minute": 0,
+          "label": "3 o'clock (long hand on 12)"
+        },
+        {
+          "hour": 3,
+          "minute": 30,
+          "label": "half past 3 (long hand on 6)"
+        }
       ]
     },
     "caption": "Long hand UP on 12 = o'clock. Long hand DOWN on 6 = half past. The short hand tells you which hour."
@@ -40,9 +66,45 @@
       "title": "Where is the long hand?",
       "note": "Long hand on 12 = o'clock; on 6 = half past. The short hand names the hour.",
       "examples": [
-        { "component": "ClockFace", "props": { "clocks": [ { "hour": 6, "minute": 0, "label": "6 o'clock" } ] }, "caption": "Long hand on 12, short hand on 6 → 6 o'clock." },
-        { "component": "ClockFace", "props": { "clocks": [ { "hour": 9, "minute": 30, "label": "half past 9" } ] }, "caption": "Long hand on 6 → half past; the short hand sits between 9 and 10, so the hour is 9." },
-        { "component": "ClockFace", "props": { "clocks": [ { "hour": 12, "minute": 0, "label": "12 o'clock" } ] }, "caption": "Both hands straight up → 12 o'clock (noon or midnight)." }
+        {
+          "component": "ClockFace",
+          "props": {
+            "clocks": [
+              {
+                "hour": 6,
+                "minute": 0,
+                "label": "6 o'clock"
+              }
+            ]
+          },
+          "caption": "Long hand on 12, short hand on 6 → 6 o'clock."
+        },
+        {
+          "component": "ClockFace",
+          "props": {
+            "clocks": [
+              {
+                "hour": 9,
+                "minute": 30,
+                "label": "half past 9"
+              }
+            ]
+          },
+          "caption": "Long hand on 6 → half past; the short hand sits between 9 and 10, so the hour is 9."
+        },
+        {
+          "component": "ClockFace",
+          "props": {
+            "clocks": [
+              {
+                "hour": 12,
+                "minute": 0,
+                "label": "12 o'clock"
+              }
+            ]
+          },
+          "caption": "Both hands straight up → 12 o'clock (noon or midnight)."
+        }
       ]
     }
   ],
@@ -59,12 +121,20 @@
   "workedExamples": [
     {
       "problem": "The long hand points to 12 and the short hand to 3. What time is it?",
-      "steps": ["Long hand on 12 means o'clock — no extra minutes.", "Short hand on 3 names the hour.", "So it is 3 o'clock."],
+      "steps": [
+        "Long hand on 12 means o'clock — no extra minutes.",
+        "Short hand on 3 names the hour.",
+        "So it is 3 o'clock."
+      ],
       "answer": "3 o'clock"
     },
     {
       "problem": "How many minutes are there in one hour?",
-      "steps": ["The long hand walks all the way around once in an hour.", "Each number is 5 minutes; 12 numbers × 5.", "= 60 minutes."],
+      "steps": [
+        "The long hand walks all the way around once in an hour.",
+        "Each number is 5 minutes; 12 numbers × 5.",
+        "= 60 minutes."
+      ],
       "answer": "60"
     }
   ],
@@ -82,24 +152,151 @@
   ],
   "practice": {
     "easy": [
-      { "id": "f17-e1", "type": "number", "q": "When it is 'o'clock', the long (minute) hand points to which number?", "answer": "12", "hintLadder": ["Straight up.", "The top of the clock.", "12."] },
-      { "id": "f17-e2", "type": "number", "q": "How many minutes are in one hour?", "answer": "60", "hintLadder": ["The long hand goes all the way round once.", "12 numbers × 5 minutes.", "60."] }
+      {
+        "id": "f17-e1",
+        "type": "number",
+        "q": "When it is 'o'clock', the long (minute) hand points to which number?",
+        "answer": "12",
+        "hintLadder": [
+          "Straight up.",
+          "The top of the clock.",
+          "12."
+        ]
+      },
+      {
+        "id": "f17-e2",
+        "type": "number",
+        "q": "How many minutes are in one hour?",
+        "answer": "60",
+        "hintLadder": [
+          "The long hand goes all the way round once.",
+          "12 numbers × 5 minutes.",
+          "60."
+        ]
+      }
     ],
     "medium": [
-      { "id": "f17-m1", "type": "number", "q": "At 'half past', the long hand points to which number?", "answer": "6", "hintLadder": ["Halfway around the clock.", "Straight down.", "6."] },
-      { "id": "f17-m2", "type": "number", "q": "How many minutes is 'half past' (half an hour)?", "answer": "30", "hintLadder": ["Half of 60.", "60 ÷ 2.", "30."] }
+      {
+        "id": "f17-m1",
+        "type": "number",
+        "q": "At 'half past', the long hand points to which number?",
+        "answer": "6",
+        "hintLadder": [
+          "Halfway around the clock.",
+          "Straight down.",
+          "6."
+        ]
+      },
+      {
+        "id": "f17-m2",
+        "type": "number",
+        "q": "How many minutes is 'half past' (half an hour)?",
+        "answer": "30",
+        "hintLadder": [
+          "Half of 60.",
+          "60 ÷ 2.",
+          "30."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "f17-c1", "type": "mcq", "q": "The long hand points to 12 and the short hand to 7. What time is it?", "options": [ { "label": "7 o'clock" }, { "label": "12 o'clock", "mistakeTag": "swap-hands" } ], "answer": "7 o'clock", "hintLadder": ["Long hand on 12 = o'clock.", "The SHORT hand names the hour.", "Short hand on 7 → 7 o'clock."] },
-      { "id": "f17-c2", "type": "mcq", "q": "The short hand is between 4 and 5, the long hand on 6. What time is it?", "options": [ { "label": "Half past 4" }, { "label": "Half past 5", "mistakeTag": "half-past-hour" } ], "answer": "Half past 4", "hintLadder": ["Long hand on 6 = half past.", "Name the SMALLER hour number.", "Half past 4."] }
+      {
+        "id": "f17-c1",
+        "type": "mcq",
+        "q": "The long hand points to 12 and the short hand to 7. What time is it?",
+        "options": [
+          {
+            "label": "7 o'clock"
+          },
+          {
+            "label": "12 o'clock",
+            "mistakeTag": "swap-hands"
+          }
+        ],
+        "answer": "7 o'clock",
+        "hintLadder": [
+          "Long hand on 12 = o'clock.",
+          "The SHORT hand names the hour.",
+          "Short hand on 7 → 7 o'clock."
+        ]
+      },
+      {
+        "id": "f17-c2",
+        "type": "mcq",
+        "q": "The short hand is between 4 and 5, the long hand on 6. What time is it?",
+        "options": [
+          {
+            "label": "Half past 4"
+          },
+          {
+            "label": "Half past 5",
+            "mistakeTag": "half-past-hour"
+          }
+        ],
+        "answer": "Half past 4",
+        "hintLadder": [
+          "Long hand on 6 = half past.",
+          "Name the SMALLER hour number.",
+          "Half past 4."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "f17-x1", "type": "number", "q": "For 'o'clock', the long hand is on which number?", "answer": "12", "hintLadder": ["Straight up.", "Top.", "12."] },
-      { "id": "f17-x2", "type": "number", "q": "Minutes in one whole hour?", "answer": "60", "hintLadder": ["Once around the clock.", "12 × 5.", "60."] },
-      { "id": "f17-x3", "type": "number", "q": "How many minutes in 'half past'?", "answer": "30", "hintLadder": ["Half an hour.", "Half of 60.", "30."] },
-      { "id": "f17-x4", "type": "mcq", "q": "Which hand shows the HOUR?", "options": [ { "label": "The short hand" }, { "label": "The long hand", "mistakeTag": "swap-hands" } ], "answer": "The short hand", "hintLadder": ["Short word, short hand.", "Short = hour.", "The short hand."] }
+      {
+        "id": "f17-x1",
+        "type": "number",
+        "q": "For 'o'clock', the long hand is on which number?",
+        "answer": "12",
+        "hintLadder": [
+          "Straight up.",
+          "Top.",
+          "12."
+        ]
+      },
+      {
+        "id": "f17-x2",
+        "type": "number",
+        "q": "Minutes in one whole hour?",
+        "answer": "60",
+        "hintLadder": [
+          "Once around the clock.",
+          "12 × 5.",
+          "60."
+        ]
+      },
+      {
+        "id": "f17-x3",
+        "type": "number",
+        "q": "How many minutes in 'half past'?",
+        "answer": "30",
+        "hintLadder": [
+          "Half an hour.",
+          "Half of 60.",
+          "30."
+        ]
+      },
+      {
+        "id": "f17-x4",
+        "type": "mcq",
+        "q": "Which hand shows the HOUR?",
+        "options": [
+          {
+            "label": "The short hand"
+          },
+          {
+            "label": "The long hand",
+            "mistakeTag": "swap-hands"
+          }
+        ],
+        "answer": "The short hand",
+        "hintLadder": [
+          "Short word, short hand.",
+          "Short = hour.",
+          "The short hand."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -107,7 +304,11 @@
   "teachBackPrompt": "Point to a real clock (or draw one) for a grown-up. Show the short hand (hour) and long hand (minutes). Make it '3 o'clock' (long hand up) and 'half past 3' (long hand down), and explain there are 60 minutes in an hour.",
   "revisionCard": {
     "summary": "Short hand = HOUR, long hand = MINUTES. Long hand on 12 = 'o'clock' (a whole hour). Long hand on 6 = 'half past' (30 minutes). 60 minutes make one hour. At half past, the short hand is between two numbers — name the smaller one.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -116,5 +317,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Short hand = hours, long hand = minutes",
+    "unpack": "Long hand on 12 = o'clock, on 6 = half past. Count minutes in 5s round the clock (each number is 5 minutes)."
+  },
+  "studentQuestions": [
+    {
+      "q": "Which hand tells the hour?",
+      "a": "The SHORT, fat hand points to the hour. The LONG hand shows the minutes."
+    },
+    {
+      "q": "How do I read the minutes?",
+      "a": "Count in 5s from the 12: the 1 is 5 minutes, the 2 is 10, the 3 is 15 (quarter past)..."
+    }
+  ]
 }

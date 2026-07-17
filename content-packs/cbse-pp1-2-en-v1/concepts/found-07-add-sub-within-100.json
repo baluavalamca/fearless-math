@@ -650,5 +650,19 @@
       },
       "caption": "Add ones on one rod, tens on the next."
     }
-  }
+  },
+  "rememberIt": {
+    "hook": "Add tens to tens, ones to ones",
+    "unpack": "34 + 23: 30+20 = 50, 4+3 = 7, together 57. Line up tens under tens, ones under ones."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I add 34 + 23?",
+      "a": "Add the tens (30+20=50), add the ones (4+3=7), put together: 57."
+    },
+    {
+      "q": "What is 'carrying'?",
+      "a": "When the ones add to 10 or more, one ten moves to the tens column. 8+5=13: write 3, carry the 1 ten."
+    }
+  ]
 }

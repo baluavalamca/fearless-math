@@ -472,5 +472,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "The dot splits whole from part. First place after = tenths",
+    "unpack": "Places after the point: tenths, hundredths, thousandths (each one-tenth of the one before). 0.7 = seven tenths = 7/10."
+  },
+  "studentQuestions": [
+    {
+      "q": "What does the first digit after the dot mean?",
+      "a": "Tenths - one of ten equal pieces of a whole. 0.3 means 3 tenths, 3/10."
+    },
+    {
+      "q": "Is 0.5 the same as 1/2?",
+      "a": "Yes - five tenths (5/10) simplifies to one half."
+    }
+  ]
 }

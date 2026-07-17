@@ -3,7 +3,9 @@
   "name": "Median, Mode, Range and More Charts",
   "grade": 7,
   "strand": "data",
-  "prerequisites": ["data-04-smart-charts"],
+  "prerequisites": [
+    "data-04-smart-charts"
+  ],
   "whatIsIt": "Beyond the mean (average), data has more measures. MEDIAN is the MIDDLE value when the numbers are put in order. MODE is the MOST COMMON value. RANGE is the highest minus the lowest — how spread out the data is. Different charts suit different data: BAR graphs compare categories, LINE graphs show change over time, PIE charts show parts of a whole.",
   "whyNeeded": "The average alone can mislead. Median resists odd extreme values, mode finds the most popular choice, and range shows the spread. Choosing the right chart makes data honest and clear — a key skill for news, science and decisions.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "How a budget splits into parts (pie chart)"
   ],
   "vocabulary": [
-    { "term": "median", "meaning": "The middle value when the data is put in order." },
-    { "term": "mode", "meaning": "The value that appears most often." },
-    { "term": "range", "meaning": "Highest value minus lowest value — the spread." }
+    {
+      "term": "median",
+      "meaning": "The middle value when the data is put in order."
+    },
+    {
+      "term": "mode",
+      "meaning": "The value that appears most often."
+    },
+    {
+      "term": "range",
+      "meaning": "Highest value minus lowest value — the spread."
+    }
   ],
   "story": {
     "title": "The Fair Middle",
-    "characters": ["Ira", "Coach"],
+    "characters": [
+      "Ira",
+      "Coach"
+    ],
     "text": "Ira's five test scores are 6, 7, 7, 8, 9. Coach asks for the median. She orders them (already in order) and picks the middle: 7. 'And the mode?' '7 too — it appears most.' 'The range?' '9 − 6 = 3.' Coach nods: 'Three numbers, three different stories about the same data.'",
     "extractedProblem": "Scores 6, 7, 7, 8, 9 — what is the median (middle value)?",
     "answerInStory": "7 — the middle number when they're in order."
@@ -28,10 +42,22 @@
     "component": "BarChart",
     "props": {
       "categories": [
-        { "label": "6", "value": 1 },
-        { "label": "7", "value": 2 },
-        { "label": "8", "value": 1 },
-        { "label": "9", "value": 1 }
+        {
+          "label": "6",
+          "value": 1
+        },
+        {
+          "label": "7",
+          "value": 2
+        },
+        {
+          "label": "8",
+          "value": 1
+        },
+        {
+          "label": "9",
+          "value": 1
+        }
       ],
       "unit": "how often"
     },
@@ -42,9 +68,59 @@
       "title": "Middle, most, spread",
       "note": "Order the data; middle = median, tallest = mode, top − bottom = range.",
       "examples": [
-        { "component": "BarChart", "props": { "categories": [ { "label": "size6", "value": 2 }, { "label": "size7", "value": 5 }, { "label": "size8", "value": 3 } ] }, "caption": "Mode = size 7 (tallest)." },
-        { "component": "BarChart", "props": { "categories": [ { "label": "Mon", "value": 20 }, { "label": "Tue", "value": 26 }, { "label": "Wed", "value": 22 } ] }, "caption": "Temperatures over days → line graph fits change over time." },
-        { "component": "PizzaSlices", "props": { "pies": [ { "parts": 4, "shaded": 1, "label": "1/4 of budget" } ] }, "caption": "Pie chart: a slice = a part of the whole." }
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "size6",
+                "value": 2
+              },
+              {
+                "label": "size7",
+                "value": 5
+              },
+              {
+                "label": "size8",
+                "value": 3
+              }
+            ]
+          },
+          "caption": "Mode = size 7 (tallest)."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "Mon",
+                "value": 20
+              },
+              {
+                "label": "Tue",
+                "value": 26
+              },
+              {
+                "label": "Wed",
+                "value": 22
+              }
+            ]
+          },
+          "caption": "Temperatures over days → line graph fits change over time."
+        },
+        {
+          "component": "PizzaSlices",
+          "props": {
+            "pies": [
+              {
+                "parts": 4,
+                "shaded": 1,
+                "label": "1/4 of budget"
+              }
+            ]
+          },
+          "caption": "Pie chart: a slice = a part of the whole."
+        }
       ]
     }
   ],
@@ -60,12 +136,20 @@
   "workedExamples": [
     {
       "problem": "Find the median and range of 3, 8, 5, 4, 9.",
-      "steps": ["Order: 3, 4, 5, 8, 9.", "Median = middle = 5.", "Range = 9 − 3 = 6."],
+      "steps": [
+        "Order: 3, 4, 5, 8, 9.",
+        "Median = middle = 5.",
+        "Range = 9 − 3 = 6."
+      ],
       "answer": "median 5, range 6"
     },
     {
       "problem": "Find the mode of 2, 5, 5, 7, 5, 8.",
-      "steps": ["Which value appears most?", "5 appears three times.", "Mode = 5."],
+      "steps": [
+        "Which value appears most?",
+        "5 appears three times.",
+        "Mode = 5."
+      ],
       "answer": "5"
     }
   ],
@@ -84,74 +168,140 @@
   "practice": {
     "easy": [
       {
-        "id": "d06s-e1", "type": "number",
+        "id": "d06s-e1",
+        "type": "number",
         "q": "Median of 2, 4, 6 (already in order)?",
         "answer": "4",
-        "hintLadder": ["Middle value.", "The one in the centre.", "4."]
+        "hintLadder": [
+          "Middle value.",
+          "The one in the centre.",
+          "4."
+        ]
       },
       {
-        "id": "d06s-e2", "type": "number",
+        "id": "d06s-e2",
+        "type": "number",
         "q": "Range of 3, 7, 10? (highest − lowest)",
         "answer": "7",
-        "hintLadder": ["10 − 3.", "Highest minus lowest.", "7."]
+        "hintLadder": [
+          "10 − 3.",
+          "Highest minus lowest.",
+          "7."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "d06s-m1", "type": "number",
+        "id": "d06s-m1",
+        "type": "number",
         "q": "Mode of 4, 4, 6, 9, 4?",
         "answer": "4",
-        "hintLadder": ["Most common value.", "4 appears three times.", "4."]
+        "hintLadder": [
+          "Most common value.",
+          "4 appears three times.",
+          "4."
+        ]
       },
       {
-        "id": "d06s-m2", "type": "number",
+        "id": "d06s-m2",
+        "type": "number",
         "q": "Median of 8, 3, 5 (order first)?",
         "answer": "5",
-        "hintLadder": ["Order: 3, 5, 8.", "Middle.", "5."]
+        "hintLadder": [
+          "Order: 3, 5, 8.",
+          "Middle.",
+          "5."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "d06s-c1", "type": "number",
+        "id": "d06s-c1",
+        "type": "number",
         "q": "Median of 7, 2, 9, 4, 6 (order first)?",
         "answer": "6",
-        "hintLadder": ["Order: 2,4,6,7,9.", "Middle value.", "6."]
+        "hintLadder": [
+          "Order: 2,4,6,7,9.",
+          "Middle value.",
+          "6."
+        ]
       },
       {
-        "id": "d06s-c2", "type": "mcq",
+        "id": "d06s-c2",
+        "type": "mcq",
         "q": "Which chart best shows temperature CHANGE over a week?",
-        "options": [ { "label": "Line graph" }, { "label": "Pie chart", "mistakeTag": "range-not-subtract" } ],
+        "options": [
+          {
+            "label": "Line graph"
+          },
+          {
+            "label": "Pie chart",
+            "mistakeTag": "range-not-subtract"
+          }
+        ],
         "answer": "Line graph",
-        "hintLadder": ["Change over time.", "Lines show trends.", "Line graph."]
+        "hintLadder": [
+          "Change over time.",
+          "Lines show trends.",
+          "Line graph."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "d06s-x1", "type": "number",
+        "id": "d06s-x1",
+        "type": "number",
         "q": "Median of 1, 3, 5 (in order)?",
         "answer": "3",
-        "hintLadder": ["Middle value.", "The centre.", "3."]
+        "hintLadder": [
+          "Middle value.",
+          "The centre.",
+          "3."
+        ]
       },
       {
-        "id": "d06s-x2", "type": "number",
+        "id": "d06s-x2",
+        "type": "number",
         "q": "Range of 5, 12, 8, 20? (highest − lowest)",
         "answer": "15",
-        "hintLadder": ["20 − 5.", "Highest minus lowest.", "15."]
+        "hintLadder": [
+          "20 − 5.",
+          "Highest minus lowest.",
+          "15."
+        ]
       },
       {
-        "id": "d06s-x3", "type": "number",
+        "id": "d06s-x3",
+        "type": "number",
         "q": "Mode of 3, 3, 7, 8, 3, 7?",
         "answer": "3",
-        "hintLadder": ["Most common.", "3 appears three times.", "3."]
+        "hintLadder": [
+          "Most common.",
+          "3 appears three times.",
+          "3."
+        ]
       },
       {
-        "id": "d06s-x4", "type": "mcq",
+        "id": "d06s-x4",
+        "type": "mcq",
         "q": "Before finding the median you must…",
-        "options": [ { "label": "Put the numbers in order" }, { "label": "Add them up", "mistakeTag": "median-not-ordered" } ],
+        "options": [
+          {
+            "label": "Put the numbers in order"
+          },
+          {
+            "label": "Add them up",
+            "mistakeTag": "median-not-ordered"
+          }
+        ],
         "answer": "Put the numbers in order",
-        "hintLadder": ["Median = middle of ORDERED data.", "Sort first.", "Order them."]
+        "hintLadder": [
+          "Median = middle of ORDERED data.",
+          "Sort first.",
+          "Order them."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -160,7 +310,11 @@
   "teachBackPrompt": "Collect a small set of numbers at home (ages, or scores in a game). Show a grown-up how to find the median (order, take the middle), the mode (most common) and the range (highest − lowest) — and say which chart would show it best.",
   "revisionCard": {
     "summary": "Order the data first. MEDIAN = middle value (average the two middle if even count). MODE = most frequent. RANGE = highest − lowest (spread). Charts: bars compare categories, lines show change over time, pies show parts of a whole.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -169,5 +323,30 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Mean = average, Median = middle, Mode = most",
+    "unpack": "Mean = sum / count. Median = middle value when sorted. Mode = the value that appears most. 'Median = Middle', 'Mode = Most'."
+  },
+  "studentQuestions": [
+    {
+      "q": "Which average should I use?",
+      "a": "Mean for balanced data; median when there are extreme outliers (it is not dragged by them); mode for the most common category."
+    },
+    {
+      "q": "How do I find the median of an even count?",
+      "a": "Sort the values, then average the two middle ones."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Mean",
+      "formula": "mean = (sum of values) / (number of values)"
+    },
+    {
+      "name": "Median",
+      "formula": "middle value when sorted",
+      "remember": "Even count -> average the two middles"
+    }
+  ]
 }

@@ -549,5 +549,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "Teen numbers = a ten and some ones",
+    "unpack": "13 = 1 ten + 3 ones. 'Thir-teen' means three and ten. 'Eleven' and 'twelve' are the tricky two to just learn."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why is 13 called thirteen?",
+      "a": "It is 'three + ten' - a bundle of ten and three more ones. Most teens work this way (four-teen, six-teen)."
+    },
+    {
+      "q": "What makes 11 and 12 tricky?",
+      "a": "They do not say their parts clearly like the others - you just learn 'eleven' and 'twelve' by heart."
+    }
+  ]
 }

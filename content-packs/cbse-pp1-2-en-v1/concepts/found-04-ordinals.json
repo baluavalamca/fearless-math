@@ -545,5 +545,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "Ordinals tell POSITION: 1st, 2nd, 3rd...",
+    "unpack": "Counting numbers say HOW MANY (three apples); ordinals say WHICH ONE in order (third in line)."
+  },
+  "studentQuestions": [
+    {
+      "q": "What is the difference between 'three' and 'third'?",
+      "a": "'Three' counts how many; 'third' tells the position. Three runners raced, and you came third."
+    },
+    {
+      "q": "Why is it 1st, 2nd, 3rd but then 4th?",
+      "a": "The first three have special endings (st, nd, rd); from fourth on we mostly add 'th'."
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "name": "Integer Operations and Absolute Value",
   "grade": 6,
   "strand": "numbers",
-  "prerequisites": ["num-21-integers"],
+  "prerequisites": [
+    "num-21-integers"
+  ],
   "whatIsIt": "Now we calculate WITH negatives. ADD/SUBTRACT: move right for +, left for −, across zero. Subtracting a negative adds (5 − (−3) = 5 + 3 = 8). MULTIPLY/DIVIDE sign rules: same signs → positive, different signs → negative ((−4)×(−2)=8; (−4)×3=−12). ABSOLUTE VALUE |n| is the distance from zero, always positive: |−7| = 7.",
   "whyNeeded": "Temperature changes, money owed and repaid, scores that go up and down — all need integer arithmetic. The sign rules and absolute value are the backbone of algebra, coordinates and physics.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Height above/below sea level and how far from sea level (absolute value)"
   ],
   "vocabulary": [
-    { "term": "absolute value |n|", "meaning": "The distance from zero, always positive: |−7| = 7." },
-    { "term": "sign rule", "meaning": "Same signs multiply/divide to +, different signs to −." },
-    { "term": "subtracting a negative", "meaning": "The same as adding: 5 − (−3) = 5 + 3." }
+    {
+      "term": "absolute value |n|",
+      "meaning": "The distance from zero, always positive: |−7| = 7."
+    },
+    {
+      "term": "sign rule",
+      "meaning": "Same signs multiply/divide to +, different signs to −."
+    },
+    {
+      "term": "subtracting a negative",
+      "meaning": "The same as adding: 5 − (−3) = 5 + 3."
+    }
   ],
   "story": {
     "title": "The Bank Balance",
-    "characters": ["Zara", "Uncle"],
+    "characters": [
+      "Zara",
+      "Uncle"
+    ],
     "text": "Zara's account shows −₹200 (she owes 200). She deposits ₹500. 'What's the balance now?' asks Uncle. She starts at −200 and moves 500 right: −200 + 500 = 300. 'Plus ₹300!' Then Uncle asks how far from zero −200 is. 'The absolute value — 200,' says Zara.",
     "extractedProblem": "Balance −₹200, then a ₹500 deposit. What is the new balance?",
     "answerInStory": "+₹300 — because −200 + 500 = 300."
@@ -28,7 +42,20 @@
     "component": "NumberTrack",
     "props": {
       "tracks": [
-        { "terms": [-4, -3, -2, -1, 0, 1, 2, 3, 4], "label": "|−4| = 4, |3| = 3 (distance from 0)" }
+        {
+          "terms": [
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "label": "|−4| = 4, |3| = 3 (distance from 0)"
+        }
       ]
     },
     "caption": "Absolute value = distance from zero (always positive). Add = move right, subtract = move left."
@@ -38,9 +65,60 @@
       "title": "Signs and distances",
       "note": "Same signs → +, different → −. |n| is distance from 0.",
       "examples": [
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [-3, -2, -1, 0, 1, 2, 3, 4, 5], "label": "−3 + 8 = 5" } ] }, "caption": "Move right 8 from −3 → 5." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [-5, -4, -3, -2, -1, 0], "label": "|−5| = 5" } ] }, "caption": "−5 is 5 steps from zero." },
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 2, "cols": 4, "label": "(−2)×(−4) = 8 (same signs → +)" } ] }, "caption": "Two negatives multiply to a positive." }
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  -3,
+                  -2,
+                  -1,
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "label": "−3 + 8 = 5"
+              }
+            ]
+          },
+          "caption": "Move right 8 from −3 → 5."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  -5,
+                  -4,
+                  -3,
+                  -2,
+                  -1,
+                  0
+                ],
+                "label": "|−5| = 5"
+              }
+            ]
+          },
+          "caption": "−5 is 5 steps from zero."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 4,
+                "label": "(−2)×(−4) = 8 (same signs → +)"
+              }
+            ]
+          },
+          "caption": "Two negatives multiply to a positive."
+        }
       ]
     }
   ],
@@ -56,12 +134,20 @@
   "workedExamples": [
     {
       "problem": "Work out (−6) + 10.",
-      "steps": ["Start at −6 on the number line.", "Add 10 → move 10 right, crossing zero.", "= 4."],
+      "steps": [
+        "Start at −6 on the number line.",
+        "Add 10 → move 10 right, crossing zero.",
+        "= 4."
+      ],
       "answer": "4"
     },
     {
       "problem": "Work out (−4) × (−3).",
-      "steps": ["Digits: 4 × 3 = 12.", "Signs: same (both negative) → positive.", "= 12."],
+      "steps": [
+        "Digits: 4 × 3 = 12.",
+        "Signs: same (both negative) → positive.",
+        "= 12."
+      ],
       "answer": "12"
     }
   ],
@@ -80,74 +166,140 @@
   "practice": {
     "easy": [
       {
-        "id": "n28-e1", "type": "number",
+        "id": "n28-e1",
+        "type": "number",
         "q": "What is |−9|? (write like 9)",
         "answer": "9",
-        "hintLadder": ["Distance from zero.", "Drop the minus.", "9."]
+        "hintLadder": [
+          "Distance from zero.",
+          "Drop the minus.",
+          "9."
+        ]
       },
       {
-        "id": "n28-e2", "type": "number",
+        "id": "n28-e2",
+        "type": "number",
         "q": "Work out (−3) + 7. (write like 4)",
         "answer": "4",
-        "hintLadder": ["Start −3, move 7 right.", "Cross zero.", "4."]
+        "hintLadder": [
+          "Start −3, move 7 right.",
+          "Cross zero.",
+          "4."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n28-m1", "type": "number",
+        "id": "n28-m1",
+        "type": "number",
         "q": "Work out (−2) × (−5). (write like 10)",
         "answer": "10",
-        "hintLadder": ["2 × 5 = 10.", "Same signs → positive.", "10."]
+        "hintLadder": [
+          "2 × 5 = 10.",
+          "Same signs → positive.",
+          "10."
+        ]
       },
       {
-        "id": "n28-m2", "type": "number",
+        "id": "n28-m2",
+        "type": "number",
         "q": "Work out 6 − (−4). (write like 10)",
         "answer": "10",
-        "hintLadder": ["Subtracting a negative adds.", "6 + 4.", "10."]
+        "hintLadder": [
+          "Subtracting a negative adds.",
+          "6 + 4.",
+          "10."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n28-c1", "type": "number",
+        "id": "n28-c1",
+        "type": "number",
         "q": "Work out (−12) ÷ 4. (write like -3)",
         "answer": "-3",
-        "hintLadder": ["12 ÷ 4 = 3.", "Different signs → negative.", "−3."]
+        "hintLadder": [
+          "12 ÷ 4 = 3.",
+          "Different signs → negative.",
+          "−3."
+        ]
       },
       {
-        "id": "n28-c2", "type": "mcq",
+        "id": "n28-c2",
+        "type": "mcq",
         "q": "Ravi says (−5) × (−2) = −10. What's the fix?",
-        "options": [ { "label": "Same signs → positive, so +10" }, { "label": "−10 is right", "mistakeTag": "sign-rule-wrong" } ],
+        "options": [
+          {
+            "label": "Same signs → positive, so +10"
+          },
+          {
+            "label": "−10 is right",
+            "mistakeTag": "sign-rule-wrong"
+          }
+        ],
         "answer": "Same signs → positive, so +10",
-        "hintLadder": ["Two negatives.", "Same signs → positive.", "+10."]
+        "hintLadder": [
+          "Two negatives.",
+          "Same signs → positive.",
+          "+10."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n28-x1", "type": "number",
+        "id": "n28-x1",
+        "type": "number",
         "q": "What is |−6|? (write like 6)",
         "answer": "6",
-        "hintLadder": ["Distance from zero.", "Drop the sign.", "6."]
+        "hintLadder": [
+          "Distance from zero.",
+          "Drop the sign.",
+          "6."
+        ]
       },
       {
-        "id": "n28-x2", "type": "number",
+        "id": "n28-x2",
+        "type": "number",
         "q": "Work out (−8) + 3. (write like -5)",
         "answer": "-5",
-        "hintLadder": ["Start −8, move 3 right.", "Still left of zero.", "−5."]
+        "hintLadder": [
+          "Start −8, move 3 right.",
+          "Still left of zero.",
+          "−5."
+        ]
       },
       {
-        "id": "n28-x3", "type": "number",
+        "id": "n28-x3",
+        "type": "number",
         "q": "Work out (−3) × 4. (write like -12)",
         "answer": "-12",
-        "hintLadder": ["3 × 4 = 12.", "Different signs → negative.", "−12."]
+        "hintLadder": [
+          "3 × 4 = 12.",
+          "Different signs → negative.",
+          "−12."
+        ]
       },
       {
-        "id": "n28-x4", "type": "mcq",
+        "id": "n28-x4",
+        "type": "mcq",
         "q": "Multiplying two numbers with DIFFERENT signs gives a…",
-        "options": [ { "label": "Negative answer" }, { "label": "Positive answer", "mistakeTag": "sign-rule-wrong" } ],
+        "options": [
+          {
+            "label": "Negative answer"
+          },
+          {
+            "label": "Positive answer",
+            "mistakeTag": "sign-rule-wrong"
+          }
+        ],
         "answer": "Negative answer",
-        "hintLadder": ["Different signs.", "Rule → negative.", "Negative."]
+        "hintLadder": [
+          "Different signs.",
+          "Rule → negative.",
+          "Negative."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -156,7 +308,11 @@
   "teachBackPrompt": "Use a number line and a real 'up and down' example (temperature or a bank balance). Show a grown-up how you add and subtract across zero, and explain the sign rule for multiplying — same signs positive, different signs negative — plus what absolute value means.",
   "revisionCard": {
     "summary": "Add → move right, subtract → move left; subtracting a negative ADDS. Multiply/divide: same signs → +, different signs → −. Absolute value |n| = distance from zero, always positive (|−7| = 7).",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -165,5 +321,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Same signs -> add and keep the sign. Different signs -> subtract and keep the bigger one's sign",
+    "unpack": "For multiplying: same signs -> +, different signs -> -. (+ x + = +, - x - = +, + x - = -)."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I add -7 and +3?",
+      "a": "Different signs: subtract (7 - 3 = 4) and keep the bigger number's sign (7 is negative) -> -4."
+    },
+    {
+      "q": "Why is negative times negative positive?",
+      "a": "Flipping a flip returns to the start. Removing a debt again and again builds a gain."
+    }
+  ]
 }

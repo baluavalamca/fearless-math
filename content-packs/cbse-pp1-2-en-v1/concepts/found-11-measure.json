@@ -3,7 +3,9 @@
   "name": "Long or Short, Heavy or Light — First Measuring",
   "grade": 1,
   "strand": "measurement",
-  "prerequisites": ["found-01-prenumber"],
+  "prerequisites": [
+    "found-01-prenumber"
+  ],
   "whatIsIt": "Before rulers and scales, we measure by COMPARING. Longer or shorter? Taller or shorter? Heavier or lighter? We can also measure with things we have — how many hand-spans long is the table, or how many steps across the room. These are our first, hands-on ways to measure.",
   "whyNeeded": "You compare sizes every day — which pencil is longer, which bag is heavier, who is taller. Comparing and measuring with hand-spans or steps builds the idea of a UNIT, which later becomes centimetres, grams and litres.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Seeing who is taller when standing back to back"
   ],
   "vocabulary": [
-    { "term": "longer / shorter", "meaning": "Words to compare length." },
-    { "term": "heavier / lighter", "meaning": "Words to compare weight." },
-    { "term": "unit", "meaning": "The 'one' you measure with — like one hand-span or one step." }
+    {
+      "term": "longer / shorter",
+      "meaning": "Words to compare length."
+    },
+    {
+      "term": "heavier / lighter",
+      "meaning": "Words to compare weight."
+    },
+    {
+      "term": "unit",
+      "meaning": "The 'one' you measure with — like one hand-span or one step."
+    }
   ],
   "story": {
     "title": "The Table Measuring Match",
-    "characters": ["Kabir", "Didi"],
+    "characters": [
+      "Kabir",
+      "Didi"
+    ],
     "text": "Kabir wants to know how long the study table is, but there is no ruler. 'Use your hand!' says Didi. Kabir places his hand-span again and again along the edge and counts. He gets 6 hand-spans. Didi measures the same table with her bigger hand and gets 5. 'Same table, different count — because our hands are different units,' laughs Didi.",
     "extractedProblem": "Kabir's hand-span fits 6 times along the table. How many of Kabir's hand-spans long is the table?",
     "answerInStory": "6 hand-spans long."
@@ -28,7 +42,17 @@
     "component": "ObjectRow",
     "props": {
       "sequences": [
-        { "items": ["✏️", "🖍️"], "label": "Which is longer?", "sizes": [1.6, 1.0] }
+        {
+          "items": [
+            "✏️",
+            "🖍️"
+          ],
+          "label": "Which is longer?",
+          "sizes": [
+            1.6,
+            1.0
+          ]
+        }
       ]
     },
     "caption": "The pencil is longer than the crayon. Compare lengths side by side, ends lined up."
@@ -38,9 +62,63 @@
       "title": "Compare and measure",
       "note": "Line up ends to compare length. Count units to measure.",
       "examples": [
-        { "component": "ObjectRow", "props": { "sequences": [ { "items": ["🐘", "🐁"], "label": "Which is heavier?", "sizes": [1.8, 0.8] } ] }, "caption": "The elephant is heavier than the mouse." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [1, 2, 3, 4, 5, 6], "label": "hand-spans along the table" } ] }, "caption": "Count units: 6 hand-spans long." },
-        { "component": "ObjectRow", "props": { "sequences": [ { "items": ["📏", "📐"], "label": "Line up the ends first", "sizes": [1.4, 1.0] } ] }, "caption": "Always start both objects from the same line." }
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "🐘",
+                  "🐁"
+                ],
+                "label": "Which is heavier?",
+                "sizes": [
+                  1.8,
+                  0.8
+                ]
+              }
+            ]
+          },
+          "caption": "The elephant is heavier than the mouse."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "label": "hand-spans along the table"
+              }
+            ]
+          },
+          "caption": "Count units: 6 hand-spans long."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "📏",
+                  "📐"
+                ],
+                "label": "Line up the ends first",
+                "sizes": [
+                  1.4,
+                  1.0
+                ]
+              }
+            ]
+          },
+          "caption": "Always start both objects from the same line."
+        }
       ]
     }
   ],
@@ -55,12 +133,20 @@
   "workedExamples": [
     {
       "problem": "A ribbon is 8 paper-clips long. A pencil is 5 paper-clips long. Which is longer, and by how many clips?",
-      "steps": ["Compare the counts: 8 and 5.", "8 is more, so the ribbon is longer.", "8 − 5 = 3 clips longer."],
+      "steps": [
+        "Compare the counts: 8 and 5.",
+        "8 is more, so the ribbon is longer.",
+        "8 − 5 = 3 clips longer."
+      ],
       "answer": "The ribbon, by 3 paper-clips."
     },
     {
       "problem": "Meena's step fits 10 times across the room; Papa's bigger step fits 7 times. Why do they get different numbers for the same room?",
-      "steps": ["Both measured the same room.", "But a step is the unit, and Papa's step is bigger.", "Bigger unit → fewer of them fit. Same room, different unit."],
+      "steps": [
+        "Both measured the same room.",
+        "But a step is the unit, and Papa's step is bigger.",
+        "Bigger unit → fewer of them fit. Same room, different unit."
+      ],
       "answer": "Because Papa's step (unit) is bigger."
     }
   ],
@@ -79,77 +165,167 @@
   "practice": {
     "easy": [
       {
-        "id": "f11-e1", "type": "mcq",
+        "id": "f11-e1",
+        "type": "mcq",
         "q": "An elephant and a mouse — which is heavier?",
-        "options": [ { "label": "Elephant" }, { "label": "Mouse", "mistakeTag": "ends-not-lined-up" } ],
+        "options": [
+          {
+            "label": "Elephant"
+          },
+          {
+            "label": "Mouse",
+            "mistakeTag": "ends-not-lined-up"
+          }
+        ],
         "answer": "Elephant",
-        "hintLadder": ["Which is much bigger?", "The elephant is huge.", "Elephant is heavier."]
+        "hintLadder": [
+          "Which is much bigger?",
+          "The elephant is huge.",
+          "Elephant is heavier."
+        ]
       },
       {
-        "id": "f11-e2", "type": "number",
+        "id": "f11-e2",
+        "type": "number",
         "q": "A stick is 4 paper-clips long. How many paper-clips is that?",
         "answer": "4",
-        "hintLadder": ["Read the count.", "Four clips fit along it.", "Four."]
+        "hintLadder": [
+          "Read the count.",
+          "Four clips fit along it.",
+          "Four."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "f11-m1", "type": "number",
+        "id": "f11-m1",
+        "type": "number",
         "q": "A rope is 9 hand-spans long and a scarf is 6 hand-spans long. How many hand-spans LONGER is the rope?",
         "answer": "3",
-        "hintLadder": ["'How much longer' means subtract.", "9 − 6.", "Three."]
+        "hintLadder": [
+          "'How much longer' means subtract.",
+          "9 − 6.",
+          "Three."
+        ]
       },
       {
-        "id": "f11-m2", "type": "mcq",
+        "id": "f11-m2",
+        "type": "mcq",
         "q": "To measure a table with paper-clips, you should…",
-        "options": [ { "label": "Lay clips end to end with no gaps" }, { "label": "Leave spaces between the clips", "mistakeTag": "gaps-between-units" } ],
+        "options": [
+          {
+            "label": "Lay clips end to end with no gaps"
+          },
+          {
+            "label": "Leave spaces between the clips",
+            "mistakeTag": "gaps-between-units"
+          }
+        ],
         "answer": "Lay clips end to end with no gaps",
-        "hintLadder": ["Gaps make the count wrong.", "Units must touch, end to end.", "No gaps."]
+        "hintLadder": [
+          "Gaps make the count wrong.",
+          "Units must touch, end to end.",
+          "No gaps."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "f11-c1", "type": "mcq",
+        "id": "f11-c1",
+        "type": "mcq",
         "q": "Two ribbons look the same, but one starts further ahead. To compare fairly you must…",
-        "options": [ { "label": "Line up their starting ends first" }, { "label": "Just look at where they finish", "mistakeTag": "ends-not-lined-up" } ],
+        "options": [
+          {
+            "label": "Line up their starting ends first"
+          },
+          {
+            "label": "Just look at where they finish",
+            "mistakeTag": "ends-not-lined-up"
+          }
+        ],
         "answer": "Line up their starting ends first",
-        "hintLadder": ["A fair race starts on the same line.", "Line up the starts.", "Then compare the ends."]
+        "hintLadder": [
+          "A fair race starts on the same line.",
+          "Line up the starts.",
+          "Then compare the ends."
+        ]
       },
       {
-        "id": "f11-c2", "type": "number",
+        "id": "f11-c2",
+        "type": "number",
         "q": "The room is 12 of Meena's steps across. She has walked 7 steps. How many steps are left?",
         "answer": "5",
-        "hintLadder": ["Take away what she walked.", "12 − 7.", "Five."]
+        "hintLadder": [
+          "Take away what she walked.",
+          "12 − 7.",
+          "Five."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "f11-x1", "type": "mcq",
+        "id": "f11-x1",
+        "type": "mcq",
         "q": "A pencil and a crayon side by side, ends lined up — the pencil sticks out. The pencil is…",
-        "options": [ { "label": "Longer" }, { "label": "Shorter", "mistakeTag": "ends-not-lined-up" } ],
+        "options": [
+          {
+            "label": "Longer"
+          },
+          {
+            "label": "Shorter",
+            "mistakeTag": "ends-not-lined-up"
+          }
+        ],
         "answer": "Longer",
-        "hintLadder": ["Whatever sticks out is longer.", "The pencil sticks out.", "Longer."]
+        "hintLadder": [
+          "Whatever sticks out is longer.",
+          "The pencil sticks out.",
+          "Longer."
+        ]
       },
       {
-        "id": "f11-x2", "type": "number",
+        "id": "f11-x2",
+        "type": "number",
         "q": "A table is 7 hand-spans long. How many hand-spans is that?",
         "answer": "7",
-        "hintLadder": ["Read the count.", "Seven spans fit.", "Seven."]
+        "hintLadder": [
+          "Read the count.",
+          "Seven spans fit.",
+          "Seven."
+        ]
       },
       {
-        "id": "f11-x3", "type": "number",
+        "id": "f11-x3",
+        "type": "number",
         "q": "A blue rope is 10 clips, a red rope is 4 clips. How many clips longer is the blue rope?",
         "answer": "6",
-        "hintLadder": ["'How much longer' = subtract.", "10 − 4.", "Six."]
+        "hintLadder": [
+          "'How much longer' = subtract.",
+          "10 − 4.",
+          "Six."
+        ]
       },
       {
-        "id": "f11-x4", "type": "mcq",
+        "id": "f11-x4",
+        "type": "mcq",
         "q": "Papa's step is bigger than Meena's. For the SAME room, Papa's count will be…",
-        "options": [ { "label": "Smaller — a bigger unit fits fewer times" }, { "label": "Bigger — his steps count more", "mistakeTag": "gaps-between-units" } ],
+        "options": [
+          {
+            "label": "Smaller — a bigger unit fits fewer times"
+          },
+          {
+            "label": "Bigger — his steps count more",
+            "mistakeTag": "gaps-between-units"
+          }
+        ],
         "answer": "Smaller — a bigger unit fits fewer times",
-        "hintLadder": ["Bigger unit, fewer needed.", "Fewer big steps cross the room.", "Smaller count."]
+        "hintLadder": [
+          "Bigger unit, fewer needed.",
+          "Fewer big steps cross the room.",
+          "Smaller count."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -158,7 +334,11 @@
   "teachBackPrompt": "Measure your bed (or table) in hand-spans, then ask a grown-up to measure the same thing with their hand. Explain why your two numbers are different even though it is the same bed.",
   "revisionCard": {
     "summary": "Compare by lining up ends: what sticks out is longer/taller. Measure by laying a UNIT (hand-span, step, clip) end to end with no gaps and counting. Bigger unit → fewer fit.",
-    "reviewAfterDays": [1, 3, 7]
+    "reviewAfterDays": [
+      1,
+      3,
+      7
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -167,5 +347,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Start at 0 on the ruler. Longer = more units",
+    "unpack": "Line the object up with 0, read where it ends. Small things in centimetres, big things in metres. 100 cm = 1 m."
+  },
+  "studentQuestions": [
+    {
+      "q": "Where do I start measuring on a ruler?",
+      "a": "At the 0 mark, not the edge. Line 0 up with one end, read the number at the other end."
+    },
+    {
+      "q": "cm or m - which do I use?",
+      "a": "Small things in centimetres (a pencil), big things in metres (a room). 100 cm = 1 m."
+    }
+  ]
 }

@@ -647,5 +647,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "A fraction = EQUAL parts of a whole. Bottom = pieces, top = how many you take",
+    "unpack": "3/4: cut into 4 EQUAL pieces, take 3. The pieces must be equal, or it is not a fair fraction."
+  },
+  "studentQuestions": [
+    {
+      "q": "Do the pieces have to be equal?",
+      "a": "Yes! A fraction only works if the whole is split into EQUAL parts. Three unequal bits are not thirds."
+    },
+    {
+      "q": "What do the top and bottom mean?",
+      "a": "Bottom (denominator) = how many equal pieces in all. Top (numerator) = how many of them you are talking about."
+    }
+  ]
 }
