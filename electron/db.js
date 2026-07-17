@@ -40,11 +40,13 @@ function sqliteStore(db) {
       profile_id INTEGER, badge_id TEXT, earned_at TEXT,
       PRIMARY KEY(profile_id, badge_id));
   `);
-  for (const col of ["role TEXT DEFAULT 'student'", "age INTEGER"]) {
+  for (const col of ["role TEXT DEFAULT 'student'", "age INTEGER", "pin TEXT"]) {
     try { db.exec(`ALTER TABLE profiles ADD COLUMN ${col}`); } catch {}
   }
   return {
     kind: "sqlite",
+    setPin(id, pin) { db.prepare("UPDATE profiles SET pin=? WHERE id=?").run(pin || null, id); return db.prepare("SELECT * FROM profiles WHERE id=?").get(id); },
+    verifyPin(id, pin) { const r = db.prepare("SELECT pin FROM profiles WHERE id=?").get(id); return !r || !r.pin ? true : String(r.pin) === String(pin); },
     getOrCreateDefaultProfile() {
       let p = db.prepare("SELECT * FROM profiles ORDER BY id LIMIT 1").get();
       if (!p) {
@@ -56,8 +58,8 @@ function sqliteStore(db) {
     },
     listProfiles() { return db.prepare("SELECT * FROM profiles ORDER BY id").all(); },
     createProfile(p) {
-      const info = db.prepare("INSERT INTO profiles(name, role, grade, age, avatar, created_at) VALUES(?,?,?,?,?,?)")
-        .run(p.name, p.role || "student", p.grade, p.age ?? null, p.avatar || "fox", new Date().toISOString());
+      const info = db.prepare("INSERT INTO profiles(name, role, grade, age, avatar, pin, created_at) VALUES(?,?,?,?,?,?,?)")
+        .run(p.name, p.role || "student", p.grade, p.age ?? null, p.avatar || "fox", p.pin || null, new Date().toISOString());
       db.prepare("INSERT INTO meta(key,value) VALUES('active_profile',?) ON CONFLICT(key) DO UPDATE SET value=excluded.value").run(String(info.lastInsertRowid));
       return db.prepare("SELECT * FROM profiles WHERE id=?").get(info.lastInsertRowid);
     },
@@ -146,10 +148,12 @@ function jsonStore(file) {
     createProfile(p) {
       const d = load();
       const id = (d.profiles.reduce((m, x) => Math.max(m, x.id), 0) || 0) + 1;
-      const row = { id, name: p.name, role: p.role || "student", grade: p.grade, age: p.age ?? null, avatar: p.avatar || "fox", created_at: new Date().toISOString() };
+      const row = { id, name: p.name, role: p.role || "student", grade: p.grade, age: p.age ?? null, avatar: p.avatar || "fox", pin: p.pin || null, created_at: new Date().toISOString() };
       d.profiles.push(row); d.meta = d.meta || {}; d.meta.active_profile = id; save(d);
       return row;
     },
+    setPin(id, pin) { const d = load(); const r = d.profiles.find((x) => x.id === id); if (r) { r.pin = pin || null; save(d); } return r; },
+    verifyPin(id, pin) { const r = load().profiles.find((x) => x.id === id); return !r || !r.pin ? true : String(r.pin) === String(pin); },
     getActiveProfileId() { const d = load(); return d.meta && d.meta.active_profile != null ? d.meta.active_profile : null; },
     setActiveProfile(id) { const d = load(); d.meta = d.meta || {}; d.meta.active_profile = id; save(d); },
     getProgress(pid) { return load().progress.filter((p) => p.profile_id === pid); },

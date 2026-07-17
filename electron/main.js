@@ -45,11 +45,20 @@ function registerIpc() {
   }
   let profile = activeProfile();
 
-  ipcMain.handle("profile:get", () => profile);
-  ipcMain.handle("profiles:list", () => store.listProfiles());
-  ipcMain.handle("profiles:active", () => profile || null);
-  ipcMain.handle("profiles:create", (_e, data) => { profile = store.createProfile(data); return profile; });
-  ipcMain.handle("profiles:setActive", (_e, id) => { store.setActiveProfile(id); profile = store.listProfiles().find((p) => p.id === id) || profile; return profile; });
+  // Never leak the raw PIN to the renderer — expose only whether one is set.
+  const pub = (p) => { if (!p) return p; const { pin, ...rest } = p; return { ...rest, hasPin: !!pin }; };
+
+  ipcMain.handle("profile:get", () => pub(profile));
+  ipcMain.handle("profiles:list", () => store.listProfiles().map(pub));
+  ipcMain.handle("profiles:active", () => pub(profile) || null);
+  ipcMain.handle("profiles:create", (_e, data) => { profile = store.createProfile(data); return pub(profile); });
+  ipcMain.handle("profiles:setActive", (_e, id) => { store.setActiveProfile(id); profile = store.listProfiles().find((p) => p.id === id) || profile; return pub(profile); });
+  ipcMain.handle("profiles:setPin", (_e, { id, pin }) => {
+    const row = store.setPin(id, pin);
+    if (profile && profile.id === id) profile = store.listProfiles().find((p) => p.id === id) || profile;
+    return pub(row);
+  });
+  ipcMain.handle("profiles:verifyPin", (_e, { id, pin }) => store.verifyPin(id, pin));
 
   ipcMain.handle("concepts:list", () => {
     if (!profile) return [];

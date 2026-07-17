@@ -7,6 +7,8 @@ contextBridge.exposeInMainWorld("fm", {
   activeProfile: () => ipcRenderer.invoke("profiles:active"),
   createProfile: (data) => ipcRenderer.invoke("profiles:create", data),
   setActiveProfile: (id) => ipcRenderer.invoke("profiles:setActive", id),
+  setPin: (id, pin) => ipcRenderer.invoke("profiles:setPin", { id, pin }),
+  verifyPin: (id, pin) => ipcRenderer.invoke("profiles:verifyPin", { id, pin }),
   listConcepts: () => ipcRenderer.invoke("concepts:list"),
   getConcept: (id) => ipcRenderer.invoke("concepts:get", id),
   lessonStarted: (id) => ipcRenderer.invoke("lesson:started", id),

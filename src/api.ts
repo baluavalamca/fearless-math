@@ -2,7 +2,7 @@
 
 export type ConceptStatus = "locked" | "available" | "learning" | "practicing" | "mastered";
 
-export interface Profile { id: number; name: string; role: string; grade: number; age: number | null; avatar: string }
+export interface Profile { id: number; name: string; role: string; grade: number; age: number | null; avatar: string; hasPin?: boolean }
 export interface ConceptCard {
   id: string; name: string; grade: number; strand: string;
   prerequisites: string[]; world: string | null; character: string | null;
@@ -96,8 +96,10 @@ interface FmBridge {
   submitAnswer(p: { conceptId: string; questionId: string; context: string; answer: string; hintsUsed: number; question?: Question }): Promise<Verdict>;
   listProfiles(): Promise<Profile[]>;
   activeProfile(): Promise<Profile | null>;
-  createProfile(p: { name: string; role: string; grade: number; age: number | null; avatar?: string }): Promise<Profile>;
+  createProfile(p: { name: string; role: string; grade: number; age: number | null; avatar?: string; pin?: string }): Promise<Profile>;
   setActiveProfile(id: number): Promise<Profile>;
+  setPin(id: number, pin: string): Promise<Profile>;
+  verifyPin(id: number, pin: string): Promise<boolean>;
   finishMastery(p: { conceptId: string; teachBackDone: boolean }): Promise<MasteryResult>;
   listBadges(): Promise<{ badge_id: string; earned_at: string }[]>;
   clinicList(): Promise<ClinicItem[]>;
