@@ -76,10 +76,15 @@ export function LessonPlayer({
         return (concept.teachingGallery ?? [])
           .map((g) => `${g.title}. ${g.note ?? ""} ${g.examples.map((e) => e.caption).join(". ")}`)
           .join(" Next: ");
-      case "meaning":
-        return `What is it? ${concept.whatIsIt} Why do we need it? ${concept.whyNeeded} Where do we see it in life? ${concept.realLifeUses.join(". ")}`;
-      case "steps":
-        return `${concept.standardMethod.summary} ${concept.standardMethod.steps.join(" ")}`;
+      case "meaning": {
+        const remember = concept.rememberIt ? ` Remember it: ${concept.rememberIt.hook}. ${concept.rememberIt.unpack ?? ""}` : "";
+        const faq = (concept.studentQuestions ?? []).map((qa) => `${qa.q} ${qa.a}`).join(" ");
+        return `What is it? ${concept.whatIsIt} Why do we need it? ${concept.whyNeeded} Where do we see it in life? ${concept.realLifeUses.join(". ")}${remember}${faq ? " Curious? " + faq : ""}`;
+      }
+      case "steps": {
+        const f = (concept.formulas ?? []).map((x) => `${x.name}: ${x.formula}. ${x.remember ?? ""}`).join(" ");
+        return `${concept.standardMethod.summary} ${concept.standardMethod.steps.join(" ")}${f ? " Formulas to know: " + f : ""}`;
+      }
       case "anotherWay":
         return methods
           .map((m) => `${m.kind}. ${m.name}. Best when: ${m.whenToUse}. ${m.steps.join(" ")} Example: ${m.example}`)
@@ -267,6 +272,24 @@ export function LessonPlayer({
                 {(concept.funFacts ?? []).map((f, i) => (
                   <p key={i} className="fm-funfact">💡 <strong>Did you know?</strong> {f}</p>
                 ))}
+                {concept.rememberIt && (
+                  <div className="fm-remember">
+                    <span className="fm-remember-badge">🧠 Remember it</span>
+                    <p className="fm-remember-hook">{concept.rememberIt.hook}</p>
+                    {concept.rememberIt.unpack && <p className="fm-remember-unpack">{concept.rememberIt.unpack}</p>}
+                  </div>
+                )}
+                {(concept.studentQuestions?.length ?? 0) > 0 && (
+                  <div className="fm-faq">
+                    <h2>❓ Curious? Questions kids ask</h2>
+                    {concept.studentQuestions!.map((qa, i) => (
+                      <details key={i} className="fm-faq-item">
+                        <summary>{qa.q}</summary>
+                        <p>{qa.a}</p>
+                      </details>
+                    ))}
+                  </div>
+                )}
                 <button className="fm-picture-btn" onClick={() => setImgStyle("poster")}>✨ Picture this concept</button>
               </article>
             )}
@@ -274,6 +297,21 @@ export function LessonPlayer({
               <article>
                 <h2>{concept.standardMethod.summary}</h2>
                 <StepReveal steps={concept.standardMethod.steps} />
+                {(concept.formulas?.length ?? 0) > 0 && (
+                  <div className="fm-formulas">
+                    <h2>📐 Formulas to know</h2>
+                    {concept.formulas!.map((f, i) => (
+                      <div key={i} className="fm-formula-card">
+                        <div className="fm-formula-top">
+                          <span className="fm-formula-name">{f.name}</span>
+                          <code className="fm-formula-eq">{f.formula}</code>
+                        </div>
+                        {f.remember && <p className="fm-formula-remember">🧠 {f.remember}</p>}
+                        {f.whenToUse && <p className="fm-formula-when">👉 {f.whenToUse}</p>}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </article>
             )}
             {tab === "anotherWay" && methods.length > 0 && (
@@ -353,7 +391,10 @@ export function LessonPlayer({
             )}
           </main>
 
-          {aiUsable(ai) && (
+          {/* Robo's help belongs on the explanation tab — these buttons re-word,
+              re-explain or add examples for the CONCEPT, so they'd be noise on
+              Picture / Steps / Examples / Cards. Show only on Meaning. */}
+          {tab === "meaning" && aiUsable(ai) && (
             <div className="fm-ai-row">
               <span className="fm-ai-label">🤖 Robo can help more:</span>
               <button className="fm-secondary" disabled={aiBusy} onClick={() => askAi("simpler")}>Simpler words</button>
@@ -363,8 +404,8 @@ export function LessonPlayer({
               <button className="fm-secondary" disabled={aiBusy} onClick={() => askAi("fun-fact")}>✨ Fun fact</button>
             </div>
           )}
-          {aiBusy && <p className="fm-ai-busy">🤖 Robo Reason is thinking…</p>}
-          {aiText && (
+          {tab === "meaning" && aiBusy && <p className="fm-ai-busy">🤖 Robo Reason is thinking…</p>}
+          {tab === "meaning" && aiText && (
             <div className="fm-ai-panel">
               <p>{aiText.explanation}</p>
               {aiText.example && <p className="fm-callout">{aiText.example}</p>}

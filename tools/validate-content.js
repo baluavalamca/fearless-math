@@ -138,6 +138,18 @@ function validateConcept(file) {
     if (!Array.isArray(c.flashcards) || !c.flashcards.every((f) => f && isStr(f.front) && isStr(f.back)))
       err("flashcards must be an array of { front, back } strings");
   }
+  // Optional learning-support layers (memory hook, curiosity FAQ, formula cards).
+  if (c.rememberIt !== undefined) {
+    if (!c.rememberIt || !isStr(c.rememberIt.hook, 2)) err("rememberIt.hook (memory mnemonic) required when rememberIt present");
+  }
+  if (c.studentQuestions !== undefined) {
+    if (!Array.isArray(c.studentQuestions) || !c.studentQuestions.every((x) => x && isStr(x.q, 3) && isStr(x.a, 3)))
+      err("studentQuestions must be an array of { q, a } strings");
+  }
+  if (c.formulas !== undefined) {
+    if (!Array.isArray(c.formulas) || !c.formulas.every((f) => f && isStr(f.name) && isStr(f.formula)))
+      err("formulas must be an array of { name, formula } (remember?, whenToUse? optional)");
+  }
 
   checkMethod(c.mentalMathMethod, "mentalMathMethod");
   checkMethod(c.abacusMethod, "abacusMethod");

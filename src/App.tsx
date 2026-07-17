@@ -14,23 +14,22 @@ import { Emoji3D } from "./components/ObjectIcon";
 import { isAutoRead, setAutoRead, stopSpeaking } from "./speech";
 
 type Screen = "map" | "clinic" | "parent";
-type ThemeId = "light" | "dark" | "claude" | "nvidia" | "nike" | "taupe" | "matrix" | "sunflower" | "grape"
-  | "pastel" | "sage" | "rosewood" | "sapphire";
+type ThemeId = "rainbow" | "space" | "unicorn" | "ocean" | "dino" | "candy" | "fairy" | "jungle" | "racing"
+  | "light" | "dark";
 
-const THEMES: { id: ThemeId; label: string; icon: string; mode: "light" | "dark" }[] = [
-  { id: "light", label: "Light", icon: "☀️", mode: "light" },
-  { id: "dark", label: "Dark", icon: "🌙", mode: "dark" },
-  { id: "claude", label: "Claude", icon: "🟠", mode: "light" },
-  { id: "nvidia", label: "NVIDIA", icon: "🟢", mode: "dark" },
-  { id: "nike", label: "Nike", icon: "✔️", mode: "dark" },
-  { id: "taupe", label: "Taupe", icon: "🤎", mode: "light" },
-  { id: "matrix", label: "Matrix", icon: "🟩", mode: "dark" },
-  { id: "sunflower", label: "Sunflower", icon: "🌻", mode: "dark" },
-  { id: "grape", label: "Grape", icon: "🍇", mode: "light" },
-  { id: "pastel", label: "Pastel", icon: "🪻", mode: "light" },
-  { id: "sage", label: "Sage", icon: "🌿", mode: "light" },
-  { id: "rosewood", label: "Rosewood", icon: "🌹", mode: "light" },
-  { id: "sapphire", label: "Sapphire", icon: "🔷", mode: "dark" },
+/* Kid-first theme set. `sw` is the swatch gradient shown in the picker. */
+const THEMES: { id: ThemeId; label: string; icon: string; mode: "light" | "dark"; sw: string }[] = [
+  { id: "rainbow", label: "Rainbow", icon: "🌈", mode: "light", sw: "linear-gradient(120deg,#ff5d5d,#ffb84d,#ffe14d,#4dd07a,#4db8ff,#a15dff)" },
+  { id: "space", label: "Space", icon: "🚀", mode: "dark", sw: "linear-gradient(135deg,#7c5cff,#3b82f6,#22d3ee)" },
+  { id: "unicorn", label: "Unicorn", icon: "🦄", mode: "light", sw: "linear-gradient(135deg,#ff5db1,#c084fc,#7dd3fc)" },
+  { id: "ocean", label: "Ocean", icon: "🐠", mode: "light", sw: "linear-gradient(135deg,#22d3ee,#0ea5e9,#14b8a6)" },
+  { id: "dino", label: "Dino", icon: "🦕", mode: "light", sw: "linear-gradient(135deg,#4caf50,#a3e635,#f59e0b)" },
+  { id: "candy", label: "Candy", icon: "🍭", mode: "light", sw: "linear-gradient(135deg,#ff4d8d,#ff9ec4,#34d399)" },
+  { id: "fairy", label: "Fairy", icon: "🧚", mode: "light", sw: "linear-gradient(135deg,#14b8a6,#8b5cf6,#f9a8d4)" },
+  { id: "jungle", label: "Jungle", icon: "🌴", mode: "light", sw: "linear-gradient(135deg,#16a34a,#22c55e,#a3e635)" },
+  { id: "racing", label: "Racing", icon: "🏎️", mode: "dark", sw: "linear-gradient(135deg,#ff3b3b,#ff7a18,#111827)" },
+  { id: "light", label: "Light", icon: "☀️", mode: "light", sw: "linear-gradient(135deg,#ff9f43,#ff5db1,#8b5cf6)" },
+  { id: "dark", label: "Dark", icon: "🌙", mode: "dark", sw: "linear-gradient(135deg,#2b2440,#8b5cf6)" },
 ];
 
 export default function App() {
@@ -45,10 +44,8 @@ export default function App() {
     return (THEMES.find((t) => t.id === s)?.id) ?? "light";
   });
 
+  const [themeMenu, setThemeMenu] = useState(false);
   function toggleAutoRead() { const next = !autoRead; setAutoRead(next); setAutoReadState(next); }
-  function cycleTheme() {
-    setTheme((prev) => { const i = THEMES.findIndex((t) => t.id === prev); return THEMES[(i + 1) % THEMES.length].id; });
-  }
 
   useEffect(() => { stopSpeaking(); }, [screen, open]);
   useEffect(() => {
@@ -109,11 +106,28 @@ export default function App() {
           title="When ON, the app reads every screen aloud automatically">
           {autoRead ? "🔊 Auto-read ON" : "🔇 Auto-read OFF"}
         </button>
-        <button className="fm-theme-toggle" onClick={cycleTheme}
-          title={`Switch theme (${THEMES.length} available)`}>
-          {(THEMES.find((t) => t.id === theme) ?? THEMES[0]).icon}{" "}
-          {(THEMES.find((t) => t.id === theme) ?? THEMES[0]).label}
-        </button>
+        <div className="fm-theme-wrap">
+          <button className="fm-theme-toggle" onClick={() => setThemeMenu((v) => !v)}
+            aria-haspopup="true" aria-expanded={themeMenu} title="Choose a theme">
+            {(THEMES.find((t) => t.id === theme) ?? THEMES[0]).icon}{" "}
+            {(THEMES.find((t) => t.id === theme) ?? THEMES[0]).label} ▾
+          </button>
+          {themeMenu && (
+            <>
+              <div className="fm-theme-backdrop" onClick={() => setThemeMenu(false)} />
+              <div className="fm-theme-menu" role="menu" aria-label="Choose a theme">
+                {THEMES.map((t) => (
+                  <button key={t.id} role="menuitemradio" aria-checked={theme === t.id}
+                    className={"fm-theme-swatch" + (theme === t.id ? " on" : "")}
+                    onClick={() => { setTheme(t.id); setThemeMenu(false); }}>
+                    <span className="fm-theme-chip" style={{ background: t.sw }} aria-hidden />
+                    <span className="fm-theme-name">{t.icon} {t.label}</span>
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
       </nav>
       {screen === "map" && concepts && <WorldMap concepts={concepts} profile={profile} onOpen={openConcept} />}
       {screen === "map" && !concepts && <div className="fm-loading">Loading…</div>}

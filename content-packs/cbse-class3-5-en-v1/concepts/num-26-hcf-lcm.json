@@ -3,7 +3,9 @@
   "name": "HCF and LCM — Common Factors and Multiples",
   "grade": 6,
   "strand": "numbers",
-  "prerequisites": ["num-24-primes"],
+  "prerequisites": [
+    "num-24-primes"
+  ],
   "whatIsIt": "The HCF (Highest Common Factor) is the BIGGEST number that divides two numbers exactly — great for splitting things into the largest equal groups. The LCM (Lowest Common Multiple) is the SMALLEST number both go into — great for when two cycles line up again. HCF looks at shared FACTORS; LCM looks at shared MULTIPLES.",
   "whyNeeded": "HCF and LCM solve real timing and grouping problems — when two bells ring together again, arranging tiles with no cuts, or simplifying fractions to lowest terms. They're built on factors, multiples and primes.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Packing two item counts into equal boxes with none left over"
   ],
   "vocabulary": [
-    { "term": "HCF (GCD)", "meaning": "The highest number that is a factor of both numbers." },
-    { "term": "LCM", "meaning": "The lowest number that is a multiple of both numbers." },
-    { "term": "common", "meaning": "Shared by both numbers (a common factor or common multiple)." }
+    {
+      "term": "HCF (GCD)",
+      "meaning": "The highest number that is a factor of both numbers."
+    },
+    {
+      "term": "LCM",
+      "meaning": "The lowest number that is a multiple of both numbers."
+    },
+    {
+      "term": "common",
+      "meaning": "Shared by both numbers (a common factor or common multiple)."
+    }
   ],
   "story": {
     "title": "The Two Temple Bells",
-    "characters": ["Priya", "Dada"],
+    "characters": [
+      "Priya",
+      "Dada"
+    ],
     "text": "One bell rings every 4 minutes, another every 6. They just rang together. 'When will they ring together again?' asks Dada. Priya lists multiples: 4, 8, 12… and 6, 12, 18… 'The first shared one is 12!' The LCM of 4 and 6 is 12 — 'so they ring together every 12 minutes.'",
     "extractedProblem": "Bells ring every 4 and 6 minutes. After how many minutes do they ring together again?",
     "answerInStory": "12 minutes — the LCM of 4 and 6."
@@ -28,8 +42,28 @@
     "component": "NumberTrack",
     "props": {
       "tracks": [
-        { "terms": [4, 8, 12, 16, 20, 24], "jump": 4, "label": "multiples of 4" },
-        { "terms": [6, 12, 18, 24], "jump": 6, "label": "multiples of 6" }
+        {
+          "terms": [
+            4,
+            8,
+            12,
+            16,
+            20,
+            24
+          ],
+          "jump": 4,
+          "label": "multiples of 4"
+        },
+        {
+          "terms": [
+            6,
+            12,
+            18,
+            24
+          ],
+          "jump": 6,
+          "label": "multiples of 6"
+        }
       ]
     },
     "caption": "First shared multiple of 4 and 6 is 12 → LCM = 12. The bells meet at 12."
@@ -39,9 +73,55 @@
       "title": "Factors for HCF, multiples for LCM",
       "note": "HCF = biggest shared factor; LCM = smallest shared multiple.",
       "examples": [
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [1, 2, 3, 6], "label": "factors of 12 & 18: share 1,2,3,6" } ] }, "caption": "Biggest common factor of 12 & 18 is 6 → HCF = 6." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [3, 6, 9, 12], "jump": 3, "label": "multiples of 3" } ] }, "caption": "3 and 4 first meet at 12 → LCM = 12." },
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 6, "cols": 2, "asGroups": true, "label": "12÷6=2, 18÷6=3 (HCF groups)" } ] }, "caption": "HCF makes the largest equal groups." }
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  2,
+                  3,
+                  6
+                ],
+                "label": "factors of 12 & 18: share 1,2,3,6"
+              }
+            ]
+          },
+          "caption": "Biggest common factor of 12 & 18 is 6 → HCF = 6."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  3,
+                  6,
+                  9,
+                  12
+                ],
+                "jump": 3,
+                "label": "multiples of 3"
+              }
+            ]
+          },
+          "caption": "3 and 4 first meet at 12 → LCM = 12."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 6,
+                "cols": 2,
+                "asGroups": true,
+                "label": "12÷6=2, 18÷6=3 (HCF groups)"
+              }
+            ]
+          },
+          "caption": "HCF makes the largest equal groups."
+        }
       ]
     }
   ],
@@ -57,12 +137,20 @@
   "workedExamples": [
     {
       "problem": "Find the HCF of 12 and 18.",
-      "steps": ["Factors of 12: 1,2,3,4,6,12. Factors of 18: 1,2,3,6,9,18.", "Common: 1, 2, 3, 6.", "Highest is 6 → HCF = 6."],
+      "steps": [
+        "Factors of 12: 1,2,3,4,6,12. Factors of 18: 1,2,3,6,9,18.",
+        "Common: 1, 2, 3, 6.",
+        "Highest is 6 → HCF = 6."
+      ],
       "answer": "6"
     },
     {
       "problem": "Find the LCM of 4 and 6.",
-      "steps": ["Multiples of 4: 4, 8, 12, 16… Multiples of 6: 6, 12, 18…", "First shared multiple is 12.", "LCM = 12."],
+      "steps": [
+        "Multiples of 4: 4, 8, 12, 16… Multiples of 6: 6, 12, 18…",
+        "First shared multiple is 12.",
+        "LCM = 12."
+      ],
       "answer": "12"
     }
   ],
@@ -81,74 +169,140 @@
   "practice": {
     "easy": [
       {
-        "id": "n26-e1", "type": "number",
+        "id": "n26-e1",
+        "type": "number",
         "q": "What is the HCF of 6 and 9?",
         "answer": "3",
-        "hintLadder": ["Common factors of 6 and 9?", "1 and 3.", "Highest is 3."]
+        "hintLadder": [
+          "Common factors of 6 and 9?",
+          "1 and 3.",
+          "Highest is 3."
+        ]
       },
       {
-        "id": "n26-e2", "type": "number",
+        "id": "n26-e2",
+        "type": "number",
         "q": "What is the LCM of 2 and 3?",
         "answer": "6",
-        "hintLadder": ["Multiples of 2 and 3.", "First shared one.", "6."]
+        "hintLadder": [
+          "Multiples of 2 and 3.",
+          "First shared one.",
+          "6."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n26-m1", "type": "number",
+        "id": "n26-m1",
+        "type": "number",
         "q": "What is the HCF of 8 and 12?",
         "answer": "4",
-        "hintLadder": ["Common factors: 1, 2, 4.", "Highest.", "4."]
+        "hintLadder": [
+          "Common factors: 1, 2, 4.",
+          "Highest.",
+          "4."
+        ]
       },
       {
-        "id": "n26-m2", "type": "number",
+        "id": "n26-m2",
+        "type": "number",
         "q": "What is the LCM of 4 and 5?",
         "answer": "20",
-        "hintLadder": ["Multiples of 4 and 5.", "First shared.", "20."]
+        "hintLadder": [
+          "Multiples of 4 and 5.",
+          "First shared.",
+          "20."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n26-c1", "type": "number",
+        "id": "n26-c1",
+        "type": "number",
         "q": "Two lights blink every 6 and 8 seconds. After how many seconds do they blink together?",
         "answer": "24",
-        "hintLadder": ["This is the LCM of 6 and 8.", "Multiples: 6,12,18,24 and 8,16,24.", "24."]
+        "hintLadder": [
+          "This is the LCM of 6 and 8.",
+          "Multiples: 6,12,18,24 and 8,16,24.",
+          "24."
+        ]
       },
       {
-        "id": "n26-c2", "type": "mcq",
+        "id": "n26-c2",
+        "type": "mcq",
         "q": "For the LARGEST equal pieces from ribbons of 12 m and 18 m, you need…",
-        "options": [ { "label": "The HCF (6 m pieces)" }, { "label": "The LCM", "mistakeTag": "hcf-lcm-swapped" } ],
+        "options": [
+          {
+            "label": "The HCF (6 m pieces)"
+          },
+          {
+            "label": "The LCM",
+            "mistakeTag": "hcf-lcm-swapped"
+          }
+        ],
         "answer": "The HCF (6 m pieces)",
-        "hintLadder": ["Biggest equal cut = highest common factor.", "HCF of 12 & 18 = 6.", "HCF."]
+        "hintLadder": [
+          "Biggest equal cut = highest common factor.",
+          "HCF of 12 & 18 = 6.",
+          "HCF."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n26-x1", "type": "number",
+        "id": "n26-x1",
+        "type": "number",
         "q": "HCF of 10 and 15?",
         "answer": "5",
-        "hintLadder": ["Common factors: 1, 5.", "Highest.", "5."]
+        "hintLadder": [
+          "Common factors: 1, 5.",
+          "Highest.",
+          "5."
+        ]
       },
       {
-        "id": "n26-x2", "type": "number",
+        "id": "n26-x2",
+        "type": "number",
         "q": "LCM of 3 and 4?",
         "answer": "12",
-        "hintLadder": ["First shared multiple.", "3,6,9,12 and 4,8,12.", "12."]
+        "hintLadder": [
+          "First shared multiple.",
+          "3,6,9,12 and 4,8,12.",
+          "12."
+        ]
       },
       {
-        "id": "n26-x3", "type": "number",
+        "id": "n26-x3",
+        "type": "number",
         "q": "HCF of 9 and 12?",
         "answer": "3",
-        "hintLadder": ["Common factors: 1, 3.", "Highest.", "3."]
+        "hintLadder": [
+          "Common factors: 1, 3.",
+          "Highest.",
+          "3."
+        ]
       },
       {
-        "id": "n26-x4", "type": "mcq",
+        "id": "n26-x4",
+        "type": "mcq",
         "q": "When two cycles next line up together, you use the…",
-        "options": [ { "label": "LCM" }, { "label": "HCF", "mistakeTag": "hcf-lcm-swapped" } ],
+        "options": [
+          {
+            "label": "LCM"
+          },
+          {
+            "label": "HCF",
+            "mistakeTag": "hcf-lcm-swapped"
+          }
+        ],
         "answer": "LCM",
-        "hintLadder": ["'Together again' = shared multiple.", "Smallest shared multiple.", "LCM."]
+        "hintLadder": [
+          "'Together again' = shared multiple.",
+          "Smallest shared multiple.",
+          "LCM."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -157,7 +311,11 @@
   "teachBackPrompt": "Pick two small numbers (like 6 and 8). Show a grown-up how to find their HCF (biggest shared factor) and LCM (smallest shared multiple), and give a real example for each — cutting equal pieces (HCF) and two bells meeting (LCM).",
   "revisionCard": {
     "summary": "HCF = Highest Common FACTOR (biggest divisor of both) → largest equal groups, simplify fractions. LCM = Lowest Common MULTIPLE (smallest number both go into) → when cycles meet again. Both must be COMMON to the two numbers.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -166,5 +324,27 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "HCF = biggest shared factor. LCM = smallest shared multiple",
+    "unpack": "Factors are small, so HCF is at most your numbers. Multiples are big, so LCM is at least your numbers. Handy link: HCF x LCM = the two numbers multiplied."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I stop mixing up HCF and LCM?",
+      "a": "HCF = Highest Common FACTOR - factors are small, so HCF is at most your numbers. LCM = Lowest Common MULTIPLE - multiples are big, so LCM is at least your numbers."
+    },
+    {
+      "q": "When do I use each one?",
+      "a": "HCF: splitting things into the biggest equal groups. LCM: when events repeat together - bells ringing, or buses arriving at the same time."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "HCF-LCM link",
+      "formula": "HCF x LCM = a x b",
+      "remember": "Their product equals the product of the two numbers",
+      "whenToUse": "Find one when you know the other and both numbers."
+    }
+  ]
 }

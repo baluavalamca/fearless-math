@@ -42,6 +42,12 @@ export interface Concept {
   funFacts?: string[];
   /** Optional authored flashcards; if absent, cards are auto-derived from the glossary + revision card. */
   flashcards?: { front: string; back: string }[];
+  /** Memory hook / mnemonic — the easiest way to REMEMBER this (e.g. BODMAS, SOH-CAH-TOA). */
+  rememberIt?: { hook: string; unpack?: string };
+  /** The curiosity questions kids actually ask, with kid-friendly answers (elaborative "why"). */
+  studentQuestions?: { q: string; a: string }[];
+  /** Key formulas with a memory aid and when to use each. */
+  formulas?: { name: string; formula: string; remember?: string; whenToUse?: string }[];
   gameMission?: { world: string; title: string; brief: string; character?: string };
   realLifeProject?: string;
 }

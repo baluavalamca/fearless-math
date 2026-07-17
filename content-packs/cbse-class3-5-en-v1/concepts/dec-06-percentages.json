@@ -3,7 +3,9 @@
   "name": "Percentages — Out of a Hundred",
   "grade": 7,
   "strand": "fractions",
-  "prerequisites": ["dec-04-fraction-decimal-link"],
+  "prerequisites": [
+    "dec-04-fraction-decimal-link"
+  ],
   "whatIsIt": "PER CENT means 'per hundred'. 25% means 25 out of every 100, which is the fraction 25/100 = 1/4 = the decimal 0.25. Percentages are a common language for parts: 50% is half, 100% is all, 10% is one-tenth. To find a percentage OF an amount, turn the % into a fraction or decimal and multiply.",
   "whyNeeded": "Percentages run daily life: exam marks, '20% off' sales, battery level, phone storage, interest at the bank, cricket strike rates. One shared 'out of 100' language lets us compare fairly and spot a good (or bad) deal.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "A 5% service charge on a restaurant bill"
   ],
   "vocabulary": [
-    { "term": "per cent (%)", "meaning": "Out of a hundred; 25% = 25 per 100." },
-    { "term": "discount", "meaning": "An amount taken off the price, often given as a percentage." },
-    { "term": "of", "meaning": "In percentage sums, 'of' means multiply (10% of 200)." }
+    {
+      "term": "per cent (%)",
+      "meaning": "Out of a hundred; 25% = 25 per 100."
+    },
+    {
+      "term": "discount",
+      "meaning": "An amount taken off the price, often given as a percentage."
+    },
+    {
+      "term": "of",
+      "meaning": "In percentage sums, 'of' means multiply (10% of 200)."
+    }
   ],
   "story": {
     "title": "The Sale Sticker",
-    "characters": ["Farhan", "Shopkeeper"],
+    "characters": [
+      "Farhan",
+      "Shopkeeper"
+    ],
     "text": "Farhan eyes a cricket bat priced ₹800 with a '25% OFF' sticker. 'How much do I save?' he asks. The shopkeeper says, 'Work out 25% of 800.' Farhan knows 25% is one quarter, and a quarter of 800 is 200. 'I save ₹200, so I pay ₹600!' The shopkeeper nods — 'percentages tell you the deal.'",
     "extractedProblem": "A ₹800 bat has 25% off. How much is saved, and what is the final price?",
     "answerInStory": "Save ₹200 (25% of 800), pay ₹600."
@@ -28,7 +42,11 @@
     "component": "FractionStrip",
     "props": {
       "strips": [
-        { "parts": 4, "shaded": 1, "label": "25% = 1/4" }
+        {
+          "parts": 4,
+          "shaded": 1,
+          "label": "25% = 1/4"
+        }
       ]
     },
     "caption": "25% = 25/100 = 1/4 = 0.25. Percent is just another name for a part of the whole."
@@ -38,9 +56,45 @@
       "title": "Same value, three names",
       "note": "Percent ↔ fraction ↔ decimal are the same number.",
       "examples": [
-        { "component": "PizzaSlices", "props": { "pies": [ { "parts": 2, "shaded": 1, "label": "50% = 1/2" } ] }, "caption": "50% is one half." },
-        { "component": "FractionStrip", "props": { "strips": [ { "parts": 10, "shaded": 1, "label": "10% = 1/10" } ] }, "caption": "10% is one-tenth = 0.1." },
-        { "component": "FractionStrip", "props": { "strips": [ { "parts": 4, "shaded": 3, "label": "75% = 3/4" } ] }, "caption": "75% = 3/4 = 0.75." }
+        {
+          "component": "PizzaSlices",
+          "props": {
+            "pies": [
+              {
+                "parts": 2,
+                "shaded": 1,
+                "label": "50% = 1/2"
+              }
+            ]
+          },
+          "caption": "50% is one half."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 10,
+                "shaded": 1,
+                "label": "10% = 1/10"
+              }
+            ]
+          },
+          "caption": "10% is one-tenth = 0.1."
+        },
+        {
+          "component": "FractionStrip",
+          "props": {
+            "strips": [
+              {
+                "parts": 4,
+                "shaded": 3,
+                "label": "75% = 3/4"
+              }
+            ]
+          },
+          "caption": "75% = 3/4 = 0.75."
+        }
       ]
     }
   ],
@@ -56,12 +110,20 @@
   "workedExamples": [
     {
       "problem": "Find 20% of ₹150.",
-      "steps": ["20% = 20/100 = 0.2 (or one-fifth).", "0.2 × 150 (or 150 ÷ 5).", "= ₹30."],
+      "steps": [
+        "20% = 20/100 = 0.2 (or one-fifth).",
+        "0.2 × 150 (or 150 ÷ 5).",
+        "= ₹30."
+      ],
       "answer": "₹30"
     },
     {
       "problem": "A ₹1200 phone has a 10% discount. What is the final price?",
-      "steps": ["10% of 1200 = 1200 ÷ 10 = ₹120 off.", "Final = 1200 − 120.", "= ₹1080."],
+      "steps": [
+        "10% of 1200 = 1200 ÷ 10 = ₹120 off.",
+        "Final = 1200 − 120.",
+        "= ₹1080."
+      ],
       "answer": "₹1080"
     }
   ],
@@ -80,75 +142,149 @@
   "practice": {
     "easy": [
       {
-        "id": "d06-e1", "type": "mcq",
+        "id": "d06-e1",
+        "type": "mcq",
         "q": "50% of an amount is the same as…",
-        "options": [ { "label": "One half" }, { "label": "The whole amount", "mistakeTag": "percent-not-of-hundred" } ],
+        "options": [
+          {
+            "label": "One half"
+          },
+          {
+            "label": "The whole amount",
+            "mistakeTag": "percent-not-of-hundred"
+          }
+        ],
         "answer": "One half",
-        "hintLadder": ["50 out of 100.", "That's half.", "One half."]
+        "hintLadder": [
+          "50 out of 100.",
+          "That's half.",
+          "One half."
+        ]
       },
       {
-        "id": "d06-e2", "type": "number",
+        "id": "d06-e2",
+        "type": "number",
         "q": "What is 10% of 200 (in ₹)?",
         "answer": "20",
-        "hintLadder": ["10% means divide by 10.", "200 ÷ 10.", "Twenty."]
+        "hintLadder": [
+          "10% means divide by 10.",
+          "200 ÷ 10.",
+          "Twenty."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "d06-m1", "type": "number",
+        "id": "d06-m1",
+        "type": "number",
         "q": "What is 25% of 80?",
         "answer": "20",
-        "hintLadder": ["25% is one quarter.", "80 ÷ 4.", "Twenty."]
+        "hintLadder": [
+          "25% is one quarter.",
+          "80 ÷ 4.",
+          "Twenty."
+        ]
       },
       {
-        "id": "d06-m2", "type": "number",
+        "id": "d06-m2",
+        "type": "number",
         "q": "A ₹500 bag has 20% off. How many rupees are saved?",
         "answer": "100",
-        "hintLadder": ["20% = one-fifth.", "500 ÷ 5.", "₹100 saved."]
+        "hintLadder": [
+          "20% = one-fifth.",
+          "500 ÷ 5.",
+          "₹100 saved."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "d06-c1", "type": "number",
+        "id": "d06-c1",
+        "type": "number",
         "q": "A ₹1200 cycle has a 25% discount. What is the final price (in ₹)?",
         "answer": "900",
-        "hintLadder": ["25% of 1200 = 300 off.", "1200 − 300.", "₹900."]
+        "hintLadder": [
+          "25% of 1200 = 300 off.",
+          "1200 − 300.",
+          "₹900."
+        ]
       },
       {
-        "id": "d06-c2", "type": "mcq",
+        "id": "d06-c2",
+        "type": "mcq",
         "q": "A ₹400 shirt is '10% off'. Meena says 'so it costs ₹40'. What's wrong?",
-        "options": [ { "label": "₹40 is only the saving — the price is 400 − 40 = ₹360" }, { "label": "Nothing, it costs ₹40", "mistakeTag": "discount-is-final" } ],
+        "options": [
+          {
+            "label": "₹40 is only the saving — the price is 400 − 40 = ₹360"
+          },
+          {
+            "label": "Nothing, it costs ₹40",
+            "mistakeTag": "discount-is-final"
+          }
+        ],
         "answer": "₹40 is only the saving — the price is 400 − 40 = ₹360",
-        "hintLadder": ["Discount = what you save.", "10% of 400 = 40 saved.", "Pay 400 − 40 = ₹360."]
+        "hintLadder": [
+          "Discount = what you save.",
+          "10% of 400 = 40 saved.",
+          "Pay 400 − 40 = ₹360."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "d06-x1", "type": "number",
+        "id": "d06-x1",
+        "type": "number",
         "q": "What is 10% of 90?",
         "answer": "9",
-        "hintLadder": ["Divide by 10.", "90 ÷ 10.", "Nine."]
+        "hintLadder": [
+          "Divide by 10.",
+          "90 ÷ 10.",
+          "Nine."
+        ]
       },
       {
-        "id": "d06-x2", "type": "number",
+        "id": "d06-x2",
+        "type": "number",
         "q": "What is 50% of 60?",
         "answer": "30",
-        "hintLadder": ["50% is half.", "60 ÷ 2.", "Thirty."]
+        "hintLadder": [
+          "50% is half.",
+          "60 ÷ 2.",
+          "Thirty."
+        ]
       },
       {
-        "id": "d06-x3", "type": "number",
+        "id": "d06-x3",
+        "type": "number",
         "q": "A ₹250 book has 20% off. Final price (in ₹)?",
         "answer": "200",
-        "hintLadder": ["20% of 250 = 50 off.", "250 − 50.", "₹200."]
+        "hintLadder": [
+          "20% of 250 = 50 off.",
+          "250 − 50.",
+          "₹200."
+        ]
       },
       {
-        "id": "d06-x4", "type": "mcq",
+        "id": "d06-x4",
+        "type": "mcq",
         "q": "25% is the same as which fraction?",
-        "options": [ { "label": "1/4" }, { "label": "25/10", "mistakeTag": "percent-not-of-hundred" } ],
+        "options": [
+          {
+            "label": "1/4"
+          },
+          {
+            "label": "25/10",
+            "mistakeTag": "percent-not-of-hundred"
+          }
+        ],
         "answer": "1/4",
-        "hintLadder": ["25 out of 100.", "25/100 simplifies.", "1/4."]
+        "hintLadder": [
+          "25 out of 100.",
+          "25/100 simplifies.",
+          "1/4."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -157,7 +293,11 @@
   "teachBackPrompt": "Find a real sale tag or your latest test marks. Show a grown-up how to turn it into a percentage (or a percentage into a saving), and explain why 25% is the same as one quarter and 0.25.",
   "revisionCard": {
     "summary": "Percent = out of 100. 25% = 25/100 = 1/4 = 0.25. To find a percent OF an amount, multiply (10% = ÷10, 25% = ÷4, 50% = ÷2). Discount = amount SAVED; subtract it from the price to get what you PAY.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -166,5 +306,30 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "'Per cent' = per hundred (out of 100)",
+    "unpack": "x% = x/100. The word 'of' means multiply. 20% of 150 = 20/100 x 150 = 30. To find what percent a is of b: (a/b) x 100."
+  },
+  "studentQuestions": [
+    {
+      "q": "Is 50% always half?",
+      "a": "Yes - 50% = 50/100 = 1/2. Also 25% = 1/4 and 10% = 1/10. Learn these few and many percentages become mental maths."
+    },
+    {
+      "q": "How do I find a percentage fast?",
+      "a": "10% is just move the decimal one place left (10% of 250 = 25). Then build: 20% = double it, 5% = half of 10%, 15% = 10% + 5%."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Percent of a number",
+      "formula": "x% of N = (x/100) x N"
+    },
+    {
+      "name": "a as a % of b",
+      "formula": "(a / b) x 100",
+      "remember": "Part over whole, times 100"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "name": "Quadratic Equations",
   "grade": 9,
   "strand": "numbers",
-  "prerequisites": ["num-34-polynomials"],
+  "prerequisites": [
+    "num-34-polynomials"
+  ],
   "whatIsIt": "A QUADRATIC equation has an x² term, in the form ax² + bx + c = 0. It usually has TWO solutions (roots). One neat way to solve is by FACTORISING into two brackets: x² + 5x + 6 = (x + 2)(x + 3) = 0, so x = −2 or x = −3 (because if a product is zero, one factor must be zero). Simple ones like x² = 9 solve by taking square roots (x = 3 or −3).",
   "whyNeeded": "Quadratics describe curved paths, areas, and optimisation — a thrown ball's flight, the largest area for a fence, and countless physics and design problems. They're a milestone of secondary algebra.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Break-even and profit problems in business"
   ],
   "vocabulary": [
-    { "term": "quadratic", "meaning": "An equation with an x² term: ax² + bx + c = 0." },
-    { "term": "root (solution)", "meaning": "A value of x that makes the equation true." },
-    { "term": "zero-product rule", "meaning": "If a product = 0, at least one factor = 0." }
+    {
+      "term": "quadratic",
+      "meaning": "An equation with an x² term: ax² + bx + c = 0."
+    },
+    {
+      "term": "root (solution)",
+      "meaning": "A value of x that makes the equation true."
+    },
+    {
+      "term": "zero-product rule",
+      "meaning": "If a product = 0, at least one factor = 0."
+    }
   ],
   "story": {
     "title": "Two Answers",
-    "characters": ["Tara", "Sir"],
+    "characters": [
+      "Tara",
+      "Sir"
+    ],
     "text": "Sir writes x² + 5x + 6 = 0. 'One answer or two?' Tara factorises: she needs two numbers that multiply to 6 and add to 5 — that's 2 and 3. So (x + 2)(x + 3) = 0. 'Either bracket can be zero,' she says, 'so x = −2 OR x = −3.' Sir nods: 'Quadratics usually give two roots.'",
     "extractedProblem": "Solve x² + 5x + 6 = 0 by factorising.",
     "answerInStory": "x = −2 or x = −3 — because (x+2)(x+3)=0."
@@ -28,7 +42,19 @@
     "component": "FunctionPlot",
     "props": {
       "plots": [
-        { "poly": [6, -5, 1], "domain": [0, 5], "label": "y = x² − 5x + 6", "color": "accent" }
+        {
+          "poly": [
+            6,
+            -5,
+            1
+          ],
+          "domain": [
+            0,
+            5
+          ],
+          "label": "y = x² − 5x + 6",
+          "color": "accent"
+        }
       ]
     },
     "caption": "The parabola y = x² − 5x + 6 crosses the x-axis at x = 2 and x = 3 — exactly the two solutions (roots) of the quadratic."
@@ -38,9 +64,55 @@
       "title": "Factor pairs and roots",
       "note": "Find two numbers that multiply to c and add to b.",
       "examples": [
-        { "component": "AreaModel", "props": { "models": [ { "rowParts": [1, 1], "colParts": [1, 4], "label": "(x+1)(x+4) = x²+5x+4" } ] }, "caption": "Roots −1 and −4." },
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 3, "cols": 3, "label": "x² = 9 → x = 3 or −3" } ] }, "caption": "Square-root form: two roots." },
-        { "component": "BarModel", "props": { "bars": [ { "label": "product = 0 → a factor = 0", "parts": [ { "value": 1 } ], "showTotal": false } ] }, "caption": "Zero-product rule." }
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  1,
+                  1
+                ],
+                "colParts": [
+                  1,
+                  4
+                ],
+                "label": "(x+1)(x+4) = x²+5x+4"
+              }
+            ]
+          },
+          "caption": "Roots −1 and −4."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 3,
+                "label": "x² = 9 → x = 3 or −3"
+              }
+            ]
+          },
+          "caption": "Square-root form: two roots."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "product = 0 → a factor = 0",
+                "parts": [
+                  {
+                    "value": 1
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "Zero-product rule."
+        }
       ]
     }
   ],
@@ -56,12 +128,20 @@
   "workedExamples": [
     {
       "problem": "Solve x² + 5x + 6 = 0.",
-      "steps": ["Two numbers multiplying to 6, adding to 5: 2 and 3.", "(x + 2)(x + 3) = 0.", "x = −2 or x = −3."],
+      "steps": [
+        "Two numbers multiplying to 6, adding to 5: 2 and 3.",
+        "(x + 2)(x + 3) = 0.",
+        "x = −2 or x = −3."
+      ],
       "answer": "x = -2 or -3"
     },
     {
       "problem": "Solve x² = 16.",
-      "steps": ["Take square roots of both sides.", "x = +√16 or −√16.", "x = 4 or x = −4."],
+      "steps": [
+        "Take square roots of both sides.",
+        "x = +√16 or −√16.",
+        "x = 4 or x = −4."
+      ],
       "answer": "x = 4 or -4"
     }
   ],
@@ -80,82 +160,212 @@
   "practice": {
     "easy": [
       {
-        "id": "n35-e1", "type": "mcq",
+        "id": "n35-e1",
+        "type": "mcq",
         "q": "Solve x² = 25. The roots are…",
-        "options": [ { "label": "5 and −5" }, { "label": "just 5", "mistakeTag": "only-one-root" } ],
+        "options": [
+          {
+            "label": "5 and −5"
+          },
+          {
+            "label": "just 5",
+            "mistakeTag": "only-one-root"
+          }
+        ],
         "answer": "5 and −5",
-        "hintLadder": ["Take square roots.", "Both signs.", "5 and −5."]
+        "hintLadder": [
+          "Take square roots.",
+          "Both signs.",
+          "5 and −5."
+        ]
       },
       {
-        "id": "n35-e2", "type": "mcq",
+        "id": "n35-e2",
+        "type": "mcq",
         "q": "x² + 3x + 2 factorises to…",
-        "options": [ { "label": "(x + 1)(x + 2)" }, { "label": "(x + 1)(x + 3)", "mistakeTag": "wrong-factor-pair" } ],
+        "options": [
+          {
+            "label": "(x + 1)(x + 2)"
+          },
+          {
+            "label": "(x + 1)(x + 3)",
+            "mistakeTag": "wrong-factor-pair"
+          }
+        ],
         "answer": "(x + 1)(x + 2)",
-        "hintLadder": ["Multiply to 2, add to 3.", "1 and 2.", "(x+1)(x+2)."]
+        "hintLadder": [
+          "Multiply to 2, add to 3.",
+          "1 and 2.",
+          "(x+1)(x+2)."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n35-m1", "type": "mcq",
+        "id": "n35-m1",
+        "type": "mcq",
         "q": "Solve x² + 5x + 6 = 0. The roots are…",
-        "options": [ { "label": "−2 and −3" }, { "label": "2 and 3", "mistakeTag": "wrong-factor-pair" } ],
+        "options": [
+          {
+            "label": "−2 and −3"
+          },
+          {
+            "label": "2 and 3",
+            "mistakeTag": "wrong-factor-pair"
+          }
+        ],
         "answer": "−2 and −3",
-        "hintLadder": ["(x+2)(x+3)=0.", "Each bracket zero.", "−2 and −3."]
+        "hintLadder": [
+          "(x+2)(x+3)=0.",
+          "Each bracket zero.",
+          "−2 and −3."
+        ]
       },
       {
-        "id": "n35-m2", "type": "mcq",
+        "id": "n35-m2",
+        "type": "mcq",
         "q": "Solve x² = 49. The roots are…",
-        "options": [ { "label": "7 and −7" }, { "label": "just 7", "mistakeTag": "only-one-root" } ],
+        "options": [
+          {
+            "label": "7 and −7"
+          },
+          {
+            "label": "just 7",
+            "mistakeTag": "only-one-root"
+          }
+        ],
         "answer": "7 and −7",
-        "hintLadder": ["Square roots, both signs.", "±7.", "7 and −7."]
+        "hintLadder": [
+          "Square roots, both signs.",
+          "±7.",
+          "7 and −7."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n35-c1", "type": "mcq",
+        "id": "n35-c1",
+        "type": "mcq",
         "q": "x² + 7x + 12 factorises to…",
-        "options": [ { "label": "(x + 3)(x + 4)" }, { "label": "(x + 2)(x + 6)", "mistakeTag": "wrong-factor-pair" } ],
+        "options": [
+          {
+            "label": "(x + 3)(x + 4)"
+          },
+          {
+            "label": "(x + 2)(x + 6)",
+            "mistakeTag": "wrong-factor-pair"
+          }
+        ],
         "answer": "(x + 3)(x + 4)",
-        "hintLadder": ["Multiply to 12, add to 7.", "3 and 4.", "(x+3)(x+4)."]
+        "hintLadder": [
+          "Multiply to 12, add to 7.",
+          "3 and 4.",
+          "(x+3)(x+4)."
+        ]
       },
       {
-        "id": "n35-c2", "type": "mcq",
+        "id": "n35-c2",
+        "type": "mcq",
         "q": "Ravi solves x² = 9 and writes x = 3 only. What's the fix?",
-        "options": [ { "label": "Also x = −3 — quadratics have two roots" }, { "label": "3 is the only answer", "mistakeTag": "only-one-root" } ],
+        "options": [
+          {
+            "label": "Also x = −3 — quadratics have two roots"
+          },
+          {
+            "label": "3 is the only answer",
+            "mistakeTag": "only-one-root"
+          }
+        ],
         "answer": "Also x = −3 — quadratics have two roots",
-        "hintLadder": ["(−3)² = 9 too.", "Two roots.", "3 and −3."]
+        "hintLadder": [
+          "(−3)² = 9 too.",
+          "Two roots.",
+          "3 and −3."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n35-x1", "type": "mcq",
+        "id": "n35-x1",
+        "type": "mcq",
         "q": "Solve x² = 4. Roots?",
-        "options": [ { "label": "2 and −2" }, { "label": "just 2", "mistakeTag": "only-one-root" } ],
+        "options": [
+          {
+            "label": "2 and −2"
+          },
+          {
+            "label": "just 2",
+            "mistakeTag": "only-one-root"
+          }
+        ],
         "answer": "2 and −2",
-        "hintLadder": ["±√4.", "Both signs.", "2 and −2."]
+        "hintLadder": [
+          "±√4.",
+          "Both signs.",
+          "2 and −2."
+        ]
       },
       {
-        "id": "n35-x2", "type": "mcq",
+        "id": "n35-x2",
+        "type": "mcq",
         "q": "x² + 4x + 3 factorises to…",
-        "options": [ { "label": "(x + 1)(x + 3)" }, { "label": "(x + 2)(x + 2)", "mistakeTag": "wrong-factor-pair" } ],
+        "options": [
+          {
+            "label": "(x + 1)(x + 3)"
+          },
+          {
+            "label": "(x + 2)(x + 2)",
+            "mistakeTag": "wrong-factor-pair"
+          }
+        ],
         "answer": "(x + 1)(x + 3)",
-        "hintLadder": ["Multiply 3, add 4.", "1 and 3.", "(x+1)(x+3)."]
+        "hintLadder": [
+          "Multiply 3, add 4.",
+          "1 and 3.",
+          "(x+1)(x+3)."
+        ]
       },
       {
-        "id": "n35-x3", "type": "mcq",
+        "id": "n35-x3",
+        "type": "mcq",
         "q": "Solve x² + 6x + 8 = 0. Roots?",
-        "options": [ { "label": "−2 and −4" }, { "label": "2 and 4", "mistakeTag": "wrong-factor-pair" } ],
+        "options": [
+          {
+            "label": "−2 and −4"
+          },
+          {
+            "label": "2 and 4",
+            "mistakeTag": "wrong-factor-pair"
+          }
+        ],
         "answer": "−2 and −4",
-        "hintLadder": ["(x+2)(x+4)=0.", "Each zero.", "−2 and −4."]
+        "hintLadder": [
+          "(x+2)(x+4)=0.",
+          "Each zero.",
+          "−2 and −4."
+        ]
       },
       {
-        "id": "n35-x4", "type": "mcq",
+        "id": "n35-x4",
+        "type": "mcq",
         "q": "If a product of two brackets = 0, then…",
-        "options": [ { "label": "At least one bracket = 0" }, { "label": "Both must be positive", "mistakeTag": "only-one-root" } ],
+        "options": [
+          {
+            "label": "At least one bracket = 0"
+          },
+          {
+            "label": "Both must be positive",
+            "mistakeTag": "only-one-root"
+          }
+        ],
         "answer": "At least one bracket = 0",
-        "hintLadder": ["Zero-product rule.", "One factor is zero.", "At least one = 0."]
+        "hintLadder": [
+          "Zero-product rule.",
+          "One factor is zero.",
+          "At least one = 0."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -164,7 +374,11 @@
   "teachBackPrompt": "Show a grown-up how x² + 5x + 6 = 0 becomes (x+2)(x+3)=0 by finding two numbers that multiply to 6 and add to 5, and explain why that gives TWO answers, x = −2 and x = −3.",
   "revisionCard": {
     "summary": "Quadratic: ax² + bx + c = 0, usually TWO roots. x² = k → x = ±√k. Factorise x² + bx + c by finding two numbers that MULTIPLY to c and ADD to b; set each bracket = 0 (zero-product rule). Always check both roots.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "vedicMethod": {
     "name": "Vedic: Completing the Square (Puranapuranabhyam)",
@@ -208,5 +422,32 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "x = (-b +/- sqrt(b^2 - 4ac)) / 2a",
+    "unpack": "For a x^2 + b x + c = 0. The b^2 - 4ac part (the discriminant) tells you the number of real answers. Tip: sing it to 'Pop Goes the Weasel'."
+  },
+  "studentQuestions": [
+    {
+      "q": "When do I use the formula instead of factorising?",
+      "a": "Try factorising first - it is fast when it works. If the equation will not factor into neat whole numbers, the formula ALWAYS works."
+    },
+    {
+      "q": "What does b^2 - 4ac tell me?",
+      "a": "The discriminant: positive -> two real answers, zero -> one repeated answer, negative -> no real answers."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Quadratic formula",
+      "formula": "x = (-b +/- sqrt(b^2 - 4ac)) / 2a",
+      "remember": "Sing it to 'Pop Goes the Weasel'",
+      "whenToUse": "Solve a x^2 + b x + c = 0 that will not factor nicely."
+    },
+    {
+      "name": "Discriminant",
+      "formula": "D = b^2 - 4ac",
+      "remember": "The sign of D = how many real roots"
+    }
+  ]
 }

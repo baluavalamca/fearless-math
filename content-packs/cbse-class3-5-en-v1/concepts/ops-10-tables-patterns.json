@@ -523,5 +523,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Tables have patterns - spot the trick, don't cram",
+    "unpack": "9x: tens digit goes up, ones go down (09,18,27...) and the two digits add to 9. 5x: ends in 0 or 5. 4x: double, then double again. 8x: double three times. 11x (up to 9): repeat the digit (11 x 3 = 33)."
+  },
+  "studentQuestions": [
+    {
+      "q": "Do I really have to memorise every table?",
+      "a": "No. Learn 2, 5, 10 first (easy patterns), then 3 and 4. Build the hard ones: 7 x 8 = (7 x 4) doubled = 28 doubled = 56."
+    },
+    {
+      "q": "What is the fastest 9x trick?",
+      "a": "Hold up 10 fingers. For 9 x 3, fold down finger number 3. Fingers to the LEFT of the fold = tens (2), fingers to the RIGHT = ones (7). Answer 27."
+    }
+  ]
 }
