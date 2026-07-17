@@ -455,6 +455,74 @@ async function coach(concept, question, answerGiven, mistake) {
   }
 }
 
+/* ---------------- Ask Robo: free-form maths tutor (kid-safe) ----------------
+ * A constrained conversational tutor. Guardrails: school MATHS ONLY, grade-aware
+ * language, no links, no personal data ever sent, gentle refusal for off-topic
+ * or unsafe questions. Works on any configured provider (incl. local Ollama).
+ * Answers are cached (single-turn) so repeats are instant and cheaper. */
+function tutorLevel(grade) {
+  if (grade <= 2) return "a 6-7 year old (Foundation, PP1-Class 2)";
+  if (grade <= 5) return "a primary-school student (Class " + grade + ")";
+  if (grade <= 8) return "a middle-school student (Class 6-8)";
+  return "a senior secondary student (Class 9-12)";
+}
+
+function buildTutorPrompt(question, grade, history) {
+  const lvl = tutorLevel(grade);
+  const hist = (history || []).slice(-4)
+    .map((h) => `${h.role === "user" ? "Child" : "Robo"}: ${String(h.text).slice(0, 300)}`)
+    .join("\n");
+  return `You are Robo Reason, a warm, patient MATHS tutor inside a children's learning app in India.
+The child is about ${lvl}. Help them understand their maths question.
+
+${hist ? "CONVERSATION SO FAR:\n" + hist + "\n\n" : ""}CHILD'S QUESTION: ${question}
+
+STRICT RULES:
+- ONLY school MATHEMATICS. If the question is NOT about maths, or is personal, unsafe, or inappropriate for a child, set "onTopic" to false and gently steer them back to maths — do NOT answer the off-topic part.
+- Explain step by step in simple words suited to ${lvl}. Warm and encouraging, never shaming.
+- Use everyday Indian examples where they help (rupees, cricket, food, buses, festivals).
+- Keep it short: 3 to 7 sentences. You MAY use simple notation (1/2, x^2, sqrt(9), %, pi) — it will be shown nicely.
+- Do NOT include links, web addresses, brand names, or anything outside mathematics. Never ask for or use the child's name or any personal detail.
+- Finish by inviting the child to try one tiny related step themselves.
+- Reply with ONLY this JSON, nothing else:
+{"onTopic": true or false, "answer": "<clear step-by-step explanation, 3-7 sentences>", "example": "<one tiny worked example, or empty string>", "tryYourself": "<one gentle 'now you try' question, or empty string>"}`;
+}
+
+async function askTutor({ question, grade, history }) {
+  const p = PROVIDERS[settings.provider] || PROVIDERS.anthropic;
+  const usable = settings.enabled && (p.local || !!settings.keyStored);
+  if (!usable) return { ok: false, reason: "disabled" };
+  const q = String(question || "").trim();
+  if (q.length < 2) return { ok: false, reason: "empty" };
+  if (q.length > 600) return { ok: false, reason: "too-long" };
+  const g = Number.isInteger(grade) ? grade : 5;
+  const turns = Array.isArray(history) ? history : [];
+  // Cache only single-turn questions (history-dependent answers vary).
+  const ck = turns.length ? null : cacheKey("tutor", "g" + g, q.toLowerCase());
+  if (ck && cache[ck]) return { ok: true, ...cache[ck], cached: true };
+  try {
+    const text = await callProvider(buildTutorPrompt(q, g, turns));
+    const obj = extractJson(text);
+    if (!obj || typeof obj !== "object") return { ok: false, reason: "bad-json" };
+    const v = validateAiResponse(obj, [
+      { name: "answer", required: true, min: 8, max: 1400 },
+      { name: "example", required: false, max: 600 },
+      { name: "tryYourself", required: false, max: 300 },
+    ]);
+    if (!v.ok) return { ok: false, reason: v.reason };
+    const out = {
+      onTopic: obj.onTopic !== false,
+      answer: String(obj.answer).trim(),
+      example: (obj.example ? String(obj.example) : "").trim(),
+      tryYourself: (obj.tryYourself ? String(obj.tryYourself) : "").trim(),
+    };
+    if (ck) { cache[ck] = out; saveCache(); }
+    return { ok: true, ...out };
+  } catch (e) {
+    return { ok: false, reason: String(e?.message || e) };
+  }
+}
+
 /* ================================================================
  * Concept generation — "Extend the syllabus" (parent/teacher only).
  * A topic (typed or spoken) becomes a FULL concept that follows the same
@@ -814,7 +882,7 @@ async function generateConcept({ topic, grade, language, ground = true, verify =
 }
 
 module.exports = {
-  init, configure, getStatus, providers, explain, whyWrong, coach, generateConcept,
+  init, configure, getStatus, providers, explain, whyWrong, coach, askTutor, generateConcept,
   // pure functions exported for tests
   buildExplainPrompt, buildWhyWrongPrompt, buildCoachPrompt, coachLeaksAnswer, extractJson, validateAiResponse, cacheKey,
   conceptJsonSchema, buildConceptPrompt, sanitizeConcept, validateGenerated, cleanVisual, GEN_COMPONENTS, VISUAL_COMPONENTS,

@@ -189,6 +189,13 @@ function registerIpc() {
 
   ipcMain.handle("ai:providers", () => ai.providers());
 
+  // Ask Robo — free-form maths tutor. Only the question + grade are sent; never
+  // the child's name or history-of-progress. Grade comes from the active profile.
+  ipcMain.handle("ai:ask", (_e, { question, history }) => {
+    const grade = profile ? profile.grade : 5;
+    return ai.askTutor({ question, grade, history });
+  });
+
   ipcMain.handle("ai:explain", async (_e, { conceptId, style }) => {
     const c = content.concepts.get(conceptId);
     if (!c) return { ok: false, reason: "unknown-concept" };

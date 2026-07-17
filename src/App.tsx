@@ -3,6 +3,7 @@ import { api, Concept, ConceptCard, Profile } from "./api";
 import { WorldMap } from "./screens/WorldMap";
 import { LessonPlayer } from "./screens/LessonPlayer";
 import { MistakeClinic } from "./screens/MistakeClinic";
+import { AskRobo } from "./screens/AskRobo";
 import { ParentDashboard } from "./screens/ParentDashboard";
 import { Onboarding } from "./screens/Onboarding";
 // Heavy calculator/tool popups are code-split into their own chunks so the main
@@ -13,7 +14,7 @@ import { Doodles } from "./components/Doodles";
 import { Emoji3D } from "./components/ObjectIcon";
 import { isAutoRead, setAutoRead, stopSpeaking } from "./speech";
 
-type Screen = "map" | "clinic" | "parent";
+type Screen = "map" | "clinic" | "ask" | "parent";
 type ThemeId = "rainbow" | "space" | "unicorn" | "ocean" | "dino" | "candy" | "fairy" | "jungle" | "racing"
   | "light" | "dark";
 
@@ -100,6 +101,7 @@ export default function App() {
         <span className="fm-brand"><Emoji3D char="🦊" size={24} /> FearlessMath</span>
         <button className={screen === "map" ? "active" : ""} onClick={() => { setScreen("map"); refresh(); }}>🌳 Ganita Grove</button>
         <button className={screen === "clinic" ? "active" : ""} onClick={() => setScreen("clinic")}>🏥 Mistake Clinic</button>
+        <button className={screen === "ask" ? "active" : ""} onClick={() => setScreen("ask")}>🤖 Ask Robo</button>
         <button className={screen === "parent" ? "active" : ""} onClick={() => setScreen("parent")}>👨‍👩‍👧 Parents</button>
         <button className="fm-user-chip" onClick={switchUser} title="Switch user">🦊 {profile.name} ⇄</button>
         <button className={`fm-autoread ${autoRead ? "active" : ""}`} onClick={toggleAutoRead}
@@ -132,6 +134,7 @@ export default function App() {
       {screen === "map" && concepts && <WorldMap concepts={concepts} profile={profile} onOpen={openConcept} />}
       {screen === "map" && !concepts && <div className="fm-loading">Loading…</div>}
       {screen === "clinic" && <MistakeClinic />}
+      {screen === "ask" && <AskRobo profile={profile} concepts={concepts ?? []} onOpen={openConcept} />}
       {screen === "parent" && <ParentDashboard autoUnlock={profile.role !== "student"} />}
       <Suspense fallback={null}><MathToolbox /><AdvancedToolbox /></Suspense>
     </>

@@ -846,6 +846,44 @@ input[type=range] { accent-color: #2f6bff; }
 .fm-stage-prog { font-size: 12px; font-weight: 700; margin-top: 2px; }
 
 /* ---- World menu tabs ---- */
+/* ---------------- Ask Robo (maths tutor chat) ---------------- */
+.fm-askrobo { max-width: 860px; margin: 0 auto; padding: 18px 20px 8px; display: flex; flex-direction: column; min-height: calc(100vh - 90px); }
+.fm-ar-head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.fm-ar-head h1 { margin: 0; font-size: 24px; }
+.fm-ar-avatar { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; font-size: 28px; background: var(--grad-brand); box-shadow: 0 8px 18px -8px rgba(139,92,246,0.5); }
+.fm-ar-avatar.big { width: 64px; height: 64px; font-size: 34px; margin: 0 auto 6px; }
+.fm-ar-thread { flex: 1; overflow-y: auto; padding: 6px 2px 12px; display: flex; flex-direction: column; gap: 14px; }
+.fm-ar-welcome { text-align: center; margin: auto; max-width: 520px; color: var(--ink); }
+.fm-ar-starters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 12px; }
+.fm-ar-chip { border: 1.5px solid var(--glass-brd); background: var(--glass); color: var(--ink); border-radius: 999px; padding: 9px 15px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background .15s, transform .1s; }
+.fm-ar-chip:hover:not(:disabled) { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.fm-ar-chip:active:not(:disabled) { transform: scale(0.96); }
+.fm-ar-row { display: flex; gap: 10px; align-items: flex-end; }
+.fm-ar-row.user { justify-content: flex-end; }
+.fm-ar-botavatar { width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center; font-size: 19px; background: var(--grad-brand); flex: none; }
+.fm-ar-bubble { max-width: 78%; border-radius: 18px; padding: 12px 15px; line-height: 1.5; box-shadow: var(--shadow-sm); }
+.fm-ar-bubble.user { background: var(--accent); color: var(--on-accent, #fff); border-bottom-right-radius: 6px; font-weight: 600; }
+.fm-ar-bubble.bot { background: var(--card); color: var(--ink); border: 1px solid var(--line); border-bottom-left-radius: 6px; }
+.fm-ar-bubble.bot.err { background: color-mix(in srgb, var(--accent) 8%, var(--card)); }
+.fm-ar-answer { margin: 0; white-space: pre-wrap; }
+.fm-ar-example, .fm-ar-try { margin-top: 9px; padding: 8px 11px; border-radius: 10px; font-size: 14.5px; white-space: pre-wrap; }
+.fm-ar-example { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.fm-ar-try { background: color-mix(in srgb, var(--good) 14%, transparent); }
+.fm-ar-tag { display: inline-block; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--accent-dark); margin-right: 6px; }
+.fm-ar-lesson { display: inline-block; margin-top: 10px; border: 1.5px solid var(--accent); background: transparent; color: var(--accent-dark); border-radius: 999px; padding: 7px 14px; font-size: 13.5px; font-weight: 700; cursor: pointer; }
+.fm-ar-lesson:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.fm-ar-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.fm-ar-actions button { border: 1px solid var(--line); background: var(--glass); color: var(--muted); border-radius: 999px; padding: 5px 11px; font-size: 12.5px; font-weight: 600; cursor: pointer; }
+.fm-ar-actions button:hover:not(:disabled) { color: var(--accent-dark); border-color: var(--accent); }
+.fm-ar-typing { display: inline-flex; gap: 4px; padding: 2px 0; }
+.fm-ar-typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); animation: fm-ar-blink 1s infinite; }
+.fm-ar-typing i:nth-child(2) { animation-delay: .15s; } .fm-ar-typing i:nth-child(3) { animation-delay: .3s; }
+@keyframes fm-ar-blink { 0%, 60%, 100% { opacity: .3; } 30% { opacity: 1; } }
+.fm-ar-inputbar { display: flex; gap: 8px; padding: 10px 0 4px; position: sticky; bottom: 0; background: linear-gradient(transparent, var(--bg, #fff) 30%); }
+.fm-ar-inputbar .fm-input { flex: 1; }
+.fm-ar-foot { text-align: center; font-size: 12px; color: var(--muted); margin: 2px 0 6px; }
+@media (prefers-reduced-motion: reduce) { .fm-ar-typing i { animation: none; } }
+
 .fm-world-menu-label { padding: 0 24px; margin: 0 0 8px; font-size: 13.5px; font-weight: 700; color: var(--muted); }
 .fm-world-menu { display: flex; gap: 8px; flex-wrap: wrap; padding: 0 24px; margin-bottom: 20px; }
 /* Playful world name kept as a subtle subtitle beside the real topic name. */

@@ -110,6 +110,7 @@ interface FmBridge {
   aiExplain(p: { conceptId: string; style: "simpler" | "story" | "real-life" | "more-examples" | "fun-fact" }): Promise<AiExplain>;
   aiWhyWrong(p: { conceptId: string; questionId: string; answerGiven: string }): Promise<AiWhyWrong>;
   aiCoach(p: { conceptId: string; questionId: string; answerGiven: string; question?: Question }): Promise<AiCoach>;
+  aiAsk(p: { question: string; history?: { role: "user" | "bot"; text: string }[] }): Promise<AiAsk>;
   mediaStatus(): Promise<MediaStatus>;
   mediaConfigure(cfg: MediaConfig): Promise<MediaStatus>;
   getCachedImage(p: { conceptId: string; style: string }): Promise<ImageResult>;
@@ -146,6 +147,7 @@ export interface ProviderInfo { id: string; label: string; kind: string; keyHint
 export interface AiExplain { ok: boolean; reason?: string; explanation?: string; example?: string }
 export interface AiWhyWrong { ok: boolean; reason?: string; explanation?: string; encouragement?: string }
 export interface AiCoach { ok: boolean; reason?: string; question?: string; diagnosis?: string; encouragement?: string }
+export interface AiAsk { ok: boolean; reason?: string; onTopic?: boolean; answer?: string; example?: string; tryYourself?: string; cached?: boolean }
 
 /** AI features are usable when enabled + online + has a key.
  *  Local providers (Ollama, LM Studio) run on-device, so they need no key and no internet. */
