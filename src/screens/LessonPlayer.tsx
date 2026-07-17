@@ -14,6 +14,7 @@ import { Character } from "../components/Characters";
 import { ConceptImageModal } from "../components/ConceptImageModal";
 import { Flashcards } from "../components/Flashcards";
 import { ConceptInfographic } from "../components/ConceptInfographic";
+import { MathTex } from "../components/Math";
 import { Practice } from "./Practice";
 
 type Tab = "story" | "picture" | "gallery" | "meaning" | "steps" | "anotherWay" | "examples" | "flashcards" | "infographic";
@@ -304,7 +305,7 @@ export function LessonPlayer({
                       <div key={i} className="fm-formula-card">
                         <div className="fm-formula-top">
                           <span className="fm-formula-name">{f.name}</span>
-                          <code className="fm-formula-eq">{f.formula}</code>
+                          <span className="fm-formula-eq"><MathTex>{f.formula}</MathTex></span>
                         </div>
                         {f.remember && <p className="fm-formula-remember">🧠 {f.remember}</p>}
                         {f.whenToUse && <p className="fm-formula-when">👉 {f.whenToUse}</p>}

@@ -24,7 +24,8 @@ export function Character({
     : n.includes("subbu") || n.includes("squirrel") ? Squirrel
     : Robo;
   return (
-    <svg viewBox="0 0 100 100" width={size} height={size} role="img" aria-label={name}>
+    <svg viewBox="0 0 100 100" width={size} height={size} role="img" aria-label={name}
+      className={`fm-char fm-char-${mood}`}>
       <Body mood={mood} />
       {mood === "celebrate" && <Confetti />}
     </svg>

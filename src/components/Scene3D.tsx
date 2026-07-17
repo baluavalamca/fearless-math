@@ -96,7 +96,7 @@ export function Scene3D({ spec, caption }: { spec: Scene3DSpec; caption?: string
     }
 
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enablePan = false; controls.autoRotate = true; controls.autoRotateSpeed = 1.1;
+    controls.enablePan = false; controls.autoRotate = !window.matchMedia?.("(prefers-reduced-motion: reduce)").matches; controls.autoRotateSpeed = 1.1;
     controls.minDistance = 5; controls.maxDistance = 24; controls.target.set(0, 1, 0);
 
     let raf = 0;

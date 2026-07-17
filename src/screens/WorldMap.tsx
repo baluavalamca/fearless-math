@@ -11,6 +11,7 @@
 import { useEffect, useState } from "react";
 import { ConceptCard, Profile } from "../api";
 import { Emoji3D } from "../components/ObjectIcon";
+import { GameHud } from "../components/GameHud";
 
 const STRAND_THEME: Record<string, { icon: string; name: string; cls: string }> = {
   numbers: { icon: "🌴", name: "Number Jungle", cls: "region-numbers" },
@@ -46,6 +47,23 @@ const statusText = (s: string) =>
   s === "mastered" ? "Mastered ⭐" : s === "learning" ? "Learning" : s === "practicing" ? "Keep practicing" : s === "locked" ? "Locked" : "Ready";
 const statusDot = (s: string) => (s === "mastered" ? "⭐" : s === "locked" ? "🔒" : ACTIVE.includes(s) ? "•" : "•");
 
+/** Animate a number from 0 up to target (ease-out). Respects reduced-motion. */
+function useCountUp(target: number, ms = 700) {
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) { setN(target); return; }
+    let raf = 0; const t0 = performance.now();
+    const tick = (t: number) => {
+      const p = Math.min(1, (t - t0) / ms);
+      setN(Math.round(target * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [target, ms]);
+  return n;
+}
+
 export function WorldMap({
   concepts,
   profile,
@@ -80,6 +98,8 @@ export function WorldMap({
   }, [profile.id]);
 
   const mastered = concepts.filter((c) => c.status === "mastered").length;
+  const mCount = useCountUp(mastered);
+  const sCount = useCountUp(streak);
   const byId = new Map(concepts.map((c) => [c.id, c]));
   const ordered = [...concepts].sort((a, b) => a.grade - b.grade || a.id.localeCompare(b.id));
   const lastId = localStorage.getItem("fm_last_" + profile.id) || "";
@@ -142,8 +162,8 @@ export function WorldMap({
           <div className="fm-hero-sub">Mistakes are welcome here — let's keep going.</div>
         </div>
         <div className="fm-hero-stats">
-          <div className="fm-stat"><b>⭐ {mastered}</b><span>mastered</span></div>
-          <div className="fm-stat"><b>🔥 {streak}</b><span>day streak</span></div>
+          <div className="fm-stat"><b>⭐ {mCount}</b><span>mastered</span></div>
+          <div className="fm-stat"><b>🔥 {sCount}</b><span>day streak</span></div>
         </div>
       </div>
 
@@ -157,6 +177,8 @@ export function WorldMap({
           <span className="fm-continue-go">Go</span>
         </button>
       )}
+
+      {view === "home" && !q && <GameHud concepts={concepts} streak={streak} />}
 
       {/* -------- SEARCH (always available, above the classes) -------- */}
       <div className="fm-search-wrap">

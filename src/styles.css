@@ -2077,3 +2077,165 @@ body.skin-playful .fm-objemoji { font-size: 74px; }
 .fm-mm-leaf-dot { flex: 0 0 auto; }
 .fm-mm-leaf-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 @media (max-width: 620px) { .fm-mm-canvas { flex-direction: column; } .fm-mm-root { position: static; } }
+
+/* KaTeX typeset math — inherit theme colour, sit nicely inside formula pills */
+.fm-math { color: inherit; }
+.fm-math .katex { font-size: 1.06em; white-space: normal; }
+.fm-math-block { display: block; text-align: center; margin: 6px 0; }
+.fm-math-fallback { font-family: var(--font-mono, ui-monospace, monospace); }
+.fm-formula-eq { display: inline-flex; align-items: center; }
+
+/* ============================================================
+   MICRO-INTERACTIONS ("juice") — all gated on reduced-motion
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  /* Tactile press on every interactive control */
+  .fm-primary:active, .fm-secondary:active, .fm-option:active, .fm-node:active,
+  .fm-class-card:active, .fm-mm-leaf:active, .fm-search-item:active, .fm-stage-tab:active,
+  .fm-theme-swatch:active, .fm-chip-choice:active, .fm-choice:active, .fm-profile-pick:active,
+  .fm-view-toggle button:active, .fm-continue:active, .fm-back-btn:active {
+    transform: scale(0.96);
+  }
+  /* Correct answer pops in; wrong answer gives a gentle head-shake (never harsh) */
+  .fm-feedback.good { animation: fm-pop .42s cubic-bezier(.2,.8,.3,1.4); }
+  .fm-feedback.again { animation: fm-shake .5s ease; }
+  /* Mastery / finish screen bounces in */
+  .fm-celebrate { animation: fm-rise .5s cubic-bezier(.2,.8,.3,1.2); }
+  /* The "you're here" node gently pulses so the eye finds it */
+  .fm-node.current { animation: fm-glow 2.2s ease-in-out infinite; }
+}
+@keyframes fm-pop {
+  0% { transform: scale(.9); opacity: 0; }
+  60% { transform: scale(1.03); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes fm-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-7px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(3px); }
+}
+@keyframes fm-rise {
+  0% { transform: translateY(14px) scale(.96); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+@keyframes fm-glow {
+  0%, 100% { box-shadow: 0 8px 20px -10px color-mix(in srgb, var(--accent) 55%, transparent); }
+  50% { box-shadow: 0 10px 30px -8px color-mix(in srgb, var(--accent) 85%, transparent); }
+}
+
+/* Living mascot — animate the character SVG by mood, and bob the hero fox */
+@media (prefers-reduced-motion: no-preference) {
+  .fm-char { transform-origin: 50% 82%; will-change: transform; }
+  .fm-char-happy { animation: fm-bob 3.2s ease-in-out infinite; }
+  .fm-char-celebrate { animation: fm-bounce .62s ease infinite; }
+  .fm-char-think { animation: fm-wiggle 2.6s ease-in-out infinite; }
+  .fm-hero-fox { display: inline-block; animation: fm-bob 3.6s ease-in-out infinite; }
+}
+@keyframes fm-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes fm-bounce { 0%, 100% { transform: translateY(0) scale(1); } 30% { transform: translateY(-9px) scale(1.05); } 60% { transform: translateY(0) scale(.98); } }
+@keyframes fm-wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-4deg); } 75% { transform: rotate(4deg); } }
+
+/* ============================================================
+   GAMIFICATION HUD — level, streak flame, mastery ring, badges
+   ============================================================ */
+.fm-hud { display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); gap: 12px; margin: 16px 0 6px; }
+.fm-hud-card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; }
+.fm-hud-lvl-badge { flex: 0 0 auto; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: var(--grad-brand); color: var(--on-accent); font-weight: 800; font-size: 13px; }
+.fm-hud-lvl-body { display: flex; flex-direction: column; flex: 1; min-width: 0; gap: 3px; }
+.fm-hud-lvl-xp { font-weight: 800; color: var(--ink); font-size: 14px; }
+.fm-hud-bar { height: 7px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.fm-hud-bar > span { display: block; height: 100%; background: var(--accent); border-radius: 999px; transition: width .6s cubic-bezier(.2,.8,.3,1); }
+.fm-hud-lvl-next { font-size: 11.5px; color: var(--muted); }
+.fm-hud-streak .fm-hud-flame { font-size: 30px; }
+.fm-hud-streak-body { display: flex; flex-direction: column; }
+.fm-hud-streak-body b { font-size: 20px; color: var(--ink); }
+.fm-hud-streak-body span { font-size: 12px; color: var(--muted); }
+.fm-hud-ring-label { font-size: 12.5px; color: var(--muted); }
+.fm-ring-track { fill: none; stroke: var(--line); stroke-width: 7; }
+.fm-ring-fill { fill: none; stroke: var(--accent); stroke-width: 7; stroke-linecap: round; transition: stroke-dashoffset .8s cubic-bezier(.2,.8,.3,1); }
+.fm-ring-label { fill: var(--ink); font-weight: 800; font-size: 15px; }
+.fm-hud-badges { flex-direction: column; align-items: flex-start; gap: 8px; }
+.fm-hud-badges-title { font-weight: 800; color: var(--ink); font-size: 13.5px; }
+.fm-hud-badge-shelf { display: flex; flex-wrap: wrap; gap: 6px; }
+.fm-hud-badge { width: 32px; height: 32px; display: grid; place-items: center; font-size: 18px; border-radius: 9px; background: color-mix(in srgb, var(--accent) 12%, var(--card)); border: 1px solid var(--glass-brd); }
+.fm-hud-badge-empty { font-size: 12.5px; color: var(--muted); }
+@media (prefers-reduced-motion: no-preference) {
+  .fm-hud-flame { display: inline-block; animation: fm-flicker 1.6s ease-in-out infinite; transform-origin: 50% 90%; }
+}
+@keyframes fm-flicker { 0%, 100% { transform: scale(1) rotate(0); } 30% { transform: scale(1.12) rotate(-3deg); } 60% { transform: scale(.96) rotate(2deg); } }
+
+/* ============================================================
+   ACCESSIBILITY — visible keyboard focus, motion & contrast safety
+   ============================================================ */
+:where(button, a, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 65%, transparent);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+/* Mouse users don't get the ring; keyboard users always do. */
+:where(button, a, input, summary):focus:not(:focus-visible) { outline: none; }
+
+/* Full reduced-motion safety net: kill every animation/transition if the user
+   asked for less motion (covers 3D auto-rotate via the JS guard in the 3D comps). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   TRANSITIONS + SKELETONS — soft entrance on content, friendly loading
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  .fm-canvas > article,
+  .fm-region, .fm-class-grid, .fm-search-results, .fm-hud,
+  .fm-practice, .fm-celebrate, .fm-teachback, .fm-trick-drill,
+  .fm-mindmap, .fm-onboard-card, .fm-gallery {
+    animation: fm-fade-in .3s ease both;
+  }
+}
+@keyframes fm-fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* Friendly loading pulse instead of a static word */
+@media (prefers-reduced-motion: no-preference) {
+  .fm-loading { animation: fm-pulse 1.4s ease-in-out infinite; }
+}
+@keyframes fm-pulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+
+/* Reusable skeleton shimmer (for future loading placeholders) */
+.fm-skeleton {
+  background: linear-gradient(90deg, var(--line) 25%, color-mix(in srgb, var(--line) 45%, var(--card)) 37%, var(--line) 63%);
+  background-size: 400% 100%; border-radius: 10px; min-height: 14px;
+}
+@media (prefers-reduced-motion: no-preference) { .fm-skeleton { animation: fm-shimmer 1.4s ease infinite; } }
+@keyframes fm-shimmer { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }
+
+/* Math visuals gently "present themselves" when they appear */
+@media (prefers-reduced-motion: no-preference) {
+  .fm-visual { animation: fm-visual-in .42s cubic-bezier(.2,.8,.3,1.1) both; }
+}
+@keyframes fm-visual-in { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+
+/* ============================================================
+   SHARED CONTROL STATES — one consistent behaviour everywhere
+   ============================================================ */
+/* Uniform disabled treatment across every button in the app */
+button:disabled, [aria-disabled="true"] { opacity: .5; cursor: not-allowed; }
+button:disabled:hover, [aria-disabled="true"]:hover { transform: none !important; box-shadow: none !important; }
+/* Uniform, snappy transition on all tappable surfaces so states never drift */
+.fm-primary, .fm-secondary, .fm-option, .fm-chip-choice, .fm-choice,
+.fm-class-card, .fm-mm-leaf, .fm-search-item, .fm-profile-pick, .fm-view-toggle button,
+.fm-back-btn, .fm-theme-swatch, .fm-stage-tab, .fm-node, .fm-tool-tile, .fm-adv-chip,
+.fm-hud-badge, .fm-continue {
+  transition: transform .12s ease, box-shadow .14s ease, border-color .12s ease, background .14s ease, filter .14s ease;
+}
+/* Every interactive control shows a pointer + can't select its own text */
+.fm-primary, .fm-secondary, .fm-option, .fm-class-card, .fm-mm-leaf, .fm-search-item,
+.fm-chip-choice, .fm-choice, .fm-theme-swatch, .fm-view-toggle button, .fm-stage-tab {
+  cursor: pointer; user-select: none;
+}

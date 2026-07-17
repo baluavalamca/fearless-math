@@ -90,7 +90,7 @@ export function Solid3D({ solids, caption }: { solids: SolidSpec[]; caption?: st
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableZoom = true;
     controls.enablePan = false;
-    controls.autoRotate = true;
+    controls.autoRotate = !window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     controls.autoRotateSpeed = 1.6;
     controls.minDistance = 3.5;
     controls.maxDistance = 12;
