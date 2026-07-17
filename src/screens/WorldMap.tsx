@@ -1,7 +1,12 @@
 /**
- * Home — Ganita Grove. Greeting + continue card + class tabs + world menu,
- * with concepts shown as a learning PATH (mastered / current / locked).
- * Content is filtered by the chosen class; the child's own class is default.
+ * Home — Ganita Grove. Two levels:
+ *   1. HOME  = greeting + continue + SEARCH + a grid of CLASS cards.
+ *   2. CLASS = the chosen class's concepts, shown either as the guided PATH
+ *              (the original roadmap — unlock rules unchanged) or as a MIND MAP
+ *              (free choice: pick any concept to learn).
+ * Search and the mind map let the learner jump to ANY concept; the Path view
+ * keeps the prerequisite roadmap exactly as before. The lesson flow (onOpen ->
+ * LessonPlayer) is untouched.
  */
 import { useEffect, useState } from "react";
 import { ConceptCard, Profile } from "../api";
@@ -32,13 +37,14 @@ const STAGES: { id: string; label: string; sub: string; grades: number[]; badge:
 // Map a learner's class number to the matching stage tab.
 const bandOf = (g: number) =>
   g <= 2 ? "foundation" :
-  g <= 7 ? "class" + g :          // Classes 3,4,5,6,7 have their own tabs
-  g <= 9 ? "class8" :             // Classes 8 & 9 share the Class 8–9 tab
+  g <= 7 ? "class" + g :
+  g <= 9 ? "class8" :
   g === 10 ? "class10" :
   g === 11 ? "class11" : "class12";
 const ACTIVE = ["available", "learning", "practicing"];
 const statusText = (s: string) =>
   s === "mastered" ? "Mastered ⭐" : s === "learning" ? "Learning" : s === "practicing" ? "Keep practicing" : s === "locked" ? "Locked" : "Ready";
+const statusDot = (s: string) => (s === "mastered" ? "⭐" : s === "locked" ? "🔒" : ACTIVE.includes(s) ? "•" : "•");
 
 export function WorldMap({
   concepts,
@@ -50,12 +56,14 @@ export function WorldMap({
   onOpen: (id: string) => void;
 }) {
   const explore = localStorage.getItem("fm_explore") === "1";
+  const [view, setView] = useState<"home" | "class">("home");
+  const [mode, setMode] = useState<"path" | "mind">("path");
+  const [query, setQuery] = useState("");
   const [stage, setStage] = useState<string>(() => localStorage.getItem("fm_stage") || bandOf(profile.grade));
   const [strand, setStrand] = useState<string>("all");
   const [streak, setStreak] = useState(1);
 
   useEffect(() => { localStorage.setItem("fm_stage", stage); }, [stage]);
-  useEffect(() => { setStrand("all"); }, [stage]);
 
   useEffect(() => {
     const key = "fm_streak_" + profile.id;
@@ -78,17 +86,28 @@ export function WorldMap({
   let cont = byId.get(lastId);
   if (!cont || cont.status === "locked") cont = ordered.find((c) => ACTIVE.includes(c.status));
 
-  const stageDef = STAGES.find((s) => s.id === stage) ?? STAGES[0];
-  const inStage = ordered.filter((c) => stageDef.grades.includes(c.grade));
-  const worldsHere = STRAND_ORDER.filter((s) => inStage.some((c) => c.strand === s));
-  const currentId = inStage.find((c) => ACTIVE.includes(c.status))?.id;
-
   const stageStats = (grades: number[]) => {
     const cs = concepts.filter((c) => grades.includes(c.grade));
     return { m: cs.filter((c) => c.status === "mastered").length, t: cs.length };
   };
+  const stageLabelOf = (g: number) => STAGES.find((s) => s.grades.includes(g))?.label ?? "";
 
-  function node(c: ConceptCard) {
+  function openClass(id: string) { setStage(id); setStrand("all"); setMode("path"); setView("class"); }
+
+  // ---- SEARCH (global, across every class) ----
+  const q = query.trim().toLowerCase();
+  const results = q
+    ? ordered.filter((c) => c.name.toLowerCase().includes(q) || (STRAND_THEME[c.strand]?.name.toLowerCase().includes(q))).slice(0, 40)
+    : [];
+
+  const stageDef = STAGES.find((s) => s.id === stage) ?? STAGES[0];
+  const inStage = ordered.filter((c) => stageDef.grades.includes(c.grade));
+  const worldsHere = STRAND_ORDER.filter((s) => inStage.some((c) => c.strand === s));
+  const currentId = inStage.find((c) => ACTIVE.includes(c.status))?.id;
+  const shownWorlds = strand === "all" ? worldsHere : [strand];
+
+  // Guided PATH node (keeps unlock rules — locked stays disabled).
+  function pathNode(c: ConceptCard) {
     const locked = c.status === "locked" && !explore;
     const isCur = c.id === currentId;
     const dot = c.status === "mastered" ? "⭐" : locked ? "🔒" : isCur ? "▶" : "•";
@@ -104,7 +123,15 @@ export function WorldMap({
     );
   }
 
-  const shownWorlds = strand === "all" ? worldsHere : [strand];
+  // Free-choice leaf (mind map + search) — any concept can be opened.
+  function leaf(c: ConceptCard) {
+    return (
+      <button key={c.id} className={`fm-mm-leaf ${c.status}`} onClick={() => onOpen(c.id)} title={c.name}>
+        <span className="fm-mm-leaf-dot">{statusDot(c.status)}</span>
+        <span className="fm-mm-leaf-name">{c.name}</span>
+      </button>
+    );
+  }
 
   return (
     <div className="fm-worldmap">
@@ -120,7 +147,7 @@ export function WorldMap({
         </div>
       </div>
 
-      {cont && (
+      {cont && view === "home" && !q && (
         <button className="fm-continue" onClick={() => onOpen(cont!.id)}>
           <span className="fm-continue-ic">▶</span>
           <span className="fm-continue-body">
@@ -131,48 +158,123 @@ export function WorldMap({
         </button>
       )}
 
-      <div className="fm-stage-tabs" role="tablist" aria-label="Choose class">
-        {STAGES.map((s) => {
-          const p = stageStats(s.grades);
-          return (
-            <button key={s.id} role="tab" aria-selected={stage === s.id}
-              className={`fm-stage-tab ${stage === s.id ? "active" : ""}`} onClick={() => setStage(s.id)}>
-              <span className="fm-stage-label">
-                <span className={`fm-numbadge${/^\d+$/.test(s.badge) ? "" : " emoji"}`}>{s.badge}</span>
-                {s.label}
-              </span>
-              <span className="fm-stage-sub">{s.sub}</span>
-              <span className="fm-stage-prog">⭐ {p.m}/{p.t}</span>
-            </button>
-          );
-        })}
+      {/* -------- SEARCH (always available, above the classes) -------- */}
+      <div className="fm-search-wrap">
+        <span className="fm-search-ic">🔍</span>
+        <input
+          className="fm-search-input"
+          value={query}
+          placeholder="Search any concept — e.g. Pythagoras, fractions, percentages…"
+          onChange={(e) => setQuery(e.target.value)}
+          aria-label="Search concepts"
+        />
+        {query && <button className="fm-search-clear" onClick={() => setQuery("")} aria-label="Clear search">✕</button>}
       </div>
 
-      <nav className="fm-world-menu" aria-label="Choose world">
-        <button className={strand === "all" ? "active" : ""} onClick={() => setStrand("all")}>
-          <Emoji3D char="🗺️" size={20} /> All worlds
-        </button>
-        {worldsHere.map((s) => (
-          <button key={s} className={strand === s ? "active" : ""} onClick={() => setStrand(s)}>
-            {STRAND_THEME[s]
-              ? <><Emoji3D char={STRAND_THEME[s].icon} size={20} /> {STRAND_THEME[s].name}</>
-              : s}
-          </button>
-        ))}
-      </nav>
+      {q ? (
+        <div className="fm-search-results">
+          <p className="fm-search-count">{results.length ? `${results.length} concept${results.length > 1 ? "s" : ""} found — tap one to learn it` : "No concepts match that. Try another word."}</p>
+          {results.map((c) => (
+            <button key={c.id} className={`fm-search-item ${c.status}`} onClick={() => onOpen(c.id)}>
+              <span className="fm-search-item-dot">{statusDot(c.status)}</span>
+              <span className="fm-search-item-body">
+                <span className="fm-search-item-name">{c.name}</span>
+                <span className="fm-search-item-meta">{stageLabelOf(c.grade)} · {STRAND_THEME[c.strand]?.name ?? c.strand}</span>
+              </span>
+              <span className="fm-search-item-go">{statusText(c.status)}</span>
+            </button>
+          ))}
+        </div>
+      ) : view === "home" ? (
+        /* -------- HOME: grid of class cards -------- */
+        <>
+          <h2 className="fm-section-title">Pick a class</h2>
+          <div className="fm-class-grid">
+            {STAGES.map((s) => {
+              const p = stageStats(s.grades);
+              const mine = bandOf(profile.grade) === s.id;
+              return (
+                <button key={s.id} className={`fm-class-card ${mine ? "mine" : ""}`} onClick={() => openClass(s.id)}>
+                  <span className={`fm-class-badge${/^\d+$/.test(s.badge) ? "" : " emoji"}`}>{s.badge}</span>
+                  <span className="fm-class-info">
+                    <span className="fm-class-label">{s.label}{mine && <span className="fm-class-mine">You</span>}</span>
+                    <span className="fm-class-sub">{s.sub}</span>
+                    <span className="fm-class-prog">
+                      <span className="fm-class-bar"><span style={{ width: `${p.t ? (p.m / p.t) * 100 : 0}%` }} /></span>
+                      ⭐ {p.m}/{p.t}
+                    </span>
+                  </span>
+                  <span className="fm-class-arrow">→</span>
+                </button>
+              );
+            })}
+          </div>
+        </>
+      ) : (
+        /* -------- CLASS: concepts of the chosen class -------- */
+        <>
+          <div className="fm-class-head">
+            <button className="fm-back-btn" onClick={() => setView("home")}>← All classes</button>
+            <div className="fm-class-head-title">
+              <span className={`fm-class-badge${/^\d+$/.test(stageDef.badge) ? "" : " emoji"}`}>{stageDef.badge}</span>
+              <span><b>{stageDef.label}</b> · {stageDef.sub}</span>
+            </div>
+            <div className="fm-view-toggle" role="tablist" aria-label="View">
+              <button className={mode === "path" ? "on" : ""} onClick={() => setMode("path")}>🗺️ Path</button>
+              <button className={mode === "mind" ? "on" : ""} onClick={() => setMode("mind")}>🧠 Mind map</button>
+            </div>
+          </div>
 
-      {shownWorlds.map((s) => {
-        const items = inStage.filter((c) => c.strand === s);
-        if (!items.length) return null;
-        const theme = STRAND_THEME[s] ?? { icon: "", name: s, cls: "" };
-        return (
-          <section key={s} className={`fm-region ${theme.cls}`}>
-            <h2 className="fm-region-title"><Emoji3D char={theme.icon} size={30} /> {theme.name}</h2>
-            <div className="fm-path-trail">{items.map(node)}</div>
-          </section>
-        );
-      })}
-      {inStage.length === 0 && <p className="fm-empty">No stops in this class yet.</p>}
+          <nav className="fm-world-menu" aria-label="Choose world">
+            <button className={strand === "all" ? "active" : ""} onClick={() => setStrand("all")}>
+              <Emoji3D char="🗺️" size={20} /> All worlds
+            </button>
+            {worldsHere.map((s) => (
+              <button key={s} className={strand === s ? "active" : ""} onClick={() => setStrand(s)}>
+                {STRAND_THEME[s] ? <><Emoji3D char={STRAND_THEME[s].icon} size={20} /> {STRAND_THEME[s].name}</> : s}
+              </button>
+            ))}
+          </nav>
+
+          {inStage.length === 0 && <p className="fm-empty">No stops in this class yet.</p>}
+
+          {mode === "path" ? (
+            /* Guided roadmap — UNCHANGED behaviour */
+            shownWorlds.map((s) => {
+              const items = inStage.filter((c) => c.strand === s);
+              if (!items.length) return null;
+              const theme = STRAND_THEME[s] ?? { icon: "", name: s, cls: "" };
+              return (
+                <section key={s} className={`fm-region ${theme.cls}`}>
+                  <h2 className="fm-region-title"><Emoji3D char={theme.icon} size={30} /> {theme.name}</h2>
+                  <div className="fm-path-trail">{items.map(pathNode)}</div>
+                </section>
+              );
+            })
+          ) : (
+            /* Mind map — free choice, pick any concept */
+            <div className="fm-mindmap">
+              <p className="fm-mm-hint">🧠 Your choice — tap any concept to jump straight in.</p>
+              <div className="fm-mm-canvas">
+                <div className="fm-mm-root"><Emoji3D char="🦊" size={22} /> {stageDef.label}</div>
+                <div className="fm-mm-branches">
+                  {shownWorlds.map((s) => {
+                    const items = inStage.filter((c) => c.strand === s);
+                    if (!items.length) return null;
+                    const theme = STRAND_THEME[s] ?? { icon: "", name: s, cls: "" };
+                    return (
+                      <div key={s} className={`fm-mm-branch ${theme.cls}`}>
+                        <div className="fm-mm-strand"><Emoji3D char={theme.icon} size={18} /> {theme.name} <span className="fm-mm-count">{items.length}</span></div>
+                        <div className="fm-mm-leaves">{items.map(leaf)}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 }
