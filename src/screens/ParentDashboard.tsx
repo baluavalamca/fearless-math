@@ -58,13 +58,28 @@ function Section({ icon, title, sub, id, defaultOpen = true, children }: { icon:
   }
   return (
     <section className={`fm-pcard ${open ? "" : "collapsed"}`}>
-      <button className="fm-pcard-head fm-pcard-toggle" onClick={toggle} aria-expanded={open}>
+      <button className="fm-pcard-head fm-pcard-toggle" onClick={toggle} aria-expanded={open}
+        title={open ? "Hide this section" : "Show this section"}>
         <span className="fm-pcard-ic">{icon}</span>
         <div><h2 className="fm-pcard-h">{title}</h2>{sub && <p className="fm-pcard-sub">{sub}</p>}</div>
-        <span className={`fm-pcard-chev ${open ? "open" : ""}`} aria-hidden>⌄</span>
+        <span className={`fm-pcard-eye ${open ? "open" : "closed"}`} aria-label={open ? "Hide" : "Show"}>
+          <EyeIcon open={open} />
+        </span>
       </button>
       {open && <div className="fm-pcard-body">{children}</div>}
     </section>
+  );
+}
+
+/** Eye (visible) / eye-off (hidden) toggle icon. */
+function EyeIcon({ open }: { open: boolean }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+      <circle cx="12" cy="12" r="3" />
+      {!open && <line x1="3" y1="3" x2="21" y2="21" />}
+    </svg>
   );
 }
 
