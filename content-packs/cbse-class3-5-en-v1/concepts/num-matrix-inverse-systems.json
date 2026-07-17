@@ -1,0 +1,107 @@
+{
+  "id": "num-matrix-inverse-systems",
+  "name": "Matrix Inverse & Solving Systems",
+  "grade": 11,
+  "strand": "numbers",
+  "prerequisites": ["num-50-matrices-determinants"],
+  "whatIsIt": "A square matrix A has an INVERSE A⁻¹ only when its DETERMINANT is non-zero (A is then 'non-singular'). The inverse is A⁻¹ = adj(A)/|A|, where adj(A) is the ADJOINT (the transpose of the cofactor matrix). Inverses let us solve a system of linear equations written as AX = B in one shot: X = A⁻¹B. CRAMER'S RULE gives each unknown as a ratio of determinants.",
+  "whyNeeded": "Systems of equations model circuits, mixtures, economics and 3D geometry. The inverse and Cramer's rule solve them cleanly and are core Class 12 NCERT and JEE topics.",
+  "realLifeUses": [
+    "Solving two or three equations from a word problem at once",
+    "Finding currents in an electrical network",
+    "Balancing a chemical or mixture problem",
+    "Computer graphics transforms that must be undone (inverted)"
+  ],
+  "vocabulary": [
+    { "term": "determinant |A|", "meaning": "A number from a square matrix; for 2×2 [[a,b],[c,d]] it is ad − bc." },
+    { "term": "singular", "meaning": "A matrix with |A| = 0 — it has NO inverse." },
+    { "term": "adjoint adj(A)", "meaning": "The transpose of the cofactor matrix; used to build the inverse." },
+    { "term": "inverse A⁻¹", "meaning": "adj(A)/|A|; satisfies A·A⁻¹ = I. Exists only when |A| ≠ 0." }
+  ],
+  "story": {
+    "title": "Two Clues at Once",
+    "characters": ["Sara", "Sir"],
+    "text": "Sara has two equations in two unknowns. 'Substitute one into the other?' she asks. 'Or write them as AX = B and use X = A⁻¹B — solve both at once,' says Sir. He warns her: 'But first check |A|. If the determinant is zero, the matrix is singular and there's NO inverse.' Sara computes |A| = 10, not zero. 'Great — an inverse exists,' she smiles, 'so the system has one clean solution.'",
+    "extractedProblem": "For A = [[3,1],[2,4]], what is the determinant |A|?",
+    "answerInStory": "10 — since 3×4 − 1×2 = 12 − 2 = 10."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": { "grids": [{ "rows": 2, "cols": 2, "label": "|A| = ad − bc; inverse exists only if |A| ≠ 0" }] },
+    "caption": "A 2×2 matrix [[a,b],[c,d]] has determinant ad − bc. If that is non-zero the matrix is invertible, and A⁻¹ = adj(A)/|A|."
+  },
+  "teachingGallery": [
+    {
+      "title": "Determinant decides",
+      "note": "Non-zero ⇒ invertible.",
+      "examples": [
+        { "component": "ArrayGrid", "props": { "grids": [{ "rows": 2, "cols": 2, "label": "|A| ≠ 0 → non-singular → has A⁻¹" }] }, "caption": "Non-zero determinant: an inverse exists." },
+        { "component": "ArrayGrid", "props": { "grids": [{ "rows": 2, "cols": 2, "label": "|A| = 0 → singular → NO inverse" }] }, "caption": "Zero determinant: singular, no inverse." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Compute |A|. If it is 0 the matrix is singular (no inverse). Otherwise A⁻¹ = adj(A)/|A|, and the system AX = B is solved by X = A⁻¹B (or by Cramer's rule with determinant ratios).",
+    "steps": [
+      "Find |A| (for 2×2, ad − bc).",
+      "If |A| = 0 → singular → no inverse; stop.",
+      "If |A| ≠ 0, form the adjoint and compute A⁻¹ = adj(A)/|A|.",
+      "Solve AX = B by X = A⁻¹B, or use Cramer's rule x = |A₁|/|A|, y = |A₂|/|A|."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find the determinant of A = [[2,0],[0,3]].",
+      "steps": ["|A| = ad − bc.", "2×3 − 0×0.", "= 6."],
+      "answer": "6"
+    },
+    {
+      "problem": "A matrix has |A| = 0. Does it have an inverse?",
+      "steps": ["An inverse needs |A| ≠ 0.", "Here |A| = 0, so it is singular.", "So NO inverse."],
+      "answer": "no inverse"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "singular-has-inverse", "mistake": "Thinking a matrix with |A| = 0 still has an inverse.", "fix": "|A| = 0 means SINGULAR — there is NO inverse. An inverse exists only when |A| ≠ 0." },
+    { "mistakeTag": "inverse-times-det", "mistake": "Writing A⁻¹ = adj(A) × |A|.", "fix": "A⁻¹ = adj(A) DIVIDED by |A|, not multiplied." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "mi-e1", "type": "number", "q": "Determinant of [[2,0],[0,5]]?", "answer": "10", "hintLadder": ["ad − bc.", "2×5 − 0.", "10."] },
+      { "id": "mi-e2", "type": "mcq", "q": "A matrix has an inverse only if |A| is…", "options": [{ "label": "Not zero" }, { "label": "Zero", "mistakeTag": "singular-has-inverse" }], "answer": "Not zero", "hintLadder": ["Singular = zero det.", "Need non-zero.", "Not zero."] }
+    ],
+    "medium": [
+      { "id": "mi-m1", "type": "mcq", "q": "The inverse A⁻¹ equals…", "options": [{ "label": "adj(A)/|A|" }, { "label": "adj(A)·|A|", "mistakeTag": "inverse-times-det" }], "answer": "adj(A)/|A|", "hintLadder": ["Divide by determinant.", "Not multiply.", "adj(A)/|A|."] },
+      { "id": "mi-m2", "type": "number", "q": "Determinant of [[3,1],[2,4]]?", "answer": "10", "hintLadder": ["ad − bc.", "12 − 2.", "10."] }
+    ],
+    "challenge": [
+      { "id": "mi-c1", "type": "number", "q": "Determinant of [[1,2],[3,4]]?", "answer": "-2", "hintLadder": ["ad − bc.", "4 − 6.", "−2."] },
+      { "id": "mi-c2", "type": "mcq", "q": "If |A| = 0 the matrix is…", "options": [{ "label": "Singular (no inverse)" }, { "label": "Invertible", "mistakeTag": "singular-has-inverse" }], "answer": "Singular (no inverse)", "hintLadder": ["Zero determinant.", "No inverse.", "Singular."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mi-x1", "type": "number", "q": "Determinant of [[2,0],[0,4]]?", "answer": "8", "hintLadder": ["ad − bc.", "2×4.", "8."] },
+      { "id": "mi-x2", "type": "mcq", "q": "An inverse exists if and only if |A| is…", "options": [{ "label": "≠ 0" }, { "label": "= 0", "mistakeTag": "singular-has-inverse" }], "answer": "≠ 0", "hintLadder": ["Non-singular.", "Non-zero det.", "≠ 0."] },
+      { "id": "mi-x3", "type": "mcq", "q": "The formula for the inverse is…", "options": [{ "label": "adj(A)/|A|" }, { "label": "|A|/adj(A)", "mistakeTag": "inverse-times-det" }], "answer": "adj(A)/|A|", "hintLadder": ["Adjoint over determinant.", "Divide.", "adj(A)/|A|."] },
+      { "id": "mi-x4", "type": "number", "q": "Determinant of [[5,2],[1,1]]?", "answer": "3", "hintLadder": ["ad − bc.", "5 − 2.", "3."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Write two of your own linear equations and set them up as AX = B. Explain to a grown-up how you'd first check |A| (must be non-zero), and then that X = A⁻¹B solves both equations at once.",
+  "revisionCard": {
+    "summary": "Square matrix A is invertible iff |A| ≠ 0 (non-singular). Then A⁻¹ = adj(A)/|A|. Solve AX = B by X = A⁻¹B, or Cramer's rule (determinant ratios). |A| = 0 ⇒ singular ⇒ no inverse. For 2×2, |A| = ad − bc.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 12 / JEE Main (inverse of a matrix, solving systems)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "A⁻¹ = adj(A)/|A|; exists iff |A| ≠ 0; solve AX=B by X=A⁻¹B", "unpack": "Zero determinant ⇒ singular ⇒ no inverse. Divide the adjoint by |A|, never multiply." },
+  "studentQuestions": [
+    { "q": "What if |A| = 0 for my equations?", "a": "Then the system has no unique solution (either none or infinitely many); the inverse method fails and you analyse it separately." },
+    { "q": "Inverse method or Cramer's rule?", "a": "Both need |A| ≠ 0. The inverse (X = A⁻¹B) is handy if you'll reuse A⁻¹; Cramer's rule is quick for just finding the unknowns." }
+  ],
+  "formulas": [
+    { "name": "2×2 determinant", "formula": "|A| = ad − bc", "remember": "main diagonal minus anti-diagonal", "whenToUse": "Checking invertibility of a 2×2." },
+    { "name": "Inverse", "formula": "A⁻¹ = adj(A)/|A|  (|A| ≠ 0)", "remember": "adjoint over determinant", "whenToUse": "Finding the inverse / solving AX = B." }
+  ]
+}

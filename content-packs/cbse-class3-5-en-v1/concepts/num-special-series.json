@@ -1,0 +1,108 @@
+{
+  "id": "num-special-series",
+  "name": "Special Series — Σn, Σn², Σn³ and AGP",
+  "grade": 10,
+  "strand": "numbers",
+  "prerequisites": ["num-47-sequences-series"],
+  "whatIsIt": "Some sums appear again and again and have neat formulas. Σn = 1+2+…+n = n(n+1)/2. Σn² = 1²+2²+…+n² = n(n+1)(2n+1)/6. Σn³ = 1³+2³+…+n³ = [n(n+1)/2]² — the SUM OF CUBES equals the SQUARE OF THE SUM. An ARITHMETIC–GEOMETRIC PROGRESSION (AGP) multiplies an AP term by a GP term, like 1, 2x, 3x², 4x³, …; its sum is found by the 'subtract r·S' trick.",
+  "whyNeeded": "These standard sums shortcut long series questions in JEE and are the building blocks for summing many complicated series. Recognising them saves crucial exam time.",
+  "realLifeUses": [
+    "Total dots in a triangular arrangement (Σn)",
+    "Total squares in a stacked pyramid (Σn²)",
+    "Adding up cube-shaped stock stacked in layers (Σn³)",
+    "Payments that grow both by a fixed amount and a fixed factor (AGP)"
+  ],
+  "vocabulary": [
+    { "term": "Σn", "meaning": "Sum of the first n natural numbers = n(n+1)/2." },
+    { "term": "Σn²", "meaning": "Sum of the first n squares = n(n+1)(2n+1)/6." },
+    { "term": "Σn³", "meaning": "Sum of the first n cubes = [n(n+1)/2]² = (Σn)²." },
+    { "term": "AGP", "meaning": "Arithmetic–geometric progression: an AP term times a GP term, e.g. 1, 2x, 3x², …" }
+  ],
+  "story": {
+    "title": "Stacking Cubes",
+    "characters": ["Naina", "Bhaiya"],
+    "text": "Naina stacks cube blocks: 1 in the top layer, then 8, then 27. 'Adding cubes is slow,' she sighs. Bhaiya smiles: 'Use the formula! Σn³ equals the SQUARE of Σn. For 3 layers, Σn = 6, so Σn³ = 6² = 36 — no adding.' Naina checks 1 + 8 + 27 = 36. 'Whoa,' she grins, 'the sum of cubes is just the sum, squared.'",
+    "extractedProblem": "Naina stacks 1 + 8 + 27 cube blocks. Using Σn³ = (Σn)², what is the total?",
+    "answerInStory": "36 — since Σn = 1+2+3 = 6 and 6² = 36."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": { "categories": [{ "label": "Σn (n=3)", "value": 6 }, { "label": "Σn² (n=3)", "value": 14 }, { "label": "Σn³ (n=3)", "value": 36 }], "unit": "value for n = 3" },
+    "caption": "For n = 3: Σn = 6, Σn² = 14, Σn³ = 36. Notice Σn³ (36) is exactly (Σn)² = 6² — the sum of cubes is the square of the sum."
+  },
+  "teachingGallery": [
+    {
+      "title": "The three standard sums",
+      "note": "One formula each; cubes = (sum)².",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [{ "label": "1", "value": 1 }, { "label": "1+2", "value": 3 }, { "label": "1+2+3", "value": 6 }], "unit": "Σn running total" }, "caption": "Σn = n(n+1)/2 (triangular numbers)." },
+        { "component": "BarChart", "props": { "categories": [{ "label": "Σn=6", "value": 6 }, { "label": "(Σn)²=36", "value": 36 }, { "label": "Σn³", "value": 36 }], "unit": "n = 3" }, "caption": "Σn³ equals (Σn)² — both are 36." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Match the series to a standard sum and apply its formula: Σn = n(n+1)/2, Σn² = n(n+1)(2n+1)/6, Σn³ = [n(n+1)/2]². For an AGP, multiply the whole sum by the common ratio r and subtract to collapse it.",
+    "steps": [
+      "Identify whether you're adding n, n², or n³ (or a mix).",
+      "Apply the matching formula for that sum.",
+      "For a mixed series, split it: Σ(an² + bn + c) = aΣn² + bΣn + cn.",
+      "For an AGP sum S, compute S − rS to telescope, then solve for S."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find Σn² for n = 3 (that is 1² + 2² + 3²).",
+      "steps": ["Σn² = n(n+1)(2n+1)/6.", "3 × 4 × 7 ÷ 6 = 84 ÷ 6.", "= 14."],
+      "answer": "14"
+    },
+    {
+      "problem": "Find Σn³ for n = 3 using Σn³ = (Σn)².",
+      "steps": ["Σn = 3×4/2 = 6.", "Σn³ = 6².", "= 36."],
+      "answer": "36"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "wrong-sq-formula", "mistake": "Using the Σn formula n(n+1)/2 when adding squares.", "fix": "Σn² has its OWN formula: n(n+1)(2n+1)/6 — not n(n+1)/2." },
+    { "mistakeTag": "cube-not-square-of-sum", "mistake": "Forgetting that the sum of cubes equals the square of the sum.", "fix": "Σn³ = [n(n+1)/2]² = (Σn)². Compute Σn first, then square it." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "ss-e1", "type": "number", "q": "Σn for n = 4 (1+2+3+4)?", "answer": "10", "hintLadder": ["n(n+1)/2.", "4×5/2.", "10."] },
+      { "id": "ss-e2", "type": "number", "q": "Σn² for n = 3 (1+4+9)?", "answer": "14", "hintLadder": ["n(n+1)(2n+1)/6.", "3×4×7/6.", "14."] }
+    ],
+    "medium": [
+      { "id": "ss-m1", "type": "number", "q": "Σn³ for n = 3 using (Σn)²?", "answer": "36", "hintLadder": ["Σn = 6.", "6².", "36."] },
+      { "id": "ss-m2", "type": "number", "q": "Σn² for n = 4 (1+4+9+16)?", "answer": "30", "hintLadder": ["4×5×9/6.", "180/6.", "30."] }
+    ],
+    "challenge": [
+      { "id": "ss-c1", "type": "number", "q": "Σn³ for n = 4 using (Σn)²?", "answer": "100", "hintLadder": ["Σn = 10.", "10².", "100."] },
+      { "id": "ss-c2", "type": "mcq", "q": "Is Σn³ equal to (Σn)²?", "options": [{ "label": "Yes" }, { "label": "No", "mistakeTag": "cube-not-square-of-sum" }], "answer": "Yes", "hintLadder": ["Check n=3: 36 and 6².", "They match.", "Yes."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "ss-x1", "type": "number", "q": "Σn for n = 5?", "answer": "15", "hintLadder": ["5×6/2.", "30/2.", "15."] },
+      { "id": "ss-x2", "type": "number", "q": "Σn² for n = 3?", "answer": "14", "hintLadder": ["3×4×7/6.", "84/6.", "14."] },
+      { "id": "ss-x3", "type": "number", "q": "Σn³ for n = 4?", "answer": "100", "hintLadder": ["Σn = 10.", "10².", "100."] },
+      { "id": "ss-x4", "type": "mcq", "q": "The formula for Σn² is…", "options": [{ "label": "n(n+1)(2n+1)/6" }, { "label": "n(n+1)/2", "mistakeTag": "wrong-sq-formula" }], "answer": "n(n+1)(2n+1)/6", "hintLadder": ["Squares have their own formula.", "Divide by 6.", "n(n+1)(2n+1)/6."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Stack cube blocks in layers (1, then 8, then 27) and add them: 36. Then show a grown-up that Σn = 1+2+3 = 6 and 6² = 36 too — explaining why the sum of cubes equals the square of the sum.",
+  "revisionCard": {
+    "summary": "Standard sums: Σn = n(n+1)/2; Σn² = n(n+1)(2n+1)/6; Σn³ = [n(n+1)/2]² = (Σn)². Split mixed series into these pieces. For an AGP sum S, use S − rS to telescope.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 11 / JEE Main & Advanced (special series & AGP)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Σn = n(n+1)/2, Σn² = n(n+1)(2n+1)/6, Σn³ = (Σn)²", "unpack": "Cubes sum to the square of the sum. Squares have the /6 formula, not /2." },
+  "studentQuestions": [
+    { "q": "How do I sum a series like Σ(2n² + 3n)?", "a": "Split it: 2·Σn² + 3·Σn, then plug in the standard formulas — much faster than adding term by term." },
+    { "q": "What makes an AGP different from an AP or GP?", "a": "Each term is an AP term TIMES a GP term (like n·xⁿ⁻¹), so it grows both additively and multiplicatively; you sum it with the S − rS trick." }
+  ],
+  "formulas": [
+    { "name": "Sum of naturals", "formula": "Σn = n(n+1)/2", "remember": "triangular numbers", "whenToUse": "Adding 1..n." },
+    { "name": "Sum of squares", "formula": "Σn² = n(n+1)(2n+1)/6", "remember": "the /6 formula", "whenToUse": "Adding squares." },
+    { "name": "Sum of cubes", "formula": "Σn³ = [n(n+1)/2]² = (Σn)²", "remember": "square of the sum", "whenToUse": "Adding cubes." }
+  ]
+}

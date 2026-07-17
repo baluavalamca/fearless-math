@@ -1,0 +1,105 @@
+{
+  "id": "data-mean-deviation",
+  "name": "Mean Deviation — Average Distance from the Middle",
+  "grade": 10,
+  "strand": "data",
+  "prerequisites": ["data-09-statistics-dispersion"],
+  "whatIsIt": "MEAN DEVIATION measures spread as the AVERAGE DISTANCE of the values from a centre (usually the mean). Because plain deviations (x − mean) always add up to ZERO, we take their ABSOLUTE values first. Mean deviation about the mean = Σ|x − mean| ÷ n. It is simpler than variance and tells you, on average, how far the data sits from the middle.",
+  "whyNeeded": "A single average hides how spread out data is. Mean deviation gives a plain-English measure of spread — useful for comparing consistency of scores, temperatures or prices — and is a Class 11 NCERT statistics topic that appears in JEE and board exams.",
+  "realLifeUses": [
+    "How consistent a batsman's scores are around his average",
+    "How much daily temperatures vary from the monthly mean",
+    "How steady a shop's daily sales are",
+    "Comparing which of two machines gives more uniform output"
+  ],
+  "vocabulary": [
+    { "term": "deviation", "meaning": "The difference x − mean for a value x." },
+    { "term": "absolute deviation", "meaning": "|x − mean| — the deviation made positive (distance)." },
+    { "term": "mean deviation", "meaning": "Average of the absolute deviations: Σ|x − mean| ÷ n." }
+  ],
+  "story": {
+    "title": "Whose Scores Are Steadier?",
+    "characters": ["Coach", "Aditi"],
+    "text": "Aditi's cricket scores are 1, 3, 5, 7 with a mean of 4. 'How spread out are they?' asks Coach. Aditi finds each distance from 4: 3, 1, 1, 3 — she adds them (8) and divides by 4, getting 2. 'So on average my scores are 2 runs from my mean.' Coach nods: 'That's the mean deviation. And note — if you didn't take absolute values, the pluses and minuses would cancel to zero.'",
+    "extractedProblem": "For scores 1, 3, 5, 7 with mean 4, what is the mean deviation about the mean?",
+    "answerInStory": "2 — the distances 3, 1, 1, 3 sum to 8, and 8 ÷ 4 = 2."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": { "categories": [{ "label": "|1−4|", "value": 3 }, { "label": "|3−4|", "value": 1 }, { "label": "|5−4|", "value": 1 }, { "label": "|7−4|", "value": 3 }], "unit": "distance from mean 4" },
+    "caption": "Absolute distances from the mean (4) for 1, 3, 5, 7 are 3, 1, 1, 3. Their average, (3+1+1+3)/4 = 2, is the mean deviation."
+  },
+  "teachingGallery": [
+    {
+      "title": "Distances, then average",
+      "note": "Absolute values first — signed ones cancel.",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [{ "label": "1", "value": 1 }, { "label": "3", "value": 3 }, { "label": "5", "value": 5 }, { "label": "7", "value": 7 }], "unit": "data (mean = 4)" }, "caption": "Data 1, 3, 5, 7 with mean 4." },
+        { "component": "BarChart", "props": { "categories": [{ "label": "|1−4|", "value": 3 }, { "label": "|3−4|", "value": 1 }, { "label": "|5−4|", "value": 1 }, { "label": "|7−4|", "value": 3 }], "unit": "absolute deviations" }, "caption": "Distances 3, 1, 1, 3 → average 2." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Find the mean. Take each value's distance from the mean using absolute values. Add the distances and divide by n.",
+    "steps": [
+      "Compute the mean of the data.",
+      "For each value, find |x − mean| (the distance, always positive).",
+      "Add all the absolute deviations.",
+      "Divide by the number of values n: mean deviation = Σ|x − mean| ÷ n."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find the mean deviation about the mean for 1, 3, 5, 7.",
+      "steps": ["Mean = (1+3+5+7)/4 = 4.", "Distances: 3, 1, 1, 3; sum = 8.", "8 ÷ 4 = 2."],
+      "answer": "2"
+    },
+    {
+      "problem": "Why must we use absolute values? What does Σ(x − mean) always equal?",
+      "steps": ["Deviations above and below the mean cancel.", "Their signed sum is always 0.", "So we take |x − mean| instead."],
+      "answer": "0"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "signed-sum-zero", "mistake": "Adding the signed deviations (x − mean) instead of their absolute values.", "fix": "Signed deviations always cancel to 0. Use ABSOLUTE deviations |x − mean| for mean deviation." },
+    { "mistakeTag": "forgot-divide-n", "mistake": "Adding the absolute deviations but forgetting to divide by n.", "fix": "Mean deviation = (sum of |x − mean|) ÷ n — it is an AVERAGE distance." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "md-e1", "type": "number", "q": "Mean of 2, 4, 6?", "answer": "4", "hintLadder": ["Add and divide.", "12 ÷ 3.", "4."] },
+      { "id": "md-e2", "type": "mcq", "q": "Mean deviation uses which of the deviations?", "options": [{ "label": "Absolute values |x − mean|" }, { "label": "Signed values (x − mean)", "mistakeTag": "signed-sum-zero" }], "answer": "Absolute values |x − mean|", "hintLadder": ["Signed ones cancel.", "Make them positive.", "Absolute values."] }
+    ],
+    "medium": [
+      { "id": "md-m1", "type": "number", "q": "Mean deviation of 1, 3, 5, 7 (mean 4)?", "answer": "2", "hintLadder": ["Distances 3,1,1,3.", "Sum 8 ÷ 4.", "2."] },
+      { "id": "md-m2", "type": "number", "q": "The sum of signed deviations (x − mean) always equals?", "answer": "0", "hintLadder": ["Above and below cancel.", "They balance.", "0."] }
+    ],
+    "challenge": [
+      { "id": "md-c1", "type": "number", "q": "Mean deviation of 3, 3, 9, 9 (mean 6)?", "answer": "3", "hintLadder": ["Distances 3,3,3,3.", "Sum 12 ÷ 4.", "3."] },
+      { "id": "md-c2", "type": "mcq", "q": "The mean deviation formula is…", "options": [{ "label": "Σ|x − mean| / n" }, { "label": "Σ(x − mean) / n", "mistakeTag": "signed-sum-zero" }], "answer": "Σ|x − mean| / n", "hintLadder": ["Absolute distances.", "Average them.", "Σ|x − mean|/n."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "md-x1", "type": "number", "q": "Mean of 1, 3, 5, 7?", "answer": "4", "hintLadder": ["16 ÷ 4.", "Add and divide.", "4."] },
+      { "id": "md-x2", "type": "number", "q": "Sum of the signed deviations from the mean equals?", "answer": "0", "hintLadder": ["They cancel.", "Balanced.", "0."] },
+      { "id": "md-x3", "type": "number", "q": "Mean deviation of 1, 3, 5, 7 (mean 4)?", "answer": "2", "hintLadder": ["Distances 3,1,1,3.", "8 ÷ 4.", "2."] },
+      { "id": "md-x4", "type": "mcq", "q": "Mean deviation about the mean is…", "options": [{ "label": "Σ|x − mean| / n" }, { "label": "Σ(x − mean) / n", "mistakeTag": "signed-sum-zero" }], "answer": "Σ|x − mean| / n", "hintLadder": ["Absolute values.", "Divide by n.", "Σ|x − mean|/n."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Take four of your test or game scores. Find the mean, then each score's distance from it, add the distances and divide by 4. Explain to a grown-up why you use absolute values (otherwise the pluses and minuses cancel to zero).",
+  "revisionCard": {
+    "summary": "Mean deviation = average distance from the centre = Σ|x − mean| ÷ n. Use ABSOLUTE deviations because signed deviations always sum to 0. It's a simple measure of spread (smaller = more consistent data).",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 11 / JEE (mean deviation)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Mean deviation = Σ|x − mean| ÷ n (absolute distances)", "unpack": "Signed deviations sum to 0, so use |…|. Then average by dividing by n." },
+  "studentQuestions": [
+    { "q": "Mean deviation or standard deviation?", "a": "Both measure spread. Mean deviation uses absolute distances (simpler); standard deviation squares them (used more in advanced statistics)." },
+    { "q": "Can mean deviation be taken about the median?", "a": "Yes — mean deviation about the median exists too, and it is actually the smallest possible mean deviation for a data set." }
+  ],
+  "formulas": [
+    { "name": "Mean deviation (about mean)", "formula": "M.D. = Σ|x − mean| / n", "remember": "average of absolute distances", "whenToUse": "Measuring spread simply." }
+  ]
+}

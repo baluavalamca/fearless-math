@@ -1,0 +1,108 @@
+{
+  "id": "geo-vector-triple-products",
+  "name": "Triple Products — Volume and the BAC–CAB Rule",
+  "grade": 11,
+  "strand": "geometry",
+  "prerequisites": ["geo-27-vectors"],
+  "whatIsIt": "With THREE vectors we can form two special products. The SCALAR TRIPLE PRODUCT [a b c] = a·(b×c) is a NUMBER equal to the determinant with rows a, b, c; its absolute value is the VOLUME of the parallelepiped built on the three vectors. If [a b c] = 0 the vectors are COPLANAR (lie in one plane). The VECTOR TRIPLE PRODUCT a×(b×c) is a VECTOR given by the BAC–CAB rule: a×(b×c) = b(a·c) − c(a·b).",
+  "whyNeeded": "Triple products test whether three directions fit in a plane, compute volumes, and appear throughout JEE Advanced vector problems, mechanics (torque, angular momentum) and 3D geometry.",
+  "realLifeUses": [
+    "Finding the volume of a slanted box (parallelepiped) from three edge vectors",
+    "Checking if three forces or edges lie in the same plane",
+    "Torque and angular-momentum calculations in physics",
+    "Testing whether four points in space are coplanar"
+  ],
+  "vocabulary": [
+    { "term": "scalar triple product", "meaning": "[a b c] = a·(b×c); a number equal to the signed volume of the parallelepiped." },
+    { "term": "parallelepiped", "meaning": "A slanted box; its volume is |a·(b×c)|." },
+    { "term": "coplanar", "meaning": "Lying in one plane; happens exactly when [a b c] = 0." },
+    { "term": "vector triple product", "meaning": "a×(b×c) = b(a·c) − c(a·b), the BAC–CAB rule." }
+  ],
+  "story": {
+    "title": "The Slanted Box",
+    "characters": ["Dev", "Ma'am"],
+    "text": "Dev builds a slanted box from three straws meeting at a corner. 'What's its volume?' asks Ma'am. 'Take the three edge vectors and compute a·(b×c) — the scalar triple product,' she says. Dev tries three straws lying flat on the table instead. The product comes out 0. 'That means they're coplanar,' says Ma'am, 'no box, no volume.' Dev nods: 'So one number tells me both the volume AND whether it's flat.'",
+    "extractedProblem": "For the unit vectors i, j, k, what is the scalar triple product [i j k] (the volume of the unit cube)?",
+    "answerInStory": "1 — the unit cube has volume 1."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": { "shapes": [{ "kind": "rect", "w": 3, "h": 2, "label": "parallelepiped on a, b, c — volume = |a·(b×c)|" }] },
+    "caption": "Three vectors from a corner build a slanted box (parallelepiped). Its volume is the absolute scalar triple product |a·(b×c)|; if that is 0, the box is flat — the vectors are coplanar."
+  },
+  "teachingGallery": [
+    {
+      "title": "Volume, flatness, and BAC–CAB",
+      "note": "One number for volume; zero means coplanar.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "square", "w": 2, "h": 2, "label": "[i j k] = 1 → unit cube volume 1" }] }, "caption": "Perpendicular unit vectors give volume 1." },
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "rect", "w": 4, "h": 1, "label": "[a b c] = 0 → coplanar (flat)" }] }, "caption": "Zero product ⇒ the three vectors lie in one plane." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "For a scalar triple product, compute a·(b×c) — the same as the determinant with rows a, b, c; its size is the volume, and 0 means coplanar. For a vector triple product, apply the BAC–CAB rule a×(b×c) = b(a·c) − c(a·b).",
+    "steps": [
+      "Scalar triple product: write a, b, c as rows of a 3×3 determinant and evaluate [a b c] = a·(b×c).",
+      "The volume of the parallelepiped is |[a b c]|; if [a b c] = 0 the vectors are coplanar.",
+      "Vector triple product: use a×(b×c) = b(a·c) − c(a·b) (BAC − CAB).",
+      "Remember a×(b×c) lies in the plane of b and c."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find the scalar triple product [i j k] for the unit vectors.",
+      "steps": ["i·(j×k) = i·i.", "i·i = 1.", "So [i j k] = 1 (unit cube volume)."],
+      "answer": "1"
+    },
+    {
+      "problem": "Three vectors give [a b c] = 0. What does this tell you?",
+      "steps": ["Zero volume means the box is flat.", "A flat box has all three vectors in one plane.", "They are COPLANAR."],
+      "answer": "coplanar"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "triple-not-volume", "mistake": "Thinking the scalar triple product gives an area or a length.", "fix": "The scalar triple product |a·(b×c)| is a VOLUME (3D) — the parallelepiped's volume." },
+    { "mistakeTag": "reversed-bac-cab", "mistake": "Getting the BAC–CAB expansion backwards.", "fix": "a×(b×c) = b(a·c) − c(a·b): it's B(A·C) minus C(A·B), in that order." },
+    { "mistakeTag": "zero-means-perp", "mistake": "Reading [a b c] = 0 as 'the vectors are perpendicular'.", "fix": "[a b c] = 0 means COPLANAR (they lie in one plane), not perpendicular." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "vtp-e1", "type": "number", "q": "Scalar triple product [i j k] for the unit vectors?", "answer": "1", "hintLadder": ["Unit cube volume.", "i·(j×k) = i·i.", "1."] },
+      { "id": "vtp-e2", "type": "mcq", "q": "The absolute scalar triple product |a·(b×c)| gives the…", "options": [{ "label": "Volume of the parallelepiped" }, { "label": "Area of a triangle", "mistakeTag": "triple-not-volume" }], "answer": "Volume of the parallelepiped", "hintLadder": ["Three vectors → a box.", "3D measure.", "Volume."] }
+    ],
+    "medium": [
+      { "id": "vtp-m1", "type": "mcq", "q": "If a·(b×c) = 0, the three vectors are…", "options": [{ "label": "Coplanar" }, { "label": "Perpendicular", "mistakeTag": "zero-means-perp" }], "answer": "Coplanar", "hintLadder": ["Zero volume = flat box.", "All in one plane.", "Coplanar."] },
+      { "id": "vtp-m2", "type": "mcq", "q": "The vector triple product a×(b×c) equals…", "options": [{ "label": "b(a·c) − c(a·b)" }, { "label": "c(a·b) − b(a·c)", "mistakeTag": "reversed-bac-cab" }], "answer": "b(a·c) − c(a·b)", "hintLadder": ["BAC − CAB.", "b first.", "b(a·c) − c(a·b)."] }
+    ],
+    "challenge": [
+      { "id": "vtp-c1", "type": "number", "q": "Scalar triple product [2i 2j 2k] (volume of a cube of side 2)?", "answer": "8", "hintLadder": ["Cube side 2.", "2 × 2 × 2.", "8."] },
+      { "id": "vtp-c2", "type": "mcq", "q": "The scalar triple product measures a…", "options": [{ "label": "Volume" }, { "label": "Length", "mistakeTag": "triple-not-volume" }], "answer": "Volume", "hintLadder": ["3D box.", "Not a line.", "Volume."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "vtp-x1", "type": "number", "q": "[i j k] for the unit vectors = ?", "answer": "1", "hintLadder": ["Unit cube.", "Volume 1.", "1."] },
+      { "id": "vtp-x2", "type": "mcq", "q": "The scalar triple product measures…", "options": [{ "label": "Volume" }, { "label": "Length", "mistakeTag": "triple-not-volume" }], "answer": "Volume", "hintLadder": ["Box on three vectors.", "3D.", "Volume."] },
+      { "id": "vtp-x3", "type": "mcq", "q": "[a b c] = 0 means the vectors are…", "options": [{ "label": "Coplanar" }, { "label": "Perpendicular", "mistakeTag": "zero-means-perp" }], "answer": "Coplanar", "hintLadder": ["Flat box.", "One plane.", "Coplanar."] },
+      { "id": "vtp-x4", "type": "mcq", "q": "a×(b×c) = ?", "options": [{ "label": "b(a·c) − c(a·b)" }, { "label": "a(b·c) − c(a·b)", "mistakeTag": "reversed-bac-cab" }], "answer": "b(a·c) − c(a·b)", "hintLadder": ["BAC − CAB.", "Starts with b.", "b(a·c) − c(a·b)."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Build a corner from three pencils. Explain to a grown-up how the scalar triple product gives the VOLUME of the slanted box they form, and what it means when that volume is 0 (the pencils lie flat — coplanar).",
+  "revisionCard": {
+    "summary": "Scalar triple product [a b c] = a·(b×c) = determinant of rows a,b,c; |[a b c]| = parallelepiped VOLUME; = 0 ⇒ COPLANAR. Vector triple product a×(b×c) = b(a·c) − c(a·b) (BAC − CAB), a vector in the plane of b and c.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 12 / JEE Advanced (vector & scalar triple products)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Scalar triple = volume; = 0 means coplanar. Vector triple = BAC − CAB", "unpack": "[a b c] is a number (volume); a×(b×c) is a vector = b(a·c) − c(a·b)." },
+  "studentQuestions": [
+    { "q": "How do I test if four points are coplanar?", "a": "Form three vectors from one point to the others and check if their scalar triple product is 0 — if so, all four lie in one plane." },
+    { "q": "Why is a×(b×c) not the same as (a×b)×c?", "a": "The cross product isn't associative; a×(b×c) lies in the plane of b and c, while (a×b)×c lies in the plane of a and b — different vectors." }
+  ],
+  "formulas": [
+    { "name": "Scalar triple product", "formula": "[a b c] = a·(b×c) = det(rows a,b,c)", "remember": "volume of the box; 0 ⇒ coplanar", "whenToUse": "Volume or coplanarity of three vectors." },
+    { "name": "Vector triple product", "formula": "a×(b×c) = b(a·c) − c(a·b)", "remember": "BAC − CAB", "whenToUse": "Simplifying a cross product of a cross product." }
+  ]
+}
