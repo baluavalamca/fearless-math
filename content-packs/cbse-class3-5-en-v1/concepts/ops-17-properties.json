@@ -3,7 +3,9 @@
   "name": "Properties of Operations — The Rules That Save Time",
   "grade": 5,
   "strand": "operations",
-  "prerequisites": ["ops-09-multiplication-groups"],
+  "prerequisites": [
+    "ops-09-multiplication-groups"
+  ],
   "whatIsIt": "Operations follow handy rules. COMMUTATIVE: order doesn't matter for + and × (3 + 5 = 5 + 3; 3 × 4 = 4 × 3). ASSOCIATIVE: grouping doesn't matter (2 + (3 + 4) = (2 + 3) + 4). DISTRIBUTIVE: 3 × (10 + 2) = 3×10 + 3×2. IDENTITY: + 0 and × 1 change nothing. ZERO: anything × 0 = 0. These let you rearrange to calculate the easy way.",
   "whyNeeded": "These rules turn hard sums into easy ones — reorder to make friendly pairs, break a big multiplication into parts, or spot a shortcut. They're also the hidden logic behind mental maths and all of algebra later.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Knowing 0 of anything costs nothing"
   ],
   "vocabulary": [
-    { "term": "commutative", "meaning": "Order doesn't change the answer for + and ×." },
-    { "term": "distributive", "meaning": "a × (b + c) = a×b + a×c — spread the multiply over the sum." },
-    { "term": "identity", "meaning": "Adding 0 or multiplying by 1 leaves a number unchanged." }
+    {
+      "term": "commutative",
+      "meaning": "Order doesn't change the answer for + and ×."
+    },
+    {
+      "term": "distributive",
+      "meaning": "a × (b + c) = a×b + a×c — spread the multiply over the sum."
+    },
+    {
+      "term": "identity",
+      "meaning": "Adding 0 or multiplying by 1 leaves a number unchanged."
+    }
   ],
   "story": {
     "title": "Meena's Quick Total",
-    "characters": ["Meena", "Anna"],
+    "characters": [
+      "Meena",
+      "Anna"
+    ],
     "text": "Anna asks Meena to add 7 + 6 + 3 fast. Meena swaps the order: 7 + 3 first makes a friendly 10, then + 6 = 16. 'You changed the order!' says Anna. 'For addition I'm allowed — that's the commutative rule, and it makes tens I can add in my head,' Meena grins.",
     "extractedProblem": "Add 7 + 6 + 3 the easy way. What is the total, and which pair makes it simple?",
     "answerInStory": "16 — pair 7 + 3 to make 10, then add 6."
@@ -28,8 +42,16 @@
     "component": "ArrayGrid",
     "props": {
       "grids": [
-        { "rows": 3, "cols": 4, "label": "3 × 4 = 12" },
-        { "rows": 4, "cols": 3, "label": "4 × 3 = 12" }
+        {
+          "rows": 3,
+          "cols": 4,
+          "label": "3 × 4 = 12"
+        },
+        {
+          "rows": 4,
+          "cols": 3,
+          "label": "4 × 3 = 12"
+        }
       ]
     },
     "caption": "Turn the array and it's the same 12: 3 × 4 = 4 × 3. Order doesn't change a product (commutative)."
@@ -39,9 +61,60 @@
       "title": "See the rules",
       "note": "Reorder, regroup, or spread out — the answer stays the same.",
       "examples": [
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 2, "cols": 5, "label": "2 × 5 = 5 × 2 = 10" } ] }, "caption": "Commutative: order free." },
-        { "component": "AreaModel", "props": { "models": [ { "rowParts": [3], "colParts": [10, 2], "label": "3 × 12 = 3×10 + 3×2" } ] }, "caption": "Distributive: 30 + 6 = 36." },
-        { "component": "BarModel", "props": { "bars": [ { "label": "7 + 3 + 6 = 16", "parts": [ { "value": 7 }, { "value": 3 }, { "value": 6 } ], "showTotal": true } ] }, "caption": "Regroup 7 + 3 to make 10 first." }
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 5,
+                "label": "2 × 5 = 5 × 2 = 10"
+              }
+            ]
+          },
+          "caption": "Commutative: order free."
+        },
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  3
+                ],
+                "colParts": [
+                  10,
+                  2
+                ],
+                "label": "3 × 12 = 3×10 + 3×2"
+              }
+            ]
+          },
+          "caption": "Distributive: 30 + 6 = 36."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "7 + 3 + 6 = 16",
+                "parts": [
+                  {
+                    "value": 7
+                  },
+                  {
+                    "value": 3
+                  },
+                  {
+                    "value": 6
+                  }
+                ],
+                "showTotal": true
+              }
+            ]
+          },
+          "caption": "Regroup 7 + 3 to make 10 first."
+        }
       ]
     }
   ],
@@ -57,12 +130,20 @@
   "workedExamples": [
     {
       "problem": "Use a shortcut for 6 × 12.",
-      "steps": ["Split 12 into 10 + 2 (distributive).", "6 × 10 + 6 × 2.", "60 + 12 = 72."],
+      "steps": [
+        "Split 12 into 10 + 2 (distributive).",
+        "6 × 10 + 6 × 2.",
+        "60 + 12 = 72."
+      ],
       "answer": "72"
     },
     {
       "problem": "Add 8 + 5 + 2 the easy way.",
-      "steps": ["Reorder (commutative): 8 + 2 + 5.", "8 + 2 = 10.", "10 + 5 = 15."],
+      "steps": [
+        "Reorder (commutative): 8 + 2 + 5.",
+        "8 + 2 = 10.",
+        "10 + 5 = 15."
+      ],
       "answer": "15"
     }
   ],
@@ -81,75 +162,149 @@
   "practice": {
     "easy": [
       {
-        "id": "o17-e1", "type": "mcq",
+        "id": "o17-e1",
+        "type": "mcq",
         "q": "Which is equal to 4 × 3?",
-        "options": [ { "label": "3 × 4" }, { "label": "4 − 3", "mistakeTag": "order-matters-sub-div" } ],
+        "options": [
+          {
+            "label": "3 × 4"
+          },
+          {
+            "label": "4 − 3",
+            "mistakeTag": "order-matters-sub-div"
+          }
+        ],
         "answer": "3 × 4",
-        "hintLadder": ["Order-free for ×.", "Same product.", "3 × 4."]
+        "hintLadder": [
+          "Order-free for ×.",
+          "Same product.",
+          "3 × 4."
+        ]
       },
       {
-        "id": "o17-e2", "type": "number",
+        "id": "o17-e2",
+        "type": "number",
         "q": "What is 25 × 1?",
         "answer": "25",
-        "hintLadder": ["Multiplying by 1.", "Nothing changes.", "25."]
+        "hintLadder": [
+          "Multiplying by 1.",
+          "Nothing changes.",
+          "25."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "o17-m1", "type": "number",
+        "id": "o17-m1",
+        "type": "number",
         "q": "Use distributive: 7 × 11 = 7×10 + 7×1 = ?",
         "answer": "77",
-        "hintLadder": ["70 + 7.", "Add the parts.", "77."]
+        "hintLadder": [
+          "70 + 7.",
+          "Add the parts.",
+          "77."
+        ]
       },
       {
-        "id": "o17-m2", "type": "number",
+        "id": "o17-m2",
+        "type": "number",
         "q": "9 + 4 + 6, paired the easy way = ?",
         "answer": "19",
-        "hintLadder": ["Pair 4 + 6 = 10.", "9 + 10.", "19."]
+        "hintLadder": [
+          "Pair 4 + 6 = 10.",
+          "9 + 10.",
+          "19."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "o17-c1", "type": "number",
+        "id": "o17-c1",
+        "type": "number",
         "q": "Use distributive to find 8 × 13.",
         "answer": "104",
-        "hintLadder": ["8 × (10 + 3).", "80 + 24.", "104."]
+        "hintLadder": [
+          "8 × (10 + 3).",
+          "80 + 24.",
+          "104."
+        ]
       },
       {
-        "id": "o17-c2", "type": "mcq",
+        "id": "o17-c2",
+        "type": "mcq",
         "q": "Ravi says 10 − 4 is the same as 4 − 10. Is he right?",
-        "options": [ { "label": "No — subtraction order matters, they aren't equal" }, { "label": "Yes, order never matters", "mistakeTag": "order-matters-sub-div" } ],
+        "options": [
+          {
+            "label": "No — subtraction order matters, they aren't equal"
+          },
+          {
+            "label": "Yes, order never matters",
+            "mistakeTag": "order-matters-sub-div"
+          }
+        ],
         "answer": "No — subtraction order matters, they aren't equal",
-        "hintLadder": ["Only + and × are order-free.", "10 − 4 = 6, 4 − 10 is different.", "Not equal."]
+        "hintLadder": [
+          "Only + and × are order-free.",
+          "10 − 4 = 6, 4 − 10 is different.",
+          "Not equal."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "o17-x1", "type": "mcq",
+        "id": "o17-x1",
+        "type": "mcq",
         "q": "3 + 8 equals…",
-        "options": [ { "label": "8 + 3" }, { "label": "8 − 3", "mistakeTag": "order-matters-sub-div" } ],
+        "options": [
+          {
+            "label": "8 + 3"
+          },
+          {
+            "label": "8 − 3",
+            "mistakeTag": "order-matters-sub-div"
+          }
+        ],
         "answer": "8 + 3",
-        "hintLadder": ["Addition is order-free.", "Same sum.", "8 + 3."]
+        "hintLadder": [
+          "Addition is order-free.",
+          "Same sum.",
+          "8 + 3."
+        ]
       },
       {
-        "id": "o17-x2", "type": "number",
+        "id": "o17-x2",
+        "type": "number",
         "q": "What is 47 + 0?",
         "answer": "47",
-        "hintLadder": ["Adding zero.", "No change.", "47."]
+        "hintLadder": [
+          "Adding zero.",
+          "No change.",
+          "47."
+        ]
       },
       {
-        "id": "o17-x3", "type": "number",
+        "id": "o17-x3",
+        "type": "number",
         "q": "Distributive: 5 × 12 = 5×10 + 5×2 = ?",
         "answer": "60",
-        "hintLadder": ["50 + 10.", "Add the parts.", "60."]
+        "hintLadder": [
+          "50 + 10.",
+          "Add the parts.",
+          "60."
+        ]
       },
       {
-        "id": "o17-x4", "type": "number",
+        "id": "o17-x4",
+        "type": "number",
         "q": "What is 99 × 0?",
         "answer": "0",
-        "hintLadder": ["Anything times zero.", "Is zero.", "0."]
+        "hintLadder": [
+          "Anything times zero.",
+          "Is zero.",
+          "0."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -158,7 +313,11 @@
   "teachBackPrompt": "Show a grown-up a quick mental-maths trick using one property — like reordering 8 + 7 + 2 to make a ten, or breaking 6 × 12 into 6×10 + 6×2 — and explain which rule lets you do it.",
   "revisionCard": {
     "summary": "Commutative: order free for + and × (not − or ÷). Associative: regroup the easy pair first. Distributive: a × (b + c) = a×b + a×c. Identity: + 0 and × 1 change nothing. Zero: anything × 0 = 0. Use them to make sums easy.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -167,5 +326,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Three laws: Commutative (swap), Associative (regroup), Distributive (share out)",
+    "unpack": "a+b = b+a. (a+b)+c = a+(b+c). a(b+c) = ab+ac. They make mental maths easy."
+  },
+  "studentQuestions": [
+    {
+      "q": "What is the commutative property?",
+      "a": "You can swap the order: a+b = b+a and a x b = b x a. (Not for subtraction or division!)"
+    },
+    {
+      "q": "What is the distributive property?",
+      "a": "Multiplying over a bracket: a(b+c) = ab + ac. 6x13 = 6x10 + 6x3 = 78 - a great mental trick."
+    }
+  ]
 }

@@ -501,5 +501,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Money is decimals: rupees.paise, two places after the dot",
+    "unpack": "12.50 = 12 rupees, 50 paise. Line up the dots to add. 100 paise = 1 rupee."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why two digits after the dot for money?",
+      "a": "Paise are hundredths of a rupee - two decimal places. 5.05 is five rupees and five paise."
+    },
+    {
+      "q": "How do I add money?",
+      "a": "Line up the decimal points, then add like normal decimals - paise under paise."
+    }
+  ]
 }

@@ -3,7 +3,10 @@
   "name": "Division with Remainders — Sharing What's Left",
   "grade": 4,
   "strand": "operations",
-  "prerequisites": ["ops-13-division-sharing", "ops-10-tables-patterns"],
+  "prerequisites": [
+    "ops-13-division-sharing",
+    "ops-10-tables-patterns"
+  ],
   "whatIsIt": "Division shares a total into equal groups. Sometimes it doesn't split evenly — what's left over is the REMAINDER. 17 ÷ 5 = 3 remainder 2 (3 full groups of 5, with 2 left). Division and multiplication are opposites: 17 = 5 × 3 + 2. The remainder is always smaller than the number you divided by.",
   "whyNeeded": "Real sharing rarely comes out perfectly even — 17 sweets among 5 friends, seating people at tables, packing items in boxes. Understanding remainders (and what to do with them) is everyday problem-solving.",
   "realLifeUses": [
@@ -13,13 +16,25 @@
     "Splitting a bill or a bag of marbles fairly"
   ],
   "vocabulary": [
-    { "term": "quotient", "meaning": "How many are in each group (the answer to the division)." },
-    { "term": "remainder", "meaning": "What is left over, always smaller than the divisor." },
-    { "term": "divisor", "meaning": "The number of groups (or the size of each group) you divide by." }
+    {
+      "term": "quotient",
+      "meaning": "How many are in each group (the answer to the division)."
+    },
+    {
+      "term": "remainder",
+      "meaning": "What is left over, always smaller than the divisor."
+    },
+    {
+      "term": "divisor",
+      "meaning": "The number of groups (or the size of each group) you divide by."
+    }
   ],
   "story": {
     "title": "Sweets for the Team",
-    "characters": ["Zoya", "Coach"],
+    "characters": [
+      "Zoya",
+      "Coach"
+    ],
     "text": "Zoya has 17 sweets to share equally among 5 team-mates. She deals them out: everyone gets 3, and 2 sweets are left in her hand. 'Why are there 2 left?' asks Coach. 'Because 5 × 3 = 15, and 17 − 15 = 2. Two isn't enough for another round of five,' says Zoya. 'The remainder is smaller than 5.'",
     "extractedProblem": "17 sweets shared among 5 friends — how many each, and how many left over?",
     "answerInStory": "3 each, remainder 2 (because 5 × 3 = 15, and 17 − 15 = 2)."
@@ -28,7 +43,12 @@
     "component": "ArrayGrid",
     "props": {
       "grids": [
-        { "rows": 5, "cols": 3, "asGroups": true, "label": "17 ÷ 5 = 3 remainder 2" }
+        {
+          "rows": 5,
+          "cols": 3,
+          "asGroups": true,
+          "label": "17 ÷ 5 = 3 remainder 2"
+        }
       ]
     },
     "caption": "5 groups of 3 fill 15; the 2 left over is the remainder."
@@ -38,9 +58,48 @@
       "title": "Equal groups and what's left",
       "note": "Fill equal groups; the leftover (smaller than the divisor) is the remainder.",
       "examples": [
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 4, "cols": 3, "asGroups": true, "label": "12 ÷ 4 = 3 (no remainder)" } ] }, "caption": "Splits evenly → remainder 0." },
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 3, "cols": 4, "asGroups": true, "label": "14 ÷ 3 = 4 remainder 2" } ] }, "caption": "3 groups of 4 = 12, remainder 2." },
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 6, "cols": 2, "asGroups": true, "label": "13 ÷ 6 = 2 remainder 1" } ] }, "caption": "6 groups of 2 = 12, remainder 1." }
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 4,
+                "cols": 3,
+                "asGroups": true,
+                "label": "12 ÷ 4 = 3 (no remainder)"
+              }
+            ]
+          },
+          "caption": "Splits evenly → remainder 0."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 4,
+                "asGroups": true,
+                "label": "14 ÷ 3 = 4 remainder 2"
+              }
+            ]
+          },
+          "caption": "3 groups of 4 = 12, remainder 2."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 6,
+                "cols": 2,
+                "asGroups": true,
+                "label": "13 ÷ 6 = 2 remainder 1"
+              }
+            ]
+          },
+          "caption": "6 groups of 2 = 12, remainder 1."
+        }
       ]
     }
   ],
@@ -56,12 +115,20 @@
   "workedExamples": [
     {
       "problem": "Work out 23 ÷ 4.",
-      "steps": ["How many 4s fit in 23? 4 × 5 = 20 (4 × 6 = 24 is too big).", "Quotient 5.", "Remainder 23 − 20 = 3. So 23 ÷ 4 = 5 remainder 3."],
+      "steps": [
+        "How many 4s fit in 23? 4 × 5 = 20 (4 × 6 = 24 is too big).",
+        "Quotient 5.",
+        "Remainder 23 − 20 = 3. So 23 ÷ 4 = 5 remainder 3."
+      ],
       "answer": "5 remainder 3"
     },
     {
       "problem": "30 children sit at tables of 4. How many full tables, and how many children left?",
-      "steps": ["30 ÷ 4: 4 × 7 = 28.", "Quotient 7 full tables.", "Remainder 30 − 28 = 2 children left. Check: 4 × 7 + 2 = 30."],
+      "steps": [
+        "30 ÷ 4: 4 × 7 = 28.",
+        "Quotient 7 full tables.",
+        "Remainder 30 − 28 = 2 children left. Check: 4 × 7 + 2 = 30."
+      ],
       "answer": "7 tables, 2 left"
     }
   ],
@@ -80,74 +147,140 @@
   "practice": {
     "easy": [
       {
-        "id": "o16-e1", "type": "number",
+        "id": "o16-e1",
+        "type": "number",
         "q": "What is 12 ÷ 3?",
         "answer": "4",
-        "hintLadder": ["How many 3s make 12?", "3 × 4 = 12.", "Four."]
+        "hintLadder": [
+          "How many 3s make 12?",
+          "3 × 4 = 12.",
+          "Four."
+        ]
       },
       {
-        "id": "o16-e2", "type": "number",
+        "id": "o16-e2",
+        "type": "number",
         "q": "In 13 ÷ 4 = 3 remainder ?, what is the remainder?",
         "answer": "1",
-        "hintLadder": ["4 × 3 = 12.", "13 − 12.", "One."]
+        "hintLadder": [
+          "4 × 3 = 12.",
+          "13 − 12.",
+          "One."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "o16-m1", "type": "number",
+        "id": "o16-m1",
+        "type": "number",
         "q": "What is the remainder of 23 ÷ 5?",
         "answer": "3",
-        "hintLadder": ["5 × 4 = 20.", "23 − 20.", "Three."]
+        "hintLadder": [
+          "5 × 4 = 20.",
+          "23 − 20.",
+          "Three."
+        ]
       },
       {
-        "id": "o16-m2", "type": "number",
+        "id": "o16-m2",
+        "type": "number",
         "q": "29 books shared among 6 shelves equally — how many are left over?",
         "answer": "5",
-        "hintLadder": ["6 × 4 = 24.", "29 − 24.", "Five left."]
+        "hintLadder": [
+          "6 × 4 = 24.",
+          "29 − 24.",
+          "Five left."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "o16-c1", "type": "number",
+        "id": "o16-c1",
+        "type": "number",
         "q": "What is the quotient of 47 ÷ 6?",
         "answer": "7",
-        "hintLadder": ["6 × 7 = 42; 6 × 8 = 48 is too big.", "So the quotient is 7.", "Remainder would be 5."]
+        "hintLadder": [
+          "6 × 7 = 42; 6 × 8 = 48 is too big.",
+          "So the quotient is 7.",
+          "Remainder would be 5."
+        ]
       },
       {
-        "id": "o16-c2", "type": "mcq",
+        "id": "o16-c2",
+        "type": "mcq",
         "q": "Ravi writes 17 ÷ 5 = 2 remainder 7. What's wrong?",
-        "options": [ { "label": "Remainder 7 is bigger than 5 — another group fits, so it's 3 r 2" }, { "label": "Nothing, that's correct", "mistakeTag": "remainder-too-big" } ],
+        "options": [
+          {
+            "label": "Remainder 7 is bigger than 5 — another group fits, so it's 3 r 2"
+          },
+          {
+            "label": "Nothing, that's correct",
+            "mistakeTag": "remainder-too-big"
+          }
+        ],
         "answer": "Remainder 7 is bigger than 5 — another group fits, so it's 3 r 2",
-        "hintLadder": ["Remainder must be < divisor.", "7 > 5, so fit one more group.", "17 ÷ 5 = 3 remainder 2."]
+        "hintLadder": [
+          "Remainder must be < divisor.",
+          "7 > 5, so fit one more group.",
+          "17 ÷ 5 = 3 remainder 2."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "o16-x1", "type": "number",
+        "id": "o16-x1",
+        "type": "number",
         "q": "What is 20 ÷ 5?",
         "answer": "4",
-        "hintLadder": ["How many 5s in 20?", "5 × 4 = 20.", "Four."]
+        "hintLadder": [
+          "How many 5s in 20?",
+          "5 × 4 = 20.",
+          "Four."
+        ]
       },
       {
-        "id": "o16-x2", "type": "number",
+        "id": "o16-x2",
+        "type": "number",
         "q": "Remainder of 26 ÷ 4?",
         "answer": "2",
-        "hintLadder": ["4 × 6 = 24.", "26 − 24.", "Two."]
+        "hintLadder": [
+          "4 × 6 = 24.",
+          "26 − 24.",
+          "Two."
+        ]
       },
       {
-        "id": "o16-x3", "type": "number",
+        "id": "o16-x3",
+        "type": "number",
         "q": "Quotient of 34 ÷ 5?",
         "answer": "6",
-        "hintLadder": ["5 × 6 = 30; 5 × 7 = 35 too big.", "So quotient 6.", "Remainder 4."]
+        "hintLadder": [
+          "5 × 6 = 30; 5 × 7 = 35 too big.",
+          "So quotient 6.",
+          "Remainder 4."
+        ]
       },
       {
-        "id": "o16-x4", "type": "mcq",
+        "id": "o16-x4",
+        "type": "mcq",
         "q": "In any division, the remainder must be…",
-        "options": [ { "label": "Smaller than the divisor" }, { "label": "Bigger than the quotient", "mistakeTag": "remainder-too-big" } ],
+        "options": [
+          {
+            "label": "Smaller than the divisor"
+          },
+          {
+            "label": "Bigger than the quotient",
+            "mistakeTag": "remainder-too-big"
+          }
+        ],
         "answer": "Smaller than the divisor",
-        "hintLadder": ["If it isn't, another group fits.", "Compare with the divisor.", "It must be smaller."]
+        "hintLadder": [
+          "If it isn't, another group fits.",
+          "Compare with the divisor.",
+          "It must be smaller."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -156,7 +289,11 @@
   "teachBackPrompt": "Grab a handful of objects (say 17 buttons) and share them equally among 5 cups. Tell a grown-up the quotient and remainder, and show why the leftover is smaller than 5 by checking 5 × quotient + remainder = 17.",
   "revisionCard": {
     "summary": "Division makes equal groups; the leftover is the REMAINDER (always smaller than the divisor). Find the biggest multiple that fits (quotient), then total − divisor × quotient = remainder. Check: divisor × quotient + remainder = total.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -165,5 +302,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Long division = DMSB: Divide, Multiply, Subtract, Bring down",
+    "unpack": "Work left to right through the digits, repeating DMSB, with a remainder at the end. 'Does McDonald's Sell Burgers?'"
+  },
+  "studentQuestions": [
+    {
+      "q": "How is long division organised?",
+      "a": "DMSB: Divide, Multiply, Subtract, Bring down, repeat."
+    },
+    {
+      "q": "What do I do with a remainder?",
+      "a": "Leave it as 'r', or continue with a decimal point and zeros for an exact answer."
+    }
+  ]
 }

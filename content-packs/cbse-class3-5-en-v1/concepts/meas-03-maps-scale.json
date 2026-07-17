@@ -520,5 +520,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "Scale tells real size: map distance x scale = real distance",
+    "unpack": "Scale 1:1000 means 1 cm stands for 1000 cm (10 m). Multiply the map measurement by the scale."
+  },
+  "studentQuestions": [
+    {
+      "q": "What does a scale of 1:100 mean?",
+      "a": "1 unit on the map = 100 real units. 3 cm on the map is 300 cm (3 m) in real life."
+    },
+    {
+      "q": "How do I find real distance?",
+      "a": "Measure on the map, then multiply by the scale number."
+    }
+  ]
 }

@@ -723,5 +723,19 @@
       "Multiply the tens vertically. Carry where needed."
     ],
     "example": "6 × 23: work digit-by-digit → 138."
-  }
+  },
+  "rememberIt": {
+    "hook": "Area/box method: split into tens and ones, multiply the parts",
+    "unpack": "23 x 14 = (20+3)(10+4) = 200+80+30+12 = 322. A box grid shows every part."
+  },
+  "studentQuestions": [
+    {
+      "q": "How does the box method work?",
+      "a": "Split each number into tens and ones, multiply every pair, add them all - the distributive law as a grid."
+    },
+    {
+      "q": "Why split into tens and ones?",
+      "a": "Small multiplications are easy; the box keeps track so you do not miss any part."
+    }
+  ]
 }

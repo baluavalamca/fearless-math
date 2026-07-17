@@ -568,5 +568,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Bars compare amounts - taller bar = more",
+    "unpack": "Read the top of each bar against the scale. Bars have equal width with gaps. Great for comparing categories."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I read a bar graph?",
+      "a": "Find the top of the bar, read straight across to the scale number. Taller = more."
+    },
+    {
+      "q": "Bar graph or pictograph?",
+      "a": "Bars show exact amounts on a scale; pictographs use pictures where each stands for a number."
+    }
+  ]
 }

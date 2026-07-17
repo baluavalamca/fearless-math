@@ -570,5 +570,19 @@
       },
       "caption": "Share the beads equally — 4 in each group."
     }
-  }
+  },
+  "rememberIt": {
+    "hook": "Division = sharing equally OR making equal groups",
+    "unpack": "12 / 3: share 12 into 3 equal groups (4 each), or how many 3s fit in 12 (4). Remainder = leftovers."
+  },
+  "studentQuestions": [
+    {
+      "q": "What are the two meanings of division?",
+      "a": "Sharing equally (12 sweets among 3 kids = 4 each) OR grouping (how many 3s in 12 = 4)."
+    },
+    {
+      "q": "What is a remainder?",
+      "a": "What is left over when it does not divide evenly. 13 / 4 = 3 remainder 1."
+    }
+  ]
 }

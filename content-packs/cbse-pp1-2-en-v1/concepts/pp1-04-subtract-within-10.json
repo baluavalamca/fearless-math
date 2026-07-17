@@ -742,5 +742,19 @@
       },
       "caption": "Set 7, push 3 beads away → 4 left."
     }
-  }
+  },
+  "rememberIt": {
+    "hook": "Subtracting = taking away. Count back",
+    "unpack": "8 - 3: start at 8, count back 3 -> 7,6,5. Or 'how many more from 3 to 8?'. Fingers help."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I work out 8 - 3?",
+      "a": "Start at 8 and count back three: 7, 6, 5. Or count UP from 3 to 8 (also 5)."
+    },
+    {
+      "q": "Is subtraction the opposite of adding?",
+      "a": "Yes - if 5 + 3 = 8, then 8 - 3 = 5. They undo each other."
+    }
+  ]
 }

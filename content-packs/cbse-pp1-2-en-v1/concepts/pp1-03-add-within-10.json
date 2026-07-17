@@ -858,5 +858,19 @@
       },
       "caption": "Set 3 beads, push 4 more to the bar → 7."
     }
-  }
+  },
+  "rememberIt": {
+    "hook": "Adding = putting together. Count on from the bigger number",
+    "unpack": "3 + 5: start at 5, count on 3 -> 6,7,8. Fingers help. Order does not matter."
+  },
+  "studentQuestions": [
+    {
+      "q": "What's the easy way to add 3 + 5?",
+      "a": "Start from the bigger number (5) and count on: 6, 7, 8. Fewer steps than starting at 3."
+    },
+    {
+      "q": "Does 3+5 equal 5+3?",
+      "a": "Yes - adding in any order gives the same total. So start from the bigger one."
+    }
+  ]
 }

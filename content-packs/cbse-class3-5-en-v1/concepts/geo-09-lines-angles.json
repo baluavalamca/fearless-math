@@ -3,7 +3,9 @@
   "name": "Lines and Angles — The Building Blocks",
   "grade": 6,
   "strand": "geometry",
-  "prerequisites": ["geo-05-angles"],
+  "prerequisites": [
+    "geo-05-angles"
+  ],
   "whatIsIt": "Geometry starts with simple objects. A POINT is a dot. A LINE goes forever both ways; a RAY starts at a point and goes one way; a SEGMENT has two endpoints. Two lines can be PARALLEL (never meet, like railway tracks) or PERPENDICULAR (meet at a right angle, 90°). Angles come in types: acute (<90°), right (=90°), obtuse (90–180°), straight (=180°), reflex (>180°).",
   "whyNeeded": "Every shape, building, road and design is built from lines and angles. Naming them correctly is the shared language for all geometry — triangles, circles, coordinates and proofs.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Road junctions and ramps use angles"
   ],
   "vocabulary": [
-    { "term": "parallel lines", "meaning": "Lines that stay the same distance apart and never meet." },
-    { "term": "perpendicular lines", "meaning": "Lines that cross at a right angle (90°)." },
-    { "term": "ray / segment", "meaning": "A ray starts at a point and goes one way; a segment has two endpoints." }
+    {
+      "term": "parallel lines",
+      "meaning": "Lines that stay the same distance apart and never meet."
+    },
+    {
+      "term": "perpendicular lines",
+      "meaning": "Lines that cross at a right angle (90°)."
+    },
+    {
+      "term": "ray / segment",
+      "meaning": "A ray starts at a point and goes one way; a segment has two endpoints."
+    }
   ],
   "story": {
     "title": "The Ramp and the Rails",
-    "characters": ["Ishan", "Engineer Didi"],
+    "characters": [
+      "Ishan",
+      "Engineer Didi"
+    ],
     "text": "Ishan looks at railway tracks. 'They never meet!' 'Right — parallel lines,' says Engineer Didi. Then she points at the platform edge meeting a pillar. 'That corner is exactly 90°.' 'A right angle — the lines are perpendicular!' says Ishan. Didi nods: 'Two lines, two very different relationships.'",
     "extractedProblem": "Railway tracks never meet and stay the same distance apart. What are such lines called?",
     "answerInStory": "Parallel lines."
@@ -28,7 +42,13 @@
     "component": "GeometryCanvas",
     "props": {
       "shapes": [
-        { "kind": "square", "w": 3, "h": 3, "label": "right angles (90°)", "sideLabels": false }
+        {
+          "kind": "square",
+          "w": 3,
+          "h": 3,
+          "label": "right angles (90°)",
+          "sideLabels": false
+        }
       ]
     },
     "caption": "A square's corners are right angles (90°) — its opposite sides are parallel and adjacent sides perpendicular."
@@ -38,9 +58,47 @@
       "title": "Angle types and line pairs",
       "note": "Compare each angle to a right angle (90°).",
       "examples": [
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "acute corners (<90°)" } ] }, "caption": "Sharp corners are acute (< 90°)." },
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "rect", "w": 4, "h": 2, "label": "four right angles" } ] }, "caption": "A rectangle: 90° corners, parallel opposite sides." },
-        { "component": "ObjectRow", "props": { "sequences": [ { "items": ["🛤️", "➕"], "label": "parallel · perpendicular" } ] }, "caption": "Tracks = parallel; a plus sign = perpendicular." }
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "triangle",
+                "label": "acute corners (<90°)"
+              }
+            ]
+          },
+          "caption": "Sharp corners are acute (< 90°)."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "rect",
+                "w": 4,
+                "h": 2,
+                "label": "four right angles"
+              }
+            ]
+          },
+          "caption": "A rectangle: 90° corners, parallel opposite sides."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "🛤️",
+                  "➕"
+                ],
+                "label": "parallel · perpendicular"
+              }
+            ]
+          },
+          "caption": "Tracks = parallel; a plus sign = perpendicular."
+        }
       ]
     }
   ],
@@ -56,12 +114,20 @@
   "workedExamples": [
     {
       "problem": "An angle measures 120°. What type is it?",
-      "steps": ["Compare to 90° and 180°.", "120° is more than 90° but less than 180°.", "It is obtuse."],
+      "steps": [
+        "Compare to 90° and 180°.",
+        "120° is more than 90° but less than 180°.",
+        "It is obtuse."
+      ],
       "answer": "obtuse"
     },
     {
       "problem": "Two lines cross making a 90° angle. What are they?",
-      "steps": ["A 90° crossing is a right angle.", "Lines that meet at a right angle…", "are perpendicular."],
+      "steps": [
+        "A 90° crossing is a right angle.",
+        "Lines that meet at a right angle…",
+        "are perpendicular."
+      ],
       "answer": "perpendicular"
     }
   ],
@@ -80,82 +146,212 @@
   "practice": {
     "easy": [
       {
-        "id": "g09-e1", "type": "mcq",
+        "id": "g09-e1",
+        "type": "mcq",
         "q": "An angle of exactly 90° is called…",
-        "options": [ { "label": "A right angle" }, { "label": "An obtuse angle", "mistakeTag": "acute-obtuse-swap" } ],
+        "options": [
+          {
+            "label": "A right angle"
+          },
+          {
+            "label": "An obtuse angle",
+            "mistakeTag": "acute-obtuse-swap"
+          }
+        ],
         "answer": "A right angle",
-        "hintLadder": ["Like a corner.", "Exactly 90°.", "Right angle."]
+        "hintLadder": [
+          "Like a corner.",
+          "Exactly 90°.",
+          "Right angle."
+        ]
       },
       {
-        "id": "g09-e2", "type": "mcq",
+        "id": "g09-e2",
+        "type": "mcq",
         "q": "Railway tracks that never meet are…",
-        "options": [ { "label": "Parallel" }, { "label": "Perpendicular", "mistakeTag": "parallel-perp-swap" } ],
+        "options": [
+          {
+            "label": "Parallel"
+          },
+          {
+            "label": "Perpendicular",
+            "mistakeTag": "parallel-perp-swap"
+          }
+        ],
         "answer": "Parallel",
-        "hintLadder": ["Never meet.", "Same distance apart.", "Parallel."]
+        "hintLadder": [
+          "Never meet.",
+          "Same distance apart.",
+          "Parallel."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "g09-m1", "type": "mcq",
+        "id": "g09-m1",
+        "type": "mcq",
         "q": "An angle of 40° is…",
-        "options": [ { "label": "Acute" }, { "label": "Obtuse", "mistakeTag": "acute-obtuse-swap" } ],
+        "options": [
+          {
+            "label": "Acute"
+          },
+          {
+            "label": "Obtuse",
+            "mistakeTag": "acute-obtuse-swap"
+          }
+        ],
         "answer": "Acute",
-        "hintLadder": ["Less than 90°?", "40 < 90.", "Acute."]
+        "hintLadder": [
+          "Less than 90°?",
+          "40 < 90.",
+          "Acute."
+        ]
       },
       {
-        "id": "g09-m2", "type": "mcq",
+        "id": "g09-m2",
+        "type": "mcq",
         "q": "Lines meeting at 90° are…",
-        "options": [ { "label": "Perpendicular" }, { "label": "Parallel", "mistakeTag": "parallel-perp-swap" } ],
+        "options": [
+          {
+            "label": "Perpendicular"
+          },
+          {
+            "label": "Parallel",
+            "mistakeTag": "parallel-perp-swap"
+          }
+        ],
         "answer": "Perpendicular",
-        "hintLadder": ["They cross.", "At a right angle.", "Perpendicular."]
+        "hintLadder": [
+          "They cross.",
+          "At a right angle.",
+          "Perpendicular."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "g09-c1", "type": "mcq",
+        "id": "g09-c1",
+        "type": "mcq",
         "q": "An angle of 200° is…",
-        "options": [ { "label": "Reflex (more than 180°)" }, { "label": "Obtuse", "mistakeTag": "acute-obtuse-swap" } ],
+        "options": [
+          {
+            "label": "Reflex (more than 180°)"
+          },
+          {
+            "label": "Obtuse",
+            "mistakeTag": "acute-obtuse-swap"
+          }
+        ],
         "answer": "Reflex (more than 180°)",
-        "hintLadder": ["Compare to 180°.", "200 > 180.", "Reflex."]
+        "hintLadder": [
+          "Compare to 180°.",
+          "200 > 180.",
+          "Reflex."
+        ]
       },
       {
-        "id": "g09-c2", "type": "mcq",
+        "id": "g09-c2",
+        "type": "mcq",
         "q": "Ravi calls a 150° angle acute. What's the fix?",
-        "options": [ { "label": "It's obtuse — between 90° and 180°" }, { "label": "Acute is right", "mistakeTag": "acute-obtuse-swap" } ],
+        "options": [
+          {
+            "label": "It's obtuse — between 90° and 180°"
+          },
+          {
+            "label": "Acute is right",
+            "mistakeTag": "acute-obtuse-swap"
+          }
+        ],
         "answer": "It's obtuse — between 90° and 180°",
-        "hintLadder": ["Acute is under 90°.", "150 is between 90 and 180.", "Obtuse."]
+        "hintLadder": [
+          "Acute is under 90°.",
+          "150 is between 90 and 180.",
+          "Obtuse."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "g09-x1", "type": "mcq",
+        "id": "g09-x1",
+        "type": "mcq",
         "q": "An angle of 90° is…",
-        "options": [ { "label": "Right" }, { "label": "Reflex", "mistakeTag": "acute-obtuse-swap" } ],
+        "options": [
+          {
+            "label": "Right"
+          },
+          {
+            "label": "Reflex",
+            "mistakeTag": "acute-obtuse-swap"
+          }
+        ],
         "answer": "Right",
-        "hintLadder": ["Exactly 90°.", "A corner.", "Right."]
+        "hintLadder": [
+          "Exactly 90°.",
+          "A corner.",
+          "Right."
+        ]
       },
       {
-        "id": "g09-x2", "type": "mcq",
+        "id": "g09-x2",
+        "type": "mcq",
         "q": "An angle of 30° is…",
-        "options": [ { "label": "Acute" }, { "label": "Obtuse", "mistakeTag": "acute-obtuse-swap" } ],
+        "options": [
+          {
+            "label": "Acute"
+          },
+          {
+            "label": "Obtuse",
+            "mistakeTag": "acute-obtuse-swap"
+          }
+        ],
         "answer": "Acute",
-        "hintLadder": ["Under 90°.", "Sharp.", "Acute."]
+        "hintLadder": [
+          "Under 90°.",
+          "Sharp.",
+          "Acute."
+        ]
       },
       {
-        "id": "g09-x3", "type": "mcq",
+        "id": "g09-x3",
+        "type": "mcq",
         "q": "The corner of a book is a…",
-        "options": [ { "label": "Right angle" }, { "label": "Straight angle", "mistakeTag": "acute-obtuse-swap" } ],
+        "options": [
+          {
+            "label": "Right angle"
+          },
+          {
+            "label": "Straight angle",
+            "mistakeTag": "acute-obtuse-swap"
+          }
+        ],
         "answer": "Right angle",
-        "hintLadder": ["90°.", "Square corner.", "Right angle."]
+        "hintLadder": [
+          "90°.",
+          "Square corner.",
+          "Right angle."
+        ]
       },
       {
-        "id": "g09-x4", "type": "mcq",
+        "id": "g09-x4",
+        "type": "mcq",
         "q": "Lines that stay the same distance and never meet are…",
-        "options": [ { "label": "Parallel" }, { "label": "Perpendicular", "mistakeTag": "parallel-perp-swap" } ],
+        "options": [
+          {
+            "label": "Parallel"
+          },
+          {
+            "label": "Perpendicular",
+            "mistakeTag": "parallel-perp-swap"
+          }
+        ],
         "answer": "Parallel",
-        "hintLadder": ["Never meet.", "Like tracks.", "Parallel."]
+        "hintLadder": [
+          "Never meet.",
+          "Like tracks.",
+          "Parallel."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -164,7 +360,11 @@
   "teachBackPrompt": "Walk around a room with a grown-up and point out a right angle (a corner), an acute and an obtuse angle (a partly open door or scissors), a pair of parallel lines and a pair of perpendicular lines — naming each one.",
   "revisionCard": {
     "summary": "Point, line (both ways), ray (one way), segment (two ends). Angles vs 90°: acute < 90, right = 90, obtuse 90–180, straight = 180, reflex > 180. Parallel = never meet (tracks); perpendicular = cross at 90° (corner/plus).",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -173,5 +373,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Angles on a line = 180. Around a point = 360. Vertically opposite are equal",
+    "unpack": "Parallel lines cut by a line: corresponding (F-angles) and alternate (Z-angles) are equal."
+  },
+  "studentQuestions": [
+    {
+      "q": "What do angles on a straight line add to?",
+      "a": "180 degrees. So if one is 130, the other is 50."
+    },
+    {
+      "q": "What are vertically opposite angles?",
+      "a": "The equal angles opposite each other where two lines cross - always equal."
+    }
+  ]
 }

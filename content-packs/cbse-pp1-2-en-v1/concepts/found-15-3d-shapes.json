@@ -341,5 +341,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Solid shapes you can hold: cube, sphere, cylinder, cone",
+    "unpack": "Ball = sphere (rolls), box = cuboid, tin = cylinder, party hat = cone. Notice flat faces vs curved."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I tell a cube from a sphere?",
+      "a": "A cube has flat square faces and corners; a sphere is round all over and rolls."
+    },
+    {
+      "q": "Which 3D shapes roll?",
+      "a": "Sphere, cylinder, and cone - they have curved surfaces. A cube will not roll."
+    }
+  ]
 }

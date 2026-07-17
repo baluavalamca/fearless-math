@@ -652,5 +652,19 @@
       "SOLVE it, then CHECK the answer makes sense."
     ],
     "example": "'12 sweets shared by 3' → share → ÷ → 4, and 4×3=12 ✓."
-  }
+  },
+  "rememberIt": {
+    "hook": "Read, spot the numbers, choose the operation, check the answer",
+    "unpack": "Clue words: total/altogether -> add; left/difference -> subtract; each/groups -> multiply or divide. Draw it!"
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I pick the operation?",
+      "a": "Look for clue words: 'altogether' -> add, 'how many left' -> subtract, 'each' -> multiply/divide. Then check it makes sense."
+    },
+    {
+      "q": "What if I am stuck?",
+      "a": "Draw a picture or use small numbers first. Modelling the story makes the operation obvious."
+    }
+  ]
 }

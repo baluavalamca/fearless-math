@@ -3,7 +3,9 @@
   "name": "Conditional Probability and Bayes — Chances Given a Clue",
   "grade": 11,
   "strand": "data",
-  "prerequisites": ["data-10-probability-axiomatic"],
+  "prerequisites": [
+    "data-10-probability-axiomatic"
+  ],
   "whatIsIt": "CONDITIONAL PROBABILITY P(A | B) is the chance of A GIVEN that B has already happened: P(A | B) = P(A ∩ B) ÷ P(B). The MULTIPLICATION rule follows: P(A ∩ B) = P(B) × P(A | B). Two events are INDEPENDENT when knowing one doesn't change the other: then P(A ∩ B) = P(A) × P(B). BAYES' theorem flips a conditional around, updating a belief with new evidence.",
   "whyNeeded": "New information changes the odds. Medical tests, spam filters, weather updates, and machine learning all reason with conditional probability — 'given this symptom / this word / this reading, how likely is that?'",
   "realLifeUses": [
@@ -13,14 +15,29 @@
     "Machine learning classifiers"
   ],
   "vocabulary": [
-    { "term": "conditional probability P(A|B)", "meaning": "The probability of A given that B has happened: P(A ∩ B) ÷ P(B)." },
-    { "term": "multiplication rule", "meaning": "P(A ∩ B) = P(B) × P(A | B)." },
-    { "term": "independent events", "meaning": "Knowing one doesn't change the other: P(A ∩ B) = P(A) × P(B)." },
-    { "term": "Bayes' theorem", "meaning": "A rule that flips a conditional to update a probability with new evidence." }
+    {
+      "term": "conditional probability P(A|B)",
+      "meaning": "The probability of A given that B has happened: P(A ∩ B) ÷ P(B)."
+    },
+    {
+      "term": "multiplication rule",
+      "meaning": "P(A ∩ B) = P(B) × P(A | B)."
+    },
+    {
+      "term": "independent events",
+      "meaning": "Knowing one doesn't change the other: P(A ∩ B) = P(A) × P(B)."
+    },
+    {
+      "term": "Bayes' theorem",
+      "meaning": "A rule that flips a conditional to update a probability with new evidence."
+    }
   ],
   "story": {
     "title": "The Two Coins",
-    "characters": ["Meera", "Sir"],
+    "characters": [
+      "Meera",
+      "Sir"
+    ],
     "text": "Meera tosses two fair coins. 'What's the chance BOTH are heads?' asks Sir. Since the tosses are INDEPENDENT, P(both heads) = 1/2 × 1/2 = 1/4. 'Now, given that at least the first is a head, does the second change?' Meera shakes her head — 'No, they're independent, still 1/2.' Sir smiles: 'But when events ARE linked, we use P(A | B) = P(A ∩ B) ÷ P(B).'",
     "extractedProblem": "Two fair coins are tossed. What is the probability both show heads?",
     "answerInStory": "1/4 — independent tosses: 1/2 × 1/2 = 1/4."
@@ -29,7 +46,11 @@
     "component": "PizzaSlices",
     "props": {
       "pies": [
-        { "parts": 4, "shaded": 1, "label": "two coins: P(both heads) = 1/4" }
+        {
+          "parts": 4,
+          "shaded": 1,
+          "label": "two coins: P(both heads) = 1/4"
+        }
       ]
     },
     "caption": "Two coins give four equally likely outcomes (HH, HT, TH, TT); only HH is both heads, so P = 1/4."
@@ -39,9 +60,52 @@
       "title": "Given a clue",
       "note": "Divide by what you already know: P(A|B) = P(A∩B) ÷ P(B).",
       "examples": [
-        { "component": "PizzaSlices", "props": { "pies": [ { "parts": 4, "shaded": 1, "label": "HH out of 4" } ] }, "caption": "Sample space HH, HT, TH, TT — one is HH." },
-        { "component": "BarModel", "props": { "bars": [ { "label": "P(A|B) = P(A∩B) ÷ P(B)", "parts": [ { "value": 1 }, { "value": 3 } ], "showTotal": true } ] }, "caption": "Condition on B by dividing by P(B)." },
-        { "component": "PizzaSlices", "props": { "pies": [ { "parts": 6, "shaded": 2, "label": "die: P(prime | odd) = 2/3" } ] }, "caption": "Given odd {1,3,5}, primes are {3,5}: P = 2/3." }
+        {
+          "component": "PizzaSlices",
+          "props": {
+            "pies": [
+              {
+                "parts": 4,
+                "shaded": 1,
+                "label": "HH out of 4"
+              }
+            ]
+          },
+          "caption": "Sample space HH, HT, TH, TT — one is HH."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "P(A|B) = P(A∩B) ÷ P(B)",
+                "parts": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "value": 3
+                  }
+                ],
+                "showTotal": true
+              }
+            ]
+          },
+          "caption": "Condition on B by dividing by P(B)."
+        },
+        {
+          "component": "PizzaSlices",
+          "props": {
+            "pies": [
+              {
+                "parts": 6,
+                "shaded": 2,
+                "label": "die: P(prime | odd) = 2/3"
+              }
+            ]
+          },
+          "caption": "Given odd {1,3,5}, primes are {3,5}: P = 2/3."
+        }
       ]
     }
   ],
@@ -58,12 +122,20 @@
   "workedExamples": [
     {
       "problem": "Two fair coins are tossed. Find P(both heads).",
-      "steps": ["The tosses are independent.", "P(HH) = 1/2 × 1/2.", "= 1/4."],
+      "steps": [
+        "The tosses are independent.",
+        "P(HH) = 1/2 × 1/2.",
+        "= 1/4."
+      ],
       "answer": "1/4"
     },
     {
       "problem": "If P(A ∩ B) = 1/6 and P(B) = 1/2, find P(A | B).",
-      "steps": ["P(A | B) = P(A ∩ B) ÷ P(B).", "= (1/6) ÷ (1/2) = (1/6) × 2.", "= 1/3."],
+      "steps": [
+        "P(A | B) = P(A ∩ B) ÷ P(B).",
+        "= (1/6) ÷ (1/2) = (1/6) × 2.",
+        "= 1/3."
+      ],
       "answer": "1/3"
     }
   ],
@@ -81,24 +153,142 @@
   ],
   "practice": {
     "easy": [
-      { "id": "d11-e1", "type": "fraction", "q": "Two fair coins: P(both heads) = 1/2 × 1/2 = ? (write like 1/4)", "answer": "1/4", "hintLadder": ["Independent tosses.", "Multiply 1/2 × 1/2.", "1/4."] },
-      { "id": "d11-e2", "type": "fraction", "q": "A fair die: P(rolling a 2) given nothing? (write like 1/6)", "answer": "1/6", "hintLadder": ["One outcome of six.", "1 out of 6.", "1/6."] }
+      {
+        "id": "d11-e1",
+        "type": "fraction",
+        "q": "Two fair coins: P(both heads) = 1/2 × 1/2 = ? (write like 1/4)",
+        "answer": "1/4",
+        "hintLadder": [
+          "Independent tosses.",
+          "Multiply 1/2 × 1/2.",
+          "1/4."
+        ]
+      },
+      {
+        "id": "d11-e2",
+        "type": "fraction",
+        "q": "A fair die: P(rolling a 2) given nothing? (write like 1/6)",
+        "answer": "1/6",
+        "hintLadder": [
+          "One outcome of six.",
+          "1 out of 6.",
+          "1/6."
+        ]
+      }
     ],
     "medium": [
-      { "id": "d11-m1", "type": "fraction", "q": "P(A∩B) = 1/6 and P(B) = 1/2. P(A|B) = (1/6) ÷ (1/2) = ?", "answer": "1/3", "hintLadder": ["Divide: (1/6) × 2.", "= 2/6.", "1/3."] },
-      { "id": "d11-m2", "type": "fraction", "q": "Die: given the number is odd {1,3,5}, P(it is prime {3,5}) = 2/3? (write like 2/3)", "answer": "2/3", "hintLadder": ["Odd has 3 outcomes.", "Primes among them: 3, 5.", "2/3."] }
+      {
+        "id": "d11-m1",
+        "type": "fraction",
+        "q": "P(A∩B) = 1/6 and P(B) = 1/2. P(A|B) = (1/6) ÷ (1/2) = ?",
+        "answer": "1/3",
+        "hintLadder": [
+          "Divide: (1/6) × 2.",
+          "= 2/6.",
+          "1/3."
+        ]
+      },
+      {
+        "id": "d11-m2",
+        "type": "fraction",
+        "q": "Die: given the number is odd {1,3,5}, P(it is prime {3,5}) = 2/3? (write like 2/3)",
+        "answer": "2/3",
+        "hintLadder": [
+          "Odd has 3 outcomes.",
+          "Primes among them: 3, 5.",
+          "2/3."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "d11-c1", "type": "fraction", "q": "Independent: P(A) = 1/2, P(B) = 1/3. P(A ∩ B) = 1/2 × 1/3 = ?", "answer": "1/6", "hintLadder": ["Multiply for 'both'.", "1/2 × 1/3.", "1/6."] },
-      { "id": "d11-c2", "type": "mcq", "q": "For BOTH of two independent events to happen you should…", "options": [ { "label": "Multiply: P(A) × P(B)" }, { "label": "Add: P(A) + P(B)", "mistakeTag": "independent-add" } ], "answer": "Multiply: P(A) × P(B)", "hintLadder": ["'Both' = intersection.", "Independent → multiply.", "P(A) × P(B)."] }
+      {
+        "id": "d11-c1",
+        "type": "fraction",
+        "q": "Independent: P(A) = 1/2, P(B) = 1/3. P(A ∩ B) = 1/2 × 1/3 = ?",
+        "answer": "1/6",
+        "hintLadder": [
+          "Multiply for 'both'.",
+          "1/2 × 1/3.",
+          "1/6."
+        ]
+      },
+      {
+        "id": "d11-c2",
+        "type": "mcq",
+        "q": "For BOTH of two independent events to happen you should…",
+        "options": [
+          {
+            "label": "Multiply: P(A) × P(B)"
+          },
+          {
+            "label": "Add: P(A) + P(B)",
+            "mistakeTag": "independent-add"
+          }
+        ],
+        "answer": "Multiply: P(A) × P(B)",
+        "hintLadder": [
+          "'Both' = intersection.",
+          "Independent → multiply.",
+          "P(A) × P(B)."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "d11-x1", "type": "fraction", "q": "Two fair coins: P(both heads)? (write like 1/4)", "answer": "1/4", "hintLadder": ["1/2 × 1/2.", "Multiply.", "1/4."] },
-      { "id": "d11-x2", "type": "fraction", "q": "P(A∩B) = 1/6, P(B) = 1/2. P(A|B)?", "answer": "1/3", "hintLadder": ["(1/6) ÷ (1/2).", "× 2.", "1/3."] },
-      { "id": "d11-x3", "type": "fraction", "q": "Independent P(A) = 1/2, P(B) = 1/2. P(A ∩ B)?", "answer": "1/4", "hintLadder": ["Multiply.", "1/2 × 1/2.", "1/4."] },
-      { "id": "d11-x4", "type": "mcq", "q": "Conditional probability P(A | B) equals…", "options": [ { "label": "P(A ∩ B) ÷ P(B)" }, { "label": "P(A ∩ B) ÷ P(A)", "mistakeTag": "conditional-flipped" } ], "answer": "P(A ∩ B) ÷ P(B)", "hintLadder": ["'Given B' → divide by P(B).", "The given event is on the bottom.", "P(A ∩ B) ÷ P(B)."] }
+      {
+        "id": "d11-x1",
+        "type": "fraction",
+        "q": "Two fair coins: P(both heads)? (write like 1/4)",
+        "answer": "1/4",
+        "hintLadder": [
+          "1/2 × 1/2.",
+          "Multiply.",
+          "1/4."
+        ]
+      },
+      {
+        "id": "d11-x2",
+        "type": "fraction",
+        "q": "P(A∩B) = 1/6, P(B) = 1/2. P(A|B)?",
+        "answer": "1/3",
+        "hintLadder": [
+          "(1/6) ÷ (1/2).",
+          "× 2.",
+          "1/3."
+        ]
+      },
+      {
+        "id": "d11-x3",
+        "type": "fraction",
+        "q": "Independent P(A) = 1/2, P(B) = 1/2. P(A ∩ B)?",
+        "answer": "1/4",
+        "hintLadder": [
+          "Multiply.",
+          "1/2 × 1/2.",
+          "1/4."
+        ]
+      },
+      {
+        "id": "d11-x4",
+        "type": "mcq",
+        "q": "Conditional probability P(A | B) equals…",
+        "options": [
+          {
+            "label": "P(A ∩ B) ÷ P(B)"
+          },
+          {
+            "label": "P(A ∩ B) ÷ P(A)",
+            "mistakeTag": "conditional-flipped"
+          }
+        ],
+        "answer": "P(A ∩ B) ÷ P(B)",
+        "hintLadder": [
+          "'Given B' → divide by P(B).",
+          "The given event is on the bottom.",
+          "P(A ∩ B) ÷ P(B)."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -106,7 +296,11 @@
   "teachBackPrompt": "Toss two coins for a grown-up and show P(both heads) = 1/2 × 1/2 = 1/4 (independent → multiply). Then explain P(A | B) = P(A ∩ B) ÷ P(B) with a die example like P(prime given odd) = 2/3.",
   "revisionCard": {
     "summary": "Conditional: P(A|B) = P(A∩B) ÷ P(B) (the 'given' event on the bottom). Multiplication rule: P(A∩B) = P(B)·P(A|B). Independent events: P(A∩B) = P(A)·P(B) (multiply for 'both'). Bayes flips a conditional to update with evidence. Don't confuse P(A|B) with P(B|A).",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -115,5 +309,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "P(A given B) = P(A and B) / P(B) - the world shrinks to B",
+    "unpack": "Once B has happened, only B's outcomes count. Bayes flips the condition between P(A|B) and P(B|A)."
+  },
+  "studentQuestions": [
+    {
+      "q": "What does 'given' mean?",
+      "a": "We already KNOW B happened, so we only look inside B's outcomes - the total shrinks to B."
+    },
+    {
+      "q": "Why divide by P(B)?",
+      "a": "Because B is now our whole world; we rescale so the probabilities inside B add to 1."
+    }
+  ]
 }

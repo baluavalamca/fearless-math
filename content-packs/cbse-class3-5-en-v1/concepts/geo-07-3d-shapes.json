@@ -338,5 +338,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "3D shapes: count Faces, Edges, Vertices (corners)",
+    "unpack": "Cube: 6 faces, 12 edges, 8 vertices. Euler: F + V - E = 2 for solids. Curved solids (sphere) have no edges."
+  },
+  "studentQuestions": [
+    {
+      "q": "Face, edge, vertex - what's what?",
+      "a": "Face = a flat surface; edge = where two faces meet (a line); vertex = a corner point."
+    },
+    {
+      "q": "Does a sphere have edges?",
+      "a": "No - it is one smooth curved surface, no flat faces, edges, or corners."
+    }
+  ]
 }

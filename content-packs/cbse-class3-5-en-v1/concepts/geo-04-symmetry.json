@@ -527,5 +527,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "A line of symmetry = a fold where both halves match",
+    "unpack": "Fold and the two sides land exactly on each other. A square has 4 lines; a circle infinite; the letter A has 1."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I find a line of symmetry?",
+      "a": "Imagine folding the shape - if the two halves match exactly, that fold line is a line of symmetry."
+    },
+    {
+      "q": "Do all shapes have symmetry?",
+      "a": "No. A scalene triangle has none; a circle has infinitely many."
+    }
+  ]
 }

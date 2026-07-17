@@ -469,5 +469,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Second place after the dot = hundredths (1/100)",
+    "unpack": "0.07 = 7 hundredths = 7/100. 0.25 = 25/100 = 1/4. Two decimal places means hundredths."
+  },
+  "studentQuestions": [
+    {
+      "q": "What does the second decimal place mean?",
+      "a": "Hundredths - one of 100 equal pieces. 0.03 is 3 hundredths, 3/100."
+    },
+    {
+      "q": "Is 0.25 a quarter?",
+      "a": "Yes - 25 hundredths (25/100) simplifies to 1/4."
+    }
+  ]
 }

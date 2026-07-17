@@ -3,7 +3,10 @@
   "name": "Relations and Functions — Machines that Map",
   "grade": 10,
   "strand": "numbers",
-  "prerequisites": ["num-36-functions-graphs", "num-37-sets-logic"],
+  "prerequisites": [
+    "num-36-functions-graphs",
+    "num-37-sets-logic"
+  ],
   "whatIsIt": "A RELATION links members of one set to another (a set of ordered pairs). A FUNCTION is a special relation where every input has EXACTLY ONE output — like a machine: put x in, get f(x) out, and the same x never gives two different answers. The set of allowed inputs is the DOMAIN; the set of outputs is the RANGE.",
   "whyNeeded": "Functions are the language of all higher maths and science: distance as a function of time, cost as a function of quantity, temperature as a function of hour. Knowing domain, range and the 'one-output' rule lets you model and predict real relationships precisely.",
   "realLifeUses": [
@@ -13,14 +16,29 @@
     "Converting temperature from Celsius to Fahrenheit"
   ],
   "vocabulary": [
-    { "term": "relation", "meaning": "Any set of ordered pairs (x, y) linking two sets." },
-    { "term": "function", "meaning": "A relation where each input x has exactly one output f(x)." },
-    { "term": "domain", "meaning": "The set of all allowed inputs (x-values)." },
-    { "term": "range", "meaning": "The set of all outputs (y-values) the function actually produces." }
+    {
+      "term": "relation",
+      "meaning": "Any set of ordered pairs (x, y) linking two sets."
+    },
+    {
+      "term": "function",
+      "meaning": "A relation where each input x has exactly one output f(x)."
+    },
+    {
+      "term": "domain",
+      "meaning": "The set of all allowed inputs (x-values)."
+    },
+    {
+      "term": "range",
+      "meaning": "The set of all outputs (y-values) the function actually produces."
+    }
   ],
   "story": {
     "title": "The Juice Machine",
-    "characters": ["Anaya", "Uncle"],
+    "characters": [
+      "Anaya",
+      "Uncle"
+    ],
     "text": "Uncle's juice machine gives one glass for every 2 oranges: 1 glass for 2, 2 glasses for 4, 3 for 6. Anaya writes it as f(x) = x ÷ 2. 'If I put in 10 oranges?' she asks. f(10) = 10 ÷ 2 = 5 glasses. Uncle nods: 'Each amount of oranges gives exactly one number of glasses — that makes it a function, not just a relation.'",
     "extractedProblem": "For f(x) = x ÷ 2, find f(10).",
     "answerInStory": "5 — the machine turns 10 oranges into 10 ÷ 2 = 5 glasses."
@@ -28,7 +46,10 @@
   "visual": {
     "component": "BarModel",
     "props": {
-      "parts": [3, 6],
+      "parts": [
+        3,
+        6
+      ],
       "label": "input x → f(x): each input maps to exactly one output"
     },
     "caption": "A function is a machine: input x on the left, output f(x) on the right — one input never gives two outputs."
@@ -38,9 +59,45 @@
       "title": "One input, one output",
       "note": "If an input maps to two different outputs, it is NOT a function.",
       "examples": [
-        { "component": "BarModel", "props": { "parts": [1, 2], "label": "f(x) = x + 1: 1→2, 2→3" }, "caption": "Each input gives exactly one output — a function." },
-        { "component": "NumberLine", "props": { "min": 0, "max": 10, "jumps": [2, 4, 6, 8], "label": "domain {1,2,3,4}, f(x)=2x → range {2,4,6,8}" }, "caption": "Domain is the inputs; range is the outputs produced." },
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 2, "cols": 3, "label": "pairs (x, y)" } ] }, "caption": "A relation is just a set of (x, y) pairs; a function adds the one-output rule." }
+        {
+          "component": "BarModel",
+          "props": {
+            "parts": [
+              1,
+              2
+            ],
+            "label": "f(x) = x + 1: 1→2, 2→3"
+          },
+          "caption": "Each input gives exactly one output — a function."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "min": 0,
+            "max": 10,
+            "jumps": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "label": "domain {1,2,3,4}, f(x)=2x → range {2,4,6,8}"
+          },
+          "caption": "Domain is the inputs; range is the outputs produced."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 2,
+                "cols": 3,
+                "label": "pairs (x, y)"
+              }
+            ]
+          },
+          "caption": "A relation is just a set of (x, y) pairs; a function adds the one-output rule."
+        }
       ]
     }
   ],
@@ -57,12 +114,20 @@
   "workedExamples": [
     {
       "problem": "For f(x) = 2x + 1, find f(3).",
-      "steps": ["Replace x with 3: f(3) = 2 × 3 + 1.", "= 6 + 1.", "= 7."],
+      "steps": [
+        "Replace x with 3: f(3) = 2 × 3 + 1.",
+        "= 6 + 1.",
+        "= 7."
+      ],
       "answer": "7"
     },
     {
       "problem": "Is {(1, 2), (1, 5), (2, 3)} a function?",
-      "steps": ["Input 1 appears twice: once → 2, once → 5.", "Same input, two different outputs.", "So it is NOT a function."],
+      "steps": [
+        "Input 1 appears twice: once → 2, once → 5.",
+        "Same input, two different outputs.",
+        "So it is NOT a function."
+      ],
       "answer": "No"
     }
   ],
@@ -80,24 +145,142 @@
   ],
   "practice": {
     "easy": [
-      { "id": "n43-e1", "type": "number", "q": "For f(x) = x + 2, what is f(5)?", "answer": "7", "hintLadder": ["Replace x with 5.", "5 + 2.", "7."] },
-      { "id": "n43-e2", "type": "number", "q": "The relation {(1,4),(2,5),(3,6)} has how many pairs in its domain?", "answer": "3", "hintLadder": ["Domain = the inputs 1, 2, 3.", "Count them.", "3."] }
+      {
+        "id": "n43-e1",
+        "type": "number",
+        "q": "For f(x) = x + 2, what is f(5)?",
+        "answer": "7",
+        "hintLadder": [
+          "Replace x with 5.",
+          "5 + 2.",
+          "7."
+        ]
+      },
+      {
+        "id": "n43-e2",
+        "type": "number",
+        "q": "The relation {(1,4),(2,5),(3,6)} has how many pairs in its domain?",
+        "answer": "3",
+        "hintLadder": [
+          "Domain = the inputs 1, 2, 3.",
+          "Count them.",
+          "3."
+        ]
+      }
     ],
     "medium": [
-      { "id": "n43-m1", "type": "number", "q": "For f(x) = 2x + 1, find f(4).", "answer": "9", "hintLadder": ["2 × 4 + 1.", "8 + 1.", "9."] },
-      { "id": "n43-m2", "type": "number", "q": "For f(x) = x², find f(3).", "answer": "9", "hintLadder": ["3 squared.", "3 × 3.", "9."] }
+      {
+        "id": "n43-m1",
+        "type": "number",
+        "q": "For f(x) = 2x + 1, find f(4).",
+        "answer": "9",
+        "hintLadder": [
+          "2 × 4 + 1.",
+          "8 + 1.",
+          "9."
+        ]
+      },
+      {
+        "id": "n43-m2",
+        "type": "number",
+        "q": "For f(x) = x², find f(3).",
+        "answer": "9",
+        "hintLadder": [
+          "3 squared.",
+          "3 × 3.",
+          "9."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "n43-c1", "type": "number", "q": "For f(x) = 3x − 2, find f(0).", "answer": "-2", "hintLadder": ["3 × 0 = 0.", "0 − 2.", "−2."] },
-      { "id": "n43-c2", "type": "mcq", "q": "Is {(1,2),(1,3),(2,4)} a function?", "options": [ { "label": "No — input 1 gives two outputs" }, { "label": "Yes, it is a function", "mistakeTag": "input-two-outputs" } ], "answer": "No — input 1 gives two outputs", "hintLadder": ["Look at input 1.", "It maps to both 2 and 3.", "Two outputs → not a function."] }
+      {
+        "id": "n43-c1",
+        "type": "number",
+        "q": "For f(x) = 3x − 2, find f(0).",
+        "answer": "-2",
+        "hintLadder": [
+          "3 × 0 = 0.",
+          "0 − 2.",
+          "−2."
+        ]
+      },
+      {
+        "id": "n43-c2",
+        "type": "mcq",
+        "q": "Is {(1,2),(1,3),(2,4)} a function?",
+        "options": [
+          {
+            "label": "No — input 1 gives two outputs"
+          },
+          {
+            "label": "Yes, it is a function",
+            "mistakeTag": "input-two-outputs"
+          }
+        ],
+        "answer": "No — input 1 gives two outputs",
+        "hintLadder": [
+          "Look at input 1.",
+          "It maps to both 2 and 3.",
+          "Two outputs → not a function."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "n43-x1", "type": "number", "q": "For f(x) = x + 10, find f(7).", "answer": "17", "hintLadder": ["7 + 10.", "Add.", "17."] },
-      { "id": "n43-x2", "type": "number", "q": "For f(x) = 2x, find f(6).", "answer": "12", "hintLadder": ["2 × 6.", "Double 6.", "12."] },
-      { "id": "n43-x3", "type": "number", "q": "The range of f(x)=2x for inputs {1,2,3} — how many output values?", "answer": "3", "hintLadder": ["Outputs are 2, 4, 6.", "Count distinct outputs.", "3."] },
-      { "id": "n43-x4", "type": "mcq", "q": "Which is a function?", "options": [ { "label": "{(1,2),(2,3),(3,4)} — each input once" }, { "label": "{(1,2),(1,9)}", "mistakeTag": "input-two-outputs" } ], "answer": "{(1,2),(2,3),(3,4)} — each input once", "hintLadder": ["Each input must give one output.", "The second repeats input 1.", "The first one is the function."] }
+      {
+        "id": "n43-x1",
+        "type": "number",
+        "q": "For f(x) = x + 10, find f(7).",
+        "answer": "17",
+        "hintLadder": [
+          "7 + 10.",
+          "Add.",
+          "17."
+        ]
+      },
+      {
+        "id": "n43-x2",
+        "type": "number",
+        "q": "For f(x) = 2x, find f(6).",
+        "answer": "12",
+        "hintLadder": [
+          "2 × 6.",
+          "Double 6.",
+          "12."
+        ]
+      },
+      {
+        "id": "n43-x3",
+        "type": "number",
+        "q": "The range of f(x)=2x for inputs {1,2,3} — how many output values?",
+        "answer": "3",
+        "hintLadder": [
+          "Outputs are 2, 4, 6.",
+          "Count distinct outputs.",
+          "3."
+        ]
+      },
+      {
+        "id": "n43-x4",
+        "type": "mcq",
+        "q": "Which is a function?",
+        "options": [
+          {
+            "label": "{(1,2),(2,3),(3,4)} — each input once"
+          },
+          {
+            "label": "{(1,2),(1,9)}",
+            "mistakeTag": "input-two-outputs"
+          }
+        ],
+        "answer": "{(1,2),(2,3),(3,4)} — each input once",
+        "hintLadder": [
+          "Each input must give one output.",
+          "The second repeats input 1.",
+          "The first one is the function."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -105,7 +288,11 @@
   "teachBackPrompt": "Describe a 'machine' like f(x) = 2x to a grown-up: show that putting in 3 gives 6 and each input has exactly one output. Explain the domain (inputs) and range (outputs), and why a rule that gives two answers for one input is not a function.",
   "revisionCard": {
     "summary": "Relation = set of (x, y) pairs. Function = each input has EXACTLY ONE output f(x). Domain = inputs; range = outputs. Evaluate by substituting: f(3) means put 3 for x. One input with two outputs → not a function.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -114,5 +301,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Relation = any pairing; function = each input has exactly ONE output",
+    "unpack": "Domain = inputs, range = outputs. One-one and onto describe how inputs map to outputs."
+  },
+  "studentQuestions": [
+    {
+      "q": "Relation vs function?",
+      "a": "A relation just pairs things up; a FUNCTION is a relation where every input gives exactly one output."
+    },
+    {
+      "q": "What are domain and range?",
+      "a": "Domain = all allowed inputs; range = all outputs the function actually produces."
+    }
+  ]
 }

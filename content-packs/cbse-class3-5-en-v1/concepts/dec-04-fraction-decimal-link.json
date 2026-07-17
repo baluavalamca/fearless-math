@@ -462,5 +462,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Fraction to decimal: divide top by bottom",
+    "unpack": "3/4 = 3 / 4 = 0.75. 1/2 = 0.5, 1/4 = 0.25, 1/10 = 0.1. Two ways to write the same amount."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I turn a fraction into a decimal?",
+      "a": "Divide the top by the bottom. 3/5 = 3 / 5 = 0.6."
+    },
+    {
+      "q": "Is 0.5 the same as 1/2?",
+      "a": "Yes - two ways of writing 'one half'. Fractions and decimals are the same thing dressed differently."
+    }
+  ]
 }

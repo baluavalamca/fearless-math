@@ -493,5 +493,25 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "Volume = space inside a solid (cube units). Box = l x b x h",
+    "unpack": "1 litre = 1000 ml = 1000 cm^3. Capacity is how much a container holds."
+  },
+  "studentQuestions": [
+    {
+      "q": "Volume vs capacity?",
+      "a": "Volume is the space a solid takes; capacity is how much a container can HOLD. Often measured the same way."
+    },
+    {
+      "q": "How many ml in a litre?",
+      "a": "1000. And 1 cm^3 = 1 ml, so a 1-litre box is 1000 cm^3."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Box volume",
+      "formula": "V = l x b x h"
+    }
+  ]
 }

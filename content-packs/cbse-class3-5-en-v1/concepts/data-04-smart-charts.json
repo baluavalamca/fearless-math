@@ -3,7 +3,9 @@
   "name": "Smart Charts — Reading Data and Finding the Middle",
   "grade": 5,
   "strand": "data",
-  "prerequisites": ["data-01-bar-graphs"],
+  "prerequisites": [
+    "data-01-bar-graphs"
+  ],
   "whatIsIt": "At Class 5 we don't just read graphs — we ANALYSE them. From a bar graph or table we can find the total, the difference, the MOST COMMON value (mode), and even the AVERAGE (add all the values, then share equally by dividing by how many). Smart charts turn data into decisions.",
   "whyNeeded": "Reports, sports stats, weather, and surveys are full of charts. Being able to total them, compare them, and find the average or the most common value is how people make sense of information and make fair decisions.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Average marks of a group of friends"
   ],
   "vocabulary": [
-    { "term": "average (mean)", "meaning": "Add all values, then divide by how many there are." },
-    { "term": "most common (mode)", "meaning": "The value that appears most often, or the tallest bar." },
-    { "term": "total", "meaning": "All the values added together." }
+    {
+      "term": "average (mean)",
+      "meaning": "Add all values, then divide by how many there are."
+    },
+    {
+      "term": "most common (mode)",
+      "meaning": "The value that appears most often, or the tallest bar."
+    },
+    {
+      "term": "total",
+      "meaning": "All the values added together."
+    }
   ],
   "story": {
     "title": "Rohit's Batting Average",
-    "characters": ["Rohit", "Coach"],
+    "characters": [
+      "Rohit",
+      "Coach"
+    ],
     "text": "Rohit scored 20, 30, 10 and 40 runs in four matches. 'What's your average?' asks Coach. Rohit adds them: 20 + 30 + 10 + 40 = 100. Then he shares equally over 4 matches: 100 ÷ 4 = 25. 'My average is 25 runs a match,' he says. 'The average smooths the ups and downs into one fair number.'",
     "extractedProblem": "Scores 20, 30, 10, 40 across 4 matches — what is the average?",
     "answerInStory": "25 — because (20+30+10+40) ÷ 4 = 100 ÷ 4 = 25."
@@ -28,10 +42,22 @@
     "component": "BarChart",
     "props": {
       "categories": [
-        { "label": "M1", "value": 20 },
-        { "label": "M2", "value": 30 },
-        { "label": "M3", "value": 10 },
-        { "label": "M4", "value": 40 }
+        {
+          "label": "M1",
+          "value": 20
+        },
+        {
+          "label": "M2",
+          "value": 30
+        },
+        {
+          "label": "M3",
+          "value": 10
+        },
+        {
+          "label": "M4",
+          "value": 40
+        }
       ],
       "unit": "runs"
     },
@@ -42,9 +68,66 @@
       "title": "Total, most common, average",
       "note": "Add for total; tallest = most common; total ÷ count = average.",
       "examples": [
-        { "component": "BarChart", "props": { "categories": [ { "label": "Mon", "value": 4 }, { "label": "Tue", "value": 4 }, { "label": "Wed", "value": 7 } ] }, "caption": "Wed is the most common tally? No — tallest = most (7)." },
-        { "component": "BarChart", "props": { "categories": [ { "label": "A", "value": 10 }, { "label": "B", "value": 20 }, { "label": "C", "value": 30 } ] }, "caption": "Total 60; average 60 ÷ 3 = 20." },
-        { "component": "BarChart", "props": { "categories": [ { "label": "size6", "value": 3 }, { "label": "size7", "value": 8 }, { "label": "size8", "value": 5 } ] }, "caption": "Most common shoe size = 7 (tallest bar)." }
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "Mon",
+                "value": 4
+              },
+              {
+                "label": "Tue",
+                "value": 4
+              },
+              {
+                "label": "Wed",
+                "value": 7
+              }
+            ]
+          },
+          "caption": "Wed is the most common tally? No — tallest = most (7)."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "A",
+                "value": 10
+              },
+              {
+                "label": "B",
+                "value": 20
+              },
+              {
+                "label": "C",
+                "value": 30
+              }
+            ]
+          },
+          "caption": "Total 60; average 60 ÷ 3 = 20."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "size6",
+                "value": 3
+              },
+              {
+                "label": "size7",
+                "value": 8
+              },
+              {
+                "label": "size8",
+                "value": 5
+              }
+            ]
+          },
+          "caption": "Most common shoe size = 7 (tallest bar)."
+        }
       ]
     }
   ],
@@ -60,12 +143,20 @@
   "workedExamples": [
     {
       "problem": "Marks of 5 friends: 8, 6, 10, 6, 10. What is their average?",
-      "steps": ["Add: 8 + 6 + 10 + 6 + 10 = 40.", "Count of values: 5.", "Average = 40 ÷ 5 = 8."],
+      "steps": [
+        "Add: 8 + 6 + 10 + 6 + 10 = 40.",
+        "Count of values: 5.",
+        "Average = 40 ÷ 5 = 8."
+      ],
       "answer": "8"
     },
     {
       "problem": "In the same marks (8, 6, 10, 6, 10), what is the most common mark?",
-      "steps": ["Which value appears most often?", "6 appears twice, 10 appears twice, 8 once.", "Both 6 and 10 appear most (twice) — the data has two modes."],
+      "steps": [
+        "Which value appears most often?",
+        "6 appears twice, 10 appears twice, 8 once.",
+        "Both 6 and 10 appear most (twice) — the data has two modes."
+      ],
       "answer": "6 and 10 (both appear twice)"
     }
   ],
@@ -84,75 +175,149 @@
   "practice": {
     "easy": [
       {
-        "id": "d04-e1", "type": "number",
+        "id": "d04-e1",
+        "type": "number",
         "q": "Bars: 5, 10, 15. What is the total?",
         "answer": "30",
-        "hintLadder": ["Add all bars.", "5 + 10 + 15.", "Thirty."]
+        "hintLadder": [
+          "Add all bars.",
+          "5 + 10 + 15.",
+          "Thirty."
+        ]
       },
       {
-        "id": "d04-e2", "type": "mcq",
+        "id": "d04-e2",
+        "type": "mcq",
         "q": "The average of a set of numbers is…",
-        "options": [ { "label": "Total divided by how many" }, { "label": "Just the biggest one", "mistakeTag": "forgot-divide-for-average" } ],
+        "options": [
+          {
+            "label": "Total divided by how many"
+          },
+          {
+            "label": "Just the biggest one",
+            "mistakeTag": "forgot-divide-for-average"
+          }
+        ],
         "answer": "Total divided by how many",
-        "hintLadder": ["Share equally.", "Add, then divide by the count.", "Total ÷ count."]
+        "hintLadder": [
+          "Share equally.",
+          "Add, then divide by the count.",
+          "Total ÷ count."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "d04-m1", "type": "number",
+        "id": "d04-m1",
+        "type": "number",
         "q": "Scores 10, 20, 30. What is the average?",
         "answer": "20",
-        "hintLadder": ["Total = 60.", "Divide by 3 values.", "60 ÷ 3 = 20."]
+        "hintLadder": [
+          "Total = 60.",
+          "Divide by 3 values.",
+          "60 ÷ 3 = 20."
+        ]
       },
       {
-        "id": "d04-m2", "type": "number",
+        "id": "d04-m2",
+        "type": "number",
         "q": "Rainfall (mm): 4, 4, 6, 6. What is the total?",
         "answer": "20",
-        "hintLadder": ["Add all four.", "4 + 4 + 6 + 6.", "Twenty."]
+        "hintLadder": [
+          "Add all four.",
+          "4 + 4 + 6 + 6.",
+          "Twenty."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "d04-c1", "type": "number",
+        "id": "d04-c1",
+        "type": "number",
         "q": "Runs in 4 matches: 15, 25, 30, 10. What is the average?",
         "answer": "20",
-        "hintLadder": ["Total = 80.", "Divide by 4 matches.", "80 ÷ 4 = 20."]
+        "hintLadder": [
+          "Total = 80.",
+          "Divide by 4 matches.",
+          "80 ÷ 4 = 20."
+        ]
       },
       {
-        "id": "d04-c2", "type": "mcq",
+        "id": "d04-c2",
+        "type": "mcq",
         "q": "Ravi adds 20 + 30 + 40 = 90 and says 'the average is 90'. What did he skip?",
-        "options": [ { "label": "Dividing by 3 → 90 ÷ 3 = 30" }, { "label": "Nothing, 90 is the average", "mistakeTag": "forgot-divide-for-average" } ],
+        "options": [
+          {
+            "label": "Dividing by 3 → 90 ÷ 3 = 30"
+          },
+          {
+            "label": "Nothing, 90 is the average",
+            "mistakeTag": "forgot-divide-for-average"
+          }
+        ],
         "answer": "Dividing by 3 → 90 ÷ 3 = 30",
-        "hintLadder": ["90 is the total, not the average.", "Divide by how many values.", "90 ÷ 3 = 30."]
+        "hintLadder": [
+          "90 is the total, not the average.",
+          "Divide by how many values.",
+          "90 ÷ 3 = 30."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "d04-x1", "type": "number",
+        "id": "d04-x1",
+        "type": "number",
         "q": "Bars: 6, 8, 10. What is the total?",
         "answer": "24",
-        "hintLadder": ["Add all bars.", "6 + 8 + 10.", "Twenty-four."]
+        "hintLadder": [
+          "Add all bars.",
+          "6 + 8 + 10.",
+          "Twenty-four."
+        ]
       },
       {
-        "id": "d04-x2", "type": "number",
+        "id": "d04-x2",
+        "type": "number",
         "q": "Numbers 4, 8, 12. What is the average?",
         "answer": "8",
-        "hintLadder": ["Total = 24.", "Divide by 3.", "24 ÷ 3 = 8."]
+        "hintLadder": [
+          "Total = 24.",
+          "Divide by 3.",
+          "24 ÷ 3 = 8."
+        ]
       },
       {
-        "id": "d04-x3", "type": "number",
+        "id": "d04-x3",
+        "type": "number",
         "q": "Marks 5, 5, 9, 5. What is the total?",
         "answer": "24",
-        "hintLadder": ["Add all four.", "5 + 5 + 9 + 5.", "Twenty-four."]
+        "hintLadder": [
+          "Add all four.",
+          "5 + 5 + 9 + 5.",
+          "Twenty-four."
+        ]
       },
       {
-        "id": "d04-x4", "type": "mcq",
+        "id": "d04-x4",
+        "type": "mcq",
         "q": "To find the average of 6 values you divide the total by…",
-        "options": [ { "label": "6 — the number of values" }, { "label": "The biggest value", "mistakeTag": "wrong-count-divisor" } ],
+        "options": [
+          {
+            "label": "6 — the number of values"
+          },
+          {
+            "label": "The biggest value",
+            "mistakeTag": "wrong-count-divisor"
+          }
+        ],
         "answer": "6 — the number of values",
-        "hintLadder": ["Share among all values.", "Divide by the count.", "By 6."]
+        "hintLadder": [
+          "Share among all values.",
+          "Divide by the count.",
+          "By 6."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -161,7 +326,11 @@
   "teachBackPrompt": "Collect a small set of numbers at home (ages of family members, or marks in a game over a few rounds). Draw a quick bar graph, then explain to a grown-up how to find the total, the most common value, and the average.",
   "revisionCard": {
     "summary": "From a chart: TOTAL = add all values; MOST COMMON (mode) = tallest bar / most frequent; AVERAGE (mean) = total ÷ number of values. Don't stop at the total — divide by HOW MANY to get the average.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -170,5 +339,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Pick the chart that fits the question",
+    "unpack": "Bar = compare groups. Line = change over time. Pie = parts of a whole. Pictograph = fun counts."
+  },
+  "studentQuestions": [
+    {
+      "q": "Which chart should I use?",
+      "a": "Comparing groups -> bar. Change over time -> line. Parts of a whole -> pie."
+    },
+    {
+      "q": "What makes a chart 'smart'?",
+      "a": "It matches the data to the right picture so the message is instantly clear."
+    }
+  ]
 }

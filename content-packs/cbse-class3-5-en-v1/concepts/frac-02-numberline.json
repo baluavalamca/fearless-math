@@ -625,5 +625,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Fractions live BETWEEN whole numbers on the line",
+    "unpack": "Split the gap 0 to 1 into equal steps. 3/4 is the third step of four. Bigger bottom = smaller steps."
+  },
+  "studentQuestions": [
+    {
+      "q": "Where does 3/4 go on the number line?",
+      "a": "Between 0 and 1: split that gap into 4 equal parts and count 3 steps."
+    },
+    {
+      "q": "Which is bigger, 1/2 or 3/4?",
+      "a": "3/4 - it sits further right, closer to 1."
+    }
+  ]
 }

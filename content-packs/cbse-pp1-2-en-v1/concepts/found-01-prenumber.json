@@ -1024,5 +1024,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "Before numbers: big/small, more/less, sort and match",
+    "unpack": "Compare sizes, match one-to-one, sort by colour or shape. This builds 'how many' before counting."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why learn big/small before numbers?",
+      "a": "Comparing and sorting builds the sense of 'more' and 'less' - the ground counting stands on."
+    },
+    {
+      "q": "What is one-to-one matching?",
+      "a": "Pairing each item with one other (a cup for each saucer) - it shows equal, more, or fewer without counting."
+    }
+  ]
 }

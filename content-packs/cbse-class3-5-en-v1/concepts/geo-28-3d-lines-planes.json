@@ -3,7 +3,10 @@
   "name": "3D Geometry — Lines and Planes in Space",
   "grade": 11,
   "strand": "geometry",
-  "prerequisites": ["geo-26-3d-geometry-intro", "geo-27-vectors"],
+  "prerequisites": [
+    "geo-26-3d-geometry-intro",
+    "geo-27-vectors"
+  ],
   "whatIsIt": "In space, a LINE is fixed by a POINT on it plus a DIRECTION. That direction is described by DIRECTION COSINES l, m, n (the cosines of the angles the line makes with the x, y, z axes) which always satisfy l² + m² + n² = 1. A PLANE has an equation ax + by + cz = d, and the vector (a, b, c) is its NORMAL — the direction sticking straight out of the plane.",
   "whyNeeded": "Robotics, CAD, aircraft paths, ray-tracing in graphics, and structural engineering all need the exact equations of lines and flat surfaces in 3D. This is where vectors and 3D coordinates become powerful tools.",
   "realLifeUses": [
@@ -13,14 +16,29 @@
     "Robot arm movements along lines"
   ],
   "vocabulary": [
-    { "term": "direction cosines (l, m, n)", "meaning": "The cosines of the angles a line makes with the x, y, z axes; l² + m² + n² = 1." },
-    { "term": "line in space", "meaning": "Fixed by one point on it and a direction (vector)." },
-    { "term": "plane ax + by + cz = d", "meaning": "A flat surface; the vector (a, b, c) is its normal." },
-    { "term": "normal vector", "meaning": "The direction perpendicular to a plane, read from its equation as (a, b, c)." }
+    {
+      "term": "direction cosines (l, m, n)",
+      "meaning": "The cosines of the angles a line makes with the x, y, z axes; l² + m² + n² = 1."
+    },
+    {
+      "term": "line in space",
+      "meaning": "Fixed by one point on it and a direction (vector)."
+    },
+    {
+      "term": "plane ax + by + cz = d",
+      "meaning": "A flat surface; the vector (a, b, c) is its normal."
+    },
+    {
+      "term": "normal vector",
+      "meaning": "The direction perpendicular to a plane, read from its equation as (a, b, c)."
+    }
   ],
   "story": {
     "title": "The Drone Flight Path",
-    "characters": ["Vivaan", "Instructor"],
+    "characters": [
+      "Vivaan",
+      "Instructor"
+    ],
     "text": "Vivaan programs a drone to fly in a straight line. 'What do you need to fix that line?' asks the Instructor. 'A point it passes through, and a direction!' Then they set a landing pad as the plane 2x + 3y + z = 5. 'The direction straight out of the pad is its normal, (2, 3, 1),' the Instructor says, reading it right off the equation.",
     "extractedProblem": "For the plane 2x + 3y + z = 5, what is the normal vector?",
     "answerInStory": "(2, 3, 1) — the coefficients of x, y, z give the normal."
@@ -29,7 +47,12 @@
     "component": "GeometryCanvas",
     "props": {
       "shapes": [
-        { "kind": "rect", "w": 4, "h": 3, "label": "plane ax+by+cz=d with normal (a,b,c); a line = point + direction" }
+        {
+          "kind": "rect",
+          "w": 4,
+          "h": 3,
+          "label": "plane ax+by+cz=d with normal (a,b,c); a line = point + direction"
+        }
       ]
     },
     "caption": "A plane's equation ax + by + cz = d hides its normal (a, b, c). A line is set by a point plus a direction with cosines l, m, n (l²+m²+n²=1)."
@@ -39,9 +62,49 @@
       "title": "Direction and normal",
       "note": "Direction cosines square-sum to 1; a plane's normal is read from its equation.",
       "examples": [
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "line", "label": "line = point + direction" } ] }, "caption": "A line needs a point on it and a direction vector." },
-        { "component": "BarModel", "props": { "bars": [ { "label": "l² + m² + n² = 1", "parts": [ { "value": 1 } ], "showTotal": false } ] }, "caption": "Direction cosines always satisfy l² + m² + n² = 1." },
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "rect", "w": 3, "h": 3, "label": "plane 2x+3y+z=5 → normal (2,3,1)" } ] }, "caption": "Read the normal (2, 3, 1) straight from the plane's coefficients." }
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "line",
+                "label": "line = point + direction"
+              }
+            ]
+          },
+          "caption": "A line needs a point on it and a direction vector."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "l² + m² + n² = 1",
+                "parts": [
+                  {
+                    "value": 1
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "Direction cosines always satisfy l² + m² + n² = 1."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "rect",
+                "w": 3,
+                "h": 3,
+                "label": "plane 2x+3y+z=5 → normal (2,3,1)"
+              }
+            ]
+          },
+          "caption": "Read the normal (2, 3, 1) straight from the plane's coefficients."
+        }
       ]
     }
   ],
@@ -58,12 +121,20 @@
   "workedExamples": [
     {
       "problem": "For the plane 2x + 3y + z = 5, what is the x-component of the normal vector?",
-      "steps": ["The normal is (a, b, c) = the coefficients.", "The x-coefficient is 2.", "So the x-component is 2."],
+      "steps": [
+        "The normal is (a, b, c) = the coefficients.",
+        "The x-coefficient is 2.",
+        "So the x-component is 2."
+      ],
       "answer": "2"
     },
     {
       "problem": "Direction cosines satisfy l² + m² + n² = ?",
-      "steps": ["Direction cosines are cosines of the axis angles.", "Their squares always add to one.", "= 1."],
+      "steps": [
+        "Direction cosines are cosines of the axis angles.",
+        "Their squares always add to one.",
+        "= 1."
+      ],
       "answer": "1"
     }
   ],
@@ -81,24 +152,142 @@
   ],
   "practice": {
     "easy": [
-      { "id": "g28-e1", "type": "number", "q": "How many direction cosines does a line in space have?", "answer": "3", "hintLadder": ["One per axis.", "x, y, z.", "3."] },
-      { "id": "g28-e2", "type": "number", "q": "Direction cosines satisfy l² + m² + n² = ?", "answer": "1", "hintLadder": ["A fixed total.", "Always one.", "1."] }
+      {
+        "id": "g28-e1",
+        "type": "number",
+        "q": "How many direction cosines does a line in space have?",
+        "answer": "3",
+        "hintLadder": [
+          "One per axis.",
+          "x, y, z.",
+          "3."
+        ]
+      },
+      {
+        "id": "g28-e2",
+        "type": "number",
+        "q": "Direction cosines satisfy l² + m² + n² = ?",
+        "answer": "1",
+        "hintLadder": [
+          "A fixed total.",
+          "Always one.",
+          "1."
+        ]
+      }
     ],
     "medium": [
-      { "id": "g28-m1", "type": "number", "q": "Plane 2x + 3y + z = 5. x-component of the normal (2,3,1)?", "answer": "2", "hintLadder": ["Normal = coefficients.", "x-coefficient.", "2."] },
-      { "id": "g28-m2", "type": "number", "q": "Plane 2x + 3y + z = 5. y-component of the normal?", "answer": "3", "hintLadder": ["Coefficient of y.", "3.", "3."] }
+      {
+        "id": "g28-m1",
+        "type": "number",
+        "q": "Plane 2x + 3y + z = 5. x-component of the normal (2,3,1)?",
+        "answer": "2",
+        "hintLadder": [
+          "Normal = coefficients.",
+          "x-coefficient.",
+          "2."
+        ]
+      },
+      {
+        "id": "g28-m2",
+        "type": "number",
+        "q": "Plane 2x + 3y + z = 5. y-component of the normal?",
+        "answer": "3",
+        "hintLadder": [
+          "Coefficient of y.",
+          "3.",
+          "3."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "g28-c1", "type": "number", "q": "Plane 4x + 5y + 6z = 9. z-component of the normal?", "answer": "6", "hintLadder": ["Coefficient of z.", "6.", "6."] },
-      { "id": "g28-c2", "type": "mcq", "q": "A student says the direction cosines of a line can add (as squares) to 2. What's the fix?", "options": [ { "label": "They must satisfy l² + m² + n² = 1" }, { "label": "Any total is fine", "mistakeTag": "dc-sum-not-one" } ], "answer": "They must satisfy l² + m² + n² = 1", "hintLadder": ["Direction cosines are normalised.", "Squares add to 1.", "l²+m²+n² = 1."] }
+      {
+        "id": "g28-c1",
+        "type": "number",
+        "q": "Plane 4x + 5y + 6z = 9. z-component of the normal?",
+        "answer": "6",
+        "hintLadder": [
+          "Coefficient of z.",
+          "6.",
+          "6."
+        ]
+      },
+      {
+        "id": "g28-c2",
+        "type": "mcq",
+        "q": "A student says the direction cosines of a line can add (as squares) to 2. What's the fix?",
+        "options": [
+          {
+            "label": "They must satisfy l² + m² + n² = 1"
+          },
+          {
+            "label": "Any total is fine",
+            "mistakeTag": "dc-sum-not-one"
+          }
+        ],
+        "answer": "They must satisfy l² + m² + n² = 1",
+        "hintLadder": [
+          "Direction cosines are normalised.",
+          "Squares add to 1.",
+          "l²+m²+n² = 1."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "g28-x1", "type": "number", "q": "l² + m² + n² = ?", "answer": "1", "hintLadder": ["Direction-cosine identity.", "Always one.", "1."] },
-      { "id": "g28-x2", "type": "number", "q": "Number of direction cosines for a 3D line?", "answer": "3", "hintLadder": ["One per axis.", "3.", "3."] },
-      { "id": "g28-x3", "type": "number", "q": "Plane x + 7y + 2z = 4. y-component of the normal?", "answer": "7", "hintLadder": ["Coefficient of y.", "7.", "7."] },
-      { "id": "g28-x4", "type": "mcq", "q": "The normal to the plane ax + by + cz = d is…", "options": [ { "label": "(a, b, c)" }, { "label": "(a, b, c, d)", "mistakeTag": "normal-wrong-read" } ], "answer": "(a, b, c)", "hintLadder": ["Only the x,y,z coefficients.", "Not the constant d.", "(a, b, c)."] }
+      {
+        "id": "g28-x1",
+        "type": "number",
+        "q": "l² + m² + n² = ?",
+        "answer": "1",
+        "hintLadder": [
+          "Direction-cosine identity.",
+          "Always one.",
+          "1."
+        ]
+      },
+      {
+        "id": "g28-x2",
+        "type": "number",
+        "q": "Number of direction cosines for a 3D line?",
+        "answer": "3",
+        "hintLadder": [
+          "One per axis.",
+          "3.",
+          "3."
+        ]
+      },
+      {
+        "id": "g28-x3",
+        "type": "number",
+        "q": "Plane x + 7y + 2z = 4. y-component of the normal?",
+        "answer": "7",
+        "hintLadder": [
+          "Coefficient of y.",
+          "7.",
+          "7."
+        ]
+      },
+      {
+        "id": "g28-x4",
+        "type": "mcq",
+        "q": "The normal to the plane ax + by + cz = d is…",
+        "options": [
+          {
+            "label": "(a, b, c)"
+          },
+          {
+            "label": "(a, b, c, d)",
+            "mistakeTag": "normal-wrong-read"
+          }
+        ],
+        "answer": "(a, b, c)",
+        "hintLadder": [
+          "Only the x,y,z coefficients.",
+          "Not the constant d.",
+          "(a, b, c)."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -106,7 +295,11 @@
   "teachBackPrompt": "Explain to a grown-up that a line in space needs a point plus a direction, that direction cosines satisfy l²+m²+n² = 1, and that the plane 2x+3y+z = 5 has normal (2, 3, 1) read from its coefficients.",
   "revisionCard": {
     "summary": "Line in space = a point + a direction. Direction cosines l, m, n (axis-angle cosines) satisfy l²+m²+n² = 1. Plane: ax+by+cz = d, with normal vector (a, b, c) (coefficients only; not d). Use dot products for angles between lines/planes.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -115,5 +308,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "A line needs a point + a direction; a plane needs a point + a normal",
+    "unpack": "Line: r = a + t d. Plane: n . (r - a) = 0. The normal n sticks straight out of the plane."
+  },
+  "studentQuestions": [
+    {
+      "q": "What is a 'normal' to a plane?",
+      "a": "A vector sticking straight out of the plane at 90 degrees - it fixes the plane's tilt."
+    },
+    {
+      "q": "How is a line written in 3D?",
+      "a": "Start point plus a multiple of a direction vector: r = a + t d, where t slides you along the line."
+    }
+  ]
 }

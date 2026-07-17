@@ -3,7 +3,9 @@
   "name": "Patterns with Rules — Growing, Doubling and Grids",
   "grade": 4,
   "strand": "numbers",
-  "prerequisites": ["num-18-patterns"],
+  "prerequisites": [
+    "num-18-patterns"
+  ],
   "whatIsIt": "At Class 4 patterns get richer. Some GROW by adding a fixed number (add 6). Some DOUBLE (×2 each time: 3, 6, 12, 24). Some come from a POSITION RULE — the 1st, 2nd, 3rd term follows a formula like 'multiply the position by 4'. Grids and multiplication tables are full of these patterns too.",
   "whyNeeded": "Seeing the rule behind a pattern is exactly what makes tables, area, and later algebra easy. It trains you to describe 'what's happening' in words and predict any term, not just the next one.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Number grids where columns follow a rule"
   ],
   "vocabulary": [
-    { "term": "position", "meaning": "Which term it is: 1st, 2nd, 3rd…" },
-    { "term": "position rule", "meaning": "A rule that gives a term from its position (e.g. position × 4)." },
-    { "term": "doubling", "meaning": "Multiplying by 2 each step." }
+    {
+      "term": "position",
+      "meaning": "Which term it is: 1st, 2nd, 3rd…"
+    },
+    {
+      "term": "position rule",
+      "meaning": "A rule that gives a term from its position (e.g. position × 4)."
+    },
+    {
+      "term": "doubling",
+      "meaning": "Multiplying by 2 each step."
+    }
   ],
   "story": {
     "title": "The Growing Assembly Rows",
-    "characters": ["Kiran", "the teacher"],
+    "characters": [
+      "Kiran",
+      "the teacher"
+    ],
     "text": "Chairs are set in rows: row 1 has 4 chairs, row 2 has 8, row 3 has 12. 'How many chairs in row 6?' asks the teacher. Kiran spots the rule: each row is the row-number times 4. 'Row 6 is 6 × 4 = 24 chairs,' he says — no need to draw all six rows.",
     "extractedProblem": "Rows have 4, 8, 12 chairs (row × 4). How many chairs in row 6?",
     "answerInStory": "24 — because 6 × 4 = 24."
@@ -28,7 +42,18 @@
     "component": "NumberTrack",
     "props": {
       "tracks": [
-        { "terms": [4, 8, 12, 16, 20, 24], "jump": 4, "label": "row × 4" }
+        {
+          "terms": [
+            4,
+            8,
+            12,
+            16,
+            20,
+            24
+          ],
+          "jump": 4,
+          "label": "row × 4"
+        }
       ]
     },
     "caption": "Position rule: term = position × 4. Row 6 → 6 × 4 = 24."
@@ -38,9 +63,56 @@
       "title": "Grow, double, or use position",
       "note": "Add-a-number, times-a-number, or position rules.",
       "examples": [
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [6, 12, 18, 24, 30], "jump": 6, "label": "add 6" } ] }, "caption": "Growing by 6 (the 6 times table)." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [3, 6, 12, 24, 48], "label": "double each time" } ] }, "caption": "Doubling: ×2 each step." },
-        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 4, "cols": 4, "label": "square numbers 1,4,9,16" } ] }, "caption": "Square patterns grow by odd numbers." }
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  6,
+                  12,
+                  18,
+                  24,
+                  30
+                ],
+                "jump": 6,
+                "label": "add 6"
+              }
+            ]
+          },
+          "caption": "Growing by 6 (the 6 times table)."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  3,
+                  6,
+                  12,
+                  24,
+                  48
+                ],
+                "label": "double each time"
+              }
+            ]
+          },
+          "caption": "Doubling: ×2 each step."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 4,
+                "cols": 4,
+                "label": "square numbers 1,4,9,16"
+              }
+            ]
+          },
+          "caption": "Square patterns grow by odd numbers."
+        }
       ]
     }
   ],
@@ -56,12 +128,20 @@
   "workedExamples": [
     {
       "problem": "Terms by position: 5, 10, 15, 20, … What is the 8th term?",
-      "steps": ["Position rule: term = position × 5.", "8th term = 8 × 5.", "= 40."],
+      "steps": [
+        "Position rule: term = position × 5.",
+        "8th term = 8 × 5.",
+        "= 40."
+      ],
       "answer": "40"
     },
     {
       "problem": "A doubling pattern: 2, 4, 8, 16, … What comes next?",
-      "steps": ["Each term is ×2 the one before.", "16 × 2.", "= 32."],
+      "steps": [
+        "Each term is ×2 the one before.",
+        "16 × 2.",
+        "= 32."
+      ],
       "answer": "32"
     }
   ],
@@ -80,74 +160,140 @@
   "practice": {
     "easy": [
       {
-        "id": "n20-e1", "type": "number",
+        "id": "n20-e1",
+        "type": "number",
         "q": "6, 12, 18, 24, … what comes next?",
         "answer": "30",
-        "hintLadder": ["Jump of 6.", "24 + 6.", "Thirty."]
+        "hintLadder": [
+          "Jump of 6.",
+          "24 + 6.",
+          "Thirty."
+        ]
       },
       {
-        "id": "n20-e2", "type": "number",
+        "id": "n20-e2",
+        "type": "number",
         "q": "Doubling: 1, 2, 4, 8, … what comes next?",
         "answer": "16",
-        "hintLadder": ["Multiply by 2 each time.", "8 × 2.", "Sixteen."]
+        "hintLadder": [
+          "Multiply by 2 each time.",
+          "8 × 2.",
+          "Sixteen."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n20-m1", "type": "number",
+        "id": "n20-m1",
+        "type": "number",
         "q": "Position rule term = position × 4. What is the 7th term?",
         "answer": "28",
-        "hintLadder": ["Multiply position by 4.", "7 × 4.", "Twenty-eight."]
+        "hintLadder": [
+          "Multiply position by 4.",
+          "7 × 4.",
+          "Twenty-eight."
+        ]
       },
       {
-        "id": "n20-m2", "type": "number",
+        "id": "n20-m2",
+        "type": "number",
         "q": "3, 6, 12, 24, … what comes next?",
         "answer": "48",
-        "hintLadder": ["Each term doubles.", "24 × 2.", "Forty-eight."]
+        "hintLadder": [
+          "Each term doubles.",
+          "24 × 2.",
+          "Forty-eight."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n20-c1", "type": "number",
+        "id": "n20-c1",
+        "type": "number",
         "q": "Rows of chairs: 4, 8, 12 (row × 4). How many chairs in row 10?",
         "answer": "40",
-        "hintLadder": ["Position rule × 4.", "10 × 4.", "Forty."]
+        "hintLadder": [
+          "Position rule × 4.",
+          "10 × 4.",
+          "Forty."
+        ]
       },
       {
-        "id": "n20-c2", "type": "mcq",
+        "id": "n20-c2",
+        "type": "mcq",
         "q": "Sana sees 2, 4, 8, 16 and says 'add 2, add 4…'. What's the simplest rule?",
-        "options": [ { "label": "Multiply by 2 each time (doubling)" }, { "label": "Add a bigger number each time", "mistakeTag": "add-vs-multiply" } ],
+        "options": [
+          {
+            "label": "Multiply by 2 each time (doubling)"
+          },
+          {
+            "label": "Add a bigger number each time",
+            "mistakeTag": "add-vs-multiply"
+          }
+        ],
         "answer": "Multiply by 2 each time (doubling)",
-        "hintLadder": ["Each term is twice the one before.", "4=2×2, 8=4×2.", "It doubles."]
+        "hintLadder": [
+          "Each term is twice the one before.",
+          "4=2×2, 8=4×2.",
+          "It doubles."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n20-x1", "type": "number",
+        "id": "n20-x1",
+        "type": "number",
         "q": "5, 10, 15, 20, … what comes next?",
         "answer": "25",
-        "hintLadder": ["Jump of 5.", "20 + 5.", "Twenty-five."]
+        "hintLadder": [
+          "Jump of 5.",
+          "20 + 5.",
+          "Twenty-five."
+        ]
       },
       {
-        "id": "n20-x2", "type": "number",
+        "id": "n20-x2",
+        "type": "number",
         "q": "Position rule term = position × 3. The 9th term is?",
         "answer": "27",
-        "hintLadder": ["Multiply position by 3.", "9 × 3.", "Twenty-seven."]
+        "hintLadder": [
+          "Multiply position by 3.",
+          "9 × 3.",
+          "Twenty-seven."
+        ]
       },
       {
-        "id": "n20-x3", "type": "number",
+        "id": "n20-x3",
+        "type": "number",
         "q": "Doubling: 5, 10, 20, 40, … what comes next?",
         "answer": "80",
-        "hintLadder": ["Multiply by 2.", "40 × 2.", "Eighty."]
+        "hintLadder": [
+          "Multiply by 2.",
+          "40 × 2.",
+          "Eighty."
+        ]
       },
       {
-        "id": "n20-x4", "type": "mcq",
+        "id": "n20-x4",
+        "type": "mcq",
         "q": "To find the 20th term quickly you should…",
-        "options": [ { "label": "Use a position rule" }, { "label": "List all 20 terms", "mistakeTag": "listing-instead-of-rule" } ],
+        "options": [
+          {
+            "label": "Use a position rule"
+          },
+          {
+            "label": "List all 20 terms",
+            "mistakeTag": "listing-instead-of-rule"
+          }
+        ],
         "answer": "Use a position rule",
-        "hintLadder": ["Listing is slow and slippy.", "Find term = position × ?.", "Jump straight there."]
+        "hintLadder": [
+          "Listing is slow and slippy.",
+          "Find term = position × ?.",
+          "Jump straight there."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -156,7 +302,11 @@
   "teachBackPrompt": "Build a growing pattern with blocks or draw rows (like 3, 6, 9…). Show a grown-up and explain the rule in words, then use your rule to say how many would be in the 10th step without building it.",
   "revisionCard": {
     "summary": "Patterns can GROW (add a fixed number), DOUBLE (×2), or follow a POSITION rule (term = position × something). Check two gaps to tell add from multiply. Use the position rule to jump straight to any term.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -165,5 +315,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Special sequences: squares, cubes, Fibonacci",
+    "unpack": "Squares 1,4,9,16. Cubes 1,8,27. Fibonacci 1,1,2,3,5,8 (add the last two). Recognise them on sight."
+  },
+  "studentQuestions": [
+    {
+      "q": "What is the Fibonacci pattern?",
+      "a": "Each number is the sum of the two before it: 1,1,2,3,5,8,13. It appears all over nature."
+    },
+    {
+      "q": "How do I spot square numbers?",
+      "a": "1,4,9,16,25 - counting numbers times themselves. The gaps grow by odd numbers (3,5,7)."
+    }
+  ]
 }

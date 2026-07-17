@@ -623,5 +623,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Compare from the LEFT: more digits wins; same length, go digit by digit",
+    "unpack": "> and < point to the SMALLER number. 'The crocodile mouth eats the bigger number.'"
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I compare 452 and 460?",
+      "a": "Same length, so left to right: hundreds equal, tens 5 vs 6 -> 460 is bigger."
+    },
+    {
+      "q": "Which way does > point?",
+      "a": "The wide open mouth faces the BIGGER number. 7 > 3."
+    }
+  ]
 }

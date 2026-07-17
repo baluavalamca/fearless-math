@@ -3,7 +3,10 @@
   "name": "Computational Thinking — Steps, Rules and Checking",
   "grade": 7,
   "strand": "numbers",
-  "prerequisites": ["ops-18-order-of-operations", "num-18-patterns"],
+  "prerequisites": [
+    "ops-18-order-of-operations",
+    "num-18-patterns"
+  ],
   "whatIsIt": "Computational thinking solves problems the way a computer (or a careful person) would. ALGORITHM: clear step-by-step instructions. DECOMPOSITION: break a big problem into small parts. ABSTRACTION: ignore the extra details, keep what matters. ITERATION: repeat steps in a loop. CONDITIONAL LOGIC: IF this, THEN do that, ELSE do the other. DEBUGGING: find and fix the mistake when something goes wrong.",
   "whyNeeded": "These thinking tools work for maths, everyday tasks and coding. Writing clear steps, breaking problems down, and checking for mistakes make you a faster, more reliable problem-solver — and they are the foundation of computer science.",
   "realLifeUses": [
@@ -13,13 +16,25 @@
     "Checking your working to find a slip (debugging)"
   ],
   "vocabulary": [
-    { "term": "algorithm", "meaning": "A clear, ordered list of steps to do a task." },
-    { "term": "iteration", "meaning": "Repeating a step or set of steps (a loop)." },
-    { "term": "debugging", "meaning": "Finding and fixing a mistake in a process." }
+    {
+      "term": "algorithm",
+      "meaning": "A clear, ordered list of steps to do a task."
+    },
+    {
+      "term": "iteration",
+      "meaning": "Repeating a step or set of steps (a loop)."
+    },
+    {
+      "term": "debugging",
+      "meaning": "Finding and fixing a mistake in a process."
+    }
   ],
   "story": {
     "title": "The Wrong Total",
-    "characters": ["Rohan", "Sir"],
+    "characters": [
+      "Rohan",
+      "Sir"
+    ],
     "text": "Rohan writes an algorithm to add a list: 3, 5, 2. Step by step: start at 0, add each number. But he gets 8. Sir says 'debug it.' Rohan checks each step: 0 + 3 = 3, 3 + 5 = 8, but he forgot to add the 2! He fixes the loop to cover every number: 8 + 2 = 10. 'Found the bug!' he grins.",
     "extractedProblem": "An algorithm adds 3, 5, 2 but stops early at 8. What is the correct total, and what was the bug?",
     "answerInStory": "10 — the loop skipped the last number (2); fixing it gives 8 + 2 = 10."
@@ -28,7 +43,15 @@
     "component": "NumberTrack",
     "props": {
       "tracks": [
-        { "terms": ["start 0", "+3 → 3", "+5 → 8", "+2 → 10"], "label": "algorithm: add each number in a loop" }
+        {
+          "terms": [
+            "start 0",
+            "+3 → 3",
+            "+5 → 8",
+            "+2 → 10"
+          ],
+          "label": "algorithm: add each number in a loop"
+        }
       ]
     },
     "caption": "An algorithm is ordered steps; iteration repeats the 'add the next number' step until the list ends → 10."
@@ -38,9 +61,56 @@
       "title": "Steps, loops, and IF",
       "note": "Break down, repeat, and branch with conditions.",
       "examples": [
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": ["step 1", "step 2", "step 3"], "label": "algorithm order matters" } ] }, "caption": "Do steps in the right order." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [2, 4, 6, 8], "jump": 2, "label": "loop: add 2 each time" } ] }, "caption": "Iteration repeats the same step." },
-        { "component": "ObjectRow", "props": { "sequences": [ { "items": ["🌧️", "➡️", "☂️"], "label": "IF rain THEN umbrella" } ] }, "caption": "Conditional: IF … THEN …" }
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  "step 1",
+                  "step 2",
+                  "step 3"
+                ],
+                "label": "algorithm order matters"
+              }
+            ]
+          },
+          "caption": "Do steps in the right order."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  2,
+                  4,
+                  6,
+                  8
+                ],
+                "jump": 2,
+                "label": "loop: add 2 each time"
+              }
+            ]
+          },
+          "caption": "Iteration repeats the same step."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "🌧️",
+                  "➡️",
+                  "☂️"
+                ],
+                "label": "IF rain THEN umbrella"
+              }
+            ]
+          },
+          "caption": "Conditional: IF … THEN …"
+        }
       ]
     }
   ],
@@ -56,12 +126,20 @@
   "workedExamples": [
     {
       "problem": "Write an algorithm to find the total of 4, 6, 5.",
-      "steps": ["Start with total = 0.", "Loop: add each number in turn: 0+4=4, 4+6=10, 10+5=15.", "Stop at the end of the list. Total = 15."],
+      "steps": [
+        "Start with total = 0.",
+        "Loop: add each number in turn: 0+4=4, 4+6=10, 10+5=15.",
+        "Stop at the end of the list. Total = 15."
+      ],
       "answer": "15"
     },
     {
       "problem": "Rule: IF a number is even THEN halve it, ELSE add 1. Apply it to 7.",
-      "steps": ["Is 7 even? No.", "So use the ELSE branch: add 1.", "7 + 1 = 8."],
+      "steps": [
+        "Is 7 even? No.",
+        "So use the ELSE branch: add 1.",
+        "7 + 1 = 8."
+      ],
       "answer": "8"
     }
   ],
@@ -80,75 +158,149 @@
   "practice": {
     "easy": [
       {
-        "id": "n39-e1", "type": "number",
+        "id": "n39-e1",
+        "type": "number",
         "q": "Algorithm: start at 0, add 3, add 4. What is the total?",
         "answer": "7",
-        "hintLadder": ["0 + 3 = 3.", "3 + 4.", "7."]
+        "hintLadder": [
+          "0 + 3 = 3.",
+          "3 + 4.",
+          "7."
+        ]
       },
       {
-        "id": "n39-e2", "type": "mcq",
+        "id": "n39-e2",
+        "type": "mcq",
         "q": "Finding and fixing a mistake in a process is called…",
-        "options": [ { "label": "Debugging" }, { "label": "Guessing", "mistakeTag": "no-debug" } ],
+        "options": [
+          {
+            "label": "Debugging"
+          },
+          {
+            "label": "Guessing",
+            "mistakeTag": "no-debug"
+          }
+        ],
         "answer": "Debugging",
-        "hintLadder": ["Fixing the bug.", "Check each step.", "Debugging."]
+        "hintLadder": [
+          "Fixing the bug.",
+          "Check each step.",
+          "Debugging."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n39-m1", "type": "number",
+        "id": "n39-m1",
+        "type": "number",
         "q": "Rule: IF even THEN halve, ELSE add 1. Apply to 8.",
         "answer": "4",
-        "hintLadder": ["8 is even.", "Halve it.", "4."]
+        "hintLadder": [
+          "8 is even.",
+          "Halve it.",
+          "4."
+        ]
       },
       {
-        "id": "n39-m2", "type": "number",
+        "id": "n39-m2",
+        "type": "number",
         "q": "Loop: start at 0, add 2 three times. Result?",
         "answer": "6",
-        "hintLadder": ["0+2+2+2.", "2 × 3.", "6."]
+        "hintLadder": [
+          "0+2+2+2.",
+          "2 × 3.",
+          "6."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n39-c1", "type": "number",
+        "id": "n39-c1",
+        "type": "number",
         "q": "Rule: IF number > 10 THEN subtract 10, ELSE keep it. Apply to 14.",
         "answer": "4",
-        "hintLadder": ["14 > 10?", "Yes → subtract 10.", "4."]
+        "hintLadder": [
+          "14 > 10?",
+          "Yes → subtract 10.",
+          "4."
+        ]
       },
       {
-        "id": "n39-c2", "type": "mcq",
+        "id": "n39-c2",
+        "type": "mcq",
         "q": "An algorithm gives the wrong total. Ravi rewrites it from scratch. Better idea?",
-        "options": [ { "label": "Debug — check each step to find the one bug" }, { "label": "Just guess a new answer", "mistakeTag": "no-debug" } ],
+        "options": [
+          {
+            "label": "Debug — check each step to find the one bug"
+          },
+          {
+            "label": "Just guess a new answer",
+            "mistakeTag": "no-debug"
+          }
+        ],
         "answer": "Debug — check each step to find the one bug",
-        "hintLadder": ["Find where it goes wrong.", "Check step by step.", "Debug it."]
+        "hintLadder": [
+          "Find where it goes wrong.",
+          "Check step by step.",
+          "Debug it."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n39-x1", "type": "number",
+        "id": "n39-x1",
+        "type": "number",
         "q": "Algorithm: start 0, add 5, add 5. Total?",
         "answer": "10",
-        "hintLadder": ["0+5+5.", "Add in order.", "10."]
+        "hintLadder": [
+          "0+5+5.",
+          "Add in order.",
+          "10."
+        ]
       },
       {
-        "id": "n39-x2", "type": "number",
+        "id": "n39-x2",
+        "type": "number",
         "q": "Rule: IF even THEN halve, ELSE add 1. Apply to 6.",
         "answer": "3",
-        "hintLadder": ["6 is even.", "Halve.", "3."]
+        "hintLadder": [
+          "6 is even.",
+          "Halve.",
+          "3."
+        ]
       },
       {
-        "id": "n39-x3", "type": "number",
+        "id": "n39-x3",
+        "type": "number",
         "q": "Loop: start 1, double it twice. Result?",
         "answer": "4",
-        "hintLadder": ["1 × 2 = 2.", "2 × 2.", "4."]
+        "hintLadder": [
+          "1 × 2 = 2.",
+          "2 × 2.",
+          "4."
+        ]
       },
       {
-        "id": "n39-x4", "type": "mcq",
+        "id": "n39-x4",
+        "type": "mcq",
         "q": "In an algorithm, the order of steps…",
-        "options": [ { "label": "Matters — do them in sequence" }, { "label": "Never matters", "mistakeTag": "steps-out-of-order" } ],
+        "options": [
+          {
+            "label": "Matters — do them in sequence"
+          },
+          {
+            "label": "Never matters",
+            "mistakeTag": "steps-out-of-order"
+          }
+        ],
         "answer": "Matters — do them in sequence",
-        "hintLadder": ["Like a recipe.", "Order changes the result.", "It matters."]
+        "hintLadder": [
+          "Like a recipe.",
+          "Order changes the result.",
+          "It matters."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -157,7 +309,11 @@
   "teachBackPrompt": "Write a simple algorithm with a grown-up (like the steps to add a short list of numbers, or 'IF it's raining THEN take an umbrella'). Run it on an example, deliberately make one step wrong, and show how you DEBUG it by checking step by step.",
   "revisionCard": {
     "summary": "Computational thinking: ALGORITHM (ordered steps), DECOMPOSITION (break into parts), ABSTRACTION (keep what matters), ITERATION (loops/repeat), CONDITIONAL (IF-THEN-ELSE), DEBUGGING (find & fix the mistake). Order matters; always test and debug.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -166,5 +322,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Break big problems into small steps (an algorithm)",
+    "unpack": "Decompose (split up), spot patterns, ignore the irrelevant (abstraction), write clear steps (algorithm)."
+  },
+  "studentQuestions": [
+    {
+      "q": "What is an algorithm?",
+      "a": "A clear list of steps that solves a problem - like a recipe a computer or person can follow exactly."
+    },
+    {
+      "q": "What is decomposition?",
+      "a": "Breaking a big problem into smaller, easier parts you can solve one at a time."
+    }
+  ]
 }

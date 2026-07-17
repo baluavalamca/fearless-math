@@ -3,7 +3,10 @@
   "name": "Number Systems, Powers and Scientific Notation",
   "grade": 8,
   "strand": "numbers",
-  "prerequisites": ["num-29-rational-numbers", "num-27-squares-roots"],
+  "prerequisites": [
+    "num-29-rational-numbers",
+    "num-27-squares-roots"
+  ],
   "whatIsIt": "Numbers come in nested families. NATURAL: 1, 2, 3… WHOLE: add 0. INTEGERS: add negatives. RATIONAL: fractions/decimals that stop or repeat. IRRATIONAL: never-ending, non-repeating decimals like √2 and π. REAL: rationals + irrationals together. POWERS (exponents) write repeated multiply: 10³ = 1000. SCIENTIFIC NOTATION writes huge or tiny numbers neatly: 3,00,000 = 3 × 10⁵.",
   "whyNeeded": "Knowing which family a number belongs to, and using powers and scientific notation, is essential for science (distances, sizes of atoms), computing (data sizes), and all higher maths.",
   "realLifeUses": [
@@ -13,13 +16,25 @@
     "Data sizes: a gigabyte ≈ 10⁹ bytes"
   ],
   "vocabulary": [
-    { "term": "irrational number", "meaning": "A decimal that never ends and never repeats, like √2 or π." },
-    { "term": "exponent (power)", "meaning": "How many times to multiply: 2⁴ = 2×2×2×2 = 16." },
-    { "term": "scientific notation", "meaning": "A number as (1–10) × a power of 10, e.g. 4500 = 4.5 × 10³." }
+    {
+      "term": "irrational number",
+      "meaning": "A decimal that never ends and never repeats, like √2 or π."
+    },
+    {
+      "term": "exponent (power)",
+      "meaning": "How many times to multiply: 2⁴ = 2×2×2×2 = 16."
+    },
+    {
+      "term": "scientific notation",
+      "meaning": "A number as (1–10) × a power of 10, e.g. 4500 = 4.5 × 10³."
+    }
   ],
   "story": {
     "title": "The Big and the Tiny",
-    "characters": ["Diya", "Sir"],
+    "characters": [
+      "Diya",
+      "Sir"
+    ],
     "text": "Sir writes 300000 on the board. 'Write it shorter,' he says. Diya counts five zeros: 3 followed by 5 zeros is 3 × 10⁵. 'And is √2 rational?' Sir asks. Diya recalls: √2 = 1.41421… never ends, never repeats. 'It's irrational!' Sir nods — 'real numbers hold both.'",
     "extractedProblem": "Write 300000 in scientific notation.",
     "answerInStory": "3 × 10⁵ — 3 with the decimal point moved 5 places."
@@ -28,7 +43,16 @@
     "component": "NumberTrack",
     "props": {
       "tracks": [
-        { "terms": ["N: 1,2,3", "W: 0,1,2", "Z: −1,0,1", "Q: 1/2", "R: √2, π"], "label": "nested number families" }
+        {
+          "terms": [
+            "N: 1,2,3",
+            "W: 0,1,2",
+            "Z: −1,0,1",
+            "Q: 1/2",
+            "R: √2, π"
+          ],
+          "label": "nested number families"
+        }
       ]
     },
     "caption": "Naturals ⊂ Wholes ⊂ Integers ⊂ Rationals ⊂ Reals; irrationals (√2, π) fill the gaps to make the reals."
@@ -38,9 +62,52 @@
       "title": "Families, powers, big/small",
       "note": "Irrationals never stop/repeat; powers pack repeated ×10.",
       "examples": [
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [1, 10, 100, 1000], "label": "10¹, 10², 10³" } ] }, "caption": "Each power of 10 adds a zero." },
-        { "component": "NumberLine", "props": { "lines": [ { "parts": 2, "mark": 1, "label": "√2 ≈ 1.41 (irrational)", "showLabels": true } ] }, "caption": "√2 sits between 1 and 2, never exactly a fraction." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": ["4500", "= 4.5 × 10³"], "label": "scientific notation" } ] }, "caption": "Move the point, count the places." }
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  10,
+                  100,
+                  1000
+                ],
+                "label": "10¹, 10², 10³"
+              }
+            ]
+          },
+          "caption": "Each power of 10 adds a zero."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 2,
+                "mark": 1,
+                "label": "√2 ≈ 1.41 (irrational)",
+                "showLabels": true
+              }
+            ]
+          },
+          "caption": "√2 sits between 1 and 2, never exactly a fraction."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  "4500",
+                  "= 4.5 × 10³"
+                ],
+                "label": "scientific notation"
+              }
+            ]
+          },
+          "caption": "Move the point, count the places."
+        }
       ]
     }
   ],
@@ -56,12 +123,20 @@
   "workedExamples": [
     {
       "problem": "Write 45000 in scientific notation.",
-      "steps": ["Put one digit before the point: 4.5", "Count places moved: 4.", "= 4.5 × 10⁴."],
+      "steps": [
+        "Put one digit before the point: 4.5",
+        "Count places moved: 4.",
+        "= 4.5 × 10⁴."
+      ],
       "answer": "4.5 × 10⁴"
     },
     {
       "problem": "Is √9 rational or irrational?",
-      "steps": ["√9 = 3 exactly.", "3 is a whole number, which is rational.", "So √9 is rational (only non-perfect-square roots like √2 are irrational)."],
+      "steps": [
+        "√9 = 3 exactly.",
+        "3 is a whole number, which is rational.",
+        "So √9 is rational (only non-perfect-square roots like √2 are irrational)."
+      ],
       "answer": "rational"
     }
   ],
@@ -80,78 +155,176 @@
   "practice": {
     "easy": [
       {
-        "id": "n30-e1", "type": "number",
+        "id": "n30-e1",
+        "type": "number",
         "q": "What is 10³? (write like 1000)",
         "answer": "1000",
-        "hintLadder": ["10 × 10 × 10.", "Three tens multiplied.", "1000."]
+        "hintLadder": [
+          "10 × 10 × 10.",
+          "Three tens multiplied.",
+          "1000."
+        ]
       },
       {
-        "id": "n30-e2", "type": "mcq",
+        "id": "n30-e2",
+        "type": "mcq",
         "q": "Which of these is irrational?",
-        "options": [ { "label": "√2" }, { "label": "1/2", "mistakeTag": "all-roots-irrational" } ],
+        "options": [
+          {
+            "label": "√2"
+          },
+          {
+            "label": "1/2",
+            "mistakeTag": "all-roots-irrational"
+          }
+        ],
         "answer": "√2",
-        "hintLadder": ["Never ends or repeats?", "√2 = 1.414…", "√2."]
+        "hintLadder": [
+          "Never ends or repeats?",
+          "√2 = 1.414…",
+          "√2."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n30-m1", "type": "number",
+        "id": "n30-m1",
+        "type": "number",
         "q": "What is 2⁵? (write like 32)",
         "answer": "32",
-        "hintLadder": ["2×2×2×2×2.", "Multiply step by step.", "32."]
+        "hintLadder": [
+          "2×2×2×2×2.",
+          "Multiply step by step.",
+          "32."
+        ]
       },
       {
-        "id": "n30-m2", "type": "mcq",
+        "id": "n30-m2",
+        "type": "mcq",
         "q": "5000 in scientific notation is…",
-        "options": [ { "label": "5 × 10³" }, { "label": "5 × 10⁴", "mistakeTag": "power-means-multiply" } ],
+        "options": [
+          {
+            "label": "5 × 10³"
+          },
+          {
+            "label": "5 × 10⁴",
+            "mistakeTag": "power-means-multiply"
+          }
+        ],
         "answer": "5 × 10³",
-        "hintLadder": ["5 with 3 zeros.", "Move the point 3 places.", "5 × 10³."]
+        "hintLadder": [
+          "5 with 3 zeros.",
+          "Move the point 3 places.",
+          "5 × 10³."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n30-c1", "type": "mcq",
+        "id": "n30-c1",
+        "type": "mcq",
         "q": "Is √16 rational or irrational?",
-        "options": [ { "label": "Rational — it equals 4" }, { "label": "Irrational", "mistakeTag": "all-roots-irrational" } ],
+        "options": [
+          {
+            "label": "Rational — it equals 4"
+          },
+          {
+            "label": "Irrational",
+            "mistakeTag": "all-roots-irrational"
+          }
+        ],
         "answer": "Rational — it equals 4",
-        "hintLadder": ["16 is a perfect square.", "√16 = 4.", "Rational."]
+        "hintLadder": [
+          "16 is a perfect square.",
+          "√16 = 4.",
+          "Rational."
+        ]
       },
       {
-        "id": "n30-c2", "type": "mcq",
+        "id": "n30-c2",
+        "type": "mcq",
         "q": "Ravi writes 10³ = 30. What's the fix?",
-        "options": [ { "label": "10³ = 10×10×10 = 1000" }, { "label": "30 is correct", "mistakeTag": "power-means-multiply" } ],
+        "options": [
+          {
+            "label": "10³ = 10×10×10 = 1000"
+          },
+          {
+            "label": "30 is correct",
+            "mistakeTag": "power-means-multiply"
+          }
+        ],
         "answer": "10³ = 10×10×10 = 1000",
-        "hintLadder": ["Exponent = repeated multiply.", "Three 10s multiplied.", "1000."]
+        "hintLadder": [
+          "Exponent = repeated multiply.",
+          "Three 10s multiplied.",
+          "1000."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n30-x1", "type": "number",
+        "id": "n30-x1",
+        "type": "number",
         "q": "What is 10²? (write like 100)",
         "answer": "100",
-        "hintLadder": ["10 × 10.", "Two tens.", "100."]
+        "hintLadder": [
+          "10 × 10.",
+          "Two tens.",
+          "100."
+        ]
       },
       {
-        "id": "n30-x2", "type": "number",
+        "id": "n30-x2",
+        "type": "number",
         "q": "What is 3³? (write like 27)",
         "answer": "27",
-        "hintLadder": ["3 × 3 × 3.", "9 × 3.", "27."]
+        "hintLadder": [
+          "3 × 3 × 3.",
+          "9 × 3.",
+          "27."
+        ]
       },
       {
-        "id": "n30-x3", "type": "mcq",
+        "id": "n30-x3",
+        "type": "mcq",
         "q": "Which number is irrational?",
-        "options": [ { "label": "π" }, { "label": "0.5", "mistakeTag": "all-roots-irrational" } ],
+        "options": [
+          {
+            "label": "π"
+          },
+          {
+            "label": "0.5",
+            "mistakeTag": "all-roots-irrational"
+          }
+        ],
         "answer": "π",
-        "hintLadder": ["Never ends or repeats.", "π = 3.14159…", "π."]
+        "hintLadder": [
+          "Never ends or repeats.",
+          "π = 3.14159…",
+          "π."
+        ]
       },
       {
-        "id": "n30-x4", "type": "mcq",
+        "id": "n30-x4",
+        "type": "mcq",
         "q": "60000 in scientific notation is…",
-        "options": [ { "label": "6 × 10⁴" }, { "label": "6 × 10⁵", "mistakeTag": "power-means-multiply" } ],
+        "options": [
+          {
+            "label": "6 × 10⁴"
+          },
+          {
+            "label": "6 × 10⁵",
+            "mistakeTag": "power-means-multiply"
+          }
+        ],
         "answer": "6 × 10⁴",
-        "hintLadder": ["6 with 4 zeros.", "Move point 4 places.", "6 × 10⁴."]
+        "hintLadder": [
+          "6 with 4 zeros.",
+          "Move point 4 places.",
+          "6 × 10⁴."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -160,7 +333,11 @@
   "teachBackPrompt": "Show a grown-up how to write a big number (like 3,00,000) as 3 × 10⁵ by counting the zeros, and explain why √2 and π are irrational (they never end or repeat) while √9 is rational (= 3).",
   "revisionCard": {
     "summary": "Families nest: Naturals ⊂ Wholes ⊂ Integers ⊂ Rationals ⊂ Reals; irrationals (√2, π: never end/repeat) fill the reals. Exponent aⁿ = repeated multiply (10³ = 1000, not 30). Scientific notation = (1–10) × power of 10; big → +power, tiny → −power. Perfect-square roots are rational.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -169,5 +346,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "The number family: naturals, whole, integers, rationals, reals",
+    "unpack": "Naturals 1,2,3; add 0 -> whole; add negatives -> integers; add fractions -> rationals; add irrationals -> reals."
+  },
+  "studentQuestions": [
+    {
+      "q": "Whole numbers vs integers?",
+      "a": "Whole numbers are 0,1,2,3... Integers add the negatives: ...-2,-1,0,1,2..."
+    },
+    {
+      "q": "Where do fractions fit?",
+      "a": "They are rational numbers (any p/q). With irrationals like sqrt 2 they make the reals."
+    }
+  ]
 }

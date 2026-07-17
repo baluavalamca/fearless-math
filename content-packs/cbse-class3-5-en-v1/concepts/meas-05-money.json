@@ -3,7 +3,9 @@
   "name": "Money — Rupees, Paise and Making Amounts",
   "grade": 3,
   "strand": "measurement",
-  "prerequisites": ["num-01-place-value"],
+  "prerequisites": [
+    "num-01-place-value"
+  ],
   "whatIsIt": "Money comes in coins and notes with different values (₹1, ₹2, ₹5, ₹10, ₹20…). To MAKE an amount we add up coins and notes. To find CHANGE we subtract what we paid minus the cost. ₹1 = 100 paise, so money works just like place value — bigger notes are like the tens and hundreds.",
   "whyNeeded": "Buying anything — a pencil, a snack, a bus ticket — means adding up money and checking your change. Handling money confidently is one of the most useful everyday maths skills there is.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Saving coins in a piggy bank and totalling them"
   ],
   "vocabulary": [
-    { "term": "rupee (₹)", "meaning": "The main unit of Indian money; ₹1 = 100 paise." },
-    { "term": "amount", "meaning": "The total value of coins and notes together." },
-    { "term": "change", "meaning": "Money returned = amount paid − cost." }
+    {
+      "term": "rupee (₹)",
+      "meaning": "The main unit of Indian money; ₹1 = 100 paise."
+    },
+    {
+      "term": "amount",
+      "meaning": "The total value of coins and notes together."
+    },
+    {
+      "term": "change",
+      "meaning": "Money returned = amount paid − cost."
+    }
   ],
   "story": {
     "title": "Ishaan Buys a Pencil",
-    "characters": ["Ishaan", "the shopkeeper"],
+    "characters": [
+      "Ishaan",
+      "the shopkeeper"
+    ],
     "text": "Ishaan wants a pencil that costs ₹7. He has a ₹10 note. 'How will you make sure the change is right?' asks the shopkeeper. Ishaan thinks: 'I gave ₹10, the pencil is ₹7, so change is 10 − 7 = ₹3.' The shopkeeper hands back a ₹2 coin and a ₹1 coin. 'Two plus one is three — correct!' smiles Ishaan.",
     "extractedProblem": "Ishaan pays ₹10 for a ₹7 pencil. How much change should he get?",
     "answerInStory": "₹3 — because 10 − 7 = 3."
@@ -28,7 +42,21 @@
     "component": "BarModel",
     "props": {
       "bars": [
-        { "label": "Make ₹17", "parts": [ { "value": 10 }, { "value": 5 }, { "value": 2 } ], "showTotal": true }
+        {
+          "label": "Make ₹17",
+          "parts": [
+            {
+              "value": 10
+            },
+            {
+              "value": 5
+            },
+            {
+              "value": 2
+            }
+          ],
+          "showTotal": true
+        }
       ]
     },
     "caption": "₹10 + ₹5 + ₹2 = ₹17. Add coins and notes to make an amount."
@@ -38,9 +66,64 @@
       "title": "Make amounts and find change",
       "note": "Add notes/coins to make an amount; subtract for change.",
       "examples": [
-        { "component": "BarModel", "props": { "bars": [ { "label": "₹20 + ₹5 = ₹25", "parts": [ { "value": 20 }, { "value": 5 } ], "showTotal": true } ] }, "caption": "Two coins/notes make ₹25." },
-        { "component": "BarModel", "props": { "bars": [ { "label": "Paid ₹20, cost ₹12", "parts": [ { "value": 12 }, { "value": 8 } ], "showTotal": true } ] }, "caption": "Cost ₹12 + change ₹8 = ₹20 paid." },
-        { "component": "ObjectRow", "props": { "sequences": [ { "items": ["🪙", "🪙", "🪙", "🪙", "🪙"], "label": "Five ₹2 coins = ₹10" } ] }, "caption": "5 × ₹2 = ₹10." }
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "₹20 + ₹5 = ₹25",
+                "parts": [
+                  {
+                    "value": 20
+                  },
+                  {
+                    "value": 5
+                  }
+                ],
+                "showTotal": true
+              }
+            ]
+          },
+          "caption": "Two coins/notes make ₹25."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "Paid ₹20, cost ₹12",
+                "parts": [
+                  {
+                    "value": 12
+                  },
+                  {
+                    "value": 8
+                  }
+                ],
+                "showTotal": true
+              }
+            ]
+          },
+          "caption": "Cost ₹12 + change ₹8 = ₹20 paid."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "🪙",
+                  "🪙",
+                  "🪙",
+                  "🪙",
+                  "🪙"
+                ],
+                "label": "Five ₹2 coins = ₹10"
+              }
+            ]
+          },
+          "caption": "5 × ₹2 = ₹10."
+        }
       ]
     }
   ],
@@ -56,12 +139,20 @@
   "workedExamples": [
     {
       "problem": "Riya buys a book for ₹35 and pays with a ₹50 note. What change should she get?",
-      "steps": ["Change = paid − cost.", "50 − 35.", "= ₹15 change."],
+      "steps": [
+        "Change = paid − cost.",
+        "50 − 35.",
+        "= ₹15 change."
+      ],
       "answer": "₹15"
     },
     {
       "problem": "Make ₹28 using notes and coins.",
-      "steps": ["Start with the biggest note that fits: ₹20.", "₹28 − ₹20 = ₹8 left.", "₹8 = ₹5 + ₹2 + ₹1. So ₹20 + ₹5 + ₹2 + ₹1 = ₹28."],
+      "steps": [
+        "Start with the biggest note that fits: ₹20.",
+        "₹28 − ₹20 = ₹8 left.",
+        "₹8 = ₹5 + ₹2 + ₹1. So ₹20 + ₹5 + ₹2 + ₹1 = ₹28."
+      ],
       "answer": "₹20 + ₹5 + ₹2 + ₹1"
     }
   ],
@@ -80,75 +171,149 @@
   "practice": {
     "easy": [
       {
-        "id": "me05-e1", "type": "number",
+        "id": "me05-e1",
+        "type": "number",
         "q": "₹10 + ₹5 = how many rupees?",
         "answer": "15",
-        "hintLadder": ["Add the two values.", "10 + 5.", "Fifteen."]
+        "hintLadder": [
+          "Add the two values.",
+          "10 + 5.",
+          "Fifteen."
+        ]
       },
       {
-        "id": "me05-e2", "type": "mcq",
+        "id": "me05-e2",
+        "type": "mcq",
         "q": "To find change, you should…",
-        "options": [ { "label": "Subtract cost from money paid" }, { "label": "Add cost to money paid", "mistakeTag": "change-added-not-subtracted" } ],
+        "options": [
+          {
+            "label": "Subtract cost from money paid"
+          },
+          {
+            "label": "Add cost to money paid",
+            "mistakeTag": "change-added-not-subtracted"
+          }
+        ],
         "answer": "Subtract cost from money paid",
-        "hintLadder": ["Change is what's left.", "Paid − cost.", "Subtract."]
+        "hintLadder": [
+          "Change is what's left.",
+          "Paid − cost.",
+          "Subtract."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "me05-m1", "type": "number",
+        "id": "me05-m1",
+        "type": "number",
         "q": "A snack costs ₹18. You pay ₹25. How much change (in ₹)?",
         "answer": "7",
-        "hintLadder": ["Change = paid − cost.", "25 − 18.", "Seven."]
+        "hintLadder": [
+          "Change = paid − cost.",
+          "25 − 18.",
+          "Seven."
+        ]
       },
       {
-        "id": "me05-m2", "type": "number",
+        "id": "me05-m2",
+        "type": "number",
         "q": "How many rupees is ₹20 + ₹10 + ₹5?",
         "answer": "35",
-        "hintLadder": ["Add all three.", "20 + 10 + 5.", "Thirty-five."]
+        "hintLadder": [
+          "Add all three.",
+          "20 + 10 + 5.",
+          "Thirty-five."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "me05-c1", "type": "number",
+        "id": "me05-c1",
+        "type": "number",
         "q": "A toy costs ₹64. You pay with a ₹100 note. What change (in ₹)?",
         "answer": "36",
-        "hintLadder": ["Change = paid − cost.", "100 − 64.", "Thirty-six."]
+        "hintLadder": [
+          "Change = paid − cost.",
+          "100 − 64.",
+          "Thirty-six."
+        ]
       },
       {
-        "id": "me05-c2", "type": "mcq",
+        "id": "me05-c2",
+        "type": "mcq",
         "q": "Meena has 50 paise. She says 'I have ₹50!' What's wrong?",
-        "options": [ { "label": "50 paise is half a rupee, not ₹50" }, { "label": "Nothing — paise and rupees are the same", "mistakeTag": "rupee-paise-mix" } ],
+        "options": [
+          {
+            "label": "50 paise is half a rupee, not ₹50"
+          },
+          {
+            "label": "Nothing — paise and rupees are the same",
+            "mistakeTag": "rupee-paise-mix"
+          }
+        ],
         "answer": "50 paise is half a rupee, not ₹50",
-        "hintLadder": ["₹1 = 100 paise.", "50 paise is less than one rupee.", "Not ₹50."]
+        "hintLadder": [
+          "₹1 = 100 paise.",
+          "50 paise is less than one rupee.",
+          "Not ₹50."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "me05-x1", "type": "number",
+        "id": "me05-x1",
+        "type": "number",
         "q": "₹10 + ₹10 + ₹5 = ? rupees",
         "answer": "25",
-        "hintLadder": ["Add all.", "10 + 10 + 5.", "Twenty-five."]
+        "hintLadder": [
+          "Add all.",
+          "10 + 10 + 5.",
+          "Twenty-five."
+        ]
       },
       {
-        "id": "me05-x2", "type": "number",
+        "id": "me05-x2",
+        "type": "number",
         "q": "A pen costs ₹12. You pay ₹20. Change in ₹?",
         "answer": "8",
-        "hintLadder": ["Paid − cost.", "20 − 12.", "Eight."]
+        "hintLadder": [
+          "Paid − cost.",
+          "20 − 12.",
+          "Eight."
+        ]
       },
       {
-        "id": "me05-x3", "type": "number",
+        "id": "me05-x3",
+        "type": "number",
         "q": "How many paise make ₹1?",
         "answer": "100",
-        "hintLadder": ["One rupee split into paise.", "It is one hundred.", "100."]
+        "hintLadder": [
+          "One rupee split into paise.",
+          "It is one hundred.",
+          "100."
+        ]
       },
       {
-        "id": "me05-x4", "type": "mcq",
+        "id": "me05-x4",
+        "type": "mcq",
         "q": "You paid ₹50 for a ₹42 item. To check the change is right, cost + change should equal…",
-        "options": [ { "label": "₹50 — what you paid" }, { "label": "₹92 — cost plus paid", "mistakeTag": "change-added-not-subtracted" } ],
+        "options": [
+          {
+            "label": "₹50 — what you paid"
+          },
+          {
+            "label": "₹92 — cost plus paid",
+            "mistakeTag": "change-added-not-subtracted"
+          }
+        ],
         "answer": "₹50 — what you paid",
-        "hintLadder": ["Cost + change = paid.", "42 + 8 = 50.", "It equals what you paid."]
+        "hintLadder": [
+          "Cost + change = paid.",
+          "42 + 8 = 50.",
+          "It equals what you paid."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -157,7 +322,11 @@
   "teachBackPrompt": "Set up a pretend shop with a few items and price tags. 'Sell' something to a grown-up, take their money, and explain out loud how you worked out the exact change.",
   "revisionCard": {
     "summary": "Make an amount by ADDING notes and coins (₹10+₹5+₹2=₹17). Find change by SUBTRACTING: change = paid − cost. ₹1 = 100 paise, so keep rupees and paise separate. Check: cost + change = paid.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -166,5 +335,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Rupees and paise: add the same columns, count change UP",
+    "unpack": "100 paise = 1 rupee. Line up decimal points. Change = count up from cost to cash given."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I give change?",
+      "a": "Count UP from the price to the money paid. Cost 65, paid 100: 65->70->100 is 35."
+    },
+    {
+      "q": "How do I add amounts of money?",
+      "a": "Line up the decimal points and add like decimals - paise under paise, rupees under rupees."
+    }
+  ]
 }

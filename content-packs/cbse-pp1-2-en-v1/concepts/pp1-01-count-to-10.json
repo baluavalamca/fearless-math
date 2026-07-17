@@ -607,5 +607,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "Touch and count: one number for each thing",
+    "unpack": "Say 1,2,3... touching each object once. The LAST number tells how many. Do not skip or double-count."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I count without missing any?",
+      "a": "Touch each thing once as you say the next number, and move it aside. The last number is the total."
+    },
+    {
+      "q": "What does the last number tell me?",
+      "a": "How many there are altogether - the whole point of counting."
+    }
+  ]
 }

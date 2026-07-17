@@ -483,5 +483,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "60 seconds = 1 minute, 60 minutes = 1 hour, 24 hours = 1 day",
+    "unpack": "Analog: count minutes in 5s. 24-hour: after noon add 12 (2 pm = 14:00). Elapsed time: count on."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I convert 2 pm to 24-hour?",
+      "a": "Add 12 to afternoon times: 2 pm = 14:00. Morning stays the same (9 am = 09:00)."
+    },
+    {
+      "q": "How do I find elapsed time?",
+      "a": "Count on from start to end, hours then minutes - 3:40 to 5:10 is 1 hour 30 minutes."
+    }
+  ]
 }

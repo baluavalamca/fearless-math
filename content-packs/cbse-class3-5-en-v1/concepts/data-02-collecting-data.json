@@ -467,5 +467,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Tally in fives: four lines, then a slash across",
+    "unpack": "|||| with a diagonal = 5. Collect, tally, then count in 5s. A table organises the raw data first."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why tally in groups of five?",
+      "a": "The 5th mark slashes across the four, so you count in fast 5s and rarely miscount."
+    },
+    {
+      "q": "What's the first step with data?",
+      "a": "Collect it, then organise into a tally table before drawing any graph."
+    }
+  ]
 }

@@ -781,5 +781,19 @@
       "TENS: multiply the two tens vertically (left). Carry as you go."
     ],
     "example": "23 × 21: units 3×1=3; cross 2×1+3×2=8; tens 2×2=4 → 483."
-  }
+  },
+  "rememberIt": {
+    "hook": "Long multiplication: multiply by ones, then tens (shift a place), add",
+    "unpack": "23 x 14: 23x4 = 92, then 23x10 = 230 (write a 0 first), add 92 + 230 = 322."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why put a 0 on the second line?",
+      "a": "The second digit is TENS, so its answer is ten times bigger - the 0 shifts it into the tens place."
+    },
+    {
+      "q": "How do I do 23 x 14?",
+      "a": "23x4 = 92, then 23x10 = 230, add: 322."
+    }
+  ]
 }

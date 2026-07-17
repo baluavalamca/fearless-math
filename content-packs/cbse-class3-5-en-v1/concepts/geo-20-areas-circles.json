@@ -3,7 +3,10 @@
   "name": "Areas Related to Circles — Sectors and Segments",
   "grade": 9,
   "strand": "geometry",
-  "prerequisites": ["geo-11-circles", "geo-15-area-formulas"],
+  "prerequisites": [
+    "geo-11-circles",
+    "geo-15-area-formulas"
+  ],
   "whatIsIt": "A whole circle has area πr² and boundary (circumference) 2πr. A SECTOR is a pizza-slice piece with an angle θ at the centre: its area is (θ/360) × πr² and its curved arc length is (θ/360) × 2πr. A SEGMENT is the region between a chord and the arc: segment area = sector area − triangle area.",
   "whyNeeded": "Real round things are often used in parts: a slice of a circular field to irrigate, the metal in a fan's swing, the area a windscreen wiper cleans, or the crust length of a pizza slice. Sector and segment formulas measure exactly the part you use, not the whole circle.",
   "realLifeUses": [
@@ -13,14 +16,29 @@
     "Land in a pie-slice plot between two boundary roads"
   ],
   "vocabulary": [
-    { "term": "sector", "meaning": "A pizza-slice part of a circle bounded by two radii and an arc; area = (θ/360) × πr²." },
-    { "term": "arc length", "meaning": "The curved edge of a sector: (θ/360) × 2πr." },
-    { "term": "segment", "meaning": "The region between a chord and its arc; area = sector area − triangle area." },
-    { "term": "central angle (θ)", "meaning": "The angle the sector makes at the centre, in degrees." }
+    {
+      "term": "sector",
+      "meaning": "A pizza-slice part of a circle bounded by two radii and an arc; area = (θ/360) × πr²."
+    },
+    {
+      "term": "arc length",
+      "meaning": "The curved edge of a sector: (θ/360) × 2πr."
+    },
+    {
+      "term": "segment",
+      "meaning": "The region between a chord and its arc; area = sector area − triangle area."
+    },
+    {
+      "term": "central angle (θ)",
+      "meaning": "The angle the sector makes at the centre, in degrees."
+    }
   ],
   "story": {
     "title": "Fatima's Fan Slice",
-    "characters": ["Fatima", "Abbu"],
+    "characters": [
+      "Fatima",
+      "Abbu"
+    ],
     "text": "A table fan blade sweeps a quarter turn (90°) with a reach of 14 cm. 'How much area does it fan?' Fatima asks. Abbu says a quarter of a circle is a sector with θ = 90°. Area = (90/360) × (22/7) × 14² = ¼ × (22/7) × 196 = ¼ × 616 = 154 cm². 'One quarter of the whole circle's area,' he nods.",
     "extractedProblem": "A sector has angle 90° and radius 14 cm. Find its area (π = 22/7).",
     "answerInStory": "154 cm² — (90/360) × (22/7) × 196 = ¼ × 616 = 154."
@@ -39,9 +57,36 @@
       "title": "Fraction of the whole circle",
       "note": "A sector is θ/360 of the circle — use that fraction of πr² for area and of 2πr for arc.",
       "examples": [
-        { "component": "PizzaSlices", "props": { "slices": 2, "shaded": 1, "label": "180° = half circle" }, "caption": "θ = 180° is half: area = ½ πr²." },
-        { "component": "PizzaSlices", "props": { "slices": 6, "shaded": 1, "label": "60° = one sixth" }, "caption": "θ = 60° is 60/360 = 1/6 of the circle." },
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "circle", "label": "segment = sector − triangle" } ] }, "caption": "A segment is the sector with its triangle removed." }
+        {
+          "component": "PizzaSlices",
+          "props": {
+            "slices": 2,
+            "shaded": 1,
+            "label": "180° = half circle"
+          },
+          "caption": "θ = 180° is half: area = ½ πr²."
+        },
+        {
+          "component": "PizzaSlices",
+          "props": {
+            "slices": 6,
+            "shaded": 1,
+            "label": "60° = one sixth"
+          },
+          "caption": "θ = 60° is 60/360 = 1/6 of the circle."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "circle",
+                "label": "segment = sector − triangle"
+              }
+            ]
+          },
+          "caption": "A segment is the sector with its triangle removed."
+        }
       ]
     }
   ],
@@ -58,12 +103,20 @@
   "workedExamples": [
     {
       "problem": "Find the area of a 90° sector of radius 14 cm (π = 22/7).",
-      "steps": ["Fraction = 90/360 = 1/4.", "πr² = (22/7) × 14 × 14 = 22 × 28 = 616.", "Sector = 1/4 × 616 = 154 cm²."],
+      "steps": [
+        "Fraction = 90/360 = 1/4.",
+        "πr² = (22/7) × 14 × 14 = 22 × 28 = 616.",
+        "Sector = 1/4 × 616 = 154 cm²."
+      ],
       "answer": "154"
     },
     {
       "problem": "Find the arc length of a 90° sector of radius 7 cm (π = 22/7).",
-      "steps": ["Fraction = 90/360 = 1/4.", "Circumference 2πr = 2 × (22/7) × 7 = 44 cm.", "Arc = 1/4 × 44 = 11 cm."],
+      "steps": [
+        "Fraction = 90/360 = 1/4.",
+        "Circumference 2πr = 2 × (22/7) × 7 = 44 cm.",
+        "Arc = 1/4 × 44 = 11 cm."
+      ],
       "answer": "11"
     }
   ],
@@ -81,24 +134,142 @@
   ],
   "practice": {
     "easy": [
-      { "id": "g20-e1", "type": "number", "q": "A 90° sector is what fraction of a full circle? Write the bottom number of the fraction 90/360 in lowest terms n/? — just give the denominator.", "answer": "4", "hintLadder": ["90/360 simplifies.", "Divide both by 90.", "1/4, so 4."] },
-      { "id": "g20-e2", "type": "number", "q": "Area of a full circle with r = 7 (π = 22/7): 22/7 × 49 = ?", "answer": "154", "hintLadder": ["22/7 × 49.", "22 × 7.", "154."] }
+      {
+        "id": "g20-e1",
+        "type": "number",
+        "q": "A 90° sector is what fraction of a full circle? Write the bottom number of the fraction 90/360 in lowest terms n/? — just give the denominator.",
+        "answer": "4",
+        "hintLadder": [
+          "90/360 simplifies.",
+          "Divide both by 90.",
+          "1/4, so 4."
+        ]
+      },
+      {
+        "id": "g20-e2",
+        "type": "number",
+        "q": "Area of a full circle with r = 7 (π = 22/7): 22/7 × 49 = ?",
+        "answer": "154",
+        "hintLadder": [
+          "22/7 × 49.",
+          "22 × 7.",
+          "154."
+        ]
+      }
     ],
     "medium": [
-      { "id": "g20-m1", "type": "number", "q": "Area of a 90° sector, r = 14 (π = 22/7): ¼ × 616 = ?", "answer": "154", "hintLadder": ["πr² = 22/7 × 196 = 616.", "¼ of 616.", "154."] },
-      { "id": "g20-m2", "type": "number", "q": "Arc length of a 90° sector, r = 7 (π = 22/7): ¼ × 44 = ?", "answer": "11", "hintLadder": ["2πr = 44.", "¼ of 44.", "11."] }
+      {
+        "id": "g20-m1",
+        "type": "number",
+        "q": "Area of a 90° sector, r = 14 (π = 22/7): ¼ × 616 = ?",
+        "answer": "154",
+        "hintLadder": [
+          "πr² = 22/7 × 196 = 616.",
+          "¼ of 616.",
+          "154."
+        ]
+      },
+      {
+        "id": "g20-m2",
+        "type": "number",
+        "q": "Arc length of a 90° sector, r = 7 (π = 22/7): ¼ × 44 = ?",
+        "answer": "11",
+        "hintLadder": [
+          "2πr = 44.",
+          "¼ of 44.",
+          "11."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "g20-c1", "type": "number", "q": "Area of a 180° (half) sector, r = 7 (π = 22/7): ½ × 154 = ?", "answer": "77", "hintLadder": ["Full area = 154.", "Half of 154.", "77."] },
-      { "id": "g20-c2", "type": "mcq", "q": "For arc length of a sector, Meena uses πr². What's the fix?", "options": [ { "label": "Use 2πr (circumference), not πr²" }, { "label": "πr² is right for arc length", "mistakeTag": "arc-uses-r-squared" } ], "answer": "Use 2πr (circumference), not πr²", "hintLadder": ["Arc is a length, not an area.", "Length uses 2πr.", "Take θ/360 of 2πr."] }
+      {
+        "id": "g20-c1",
+        "type": "number",
+        "q": "Area of a 180° (half) sector, r = 7 (π = 22/7): ½ × 154 = ?",
+        "answer": "77",
+        "hintLadder": [
+          "Full area = 154.",
+          "Half of 154.",
+          "77."
+        ]
+      },
+      {
+        "id": "g20-c2",
+        "type": "mcq",
+        "q": "For arc length of a sector, Meena uses πr². What's the fix?",
+        "options": [
+          {
+            "label": "Use 2πr (circumference), not πr²"
+          },
+          {
+            "label": "πr² is right for arc length",
+            "mistakeTag": "arc-uses-r-squared"
+          }
+        ],
+        "answer": "Use 2πr (circumference), not πr²",
+        "hintLadder": [
+          "Arc is a length, not an area.",
+          "Length uses 2πr.",
+          "Take θ/360 of 2πr."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "g20-x1", "type": "number", "q": "A 60° sector is 60/360 = 1/? of the circle — give the denominator.", "answer": "6", "hintLadder": ["Divide 60 and 360 by 60.", "1/6.", "6."] },
-      { "id": "g20-x2", "type": "number", "q": "Area of a 90° sector, r = 14 (π = 22/7)?", "answer": "154", "hintLadder": ["¼ × πr².", "¼ × 616.", "154."] },
-      { "id": "g20-x3", "type": "number", "q": "Arc length of a 90° sector, r = 7 (π = 22/7)?", "answer": "11", "hintLadder": ["2πr = 44.", "¼ × 44.", "11."] },
-      { "id": "g20-x4", "type": "mcq", "q": "A segment's area is…", "options": [ { "label": "Sector area minus the triangle area" }, { "label": "The whole circle's area", "mistakeTag": "sector-forgot-fraction" } ], "answer": "Sector area minus the triangle area", "hintLadder": ["A segment is a sector with its triangle cut off.", "Subtract the triangle.", "Sector − triangle."] }
+      {
+        "id": "g20-x1",
+        "type": "number",
+        "q": "A 60° sector is 60/360 = 1/? of the circle — give the denominator.",
+        "answer": "6",
+        "hintLadder": [
+          "Divide 60 and 360 by 60.",
+          "1/6.",
+          "6."
+        ]
+      },
+      {
+        "id": "g20-x2",
+        "type": "number",
+        "q": "Area of a 90° sector, r = 14 (π = 22/7)?",
+        "answer": "154",
+        "hintLadder": [
+          "¼ × πr².",
+          "¼ × 616.",
+          "154."
+        ]
+      },
+      {
+        "id": "g20-x3",
+        "type": "number",
+        "q": "Arc length of a 90° sector, r = 7 (π = 22/7)?",
+        "answer": "11",
+        "hintLadder": [
+          "2πr = 44.",
+          "¼ × 44.",
+          "11."
+        ]
+      },
+      {
+        "id": "g20-x4",
+        "type": "mcq",
+        "q": "A segment's area is…",
+        "options": [
+          {
+            "label": "Sector area minus the triangle area"
+          },
+          {
+            "label": "The whole circle's area",
+            "mistakeTag": "sector-forgot-fraction"
+          }
+        ],
+        "answer": "Sector area minus the triangle area",
+        "hintLadder": [
+          "A segment is a sector with its triangle cut off.",
+          "Subtract the triangle.",
+          "Sector − triangle."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -106,7 +277,11 @@
   "teachBackPrompt": "Cut a paper circle into a quarter-slice for a grown-up and show it is a 90° sector — one quarter of πr² for area and one quarter of 2πr for the curved crust. Explain that a segment is a slice with its triangle removed.",
   "revisionCard": {
     "summary": "Full circle: area πr², circumference 2πr. Sector (angle θ): area = (θ/360)πr², arc length = (θ/360)2πr. Segment = sector − triangle. Always multiply by the fraction θ/360, and use 2πr (not πr²) for arc LENGTH.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -115,5 +290,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Sector = pizza slice. Area = (angle/360) x pi r^2",
+    "unpack": "Arc length = (angle/360) x 2 pi r. A sector is a fraction of the whole circle - the fraction is angle/360."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I find a sector's area?",
+      "a": "Take its fraction of the circle (its angle out of 360) times the full area pi r^2."
+    },
+    {
+      "q": "Sector vs segment?",
+      "a": "Sector = slice between two radii (pizza slice). Segment = the piece cut off by a chord (the crust)."
+    }
+  ]
 }

@@ -576,5 +576,19 @@
       "Read off the answer — no borrowing needed."
     ],
     "example": "1000 − 476: 9−4=5, 9−7=2, 10−6=4 → 524."
-  }
+  },
+  "rememberIt": {
+    "hook": "Can't subtract? Borrow ten from the next column",
+    "unpack": "If the top digit is too small, take 1 from the column to the left (it becomes 10 more here). Work right to left."
+  },
+  "studentQuestions": [
+    {
+      "q": "What is 'borrowing'?",
+      "a": "When the top digit is smaller, take 1 from the next column left - it adds 10 here so you can subtract."
+    },
+    {
+      "q": "42 - 17, how?",
+      "a": "Ones: 2-7 can't, borrow -> 12-7=5; tens: 3-1=2. Answer 25."
+    }
+  ]
 }

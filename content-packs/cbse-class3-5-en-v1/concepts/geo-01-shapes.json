@@ -545,5 +545,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Name 2D shapes by their sides and corners",
+    "unpack": "Triangle 3, quadrilateral 4, pentagon 5, hexagon 6. Same number of sides and corners. A circle has no corners."
+  },
+  "studentQuestions": [
+    {
+      "q": "Sides and corners - are they equal?",
+      "a": "For straight-sided shapes, yes - a 4-sided shape has 4 corners."
+    },
+    {
+      "q": "Is a circle a polygon?",
+      "a": "No - polygons have straight sides. A circle is one smooth curve."
+    }
+  ]
 }

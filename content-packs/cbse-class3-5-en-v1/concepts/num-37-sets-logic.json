@@ -3,7 +3,9 @@
   "name": "Sets, Venn Diagrams and Logic",
   "grade": 8,
   "strand": "numbers",
-  "prerequisites": ["num-16-factors-multiples"],
+  "prerequisites": [
+    "num-16-factors-multiples"
+  ],
   "whatIsIt": "A SET is a collection of things (its ELEMENTS), written in braces: {2, 4, 6}. UNION (A ∪ B) puts BOTH sets together (everything in either). INTERSECTION (A ∩ B) is only what's in BOTH. A VENN DIAGRAM shows this with overlapping circles. In LOGIC, an IF-THEN statement claims one thing leads to another; a single COUNTEREXAMPLE (one case where it fails) proves it false.",
   "whyNeeded": "Sets organise and compare groups — students who play both cricket and chess, numbers that are both even and prime. Logic and counterexamples are the foundation of proof, computer science and clear reasoning.",
   "realLifeUses": [
@@ -13,13 +15,25 @@
     "Disproving a claim with one counterexample"
   ],
   "vocabulary": [
-    { "term": "element", "meaning": "A member of a set (3 is an element of {1, 3, 5})." },
-    { "term": "union (∪) / intersection (∩)", "meaning": "Everything in either set (∪) / only what's in both (∩)." },
-    { "term": "counterexample", "meaning": "One case that makes a general claim false." }
+    {
+      "term": "element",
+      "meaning": "A member of a set (3 is an element of {1, 3, 5})."
+    },
+    {
+      "term": "union (∪) / intersection (∩)",
+      "meaning": "Everything in either set (∪) / only what's in both (∩)."
+    },
+    {
+      "term": "counterexample",
+      "meaning": "One case that makes a general claim false."
+    }
   ],
   "story": {
     "title": "The Club Overlap",
-    "characters": ["Ravi", "Teacher"],
+    "characters": [
+      "Ravi",
+      "Teacher"
+    ],
     "text": "Set A = students in the Music club = {Ria, Sam, Ved}. Set B = Sports club = {Sam, Ved, Ivy}. 'Who is in BOTH?' asks the teacher. Ravi finds the intersection: Sam and Ved. 'And in EITHER?' The union: Ria, Sam, Ved, Ivy. Then the teacher claims 'all primes are odd.' Ravi replies '2 is prime and even — counterexample!' ",
     "extractedProblem": "A = {Ria, Sam, Ved}, B = {Sam, Ved, Ivy}. Who is in BOTH clubs (intersection)?",
     "answerInStory": "Sam and Ved — the elements common to both sets."
@@ -28,7 +42,15 @@
     "component": "ObjectRow",
     "props": {
       "sequences": [
-        { "items": ["🎵", "🤝", "🤝", "⚽"], "label": "A ∪ B; the 🤝 are A ∩ B" }
+        {
+          "items": [
+            "🎵",
+            "🤝",
+            "🤝",
+            "⚽"
+          ],
+          "label": "A ∪ B; the 🤝 are A ∩ B"
+        }
       ]
     },
     "caption": "Two sets: union is everything shown; intersection (the shared members 🤝) is only what's in both circles."
@@ -38,9 +60,53 @@
       "title": "Union, intersection, disprove",
       "note": "∪ = either; ∩ = both; one counterexample disproves a claim.",
       "examples": [
-        { "component": "ObjectRow", "props": { "sequences": [ { "items": ["2", "4", "6"], "label": "A = multiples of 2" } ] }, "caption": "Set A = {2, 4, 6}." },
-        { "component": "ObjectRow", "props": { "sequences": [ { "items": ["3", "6", "9"], "label": "B = multiples of 3" } ] }, "caption": "A ∩ B = {6} (in both)." },
-        { "component": "ObjectRow", "props": { "sequences": [ { "items": ["2️⃣", "❌"], "label": "'all primes odd' → 2 disproves it" } ] }, "caption": "One counterexample is enough." }
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "2",
+                  "4",
+                  "6"
+                ],
+                "label": "A = multiples of 2"
+              }
+            ]
+          },
+          "caption": "Set A = {2, 4, 6}."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "3",
+                  "6",
+                  "9"
+                ],
+                "label": "B = multiples of 3"
+              }
+            ]
+          },
+          "caption": "A ∩ B = {6} (in both)."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "2️⃣",
+                  "❌"
+                ],
+                "label": "'all primes odd' → 2 disproves it"
+              }
+            ]
+          },
+          "caption": "One counterexample is enough."
+        }
       ]
     }
   ],
@@ -56,12 +122,20 @@
   "workedExamples": [
     {
       "problem": "A = {1, 2, 3, 4}, B = {3, 4, 5}. Find A ∩ B.",
-      "steps": ["Which elements are in BOTH?", "3 is in both; 4 is in both.", "A ∩ B = {3, 4}."],
+      "steps": [
+        "Which elements are in BOTH?",
+        "3 is in both; 4 is in both.",
+        "A ∩ B = {3, 4}."
+      ],
       "answer": "{3, 4}"
     },
     {
       "problem": "Disprove: 'every number ending in 5 is prime.'",
-      "steps": ["Test a case: 15 ends in 5.", "But 15 = 3 × 5, so it's not prime.", "15 is a counterexample — the claim is false."],
+      "steps": [
+        "Test a case: 15 ends in 5.",
+        "But 15 = 3 × 5, so it's not prime.",
+        "15 is a counterexample — the claim is false."
+      ],
       "answer": "15 (counterexample)"
     }
   ],
@@ -80,82 +154,212 @@
   "practice": {
     "easy": [
       {
-        "id": "n37-e1", "type": "mcq",
+        "id": "n37-e1",
+        "type": "mcq",
         "q": "A ∩ B (intersection) means elements in…",
-        "options": [ { "label": "Both sets" }, { "label": "Either set", "mistakeTag": "union-intersection-swap" } ],
+        "options": [
+          {
+            "label": "Both sets"
+          },
+          {
+            "label": "Either set",
+            "mistakeTag": "union-intersection-swap"
+          }
+        ],
         "answer": "Both sets",
-        "hintLadder": ["The overlap.", "Common to both.", "Both."]
+        "hintLadder": [
+          "The overlap.",
+          "Common to both.",
+          "Both."
+        ]
       },
       {
-        "id": "n37-e2", "type": "mcq",
+        "id": "n37-e2",
+        "type": "mcq",
         "q": "For A = {1,2}, B = {2,3}, A ∩ B = ?",
-        "options": [ { "label": "{2}" }, { "label": "{1,2,3}", "mistakeTag": "union-intersection-swap" } ],
+        "options": [
+          {
+            "label": "{2}"
+          },
+          {
+            "label": "{1,2,3}",
+            "mistakeTag": "union-intersection-swap"
+          }
+        ],
         "answer": "{2}",
-        "hintLadder": ["In both?", "Only 2.", "{2}."]
+        "hintLadder": [
+          "In both?",
+          "Only 2.",
+          "{2}."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n37-m1", "type": "mcq",
+        "id": "n37-m1",
+        "type": "mcq",
         "q": "For A = {1,2}, B = {2,3}, A ∪ B = ?",
-        "options": [ { "label": "{1, 2, 3}" }, { "label": "{2}", "mistakeTag": "union-intersection-swap" } ],
+        "options": [
+          {
+            "label": "{1, 2, 3}"
+          },
+          {
+            "label": "{2}",
+            "mistakeTag": "union-intersection-swap"
+          }
+        ],
         "answer": "{1, 2, 3}",
-        "hintLadder": ["Everything, once.", "1, 2, 3.", "{1,2,3}."]
+        "hintLadder": [
+          "Everything, once.",
+          "1, 2, 3.",
+          "{1,2,3}."
+        ]
       },
       {
-        "id": "n37-m2", "type": "mcq",
+        "id": "n37-m2",
+        "type": "mcq",
         "q": "To DISPROVE 'all birds can fly' you give…",
-        "options": [ { "label": "A penguin (can't fly)" }, { "label": "An eagle (can fly)", "mistakeTag": "example-not-counterexample" } ],
+        "options": [
+          {
+            "label": "A penguin (can't fly)"
+          },
+          {
+            "label": "An eagle (can fly)",
+            "mistakeTag": "example-not-counterexample"
+          }
+        ],
         "answer": "A penguin (can't fly)",
-        "hintLadder": ["Find one that fails.", "A bird that can't fly.", "Penguin."]
+        "hintLadder": [
+          "Find one that fails.",
+          "A bird that can't fly.",
+          "Penguin."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n37-c1", "type": "mcq",
+        "id": "n37-c1",
+        "type": "mcq",
         "q": "A = multiples of 2 up to 6 = {2,4,6}; B = multiples of 3 up to 6 = {3,6}. A ∩ B = ?",
-        "options": [ { "label": "{6}" }, { "label": "{2,3,4,6}", "mistakeTag": "union-intersection-swap" } ],
+        "options": [
+          {
+            "label": "{6}"
+          },
+          {
+            "label": "{2,3,4,6}",
+            "mistakeTag": "union-intersection-swap"
+          }
+        ],
         "answer": "{6}",
-        "hintLadder": ["In both lists?", "Only 6.", "{6}."]
+        "hintLadder": [
+          "In both lists?",
+          "Only 6.",
+          "{6}."
+        ]
       },
       {
-        "id": "n37-c2", "type": "mcq",
+        "id": "n37-c2",
+        "type": "mcq",
         "q": "Ravi tries to prove 'all primes are odd' by listing 3, 5, 7. What's the flaw?",
-        "options": [ { "label": "2 is an even prime — a counterexample" }, { "label": "His examples prove it", "mistakeTag": "example-not-counterexample" } ],
+        "options": [
+          {
+            "label": "2 is an even prime — a counterexample"
+          },
+          {
+            "label": "His examples prove it",
+            "mistakeTag": "example-not-counterexample"
+          }
+        ],
         "answer": "2 is an even prime — a counterexample",
-        "hintLadder": ["Examples don't prove 'all'.", "Find a failing case.", "2 is even and prime."]
+        "hintLadder": [
+          "Examples don't prove 'all'.",
+          "Find a failing case.",
+          "2 is even and prime."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n37-x1", "type": "mcq",
+        "id": "n37-x1",
+        "type": "mcq",
         "q": "A ∪ B (union) means elements in…",
-        "options": [ { "label": "Either set" }, { "label": "Both sets only", "mistakeTag": "union-intersection-swap" } ],
+        "options": [
+          {
+            "label": "Either set"
+          },
+          {
+            "label": "Both sets only",
+            "mistakeTag": "union-intersection-swap"
+          }
+        ],
         "answer": "Either set",
-        "hintLadder": ["Everything together.", "In A or B.", "Either."]
+        "hintLadder": [
+          "Everything together.",
+          "In A or B.",
+          "Either."
+        ]
       },
       {
-        "id": "n37-x2", "type": "mcq",
+        "id": "n37-x2",
+        "type": "mcq",
         "q": "A = {5,6,7}, B = {6,7,8}. A ∩ B = ?",
-        "options": [ { "label": "{6, 7}" }, { "label": "{5,6,7,8}", "mistakeTag": "union-intersection-swap" } ],
+        "options": [
+          {
+            "label": "{6, 7}"
+          },
+          {
+            "label": "{5,6,7,8}",
+            "mistakeTag": "union-intersection-swap"
+          }
+        ],
         "answer": "{6, 7}",
-        "hintLadder": ["In both.", "6 and 7.", "{6,7}."]
+        "hintLadder": [
+          "In both.",
+          "6 and 7.",
+          "{6,7}."
+        ]
       },
       {
-        "id": "n37-x3", "type": "mcq",
+        "id": "n37-x3",
+        "type": "mcq",
         "q": "A = {5,6,7}, B = {6,7,8}. A ∪ B = ?",
-        "options": [ { "label": "{5, 6, 7, 8}" }, { "label": "{6, 7}", "mistakeTag": "union-intersection-swap" } ],
+        "options": [
+          {
+            "label": "{5, 6, 7, 8}"
+          },
+          {
+            "label": "{6, 7}",
+            "mistakeTag": "union-intersection-swap"
+          }
+        ],
         "answer": "{5, 6, 7, 8}",
-        "hintLadder": ["All, once.", "5,6,7,8.", "{5,6,7,8}."]
+        "hintLadder": [
+          "All, once.",
+          "5,6,7,8.",
+          "{5,6,7,8}."
+        ]
       },
       {
-        "id": "n37-x4", "type": "mcq",
+        "id": "n37-x4",
+        "type": "mcq",
         "q": "One case that makes a general claim false is a…",
-        "options": [ { "label": "Counterexample" }, { "label": "Proof", "mistakeTag": "example-not-counterexample" } ],
+        "options": [
+          {
+            "label": "Counterexample"
+          },
+          {
+            "label": "Proof",
+            "mistakeTag": "example-not-counterexample"
+          }
+        ],
         "answer": "Counterexample",
-        "hintLadder": ["It breaks the claim.", "One failing case.", "Counterexample."]
+        "hintLadder": [
+          "It breaks the claim.",
+          "One failing case.",
+          "Counterexample."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -164,7 +368,11 @@
   "teachBackPrompt": "Make two real sets with a grown-up (like 'people who like tea' and 'people who like coffee' in your family). Show the union (either) and intersection (both), and disprove a fun 'all…' claim with a single counterexample.",
   "revisionCard": {
     "summary": "Set = collection of elements { }. Union A ∪ B = in EITHER set (all together, once). Intersection A ∩ B = in BOTH (the overlap). Venn diagrams show this with circles. Logic: a general 'all' claim is disproved by ONE counterexample.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -173,5 +381,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Set = a collection. Union (OR, all), Intersection (AND, shared)",
+    "unpack": "A U B = everything in either. A n B = only what is in both. Venn diagrams show it - AND = the overlap."
+  },
+  "studentQuestions": [
+    {
+      "q": "Union or intersection?",
+      "a": "Union (U) is EVERYTHING in either set (OR). Intersection (n) is only the SHARED part (AND)."
+    },
+    {
+      "q": "What does a Venn diagram show?",
+      "a": "Overlapping circles: the overlap is the intersection (in both); the whole is the union."
+    }
+  ]
 }

@@ -315,5 +315,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "One cone, four cuts: circle, ellipse, parabola, hyperbola",
+    "unpack": "Cut level -> circle; tilt -> ellipse; parallel to the slant -> parabola; steep -> hyperbola."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I tell the four apart from equations?",
+      "a": "x^2+y^2 = circle; one squared term = parabola; both added = ellipse; a minus sign = hyperbola."
+    },
+    {
+      "q": "Where do I see these?",
+      "a": "Orbits are ellipses; a thrown ball and a satellite dish are parabolas; a circle is everywhere."
+    }
+  ]
 }

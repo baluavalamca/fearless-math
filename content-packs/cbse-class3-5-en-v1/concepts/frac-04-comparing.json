@@ -677,5 +677,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Same bottom? Bigger top wins. Different bottoms? Make them same",
+    "unpack": "2/5 vs 3/5 -> 3/5 bigger. 2/3 vs 3/4 -> common bottom 12: 8/12 vs 9/12 -> 3/4 bigger. Or cross-multiply."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I compare 2/3 and 3/4?",
+      "a": "Common bottom 12: 8/12 vs 9/12, so 3/4 is bigger. Or cross-multiply: 2x4=8, 3x3=9."
+    },
+    {
+      "q": "Same bottom - which is bigger?",
+      "a": "The one with the bigger top. More pieces of the same size = more."
+    }
+  ]
 }

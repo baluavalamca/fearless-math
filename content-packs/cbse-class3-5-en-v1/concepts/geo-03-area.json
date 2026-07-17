@@ -485,5 +485,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Area = space inside (square units). Count or multiply squares",
+    "unpack": "Rectangle area = length x breadth, measured in square units (cm^2). Different from perimeter (the edge)."
+  },
+  "studentQuestions": [
+    {
+      "q": "Area or perimeter?",
+      "a": "Area is the space INSIDE (square units); perimeter is the distance AROUND (length units)."
+    },
+    {
+      "q": "Why 'square' units?",
+      "a": "Because we count how many unit SQUARES fit inside - so cm^2, m^2, etc."
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "name": "Applications of Integrals — Area Under a Curve",
   "grade": 11,
   "strand": "numbers",
-  "prerequisites": ["num-55-integrals"],
+  "prerequisites": [
+    "num-55-integrals"
+  ],
   "whatIsIt": "One of integration's biggest jobs is finding the AREA under a curve. The area between the curve y = f(x), the x-axis, and the lines x = a and x = b is the definite integral ∫ from a to b of f(x) dx. Simple shapes check it: the area under y = 3 from x = 0 to 4 is a 3-by-4 rectangle = 12, and the integral gives the same.",
   "whyNeeded": "Areas under curves are totals: distance from a speed graph, work from a force graph, total rainfall from a rate. When the top edge is curved, only integration gives the exact area.",
   "realLifeUses": [
@@ -13,14 +15,29 @@
     "Area of land with a curved boundary"
   ],
   "vocabulary": [
-    { "term": "area under a curve", "meaning": "The region between the curve, the x-axis, and two vertical lines x = a and x = b." },
-    { "term": "definite integral for area", "meaning": "Area = ∫ from a to b of f(x) dx (for a curve above the axis)." },
-    { "term": "limits a and b", "meaning": "The left and right x-values that bound the region." },
-    { "term": "antiderivative", "meaning": "The function whose derivative is f(x); used to evaluate the integral." }
+    {
+      "term": "area under a curve",
+      "meaning": "The region between the curve, the x-axis, and two vertical lines x = a and x = b."
+    },
+    {
+      "term": "definite integral for area",
+      "meaning": "Area = ∫ from a to b of f(x) dx (for a curve above the axis)."
+    },
+    {
+      "term": "limits a and b",
+      "meaning": "The left and right x-values that bound the region."
+    },
+    {
+      "term": "antiderivative",
+      "meaning": "The function whose derivative is f(x); used to evaluate the integral."
+    }
   ],
   "story": {
     "title": "The Sloping Field",
-    "characters": ["Ravi", "Nani"],
+    "characters": [
+      "Ravi",
+      "Nani"
+    ],
     "text": "Ravi's field has a straight slanted edge following y = 2x from x = 0 to x = 3. 'What's the area?' asks Nani. Ravi integrates: area = ∫ from 0 to 3 of 2x dx = [x²] from 0 to 3 = 9 square units. He checks with the triangle rule (½ × base × height = ½ × 3 × 6 = 9) — they match! 'The integral gave the exact area,' Ravi grins.",
     "extractedProblem": "Find the area under y = 2x from x = 0 to x = 3.",
     "answerInStory": "9 — ∫ from 0 to 3 of 2x dx = [x²]₀³ = 9 (and ½ × 3 × 6 = 9 agrees)."
@@ -29,7 +46,22 @@
     "component": "FunctionPlot",
     "props": {
       "plots": [
-        { "poly": [0, 2], "domain": [-1, 4], "shade": [0, 3], "label": "y = 2x", "color": "good" }
+        {
+          "poly": [
+            0,
+            2
+          ],
+          "domain": [
+            -1,
+            4
+          ],
+          "shade": [
+            0,
+            3
+          ],
+          "label": "y = 2x",
+          "color": "good"
+        }
       ]
     },
     "caption": "The shaded region under y = 2x from x = 0 to 3 is the area ∫₀³ 2x dx = 9 — matching the triangle ½ × 3 × 6 = 9."
@@ -39,9 +71,48 @@
       "title": "Integral = area",
       "note": "Area under y = f(x) from a to b is ∫ₐᵇ f(x) dx; check with simple shapes.",
       "examples": [
-        { "component": "AreaModel", "props": { "models": [ { "rowParts": [3], "colParts": [4], "label": "y = 3 from 0 to 4 → 3×4 = 12" } ] }, "caption": "Constant y = 3 over width 4: a rectangle of area 12 (∫₀⁴ 3 dx = 12)." },
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "y = 2x from 0 to 3 → triangle area 9" } ] }, "caption": "Under y = 2x: a triangle, ½ × 3 × 6 = 9, matching the integral." },
-        { "component": "BarChart", "props": { "categories": [ { "label": "0→4", "value": 8 } ], "unit": "" }, "caption": "Area under y = x from 0 to 4 is ∫₀⁴ x dx = 8." }
+        {
+          "component": "AreaModel",
+          "props": {
+            "models": [
+              {
+                "rowParts": [
+                  3
+                ],
+                "colParts": [
+                  4
+                ],
+                "label": "y = 3 from 0 to 4 → 3×4 = 12"
+              }
+            ]
+          },
+          "caption": "Constant y = 3 over width 4: a rectangle of area 12 (∫₀⁴ 3 dx = 12)."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "triangle",
+                "label": "y = 2x from 0 to 3 → triangle area 9"
+              }
+            ]
+          },
+          "caption": "Under y = 2x: a triangle, ½ × 3 × 6 = 9, matching the integral."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "0→4",
+                "value": 8
+              }
+            ],
+            "unit": ""
+          },
+          "caption": "Area under y = x from 0 to 4 is ∫₀⁴ x dx = 8."
+        }
       ]
     }
   ],
@@ -58,12 +129,20 @@
   "workedExamples": [
     {
       "problem": "Find the area under y = 3 from x = 0 to x = 4.",
-      "steps": ["∫ from 0 to 4 of 3 dx = [3x].", "At 4: 12. At 0: 0.", "12 − 0 = 12 (a 3×4 rectangle)."],
+      "steps": [
+        "∫ from 0 to 4 of 3 dx = [3x].",
+        "At 4: 12. At 0: 0.",
+        "12 − 0 = 12 (a 3×4 rectangle)."
+      ],
       "answer": "12"
     },
     {
       "problem": "Find the area under y = 2x from x = 0 to x = 3.",
-      "steps": ["Antiderivative of 2x is x².", "At 3: 9. At 0: 0.", "9 − 0 = 9."],
+      "steps": [
+        "Antiderivative of 2x is x².",
+        "At 3: 9. At 0: 0.",
+        "9 − 0 = 9."
+      ],
       "answer": "9"
     }
   ],
@@ -81,24 +160,142 @@
   ],
   "practice": {
     "easy": [
-      { "id": "n56-e1", "type": "number", "q": "Area under y = 3 from x = 0 to x = 4 (a rectangle) = ?", "answer": "12", "hintLadder": ["Height 3, width 4.", "3 × 4.", "12."] },
-      { "id": "n56-e2", "type": "number", "q": "Area under y = 2 from x = 0 to x = 5 = ?", "answer": "10", "hintLadder": ["Height 2, width 5.", "2 × 5.", "10."] }
+      {
+        "id": "n56-e1",
+        "type": "number",
+        "q": "Area under y = 3 from x = 0 to x = 4 (a rectangle) = ?",
+        "answer": "12",
+        "hintLadder": [
+          "Height 3, width 4.",
+          "3 × 4.",
+          "12."
+        ]
+      },
+      {
+        "id": "n56-e2",
+        "type": "number",
+        "q": "Area under y = 2 from x = 0 to x = 5 = ?",
+        "answer": "10",
+        "hintLadder": [
+          "Height 2, width 5.",
+          "2 × 5.",
+          "10."
+        ]
+      }
     ],
     "medium": [
-      { "id": "n56-m1", "type": "number", "q": "Area under y = 2x from x = 0 to x = 3 = [x²]₀³ = ?", "answer": "9", "hintLadder": ["Antiderivative x².", "At 3: 9.", "9."] },
-      { "id": "n56-m2", "type": "number", "q": "Area under y = x from x = 0 to x = 4 = [x²/2]₀⁴ = ?", "answer": "8", "hintLadder": ["x²/2 at 4 = 8.", "minus 0.", "8."] }
+      {
+        "id": "n56-m1",
+        "type": "number",
+        "q": "Area under y = 2x from x = 0 to x = 3 = [x²]₀³ = ?",
+        "answer": "9",
+        "hintLadder": [
+          "Antiderivative x².",
+          "At 3: 9.",
+          "9."
+        ]
+      },
+      {
+        "id": "n56-m2",
+        "type": "number",
+        "q": "Area under y = x from x = 0 to x = 4 = [x²/2]₀⁴ = ?",
+        "answer": "8",
+        "hintLadder": [
+          "x²/2 at 4 = 8.",
+          "minus 0.",
+          "8."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "n56-c1", "type": "number", "q": "Area under y = 2x from x = 0 to x = 5 = [x²]₀⁵ = ?", "answer": "25", "hintLadder": ["Antiderivative x².", "At 5: 25.", "25."] },
-      { "id": "n56-c2", "type": "mcq", "q": "To find the area under a curve you should…", "options": [ { "label": "Integrate f(x) between the limits" }, { "label": "Differentiate f(x)", "mistakeTag": "used-derivative-for-area" } ], "answer": "Integrate f(x) between the limits", "hintLadder": ["Area = adding up.", "That's integration.", "Integrate between the limits."] }
+      {
+        "id": "n56-c1",
+        "type": "number",
+        "q": "Area under y = 2x from x = 0 to x = 5 = [x²]₀⁵ = ?",
+        "answer": "25",
+        "hintLadder": [
+          "Antiderivative x².",
+          "At 5: 25.",
+          "25."
+        ]
+      },
+      {
+        "id": "n56-c2",
+        "type": "mcq",
+        "q": "To find the area under a curve you should…",
+        "options": [
+          {
+            "label": "Integrate f(x) between the limits"
+          },
+          {
+            "label": "Differentiate f(x)",
+            "mistakeTag": "used-derivative-for-area"
+          }
+        ],
+        "answer": "Integrate f(x) between the limits",
+        "hintLadder": [
+          "Area = adding up.",
+          "That's integration.",
+          "Integrate between the limits."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "n56-x1", "type": "number", "q": "Area under y = 5 from x = 0 to x = 3?", "answer": "15", "hintLadder": ["Height 5, width 3.", "5 × 3.", "15."] },
-      { "id": "n56-x2", "type": "number", "q": "Area under y = 2x from x = 0 to x = 3?", "answer": "9", "hintLadder": ["[x²]₀³.", "9 − 0.", "9."] },
-      { "id": "n56-x3", "type": "number", "q": "Area under y = x from x = 0 to x = 2?", "answer": "2", "hintLadder": ["[x²/2]₀².", "4/2.", "2."] },
-      { "id": "n56-x4", "type": "mcq", "q": "The area under y = f(x) from a to b is…", "options": [ { "label": "∫ from a to b of f(x) dx" }, { "label": "The derivative f′(x)", "mistakeTag": "used-derivative-for-area" } ], "answer": "∫ from a to b of f(x) dx", "hintLadder": ["A definite integral.", "Add up the strips.", "∫ₐᵇ f(x) dx."] }
+      {
+        "id": "n56-x1",
+        "type": "number",
+        "q": "Area under y = 5 from x = 0 to x = 3?",
+        "answer": "15",
+        "hintLadder": [
+          "Height 5, width 3.",
+          "5 × 3.",
+          "15."
+        ]
+      },
+      {
+        "id": "n56-x2",
+        "type": "number",
+        "q": "Area under y = 2x from x = 0 to x = 3?",
+        "answer": "9",
+        "hintLadder": [
+          "[x²]₀³.",
+          "9 − 0.",
+          "9."
+        ]
+      },
+      {
+        "id": "n56-x3",
+        "type": "number",
+        "q": "Area under y = x from x = 0 to x = 2?",
+        "answer": "2",
+        "hintLadder": [
+          "[x²/2]₀².",
+          "4/2.",
+          "2."
+        ]
+      },
+      {
+        "id": "n56-x4",
+        "type": "mcq",
+        "q": "The area under y = f(x) from a to b is…",
+        "options": [
+          {
+            "label": "∫ from a to b of f(x) dx"
+          },
+          {
+            "label": "The derivative f′(x)",
+            "mistakeTag": "used-derivative-for-area"
+          }
+        ],
+        "answer": "∫ from a to b of f(x) dx",
+        "hintLadder": [
+          "A definite integral.",
+          "Add up the strips.",
+          "∫ₐᵇ f(x) dx."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -106,7 +303,11 @@
   "teachBackPrompt": "Show a grown-up that the area under y = 2x from 0 to 3 is the integral [x²]₀³ = 9, and check it as a triangle (½ × 3 × 6 = 9). Explain area under a curve = a definite integral.",
   "revisionCard": {
     "summary": "Area under y = f(x) from a to b = ∫ₐᵇ f(x) dx. Find the antiderivative, substitute the limits, subtract. Check with shapes: y = 3 over width 4 → 12; y = 2x from 0 to 3 → 9 (triangle ½·3·6). Area is integration (adding up), never a derivative.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -115,5 +316,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Definite integral = area under the curve between limits",
+    "unpack": "Area = integral a..b of f dx = F(b) - F(a). Also gives distance from speed, and volumes of revolution."
+  },
+  "studentQuestions": [
+    {
+      "q": "What does a definite integral give me?",
+      "a": "The area under the curve between two x-values - and by extension distance from a speed graph, or a volume."
+    },
+    {
+      "q": "Why F(b) - F(a)?",
+      "a": "Find the antiderivative F, then subtract its value at the bottom limit from the top - that nets the area."
+    }
+  ]
 }

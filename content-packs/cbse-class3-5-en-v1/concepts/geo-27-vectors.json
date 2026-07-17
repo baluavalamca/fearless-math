@@ -312,5 +312,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Vector = arrow with size AND direction. Add tip-to-tail",
+    "unpack": "Magnitude |(a,b)| = sqrt(a^2+b^2). Add components. Dot product a.b = 0 means perpendicular."
+  },
+  "studentQuestions": [
+    {
+      "q": "How is a vector different from a number?",
+      "a": "A number is just size; a vector also has DIRECTION, like an arrow. Force and velocity are vectors."
+    },
+    {
+      "q": "What does a dot product of 0 mean?",
+      "a": "The two vectors are perpendicular (at right angles)."
+    }
+  ]
 }

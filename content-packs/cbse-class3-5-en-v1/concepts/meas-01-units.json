@@ -508,5 +508,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Match the unit to the size: mm, cm, m, km",
+    "unpack": "Small -> mm/cm, rooms -> m, journeys -> km. Weight: g, kg. Liquid: ml, l. Pick the sensible one."
+  },
+  "studentQuestions": [
+    {
+      "q": "Which unit for a pencil?",
+      "a": "Centimetres - small and handy. A road would be kilometres; a book's mass, grams."
+    },
+    {
+      "q": "How are metric units linked?",
+      "a": "By 10s and 1000s: 10 mm = 1 cm, 100 cm = 1 m, 1000 m = 1 km."
+    }
+  ]
 }

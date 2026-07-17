@@ -575,5 +575,19 @@
       "Subtract the small amount you added extra."
     ],
     "example": "58 + 26: 60 + 26 = 86, take back 2 → 84."
-  }
+  },
+  "rememberIt": {
+    "hook": "When a column makes 10 or more, carry the ten to the next column",
+    "unpack": "Add the ones; if 10 or more, write the ones digit and carry 1 ten. Work right to left."
+  },
+  "studentQuestions": [
+    {
+      "q": "What is 'carrying'?",
+      "a": "When a column adds to 10+, the extra ten carries to the next column left. 8+5=13: write 3, carry 1."
+    },
+    {
+      "q": "Which column do I start with?",
+      "a": "The ones (rightmost), then move left, so carries land in a column you have not added yet."
+    }
+  ]
 }

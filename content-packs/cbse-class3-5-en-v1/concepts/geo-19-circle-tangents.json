@@ -3,7 +3,11 @@
   "name": "Circles — Tangents and Chords",
   "grade": 9,
   "strand": "geometry",
-  "prerequisites": ["geo-11-circles", "geo-13-pythagoras", "geo-09-lines-angles"],
+  "prerequisites": [
+    "geo-11-circles",
+    "geo-13-pythagoras",
+    "geo-09-lines-angles"
+  ],
   "whatIsIt": "A TANGENT is a line that touches a circle at exactly one point. Two big rules: (1) a tangent is always perpendicular (90°) to the radius at the point it touches; (2) the two tangents drawn from the same outside point are EQUAL in length. A CHORD is a line joining two points on the circle, and the perpendicular from the centre bisects (cuts in half) the chord.",
   "whyNeeded": "These rules turn circle problems into right-triangle problems you can solve with Pythagoras — finding the length of a belt around a pulley, the reach of a tangent line, or how far a chord sits from the centre. They show up in design, gears, and any wheel-and-rope setup.",
   "realLifeUses": [
@@ -13,14 +17,29 @@
     "Checking a road is tangent to a roundabout at the kerb"
   ],
   "vocabulary": [
-    { "term": "tangent", "meaning": "A line touching the circle at exactly one point; it is perpendicular to the radius there." },
-    { "term": "chord", "meaning": "A straight line joining two points on the circle. The longest chord is the diameter." },
-    { "term": "point of contact", "meaning": "The single point where a tangent touches the circle." },
-    { "term": "equal tangents", "meaning": "The two tangents from one external point to a circle have the same length." }
+    {
+      "term": "tangent",
+      "meaning": "A line touching the circle at exactly one point; it is perpendicular to the radius there."
+    },
+    {
+      "term": "chord",
+      "meaning": "A straight line joining two points on the circle. The longest chord is the diameter."
+    },
+    {
+      "term": "point of contact",
+      "meaning": "The single point where a tangent touches the circle."
+    },
+    {
+      "term": "equal tangents",
+      "meaning": "The two tangents from one external point to a circle have the same length."
+    }
   ],
   "story": {
     "title": "The Kite String and the Wheel",
-    "characters": ["Isha", "Bhai"],
+    "characters": [
+      "Isha",
+      "Bhai"
+    ],
     "text": "Isha ties a string from a peg P to just touch a round wheel. The centre O is 10 cm from P, and the wheel's radius is 6 cm. 'How long is the touching part of the string?' Bhai reminds her the tangent meets the radius at 90°, making a right triangle OP–radius–tangent. By Pythagoras the tangent = √(10² − 6²) = √(100 − 36) = √64 = 8 cm. 'And if I draw a second tangent from P, it's also 8 cm,' Isha realises.",
     "extractedProblem": "From point P, distance OP = 10 cm to the centre, radius 6 cm. Find the tangent length from P.",
     "answerInStory": "8 cm — tangent = √(OP² − r²) = √(100 − 36) = √64 = 8."
@@ -29,7 +48,10 @@
     "component": "GeometryCanvas",
     "props": {
       "shapes": [
-        { "kind": "circle", "label": "tangent ⟂ radius; right triangle O–contact–P" }
+        {
+          "kind": "circle",
+          "label": "tangent ⟂ radius; right triangle O–contact–P"
+        }
       ]
     },
     "caption": "The tangent meets the radius at 90°, so O, the point of contact and P form a right triangle: tangent = √(OP² − r²)."
@@ -39,9 +61,42 @@
       "title": "Tangent, radius, right angle",
       "note": "Radius to the point of contact is perpendicular to the tangent — that 90° lets Pythagoras in.",
       "examples": [
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "circle", "label": "OP = 13, r = 5 → tangent 12" } ] }, "caption": "√(13² − 5²) = √(169 − 25) = √144 = 12." },
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "circle", "label": "two equal tangents from P" } ] }, "caption": "Both tangents from the same outside point are equal in length." },
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "circle", "label": "perpendicular from O bisects the chord" } ] }, "caption": "The perpendicular from the centre cuts a chord into two equal halves." }
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "circle",
+                "label": "OP = 13, r = 5 → tangent 12"
+              }
+            ]
+          },
+          "caption": "√(13² − 5²) = √(169 − 25) = √144 = 12."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "circle",
+                "label": "two equal tangents from P"
+              }
+            ]
+          },
+          "caption": "Both tangents from the same outside point are equal in length."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "circle",
+                "label": "perpendicular from O bisects the chord"
+              }
+            ]
+          },
+          "caption": "The perpendicular from the centre cuts a chord into two equal halves."
+        }
       ]
     }
   ],
@@ -57,12 +112,20 @@
   "workedExamples": [
     {
       "problem": "From P, OP = 10 cm and radius = 6 cm. Find the tangent length.",
-      "steps": ["Radius ⟂ tangent, so triangle O–contact–P is right-angled.", "tangent = √(OP² − r²) = √(10² − 6²) = √(100 − 36).", "= √64 = 8 cm."],
+      "steps": [
+        "Radius ⟂ tangent, so triangle O–contact–P is right-angled.",
+        "tangent = √(OP² − r²) = √(10² − 6²) = √(100 − 36).",
+        "= √64 = 8 cm."
+      ],
       "answer": "8"
     },
     {
       "problem": "A chord of length 16 cm is in a circle of radius 10 cm. How far is the chord from the centre?",
-      "steps": ["The perpendicular from the centre bisects the chord: half = 8 cm.", "distance = √(r² − half²) = √(10² − 8²) = √(100 − 64).", "= √36 = 6 cm."],
+      "steps": [
+        "The perpendicular from the centre bisects the chord: half = 8 cm.",
+        "distance = √(r² − half²) = √(10² − 8²) = √(100 − 64).",
+        "= √36 = 6 cm."
+      ],
       "answer": "6"
     }
   ],
@@ -80,24 +143,142 @@
   ],
   "practice": {
     "easy": [
-      { "id": "g19-e1", "type": "number", "q": "The angle between a tangent and the radius at the point of contact is how many degrees?", "answer": "90", "hintLadder": ["Tangent is perpendicular to the radius.", "Perpendicular means…", "90 degrees."] },
-      { "id": "g19-e2", "type": "number", "q": "One tangent from point P is 7 cm. The other tangent from the same point P is how long?", "answer": "7", "hintLadder": ["Two tangents from one point are equal.", "Same length as the first.", "7 cm."] }
+      {
+        "id": "g19-e1",
+        "type": "number",
+        "q": "The angle between a tangent and the radius at the point of contact is how many degrees?",
+        "answer": "90",
+        "hintLadder": [
+          "Tangent is perpendicular to the radius.",
+          "Perpendicular means…",
+          "90 degrees."
+        ]
+      },
+      {
+        "id": "g19-e2",
+        "type": "number",
+        "q": "One tangent from point P is 7 cm. The other tangent from the same point P is how long?",
+        "answer": "7",
+        "hintLadder": [
+          "Two tangents from one point are equal.",
+          "Same length as the first.",
+          "7 cm."
+        ]
+      }
     ],
     "medium": [
-      { "id": "g19-m1", "type": "number", "q": "OP = 13, radius = 5. Tangent = √(13² − 5²) = √144 = ?", "answer": "12", "hintLadder": ["169 − 25 = 144.", "√144.", "12."] },
-      { "id": "g19-m2", "type": "number", "q": "OP = 10, radius = 6. Tangent = √(100 − 36) = √64 = ?", "answer": "8", "hintLadder": ["100 − 36 = 64.", "√64.", "8."] }
+      {
+        "id": "g19-m1",
+        "type": "number",
+        "q": "OP = 13, radius = 5. Tangent = √(13² − 5²) = √144 = ?",
+        "answer": "12",
+        "hintLadder": [
+          "169 − 25 = 144.",
+          "√144.",
+          "12."
+        ]
+      },
+      {
+        "id": "g19-m2",
+        "type": "number",
+        "q": "OP = 10, radius = 6. Tangent = √(100 − 36) = √64 = ?",
+        "answer": "8",
+        "hintLadder": [
+          "100 − 36 = 64.",
+          "√64.",
+          "8."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "g19-c1", "type": "number", "q": "A chord of length 16 sits in a circle of radius 10. Distance from centre = √(10² − 8²) = √36 = ?", "answer": "6", "hintLadder": ["Half the chord is 8.", "100 − 64 = 36.", "√36 = 6."] },
-      { "id": "g19-c2", "type": "mcq", "q": "To find a tangent from P, Dev uses OP² + r². What's the fix?", "options": [ { "label": "Use OP² − r² (the tangent is the shorter leg)" }, { "label": "OP² + r² is right", "mistakeTag": "tangent-not-perpendicular" } ], "answer": "Use OP² − r² (the tangent is the shorter leg)", "hintLadder": ["OP is the hypotenuse (longest).", "Subtract r² from OP².", "tangent = √(OP² − r²)."] }
+      {
+        "id": "g19-c1",
+        "type": "number",
+        "q": "A chord of length 16 sits in a circle of radius 10. Distance from centre = √(10² − 8²) = √36 = ?",
+        "answer": "6",
+        "hintLadder": [
+          "Half the chord is 8.",
+          "100 − 64 = 36.",
+          "√36 = 6."
+        ]
+      },
+      {
+        "id": "g19-c2",
+        "type": "mcq",
+        "q": "To find a tangent from P, Dev uses OP² + r². What's the fix?",
+        "options": [
+          {
+            "label": "Use OP² − r² (the tangent is the shorter leg)"
+          },
+          {
+            "label": "OP² + r² is right",
+            "mistakeTag": "tangent-not-perpendicular"
+          }
+        ],
+        "answer": "Use OP² − r² (the tangent is the shorter leg)",
+        "hintLadder": [
+          "OP is the hypotenuse (longest).",
+          "Subtract r² from OP².",
+          "tangent = √(OP² − r²)."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "g19-x1", "type": "number", "q": "Angle between tangent and radius at the contact point?", "answer": "90", "hintLadder": ["Tangent ⟂ radius.", "A right angle.", "90."] },
-      { "id": "g19-x2", "type": "number", "q": "OP = 17, radius = 8. Tangent = √(289 − 64) = √225 = ?", "answer": "15", "hintLadder": ["289 − 64 = 225.", "√225.", "15."] },
-      { "id": "g19-x3", "type": "number", "q": "Chord length 24 in a circle of radius 13. Distance from centre = √(169 − 144) = √25 = ?", "answer": "5", "hintLadder": ["Half the chord is 12; 12² = 144.", "169 − 144 = 25.", "√25 = 5."] },
-      { "id": "g19-x4", "type": "mcq", "q": "The perpendicular from the centre to a chord…", "options": [ { "label": "Bisects the chord into two equal halves" }, { "label": "Leaves the chord unequal", "mistakeTag": "chord-not-bisected" } ], "answer": "Bisects the chord into two equal halves", "hintLadder": ["It splits the chord evenly.", "Two equal halves.", "It bisects it."] }
+      {
+        "id": "g19-x1",
+        "type": "number",
+        "q": "Angle between tangent and radius at the contact point?",
+        "answer": "90",
+        "hintLadder": [
+          "Tangent ⟂ radius.",
+          "A right angle.",
+          "90."
+        ]
+      },
+      {
+        "id": "g19-x2",
+        "type": "number",
+        "q": "OP = 17, radius = 8. Tangent = √(289 − 64) = √225 = ?",
+        "answer": "15",
+        "hintLadder": [
+          "289 − 64 = 225.",
+          "√225.",
+          "15."
+        ]
+      },
+      {
+        "id": "g19-x3",
+        "type": "number",
+        "q": "Chord length 24 in a circle of radius 13. Distance from centre = √(169 − 144) = √25 = ?",
+        "answer": "5",
+        "hintLadder": [
+          "Half the chord is 12; 12² = 144.",
+          "169 − 144 = 25.",
+          "√25 = 5."
+        ]
+      },
+      {
+        "id": "g19-x4",
+        "type": "mcq",
+        "q": "The perpendicular from the centre to a chord…",
+        "options": [
+          {
+            "label": "Bisects the chord into two equal halves"
+          },
+          {
+            "label": "Leaves the chord unequal",
+            "mistakeTag": "chord-not-bisected"
+          }
+        ],
+        "answer": "Bisects the chord into two equal halves",
+        "hintLadder": [
+          "It splits the chord evenly.",
+          "Two equal halves.",
+          "It bisects it."
+        ]
+      }
     ],
     "passThreshold": 0.75,
     "requireTeachBack": true
@@ -105,7 +286,11 @@
   "teachBackPrompt": "Draw a circle with a tangent from an outside point for a grown-up. Show the radius meeting the tangent at 90°, and use √(OP² − r²) to find the tangent length. Then show how the perpendicular from the centre cuts a chord in half.",
   "revisionCard": {
     "summary": "Tangent touches at one point and is ⟂ (90°) to the radius there → tangent = √(OP² − r²). Two tangents from one external point are equal. The perpendicular from the centre bisects a chord: r² = (half-chord)² + (distance from centre)².",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -114,5 +299,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "A tangent touches at ONE point, perpendicular to the radius there",
+    "unpack": "Two tangents from an outside point are equal in length. Radius meets tangent at 90 degrees."
+  },
+  "studentQuestions": [
+    {
+      "q": "What's special about a tangent and the radius?",
+      "a": "They meet at exactly 90 degrees at the point of contact - always a right angle."
+    },
+    {
+      "q": "Two tangents from one point?",
+      "a": "They are equal in length - the point is the same distance along each."
+    }
+  ]
 }

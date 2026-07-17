@@ -740,5 +740,19 @@
       },
       "caption": "Add 4 three times on the beads."
     }
-  }
+  },
+  "rememberIt": {
+    "hook": "Multiply = equal groups added fast. 4 x 3 = four groups of 3",
+    "unpack": "3+3+3+3 = 4 x 3 = 12. Rows x columns in an array. Order does not matter (4x3 = 3x4)."
+  },
+  "studentQuestions": [
+    {
+      "q": "What does 4 x 3 mean?",
+      "a": "Four groups of 3 (or 3 added four times) = 12. Multiplication is repeated equal-group adding."
+    },
+    {
+      "q": "Is 4 x 3 the same as 3 x 4?",
+      "a": "Yes - both make 12. You can swap the numbers."
+    }
+  ]
 }

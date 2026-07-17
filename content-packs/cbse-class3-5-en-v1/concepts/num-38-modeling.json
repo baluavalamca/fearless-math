@@ -3,7 +3,10 @@
   "name": "Mathematical Modelling — Real Life into Maths",
   "grade": 7,
   "strand": "numbers",
-  "prerequisites": ["ops-15-word-problems", "num-23-algebra-intro"],
+  "prerequisites": [
+    "ops-15-word-problems",
+    "num-23-algebra-intro"
+  ],
   "whatIsIt": "MODELLING turns a real situation into maths you can solve. You state your ASSUMPTIONS (what you take as true), choose VARIABLES (what can change), write an EXPRESSION, EQUATION, TABLE or GRAPH, solve it, then VALIDATE (does the answer make sense?) and INTERPRET it back in real words. It's the bridge between everyday problems and the maths that answers them.",
   "whyNeeded": "Real problems don't arrive as neat sums — you have to build the maths yourself. Modelling is exactly what engineers, scientists, planners and businesses do: describe the world with maths, solve, and check it against reality.",
   "realLifeUses": [
@@ -13,13 +16,25 @@
     "Estimating how many buses are needed for a trip"
   ],
   "vocabulary": [
-    { "term": "assumption", "meaning": "Something you accept as true to simplify the problem." },
-    { "term": "model", "meaning": "The expression, equation, table or graph that describes the situation." },
-    { "term": "validate", "meaning": "Check the answer makes sense in the real situation." }
+    {
+      "term": "assumption",
+      "meaning": "Something you accept as true to simplify the problem."
+    },
+    {
+      "term": "model",
+      "meaning": "The expression, equation, table or graph that describes the situation."
+    },
+    {
+      "term": "validate",
+      "meaning": "Check the answer makes sense in the real situation."
+    }
   ],
   "story": {
     "title": "The Party Plan",
-    "characters": ["Aditi", "Mummy"],
+    "characters": [
+      "Aditi",
+      "Mummy"
+    ],
     "text": "Aditi plans a party: a fixed ₹200 for decorations plus ₹50 per guest for food. 'How much for 6 guests?' She models it: cost = 200 + 50 × g. With g = 6: 200 + 300 = ₹500. 'Does that seem right?' asks Mummy. Aditi checks — yes, more guests means more cost. 'The model works!'",
     "extractedProblem": "Decorations cost ₹200 and food is ₹50 per guest. Model the cost and find it for 6 guests.",
     "answerInStory": "₹500 — cost = 200 + 50g, with g = 6 gives 200 + 300."
@@ -28,7 +43,18 @@
     "component": "BarModel",
     "props": {
       "bars": [
-        { "label": "cost = 200 + 50×6 = 500", "parts": [ { "value": 200 }, { "value": 300 } ], "showTotal": true }
+        {
+          "label": "cost = 200 + 50×6 = 500",
+          "parts": [
+            {
+              "value": 200
+            },
+            {
+              "value": 300
+            }
+          ],
+          "showTotal": true
+        }
       ]
     },
     "caption": "Real situation → model: cost = 200 (fixed) + 50 × guests. For 6 guests: 200 + 300 = ₹500."
@@ -38,9 +64,72 @@
       "title": "Situation → model → check",
       "note": "Choose variables, build the model, solve, then validate.",
       "examples": [
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": ["g:1", "2", "3", "4"], "label": "guests" }, { "terms": ["250", "300", "350", "400"], "label": "cost = 200 + 50g" } ] }, "caption": "A table is a model too." },
-        { "component": "BarModel", "props": { "bars": [ { "label": "distance = speed × time", "parts": [ { "value": 50 }, { "value": 50 } ], "showTotal": true } ] }, "caption": "A formula models a journey." },
-        { "component": "BarChart", "props": { "categories": [ { "label": "1", "value": 250 }, { "label": "2", "value": 300 }, { "label": "3", "value": 350 } ] }, "caption": "A graph shows the pattern." }
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  "g:1",
+                  "2",
+                  "3",
+                  "4"
+                ],
+                "label": "guests"
+              },
+              {
+                "terms": [
+                  "250",
+                  "300",
+                  "350",
+                  "400"
+                ],
+                "label": "cost = 200 + 50g"
+              }
+            ]
+          },
+          "caption": "A table is a model too."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "distance = speed × time",
+                "parts": [
+                  {
+                    "value": 50
+                  },
+                  {
+                    "value": 50
+                  }
+                ],
+                "showTotal": true
+              }
+            ]
+          },
+          "caption": "A formula models a journey."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "1",
+                "value": 250
+              },
+              {
+                "label": "2",
+                "value": 300
+              },
+              {
+                "label": "3",
+                "value": 350
+              }
+            ]
+          },
+          "caption": "A graph shows the pattern."
+        }
       ]
     }
   ],
@@ -56,12 +145,20 @@
   "workedExamples": [
     {
       "problem": "A taxi charges ₹30 fixed plus ₹10 per km. Model the fare and find it for 5 km.",
-      "steps": ["Variable: k = km. Model: fare = 30 + 10k.", "For k = 5: 30 + 10×5 = 30 + 50.", "= ₹80. Check: more km → more fare. ✓"],
+      "steps": [
+        "Variable: k = km. Model: fare = 30 + 10k.",
+        "For k = 5: 30 + 10×5 = 30 + 50.",
+        "= ₹80. Check: more km → more fare. ✓"
+      ],
       "answer": "₹80"
     },
     {
       "problem": "36 students go on a trip; each bus holds 10. How many buses (model + validate)?",
-      "steps": ["Model: buses = students ÷ seats = 36 ÷ 10 = 3.6.", "Validate: you can't have 0.6 of a bus — round UP.", "So 4 buses are needed."],
+      "steps": [
+        "Model: buses = students ÷ seats = 36 ÷ 10 = 3.6.",
+        "Validate: you can't have 0.6 of a bus — round UP.",
+        "So 4 buses are needed."
+      ],
       "answer": "4"
     }
   ],
@@ -80,75 +177,149 @@
   "practice": {
     "easy": [
       {
-        "id": "n38-e1", "type": "number",
+        "id": "n38-e1",
+        "type": "number",
         "q": "Model: cost = 100 + 20g. Find the cost for g = 3 (in ₹).",
         "answer": "160",
-        "hintLadder": ["100 + 20×3.", "100 + 60.", "160."]
+        "hintLadder": [
+          "100 + 20×3.",
+          "100 + 60.",
+          "160."
+        ]
       },
       {
-        "id": "n38-e2", "type": "mcq",
+        "id": "n38-e2",
+        "type": "mcq",
         "q": "After solving a real problem you should…",
-        "options": [ { "label": "Check the answer makes sense (validate)" }, { "label": "Stop straight away", "mistakeTag": "skip-validate" } ],
+        "options": [
+          {
+            "label": "Check the answer makes sense (validate)"
+          },
+          {
+            "label": "Stop straight away",
+            "mistakeTag": "skip-validate"
+          }
+        ],
         "answer": "Check the answer makes sense (validate)",
-        "hintLadder": ["Does it fit reality?", "Validate.", "Check it."]
+        "hintLadder": [
+          "Does it fit reality?",
+          "Validate.",
+          "Check it."
+        ]
       }
     ],
     "medium": [
       {
-        "id": "n38-m1", "type": "number",
+        "id": "n38-m1",
+        "type": "number",
         "q": "Taxi: fare = 30 + 10k. Find the fare for k = 4 km (in ₹).",
         "answer": "70",
-        "hintLadder": ["30 + 10×4.", "30 + 40.", "70."]
+        "hintLadder": [
+          "30 + 10×4.",
+          "30 + 40.",
+          "70."
+        ]
       },
       {
-        "id": "n38-m2", "type": "number",
+        "id": "n38-m2",
+        "type": "number",
         "q": "25 students, buses hold 10. How many buses are needed (round up)?",
         "answer": "3",
-        "hintLadder": ["25 ÷ 10 = 2.5.", "Can't have half a bus.", "Round up → 3."]
+        "hintLadder": [
+          "25 ÷ 10 = 2.5.",
+          "Can't have half a bus.",
+          "Round up → 3."
+        ]
       }
     ],
     "challenge": [
       {
-        "id": "n38-c1", "type": "number",
+        "id": "n38-c1",
+        "type": "number",
         "q": "Party: cost = 200 + 50g. Find the cost for 8 guests (in ₹).",
         "answer": "600",
-        "hintLadder": ["200 + 50×8.", "200 + 400.", "600."]
+        "hintLadder": [
+          "200 + 50×8.",
+          "200 + 400.",
+          "600."
+        ]
       },
       {
-        "id": "n38-c2", "type": "mcq",
+        "id": "n38-c2",
+        "type": "mcq",
         "q": "A model gives '3.6 buses'. Ravi writes 3 buses. What's the fix?",
-        "options": [ { "label": "Round UP to 4 — everyone needs a seat" }, { "label": "3 is fine", "mistakeTag": "skip-validate" } ],
+        "options": [
+          {
+            "label": "Round UP to 4 — everyone needs a seat"
+          },
+          {
+            "label": "3 is fine",
+            "mistakeTag": "skip-validate"
+          }
+        ],
         "answer": "Round UP to 4 — everyone needs a seat",
-        "hintLadder": ["3 buses leave some behind.", "Round up.", "4 buses."]
+        "hintLadder": [
+          "3 buses leave some behind.",
+          "Round up.",
+          "4 buses."
+        ]
       }
     ]
   },
   "masteryCheck": {
     "questions": [
       {
-        "id": "n38-x1", "type": "number",
+        "id": "n38-x1",
+        "type": "number",
         "q": "Model: cost = 50 + 10n. Find cost for n = 4 (in ₹).",
         "answer": "90",
-        "hintLadder": ["50 + 10×4.", "50 + 40.", "90."]
+        "hintLadder": [
+          "50 + 10×4.",
+          "50 + 40.",
+          "90."
+        ]
       },
       {
-        "id": "n38-x2", "type": "number",
+        "id": "n38-x2",
+        "type": "number",
         "q": "fare = 20 + 5k. Fare for k = 6 km (in ₹)?",
         "answer": "50",
-        "hintLadder": ["20 + 5×6.", "20 + 30.", "50."]
+        "hintLadder": [
+          "20 + 5×6.",
+          "20 + 30.",
+          "50."
+        ]
       },
       {
-        "id": "n38-x3", "type": "number",
+        "id": "n38-x3",
+        "type": "number",
         "q": "42 students, buses of 10 — how many buses (round up)?",
         "answer": "5",
-        "hintLadder": ["42 ÷ 10 = 4.2.", "Round up.", "5."]
+        "hintLadder": [
+          "42 ÷ 10 = 4.2.",
+          "Round up.",
+          "5."
+        ]
       },
       {
-        "id": "n38-x4", "type": "mcq",
+        "id": "n38-x4",
+        "type": "mcq",
         "q": "A good model of 'fixed cost + cost per item' is…",
-        "options": [ { "label": "fixed + rate × amount" }, { "label": "fixed × amount", "mistakeTag": "wrong-variable" } ],
+        "options": [
+          {
+            "label": "fixed + rate × amount"
+          },
+          {
+            "label": "fixed × amount",
+            "mistakeTag": "wrong-variable"
+          }
+        ],
         "answer": "fixed + rate × amount",
-        "hintLadder": ["Fixed added once.", "Rate times the amount.", "fixed + rate × amount."]
+        "hintLadder": [
+          "Fixed added once.",
+          "Rate times the amount.",
+          "fixed + rate × amount."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -157,7 +328,11 @@
   "teachBackPrompt": "Pick a real plan with a grown-up (a party, a trip, or a phone bill). Build a simple model like 'cost = fixed + rate × amount', work out the cost for a few amounts, and CHECK your answers make sense in real life.",
   "revisionCard": {
     "summary": "Modelling: understand → assumptions → variables → build a model (expression/equation/table/graph) → solve → VALIDATE (does it make sense?) → interpret in real words. Pattern for costs: fixed + rate × amount. Round people/buses UP.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "meta": {
     "version": "1.0.0",
@@ -166,5 +341,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Modelling = turn a real problem into maths, solve, then check it makes sense",
+    "unpack": "Steps: understand -> represent with an equation or graph -> solve -> interpret back in the real world."
+  },
+  "studentQuestions": [
+    {
+      "q": "What is mathematical modelling?",
+      "a": "Describing a real situation with maths, solving it, then checking the answer makes real-world sense."
+    },
+    {
+      "q": "Why check against reality?",
+      "a": "Maths can give a silly answer in context (like 2.5 buses). Interpreting keeps it sensible."
+    }
+  ]
 }

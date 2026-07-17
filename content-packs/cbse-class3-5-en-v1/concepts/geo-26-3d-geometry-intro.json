@@ -315,5 +315,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Space needs THREE numbers (x, y, z). Distance = sqrt(x^2+y^2+z^2)",
+    "unpack": "Three axes, 8 octants. Distance is 3D Pythagoras: square the three coordinates, add, take the root."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why three numbers in space?",
+      "a": "Left-right, forward-back, AND up-down - three directions, so three coordinates."
+    },
+    {
+      "q": "How far is (2,3,6) from the origin?",
+      "a": "sqrt(4+9+36) = sqrt(49) = 7 - Pythagoras with three squares."
+    }
+  ]
 }

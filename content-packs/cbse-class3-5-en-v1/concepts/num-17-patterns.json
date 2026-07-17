@@ -681,5 +681,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "Find the RULE, then extend the pattern",
+    "unpack": "Look at the jump between terms. 2,4,6 adds 2; 3,9,27 times 3. State the rule, then continue it."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I find the next number?",
+      "a": "Work out what changes each step (add, subtract, multiply), then apply that rule again."
+    },
+    {
+      "q": "What kinds of number patterns are there?",
+      "a": "Adding a constant (2,4,6), multiplying (2,4,8), squares (1,4,9), and more."
+    }
+  ]
 }

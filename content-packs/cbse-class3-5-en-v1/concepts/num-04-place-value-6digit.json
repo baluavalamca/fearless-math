@@ -510,5 +510,19 @@
     "authoredBy": "FearlessMath authoring team",
     "reviewStatus": "draft",
     "reviewedBy": ""
-  }
+  },
+  "rememberIt": {
+    "hook": "Indian system: group with commas - ones, thousands, lakhs",
+    "unpack": "12,34,567: commas after 3 digits then every 2. Each place is still ten times the one to its right."
+  },
+  "studentQuestions": [
+    {
+      "q": "Where do the commas go in Indian numbers?",
+      "a": "After 3 digits, then every 2: 12,34,567 - marking ones, thousands, then lakhs."
+    },
+    {
+      "q": "What is the value of 5 in 5,00,000?",
+      "a": "Five lakhs. Same digit, different worth, depending on its place."
+    }
+  ]
 }

@@ -587,5 +587,19 @@
     "curriculum": "CBSE/NCERT",
     "language": "en",
     "reviewStatus": "draft"
-  }
+  },
+  "rememberIt": {
+    "hook": "A net is a solid unfolded flat - fold it back up",
+    "unpack": "A cube's net = 6 squares. Match each flat face to the folded solid. Count faces, edges, corners."
+  },
+  "studentQuestions": [
+    {
+      "q": "What is a net?",
+      "a": "A flat pattern that folds up into a 3D solid. A cube's net is six connected squares."
+    },
+    {
+      "q": "How many faces does a cube have?",
+      "a": "6 - one per square in its net. Also 12 edges and 8 corners."
+    }
+  ]
 }
