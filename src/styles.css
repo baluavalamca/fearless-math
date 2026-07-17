@@ -853,6 +853,8 @@ input[type=range] { accent-color: #2f6bff; }
 /* Robo Reason mascot logo (custom SVG). */
 .fm-robo { flex: none; display: block; border-radius: 16px; box-shadow: 0 8px 18px -8px rgba(79,123,255,0.55); }
 .fm-robo.big { margin: 0 auto 8px; }
+.fm-nav-robo { display: inline-flex; align-items: center; gap: 6px; }
+.fm-nav-robo .fm-robo { box-shadow: none; border-radius: 7px; }
 .fm-robo .fm-robo-eyes { transform-box: fill-box; transform-origin: center; }
 .fm-robo.thinking .fm-robo-eyes { animation: fm-robo-blink 1.4s ease-in-out infinite; }
 @keyframes fm-robo-blink { 0%, 44%, 56%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.15); } }

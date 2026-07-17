@@ -12,6 +12,7 @@ const MathToolbox = lazy(() => import("./components/MathToolbox").then((m) => ({
 const AdvancedToolbox = lazy(() => import("./components/AdvancedToolbox").then((m) => ({ default: m.AdvancedToolbox })));
 import { Doodles } from "./components/Doodles";
 import { Emoji3D } from "./components/ObjectIcon";
+import { RoboAvatar } from "./components/RoboAvatar";
 import { isAutoRead, setAutoRead, stopSpeaking } from "./speech";
 
 type Screen = "map" | "clinic" | "ask" | "parent";
@@ -101,7 +102,7 @@ export default function App() {
         <span className="fm-brand"><Emoji3D char="🦊" size={24} /> FearlessMath</span>
         <button className={screen === "map" ? "active" : ""} onClick={() => { setScreen("map"); refresh(); }}>🌳 Ganita Grove</button>
         <button className={screen === "clinic" ? "active" : ""} onClick={() => setScreen("clinic")}>🏥 Mistake Clinic</button>
-        <button className={screen === "ask" ? "active" : ""} onClick={() => setScreen("ask")}>🤖 Ask Robo</button>
+        <button className={`fm-nav-robo ${screen === "ask" ? "active" : ""}`} onClick={() => setScreen("ask")}><RoboAvatar size={20} /> Ask Robo</button>
         <button className={screen === "parent" ? "active" : ""} onClick={() => setScreen("parent")}>👨‍👩‍👧 Parents</button>
         <button className="fm-user-chip" onClick={switchUser} title="Switch user">🦊 {profile.name} ⇄</button>
         <button className={`fm-autoread ${autoRead ? "active" : ""}`} onClick={toggleAutoRead}
