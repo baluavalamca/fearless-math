@@ -14,6 +14,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AiStatus, ConceptCard, Profile, aiUsable, api } from "../api";
 import { autoSpeak, speak, stopSpeaking } from "../speech";
+import { RoboAvatar } from "../components/RoboAvatar";
 
 type Msg = {
   role: "user" | "bot";
@@ -103,7 +104,7 @@ export function AskRobo({ profile, concepts, onOpen }: {
   return (
     <div className="fm-askrobo">
       <header className="fm-ar-head">
-        <div className="fm-ar-avatar">🤖</div>
+        <RoboAvatar size={52} />
         <div>
           <h1>Ask Robo</h1>
           <p className="fm-dash-sub">Your maths helper. Ask any maths question — Robo explains it kindly, step by step.</p>
@@ -117,7 +118,7 @@ export function AskRobo({ profile, concepts, onOpen }: {
       <div className="fm-ar-thread">
         {msgs.length === 0 && (
           <div className="fm-ar-welcome">
-            <div className="fm-ar-avatar big">🤖</div>
+            <RoboAvatar size={72} className="big" />
             <p><strong>Hi {profile.name}! I'm Robo.</strong> Ask me anything about maths and I'll explain it simply. Try one of these:</p>
             <div className="fm-ar-starters">
               {starters(profile.grade).map((s) => (
@@ -132,7 +133,7 @@ export function AskRobo({ profile, concepts, onOpen }: {
             <div key={i} className="fm-ar-row user"><div className="fm-ar-bubble user">{m.text}</div></div>
           ) : (
             <div key={i} className="fm-ar-row bot">
-              <div className="fm-ar-botavatar">🤖</div>
+              <RoboAvatar size={34} />
               <div className={`fm-ar-bubble bot ${m.error ? "err" : ""}`}>
                 <p className="fm-ar-answer">{m.text}</p>
                 {m.example && <div className="fm-ar-example"><span className="fm-ar-tag">Example</span> {m.example}</div>}
@@ -154,7 +155,7 @@ export function AskRobo({ profile, concepts, onOpen }: {
 
         {busy && (
           <div className="fm-ar-row bot">
-            <div className="fm-ar-botavatar">🤖</div>
+            <RoboAvatar size={34} thinking />
             <div className="fm-ar-bubble bot"><span className="fm-ar-typing"><i /><i /><i /></span></div>
           </div>
         )}
