@@ -78,7 +78,7 @@ t("graduated after all reviews", () =>
 console.log("\ncontentLoader");
 const { packs, concepts } = loadPacks(path.join(__dirname, "..", "content-packs"));
 t("packs load (Class 3-5 + PP1-2)", () => assert.strictEqual(packs.length, 2));
-t("all 152 concepts present across 2 packs", () => assert.strictEqual(concepts.size, 152));
+t("all 157 concepts present across 2 packs", () => assert.strictEqual(concepts.size, 157));
 t("every answer key in every concept verifies against itself", () => {
   for (const c of concepts.values()) {
     const all = [...c.practice.easy, ...c.practice.medium, ...c.practice.challenge, ...c.masteryCheck.questions];

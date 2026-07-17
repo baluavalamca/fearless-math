@@ -1,0 +1,104 @@
+{
+  "id": "num-relation-types",
+  "name": "Types of Relations — Reflexive, Symmetric, Transitive",
+  "grade": 10,
+  "strand": "numbers",
+  "prerequisites": ["num-43-relations-functions"],
+  "whatIsIt": "A RELATION on a set links its members with ordered pairs. It can have special properties. REFLEXIVE: every element relates to itself (a R a). SYMMETRIC: if a R b then b R a. TRANSITIVE: if a R b and b R c then a R c. A relation with ALL THREE properties is an EQUIVALENCE RELATION — it sorts the set into neat groups (classes).",
+  "whyNeeded": "Sorting things into groups — same age, same remainder, parallel lines, 'is equal to' — relies on equivalence relations. Recognising these properties is a Class 11 NCERT topic and a JEE Main favourite in Relations & Functions.",
+  "realLifeUses": [
+    "'Is the same age as' — an equivalence relation grouping people by age",
+    "'Is parallel to' groups lines into directions",
+    "'Has the same remainder when divided by 5' groups numbers",
+    "'Is equal to (=)' — the simplest equivalence relation"
+  ],
+  "vocabulary": [
+    { "term": "reflexive", "meaning": "Every element relates to itself: a R a for all a." },
+    { "term": "symmetric", "meaning": "If a R b then b R a." },
+    { "term": "transitive", "meaning": "If a R b and b R c then a R c." },
+    { "term": "equivalence relation", "meaning": "A relation that is reflexive, symmetric AND transitive." }
+  ],
+  "story": {
+    "title": "Same Team",
+    "characters": ["Coach", "Isha"],
+    "text": "Coach says, 'Isha, is \"on the same team as\" a special relation?' Isha checks: 'Everyone is on their own team — reflexive. If I'm on your team, you're on mine — symmetric. If I'm with you and you're with Ravi, then Ravi and I share a team — transitive.' Coach nods: 'All three! So it's an EQUIVALENCE relation — it splits the class into teams.'",
+    "extractedProblem": "The relation 'is on the same team as' is reflexive, symmetric and transitive. What kind of relation is it?",
+    "answerInStory": "An equivalence relation."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": { "grids": [{ "rows": 3, "cols": 3, "label": "pairs (a, b): the diagonal shows reflexive a R a" }] },
+    "caption": "A relation on {1,2,3} as a grid: a mark in cell (a,b) means a R b. Marks all down the diagonal ⇒ reflexive; a mirror-image pattern ⇒ symmetric."
+  },
+  "teachingGallery": [
+    {
+      "title": "The three properties",
+      "note": "Self, both-ways, chain.",
+      "examples": [
+        { "component": "ArrayGrid", "props": { "grids": [{ "rows": 3, "cols": 3, "label": "reflexive: a R a (the diagonal)" }] }, "caption": "Reflexive: every element to itself." },
+        { "component": "ArrayGrid", "props": { "grids": [{ "rows": 3, "cols": 3, "label": "symmetric: a R b ⇒ b R a (mirror)" }] }, "caption": "Symmetric: the grid is mirror-symmetric." },
+        { "component": "ArrayGrid", "props": { "grids": [{ "rows": 3, "cols": 3, "label": "transitive: a R b, b R c ⇒ a R c" }] }, "caption": "Transitive: chains close up." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Test each property in turn. Reflexive: does a R a hold for every a? Symmetric: does a R b force b R a? Transitive: do a R b and b R c force a R c? All three ⇒ equivalence relation.",
+    "steps": [
+      "REFLEXIVE? Check that every element relates to itself.",
+      "SYMMETRIC? Check that whenever a R b, also b R a.",
+      "TRANSITIVE? Check that whenever a R b and b R c, also a R c.",
+      "If all three hold, it is an EQUIVALENCE relation."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Is the relation '=' (is equal to) on numbers an equivalence relation?",
+      "steps": ["Reflexive: a = a ✓.", "Symmetric: a = b ⇒ b = a ✓. Transitive: a = b, b = c ⇒ a = c ✓.", "All three hold, so YES."],
+      "answer": "yes"
+    },
+    {
+      "problem": "Is '<' (is less than) reflexive on numbers?",
+      "steps": ["Reflexive needs a < a for all a.", "But a < a is never true.", "So NO, it is not reflexive."],
+      "answer": "no"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "reflexive-vs-symmetric", "mistake": "Confusing reflexive (a R a) with symmetric (a R b ⇒ b R a).", "fix": "Reflexive is each element to ITSELF; symmetric is about a PAIR working BOTH ways." },
+    { "mistakeTag": "equiv-missing-property", "mistake": "Calling a relation an equivalence relation without checking all three properties.", "fix": "An equivalence relation must be reflexive AND symmetric AND transitive — all three." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "rt-e1", "type": "mcq", "q": "a R a for every a means the relation is…", "options": [{ "label": "Reflexive" }, { "label": "Symmetric", "mistakeTag": "reflexive-vs-symmetric" }], "answer": "Reflexive", "hintLadder": ["Each to itself.", "The diagonal.", "Reflexive."] },
+      { "id": "rt-e2", "type": "mcq", "q": "a R b ⇒ b R a means the relation is…", "options": [{ "label": "Symmetric" }, { "label": "Reflexive", "mistakeTag": "reflexive-vs-symmetric" }], "answer": "Symmetric", "hintLadder": ["Both directions.", "Mirror.", "Symmetric."] }
+    ],
+    "medium": [
+      { "id": "rt-m1", "type": "mcq", "q": "a R b and b R c ⇒ a R c means the relation is…", "options": [{ "label": "Transitive" }, { "label": "Reflexive", "mistakeTag": "reflexive-vs-symmetric" }], "answer": "Transitive", "hintLadder": ["A chain.", "a to c through b.", "Transitive."] },
+      { "id": "rt-m2", "type": "mcq", "q": "An equivalence relation is reflexive, symmetric and…", "options": [{ "label": "Transitive" }, { "label": "Only symmetric", "mistakeTag": "equiv-missing-property" }], "answer": "Transitive", "hintLadder": ["The third property.", "Chains close.", "Transitive."] }
+    ],
+    "challenge": [
+      { "id": "rt-c1", "type": "mcq", "q": "'Is equal to (=)' on numbers is…", "options": [{ "label": "An equivalence relation" }, { "label": "Only reflexive", "mistakeTag": "equiv-missing-property" }], "answer": "An equivalence relation", "hintLadder": ["Check all three.", "= is R, S and T.", "Equivalence relation."] },
+      { "id": "rt-c2", "type": "mcq", "q": "Is '<' (less than) reflexive?", "options": [{ "label": "No" }, { "label": "Yes", "mistakeTag": "reflexive-vs-symmetric" }], "answer": "No", "hintLadder": ["Is a < a ever true?", "No number is less than itself.", "No."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "rt-x1", "type": "mcq", "q": "a R a for every a is which property?", "options": [{ "label": "Reflexive" }, { "label": "Transitive", "mistakeTag": "reflexive-vs-symmetric" }], "answer": "Reflexive", "hintLadder": ["Each to itself.", "Diagonal.", "Reflexive."] },
+      { "id": "rt-x2", "type": "mcq", "q": "An equivalence relation needs how many properties?", "options": [{ "label": "Three (reflexive, symmetric, transitive)" }, { "label": "Two", "mistakeTag": "equiv-missing-property" }], "answer": "Three (reflexive, symmetric, transitive)", "hintLadder": ["All of them.", "R + S + T.", "Three."] },
+      { "id": "rt-x3", "type": "mcq", "q": "a R b ⇒ b R a is which property?", "options": [{ "label": "Symmetric" }, { "label": "Transitive", "mistakeTag": "reflexive-vs-symmetric" }], "answer": "Symmetric", "hintLadder": ["Both ways.", "Mirror.", "Symmetric."] },
+      { "id": "rt-x4", "type": "mcq", "q": "'Is parallel to' for lines (a line parallel to itself) is…", "options": [{ "label": "An equivalence relation" }, { "label": "Not reflexive", "mistakeTag": "equiv-missing-property" }], "answer": "An equivalence relation", "hintLadder": ["Reflexive, symmetric, transitive.", "Groups by direction.", "Equivalence relation."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Pick a relation from daily life ('same birthday month as', 'is a friend of', 'is taller than') and test it with a grown-up: is it reflexive, symmetric, transitive? Decide whether it is an equivalence relation and explain why or why not.",
+  "revisionCard": {
+    "summary": "Relation properties: REFLEXIVE (a R a), SYMMETRIC (a R b ⇒ b R a), TRANSITIVE (a R b & b R c ⇒ a R c). All three ⇒ EQUIVALENCE relation, which splits the set into classes. '=' and 'is parallel to' are equivalence relations; '<' is not (not reflexive).",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 11 / JEE Main (types of relations)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Reflexive (self), Symmetric (both ways), Transitive (chain) → all 3 = Equivalence", "unpack": "Reflexive ≠ symmetric. Equivalence needs all three and sorts the set into classes." },
+  "studentQuestions": [
+    { "q": "What does an equivalence relation actually do?", "a": "It splits a set into non-overlapping groups (equivalence classes) where everything in a group is related to everything else in it." },
+    { "q": "Reflexive vs symmetric — how do I keep them straight?", "a": "Reflexive is one element with ITSELF (a~a); symmetric needs TWO elements and both directions (a~b and b~a)." }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "id": "num-mathematical-induction",
+  "name": "Mathematical Induction — The Domino Proof",
+  "grade": 10,
+  "strand": "numbers",
+  "prerequisites": ["num-47-sequences-series"],
+  "whatIsIt": "The PRINCIPLE OF MATHEMATICAL INDUCTION (PMI) proves a statement P(n) is true for EVERY natural number n, using just two steps. BASE CASE: show P(1) is true. INDUCTIVE STEP: ASSUME P(k) is true (the assumption), then PROVE P(k+1) is true. If both hold, P(n) is true for all n — like a line of dominoes where the first falls and each one knocks over the next.",
+  "whyNeeded": "Many formulas — sums of series, divisibility results, inequalities — hold for all natural numbers, and you cannot check infinitely many. PMI proves them all at once. It is a Class 11 NCERT topic and a JEE Main favourite.",
+  "realLifeUses": [
+    "A line of dominoes: knock the first, each topples the next",
+    "Proving 1+2+…+n = n(n+1)/2 for every n",
+    "Proving a number is divisible by something for all n",
+    "Climbing a ladder: reach rung 1, and each rung lets you reach the next"
+  ],
+  "vocabulary": [
+    { "term": "base case", "meaning": "Proving the statement true for the first value, usually n = 1." },
+    { "term": "inductive hypothesis", "meaning": "The assumption that P(k) is true for some k." },
+    { "term": "inductive step", "meaning": "Using the assumption P(k) to prove P(k+1)." }
+  ],
+  "story": {
+    "title": "Meena's Dominoes",
+    "characters": ["Meena", "Sir"],
+    "text": "Meena lines up dominoes and asks, 'How do I know they'll ALL fall?' Sir smiles. 'Two things. One: the first one falls (base case). Two: each falling domino knocks the next (inductive step). If both are true, every domino falls — even a thousand.' Meena flicks the first — and the whole line tumbles. 'That,' says Sir, 'is mathematical induction.'",
+    "extractedProblem": "To prove a statement true for all natural numbers by induction, which two things must Meena show?",
+    "answerInStory": "The base case (P(1) true) and the inductive step (P(k) true ⇒ P(k+1) true)."
+  },
+  "visual": {
+    "component": "NumberLine",
+    "props": { "lines": [{ "parts": 6, "mark": 1, "label": "Rung 1 true → each rung pushes the next → all rungs", "showLabels": true }] },
+    "caption": "Induction is a ladder: prove rung 1 (base case), and prove each rung leads to the next (inductive step). Then every rung is reachable."
+  },
+  "teachingGallery": [
+    {
+      "title": "The two steps",
+      "note": "Base case, then the inductive step.",
+      "examples": [
+        { "component": "NumberLine", "props": { "lines": [{ "parts": 6, "mark": 0, "label": "Step 1: prove P(1) — the base case", "showLabels": true }] }, "caption": "First domino: show P(1) is true." },
+        { "component": "NumberLine", "props": { "lines": [{ "parts": 6, "mark": 3, "label": "Step 2: assume P(k), prove P(k+1)", "showLabels": true }] }, "caption": "Each domino knocks the next: P(k) ⇒ P(k+1)." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Prove the base case P(1). Then assume P(k) is true and use it to prove P(k+1). Conclude P(n) holds for all natural n.",
+    "steps": [
+      "BASE CASE: substitute n = 1 and verify the statement P(1) is true.",
+      "INDUCTIVE HYPOTHESIS: assume the statement P(k) is true for an arbitrary natural number k.",
+      "INDUCTIVE STEP: using that assumption, prove P(k+1) is true.",
+      "Conclude by PMI that P(n) is true for every natural number n."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Use the formula 1+2+…+n = n(n+1)/2 to find the sum for n = 5.",
+      "steps": ["Substitute n = 5.", "5 × 6 ÷ 2.", "= 15."],
+      "answer": "15"
+    },
+    {
+      "problem": "The sum of the first n odd numbers equals n². Find it for n = 4.",
+      "steps": ["Sum of first n odd numbers = n².", "4².", "= 16."],
+      "answer": "16"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "skipped-base-case", "mistake": "Proving only the inductive step and skipping the base case.", "fix": "PMI needs BOTH: prove the base case P(1) AND the inductive step. Without the first domino, nothing falls." },
+    { "mistakeTag": "assumed-what-to-prove", "mistake": "Assuming P(k+1) (what you must prove) instead of assuming P(k).", "fix": "Assume P(k) is true, then PROVE P(k+1). Never assume the thing you are trying to prove." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "pmi-e1", "type": "mcq", "q": "Mathematical induction has how many steps?", "options": [{ "label": "Two (base case + inductive step)" }, { "label": "One (just the base case)", "mistakeTag": "skipped-base-case" }], "answer": "Two (base case + inductive step)", "hintLadder": ["First domino + each knocks the next.", "Base + step.", "Two."] },
+      { "id": "pmi-e2", "type": "mcq", "q": "The FIRST step of induction is the…", "options": [{ "label": "Base case (n = 1)" }, { "label": "Inductive step", "mistakeTag": "skipped-base-case" }], "answer": "Base case (n = 1)", "hintLadder": ["The first domino.", "Prove P(1).", "Base case."] }
+    ],
+    "medium": [
+      { "id": "pmi-m1", "type": "number", "q": "Using n(n+1)/2, find 1+2+…+5.", "answer": "15", "hintLadder": ["5 × 6 ÷ 2.", "30 ÷ 2.", "15."] },
+      { "id": "pmi-m2", "type": "mcq", "q": "In the inductive step we assume P(k) and prove…", "options": [{ "label": "P(k+1)" }, { "label": "P(k-1)", "mistakeTag": "assumed-what-to-prove" }], "answer": "P(k+1)", "hintLadder": ["The NEXT domino.", "One more than k.", "P(k+1)."] }
+    ],
+    "challenge": [
+      { "id": "pmi-c1", "type": "number", "q": "Sum of the first 4 odd numbers (= 4²)?", "answer": "16", "hintLadder": ["First n odds = n².", "4².", "16."] },
+      { "id": "pmi-c2", "type": "mcq", "q": "PMI proves a statement true for…", "options": [{ "label": "All natural numbers n" }, { "label": "Only n = 1", "mistakeTag": "skipped-base-case" }], "answer": "All natural numbers n", "hintLadder": ["Every domino falls.", "For all n.", "All natural numbers."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "pmi-x1", "type": "mcq", "q": "The two steps of PMI are the base case and the…", "options": [{ "label": "Inductive step" }, { "label": "Guessing step", "mistakeTag": "skipped-base-case" }], "answer": "Inductive step", "hintLadder": ["P(k) ⇒ P(k+1).", "Each domino.", "Inductive step."] },
+      { "id": "pmi-x2", "type": "number", "q": "Using n(n+1)/2, find 1+2+…+10.", "answer": "55", "hintLadder": ["10 × 11 ÷ 2.", "110 ÷ 2.", "55."] },
+      { "id": "pmi-x3", "type": "mcq", "q": "In the inductive step you ASSUME that…", "options": [{ "label": "P(k) is true" }, { "label": "P(n+1) is true", "mistakeTag": "assumed-what-to-prove" }], "answer": "P(k) is true", "hintLadder": ["The hypothesis.", "For some k.", "P(k) is true."] },
+      { "id": "pmi-x4", "type": "number", "q": "Sum of the first 6 odd numbers (= 6²)?", "answer": "36", "hintLadder": ["First n odds = n².", "6².", "36."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Set up a row of coins or books like dominoes. Explain to a grown-up the two things induction needs — the first one falls (base case) and each one knocks the next (inductive step) — and why together they prove ALL of them fall.",
+  "revisionCard": {
+    "summary": "PMI proves P(n) for all natural n in two steps: (1) BASE CASE — prove P(1); (2) INDUCTIVE STEP — assume P(k), prove P(k+1). Both together ⇒ true for all n. Like dominoes: first falls, each knocks the next.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 11 / JEE Main (Principle of Mathematical Induction)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Dominoes: prove P(1), then P(k) ⇒ P(k+1)", "unpack": "Base case starts it; inductive step carries it to every n. Never skip the base case." },
+  "studentQuestions": [
+    { "q": "Why isn't the inductive step alone enough?", "a": "It only says 'if one falls, the next falls' — but if NO domino ever falls (no base case), the chain never starts." },
+    { "q": "Do we always start at n = 1?", "a": "Usually, but the base case can be any starting value (like n = 0 or n = 2); then the result holds for all n from there." }
+  ],
+  "formulas": [
+    { "name": "Sum of first n naturals", "formula": "1 + 2 + … + n = n(n+1)/2", "remember": "half of n times the next number", "whenToUse": "A classic statement to prove by induction." },
+    { "name": "Sum of first n odd numbers", "formula": "1 + 3 + 5 + … + (2n−1) = n²", "remember": "odds build perfect squares", "whenToUse": "Another standard induction example." }
+  ]
+}

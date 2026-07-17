@@ -1,0 +1,108 @@
+{
+  "id": "geo-trigonometric-equations",
+  "name": "Trigonometric Equations — General Solutions",
+  "grade": 10,
+  "strand": "geometry",
+  "prerequisites": ["num-49-trigonometric-functions"],
+  "whatIsIt": "A TRIGONOMETRIC EQUATION involves a trig ratio of an unknown angle, like sin x = 1/2. Because sine, cosine and tangent REPEAT (are periodic), such equations have INFINITELY many solutions. We write them all with a GENERAL SOLUTION: sinθ = sinα → θ = nπ + (−1)ⁿα; cosθ = cosα → θ = 2nπ ± α; tanθ = tanα → θ = nπ + α (n is any integer). The PRINCIPAL solutions are the ones in the first cycle, like x = 30° and 150° for sin x = 1/2.",
+  "whyNeeded": "Waves, oscillations, circular motion and AC electricity repeat, so their equations have repeating solutions. Capturing them all with one general formula is essential in physics and is a core Class 11 NCERT and JEE Main topic.",
+  "realLifeUses": [
+    "Finding all times a Ferris wheel seat is at a given height",
+    "When a swinging pendulum returns to the same angle",
+    "Times an AC voltage hits a set value each cycle",
+    "Angles where a sound or light wave repeats its value"
+  ],
+  "vocabulary": [
+    { "term": "principal solution", "meaning": "A solution in the first cycle, e.g. 0 ≤ x < 2π (or 0° ≤ x < 360°)." },
+    { "term": "general solution", "meaning": "A formula (with integer n) giving ALL solutions of the equation." },
+    { "term": "periodic", "meaning": "Repeating at regular intervals — why trig equations have infinitely many solutions." }
+  ],
+  "story": {
+    "title": "The Ferris Wheel",
+    "characters": ["Aarav", "Didi"],
+    "text": "Aarav rides a Ferris wheel and notices his seat is at the same height again and again. 'When exactly?' asks Didi. 'Well, sin x = 1/2 first at 30° and 150°,' says Aarav, 'but the wheel keeps turning, so it happens every full circle after that.' Didi nods: 'So one equation, but infinitely many answers — the GENERAL solution captures them all.'",
+    "extractedProblem": "For sin x = 1/2, what are the two principal solutions in the first turn (0° to 360°)?",
+    "answerInStory": "30° and 150°."
+  },
+  "visual": {
+    "component": "NumberLine",
+    "props": { "lines": [{ "parts": 12, "mark": 1, "label": "sin x = 1/2 → x = 30°, 150°, then repeat every 360°", "showLabels": true }] },
+    "caption": "Solutions of sin x = 1/2 appear again and again along the angle axis (30°, 150°, 390°, …) — infinitely many, captured by one general formula."
+  },
+  "teachingGallery": [
+    {
+      "title": "The three general solutions",
+      "note": "One formula per ratio.",
+      "examples": [
+        { "component": "NumberLine", "props": { "lines": [{ "parts": 12, "mark": 1, "label": "sin θ = sin α → θ = nπ + (−1)ⁿ α", "showLabels": true }] }, "caption": "Sine family." },
+        { "component": "NumberLine", "props": { "lines": [{ "parts": 12, "mark": 2, "label": "cos θ = cos α → θ = 2nπ ± α", "showLabels": true }] }, "caption": "Cosine family." },
+        { "component": "NumberLine", "props": { "lines": [{ "parts": 12, "mark": 3, "label": "tan θ = tan α → θ = nπ + α", "showLabels": true }] }, "caption": "Tangent family." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Reduce the equation to sinθ = sinα, cosθ = cosα, or tanθ = tanα by finding a known angle α. Then write the matching general solution and, if asked, list the principal solutions in the first cycle.",
+    "steps": [
+      "Isolate the trig ratio, e.g. sin x = 1/2.",
+      "Find a reference angle α whose ratio matches (here α = 30° = π/6).",
+      "Write the general solution using the correct family: sine → nπ + (−1)ⁿα, cosine → 2nπ ± α, tangent → nπ + α.",
+      "For principal solutions, list the values in one full cycle (0 to 2π)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Give the principal solutions of sin x = 1/2 in 0° ≤ x < 360°.",
+      "steps": ["sin 30° = 1/2, so one solution is 30°.", "Sine is also positive in the second quadrant: 180° − 30° = 150°.", "Principal solutions: 30° and 150°."],
+      "answer": "30° and 150°"
+    },
+    {
+      "problem": "What is the smallest positive angle (in degrees) with sin x = 1?",
+      "steps": ["Sine reaches its maximum 1 at 90°.", "That is the smallest positive solution.", "x = 90°."],
+      "answer": "90"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "only-principal", "mistake": "Giving only one (or only the principal) solution and forgetting the rest.", "fix": "Trig equations have INFINITELY many solutions. Use the general solution (with integer n) unless only principal values are asked." },
+    { "mistakeTag": "wrong-general-form", "mistake": "Using the wrong general formula (e.g. the cosine form for a sine equation).", "fix": "Match the ratio: sine → nπ + (−1)ⁿα, cosine → 2nπ ± α, tangent → nπ + α." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "te-e1", "type": "mcq", "q": "The principal solutions of sin x = 1/2 in [0°, 360°) are…", "options": [{ "label": "30° and 150°" }, { "label": "30° only", "mistakeTag": "only-principal" }], "answer": "30° and 150°", "hintLadder": ["Sine positive in Q1 and Q2.", "30° and 180−30.", "30° and 150°."] },
+      { "id": "te-e2", "type": "mcq", "q": "How many solutions does sin x = 1/2 have in total?", "options": [{ "label": "Infinitely many" }, { "label": "Exactly one", "mistakeTag": "only-principal" }], "answer": "Infinitely many", "hintLadder": ["Sine repeats.", "Every cycle again.", "Infinitely many."] }
+    ],
+    "medium": [
+      { "id": "te-m1", "type": "mcq", "q": "General solution of sin θ = sin α is…", "options": [{ "label": "nπ + (−1)ⁿ α" }, { "label": "2nπ ± α", "mistakeTag": "wrong-general-form" }], "answer": "nπ + (−1)ⁿ α", "hintLadder": ["Sine family.", "Alternating sign.", "nπ + (−1)ⁿα."] },
+      { "id": "te-m2", "type": "mcq", "q": "General solution of cos θ = cos α is…", "options": [{ "label": "2nπ ± α" }, { "label": "nπ + α", "mistakeTag": "wrong-general-form" }], "answer": "2nπ ± α", "hintLadder": ["Cosine family.", "Full turns, plus or minus.", "2nπ ± α."] }
+    ],
+    "challenge": [
+      { "id": "te-c1", "type": "mcq", "q": "General solution of tan θ = tan α is…", "options": [{ "label": "nπ + α" }, { "label": "2nπ ± α", "mistakeTag": "wrong-general-form" }], "answer": "nπ + α", "hintLadder": ["Tangent repeats every π.", "nπ then add α.", "nπ + α."] },
+      { "id": "te-c2", "type": "number", "q": "Smallest positive angle (degrees) with sin x = 1?", "answer": "90", "hintLadder": ["Sine's maximum.", "At 90°.", "90."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "te-x1", "type": "mcq", "q": "A trigonometric equation generally has…", "options": [{ "label": "Infinitely many solutions" }, { "label": "One solution", "mistakeTag": "only-principal" }], "answer": "Infinitely many solutions", "hintLadder": ["Periodic.", "Repeats forever.", "Infinitely many."] },
+      { "id": "te-x2", "type": "mcq", "q": "General solution of sin θ = sin α:", "options": [{ "label": "nπ + (−1)ⁿ α" }, { "label": "nπ + α", "mistakeTag": "wrong-general-form" }], "answer": "nπ + (−1)ⁿ α", "hintLadder": ["Sine family.", "Alternating sign term.", "nπ + (−1)ⁿα."] },
+      { "id": "te-x3", "type": "number", "q": "Smallest positive angle (degrees) with cos x = 0?", "answer": "90", "hintLadder": ["Cosine is 0 at 90°.", "First positive.", "90."] },
+      { "id": "te-x4", "type": "mcq", "q": "General solution of cos θ = cos α:", "options": [{ "label": "2nπ ± α" }, { "label": "nπ + (−1)ⁿ α", "mistakeTag": "wrong-general-form" }], "answer": "2nπ ± α", "hintLadder": ["Cosine family.", "Full turns ± α.", "2nπ ± α."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Explain to a grown-up why sin x = 1/2 has more than one answer. Show the two principal solutions (30° and 150°) and describe how, because the wheel keeps turning, the same value returns every full circle — that's the general solution.",
+  "revisionCard": {
+    "summary": "Trig equations are periodic ⇒ infinitely many solutions. General solutions: sinθ = sinα → θ = nπ + (−1)ⁿα; cosθ = cosα → θ = 2nπ ± α; tanθ = tanα → θ = nπ + α. Principal solutions are those in one cycle (e.g. 30°, 150° for sin x = 1/2).",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 11 / JEE Main (trigonometric equations)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "sin→nπ+(−1)ⁿα, cos→2nπ±α, tan→nπ+α", "unpack": "Periodic ⇒ infinitely many answers. Principal = first cycle; general = all of them." },
+  "studentQuestions": [
+    { "q": "Why so many solutions?", "a": "Trig functions repeat every cycle, so if one angle works, every angle a full turn away works too — infinitely many." },
+    { "q": "Principal vs general?", "a": "Principal solutions are the specific ones in the first cycle (e.g. 30°, 150°); the general solution is the formula that lists ALL of them." }
+  ],
+  "formulas": [
+    { "name": "Sine equation", "formula": "sinθ = sinα ⇒ θ = nπ + (−1)ⁿ α", "remember": "alternating-sign family", "whenToUse": "Any equation reduced to a sine value." },
+    { "name": "Cosine equation", "formula": "cosθ = cosα ⇒ θ = 2nπ ± α", "remember": "full turns plus or minus", "whenToUse": "Reduced to a cosine value." },
+    { "name": "Tangent equation", "formula": "tanθ = tanα ⇒ θ = nπ + α", "remember": "repeats every π", "whenToUse": "Reduced to a tangent value." }
+  ]
+}

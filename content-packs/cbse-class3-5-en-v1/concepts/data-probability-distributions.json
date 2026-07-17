@@ -1,0 +1,107 @@
+{
+  "id": "data-probability-distributions",
+  "name": "Probability Distributions — Random Variables & Binomial",
+  "grade": 11,
+  "strand": "data",
+  "prerequisites": ["data-11-conditional-probability"],
+  "whatIsIt": "A RANDOM VARIABLE X assigns a number to each outcome (like the number of heads in 3 tosses). Its PROBABILITY DISTRIBUTION lists each value with its probability; all the probabilities must add to 1. The MEAN (expected value) is E(X) = Σ x·P(x). A BINOMIAL distribution counts successes in n independent trials each with success probability p: P(X = r) = C(n, r) pʳ q^(n−r), where q = 1 − p. Its mean is np and variance is npq.",
+  "whyNeeded": "Repeated yes/no trials are everywhere — coin tosses, quality checks, medicine success rates, exam guessing. The binomial distribution predicts how likely each number of successes is. Random variables and the binomial distribution are Class 12 NCERT and JEE Main topics.",
+  "realLifeUses": [
+    "Number of heads when you toss coins",
+    "How many of 10 bulbs are defective on a line",
+    "Chance a student guesses r of n MCQs correctly",
+    "How many free throws a player sinks out of 5"
+  ],
+  "vocabulary": [
+    { "term": "random variable", "meaning": "A number assigned to each outcome of an experiment." },
+    { "term": "probability distribution", "meaning": "A table of each value of X with its probability; the probabilities sum to 1." },
+    { "term": "binomial distribution", "meaning": "Distribution of successes in n independent trials: P(X=r) = C(n,r) pʳ q^(n−r)." },
+    { "term": "expected value (mean)", "meaning": "E(X) = Σ x·P(x); for binomial it is np." }
+  ],
+  "story": {
+    "title": "Three Coins",
+    "characters": ["Riya", "Sir"],
+    "text": "Riya tosses 3 fair coins and lets X be the number of heads. 'What can X be?' asks Sir. '0, 1, 2, or 3,' says Riya. She counts the 8 equally likely outcomes: P(0)=1/8, P(1)=3/8, P(2)=3/8, P(3)=1/8. 'They add to 1!' she notices. Sir smiles: 'And the counts 1, 3, 3, 1 are C(3,r) — that's the binomial distribution.'",
+    "extractedProblem": "Toss 3 fair coins. What is P(exactly 2 heads)?",
+    "answerInStory": "3/8 — there are C(3,2) = 3 ways out of 8 equally likely outcomes."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": { "categories": [{ "label": "0", "value": 1 }, { "label": "1", "value": 3 }, { "label": "2", "value": 3 }, { "label": "3", "value": 1 }], "unit": "ways out of 8 (×1/8 = probability)" },
+    "caption": "Binomial distribution for 3 fair coins: the bar heights 1, 3, 3, 1 are C(3,r). Divide each by 8 to get probabilities 1/8, 3/8, 3/8, 1/8 (which add to 1)."
+  },
+  "teachingGallery": [
+    {
+      "title": "From counts to probabilities",
+      "note": "Counts C(n,r), then divide by the total.",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [{ "label": "0", "value": 1 }, { "label": "1", "value": 2 }, { "label": "2", "value": 1 }], "unit": "ways out of 4 (2 coins)" }, "caption": "2 coins: counts 1, 2, 1 → probabilities 1/4, 1/2, 1/4." },
+        { "component": "BarChart", "props": { "categories": [{ "label": "0", "value": 1 }, { "label": "1", "value": 3 }, { "label": "2", "value": 3 }, { "label": "3", "value": 1 }], "unit": "ways out of 8 (3 coins)" }, "caption": "3 coins: counts 1, 3, 3, 1 → the row of Pascal's triangle." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "List the values of X and their probabilities (they must sum to 1). For a binomial, use P(X=r) = C(n,r) pʳ q^(n−r); the mean is np and the variance npq.",
+    "steps": [
+      "Identify the random variable X and the values it can take.",
+      "Find each probability; check they add to 1.",
+      "For n independent success/fail trials, use P(X=r) = C(n,r) pʳ q^(n−r) with q = 1 − p.",
+      "Mean = np, variance = npq when a summary is needed."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Toss 3 fair coins. Find P(exactly 2 heads) as a fraction.",
+      "steps": ["p = 1/2, q = 1/2, n = 3, r = 2.", "P = C(3,2)(1/2)²(1/2)¹ = 3 × 1/8.", "= 3/8."],
+      "answer": "3/8"
+    },
+    {
+      "problem": "A fair coin is tossed 10 times. What is the mean number of heads?",
+      "steps": ["Binomial mean = np.", "n = 10, p = 1/2.", "10 × 1/2 = 5."],
+      "answer": "5"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "probs-not-sum-1", "mistake": "Writing a distribution whose probabilities do not add up to 1.", "fix": "Every probability distribution must have all P(X) summing to exactly 1 — check the total." },
+    { "mistakeTag": "forgot-combinations", "mistake": "Forgetting the C(n, r) count in the binomial formula.", "fix": "P(X=r) = C(n,r) pʳ q^(n−r): you must count the C(n,r) ways to arrange the r successes." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "pd-e1", "type": "mcq", "q": "All probabilities in a distribution add up to…", "options": [{ "label": "1" }, { "label": "0", "mistakeTag": "probs-not-sum-1" }], "answer": "1", "hintLadder": ["Something must happen.", "Whole = 1.", "1."] },
+      { "id": "pd-e2", "type": "fraction", "q": "For one fair coin, P(head) = ?", "answer": "1/2", "hintLadder": ["Two equal outcomes.", "1 of 2.", "1/2."] }
+    ],
+    "medium": [
+      { "id": "pd-m1", "type": "number", "q": "Binomial mean np: n = 8, p = 1/2. Mean = ?", "answer": "4", "hintLadder": ["Mean = np.", "8 × 1/2.", "4."] },
+      { "id": "pd-m2", "type": "fraction", "q": "Two fair coins. P(exactly 1 head)?", "answer": "1/2", "hintLadder": ["Outcomes HT, TH out of 4.", "2/4.", "1/2."] }
+    ],
+    "challenge": [
+      { "id": "pd-c1", "type": "fraction", "q": "Three fair coins. P(exactly 2 heads)?", "answer": "3/8", "hintLadder": ["C(3,2) = 3 ways.", "Out of 8.", "3/8."] },
+      { "id": "pd-c2", "type": "number", "q": "Binomial variance npq: n = 4, p = 1/2, q = 1/2. Variance = ?", "answer": "1", "hintLadder": ["npq.", "4 × 1/2 × 1/2.", "1."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "pd-x1", "type": "mcq", "q": "The probabilities in any distribution sum to…", "options": [{ "label": "1" }, { "label": "n", "mistakeTag": "probs-not-sum-1" }], "answer": "1", "hintLadder": ["Total certainty.", "Whole.", "1."] },
+      { "id": "pd-x2", "type": "number", "q": "Binomial mean np: n = 20, p = 1/2. Mean = ?", "answer": "10", "hintLadder": ["np.", "20 × 1/2.", "10."] },
+      { "id": "pd-x3", "type": "fraction", "q": "Three fair coins. P(exactly 1 head)?", "answer": "3/8", "hintLadder": ["C(3,1) = 3 ways.", "Out of 8.", "3/8."] },
+      { "id": "pd-x4", "type": "mcq", "q": "The binomial formula P(X=r) includes the factor…", "options": [{ "label": "C(n, r)" }, { "label": "n only", "mistakeTag": "forgot-combinations" }], "answer": "C(n, r)", "hintLadder": ["Count the arrangements.", "Combinations.", "C(n, r)."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Toss 3 coins many times with a grown-up and tally the number of heads each time. Explain how your tallies approach the distribution 1/8, 3/8, 3/8, 1/8, why they add to 1, and where the counts 1, 3, 3, 1 come from (C(3, r)).",
+  "revisionCard": {
+    "summary": "Random variable X → probability distribution (all P sum to 1). Mean E(X) = Σx·P(x). Binomial (n trials, success p, q = 1−p): P(X=r) = C(n,r) pʳ q^(n−r); mean = np; variance = npq. Counts follow Pascal's triangle.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 12 / JEE Main (random variables & binomial distribution)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "P(X=r) = C(n,r) pʳ q^(n−r); mean np, variance npq", "unpack": "Probabilities sum to 1. Binomial counts successes; don't drop the C(n,r)." },
+  "studentQuestions": [
+    { "q": "When is a distribution binomial?", "a": "When there are a fixed number n of independent trials, each with the same two outcomes (success/fail) and the same probability p." },
+    { "q": "Why does C(n,r) appear?", "a": "Because there are C(n,r) different orders in which the r successes can occur among the n trials — each equally likely." }
+  ],
+  "formulas": [
+    { "name": "Binomial probability", "formula": "P(X=r) = C(n,r) pʳ q^(n−r)", "remember": "ways × success^r × fail^(n−r)", "whenToUse": "r successes in n independent trials." },
+    { "name": "Binomial mean & variance", "formula": "mean = np, variance = npq", "remember": "n·p, then times q for spread", "whenToUse": "Summarising a binomial distribution." }
+  ]
+}

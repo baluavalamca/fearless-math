@@ -1,0 +1,108 @@
+{
+  "id": "num-complex-numbers-depth",
+  "name": "Complex Numbers Depth — Modulus, Argument, De Moivre",
+  "grade": 10,
+  "strand": "numbers",
+  "prerequisites": ["num-46-complex-numbers"],
+  "whatIsIt": "Every complex number z = a + bi can be drawn as a point (a, b) on the ARGAND PLANE. Its MODULUS is the distance from the origin, |z| = √(a² + b²). Its ARGUMENT is the angle θ the line makes with the positive real axis. In POLAR form, z = r(cosθ + i sinθ). DE MOIVRE'S THEOREM says (cosθ + i sinθ)ⁿ = cos(nθ) + i sin(nθ) — raising to a power MULTIPLIES the angle. The CUBE ROOTS OF UNITY are 1, ω, ω², with ω³ = 1 and 1 + ω + ω² = 0.",
+  "whyNeeded": "Modulus and argument turn complex numbers into rotations and scalings, making powers and roots easy. De Moivre's theorem and roots of unity are heavily tested in JEE Main and Advanced and used in AC circuits, signals and rotations.",
+  "realLifeUses": [
+    "Representing AC voltage and current as rotating vectors (phasors)",
+    "Rotating a point in a graphics program by multiplying complex numbers",
+    "Finding all nth roots of a number evenly spaced on a circle",
+    "Signal processing with magnitude and phase"
+  ],
+  "vocabulary": [
+    { "term": "modulus |z|", "meaning": "The distance of z from the origin: √(a² + b²)." },
+    { "term": "argument (arg z)", "meaning": "The angle z makes with the positive real axis." },
+    { "term": "polar form", "meaning": "z = r(cosθ + i sinθ), with r = |z| and θ = arg z." },
+    { "term": "cube roots of unity", "meaning": "1, ω, ω² where ω³ = 1 and 1 + ω + ω² = 0." }
+  ],
+  "story": {
+    "title": "Turning by Multiplying",
+    "characters": ["Zoya", "Sir"],
+    "text": "Zoya plots z = 3 + 4i and measures its distance from the origin: exactly 5. 'That's the modulus, |z|,' says Sir. 'And the angle to the real axis is the argument.' He shows her a trick: 'Multiplying complex numbers ADDS their angles. So squaring z DOUBLES its angle — that's De Moivre's theorem.' Zoya grins: 'So powers just spin and stretch the arrow.'",
+    "extractedProblem": "For z = 3 + 4i, what is the modulus |z|?",
+    "answerInStory": "5 — because √(3² + 4²) = √25 = 5."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": { "shapes": [{ "kind": "triangle", "label": "z = a + bi: |z| = √(a²+b²), angle θ = arg z" }] },
+    "caption": "On the Argand plane, z = a + bi is the point (a, b). The right triangle with legs a and b has hypotenuse |z| = √(a²+b²), and the base angle is the argument θ."
+  },
+  "teachingGallery": [
+    {
+      "title": "Modulus and powers",
+      "note": "Distance, and how powers spin the angle.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "triangle", "label": "3 + 4i → legs 3, 4 → |z| = 5" }] }, "caption": "|3 + 4i| = √(9+16) = 5 (a 3-4-5 triangle)." },
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "triangle", "label": "De Moivre: angle × n" }] }, "caption": "(cosθ + i sinθ)ⁿ = cos nθ + i sin nθ — the angle multiplies by n." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Find the modulus with √(a²+b²) and the argument as the angle to the real axis. Write z in polar form r(cosθ + i sinθ). Use De Moivre for powers: raise the modulus to the power and multiply the angle by n.",
+    "steps": [
+      "Modulus: |z| = √(a² + b²).",
+      "Argument: θ = the angle of (a, b) from the positive real axis.",
+      "Polar form: z = r(cosθ + i sinθ) with r = |z|.",
+      "Powers: zⁿ has modulus |z|ⁿ and argument nθ (De Moivre)."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find |3 + 4i|.",
+      "steps": ["|z| = √(a² + b²).", "√(3² + 4²) = √(9 + 16).", "√25 = 5."],
+      "answer": "5"
+    },
+    {
+      "problem": "If |z| = 2, find |z⁴| using De Moivre.",
+      "steps": ["Under a power, the modulus is raised to that power: |zⁿ| = |z|ⁿ.", "|z⁴| = 2⁴.", "= 16."],
+      "answer": "16"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "modulus-no-sqrt", "mistake": "Writing |z| = a² + b² and forgetting the square root.", "fix": "|z| = √(a² + b²) — always take the square root; it is a distance." },
+    { "mistakeTag": "demoivre-add-angle", "mistake": "In De Moivre, adding to the angle instead of multiplying it by n.", "fix": "(cosθ + i sinθ)ⁿ = cos(nθ) + i sin(nθ): MULTIPLY the angle by n." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "cd-e1", "type": "number", "q": "Find |3 + 4i|.", "answer": "5", "hintLadder": ["√(a²+b²).", "√(9+16).", "5."] },
+      { "id": "cd-e2", "type": "number", "q": "Find |5 + 12i|.", "answer": "13", "hintLadder": ["√(25+144).", "√169.", "13."] }
+    ],
+    "medium": [
+      { "id": "cd-m1", "type": "number", "q": "If |z| = 3, find |z⁴|.", "answer": "81", "hintLadder": ["|zⁿ| = |z|ⁿ.", "3⁴.", "81."] },
+      { "id": "cd-m2", "type": "mcq", "q": "De Moivre: (cosθ + i sinθ)ⁿ = …", "options": [{ "label": "cos nθ + i sin nθ" }, { "label": "cos θ + i sin nθ", "mistakeTag": "demoivre-add-angle" }], "answer": "cos nθ + i sin nθ", "hintLadder": ["Angle multiplies by n.", "Both parts.", "cos nθ + i sin nθ."] }
+    ],
+    "challenge": [
+      { "id": "cd-c1", "type": "number", "q": "Cube roots of unity: 1 + ω + ω² = ?", "answer": "0", "hintLadder": ["They sum to zero.", "Balanced on a circle.", "0."] },
+      { "id": "cd-c2", "type": "number", "q": "For the cube root of unity ω, what is ω³?", "answer": "1", "hintLadder": ["It is a cube ROOT of 1.", "ω³ = 1.", "1."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "cd-x1", "type": "number", "q": "Find |8 + 6i|.", "answer": "10", "hintLadder": ["√(64+36).", "√100.", "10."] },
+      { "id": "cd-x2", "type": "mcq", "q": "The modulus |z| of a + bi equals…", "options": [{ "label": "√(a² + b²)" }, { "label": "a² + b²", "mistakeTag": "modulus-no-sqrt" }], "answer": "√(a² + b²)", "hintLadder": ["It's a distance.", "Take the root.", "√(a²+b²)."] },
+      { "id": "cd-x3", "type": "number", "q": "If |z| = 2, find |z⁵|.", "answer": "32", "hintLadder": ["|z|ⁿ.", "2⁵.", "32."] },
+      { "id": "cd-x4", "type": "number", "q": "1 + ω + ω² = ? (cube roots of unity)", "answer": "0", "hintLadder": ["They cancel.", "Sum around the circle.", "0."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw z = 3 + 4i on graph paper as the point (3, 4). Show a grown-up the right triangle, and explain how |z| = √(3²+4²) = 5 is just the Pythagoras hypotenuse, and how the argument is the angle to the horizontal axis.",
+  "revisionCard": {
+    "summary": "z = a + bi on the Argand plane. Modulus |z| = √(a²+b²) (a distance). Argument = angle to the real axis. Polar: r(cosθ + i sinθ). De Moivre: (cosθ + i sinθ)ⁿ = cos nθ + i sin nθ (modulus^n, angle ×n). Cube roots of unity: ω³ = 1, 1 + ω + ω² = 0.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 11 / JEE Main & Advanced (modulus, argument, De Moivre, roots of unity)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "|z| = √(a²+b²); De Moivre multiplies the angle by n; 1 + ω + ω² = 0", "unpack": "Modulus is a distance (take the root). Powers: modulus^n, angle×n. Roots of unity sum to 0." },
+  "studentQuestions": [
+    { "q": "Why is |z| like Pythagoras?", "a": "Because z = a + bi is the point (a, b), and its distance from the origin is the hypotenuse √(a²+b²)." },
+    { "q": "What's special about 1 + ω + ω² = 0?", "a": "The three cube roots of unity sit equally spaced on a circle, so as vectors they perfectly cancel to zero — a favourite JEE shortcut." }
+  ],
+  "formulas": [
+    { "name": "Modulus", "formula": "|z| = √(a² + b²)", "remember": "distance = Pythagoras", "whenToUse": "Size of a complex number." },
+    { "name": "De Moivre's theorem", "formula": "(cosθ + i sinθ)ⁿ = cos nθ + i sin nθ", "remember": "power multiplies the angle", "whenToUse": "Powers and roots of complex numbers." },
+    { "name": "Cube roots of unity", "formula": "1 + ω + ω² = 0, ω³ = 1", "remember": "they sum to zero", "whenToUse": "Simplifying expressions with ω." }
+  ]
+}
