@@ -13,9 +13,18 @@ const AdvancedToolbox = lazy(() => import("./components/AdvancedToolbox").then((
 import { Doodles } from "./components/Doodles";
 import { Emoji3D } from "./components/ObjectIcon";
 import { RoboAvatar } from "./components/RoboAvatar";
-import { isAutoRead, setAutoRead, stopSpeaking } from "./speech";
+import { isAutoRead, setAutoRead, stopSpeaking, setSpeechLang } from "./speech";
 
 type Screen = "map" | "clinic" | "ask" | "parent";
+
+/* Global display language. Translated packs (hi/te) carry the same concept ids,
+ * so progress is shared; untranslated lessons fall back to English automatically. */
+type LangId = "en" | "hi" | "te";
+const LANGS: { id: LangId; label: string; native: string; bcp: string }[] = [
+  { id: "en", label: "EN", native: "English", bcp: "en-IN" },
+  { id: "hi", label: "हिं", native: "हिंदी", bcp: "hi-IN" },
+  { id: "te", label: "తె", native: "తెలుగు", bcp: "te-IN" },
+];
 type ThemeId = "rainbow" | "space" | "unicorn" | "ocean" | "dino" | "candy" | "fairy" | "jungle" | "racing"
   | "light" | "dark";
 
@@ -47,7 +56,30 @@ export default function App() {
   });
 
   const [themeMenu, setThemeMenu] = useState(false);
+  const [lang, setLang] = useState<LangId>(() => {
+    const s = localStorage.getItem("fm_lang");
+    return (LANGS.find((l) => l.id === s)?.id) ?? "en";
+  });
+  const [langMenu, setLangMenu] = useState(false);
   function toggleAutoRead() { const next = !autoRead; setAutoRead(next); setAutoReadState(next); }
+
+  // Apply the display language: set <html lang> (drives the Indic font via CSS),
+  // point read-aloud at the right voice, and tell the main process which pack to serve.
+  async function applyLanguage(next: LangId, reloadOpen: boolean) {
+    const meta = LANGS.find((l) => l.id === next) ?? LANGS[0];
+    document.documentElement.setAttribute("lang", meta.id);
+    localStorage.setItem("fm_lang", meta.id);
+    setSpeechLang(meta.bcp);
+    stopSpeaking();
+    try { await api.setLanguage(meta.id); } catch { /* falls back to en in main */ }
+    if (profile) await refresh();
+    if (reloadOpen && open) { try { setOpen(await api.getConcept(open.id)); } catch { /* keep current */ } }
+  }
+  function changeLanguage(next: LangId) {
+    setLang(next);
+    setLangMenu(false);
+    void applyLanguage(next, true);
+  }
 
   useEffect(() => { stopSpeaking(); }, [screen, open]);
   useEffect(() => {
@@ -62,11 +94,20 @@ export default function App() {
 
   async function refresh() { setConcepts(await api.listConcepts()); }
 
-  // Boot: is anyone logged in?
+  // Boot: apply the saved language first (so cards/lessons load translated), then
+  // check whether anyone is logged in.
   useEffect(() => {
-    api.activeProfile()
-      .then((p) => { setProfile(p); setBooting(false); if (p) { setScreen(p.role === "student" ? "map" : "parent"); refresh(); } })
-      .catch(() => setBooting(false));
+    const meta = LANGS.find((l) => l.id === lang) ?? LANGS[0];
+    document.documentElement.setAttribute("lang", meta.id);
+    setSpeechLang(meta.bcp);
+    (async () => {
+      try { await api.setLanguage(meta.id); } catch { /* main defaults to en */ }
+      try {
+        const p = await api.activeProfile();
+        setProfile(p); setBooting(false);
+        if (p) { setScreen(p.role === "student" ? "map" : "parent"); await refresh(); }
+      } catch { setBooting(false); }
+    })();
   }, []);
 
   async function onReady(p: Profile) { setProfile(p); setScreen(p.role === "student" ? "map" : "parent"); setOpen(null); await refresh(); }
@@ -109,6 +150,26 @@ export default function App() {
           title="When ON, the app reads every screen aloud automatically">
           {autoRead ? "🔊 Auto-read ON" : "🔇 Auto-read OFF"}
         </button>
+        <div className="fm-theme-wrap">
+          <button className="fm-theme-toggle" onClick={() => setLangMenu((v) => !v)}
+            aria-haspopup="true" aria-expanded={langMenu} title="Language / भाषा / భాష">
+            🌐 {(LANGS.find((l) => l.id === lang) ?? LANGS[0]).native} ▾
+          </button>
+          {langMenu && (
+            <>
+              <div className="fm-theme-backdrop" onClick={() => setLangMenu(false)} />
+              <div className="fm-theme-menu" role="menu" aria-label="Choose a language">
+                {LANGS.map((l) => (
+                  <button key={l.id} role="menuitemradio" aria-checked={lang === l.id}
+                    className={"fm-theme-swatch" + (lang === l.id ? " on" : "")}
+                    onClick={() => changeLanguage(l.id)}>
+                    <span className="fm-theme-name">🌐 {l.native}</span>
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
         <div className="fm-theme-wrap">
           <button className="fm-theme-toggle" onClick={() => setThemeMenu((v) => !v)}
             aria-haspopup="true" aria-expanded={themeMenu} title="Choose a theme">

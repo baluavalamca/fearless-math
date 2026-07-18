@@ -45,8 +45,25 @@ function registerIpc() {
   }
   let profile = activeProfile();
 
+  // Global display language (EN default). Translated packs carry the same concept
+  // ids, so we resolve a concept's text in the active language and fall back to
+  // English per-concept when a translation isn't shipped yet.
+  let activeLang = "en";
+  const resolveConcept = (id) => {
+    const m = content && content.conceptsByLang && content.conceptsByLang.get(activeLang);
+    return (m && m.get(id)) || (content && content.concepts.get(id)) || null;
+  };
+
   // Never leak the raw PIN to the renderer — expose only whether one is set.
   const pub = (p) => { if (!p) return p; const { pin, ...rest } = p; return { ...rest, hasPin: !!pin }; };
+
+  ipcMain.handle("content:languages", () =>
+    (content && content.conceptsByLang) ? [...content.conceptsByLang.keys()] : ["en"]);
+  ipcMain.handle("content:setLanguage", (_e, lang) => {
+    const has = content && content.conceptsByLang && content.conceptsByLang.has(lang);
+    activeLang = has ? lang : "en";
+    return { lang: activeLang, available: content && content.conceptsByLang ? [...content.conceptsByLang.keys()] : ["en"] };
+  });
 
   ipcMain.handle("profile:get", () => pub(profile));
   ipcMain.handle("profiles:list", () => store.listProfiles().map(pub));
@@ -68,14 +85,16 @@ function registerIpc() {
     const unlocked = new Set(logic.unlockedConcepts(all, mastered));
     const progress = new Map(store.getProgress(profile.id).map((p) => [p.concept_id, p]));
     return all.map((c) => ({
-      ...conceptCard(c),
+      // Card text (name/world/character) shows in the active language; the unlock
+      // graph above is computed from the canonical English map (ids are shared).
+      ...conceptCard(resolveConcept(c.id) || c),
       status: progress.get(c.id)?.status
         || (unlocked.has(c.id) ? "available" : "locked"),
     }));
   });
 
   ipcMain.handle("concepts:get", (_e, conceptId) => {
-    const c = content.concepts.get(conceptId);
+    const c = resolveConcept(conceptId);
     if (!c) throw new Error("Unknown concept: " + conceptId);
     return c;
   });

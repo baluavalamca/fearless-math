@@ -92,6 +92,8 @@ interface FmBridge {
   getProfile(): Promise<{ id: number; name: string; grade: number }>;
   listConcepts(): Promise<ConceptCard[]>;
   getConcept(id: string): Promise<Concept>;
+  contentLanguages(): Promise<string[]>;
+  setLanguage(lang: string): Promise<{ lang: string; available: string[] }>;
   lessonStarted(id: string): Promise<unknown>;
   submitAnswer(p: { conceptId: string; questionId: string; context: string; answer: string; hintsUsed: number; question?: Question }): Promise<Verdict>;
   listProfiles(): Promise<Profile[]>;
@@ -171,5 +173,10 @@ export const api: FmBridge = {
       _conceptCache.set(id, p);
     }
     return p;
+  },
+  // Switching language changes concept CONTENT, so drop the memoised lessons.
+  setLanguage(lang: string) {
+    _conceptCache.clear();
+    return _bridge.setLanguage(lang);
   },
 };

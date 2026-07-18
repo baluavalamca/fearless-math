@@ -51,9 +51,19 @@ if (typeof window !== "undefined" && (window as unknown as { fm?: unknown }).fm)
   refreshVoiceStatus();
 }
 
+// Active read-aloud language (BCP-47). Set when the global language toggle changes
+// so the browser voice + Sarvam speak Hindi / Telugu, not English.
+let speechLang = "en-IN";
+export function setSpeechLang(bcp47: string): void {
+  speechLang = bcp47 || "en-IN";
+  chosenVoice = pickVoice();
+}
+export function currentSpeechLang(): string { return speechLang; }
+
 function pickVoice(): SpeechSynthesisVoice | null {
   const voices = window.speechSynthesis.getVoices();
   if (!voices.length) return null;
+  const target = speechLang.slice(0, 2).toLowerCase(); // "en" | "hi" | "te"
   // Score every voice; the highest wins. "Natural"/"Neural"/"Online" voices are
   // a big quality jump over the old robotic default, so we strongly prefer them,
   // then warm female names, then an Indian → British → US English preference.
@@ -63,13 +73,20 @@ function pickVoice(): SpeechSynthesisVoice | null {
     const n = (v.name || "").toLowerCase();
     const lang = (v.lang || "").toLowerCase();
     let s = 0;
-    if (!lang.startsWith("en")) s -= 60;
+    if (target !== "en") {
+      // Non-English: strongly prefer a voice that actually speaks the target language.
+      if (lang.startsWith(target)) s += 80;
+      else if (lang.startsWith("en")) s -= 20; // English is a poor stand-in but usable
+      else s -= 60;
+    } else {
+      if (!lang.startsWith("en")) s -= 60;
+      if (lang.startsWith("en-in")) s += 14;
+      else if (lang.startsWith("en-gb")) s += 9;
+      else if (lang.startsWith("en-us")) s += 6;
+    }
     if (/natural|neural|online|premium|enhanced/.test(n)) s += 60; // much nicer
     if (warm.test(n)) s += 22;
     if (/child|kid/.test(n)) s += 16;
-    if (lang.startsWith("en-in")) s += 14;
-    else if (lang.startsWith("en-gb")) s += 9;
-    else if (lang.startsWith("en-us")) s += 6;
     if (robotic.test(n)) s -= 18;
     if (v.localService) s += 3; // works fully offline
     return s;

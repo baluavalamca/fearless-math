@@ -37,6 +37,11 @@
   --font: "Fredoka Variable", "Segoe UI", system-ui, sans-serif; /* rounded kid-friendly */
 }
 
+/* Indic scripts: swap the display font so Hindi / Telugu render correctly (Fredoka
+   has no Devanagari/Telugu glyphs). Numerals + KaTeX math stay unaffected. */
+html[lang="hi"] { --font: "Noto Sans Devanagari", "Fredoka Variable", "Segoe UI", system-ui, sans-serif; }
+html[lang="te"] { --font: "Noto Sans Telugu", "Fredoka Variable", "Segoe UI", system-ui, sans-serif; }
+
 /* ============================================================
    DARK THEME — token remap. Set on <html data-theme="dark">.
    ============================================================ */
