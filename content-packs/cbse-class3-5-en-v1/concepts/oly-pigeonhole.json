@@ -1,0 +1,106 @@
+{
+  "id": "oly-pigeonhole",
+  "name": "The Pigeonhole Principle",
+  "grade": 8,
+  "strand": "numbers",
+  "prerequisites": ["num-44-permutations-combinations"],
+  "whatIsIt": "The PIGEONHOLE PRINCIPLE says: if you put more items than boxes, at least one box holds two or more items. Formally, if n items go into k boxes and n > k, some box has ≥ 2. The GENERAL form: with n items in k boxes, some box holds at least ⌈n/k⌉ (round-up) items. Simple to state, but it PROVES surprising 'there must exist' facts.",
+  "whyNeeded": "Many Olympiad problems ask you to prove something must exist without constructing it. Pigeonhole is the cleanest tool for that: choose the right 'boxes' and counting forces the conclusion.",
+  "realLifeUses": [
+    "Proving two people in a big city have the same number of hairs",
+    "Showing in any 13 people two share a birth month",
+    "Guaranteeing a repeated remainder in a list of numbers",
+    "Proving some pair in a group are friends or strangers"
+  ],
+  "vocabulary": [
+    { "term": "pigeons / items", "meaning": "The things being placed (the larger count)." },
+    { "term": "holes / boxes", "meaning": "The categories they fall into (the smaller count)." },
+    { "term": "⌈n/k⌉ (ceiling)", "meaning": "Round-up of n ÷ k — the guaranteed minimum in the fullest box." }
+  ],
+  "story": {
+    "title": "The Sock Drawer",
+    "characters": ["Kabir", "Mummy"],
+    "text": "Kabir's dark drawer has black and blue socks — just 2 colours. 'How many must I grab to be SURE of a matching pair?' Mummy says, 'Think boxes: 2 colours = 2 boxes. Grab 3 socks — 3 pigeons in 2 holes — so two must share a colour. Three socks guarantee a pair!' Kabir laughs: 'I don't even need to see the colour — counting proves it.'",
+    "extractedProblem": "With socks of only 2 colours, how many must you take to be sure of a matching pair?",
+    "answerInStory": "3 — 3 socks in 2 colour-boxes force two into the same box (a pair)."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": { "grids": [{ "rows": 1, "cols": 2, "label": "3 socks into 2 colour-boxes → one box gets 2 (a pair)" }] },
+    "caption": "More pigeons than holes means at least one hole is shared. Here 3 socks in 2 colour-boxes guarantee a matching pair."
+  },
+  "teachingGallery": [
+    {
+      "title": "More items than boxes",
+      "note": "Some box must repeat.",
+      "examples": [
+        { "component": "ArrayGrid", "props": { "grids": [{ "rows": 1, "cols": 12, "label": "13 people, 12 months → two share a month" }] }, "caption": "13 in 12 boxes ⇒ a shared month." },
+        { "component": "ArrayGrid", "props": { "grids": [{ "rows": 1, "cols": 7, "label": "8 people, 7 weekdays → two share a birthday-weekday" }] }, "caption": "8 in 7 boxes ⇒ a repeat." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Identify the ITEMS (pigeons) and the CATEGORIES (holes). If items > holes, at least two share a hole. For 'at least m in one box', use n items in k boxes forces ⌈n/k⌉ in the fullest.",
+    "steps": [
+      "Decide what the items (pigeons) are.",
+      "Decide the boxes (holes) — the categories items fall into.",
+      "If items > holes, some box has two or more.",
+      "For a stronger count, the fullest box holds at least ⌈items ÷ boxes⌉."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "13 people are in a room. Must two share a birth month?",
+      "steps": ["Boxes = 12 months; people = 13.", "13 > 12, so pigeonhole applies.", "Yes — at least two share a birth month."],
+      "answer": "yes"
+    },
+    {
+      "problem": "Socks come in 2 colours. Fewest to grab to guarantee a matching pair?",
+      "steps": ["Boxes = 2 colours.", "Need one box to hold 2 → grab 2 + 1 = 3.", "3 socks guarantee a pair."],
+      "answer": "3"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "swap-items-boxes", "mistake": "Mixing up which are the items and which are the boxes.", "fix": "Items (pigeons) are what you place; boxes (holes) are the categories. You need MORE items than boxes." },
+    { "mistakeTag": "off-by-one", "mistake": "Grabbing as many as the number of boxes and expecting a repeat.", "fix": "With k boxes you need k + 1 items to FORCE a repeat (k could all be different)." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "pig-e1", "type": "number", "q": "Socks of 2 colours: fewest to grab for a sure matching pair?", "answer": "3", "hintLadder": ["2 boxes.", "2 + 1.", "3."] },
+      { "id": "pig-e2", "type": "mcq", "q": "Pigeonhole: more items than boxes means…", "options": [{ "label": "Some box has ≥ 2" }, { "label": "Every box has 1", "mistakeTag": "swap-items-boxes" }], "answer": "Some box has ≥ 2", "hintLadder": ["Too many items.", "One box shares.", "≥ 2."] }
+    ],
+    "medium": [
+      { "id": "pig-m1", "type": "number", "q": "To guarantee two people share a birth month, fewest people needed?", "answer": "13", "hintLadder": ["12 months.", "12 + 1.", "13."] },
+      { "id": "pig-m2", "type": "number", "q": "Colours = 3. Fewest socks to guarantee a matching pair?", "answer": "4", "hintLadder": ["3 boxes.", "3 + 1.", "4."] }
+    ],
+    "challenge": [
+      { "id": "pig-c1", "type": "number", "q": "5 items into 2 boxes: the fullest box has at least how many? (⌈5/2⌉)", "answer": "3", "hintLadder": ["5 ÷ 2 = 2.5.", "Round up.", "3."] },
+      { "id": "pig-c2", "type": "number", "q": "To guarantee two people share a weekday of birth, fewest people?", "answer": "8", "hintLadder": ["7 weekdays.", "7 + 1.", "8."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "pig-x1", "type": "number", "q": "2 colours: fewest socks for a sure pair?", "answer": "3", "hintLadder": ["2 boxes.", "+1.", "3."] },
+      { "id": "pig-x2", "type": "mcq", "q": "With k boxes, to FORCE a repeat you need…", "options": [{ "label": "k + 1 items" }, { "label": "k items", "mistakeTag": "off-by-one" }], "answer": "k + 1 items", "hintLadder": ["k could all differ.", "One more.", "k + 1."] },
+      { "id": "pig-x3", "type": "number", "q": "13 people, 12 months: how many at least share a month?", "answer": "2", "hintLadder": ["13 > 12.", "Some box ≥ 2.", "2."] },
+      { "id": "pig-x4", "type": "number", "q": "7 items into 3 boxes: fullest box has at least ⌈7/3⌉ = ?", "answer": "3", "hintLadder": ["7 ÷ 3 ≈ 2.33.", "Round up.", "3."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "With a grown-up, use socks of 2 colours. Explain why grabbing 3 GUARANTEES a matching pair (3 pigeons, 2 holes). Then explain why 13 people must share a birth month (13 pigeons, 12 holes).",
+  "revisionCard": {
+    "summary": "Pigeonhole: n items in k boxes, n > k ⇒ some box has ≥ 2. To force a repeat you need k + 1 items. General form: the fullest box holds at least ⌈n/k⌉. Choose the boxes cleverly to prove 'must exist' facts.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (IOQM/RMO) — combinatorics", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "More pigeons than holes ⇒ some hole is shared", "unpack": "k boxes need k+1 items to force a repeat. Fullest box ≥ ⌈n/k⌉." },
+  "studentQuestions": [
+    { "q": "How do I choose the boxes?", "a": "Pick categories so that a repeat gives what the problem wants — remainders mod m, colours, coordinates, or sums. The right boxes make the answer fall out." },
+    { "q": "What is the ceiling ⌈n/k⌉?", "a": "It's n ÷ k rounded up. It tells you the guaranteed minimum load of the fullest box, e.g. 7 items in 3 boxes force a box with 3." }
+  ],
+  "formulas": [
+    { "name": "Pigeonhole (basic)", "formula": "n items, k boxes, n > k ⇒ some box ≥ 2", "remember": "more items than boxes ⇒ repeat", "whenToUse": "Proving a repeat or a shared category must exist." },
+    { "name": "Pigeonhole (general)", "formula": "fullest box ≥ ⌈n / k⌉", "remember": "round up n over k", "whenToUse": "Guaranteeing at least m in one box." }
+  ]
+}

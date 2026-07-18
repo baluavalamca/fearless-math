@@ -1,0 +1,106 @@
+{
+  "id": "oly-ceva-menelaus",
+  "name": "Ceva's & Menelaus's Theorems",
+  "grade": 10,
+  "strand": "geometry",
+  "prerequisites": ["geo-10-triangles-quads"],
+  "whatIsIt": "Two twin theorems about ratios along a triangle's sides. CEVA'S THEOREM tests CONCURRENCY: three cevians AD, BE, CF (each from a vertex to the opposite side) meet at ONE point exactly when (BD/DC)·(CE/EA)·(AF/FB) = 1. MENELAUS'S THEOREM tests COLLINEARITY: a straight line crossing the three sides gives the SAME product = 1 (in magnitude). Same product, opposite jobs — one for a point, one for a line.",
+  "whyNeeded": "Concurrency (do three lines meet?) and collinearity (do three points lie on a line?) are constant Olympiad questions. Ceva and Menelaus answer both with one ratio product instead of heavy coordinate work.",
+  "realLifeUses": [
+    "Proving the medians of a triangle meet at the centroid",
+    "Showing three points lie on one straight line",
+    "Trusses and frameworks where supports must meet at a point",
+    "Any design needing three lines to be concurrent"
+  ],
+  "vocabulary": [
+    { "term": "cevian", "meaning": "A segment from a triangle's vertex to a point on the opposite side." },
+    { "term": "concurrent", "meaning": "Three or more lines passing through one common point." },
+    { "term": "collinear", "meaning": "Three or more points lying on one straight line." }
+  ],
+  "story": {
+    "title": "Do They Meet?",
+    "characters": ["Neha", "Sir"],
+    "text": "Neha draws triangle ABC with three cevians and asks, 'Do they meet at one point?' Sir says, 'Ceva! Multiply the three side-ratios: (BD/DC)·(CE/EA)·(AF/FB). If it equals 1, they're concurrent.' For the medians each ratio is 1, so 1·1·1 = 1 — they meet (at the centroid!). 'And if a straight LINE cuts the sides, the same product is 1 — that's Menelaus.' Neha smiles: 'One product answers both.'",
+    "extractedProblem": "For the three medians, what is (BD/DC)·(CE/EA)·(AF/FB)?",
+    "answerInStory": "1 — each median hits a midpoint so every ratio is 1, and 1·1·1 = 1, proving the medians are concurrent."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": { "kind": "triangle", "label": "Ceva: cevians concurrent ⟺ (BD/DC)(CE/EA)(AF/FB) = 1" },
+    "caption": "Ceva tests whether three cevians meet at one point; Menelaus tests whether three points lie on a line. Both hinge on the same ratio product equalling 1."
+  },
+  "teachingGallery": [
+    {
+      "title": "Same product, two jobs",
+      "note": "Ceva = concurrency; Menelaus = collinearity.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "kind": "triangle", "label": "Medians: 1·1·1 = 1 → meet at centroid" }, "caption": "Ceva proves the medians concur." },
+        { "component": "GeometryCanvas", "props": { "kind": "triangle", "label": "A line cutting the sides: product = 1 (Menelaus)" }, "caption": "Menelaus proves collinearity." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Walk around the triangle forming the ratios BD/DC, CE/EA, AF/FB. For three cevians, set the product = 1 to test/force concurrency (Ceva). For a straight line crossing the sides, the same product = 1 tests collinearity (Menelaus). Solve for any unknown ratio.",
+    "steps": [
+      "Label the division points and form BD/DC, CE/EA, AF/FB in order.",
+      "Ceva: three cevians are concurrent ⟺ the product = 1.",
+      "Menelaus: three points are collinear ⟺ the product = 1 (in magnitude).",
+      "Plug in the known ratios and solve for the missing one."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "For the three medians of a triangle, find (BD/DC)·(CE/EA)·(AF/FB).",
+      "steps": ["Each median meets a midpoint, so every ratio = 1.", "Product = 1 × 1 × 1.", "= 1 (so the medians are concurrent)."],
+      "answer": "1"
+    },
+    {
+      "problem": "Cevians are concurrent with BD/DC = 1/2 and CE/EA = 1/3. Find AF/FB.",
+      "steps": ["Ceva: (1/2)(1/3)(AF/FB) = 1.", "(1/6)(AF/FB) = 1.", "AF/FB = 6."],
+      "answer": "6"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "ceva-menelaus-mixup", "mistake": "Using Ceva for collinear points or Menelaus for concurrent lines.", "fix": "Ceva = three cevians through one POINT (concurrency). Menelaus = three points on one LINE (collinearity)." },
+    { "mistakeTag": "wrong-ratio-order", "mistake": "Forming the ratios in a jumbled order.", "fix": "Go around the triangle consistently: BD/DC, then CE/EA, then AF/FB." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "cev-e1", "type": "mcq", "q": "Three cevians are concurrent when the ratio product equals…", "options": [{ "label": "1" }, { "label": "0", "mistakeTag": "wrong-ratio-order" }], "answer": "1", "hintLadder": ["Ceva's rule.", "Product = 1.", "1."] },
+      { "id": "cev-e2", "type": "number", "q": "For the three medians, (BD/DC)·(CE/EA)·(AF/FB) = ?", "answer": "1", "hintLadder": ["Each ratio = 1.", "1·1·1.", "1."] }
+    ],
+    "medium": [
+      { "id": "cev-m1", "type": "number", "q": "Concurrent cevians: BD/DC=1/2, CE/EA=1/3. Find AF/FB.", "answer": "6", "hintLadder": ["(1/2)(1/3)x = 1.", "(1/6)x = 1.", "6."] },
+      { "id": "cev-m2", "type": "mcq", "q": "Menelaus's theorem tests whether three points are…", "options": [{ "label": "Collinear (on a line)" }, { "label": "Concurrent (through a point)", "mistakeTag": "ceva-menelaus-mixup" }], "answer": "Collinear (on a line)", "hintLadder": ["A straight line.", "On one line.", "Collinear."] }
+    ],
+    "challenge": [
+      { "id": "cev-c1", "type": "number", "q": "Concurrent cevians: BD/DC=1/3, CE/EA=1/4. Find AF/FB.", "answer": "12", "hintLadder": ["(1/3)(1/4)x = 1.", "(1/12)x = 1.", "12."] },
+      { "id": "cev-c2", "type": "mcq", "q": "Ceva's theorem is about three lines through one…", "options": [{ "label": "Point" }, { "label": "Line", "mistakeTag": "ceva-menelaus-mixup" }], "answer": "Point", "hintLadder": ["Concurrency.", "Meet at a point.", "Point."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "cev-x1", "type": "number", "q": "Concurrent cevians: BD/DC=1/2, CE/EA=1/2. Find AF/FB.", "answer": "4", "hintLadder": ["(1/2)(1/2)x = 1.", "(1/4)x = 1.", "4."] },
+      { "id": "cev-x2", "type": "mcq", "q": "Ceva's theorem tests…", "options": [{ "label": "Concurrency" }, { "label": "Collinearity", "mistakeTag": "ceva-menelaus-mixup" }], "answer": "Concurrency", "hintLadder": ["Lines meet.", "One point.", "Concurrency."] },
+      { "id": "cev-x3", "type": "number", "q": "The ratio product for concurrent cevians equals…", "answer": "1", "hintLadder": ["Ceva.", "= 1.", "1."] },
+      { "id": "cev-x4", "type": "mcq", "q": "Menelaus's theorem tests…", "options": [{ "label": "Collinearity" }, { "label": "Concurrency", "mistakeTag": "ceva-menelaus-mixup" }], "answer": "Collinearity", "hintLadder": ["Points on a line.", "Collinear.", "Collinearity." ] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw a triangle and its three medians. Show a grown-up that each ratio is 1, so (BD/DC)·(CE/EA)·(AF/FB) = 1 — proving by Ceva that the medians meet at one point (the centroid). Then explain how Menelaus uses the same product for three points on a line.",
+  "revisionCard": {
+    "summary": "Ceva: three cevians concurrent ⟺ (BD/DC)(CE/EA)(AF/FB) = 1. Menelaus: three points collinear ⟺ same product = 1 (magnitude). Ceva = point, Menelaus = line. Form the ratios in order around the triangle.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (RMO/INMO) — geometry", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Ratio product = 1: Ceva for a point, Menelaus for a line", "unpack": "(BD/DC)(CE/EA)(AF/FB) = 1. Ceva = concurrency, Menelaus = collinearity." },
+  "studentQuestions": [
+    { "q": "How do I remember which is which?", "a": "Ceva has a 'v' like a Vertex meeting-point (concurrency); Menelaus's line 'lays' flat like a straight line (collinearity)." },
+    { "q": "Why do the medians always concur?", "a": "Each median goes to a midpoint, so all three ratios are 1 and the product is 1 — Ceva then guarantees they meet, at the centroid." }
+  ],
+  "formulas": [
+    { "name": "Ceva", "formula": "(BD/DC)(CE/EA)(AF/FB) = 1  ⟺ concurrent", "remember": "product 1 ⇒ meet at a point", "whenToUse": "Testing three cevians for concurrency." },
+    { "name": "Menelaus", "formula": "(BD/DC)(CE/EA)(AF/FB) = 1  ⟺ collinear", "remember": "same product ⇒ on a line", "whenToUse": "Testing three points for collinearity." }
+  ]
+}

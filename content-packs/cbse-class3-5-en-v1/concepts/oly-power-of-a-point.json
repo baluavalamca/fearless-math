@@ -1,0 +1,106 @@
+{
+  "id": "oly-power-of-a-point",
+  "name": "Power of a Point",
+  "grade": 10,
+  "strand": "geometry",
+  "prerequisites": ["geo-19-circle-tangents"],
+  "whatIsIt": "The POWER OF A POINT theorem links the two pieces a line cut off by a circle. From any point P, if a line meets the circle at A and B, the product PA·PB is the SAME for every line through P. Special cases: two chords crossing inside give PA·PB = PC·PD; from outside, a tangent PT and a secant give PT² = PA·PB. It converts lengths into one neat product equation.",
+  "whyNeeded": "It turns circle-length problems into simple multiplication equations, and is a staple of Olympiad geometry — especially for finding an unknown segment or proving a tangent length.",
+  "realLifeUses": [
+    "Finding a missing chord length in a circular arch",
+    "Computing tangent lengths in gear and pulley layouts",
+    "Optics and reflection problems on circular mirrors",
+    "Any design where a line crosses a circle in two places"
+  ],
+  "vocabulary": [
+    { "term": "chord", "meaning": "A segment with both endpoints on the circle." },
+    { "term": "secant", "meaning": "A line that cuts the circle at two points." },
+    { "term": "tangent", "meaning": "A line touching the circle at exactly one point." }
+  ],
+  "story": {
+    "title": "The Crossing Chords",
+    "characters": ["Rohan", "Ma'am"],
+    "text": "Two chords of a circle cross at P. One splits into 3 and 8; the other into 4 and an unknown x. 'Find x,' says Ma'am. Rohan recalls the power of a point: PA·PB = PC·PD, so 3 × 8 = 4 × x. That gives 24 = 4x, so x = 6. 'The two products must match,' Ma'am nods. Rohan grins: 'One multiplication and the missing length appears.'",
+    "extractedProblem": "Two chords cross at P: 3·8 = 4·x. Find x.",
+    "answerInStory": "6 — because PA·PB = PC·PD gives 24 = 4x, so x = 6."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": { "kind": "circle", "label": "Chords cross at P: PA·PB = PC·PD (3·8 = 4·6)" },
+    "caption": "For any point and circle, the product of the two segment lengths along a line is constant. Crossing chords: PA·PB = PC·PD."
+  },
+  "teachingGallery": [
+    {
+      "title": "Products match",
+      "note": "PA·PB = PC·PD; tangent² = secant product.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "kind": "circle", "label": "Inside: 3·8 = 4·6 = 24" }, "caption": "Crossing chords give equal products." },
+        { "component": "GeometryCanvas", "props": { "kind": "circle", "label": "Outside: PT² = PA·PB (6² = 4·9)" }, "caption": "Tangent squared = secant product." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Identify the point P and the two segments each line cuts on the circle. Set the products equal: for crossing chords PA·PB = PC·PD; for a tangent and secant from outside PT² = PA·PB. Solve for the unknown length.",
+    "steps": [
+      "Locate the point P and the lines through it meeting the circle.",
+      "For two chords through P: PA·PB = PC·PD.",
+      "For a tangent PT and secant PAB: PT² = PA·PB.",
+      "Substitute known lengths and solve for the unknown."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Two chords cross inside a circle: one is split 3 and 8, the other 4 and x. Find x.",
+      "steps": ["PA·PB = PC·PD.", "3 × 8 = 4 × x → 24 = 4x.", "x = 6."],
+      "answer": "6"
+    },
+    {
+      "problem": "From an outside point, tangent PT = 6 and a secant hits the circle at A then B with PA = 4. Find PB.",
+      "steps": ["PT² = PA·PB.", "6² = 4 × PB → 36 = 4·PB.", "PB = 9."],
+      "answer": "9"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "add-not-multiply", "mistake": "Adding the segments instead of multiplying them.", "fix": "Power of a point uses the PRODUCT of the two segment lengths, not their sum." },
+    { "mistakeTag": "tangent-not-squared", "mistake": "Using PT (not PT²) equal to the secant product.", "fix": "For a tangent it is PT SQUARED that equals PA·PB (the tangent touches once, so both 'pieces' are PT)." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "pow-e1", "type": "number", "q": "Crossing chords: 3·8 = 4·x. Find x.", "answer": "6", "hintLadder": ["24 = 4x.", "24 ÷ 4.", "6."] },
+      { "id": "pow-e2", "type": "mcq", "q": "Power of a point uses the … of the two segments.", "options": [{ "label": "Product" }, { "label": "Sum", "mistakeTag": "add-not-multiply" }], "answer": "Product", "hintLadder": ["Multiply.", "PA·PB.", "Product."] }
+    ],
+    "medium": [
+      { "id": "pow-m1", "type": "number", "q": "Crossing chords: 5·6 = 3·x. Find x.", "answer": "10", "hintLadder": ["30 = 3x.", "30 ÷ 3.", "10."] },
+      { "id": "pow-m2", "type": "number", "q": "Tangent PT = 6, secant PA = 4. Find PB (PT² = PA·PB).", "answer": "9", "hintLadder": ["36 = 4·PB.", "36 ÷ 4.", "9."] }
+    ],
+    "challenge": [
+      { "id": "pow-c1", "type": "number", "q": "Tangent PT = 10, secant PA = 5. Find PB.", "answer": "20", "hintLadder": ["100 = 5·PB.", "100 ÷ 5.", "20."] },
+      { "id": "pow-c2", "type": "number", "q": "Crossing chords: 2·12 = x·8. Find x.", "answer": "3", "hintLadder": ["24 = 8x.", "24 ÷ 8.", "3."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "pow-x1", "type": "number", "q": "Crossing chords: 4·9 = 6·x. Find x.", "answer": "6", "hintLadder": ["36 = 6x.", "36 ÷ 6.", "6."] },
+      { "id": "pow-x2", "type": "mcq", "q": "For a tangent PT and secant PA·PB, the rule is…", "options": [{ "label": "PT² = PA·PB" }, { "label": "PT = PA·PB", "mistakeTag": "tangent-not-squared" }], "answer": "PT² = PA·PB", "hintLadder": ["Tangent squared.", "PT².", "PT² = PA·PB."] },
+      { "id": "pow-x3", "type": "number", "q": "Tangent PT = 8, secant PA = 4. Find PB.", "answer": "16", "hintLadder": ["64 = 4·PB.", "64 ÷ 4.", "16."] },
+      { "id": "pow-x4", "type": "mcq", "q": "Power of a point combines the segments by…", "options": [{ "label": "Multiplying" }, { "label": "Adding", "mistakeTag": "add-not-multiply" }], "answer": "Multiplying", "hintLadder": ["Product.", "PA·PB.", "Multiplying."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw two chords of a circle crossing at P, split into 3 & 8 and 4 & x. Show a grown-up that PA·PB = PC·PD gives 24 = 4x so x = 6. Then explain the tangent case PT² = PA·PB.",
+  "revisionCard": {
+    "summary": "Power of a point: along any line through P, PA·PB is constant. Crossing chords: PA·PB = PC·PD. Tangent + secant from outside: PT² = PA·PB. Multiply the two segments (don't add); for a tangent, square it.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (RMO/INMO) — geometry", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Along any line through P, PA·PB stays the same", "unpack": "Chords: PA·PB = PC·PD. Tangent: PT² = PA·PB. Multiply, don't add." },
+  "studentQuestions": [
+    { "q": "Why is the product constant?", "a": "It follows from similar triangles formed by the intersecting lines — the equal angles force PA/PC = PD/PB, i.e. PA·PB = PC·PD." },
+    { "q": "What if P is the centre?", "a": "Then every line is a diameter and both segments equal the radius, so the product is r² — the smallest 'power' inside, and it grows as P moves out." }
+  ],
+  "formulas": [
+    { "name": "Two chords", "formula": "PA · PB = PC · PD", "remember": "products match", "whenToUse": "Chords crossing inside a circle." },
+    { "name": "Tangent–secant", "formula": "PT² = PA · PB", "remember": "tangent squared = secant product", "whenToUse": "From an external point." }
+  ]
+}

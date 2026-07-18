@@ -1,0 +1,105 @@
+{
+  "id": "oly-functional-equations",
+  "name": "Functional Equations — Solving for a Whole Function",
+  "grade": 10,
+  "strand": "numbers",
+  "prerequisites": ["num-43-relations-functions"],
+  "whatIsIt": "A FUNCTIONAL EQUATION gives a rule that a mystery function f must obey for ALL inputs, and asks you to find every f that works. The classic is Cauchy's equation f(x + y) = f(x) + f(y), whose nice solutions are f(x) = cx. The main tools are SUBSTITUTION (plug in clever values like x = 0, y = 0, y = x) to squeeze out facts such as f(0) and whether f is odd or even.",
+  "whyNeeded": "Instead of solving for a number, you solve for an entire function — a big step up in thinking. Substitution tricks here train the exact reasoning Olympiads reward and that underlies proofs across algebra.",
+  "realLifeUses": [
+    "Describing processes where combining inputs adds outputs (scaling laws)",
+    "Modelling growth where f(x+y) relates to f(x) and f(y)",
+    "Deriving formulas that must hold for every value, not just one",
+    "Checking that a proposed formula is the only one that fits"
+  ],
+  "vocabulary": [
+    { "term": "functional equation", "meaning": "An equation that a function must satisfy for all inputs." },
+    { "term": "substitution", "meaning": "Plugging in special values (0, x, −x) to reveal properties of f." },
+    { "term": "Cauchy's equation", "meaning": "f(x + y) = f(x) + f(y); its well-behaved solutions are f(x) = cx." }
+  ],
+  "story": {
+    "title": "The Mystery Machine",
+    "characters": ["Anaya", "Professor"],
+    "text": "Anaya finds a machine f with a note: f(x + y) = f(x) + f(y) for all numbers. 'What is f(0)?' asks the Professor. She sets x = 0, y = 0: f(0) = f(0) + f(0), so f(0) = 0! 'Now set y = −x,' he says. f(0) = f(x) + f(−x) = 0, so f(−x) = −f(x) — it's odd. 'And f(1) = c fixes everything: f(x) = cx.' Anaya beams: 'Clever substitutions unlocked the whole machine.'",
+    "extractedProblem": "If f(x + y) = f(x) + f(y) for all x, y, what is f(0)?",
+    "answerInStory": "0 — set x = y = 0 to get f(0) = 2f(0), so f(0) = 0."
+  },
+  "visual": {
+    "component": "FunctionPlot",
+    "props": { "expression": "2x", "domain": [-4, 4], "label": "f(x) = cx solves f(x+y)=f(x)+f(y) (here c = 2)" },
+    "caption": "The well-behaved solutions of Cauchy's equation are straight lines through the origin, f(x) = cx. Substitution proves f(0) = 0 and f(−x) = −f(x)."
+  },
+  "teachingGallery": [
+    {
+      "title": "Substitution reveals f",
+      "note": "Plug in 0, then y = −x.",
+      "examples": [
+        { "component": "FunctionPlot", "props": { "expression": "x", "domain": [-4, 4], "label": "f(x) = x (c = 1)" }, "caption": "c = 1 gives f(x) = x." },
+        { "component": "FunctionPlot", "props": { "expression": "-x", "domain": [-4, 4], "label": "f(x) = −x (c = −1)" }, "caption": "Odd: f(−x) = −f(x)." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Attack a functional equation by substituting special inputs: x = 0 and y = 0 to find f(0); y = x to relate f(2x) and f(x); y = −x to test odd/even. Combine the facts to pin down the formula, then check it satisfies the original.",
+    "steps": [
+      "Substitute x = 0 (and y = 0) to find f(0).",
+      "Substitute y = −x to test whether f is odd or even.",
+      "Substitute y = x to relate f(2x) to f(x).",
+      "Guess the family (often f(x) = cx) and verify it fits for all inputs."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Given f(x + y) = f(x) + f(y) for all x, y, find f(0).",
+      "steps": ["Set x = 0, y = 0.", "f(0) = f(0) + f(0) = 2f(0).", "So f(0) = 0."],
+      "answer": "0"
+    },
+    {
+      "problem": "If also f(1) = 3 and f(x) = cx, find f(4).",
+      "steps": ["f(1) = c·1 = 3, so c = 3.", "f(x) = 3x.", "f(4) = 3 × 4 = 12."],
+      "answer": "12"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "solve-one-value", "mistake": "Solving for a single input instead of all inputs.", "fix": "A functional equation must hold for EVERY input — find the whole function, not one value." },
+    { "mistakeTag": "skip-verification", "mistake": "Guessing a formula but never checking it in the original.", "fix": "Always substitute your candidate back to confirm it satisfies the equation for all x, y." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "fe-e1", "type": "number", "q": "If f(x+y) = f(x) + f(y) for all x, y, then f(0) = ?", "answer": "0", "hintLadder": ["Set x = y = 0.", "f(0) = 2f(0).", "0."] },
+      { "id": "fe-e2", "type": "mcq", "q": "The nice solutions of f(x+y)=f(x)+f(y) look like…", "options": [{ "label": "f(x) = cx" }, { "label": "f(x) = x²", "mistakeTag": "skip-verification" }], "answer": "f(x) = cx", "hintLadder": ["Straight line.", "Through origin.", "cx."] }
+    ],
+    "medium": [
+      { "id": "fe-m1", "type": "number", "q": "f(x) = cx with f(1) = 5. Find f(3).", "answer": "15", "hintLadder": ["c = 5.", "f(3) = 5×3.", "15."] },
+      { "id": "fe-m2", "type": "mcq", "q": "For f(x+y)=f(x)+f(y), f(−x) equals…", "options": [{ "label": "−f(x)" }, { "label": "f(x)", "mistakeTag": "solve-one-value" }], "answer": "−f(x)", "hintLadder": ["Set y = −x.", "f(0)=0.", "−f(x)."] }
+    ],
+    "challenge": [
+      { "id": "fe-c1", "type": "number", "q": "f(x) = cx with f(2) = 10. Find f(5).", "answer": "25", "hintLadder": ["c = 5.", "f(5) = 5×5.", "25."] },
+      { "id": "fe-c2", "type": "number", "q": "If f(x+y)=f(x)+f(y) and f(1)=4, find f(0)+f(3).", "answer": "12", "hintLadder": ["f(0)=0.", "c=4, f(3)=12.", "0+12=12."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "fe-x1", "type": "number", "q": "f(x+y)=f(x)+f(y) ⇒ f(0) = ?", "answer": "0", "hintLadder": ["x=y=0.", "f(0)=2f(0).", "0."] },
+      { "id": "fe-x2", "type": "mcq", "q": "The trick that finds f(0) is to substitute…", "options": [{ "label": "x = 0 and y = 0" }, { "label": "x = 100", "mistakeTag": "solve-one-value" }], "answer": "x = 0 and y = 0", "hintLadder": ["Small values.", "Zeros.", "x = y = 0."] },
+      { "id": "fe-x3", "type": "number", "q": "f(x)=cx, f(1)=7. Find f(2).", "answer": "14", "hintLadder": ["c=7.", "f(2)=14.", "14."] },
+      { "id": "fe-x4", "type": "mcq", "q": "After guessing f(x)=cx you should…", "options": [{ "label": "Check it in the original equation" }, { "label": "Stop immediately", "mistakeTag": "skip-verification" }], "answer": "Check it in the original equation", "hintLadder": ["Verify.", "Substitute back.", "Check it."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Show a grown-up the machine f(x+y) = f(x) + f(y). Set x = y = 0 to prove f(0) = 0, then y = −x to prove f(−x) = −f(x). Explain how clever substitution reveals the whole function f(x) = cx.",
+  "revisionCard": {
+    "summary": "Functional equation: find every f obeying a rule for ALL inputs. Tools: substitute x=0, y=0 (find f(0)); y=−x (odd/even); y=x (relate f(2x)). Cauchy f(x+y)=f(x)+f(y) ⇒ f(x)=cx. Always verify your candidate.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (RMO/INMO) — algebra", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Substitute 0, then y = −x — the function reveals itself", "unpack": "f(x+y)=f(x)+f(y) ⇒ f(0)=0, f odd, f(x)=cx. Verify at the end." },
+  "studentQuestions": [
+    { "q": "Are there weird solutions to Cauchy's equation?", "a": "Yes, exotic non-linear ones exist in theory, but with any mild niceness (continuity, or holding on the rationals) the only solutions are f(x) = cx." },
+    { "q": "How do I know which substitution to make?", "a": "Aim to simplify: zeros kill terms, y = −x tests symmetry, y = x doubles the input. Try the substitution that removes the most clutter." }
+  ],
+  "formulas": [
+    { "name": "Cauchy's equation", "formula": "f(x + y) = f(x) + f(y) ⇒ f(x) = cx", "remember": "additive ⇒ linear", "whenToUse": "Additive functional equations." }
+  ]
+}

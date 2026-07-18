@@ -1,0 +1,106 @@
+{
+  "id": "oly-inclusion-exclusion",
+  "name": "Inclusion–Exclusion — Counting Without Double-Counting",
+  "grade": 9,
+  "strand": "numbers",
+  "prerequisites": ["num-37-sets-logic"],
+  "whatIsIt": "The INCLUSION–EXCLUSION principle counts a union without counting overlaps twice. For two sets: |A ∪ B| = |A| + |B| − |A ∩ B|. For three: |A ∪ B ∪ C| = |A| + |B| + |C| − |A∩B| − |A∩C| − |B∩C| + |A∩B∩C|. You ADD singles, SUBTRACT pairs, ADD back triples — alternating signs so every element is counted exactly once.",
+  "whyNeeded": "Overlapping groups are everywhere (students taking multiple subjects, numbers divisible by several factors). Inclusion–exclusion gives the exact count without missing or double-counting — a core Olympiad combinatorics tool.",
+  "realLifeUses": [
+    "Counting students who take at least one of maths, science, art",
+    "Counting numbers up to N divisible by 2, 3, or 5",
+    "Survey data where people picked more than one option",
+    "Avoiding double-counting in probability"
+  ],
+  "vocabulary": [
+    { "term": "union (∪)", "meaning": "Everything in A or B (or both)." },
+    { "term": "intersection (∩)", "meaning": "Only what is in both A and B (the overlap)." },
+    { "term": "inclusion–exclusion", "meaning": "Add singles, subtract overlaps, add back triple overlaps." }
+  ],
+  "story": {
+    "title": "The Club Sign-up",
+    "characters": ["Meera", "Teacher"],
+    "text": "30 students: 18 joined Music, 15 joined Dance, and 8 joined BOTH. 'How many joined at least one?' asks Meera. Teacher warns, '18 + 15 = 33 is too big — the 8 who did both got counted twice!' So |Music ∪ Dance| = 18 + 15 − 8 = 25. 'Subtract the overlap once,' she says. Meera nods: '25 joined at least one — no double-counting.'",
+    "extractedProblem": "18 in Music, 15 in Dance, 8 in both. How many joined at least one?",
+    "answerInStory": "25 — because 18 + 15 − 8 = 25 (subtract the 8 counted twice)."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": { "categories": [{ "label": "Music", "value": 18 }, { "label": "Dance", "value": 15 }, { "label": "Both", "value": 8 }, { "label": "At least one", "value": 25 }], "unit": "|A ∪ B| = 18 + 15 − 8" },
+    "caption": "Inclusion–exclusion: |A ∪ B| = |A| + |B| − |A ∩ B|. The overlap is subtracted once so nobody is counted twice."
+  },
+  "teachingGallery": [
+    {
+      "title": "Subtract the overlap",
+      "note": "|A∪B| = |A| + |B| − |A∩B|.",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [{ "label": "A", "value": 10 }, { "label": "B", "value": 7 }, { "label": "A∩B", "value": 3 }, { "label": "A∪B", "value": 14 }], "unit": "10 + 7 − 3 = 14" }, "caption": "Overlap 3 removed once → 14." },
+        { "component": "BarChart", "props": { "categories": [{ "label": "÷2", "value": 50 }, { "label": "÷3", "value": 33 }, { "label": "÷6", "value": 16 }, { "label": "÷2 or ÷3", "value": 67 }], "unit": "up to 100" }, "caption": "50 + 33 − 16 = 67 divisible by 2 or 3." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To count a union, add the sizes of each set, subtract every pairwise overlap, then add back the triple overlap (for three sets). The signs alternate: + singles, − pairs, + triple.",
+    "steps": [
+      "Add the sizes of the individual sets.",
+      "Subtract each pairwise intersection (overlap counted twice).",
+      "For three sets, add back the triple intersection (removed too many times).",
+      "The result counts each element exactly once."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "18 in Music, 15 in Dance, 8 in both. How many in at least one?",
+      "steps": ["|A ∪ B| = |A| + |B| − |A ∩ B|.", "= 18 + 15 − 8.", "= 25."],
+      "answer": "25"
+    },
+    {
+      "problem": "Up to 100, how many are divisible by 2 or 5? (÷2: 50, ÷5: 20, ÷10: 10)",
+      "steps": ["50 + 20 − 10.", "= 60.", "60 numbers."],
+      "answer": "60"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "forgot-subtract-overlap", "mistake": "Adding |A| + |B| and forgetting to subtract the overlap.", "fix": "Subtract |A ∩ B| once — the overlap was counted in BOTH sets." },
+    { "mistakeTag": "sign-error-triple", "mistake": "For three sets, forgetting to add the triple intersection back.", "fix": "Signs alternate: + singles, − pairs, + triple. Add |A∩B∩C| back at the end." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "ie-e1", "type": "number", "q": "|A|=10, |B|=7, |A∩B|=3. |A∪B| = ?", "answer": "14", "hintLadder": ["10 + 7 − 3.", "17 − 3.", "14."] },
+      { "id": "ie-e2", "type": "mcq", "q": "|A ∪ B| equals…", "options": [{ "label": "|A| + |B| − |A∩B|" }, { "label": "|A| + |B|", "mistakeTag": "forgot-subtract-overlap" }], "answer": "|A| + |B| − |A∩B|", "hintLadder": ["Remove overlap.", "Subtract ∩.", "− |A∩B|."] }
+    ],
+    "medium": [
+      { "id": "ie-m1", "type": "number", "q": "18 in Music, 15 in Dance, 8 in both. At least one = ?", "answer": "25", "hintLadder": ["18 + 15 − 8.", "33 − 8.", "25."] },
+      { "id": "ie-m2", "type": "number", "q": "Up to 100 divisible by 2 or 5: 50 + 20 − 10 = ?", "answer": "60", "hintLadder": ["÷2=50, ÷5=20.", "÷10=10.", "60."] }
+    ],
+    "challenge": [
+      { "id": "ie-c1", "type": "number", "q": "|A|=20,|B|=15,|C|=10, pairs 5,4,3, triple 2. |A∪B∪C| = ?", "answer": "35", "hintLadder": ["45 − 12.", "+ 2.", "35."] },
+      { "id": "ie-c2", "type": "number", "q": "Up to 30 divisible by 2 or 3: 15 + 10 − 5 = ?", "answer": "20", "hintLadder": ["÷2=15, ÷3=10.", "÷6=5.", "20."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "ie-x1", "type": "number", "q": "|A|=12,|B|=9,|A∩B|=4. |A∪B| = ?", "answer": "17", "hintLadder": ["12 + 9 − 4.", "21 − 4.", "17."] },
+      { "id": "ie-x2", "type": "mcq", "q": "Why subtract |A∩B|?", "options": [{ "label": "It was counted twice" }, { "label": "It was never counted", "mistakeTag": "forgot-subtract-overlap" }], "answer": "It was counted twice", "hintLadder": ["In both sets.", "Double-counted.", "Twice."] },
+      { "id": "ie-x3", "type": "number", "q": "20 in A, 12 in B, 5 in both. At least one?", "answer": "27", "hintLadder": ["20 + 12 − 5.", "32 − 5.", "27."] },
+      { "id": "ie-x4", "type": "mcq", "q": "For three sets, the triple intersection is…", "options": [{ "label": "Added back" }, { "label": "Subtracted again", "mistakeTag": "sign-error-triple" }], "answer": "Added back", "hintLadder": ["Signs alternate.", "+ triple.", "Added back."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Use the club example with a grown-up: 18 in Music, 15 in Dance, 8 in both. Show why the answer is 18 + 15 − 8 = 25, not 33 — the 8 who did both were counted twice, so subtract the overlap once.",
+  "revisionCard": {
+    "summary": "Inclusion–exclusion: |A∪B| = |A| + |B| − |A∩B|. Three sets: add singles, subtract the three pairs, add back the triple. Signs alternate + − +. Use for overlapping groups and divisibility counts so nothing is double-counted.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (IOQM/RMO) — combinatorics", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Add singles, subtract overlaps, add back the triple", "unpack": "|A∪B| = |A|+|B|−|A∩B|. Three sets alternate signs + − +." },
+  "studentQuestions": [
+    { "q": "What if there are four sets?", "a": "The pattern continues: add singles, subtract pairs, add triples, subtract the quadruple — signs keep alternating." },
+    { "q": "How does this help with divisibility?", "a": "To count numbers divisible by 2 or 3 up to N, add ⌊N/2⌋ and ⌊N/3⌋ then subtract ⌊N/6⌋ (divisible by both) so the overlap isn't double-counted." }
+  ],
+  "formulas": [
+    { "name": "Two sets", "formula": "|A ∪ B| = |A| + |B| − |A ∩ B|", "remember": "subtract the overlap once", "whenToUse": "Counting a union of two groups." },
+    { "name": "Three sets", "formula": "|A∪B∪C| = Σsingles − Σpairs + triple", "remember": "+ − + alternating", "whenToUse": "Three overlapping groups." }
+  ]
+}

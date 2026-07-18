@@ -1,0 +1,106 @@
+{
+  "id": "oly-cyclic-quadrilaterals",
+  "name": "Cyclic Quadrilaterals & Angle Chasing",
+  "grade": 9,
+  "strand": "geometry",
+  "prerequisites": ["geo-11-circles"],
+  "whatIsIt": "A CYCLIC QUADRILATERAL has all four corners on one circle. Its key property: OPPOSITE angles add to 180°. Two more circle facts power 'angle chasing': the INSCRIBED ANGLE theorem (an angle at the circle is half the central angle on the same arc) and 'angles in the same segment are equal'. Chaining these lets you find unknown angles across a whole figure.",
+  "whyNeeded": "Olympiad geometry is mostly angle chasing, and the cyclic quadrilateral is the workhorse. Recognising four points on a circle instantly unlocks 180° opposite-angle relations that crack the problem.",
+  "realLifeUses": [
+    "Finding angles in circular designs and arches",
+    "Proving points lie on a common circle (concyclic)",
+    "Surveying and navigation using inscribed angles",
+    "Any geometry proof that hinges on a hidden circle"
+  ],
+  "vocabulary": [
+    { "term": "cyclic quadrilateral", "meaning": "A four-sided figure whose vertices all lie on one circle." },
+    { "term": "inscribed angle", "meaning": "An angle whose vertex is on the circle; it is half the central angle on the same arc." },
+    { "term": "concyclic", "meaning": "Points that all lie on a single circle." }
+  ],
+  "story": {
+    "title": "Four on the Rim",
+    "characters": ["Zara", "Sir"],
+    "text": "Zara draws a quadrilateral ABCD with all corners on a circle. Angle A = 70°. 'Find angle C.' Sir reminds her: 'In a cyclic quadrilateral, opposite angles add to 180°.' So C = 180° − 70° = 110°. 'And if B = 85°, then D = 95°.' Zara smiles: 'Once I see four points on a circle, opposite angles instantly give me 180°.'",
+    "extractedProblem": "In a cyclic quadrilateral, angle A = 70°. Find the opposite angle C.",
+    "answerInStory": "110° — opposite angles of a cyclic quadrilateral sum to 180°, so C = 180° − 70°."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": { "kind": "square", "label": "Cyclic quadrilateral: opposite angles A + C = 180°, B + D = 180°" },
+    "caption": "All four corners sit on one circle, so opposite angles are supplementary (add to 180°). This is the key to circle angle-chasing."
+  },
+  "teachingGallery": [
+    {
+      "title": "Opposite angles → 180°",
+      "note": "A + C = 180°, B + D = 180°.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "kind": "square", "label": "A = 70° ⇒ C = 110°" }, "caption": "Supplementary opposite angles." },
+        { "component": "GeometryCanvas", "props": { "kind": "circle", "label": "Inscribed angle = ½ central angle (same arc)" }, "caption": "Inscribed = half the central angle." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Spot four points on a circle. Then opposite angles are supplementary (sum 180°). Use the inscribed-angle theorem (angle = half central angle) and 'same-segment angles equal' to chase unknown angles around the figure.",
+    "steps": [
+      "Check whether four points lie on one circle (cyclic).",
+      "Apply opposite angles sum to 180° to find a missing angle.",
+      "Use inscribed angle = ½ central angle on the same arc.",
+      "Chain equal angles in the same segment to reach the target angle."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Cyclic quadrilateral ABCD with angle A = 70°. Find angle C.",
+      "steps": ["Opposite angles sum to 180°.", "C = 180° − 70°.", "C = 110°."],
+      "answer": "110"
+    },
+    {
+      "problem": "An inscribed angle subtends an arc whose central angle is 120°. Find the inscribed angle.",
+      "steps": ["Inscribed = ½ central.", "= ½ × 120°.", "= 60°."],
+      "answer": "60"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "adjacent-not-opposite", "mistake": "Adding adjacent angles to 180° instead of opposite ones.", "fix": "It's OPPOSITE angles of a cyclic quadrilateral that sum to 180°, not adjacent ones." },
+    { "mistakeTag": "inscribed-equals-central", "mistake": "Taking the inscribed angle equal to the central angle.", "fix": "The inscribed angle is HALF the central angle on the same arc." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "cyq-e1", "type": "number", "q": "Cyclic quad: angle A = 70°, opposite angle C = ?", "answer": "110", "hintLadder": ["A + C = 180°.", "180 − 70.", "110."] },
+      { "id": "cyq-e2", "type": "mcq", "q": "In a cyclic quadrilateral, opposite angles…", "options": [{ "label": "Add to 180°" }, { "label": "Are equal", "mistakeTag": "adjacent-not-opposite" }], "answer": "Add to 180°", "hintLadder": ["Supplementary.", "Sum 180.", "Add to 180°."] }
+    ],
+    "medium": [
+      { "id": "cyq-m1", "type": "number", "q": "Cyclic quad: angle B = 85°, opposite angle D = ?", "answer": "95", "hintLadder": ["B + D = 180°.", "180 − 85.", "95."] },
+      { "id": "cyq-m2", "type": "number", "q": "Central angle 100°. Inscribed angle on same arc = ?", "answer": "50", "hintLadder": ["Half central.", "100 ÷ 2.", "50."] }
+    ],
+    "challenge": [
+      { "id": "cyq-c1", "type": "number", "q": "Inscribed angle = 40°. Central angle on the same arc = ?", "answer": "80", "hintLadder": ["Central = 2 × inscribed.", "2 × 40.", "80."] },
+      { "id": "cyq-c2", "type": "number", "q": "Cyclic quad angles A=x, C=2x. Find x (A + C = 180°).", "answer": "60", "hintLadder": ["x + 2x = 180.", "3x = 180.", "60."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "cyq-x1", "type": "number", "q": "Cyclic quad: A = 95°, opposite C = ?", "answer": "85", "hintLadder": ["A + C = 180°.", "180 − 95.", "85."] },
+      { "id": "cyq-x2", "type": "mcq", "q": "Inscribed angle equals…", "options": [{ "label": "½ the central angle" }, { "label": "The central angle", "mistakeTag": "inscribed-equals-central" }], "answer": "½ the central angle", "hintLadder": ["Same arc.", "Half.", "½ central."] },
+      { "id": "cyq-x3", "type": "number", "q": "Central angle 140°. Inscribed angle = ?", "answer": "70", "hintLadder": ["Half.", "140 ÷ 2.", "70."] },
+      { "id": "cyq-x4", "type": "mcq", "q": "Which angles of a cyclic quadrilateral sum to 180°?", "options": [{ "label": "Opposite" }, { "label": "Adjacent", "mistakeTag": "adjacent-not-opposite" }], "answer": "Opposite", "hintLadder": ["Across from each other.", "A & C.", "Opposite."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw a quadrilateral with all four corners on a circle. Show a grown-up that opposite angles add to 180° (if A = 70°, then C = 110°), and that an inscribed angle is half the central angle on the same arc.",
+  "revisionCard": {
+    "summary": "Cyclic quadrilateral: four corners on a circle ⇒ opposite angles sum to 180°. Inscribed angle = ½ central angle on the same arc; angles in the same segment are equal. These three facts drive nearly all circle angle-chasing.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (RMO/INMO) — geometry", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Four points on a circle ⇒ opposite angles add to 180°", "unpack": "Inscribed angle = ½ central; same-segment angles equal. Chase angles with these." },
+  "studentQuestions": [
+    { "q": "How do I prove four points are concyclic?", "a": "Show a pair of opposite angles sums to 180°, or that two points subtend equal angles at the other two — either proves they lie on one circle." },
+    { "q": "What is 'angle chasing'?", "a": "Repeatedly using angle facts (cyclic, inscribed, isosceles, parallel) to work out unknown angles step by step until you reach the one you want." }
+  ],
+  "formulas": [
+    { "name": "Cyclic opposite angles", "formula": "A + C = 180°,  B + D = 180°", "remember": "opposite angles supplementary", "whenToUse": "Four points on a circle." },
+    { "name": "Inscribed angle", "formula": "inscribed = ½ × central (same arc)", "remember": "on-circle angle is half the centre angle", "whenToUse": "Relating arc angles." }
+  ]
+}

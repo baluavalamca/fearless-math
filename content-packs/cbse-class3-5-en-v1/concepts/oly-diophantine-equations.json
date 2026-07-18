@@ -1,0 +1,105 @@
+{
+  "id": "oly-diophantine-equations",
+  "name": "Diophantine Equations — Whole-Number Solutions",
+  "grade": 9,
+  "strand": "numbers",
+  "prerequisites": ["oly-euclidean-gcd"],
+  "whatIsIt": "A DIOPHANTINE equation asks for INTEGER (whole-number) solutions only. The classic linear one is ax + by = c. The key rule: it has integer solutions IF AND ONLY IF gcd(a, b) divides c. When one solution exists, there are INFINITELY many — you shift x by b/g and y by −a/g (where g = gcd). These count-only problems (coins, tickets, buses) are pure Olympiad number theory.",
+  "whyNeeded": "Real problems often need whole answers — you can't buy 2.5 tickets. Diophantine thinking tells you instantly whether a whole-number combination is even possible, and how to list them all.",
+  "realLifeUses": [
+    "Making an exact amount with only ₹2 and ₹5 coins",
+    "Buying tickets of two prices to spend an exact total",
+    "Fitting boxes of two sizes to fill a shelf exactly",
+    "Scheduling events that must line up on whole days"
+  ],
+  "vocabulary": [
+    { "term": "Diophantine equation", "meaning": "An equation where only integer solutions are allowed." },
+    { "term": "solvability rule", "meaning": "ax + by = c has integer solutions ⟺ gcd(a, b) divides c." },
+    { "term": "family of solutions", "meaning": "If one solution exists, infinitely many do (shift by b/g and a/g)." }
+  ],
+  "story": {
+    "title": "Exact Change",
+    "characters": ["Priya", "Uncle"],
+    "text": "Priya wants to pay exactly ₹5 using only ₹3 and ₹6 coins: 3x + 6y = 5. Uncle checks: 'gcd(3, 6) = 3, and 3 does NOT divide 5 — impossible!' Then she tries ₹12 with ₹2 and ₹3 coins: 2x + 3y = 12. 'gcd(2, 3) = 1, which divides 12 — solvable! x = 0, y = 4 works, or x = 3, y = 2.' Priya grins: 'The GCD decides if exact change is even possible.'",
+    "extractedProblem": "Can 3x + 6y = 5 be solved in whole numbers?",
+    "answerInStory": "No — gcd(3, 6) = 3 does not divide 5, so there are no integer solutions."
+  },
+  "visual": {
+    "component": "NumberLine",
+    "props": { "lines": [{ "parts": 6, "mark": 4, "label": "2x + 3y = 12: whole-number solutions exist (e.g. x=0, y=4)", "showLabels": true }] },
+    "caption": "A linear Diophantine equation is solvable in whole numbers exactly when gcd(a, b) divides c — then solutions come in an evenly-spaced family."
+  },
+  "teachingGallery": [
+    {
+      "title": "The GCD decides",
+      "note": "Solvable ⟺ gcd(a,b) | c.",
+      "examples": [
+        { "component": "NumberLine", "props": { "lines": [{ "parts": 6, "mark": 0, "label": "3x + 6y = 5 → gcd 3 ∤ 5 → NO solution", "showLabels": true }] }, "caption": "gcd doesn't divide c ⇒ impossible." },
+        { "component": "NumberLine", "props": { "lines": [{ "parts": 6, "mark": 2, "label": "2x + 3y = 12 → gcd 1 | 12 → solutions exist", "showLabels": true }] }, "caption": "gcd divides c ⇒ solvable." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Compute g = gcd(a, b). If g does not divide c, there are NO integer solutions. If it does, find one solution (by inspection or the extended Euclidean algorithm); all others come by shifting x by b/g and y by −a/g.",
+    "steps": [
+      "Find g = gcd(a, b).",
+      "If g does not divide c → no integer solutions; stop.",
+      "If g divides c, find one solution (try small values, or use Bézout).",
+      "Generate the whole family: x + (b/g)t, y − (a/g)t for integer t."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Does 3x + 6y = 5 have integer solutions?",
+      "steps": ["g = gcd(3, 6) = 3.", "Does 3 divide 5? No.", "So there are NO integer solutions."],
+      "answer": "no"
+    },
+    {
+      "problem": "For 2x + 3y = 12, find y when x = 0.",
+      "steps": ["Put x = 0: 3y = 12.", "y = 12 ÷ 3.", "y = 4."],
+      "answer": "4"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "ignore-gcd-rule", "mistake": "Trying to solve when gcd(a, b) does not divide c.", "fix": "First check: integer solutions exist ONLY IF gcd(a, b) divides c. If not, stop — there are none." },
+    { "mistakeTag": "only-one-solution", "mistake": "Thinking there is just one solution.", "fix": "If one integer solution exists, there are INFINITELY many — shift x by b/g and y by −a/g." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "dio-e1", "type": "mcq", "q": "ax + by = c has integer solutions if and only if gcd(a, b)…", "options": [{ "label": "divides c" }, { "label": "equals c", "mistakeTag": "ignore-gcd-rule" }], "answer": "divides c", "hintLadder": ["The GCD test.", "It must divide c.", "divides c."] },
+      { "id": "dio-e2", "type": "number", "q": "For 2x + 3y = 12 with x = 0, y = ?", "answer": "4", "hintLadder": ["3y = 12.", "12 ÷ 3.", "4."] }
+    ],
+    "medium": [
+      { "id": "dio-m1", "type": "mcq", "q": "Does 4x + 6y = 7 have integer solutions?", "options": [{ "label": "No" }, { "label": "Yes", "mistakeTag": "ignore-gcd-rule" }], "answer": "No", "hintLadder": ["gcd(4,6) = 2.", "2 ∤ 7.", "No."] },
+      { "id": "dio-m2", "type": "number", "q": "For 5x + 2y = 10 with x = 0, y = ?", "answer": "5", "hintLadder": ["2y = 10.", "10 ÷ 2.", "5."] }
+    ],
+    "challenge": [
+      { "id": "dio-c1", "type": "number", "q": "For 3x + 5y = 8 with x = 1, y = ?", "answer": "1", "hintLadder": ["3 + 5y = 8.", "5y = 5.", "1."] },
+      { "id": "dio-c2", "type": "mcq", "q": "Does 6x + 9y = 10 have integer solutions?", "options": [{ "label": "No" }, { "label": "Yes", "mistakeTag": "ignore-gcd-rule" }], "answer": "No", "hintLadder": ["gcd(6,9) = 3.", "3 ∤ 10.", "No."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "dio-x1", "type": "mcq", "q": "ax + by = c is solvable in integers iff…", "options": [{ "label": "gcd(a, b) divides c" }, { "label": "a divides b", "mistakeTag": "ignore-gcd-rule" }], "answer": "gcd(a, b) divides c", "hintLadder": ["The divisibility test.", "gcd | c.", "gcd(a,b) divides c."] },
+      { "id": "dio-x2", "type": "mcq", "q": "3x + 6y = 5 has…", "options": [{ "label": "No integer solutions" }, { "label": "One solution", "mistakeTag": "ignore-gcd-rule" }], "answer": "No integer solutions", "hintLadder": ["gcd 3 ∤ 5.", "Impossible.", "No solutions."] },
+      { "id": "dio-x3", "type": "number", "q": "For 2x + 3y = 12 with x = 3, y = ?", "answer": "2", "hintLadder": ["6 + 3y = 12.", "3y = 6.", "2."] },
+      { "id": "dio-x4", "type": "mcq", "q": "If one integer solution exists, how many are there?", "options": [{ "label": "Infinitely many" }, { "label": "Exactly one", "mistakeTag": "only-one-solution" }], "answer": "Infinitely many", "hintLadder": ["Shift and repeat.", "A whole family.", "Infinitely many."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "With coins of two values (say ₹3 and ₹6), try to make ₹5 exactly, then ₹12 with ₹2 and ₹3 coins. Explain to a grown-up how the GCD tells you instantly whether the exact amount is even possible.",
+  "revisionCard": {
+    "summary": "Diophantine = integer solutions only. ax + by = c is solvable ⟺ gcd(a, b) divides c. If so, there are infinitely many (shift x by b/g, y by −a/g). Always check the GCD condition first.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (RMO/INMO) — number theory", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "ax + by = c solvable ⟺ gcd(a,b) | c; then infinitely many", "unpack": "No GCD divide, no solution. One solution ⇒ a whole shifting family." },
+  "studentQuestions": [
+    { "q": "How do I list all the solutions?", "a": "Find one (x₀, y₀), then every solution is x₀ + (b/g)t, y₀ − (a/g)t for integer t, where g = gcd(a, b)." },
+    { "q": "Why 'if and only if'?", "a": "The left side ax + by is always a multiple of gcd(a, b), so c must be too — otherwise no whole numbers can ever hit c." }
+  ],
+  "formulas": [
+    { "name": "Solvability", "formula": "ax + by = c solvable ⟺ gcd(a, b) | c", "remember": "GCD must divide c", "whenToUse": "Deciding if whole-number solutions exist." }
+  ]
+}

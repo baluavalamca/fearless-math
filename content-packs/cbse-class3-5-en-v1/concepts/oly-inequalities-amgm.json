@@ -1,0 +1,106 @@
+{
+  "id": "oly-inequalities-amgm",
+  "name": "Olympiad Inequalities — AM–GM & Cauchy–Schwarz",
+  "grade": 10,
+  "strand": "numbers",
+  "prerequisites": ["num-27-squares-roots"],
+  "whatIsIt": "Two power-tools for proving one quantity is bigger than another. The AM–GM INEQUALITY says the Arithmetic Mean is always at least the Geometric Mean: for non-negative numbers, (a + b)/2 ≥ √(ab), with equality only when a = b. The CAUCHY–SCHWARZ inequality says (a² + b²)(x² + y²) ≥ (ax + by)². These prove minimums/maximums instantly — e.g. x + 1/x ≥ 2 for positive x.",
+  "whyNeeded": "Olympiad problems constantly ask to prove a minimum, maximum, or that one expression beats another. AM–GM and Cauchy–Schwarz turn these into one clean line instead of calculus.",
+  "realLifeUses": [
+    "Showing a fixed perimeter gives the biggest area for a square",
+    "Finding the least material for a fixed volume",
+    "Proving the cheapest split of a fixed total",
+    "Bounding errors and averages in science"
+  ],
+  "vocabulary": [
+    { "term": "arithmetic mean (AM)", "meaning": "The ordinary average, (a + b)/2." },
+    { "term": "geometric mean (GM)", "meaning": "The root of the product, √(ab)." },
+    { "term": "AM–GM inequality", "meaning": "AM ≥ GM, with equality only when all the numbers are equal." }
+  ],
+  "story": {
+    "title": "The Fence and the Field",
+    "characters": ["Rahul", "Coach"],
+    "text": "Rahul has a fixed length of fence and wants the BIGGEST rectangular field. Coach says, 'AM–GM! For a fixed perimeter, area is largest when the sides are equal — a square.' Then Rahul asks, 'What's the smallest value of x + 1/x for positive x?' Coach smiles: 'By AM–GM, x + 1/x ≥ 2√(x·1/x) = 2, equal when x = 1. So the minimum is 2 — no calculus needed.'",
+    "extractedProblem": "For positive x, what is the smallest value of x + 1/x?",
+    "answerInStory": "2 — by AM–GM, x + 1/x ≥ 2√(x·1/x) = 2, with equality at x = 1."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": { "categories": [{ "label": "AM = (2+8)/2", "value": 5 }, { "label": "GM = √(2·8)", "value": 4 }], "unit": "for a=2, b=8 (AM ≥ GM)" },
+    "caption": "For a = 2, b = 8: the Arithmetic Mean (5) is at least the Geometric Mean (4). AM–GM says this always holds, with equality only when the numbers are equal."
+  },
+  "teachingGallery": [
+    {
+      "title": "AM never below GM",
+      "note": "Equal only when the numbers match.",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [{ "label": "AM", "value": 5 }, { "label": "GM", "value": 5 }], "unit": "a = b = 5 → AM = GM" }, "caption": "When a = b, AM = GM (equality)." },
+        { "component": "BarChart", "props": { "categories": [{ "label": "AM", "value": 5 }, { "label": "GM", "value": 3 }], "unit": "a=1, b=9 → AM 5 ≥ GM 3" }, "caption": "The more unequal, the bigger the gap." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To bound a sum from below or a product from above, apply AM ≥ GM (equality when the terms are equal). For sums of products, use Cauchy–Schwarz. The minimum/maximum happens at the equality case.",
+    "steps": [
+      "Spot a sum you want to make small (or a product to make large).",
+      "Apply AM ≥ GM: the average is at least the root of the product.",
+      "The minimum of a sum with fixed product is 2√(product) (for two terms).",
+      "Equality — the actual min/max — happens when all the terms are equal."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Check AM ≥ GM for a = 2, b = 8, and give the geometric mean.",
+      "steps": ["AM = (2 + 8)/2 = 5.", "GM = √(2 × 8) = √16 = 4.", "5 ≥ 4 ✓; GM = 4."],
+      "answer": "4"
+    },
+    {
+      "problem": "For positive x, find the minimum of x + 9/x.",
+      "steps": ["By AM–GM, x + 9/x ≥ 2√(x · 9/x).", "= 2√9 = 6.", "Minimum is 6 (at x = 3)."],
+      "answer": "6"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "amgm-backwards", "mistake": "Writing GM ≥ AM (the wrong way round).", "fix": "It is AM ≥ GM: the arithmetic mean is at least the geometric mean." },
+    { "mistakeTag": "amgm-negatives", "mistake": "Using AM–GM on negative numbers.", "fix": "AM–GM needs NON-NEGATIVE numbers; it can fail if a term is negative." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "amg-e1", "type": "mcq", "q": "AM–GM says the arithmetic mean is…", "options": [{ "label": "≥ the geometric mean" }, { "label": "≤ the geometric mean", "mistakeTag": "amgm-backwards" }], "answer": "≥ the geometric mean", "hintLadder": ["AM ≥ GM.", "Average is bigger.", "≥ GM."] },
+      { "id": "amg-e2", "type": "number", "q": "For x > 0, the minimum of x + 1/x is…", "answer": "2", "hintLadder": ["2√(x·1/x).", "2√1.", "2."] }
+    ],
+    "medium": [
+      { "id": "amg-m1", "type": "number", "q": "The geometric mean of 4 and 9 is √(4×9) = ?", "answer": "6", "hintLadder": ["√36.", "product 36.", "6."] },
+      { "id": "amg-m2", "type": "number", "q": "For x > 0, minimum of x + 4/x = ?", "answer": "4", "hintLadder": ["2√(x·4/x).", "2√4.", "4."] }
+    ],
+    "challenge": [
+      { "id": "amg-c1", "type": "number", "q": "For x > 0, minimum of x + 9/x = ?", "answer": "6", "hintLadder": ["2√9.", "= 6.", "6."] },
+      { "id": "amg-c2", "type": "mcq", "q": "In AM–GM, equality holds when…", "options": [{ "label": "a = b" }, { "label": "a = 0", "mistakeTag": "amgm-backwards" }], "answer": "a = b", "hintLadder": ["Terms equal.", "a = b.", "a = b."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "amg-x1", "type": "mcq", "q": "AM–GM: (a + b)/2 ≥ …", "options": [{ "label": "√(ab)" }, { "label": "ab", "mistakeTag": "amgm-backwards" }], "answer": "√(ab)", "hintLadder": ["Geometric mean.", "Root of product.", "√(ab)."] },
+      { "id": "amg-x2", "type": "number", "q": "Geometric mean of 4 and 9?", "answer": "6", "hintLadder": ["√36.", "product 36.", "6."] },
+      { "id": "amg-x3", "type": "number", "q": "Minimum of x + 1/x for x > 0?", "answer": "2", "hintLadder": ["2√1.", "= 2.", "2."] },
+      { "id": "amg-x4", "type": "mcq", "q": "AM–GM equality happens when the numbers are…", "options": [{ "label": "Equal" }, { "label": "Opposite", "mistakeTag": "amgm-backwards" }], "answer": "Equal", "hintLadder": ["a = b.", "All the same.", "Equal."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Show a grown-up why x + 1/x can never be less than 2 for positive x, using AM–GM (average of x and 1/x is at least √(x·1/x) = 1, so the sum is at least 2). Point out equality happens at x = 1.",
+  "revisionCard": {
+    "summary": "AM–GM: for non-negative numbers, (a + b)/2 ≥ √(ab), equality when a = b. Sum with fixed product is smallest when terms are equal (x + k/x ≥ 2√k). Cauchy–Schwarz: (a²+b²)(x²+y²) ≥ (ax+by)². Use them to prove min/max without calculus.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (RMO/INMO/IMO) — algebra & inequalities", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "AM ≥ GM: (a+b)/2 ≥ √(ab), equal when a = b", "unpack": "Non-negative only. Min of x + k/x is 2√k, at x = √k. Cauchy: (Σa²)(Σx²) ≥ (Σax)²." },
+  "studentQuestions": [
+    { "q": "When do I use Cauchy–Schwarz instead of AM–GM?", "a": "When the expression is a sum of products, like ax + by — Cauchy bounds it using a²+b² and x²+y²." },
+    { "q": "Why does equal-terms give the extreme?", "a": "The gap between AM and GM shrinks to zero exactly when the numbers are equal, so that's where the minimum (or maximum) sits." }
+  ],
+  "formulas": [
+    { "name": "AM–GM", "formula": "(a + b)/2 ≥ √(ab),  equality iff a = b", "remember": "average ≥ root of product", "whenToUse": "Min of a sum / max of a product." },
+    { "name": "Cauchy–Schwarz", "formula": "(a² + b²)(x² + y²) ≥ (ax + by)²", "remember": "product of squares ≥ square of dot", "whenToUse": "Bounding sums of products." }
+  ]
+}

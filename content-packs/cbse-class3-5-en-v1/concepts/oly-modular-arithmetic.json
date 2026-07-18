@@ -1,0 +1,105 @@
+{
+  "id": "oly-modular-arithmetic",
+  "name": "Modular Arithmetic — Clock Maths & Remainders",
+  "grade": 8,
+  "strand": "numbers",
+  "prerequisites": ["num-25-divisibility"],
+  "whatIsIt": "MODULAR ARITHMETIC is 'clock maths' — you only care about the REMAINDER after dividing by a number m (the modulus). We write a ≡ b (mod m), read 'a is congruent to b mod m', meaning m divides (a − b), i.e. a and b leave the same remainder. A clock works mod 12 (after 12 you wrap to 1); days of the week work mod 7; the last digit of a number is that number mod 10.",
+  "whyNeeded": "It turns huge, scary numbers into tiny remainders, which is how we find last digits, day-of-week problems, and divisibility patterns fast. It is the language of Olympiad number theory and also powers codes and computer clocks.",
+  "realLifeUses": [
+    "Telling time on a 12-hour clock (13:00 shows as 1)",
+    "Working out what day of the week a date falls on (mod 7)",
+    "Finding the last digit of a big power without multiplying it all",
+    "Odometers and computer timers that reset to 0"
+  ],
+  "vocabulary": [
+    { "term": "modulus (m)", "meaning": "The number you divide by; you keep only the remainder." },
+    { "term": "congruent (≡)", "meaning": "a ≡ b (mod m) means a and b have the same remainder mod m." },
+    { "term": "remainder", "meaning": "What is left after dividing; always from 0 to m−1." }
+  ],
+  "story": {
+    "title": "The Clock Puzzle",
+    "characters": ["Ira", "Dada"],
+    "text": "Ira asks, 'If it's 9 o'clock now, what time is it 5 hours later?' Dada smiles, 'Not 14 — the clock wraps! 9 + 5 = 14, and 14 − 12 = 2, so it's 2 o'clock.' Then he asks, 'What is the remainder when 17 is divided by 5?' Ira works it out: 17 = 3×5 + 2, so 2. 'Exactly,' says Dada. 'On a mod-5 world, 17 is just 2. That's modular arithmetic — only the remainder matters.'",
+    "extractedProblem": "On a 12-hour clock, what time is 5 hours after 9 o'clock?",
+    "answerInStory": "2 o'clock — because 9 + 5 = 14 and 14 wraps to 14 − 12 = 2 (mod 12)."
+  },
+  "visual": {
+    "component": "NumberLine",
+    "props": { "lines": [{ "parts": 12, "mark": 2, "label": "mod 12: after 11 it wraps back to 0 — the mark shows 14 ≡ 2", "showLabels": true }] },
+    "caption": "A modulus is a loop, like a clock: count past m and you wrap back to 0. Here 14 lands on 2 (mod 12)."
+  },
+  "teachingGallery": [
+    {
+      "title": "Only the remainder matters",
+      "note": "Divide, keep what's left over.",
+      "examples": [
+        { "component": "NumberLine", "props": { "lines": [{ "parts": 5, "mark": 2, "label": "17 ÷ 5 leaves 2 → 17 ≡ 2 (mod 5)", "showLabels": true }] }, "caption": "17 is 2 in the mod-5 world." },
+        { "component": "NumberLine", "props": { "lines": [{ "parts": 7, "mark": 0, "label": "mod 7: days of the week loop every 7", "showLabels": true }] }, "caption": "Days repeat mod 7." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "To compute a (mod m), divide a by m and keep the remainder (0 to m−1). Sums and products can be reduced mod m at each step to keep numbers small.",
+    "steps": [
+      "Divide a by the modulus m.",
+      "The remainder r (from 0 to m−1) is a mod m; write a ≡ r (mod m).",
+      "For sums/products, you may reduce each part mod m first, then combine.",
+      "The last digit of a number is that number mod 10."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find the remainder when 17 is divided by 5 (17 mod 5).",
+      "steps": ["17 = 3 × 5 + 2.", "The remainder is 2.", "So 17 ≡ 2 (mod 5)."],
+      "answer": "2"
+    },
+    {
+      "problem": "What is the last digit of 7 × 7 (i.e. 49 mod 10)?",
+      "steps": ["7 × 7 = 49.", "49 mod 10 is the last digit.", "= 9."],
+      "answer": "9"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "mod-gives-quotient", "mistake": "Thinking a mod m is the quotient, not the remainder.", "fix": "a mod m is the REMAINDER after dividing by m (a value from 0 to m−1), not the quotient." },
+    { "mistakeTag": "no-wrap", "mistake": "Forgetting to wrap around past the modulus (writing 14 o'clock).", "fix": "In mod m, once you reach m you loop back to 0. On a clock, 14 becomes 14 − 12 = 2." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "mod-e1", "type": "number", "q": "What is 17 mod 5 (the remainder of 17 ÷ 5)?", "answer": "2", "hintLadder": ["17 = 3×5 + ?", "15 leaves 2.", "2."] },
+      { "id": "mod-e2", "type": "mcq", "q": "'a mod m' gives the…", "options": [{ "label": "Remainder" }, { "label": "Quotient", "mistakeTag": "mod-gives-quotient" }], "answer": "Remainder", "hintLadder": ["What's left over.", "Not the times.", "Remainder."] }
+    ],
+    "medium": [
+      { "id": "mod-m1", "type": "number", "q": "25 mod 7 = ?", "answer": "4", "hintLadder": ["21 = 3×7.", "25 − 21.", "4."] },
+      { "id": "mod-m2", "type": "number", "q": "The last digit of 12 is 12 mod 10 = ?", "answer": "2", "hintLadder": ["Divide by 10.", "Remainder.", "2."] }
+    ],
+    "challenge": [
+      { "id": "mod-c1", "type": "number", "q": "100 mod 9 = ?", "answer": "1", "hintLadder": ["99 = 11×9.", "100 − 99.", "1."] },
+      { "id": "mod-c2", "type": "mcq", "q": "On a 12-hour clock, 5 hours after 9 o'clock is…", "options": [{ "label": "2 o'clock" }, { "label": "14 o'clock", "mistakeTag": "no-wrap" }], "answer": "2 o'clock", "hintLadder": ["9 + 5 = 14.", "Wrap: 14 − 12.", "2 o'clock."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mod-x1", "type": "number", "q": "20 mod 6 = ?", "answer": "2", "hintLadder": ["18 = 3×6.", "20 − 18.", "2."] },
+      { "id": "mod-x2", "type": "mcq", "q": "a ≡ b (mod m) means m divides…", "options": [{ "label": "a − b" }, { "label": "a + b", "mistakeTag": "mod-gives-quotient" }], "answer": "a − b", "hintLadder": ["Same remainder.", "Their difference.", "a − b."] },
+      { "id": "mod-x3", "type": "number", "q": "Last digit of 49 (49 mod 10)?", "answer": "9", "hintLadder": ["Divide by 10.", "Remainder.", "9."] },
+      { "id": "mod-x4", "type": "number", "q": "50 mod 8 = ?", "answer": "2", "hintLadder": ["48 = 6×8.", "50 − 48.", "2."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Use a clock face with a grown-up. Show that 5 hours after 9 o'clock is 2 (not 14) because the clock works mod 12. Then explain how 17 mod 5 = 2 means '17 is just 2 in the mod-5 world'.",
+  "revisionCard": {
+    "summary": "Modular arithmetic = clock maths: keep only the remainder mod m. a ≡ b (mod m) ⟺ m divides (a − b). Wrap around past m (14 o'clock → 2). Last digit = mod 10. Reduce mod m as you go to keep numbers tiny.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (IOQM/RMO) — number theory foundations", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Keep the remainder; wrap around like a clock (mod m)", "unpack": "a ≡ b (mod m) ⟺ m | (a − b). Reduce mod m at each step." },
+  "studentQuestions": [
+    { "q": "Why is modular arithmetic useful?", "a": "It shrinks giant numbers to small remainders, so you can find last digits, weekdays and divisibility patterns without huge multiplication." },
+    { "q": "What does the last digit tell me?", "a": "The last digit of any number is that number mod 10 — a quick modular fact you use all the time." }
+  ],
+  "formulas": [
+    { "name": "Congruence", "formula": "a ≡ b (mod m) ⟺ m | (a − b)", "remember": "same remainder mod m", "whenToUse": "Comparing numbers by their remainder." }
+  ]
+}

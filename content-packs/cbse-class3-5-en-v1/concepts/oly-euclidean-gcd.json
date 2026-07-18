@@ -1,0 +1,106 @@
+{
+  "id": "oly-euclidean-gcd",
+  "name": "The Euclidean Algorithm — Fast GCD",
+  "grade": 8,
+  "strand": "numbers",
+  "prerequisites": ["num-26-hcf-lcm"],
+  "whatIsIt": "The EUCLIDEAN ALGORITHM finds the GCD (greatest common divisor, the HCF) of two numbers super fast, without listing factors. The rule: gcd(a, b) = gcd(b, a mod b). Keep replacing the pair by (the smaller number, the remainder) until the remainder is 0 — the last non-zero remainder is the GCD. A bonus fact (Bézout) says the gcd can always be written as ax + by for some integers x, y.",
+  "whyNeeded": "For big numbers, listing factors is hopeless — Euclid's method gets the GCD in a few steps. It underpins fractions in lowest terms, Diophantine equations, and modular inverses, and is a staple of Olympiad number theory.",
+  "realLifeUses": [
+    "Reducing a big fraction to lowest terms quickly",
+    "Tiling a rectangle with the largest possible equal squares",
+    "Sharing two amounts into the largest equal groups",
+    "Gears and timing problems that repeat together"
+  ],
+  "vocabulary": [
+    { "term": "GCD (HCF)", "meaning": "The greatest common divisor — the largest number dividing both." },
+    { "term": "coprime", "meaning": "Two numbers with GCD 1 (no common factor except 1)." },
+    { "term": "Bézout's identity", "meaning": "gcd(a, b) = ax + by for some integers x and y." }
+  ],
+  "story": {
+    "title": "The Largest Tile",
+    "characters": ["Sohan", "Miss"],
+    "text": "Sohan must tile a 48 by 18 cm strip with the largest equal SQUARE tiles. 'List all factors?' he groans. Miss shows him Euclid: 'gcd(48, 18): 48 mod 18 = 12. Now gcd(18, 12): 18 mod 12 = 6. Then gcd(12, 6): 12 mod 6 = 0 — stop! The last non-zero remainder, 6, is the GCD.' Sohan grins: '6 cm tiles — found in three steps, no factor lists.'",
+    "extractedProblem": "Use the Euclidean algorithm to find gcd(48, 18).",
+    "answerInStory": "6 — because 48 mod 18 = 12, 18 mod 12 = 6, 12 mod 6 = 0, so the last non-zero remainder is 6."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": { "grids": [{ "rows": 3, "cols": 8, "label": "48×18 strip fills exactly with 6×6 squares → gcd = 6" }] },
+    "caption": "The GCD is the side of the largest square that tiles an a×b rectangle exactly. Euclid finds it fast by chasing remainders."
+  },
+  "teachingGallery": [
+    {
+      "title": "Chase the remainders",
+      "note": "Replace (a, b) by (b, a mod b) until 0.",
+      "examples": [
+        { "component": "ArrayGrid", "props": { "grids": [{ "rows": 2, "cols": 3, "label": "gcd(12, 8) = 4" }] }, "caption": "12 mod 8 = 4, 8 mod 4 = 0 → gcd 4." },
+        { "component": "ArrayGrid", "props": { "grids": [{ "rows": 1, "cols": 1, "label": "gcd(101, 10) = 1 → coprime" }] }, "caption": "GCD 1 means coprime." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Repeatedly replace the larger number by the remainder: gcd(a, b) = gcd(b, a mod b). Stop when the remainder is 0; the last non-zero remainder is the GCD.",
+    "steps": [
+      "Divide the larger by the smaller and note the remainder.",
+      "Replace the pair with (smaller number, remainder).",
+      "Repeat until the remainder is 0.",
+      "The last non-zero remainder is the GCD."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find gcd(48, 18) by the Euclidean algorithm.",
+      "steps": ["48 mod 18 = 12.", "18 mod 12 = 6; 12 mod 6 = 0.", "Last non-zero remainder = 6."],
+      "answer": "6"
+    },
+    {
+      "problem": "Find gcd(101, 10).",
+      "steps": ["101 mod 10 = 1.", "10 mod 1 = 0.", "GCD = 1 (they are coprime)."],
+      "answer": "1"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "gcd-vs-lcm", "mistake": "Confusing GCD with LCM.", "fix": "GCD is the LARGEST common factor; LCM is the SMALLEST common multiple. Euclid's algorithm finds the GCD." },
+    { "mistakeTag": "stop-too-early", "mistake": "Stopping before the remainder reaches 0.", "fix": "Keep going until the remainder is 0. The GCD is the LAST NON-ZERO remainder." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "gcd-e1", "type": "number", "q": "gcd(12, 8) = ?", "answer": "4", "hintLadder": ["12 mod 8 = 4.", "8 mod 4 = 0.", "4."] },
+      { "id": "gcd-e2", "type": "mcq", "q": "Euclid replaces gcd(a, b) with gcd(b, …).", "options": [{ "label": "a mod b" }, { "label": "a × b", "mistakeTag": "gcd-vs-lcm" }], "answer": "a mod b", "hintLadder": ["Use the remainder.", "a mod b.", "gcd(b, a mod b)."] }
+    ],
+    "medium": [
+      { "id": "gcd-m1", "type": "number", "q": "gcd(48, 18) = ?", "answer": "6", "hintLadder": ["48 mod 18 = 12.", "18 mod 12 = 6, 12 mod 6 = 0.", "6."] },
+      { "id": "gcd-m2", "type": "number", "q": "gcd(100, 75) = ?", "answer": "25", "hintLadder": ["100 mod 75 = 25.", "75 mod 25 = 0.", "25."] }
+    ],
+    "challenge": [
+      { "id": "gcd-c1", "type": "number", "q": "gcd(1071, 462) = ?", "answer": "21", "hintLadder": ["1071 mod 462 = 147.", "462 mod 147 = 21, 147 mod 21 = 0.", "21."] },
+      { "id": "gcd-c2", "type": "mcq", "q": "If gcd(a, b) = 1, the numbers are…", "options": [{ "label": "Coprime" }, { "label": "Equal", "mistakeTag": "gcd-vs-lcm" }], "answer": "Coprime", "hintLadder": ["No common factor but 1.", "Special name.", "Coprime."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "gcd-x1", "type": "number", "q": "gcd(24, 36) = ?", "answer": "12", "hintLadder": ["36 mod 24 = 12.", "24 mod 12 = 0.", "12."] },
+      { "id": "gcd-x2", "type": "mcq", "q": "gcd(a, b) equals…", "options": [{ "label": "gcd(b, a mod b)" }, { "label": "gcd(b, a + b)", "mistakeTag": "stop-too-early" }], "answer": "gcd(b, a mod b)", "hintLadder": ["Use the remainder.", "a mod b.", "gcd(b, a mod b)."] },
+      { "id": "gcd-x3", "type": "number", "q": "gcd(54, 24) = ?", "answer": "6", "hintLadder": ["54 mod 24 = 6.", "24 mod 6 = 0.", "6."] },
+      { "id": "gcd-x4", "type": "mcq", "q": "GCD 1 means the two numbers are…", "options": [{ "label": "Coprime" }, { "label": "Both prime", "mistakeTag": "gcd-vs-lcm" }], "answer": "Coprime", "hintLadder": ["Only factor 1 in common.", "Not necessarily prime.", "Coprime."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Pick two numbers like 48 and 18 and show a grown-up Euclid's chase: 48 mod 18 = 12, 18 mod 12 = 6, 12 mod 6 = 0, so the GCD is 6. Explain why the last non-zero remainder is the answer.",
+  "revisionCard": {
+    "summary": "Euclidean algorithm: gcd(a, b) = gcd(b, a mod b); repeat until remainder 0; the last non-zero remainder is the GCD. GCD 1 ⇒ coprime. Bézout: gcd = ax + by. It is the fast way to reduce fractions and solve number-theory problems.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (IOQM/RMO) — number theory foundations", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "gcd(a,b) = gcd(b, a mod b) → chase remainders to 0", "unpack": "Last non-zero remainder is the GCD. GCD 1 = coprime." },
+  "studentQuestions": [
+    { "q": "Why is it faster than listing factors?", "a": "Each step shrinks the numbers a lot, so even huge pairs reach the GCD in just a handful of divisions." },
+    { "q": "What is Bézout's identity for?", "a": "It says gcd(a,b) = ax + by, which lets you solve equations like 'find x, y with ax + by = gcd' — key for modular inverses." }
+  ],
+  "formulas": [
+    { "name": "Euclidean step", "formula": "gcd(a, b) = gcd(b, a mod b)", "remember": "chase remainders to 0", "whenToUse": "Finding a GCD fast." },
+    { "name": "Bézout's identity", "formula": "gcd(a, b) = ax + by", "remember": "gcd as a combination", "whenToUse": "Solving linear equations / modular inverses." }
+  ]
+}
