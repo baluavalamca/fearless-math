@@ -12,6 +12,7 @@
     "test": "node tests/logic.test.js && node tests/store.test.js && node tests/ai.test.js && node tests/practice.test.js",
     "validate-content": "node tools/validate-content.js content-packs/cbse-class3-5-en-v1/concepts content-packs/cbse-pp1-2-en-v1/concepts",
     "validate-i18n": "node tools/validate-i18n.js --en content-packs/cbse-class3-5-en-v1/concepts,content-packs/cbse-pp1-2-en-v1/concepts --tr content-packs/cbse-class3-5-hi-v1/concepts,content-packs/cbse-class3-5-te-v1/concepts",
+    "translate": "node tools/translate-pack.js",
     "pack": "vite build && electron-builder --dir",
     "dist": "vite build && electron-builder --win"
   },
