@@ -1,0 +1,8 @@
+{
+  "name": "CBSE PP1-2 Mathematics (Telugu)",
+  "version": "0.1.0",
+  "curriculum": "CBSE/NCERT",
+  "grades": [0, 1, 2],
+  "language": "te",
+  "world": "గణిత మొలకలు"
+}
