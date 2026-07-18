@@ -1,0 +1,106 @@
+{
+  "id": "oly-recurrence-relations",
+  "name": "Linear Recurrence Relations",
+  "grade": 10,
+  "strand": "numbers",
+  "prerequisites": ["num-47-sequences-series"],
+  "whatIsIt": "A RECURRENCE builds each term from earlier ones. A LINEAR recurrence looks like aₙ = c₁aₙ₋₁ + c₂aₙ₋₂. The famous one is Fibonacci: Fₙ = Fₙ₋₁ + Fₙ₋₂ (1, 1, 2, 3, 5, 8, 13, …). To get a CLOSED FORM you solve the CHARACTERISTIC EQUATION x² = c₁x + c₂; its roots r, s give aₙ = A·rⁿ + B·sⁿ, with A and B fixed by the starting values.",
+  "whyNeeded": "Counting problems (tilings, paths, strings avoiding a pattern) almost always reduce to a recurrence. Recognising and solving it — via the characteristic equation — is a core Olympiad and computer-science skill.",
+  "realLifeUses": [
+    "Counting ways to climb stairs 1 or 2 at a time (Fibonacci)",
+    "Tiling a 2×n strip with dominoes",
+    "Population and compound-growth models",
+    "Algorithm running-time analysis"
+  ],
+  "vocabulary": [
+    { "term": "recurrence", "meaning": "A rule giving each term from previous terms." },
+    { "term": "initial conditions", "meaning": "The starting values needed to pin the sequence down." },
+    { "term": "characteristic equation", "meaning": "x² = c₁x + c₂, whose roots build the closed form." }
+  ],
+  "story": {
+    "title": "Climbing the Stairs",
+    "characters": ["Dev", "Akka"],
+    "text": "Dev can climb 1 or 2 steps at a time. 'How many ways up 5 steps?' Akka says, 'Each way ends with a 1-step or a 2-step, so ways(n) = ways(n−1) + ways(n−2) — Fibonacci!' They list 1, 2, 3, 5, 8 → 8 ways for 5 steps. 'And its closed form comes from x² = x + 1,' she adds. Dev grins: 'The staircase is secretly Fibonacci.'",
+    "extractedProblem": "Climbing 1 or 2 steps at a time, how many ways to climb 5 steps?",
+    "answerInStory": "8 — the counts follow Fibonacci (1, 2, 3, 5, 8), so 5 steps give 8 ways."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": { "categories": [{ "label": "F₁", "value": 1 }, { "label": "F₂", "value": 1 }, { "label": "F₃", "value": 2 }, { "label": "F₄", "value": 3 }, { "label": "F₅", "value": 5 }, { "label": "F₆", "value": 8 }], "unit": "Fibonacci: each = sum of previous two" },
+    "caption": "In a linear recurrence each term is built from earlier ones. Fibonacci: Fₙ = Fₙ₋₁ + Fₙ₋₂, giving 1, 1, 2, 3, 5, 8 …"
+  },
+  "teachingGallery": [
+    {
+      "title": "Each term from the last two",
+      "note": "Fₙ = Fₙ₋₁ + Fₙ₋₂.",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [{ "label": "3", "value": 3 }, { "label": "5", "value": 5 }, { "label": "8", "value": 8 }], "unit": "3 + 5 = 8" }, "caption": "Add the previous two." },
+        { "component": "BarChart", "props": { "categories": [{ "label": "a₀", "value": 1 }, { "label": "a₁", "value": 2 }, { "label": "a₂", "value": 4 }, { "label": "a₃", "value": 8 }], "unit": "aₙ = 2aₙ₋₁ → powers of 2" }, "caption": "aₙ = 2aₙ₋₁ gives 1,2,4,8." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Write the recurrence and its initial conditions. Form the characteristic equation x² = c₁x + c₂. Solve for roots r, s; the closed form is aₙ = A·rⁿ + B·sⁿ, and A, B are found from the starting values.",
+    "steps": [
+      "State the recurrence aₙ = c₁aₙ₋₁ + c₂aₙ₋₂ and its initial values.",
+      "Write the characteristic equation x² = c₁x + c₂.",
+      "Find its roots r and s.",
+      "Closed form aₙ = A·rⁿ + B·sⁿ; solve for A, B using the initial terms."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Fibonacci 1, 1, 2, 3, 5, 8, … What is the next term after 5 and 8?",
+      "steps": ["Fₙ = Fₙ₋₁ + Fₙ₋₂.", "5 + 8 = 13.", "= 13."],
+      "answer": "13"
+    },
+    {
+      "problem": "For aₙ = 5aₙ₋₁ − 6aₙ₋₂, write the characteristic equation and give the product of its roots.",
+      "steps": ["Characteristic: x² = 5x − 6 → x² − 5x + 6 = 0.", "Roots 2 and 3 (by Vieta product = 6).", "Product = 6."],
+      "answer": "6"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "recur-need-initial", "mistake": "Solving a recurrence without initial conditions.", "fix": "A recurrence needs starting values — without them the sequence isn't determined." },
+    { "mistakeTag": "char-eq-wrong", "mistake": "Writing the characteristic equation with the wrong signs.", "fix": "For aₙ = c₁aₙ₋₁ + c₂aₙ₋₂, it is x² = c₁x + c₂ (move all to one side: x² − c₁x − c₂ = 0)." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "rec-e1", "type": "number", "q": "Fibonacci: term after 5 and 8?", "answer": "13", "hintLadder": ["Add last two.", "5 + 8.", "13."] },
+      { "id": "rec-e2", "type": "number", "q": "aₙ = 2aₙ₋₁, a₀ = 1. Find a₃.", "answer": "8", "hintLadder": ["Double each: 1,2,4,8.", "2³.", "8."] }
+    ],
+    "medium": [
+      { "id": "rec-m1", "type": "number", "q": "Fibonacci F₆ (with F₁=F₂=1): 1,1,2,3,5,?", "answer": "8", "hintLadder": ["3 + 5.", "= 8.", "8."] },
+      { "id": "rec-m2", "type": "number", "q": "aₙ = 5aₙ₋₁ − 6aₙ₋₂. Characteristic roots are 2 and 3; their sum = ?", "answer": "5", "hintLadder": ["x² − 5x + 6 = 0.", "Sum = 5.", "5."] }
+    ],
+    "challenge": [
+      { "id": "rec-c1", "type": "number", "q": "Ways to climb 6 stairs (1 or 2 at a time): 1,2,3,5,8,?", "answer": "13", "hintLadder": ["Fibonacci.", "8 + 5.", "13."] },
+      { "id": "rec-c2", "type": "number", "q": "aₙ = 5aₙ₋₁ − 6aₙ₋₂: product of characteristic roots = ?", "answer": "6", "hintLadder": ["x² − 5x + 6.", "Product = 6.", "6."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "rec-x1", "type": "number", "q": "Fibonacci: term after 8 and 13?", "answer": "21", "hintLadder": ["Add last two.", "8 + 13.", "21."] },
+      { "id": "rec-x2", "type": "mcq", "q": "To find a closed form you solve the…", "options": [{ "label": "Characteristic equation" }, { "label": "Initial conditions", "mistakeTag": "char-eq-wrong" }], "answer": "Characteristic equation", "hintLadder": ["x² = c₁x + c₂.", "Its roots.", "Characteristic equation."] },
+      { "id": "rec-x3", "type": "number", "q": "aₙ = 2aₙ₋₁, a₀ = 1. Find a₄.", "answer": "16", "hintLadder": ["Powers of 2.", "2⁴.", "16."] },
+      { "id": "rec-x4", "type": "mcq", "q": "A recurrence is fully determined only once you also know the…", "options": [{ "label": "Initial conditions" }, { "label": "Largest term", "mistakeTag": "recur-need-initial" }], "answer": "Initial conditions", "hintLadder": ["Starting values.", "First terms.", "Initial conditions."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Show a grown-up the staircase problem: ways(n) = ways(n−1) + ways(n−2), which is Fibonacci (1, 2, 3, 5, 8). Explain that the closed form comes from the characteristic equation x² = x + 1, and that initial values fix the sequence.",
+  "revisionCard": {
+    "summary": "Linear recurrence aₙ = c₁aₙ₋₁ + c₂aₙ₋₂ (e.g. Fibonacci). Closed form: solve characteristic x² = c₁x + c₂ for roots r, s → aₙ = A·rⁿ + B·sⁿ, with A, B from initial values. Always need starting conditions.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (RMO/INMO) — combinatorics / algebra", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Each term from earlier ones; solve x² = c₁x + c₂", "unpack": "Roots r,s ⇒ aₙ = A·rⁿ + B·sⁿ. Fibonacci is the classic. Need initial values." },
+  "studentQuestions": [
+    { "q": "What if the characteristic equation has a repeated root?", "a": "Then the closed form is aₙ = (A + Bn)·rⁿ — the repeated root r comes with an extra factor of n." },
+    { "q": "How does this connect to generating functions?", "a": "The generating function of a linear recurrence is a rational function whose denominator IS the characteristic polynomial — two views of the same structure." }
+  ],
+  "formulas": [
+    { "name": "Characteristic equation", "formula": "aₙ = c₁aₙ₋₁ + c₂aₙ₋₂ ⇒ x² = c₁x + c₂", "remember": "swap aₙ₋ₖ for x^(2−k)", "whenToUse": "Finding a closed form for a linear recurrence." },
+    { "name": "Closed form", "formula": "aₙ = A·rⁿ + B·sⁿ (distinct roots r, s)", "remember": "combine powers of the roots", "whenToUse": "After solving the characteristic equation." }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "id": "oly-generating-functions",
+  "name": "Generating Functions — Sequences as Polynomials",
+  "grade": 11,
+  "strand": "numbers",
+  "prerequisites": ["num-47-sequences-series"],
+  "whatIsIt": "A GENERATING FUNCTION packs a whole sequence a₀, a₁, a₂, … into ONE power series A(x) = a₀ + a₁x + a₂x² + a₃x³ + …. The sequence lives in the COEFFICIENTS. Key closed forms: 1/(1−x) = 1 + x + x² + x³ + … (all ones), and 1/(1−x)² = 1 + 2x + 3x² + 4x³ + … (the coefficient of xⁿ is n+1). Multiplying two generating functions ADDS up all the ways to split a count — turning counting problems into algebra.",
+  "whyNeeded": "Hard counting and recurrence problems become routine algebra once the sequence is a function: you manipulate one expression instead of chasing terms. It's a signature advanced-Olympiad and combinatorics tool.",
+  "realLifeUses": [
+    "Counting the ways to make change with given coin values",
+    "Solving recurrences like Fibonacci in closed form",
+    "Counting distributions of identical items into boxes",
+    "Probability of sums when rolling several dice"
+  ],
+  "vocabulary": [
+    { "term": "generating function", "meaning": "A power series whose coefficients are the sequence terms." },
+    { "term": "coefficient of xⁿ", "meaning": "The nth term of the encoded sequence." },
+    { "term": "closed form", "meaning": "A compact expression (like 1/(1−x)) for an infinite series." }
+  ],
+  "story": {
+    "title": "The Sequence in Disguise",
+    "characters": ["Ishan", "Professor"],
+    "text": "Ishan meets the series 1 + x + x² + x³ + … . 'That's just 1/(1−x),' says the Professor. 'The sequence 1, 1, 1, 1, … is hiding in the coefficients.' Then he squares it: 1/(1−x)² = 1 + 2x + 3x² + 4x³ + … . 'Now the coefficients are 1, 2, 3, 4 — the counting numbers! Each coefficient of xⁿ is n+1.' Ishan grins: 'One little function stores an entire sequence.'",
+    "extractedProblem": "In 1/(1−x)² = 1 + 2x + 3x² + 4x³ + …, what is the coefficient of x³?",
+    "answerInStory": "4 — the coefficient of xⁿ in 1/(1−x)² is n+1, so for n = 3 it is 4."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": { "categories": [{ "label": "x⁰", "value": 1 }, { "label": "x¹", "value": 2 }, { "label": "x²", "value": 3 }, { "label": "x³", "value": 4 }], "unit": "coefficients of 1/(1−x)²" },
+    "caption": "A generating function stores a sequence in its coefficients. Here 1/(1−x)² holds 1, 2, 3, 4 … — the coefficient of xⁿ is n+1."
+  },
+  "teachingGallery": [
+    {
+      "title": "Sequence in the coefficients",
+      "note": "Read the term off xⁿ.",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [{ "label": "x⁰", "value": 1 }, { "label": "x¹", "value": 1 }, { "label": "x²", "value": 1 }, { "label": "x³", "value": 1 }], "unit": "1/(1−x) → all ones" }, "caption": "1/(1−x) encodes 1,1,1,1…" },
+        { "component": "BarChart", "props": { "categories": [{ "label": "x⁰", "value": 1 }, { "label": "x¹", "value": 2 }, { "label": "x²", "value": 3 }, { "label": "x³", "value": 4 }], "unit": "1/(1−x)² → 1,2,3,4" }, "caption": "1/(1−x)² encodes 1,2,3,4…" }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Encode the sequence as A(x) = Σ aₙxⁿ. Replace it with a closed form using known series (1/(1−x), 1/(1−x)², etc.). Manipulate algebraically, then read the coefficient of xⁿ to recover the term you want.",
+    "steps": [
+      "Write the sequence as coefficients of a power series.",
+      "Swap in a closed form such as 1/(1−x) = Σ xⁿ.",
+      "Do the algebra (multiply, differentiate, combine).",
+      "Extract the coefficient of xⁿ — that's your answer."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "In 1/(1−x) = 1 + x + x² + x³ + …, find the coefficient of x³.",
+      "steps": ["Every coefficient is 1.", "So the coefficient of x³ is 1.", "= 1."],
+      "answer": "1"
+    },
+    {
+      "problem": "In 1/(1−x)² = 1 + 2x + 3x² + 4x³ + …, find the coefficient of x³.",
+      "steps": ["Coefficient of xⁿ is n + 1.", "For n = 3: 3 + 1.", "= 4."],
+      "answer": "4"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "gf-value-not-coefficient", "mistake": "Plugging in a number for x instead of reading a coefficient.", "fix": "The sequence lives in the COEFFICIENTS of xⁿ, not in the function's value at some x." },
+    { "mistakeTag": "gf-index-off", "mistake": "Taking the coefficient of xⁿ in 1/(1−x)² as n.", "fix": "It is n + 1: 1/(1−x)² = 1 + 2x + 3x² + …, so xⁿ has coefficient n + 1." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "gf-e1", "type": "number", "q": "1/(1−x) = 1 + x + x² + …. Coefficient of x² = ?", "answer": "1", "hintLadder": ["All ones.", "= 1.", "1."] },
+      { "id": "gf-e2", "type": "mcq", "q": "The generating function for 1, 1, 1, 1, … is…", "options": [{ "label": "1/(1−x)" }, { "label": "1 − x", "mistakeTag": "gf-value-not-coefficient" }], "answer": "1/(1−x)", "hintLadder": ["Geometric series.", "Sum of xⁿ.", "1/(1−x)."] }
+    ],
+    "medium": [
+      { "id": "gf-m1", "type": "number", "q": "1/(1−x)² : coefficient of x³ (which is n+1)?", "answer": "4", "hintLadder": ["n = 3.", "n + 1.", "4."] },
+      { "id": "gf-m2", "type": "number", "q": "1/(1−x)² : coefficient of x⁴ = ?", "answer": "5", "hintLadder": ["n = 4.", "n + 1.", "5."] }
+    ],
+    "challenge": [
+      { "id": "gf-c1", "type": "number", "q": "In 1/(1−x)², the coefficient of x⁰ = ?", "answer": "1", "hintLadder": ["n = 0.", "0 + 1.", "1."] },
+      { "id": "gf-c2", "type": "number", "q": "1/(1−x)² : coefficient of x⁹ = ?", "answer": "10", "hintLadder": ["n = 9.", "n + 1.", "10."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "gf-x1", "type": "number", "q": "1/(1−x): coefficient of x⁵ = ?", "answer": "1", "hintLadder": ["All ones.", "= 1.", "1."] },
+      { "id": "gf-x2", "type": "mcq", "q": "The sequence encoded by a generating function lives in the…", "options": [{ "label": "Coefficients" }, { "label": "Value at x = 1", "mistakeTag": "gf-value-not-coefficient" }], "answer": "Coefficients", "hintLadder": ["Read off xⁿ.", "Coefficients.", "Coefficients."] },
+      { "id": "gf-x3", "type": "number", "q": "1/(1−x)²: coefficient of x² = ?", "answer": "3", "hintLadder": ["n = 2.", "n + 1.", "3."] },
+      { "id": "gf-x4", "type": "mcq", "q": "In 1/(1−x)², the coefficient of xⁿ is…", "options": [{ "label": "n + 1" }, { "label": "n", "mistakeTag": "gf-index-off" }], "answer": "n + 1", "hintLadder": ["1,2,3,4…", "Shifted by one.", "n + 1."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Show a grown-up that 1 + x + x² + x³ + … = 1/(1−x) stores the sequence 1,1,1,1…, and that squaring it gives 1/(1−x)² = 1 + 2x + 3x² + 4x³ …, storing 1,2,3,4. Explain that the answer is always the coefficient of xⁿ.",
+  "revisionCard": {
+    "summary": "Generating function: A(x) = Σ aₙxⁿ stores a sequence in its coefficients. Key forms: 1/(1−x) = Σ xⁿ (all ones); 1/(1−x)² = Σ(n+1)xⁿ. Multiplying generating functions convolves (adds up splits). Answer = coefficient of xⁿ, not the value.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (INMO/IMO) — combinatorics / algebra", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Pack a sequence into coefficients: 1/(1−x) = Σxⁿ", "unpack": "1/(1−x)² = Σ(n+1)xⁿ. Multiply GFs to count combined choices. Read the xⁿ coefficient." },
+  "studentQuestions": [
+    { "q": "Why does multiplying generating functions count things?", "a": "The coefficient of xⁿ in a product sums a₀bₙ + a₁bₙ₋₁ + … — exactly the number of ways to split n between the two parts." },
+    { "q": "How does this solve a recurrence?", "a": "Turn the recurrence into an equation for A(x), solve algebraically, then expand back into coefficients to get a closed form for each term." }
+  ],
+  "formulas": [
+    { "name": "Geometric GF", "formula": "1/(1 − x) = Σ xⁿ  (all coefficients 1)", "remember": "one over one-minus-x = all ones", "whenToUse": "Encoding a constant sequence / base tool." },
+    { "name": "Squared GF", "formula": "1/(1 − x)² = Σ (n+1) xⁿ", "remember": "coefficient of xⁿ is n+1", "whenToUse": "Counting numbers / partial sums." }
+  ]
+}

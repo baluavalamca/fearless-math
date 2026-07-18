@@ -1,0 +1,106 @@
+{
+  "id": "oly-euler-planar-graphs",
+  "name": "Euler's Formula for Planar Graphs",
+  "grade": 10,
+  "strand": "numbers",
+  "prerequisites": ["oly-graph-theory-basics"],
+  "whatIsIt": "EULER'S FORMULA is a magic count for any connected graph drawn on a plane with no crossings (a PLANAR graph): V − E + F = 2, where V = vertices, E = edges, and F = faces (regions), INCLUDING the outer unbounded region. The very same V − E + F = 2 holds for every convex polyhedron — a cube has V = 8, E = 12, F = 6, and 8 − 12 + 6 = 2. It links dots, lines, and regions with one unbreakable equation.",
+  "whyNeeded": "It instantly finds a missing count (faces, edges, or vertices), proves certain graphs CAN'T be drawn without crossings, and underlies polyhedron and map-colouring results — all favourite Olympiad territory.",
+  "realLifeUses": [
+    "Checking a circuit or map can be drawn with no crossings",
+    "Counting faces of a polyhedron or a subdivided region",
+    "Map colouring and region counting",
+    "Verifying a 3D shape's vertex/edge/face counts"
+  ],
+  "vocabulary": [
+    { "term": "planar graph", "meaning": "A graph drawable in the plane with no edges crossing." },
+    { "term": "face", "meaning": "A region bounded by edges — including the outer infinite region." },
+    { "term": "Euler characteristic", "meaning": "The constant value V − E + F = 2 for a connected planar graph." }
+  ],
+  "story": {
+    "title": "Counting the Cube",
+    "characters": ["Sana", "Sir"],
+    "text": "Sana counts a cube: 8 corners, 12 edges, 6 faces. 'Is there a pattern?' Sir writes V − E + F = 8 − 12 + 6 = 2. 'Always 2, for any convex solid or flat connected graph!' Then he draws a graph with 5 dots and 6 lines and asks for the number of regions. Sana rearranges: F = 2 − V + E = 2 − 5 + 6 = 3. 'Don't forget the outside region,' Sir reminds. Sana smiles: 'Dots, lines and regions are locked together by one formula.'",
+    "extractedProblem": "For a cube, compute V − E + F.",
+    "answerInStory": "2 — a cube has V = 8, E = 12, F = 6, and 8 − 12 + 6 = 2."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": { "categories": [{ "label": "V (vertices)", "value": 8 }, { "label": "E (edges)", "value": 12 }, { "label": "F (faces)", "value": 6 }], "unit": "cube: V − E + F = 8 − 12 + 6 = 2" },
+    "caption": "Euler's formula V − E + F = 2 ties together vertices, edges, and faces. A cube (8, 12, 6) obeys it, and so does every connected planar graph."
+  },
+  "teachingGallery": [
+    {
+      "title": "V − E + F = 2 always",
+      "note": "Include the outer face.",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [{ "label": "V", "value": 4 }, { "label": "E", "value": 6 }, { "label": "F", "value": 4 }], "unit": "tetrahedron: 4 − 6 + 4 = 2" }, "caption": "Tetrahedron obeys it." },
+        { "component": "BarChart", "props": { "categories": [{ "label": "V", "value": 6 }, { "label": "E", "value": 12 }, { "label": "F", "value": 8 }], "unit": "octahedron: 6 − 12 + 8 = 2" }, "caption": "Octahedron too." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Count vertices V, edges E, and faces F (remember the outer region). Check or apply V − E + F = 2. Rearrange to find any missing one: F = 2 − V + E, E = V + F − 2, or V = 2 − F + E.",
+    "steps": [
+      "Count V (vertices) and E (edges).",
+      "Count F (faces), INCLUDING the outer unbounded region.",
+      "Apply V − E + F = 2 to check or to solve for the missing value.",
+      "Rearrange as needed, e.g. F = 2 − V + E."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A cube has V = 8, E = 12, F = 6. Compute V − E + F.",
+      "steps": ["8 − 12 + 6.", "= 2.", "Euler's formula holds."],
+      "answer": "2"
+    },
+    {
+      "problem": "A connected planar graph has V = 5 vertices and E = 6 edges. How many faces F?",
+      "steps": ["F = 2 − V + E.", "= 2 − 5 + 6.", "= 3 (including the outer face)."],
+      "answer": "3"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "euler-forget-outer-face", "mistake": "Forgetting to count the outer unbounded region as a face.", "fix": "F includes the OUTER infinite face too — that's why V − E + F equals 2, not 1." },
+    { "mistakeTag": "euler-wrong-signs", "mistake": "Writing V + E + F = 2 or V − E − F = 2.", "fix": "The formula is V − E + F = 2 — minus edges, plus faces." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "eul-e1", "type": "number", "q": "Cube: V = 8, E = 12, F = 6. V − E + F = ?", "answer": "2", "hintLadder": ["8 − 12 + 6.", "= 2.", "2."] },
+      { "id": "eul-e2", "type": "mcq", "q": "Euler's formula for a connected planar graph is…", "options": [{ "label": "V − E + F = 2" }, { "label": "V + E + F = 2", "mistakeTag": "euler-wrong-signs" }], "answer": "V − E + F = 2", "hintLadder": ["Minus edges.", "Plus faces.", "V − E + F = 2."] }
+    ],
+    "medium": [
+      { "id": "eul-m1", "type": "number", "q": "Tetrahedron: V = 4, E = 6. Find F.", "answer": "4", "hintLadder": ["F = 2 − V + E.", "2 − 4 + 6.", "4."] },
+      { "id": "eul-m2", "type": "number", "q": "Planar graph V = 6, E = 9. Find F.", "answer": "5", "hintLadder": ["2 − 6 + 9.", "= 5.", "5."] }
+    ],
+    "challenge": [
+      { "id": "eul-c1", "type": "number", "q": "Octahedron V = 6, E = 12. Find F.", "answer": "8", "hintLadder": ["2 − 6 + 12.", "= 8.", "8."] },
+      { "id": "eul-c2", "type": "number", "q": "Planar graph V = 10, F = 5. Find E.", "answer": "13", "hintLadder": ["E = V + F − 2.", "10 + 5 − 2.", "13."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "eul-x1", "type": "number", "q": "V = 8, E = 12, F = 6: V − E + F = ?", "answer": "2", "hintLadder": ["8 − 12 + 6.", "= 2.", "2."] },
+      { "id": "eul-x2", "type": "mcq", "q": "The faces F in Euler's formula include…", "options": [{ "label": "The outer region" }, { "label": "Only inner regions", "mistakeTag": "euler-forget-outer-face" }], "answer": "The outer region", "hintLadder": ["Count outside too.", "Unbounded face.", "The outer region."] },
+      { "id": "eul-x3", "type": "number", "q": "Planar graph V = 7, E = 9. Find F.", "answer": "4", "hintLadder": ["2 − 7 + 9.", "= 4.", "4."] },
+      { "id": "eul-x4", "type": "mcq", "q": "Euler's formula is…", "options": [{ "label": "V − E + F = 2" }, { "label": "V − E − F = 2", "mistakeTag": "euler-wrong-signs" }], "answer": "V − E + F = 2", "hintLadder": ["Plus faces.", "V − E + F.", "= 2."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Count a cube with a grown-up: 8 vertices, 12 edges, 6 faces, and show 8 − 12 + 6 = 2. Then take a flat graph with 5 dots and 6 lines and find the number of regions as F = 2 − 5 + 6 = 3 — reminding them to count the outside region.",
+  "revisionCard": {
+    "summary": "Euler's formula: for any connected planar graph (or convex polyhedron), V − E + F = 2, where F counts faces INCLUDING the outer region. Rearrange to find a missing count: F = 2 − V + E, E = V + F − 2. Cube: 8 − 12 + 6 = 2.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (RMO/INMO) — graph theory / combinatorics", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "V − E + F = 2 (count the outer face!)", "unpack": "Holds for connected planar graphs and convex solids. Rearrange for any missing count." },
+  "studentQuestions": [
+    { "q": "How does this prove a graph is non-planar?", "a": "If assuming a planar drawing forces V − E + F ≠ 2 (or breaks a derived edge bound like E ≤ 3V − 6), the graph can't be planar — that's how K₅ and K₃,₃ are ruled out." },
+    { "q": "Why is it always exactly 2?", "a": "Start from a single vertex (V−E+F = 1−0+1 = 2) and add edges/vertices one at a time; each step keeps V − E + F unchanged, so it stays 2." }
+  ],
+  "formulas": [
+    { "name": "Euler's formula", "formula": "V − E + F = 2", "remember": "vertices minus edges plus faces = 2", "whenToUse": "Connected planar graphs & convex polyhedra." },
+    { "name": "Planar edge bound", "formula": "E ≤ 3V − 6 (simple planar, V ≥ 3)", "remember": "too many edges ⇒ not planar", "whenToUse": "Proving non-planarity." }
+  ]
+}

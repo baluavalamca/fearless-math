@@ -1,0 +1,106 @@
+{
+  "id": "oly-projective-cross-ratio",
+  "name": "Projective Geometry & the Cross-Ratio",
+  "grade": 11,
+  "strand": "geometry",
+  "prerequisites": ["oly-power-of-a-point"],
+  "whatIsIt": "PROJECTIVE GEOMETRY studies what stays true when you PROJECT a picture (like a shadow from a point). Lengths and simple ratios change, but the CROSS-RATIO of four collinear points is INVARIANT. For points A, B, C, D on a line it is (A,B;C,D) = (AC/BC)·(BD/AD). A second big idea: parallel lines are treated as meeting at a single 'POINT AT INFINITY', so every two lines meet.",
+  "whyNeeded": "The cross-ratio is the one number a projection can't distort, which makes it a master key for Olympiad problems about lines, conics, and perspective — and it explains why parallel rails appear to meet on the horizon.",
+  "realLifeUses": [
+    "Perspective drawing and vanishing points in art",
+    "Camera geometry and computer vision",
+    "Map and photo rectification (undoing perspective)",
+    "Proving hard collinearity/concurrency results elegantly"
+  ],
+  "vocabulary": [
+    { "term": "projection", "meaning": "Casting points onto another line from a fixed viewpoint." },
+    { "term": "cross-ratio", "meaning": "(AC/BC)·(BD/AD) for four collinear points — unchanged by projection." },
+    { "term": "point at infinity", "meaning": "The single point where a family of parallel lines is said to meet." }
+  ],
+  "story": {
+    "title": "The Railway Lines",
+    "characters": ["Kavya", "Dadu"],
+    "text": "Kavya notices the railway tracks seem to meet far away, though they're parallel. Dadu smiles: 'In projective geometry, parallel lines meet at a point at infinity — that meeting point is the horizon's vanishing point.' Then he marks four posts and photographs them from an angle. 'The spacings look different in the photo, but one number — the cross-ratio — is exactly the same.' Kavya wonders: 'So projection hides lengths but keeps the cross-ratio?' 'Precisely.'",
+    "extractedProblem": "In projective geometry, where do two parallel lines meet?",
+    "answerInStory": "At a single point at infinity — the vanishing point you see where parallel rails appear to converge."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": { "kind": "triangle", "label": "Projecting A,B,C,D from a point keeps the cross-ratio (AC/BC)(BD/AD)" },
+    "caption": "Projection from a point changes lengths and simple ratios, but the cross-ratio of four collinear points stays exactly the same."
+  },
+  "teachingGallery": [
+    {
+      "title": "One number survives projection",
+      "note": "The cross-ratio is invariant.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "kind": "triangle", "label": "Same four points, two lines: equal cross-ratio" }, "caption": "Cross-ratio preserved under projection." },
+        { "component": "GeometryCanvas", "props": { "kind": "rect", "label": "Parallel lines meet at a point at infinity (vanishing point)" }, "caption": "Parallels meet 'at infinity'." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "For four collinear points, compute the cross-ratio (A,B;C,D) = (AC/BC)·(BD/AD) using signed lengths. Because projection preserves it, equate the cross-ratio before and after projecting to solve the problem. Treat parallel lines as meeting at a point at infinity.",
+    "steps": [
+      "Order the four collinear points and note their positions.",
+      "Compute (A,B;C,D) = (AC/BC)·(BD/AD).",
+      "Use that projection keeps this value the same on any image line.",
+      "For parallels, use the point at infinity so every two lines meet."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Points on a line at A = 0, B = 2, C = 3, D = 6. Find the cross-ratio (A,B;C,D) = (AC/BC)·(BD/AD).",
+      "steps": ["AC = 3, BC = 1, BD = 4, AD = 6.", "(3/1)·(4/6) = 3 · (2/3).", "= 2."],
+      "answer": "2"
+    },
+    {
+      "problem": "In projective geometry, how many points do two distinct parallel lines share?",
+      "steps": ["Parallel lines meet at a point at infinity.", "That is exactly one shared point.", "= 1."],
+      "answer": "1"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "ratio-preserved-wrong", "mistake": "Thinking ordinary distances or simple ratios survive projection.", "fix": "Projection distorts lengths and simple ratios; only the CROSS-ratio is invariant." },
+    { "mistakeTag": "parallels-never-meet", "mistake": "Insisting parallel lines never meet.", "fix": "In projective geometry parallel lines meet at a single point at infinity — so any two lines meet." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "prj-e1", "type": "mcq", "q": "The quantity preserved by projection is the…", "options": [{ "label": "Cross-ratio" }, { "label": "Distance", "mistakeTag": "ratio-preserved-wrong" }], "answer": "Cross-ratio", "hintLadder": ["Not lengths.", "The special ratio.", "Cross-ratio."] },
+      { "id": "prj-e2", "type": "mcq", "q": "In projective geometry, parallel lines meet at a…", "options": [{ "label": "Point at infinity" }, { "label": "Never meet", "mistakeTag": "parallels-never-meet" }], "answer": "Point at infinity", "hintLadder": ["Vanishing point.", "At infinity.", "Point at infinity."] }
+    ],
+    "medium": [
+      { "id": "prj-m1", "type": "number", "q": "Points A=0, C=3. The length AC = ?", "answer": "3", "hintLadder": ["C − A.", "3 − 0.", "3."] },
+      { "id": "prj-m2", "type": "number", "q": "Points B=2, D=6. The length BD = ?", "answer": "4", "hintLadder": ["D − B.", "6 − 2.", "4."] }
+    ],
+    "challenge": [
+      { "id": "prj-c1", "type": "number", "q": "A=0,B=2,C=3,D=6. Cross-ratio (AC/BC)·(BD/AD) = ?", "answer": "2", "hintLadder": ["AC=3,BC=1,BD=4,AD=6.", "(3/1)·(4/6).", "2."] },
+      { "id": "prj-c2", "type": "number", "q": "Two distinct parallel lines share how many projective points?", "answer": "1", "hintLadder": ["Meet at infinity.", "One point.", "1."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "prj-x1", "type": "mcq", "q": "Under projection, what stays the same?", "options": [{ "label": "The cross-ratio" }, { "label": "Every length", "mistakeTag": "ratio-preserved-wrong" }], "answer": "The cross-ratio", "hintLadder": ["Not lengths.", "Special ratio.", "Cross-ratio."] },
+      { "id": "prj-x2", "type": "number", "q": "A=0,B=2,C=3,D=6. Cross-ratio (AC/BC)·(BD/AD) = ?", "answer": "2", "hintLadder": ["(3/1)·(4/6).", "3 · 2/3.", "2."] },
+      { "id": "prj-x3", "type": "mcq", "q": "Two parallel lines in projective geometry…", "options": [{ "label": "Meet at a point at infinity" }, { "label": "Have no common point", "mistakeTag": "parallels-never-meet" }], "answer": "Meet at a point at infinity", "hintLadder": ["Vanishing point.", "At infinity.", "They meet."] },
+      { "id": "prj-x4", "type": "number", "q": "Points A=0, D=6: length AD = ?", "answer": "6", "hintLadder": ["D − A.", "6 − 0.", "6."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Use railway tracks with a grown-up. Explain that parallel lines appear to meet at a vanishing point — the 'point at infinity' — and that when you photograph four posts from an angle the spacings change but one number, the cross-ratio (AC/BC)·(BD/AD), stays exactly the same.",
+  "revisionCard": {
+    "summary": "Projective geometry: projection preserves the CROSS-RATIO (A,B;C,D) = (AC/BC)·(BD/AD) of four collinear points, though lengths and simple ratios change. Parallel lines meet at a single point at infinity (the vanishing point), so any two lines meet.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (INMO/IMO) — projective geometry", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Projection keeps the cross-ratio; parallels meet at infinity", "unpack": "(A,B;C,D) = (AC/BC)·(BD/AD). Lengths distort, cross-ratio doesn't." },
+  "studentQuestions": [
+    { "q": "Why is only the cross-ratio preserved?", "a": "A projection is a fractional-linear map on the line; such maps stretch lengths and ratios but leave the cross-ratio — a ratio of ratios — unchanged." },
+    { "q": "What is a harmonic range?", "a": "Four points with cross-ratio exactly −1; they show up in many Olympiad configurations (poles, polars, and the diagonals of complete quadrilaterals)." }
+  ],
+  "formulas": [
+    { "name": "Cross-ratio", "formula": "(A,B;C,D) = (AC/BC)·(BD/AD)", "remember": "a ratio of ratios, projection-proof", "whenToUse": "Four collinear (or concurrent) points/lines." },
+    { "name": "Projective meeting", "formula": "any two distinct lines meet in exactly 1 point", "remember": "parallels meet at infinity", "whenToUse": "Reasoning with points at infinity." }
+  ]
+}

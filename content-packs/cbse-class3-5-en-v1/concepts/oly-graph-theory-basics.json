@@ -1,0 +1,106 @@
+{
+  "id": "oly-graph-theory-basics",
+  "name": "Graph Theory & the Handshake Lemma",
+  "grade": 9,
+  "strand": "numbers",
+  "prerequisites": ["num-44-permutations-combinations"],
+  "whatIsIt": "A GRAPH is a set of dots (VERTICES) joined by lines (EDGES) — a map of connections. The DEGREE of a vertex is how many edges touch it. The HANDSHAKE LEMMA says the sum of ALL the degrees equals TWICE the number of edges (because every edge has two ends). A neat consequence: the number of ODD-degree vertices is always EVEN — so at a party, the count of people who shook an odd number of hands is even.",
+  "whyNeeded": "Networks, routes, friendships, and scheduling are all graphs. The handshake lemma is the first powerful counting fact about them and appears throughout Olympiad combinatorics.",
+  "realLifeUses": [
+    "Counting connections in a friendship or social network",
+    "Planning routes between cities (roads as edges)",
+    "Scheduling matches in a tournament",
+    "Checking a network wiring is consistent"
+  ],
+  "vocabulary": [
+    { "term": "vertex", "meaning": "A dot in the graph (a person, city, or item)." },
+    { "term": "edge", "meaning": "A line joining two vertices (a connection)." },
+    { "term": "degree", "meaning": "The number of edges meeting at a vertex." }
+  ],
+  "story": {
+    "title": "The Handshakes",
+    "characters": ["Riya", "Uncle"],
+    "text": "At a party Riya wonders, 'If everyone counts their handshakes and we add them up, what do we get?' Uncle says, 'Each handshake involves TWO people, so it's counted twice — the total of everyone's counts is 2 × the number of handshakes.' With 5 handshakes, the degrees add to 10. 'And the number of people who shook an ODD number of hands is always even,' he adds. Riya smiles: 'Every edge has two ends — that's the whole secret.'",
+    "extractedProblem": "If a graph has 5 edges, what is the sum of all the vertex degrees?",
+    "answerInStory": "10 — the handshake lemma gives sum of degrees = 2 × edges = 2 × 5."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": { "categories": [{ "label": "A", "value": 2 }, { "label": "B", "value": 3 }, { "label": "C", "value": 2 }, { "label": "D", "value": 3 }], "unit": "degrees sum to 10 = 2 × 5 edges" },
+    "caption": "The handshake lemma: adding up every vertex's degree gives twice the number of edges, because each edge is counted at both of its ends."
+  },
+  "teachingGallery": [
+    {
+      "title": "Degrees sum to 2 × edges",
+      "note": "Every edge counted twice.",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [{ "label": "A", "value": 1 }, { "label": "B", "value": 1 }], "unit": "1 edge → degrees sum 2" }, "caption": "1 edge, degree sum 2." },
+        { "component": "BarChart", "props": { "categories": [{ "label": "A", "value": 3 }, { "label": "B", "value": 3 }, { "label": "C", "value": 3 }, { "label": "D", "value": 3 }], "unit": "sum 12 → 6 edges" }, "caption": "Degree sum 12 ⇒ 6 edges." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Model the situation as vertices and edges. Add up the degrees; this equals 2 × (number of edges). To find edges from degrees, halve the degree sum. Use that odd-degree vertices come in an even count.",
+    "steps": [
+      "Draw dots (vertices) and connections (edges).",
+      "The degree of a vertex = edges meeting it.",
+      "Sum of all degrees = 2 × number of edges.",
+      "Number of edges = (sum of degrees) ÷ 2; odd-degree vertices are even in count."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "A graph has 5 edges. What is the sum of all the vertex degrees?",
+      "steps": ["Handshake lemma: degree sum = 2 × edges.", "= 2 × 5.", "= 10."],
+      "answer": "10"
+    },
+    {
+      "problem": "Four vertices each have degree 3. How many edges are there?",
+      "steps": ["Sum of degrees = 4 × 3 = 12.", "Edges = 12 ÷ 2.", "= 6."],
+      "answer": "6"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "degree-sum-equals-edges", "mistake": "Setting the sum of degrees equal to the number of edges.", "fix": "Sum of degrees = 2 × edges — each edge is counted at BOTH ends." },
+    { "mistakeTag": "odd-vertices-odd", "mistake": "Thinking there can be an odd number of odd-degree vertices.", "fix": "The number of odd-degree vertices is always EVEN (it follows from the handshake lemma)." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "grf-e1", "type": "number", "q": "A graph has 6 edges. Sum of all degrees = ?", "answer": "12", "hintLadder": ["2 × edges.", "2 × 6.", "12."] },
+      { "id": "grf-e2", "type": "mcq", "q": "The sum of all vertex degrees equals…", "options": [{ "label": "2 × number of edges" }, { "label": "The number of edges", "mistakeTag": "degree-sum-equals-edges" }], "answer": "2 × number of edges", "hintLadder": ["Each edge, two ends.", "Doubled.", "2 × edges."] }
+    ],
+    "medium": [
+      { "id": "grf-m1", "type": "number", "q": "Sum of degrees = 14. How many edges?", "answer": "7", "hintLadder": ["Edges = sum ÷ 2.", "14 ÷ 2.", "7."] },
+      { "id": "grf-m2", "type": "number", "q": "5 people each shake 4 hands. Total handshakes = ?", "answer": "10", "hintLadder": ["Degree sum = 5×4 = 20.", "÷ 2.", "10."] }
+    ],
+    "challenge": [
+      { "id": "grf-c1", "type": "number", "q": "6 vertices each of degree 3. How many edges?", "answer": "9", "hintLadder": ["Sum = 18.", "18 ÷ 2.", "9."] },
+      { "id": "grf-c2", "type": "mcq", "q": "The number of odd-degree vertices in any graph is…", "options": [{ "label": "Always even" }, { "label": "Always odd", "mistakeTag": "odd-vertices-odd" }], "answer": "Always even", "hintLadder": ["From the lemma.", "Even count.", "Always even."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "grf-x1", "type": "number", "q": "A graph has 8 edges. Sum of degrees = ?", "answer": "16", "hintLadder": ["2 × edges.", "2 × 8.", "16."] },
+      { "id": "grf-x2", "type": "mcq", "q": "The handshake lemma says degree sum equals…", "options": [{ "label": "Twice the edges" }, { "label": "Half the edges", "mistakeTag": "degree-sum-equals-edges" }], "answer": "Twice the edges", "hintLadder": ["Two ends each.", "Doubled.", "Twice edges."] },
+      { "id": "grf-x3", "type": "number", "q": "Sum of degrees = 20. Number of edges?", "answer": "10", "hintLadder": ["÷ 2.", "20 ÷ 2.", "10."] },
+      { "id": "grf-x4", "type": "mcq", "q": "The count of vertices with odd degree is…", "options": [{ "label": "Even" }, { "label": "Odd", "mistakeTag": "odd-vertices-odd" }], "answer": "Even", "hintLadder": ["Always even.", "Pairs up.", "Even."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Use handshakes with a grown-up. Explain that if everyone counts their own handshakes and you add them up, you get twice the number of handshakes — because each handshake has two people. So degree sum = 2 × edges, and odd-degree vertices come in an even count.",
+  "revisionCard": {
+    "summary": "Graph = vertices + edges. Degree = edges at a vertex. Handshake lemma: sum of degrees = 2 × edges (each edge counted twice). So edges = (degree sum) ÷ 2, and the number of odd-degree vertices is always even.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (IOQM/RMO) — graph theory / combinatorics", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Sum of degrees = 2 × edges (every edge has two ends)", "unpack": "Edges = degree sum ÷ 2. Odd-degree vertices always come in an even count." },
+  "studentQuestions": [
+    { "q": "Why must odd-degree vertices be even in number?", "a": "The total degree is even (it's 2 × edges). Even-degree vertices add an even amount, so the odd-degree ones must also total an even amount — meaning there's an even number of them." },
+    { "q": "What is a complete graph?", "a": "One where every pair of vertices is joined. With n vertices it has n(n−1)/2 edges and every vertex has degree n−1." }
+  ],
+  "formulas": [
+    { "name": "Handshake lemma", "formula": "Σ degrees = 2 × (number of edges)", "remember": "each edge counted at both ends", "whenToUse": "Relating degrees and edges." },
+    { "name": "Complete graph edges", "formula": "Kₙ has n(n−1)/2 edges", "remember": "choose 2 of n vertices", "whenToUse": "Counting edges when all pairs connect." }
+  ]
+}

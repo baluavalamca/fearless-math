@@ -1,0 +1,106 @@
+{
+  "id": "oly-roots-of-unity",
+  "name": "Roots of Unity",
+  "grade": 11,
+  "strand": "numbers",
+  "prerequisites": ["num-46-complex-numbers"],
+  "whatIsIt": "The nth ROOTS OF UNITY are the complex solutions of zⁿ = 1. There are EXACTLY n of them, and they sit EQUALLY SPACED around the unit circle, at angles 2πk/n. Two golden facts: for n ≥ 2 they SUM TO 0, and the cube roots 1, ω, ω² satisfy 1 + ω + ω² = 0 with ω³ = 1. They turn 'zⁿ = 1' and symmetric sums into clean geometry.",
+  "whyNeeded": "Roots of unity crack problems about regular polygons, periodic sums, and symmetric expressions, and are essential in advanced algebra, number theory, and signal processing (the discrete Fourier transform).",
+  "realLifeUses": [
+    "Placing the vertices of a regular polygon on a circle",
+    "Adding up evenly-spaced rotations (they cancel to 0)",
+    "The maths behind digital signal processing (FFT)",
+    "Simplifying symmetric sums in Olympiad algebra"
+  ],
+  "vocabulary": [
+    { "term": "root of unity", "meaning": "A complex number z with zⁿ = 1." },
+    { "term": "unit circle", "meaning": "All complex numbers at distance 1 from 0." },
+    { "term": "ω (omega)", "meaning": "A primitive cube root of unity; ω³ = 1 and 1 + ω + ω² = 0." }
+  ],
+  "story": {
+    "title": "Points on the Circle",
+    "characters": ["Nikhil", "Ma'am"],
+    "text": "Nikhil solves z⁴ = 1 and finds only z = 1 and z = −1. 'You're missing two!' says Ma'am. 'Over the complex numbers, zⁿ = 1 has exactly n solutions.' She draws them: 1, i, −1, −i — four points equally spaced on the unit circle. 'And add them: 1 + i − 1 − i = 0.' Nikhil grins: 'The roots of unity are the corners of a square, and they cancel out.'",
+    "extractedProblem": "How many complex solutions does z⁴ = 1 have?",
+    "answerInStory": "4 — namely 1, i, −1, −i, equally spaced on the unit circle."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": { "kind": "circle", "label": "4th roots of unity: 1, i, −1, −i equally spaced (sum = 0)" },
+    "caption": "The nth roots of unity are n equally-spaced points on the unit circle. For n ≥ 2 they cancel to a sum of 0."
+  },
+  "teachingGallery": [
+    {
+      "title": "Equally spaced, sum to 0",
+      "note": "n points around the unit circle.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "kind": "circle", "label": "Cube roots: 1, ω, ω² (1 + ω + ω² = 0)" }, "caption": "3 roots form a triangle; they sum to 0." },
+        { "component": "GeometryCanvas", "props": { "kind": "circle", "label": "6th roots: a regular hexagon on the circle" }, "caption": "6 roots form a hexagon." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "For zⁿ = 1, write the n solutions as equally-spaced points at angles 2πk/n (k = 0 … n−1) on the unit circle. Use that they sum to 0 (n ≥ 2) and that ω³ = 1, 1 + ω + ω² = 0 for cube roots to simplify symmetric expressions.",
+    "steps": [
+      "Recognise zⁿ = 1 has exactly n complex solutions.",
+      "Place them equally spaced on the unit circle at angles 2πk/n.",
+      "Use the sum = 0 fact for n ≥ 2.",
+      "For cube roots, apply ω³ = 1 and 1 + ω + ω² = 0."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "How many distinct complex solutions does z⁵ = 1 have?",
+      "steps": ["zⁿ = 1 has exactly n solutions.", "Here n = 5.", "So there are 5."],
+      "answer": "5"
+    },
+    {
+      "problem": "For a cube root of unity ω, what is ω³?",
+      "steps": ["ω is a root of z³ = 1.", "So ω³ = 1.", "= 1."],
+      "answer": "1"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "roots-count-wrong", "mistake": "Thinking zⁿ = 1 has only the real solutions 1 (and −1).", "fix": "Over the complex numbers zⁿ = 1 has EXACTLY n solutions, spread around the unit circle." },
+    { "mistakeTag": "sum-not-zero", "mistake": "Thinking the nth roots of unity add up to n or 1.", "fix": "For n ≥ 2 they add up to 0 (equal rotations cancel). Only n = 1 gives sum 1." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "rou-e1", "type": "number", "q": "How many complex solutions does z⁴ = 1 have?", "answer": "4", "hintLadder": ["zⁿ = 1 → n roots.", "n = 4.", "4."] },
+      { "id": "rou-e2", "type": "mcq", "q": "The nth roots of unity lie on the…", "options": [{ "label": "Unit circle" }, { "label": "Real axis only", "mistakeTag": "roots-count-wrong" }], "answer": "Unit circle", "hintLadder": ["Distance 1 from 0.", "A circle.", "Unit circle."] }
+    ],
+    "medium": [
+      { "id": "rou-m1", "type": "number", "q": "How many complex solutions does z⁶ = 1 have?", "answer": "6", "hintLadder": ["n roots.", "n = 6.", "6."] },
+      { "id": "rou-m2", "type": "number", "q": "For a cube root of unity ω, 1 + ω + ω² = ?", "answer": "0", "hintLadder": ["They cancel.", "Sum of cube roots.", "0."] }
+    ],
+    "challenge": [
+      { "id": "rou-c1", "type": "number", "q": "Sum of ALL 5th roots of unity = ?", "answer": "0", "hintLadder": ["n ≥ 2.", "Equal rotations cancel.", "0."] },
+      { "id": "rou-c2", "type": "number", "q": "For a cube root of unity ω, ω³ = ?", "answer": "1", "hintLadder": ["z³ = 1.", "= 1.", "1."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "rou-x1", "type": "number", "q": "How many complex solutions does z³ = 1 have?", "answer": "3", "hintLadder": ["n roots.", "n = 3.", "3."] },
+      { "id": "rou-x2", "type": "mcq", "q": "For n ≥ 2, the nth roots of unity sum to…", "options": [{ "label": "0" }, { "label": "n", "mistakeTag": "sum-not-zero" }], "answer": "0", "hintLadder": ["They cancel.", "Balanced points.", "0."] },
+      { "id": "rou-x3", "type": "number", "q": "How many complex solutions does z⁸ = 1 have?", "answer": "8", "hintLadder": ["n roots.", "n = 8.", "8."] },
+      { "id": "rou-x4", "type": "mcq", "q": "The equation zⁿ = 1 has…", "options": [{ "label": "Exactly n complex solutions" }, { "label": "Only one solution", "mistakeTag": "roots-count-wrong" }], "answer": "Exactly n complex solutions", "hintLadder": ["Count = n.", "n roots.", "n solutions."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Show a grown-up that z⁴ = 1 has four solutions — 1, i, −1, −i — not just two, and that they sit on a circle as a square and add to 0. Mention the cube roots 1, ω, ω² with 1 + ω + ω² = 0.",
+  "revisionCard": {
+    "summary": "Roots of unity: zⁿ = 1 has exactly n solutions, equally spaced on the unit circle at angles 2πk/n. For n ≥ 2 they sum to 0. Cube roots 1, ω, ω²: ω³ = 1 and 1 + ω + ω² = 0. Great for polygons and symmetric sums.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (INMO/IMO) — algebra / complex numbers", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "zⁿ = 1 ⇒ n equally-spaced points on the unit circle, sum 0", "unpack": "Cube roots 1, ω, ω²: ω³ = 1, 1 + ω + ω² = 0. Corners of a regular polygon." },
+  "studentQuestions": [
+    { "q": "Why do they sum to 0?", "a": "They are equal-length vectors pointing in perfectly balanced directions around the circle, so they cancel — like forces in equilibrium." },
+    { "q": "What is a 'primitive' root of unity?", "a": "One that isn't a root of any smaller zᵏ = 1; its powers generate ALL n roots. For n = 3, ω and ω² are primitive but 1 is not." }
+  ],
+  "formulas": [
+    { "name": "nth roots of unity", "formula": "z = cos(2πk/n) + i·sin(2πk/n), k = 0 … n−1", "remember": "n equally-spaced points on the unit circle", "whenToUse": "Solving zⁿ = 1 / regular polygons." },
+    { "name": "Sum of roots", "formula": "Σ (nth roots of unity) = 0  (n ≥ 2)", "remember": "equal rotations cancel", "whenToUse": "Symmetric sums over roots." }
+  ]
+}

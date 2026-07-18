@@ -1,0 +1,106 @@
+{
+  "id": "oly-vieta-formulas",
+  "name": "Vieta's Formulas — Roots Meet Coefficients",
+  "grade": 10,
+  "strand": "numbers",
+  "prerequisites": ["num-35-quadratics"],
+  "whatIsIt": "VIETA'S FORMULAS link a polynomial's ROOTS to its COEFFICIENTS without ever solving it. For a quadratic x² + bx + c = 0 with roots p and q: the SUM p + q = −b and the PRODUCT pq = c. For a monic cubic x³ + bx² + cx + d, the sum of roots = −b, the sum of products in pairs = c, and the product of all three = −d. Signs alternate. You read the symmetric facts about the roots straight off the coefficients.",
+  "whyNeeded": "Olympiad algebra constantly needs the sum or product of roots — or symmetric expressions like p² + q² — WITHOUT the messy roots themselves. Vieta gives them instantly, and lets you build a polynomial with chosen roots.",
+  "realLifeUses": [
+    "Finding p² + q² from a quadratic without solving it",
+    "Building an equation whose roots are two given numbers",
+    "Checking a solved quadratic (do the roots add to −b?)",
+    "Relating symmetric quantities in physics and design formulas"
+  ],
+  "vocabulary": [
+    { "term": "root", "meaning": "A value that makes the polynomial equal to zero." },
+    { "term": "coefficient", "meaning": "A number multiplying a power of x (like b in bx)." },
+    { "term": "monic", "meaning": "A polynomial whose leading coefficient is 1." }
+  ],
+  "story": {
+    "title": "The Hidden Roots",
+    "characters": ["Tara", "Sir"],
+    "text": "Tara sees x² − 5x + 6 = 0. 'Do I have to factor it?' Sir smiles, 'Vieta! Sum of roots = −(−5) = 5, product = 6. What two numbers add to 5 and multiply to 6?' Tara lights up: '2 and 3!' 'Exactly — and you never truly needed to solve. If I asked for p² + q², that's (p+q)² − 2pq = 25 − 12 = 13, again straight from the coefficients.'",
+    "extractedProblem": "For x² − 5x + 6 = 0, what is the sum of the roots?",
+    "answerInStory": "5 — by Vieta, the sum of the roots is −b = −(−5) = 5."
+  },
+  "visual": {
+    "component": "FunctionPlot",
+    "props": { "expression": "x^2 - 5*x + 6", "domain": [-1, 5], "label": "Roots 2 and 3: sum = 5 = −b, product = 6 = c" },
+    "caption": "The parabola crosses the x-axis at the roots 2 and 3. Vieta reads their sum (−b = 5) and product (c = 6) straight from the coefficients — no factoring needed."
+  },
+  "teachingGallery": [
+    {
+      "title": "Sum = −b, Product = c",
+      "note": "For monic x² + bx + c.",
+      "examples": [
+        { "component": "FunctionPlot", "props": { "expression": "x^2 - 7*x + 12", "domain": [0, 7], "label": "Roots 3, 4: sum 7, product 12" }, "caption": "Sum 7 = −(−7), product 12." },
+        { "component": "FunctionPlot", "props": { "expression": "x^2 - x - 6", "domain": [-4, 4], "label": "Roots 3, −2: sum 1, product −6" }, "caption": "Sum 1, product −6." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Write the polynomial in monic form. Read the sum of roots as minus the next coefficient and the product as the constant (with the sign pattern). Use symmetric identities like p² + q² = (p+q)² − 2pq to get more from the same two facts.",
+    "steps": [
+      "Make the leading coefficient 1 (divide through if needed).",
+      "Sum of roots = −(coefficient of x).",
+      "Product of roots = constant term (for a quadratic).",
+      "Combine with identities, e.g. p² + q² = (p+q)² − 2pq."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "For x² − 5x + 6 = 0, find the sum of the roots.",
+      "steps": ["Sum = −b where b = −5.", "= −(−5).", "= 5."],
+      "answer": "5"
+    },
+    {
+      "problem": "For x² − 5x + 6 = 0, find the product of the roots.",
+      "steps": ["Product = c = 6 (monic quadratic).", "So pq = 6.", "= 6."],
+      "answer": "6"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "vieta-sign", "mistake": "Taking the sum of roots as +b instead of −b.", "fix": "Sum of roots = −b/a. Remember the MINUS sign on the x-coefficient." },
+    { "mistakeTag": "swap-sum-product", "mistake": "Swapping the sum and product rules.", "fix": "Sum = −b/a; PRODUCT = c/a. Product uses the constant term." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "vie-e1", "type": "number", "q": "x² − 5x + 6 = 0. Sum of roots = ?", "answer": "5", "hintLadder": ["Sum = −b.", "−(−5).", "5."] },
+      { "id": "vie-e2", "type": "number", "q": "x² − 5x + 6 = 0. Product of roots = ?", "answer": "6", "hintLadder": ["Product = c.", "= 6.", "6."] }
+    ],
+    "medium": [
+      { "id": "vie-m1", "type": "number", "q": "x² − 7x + 12 = 0. Sum of roots = ?", "answer": "7", "hintLadder": ["−b.", "−(−7).", "7."] },
+      { "id": "vie-m2", "type": "number", "q": "x² − x − 6 = 0. Product of roots = ?", "answer": "-6", "hintLadder": ["Product = c.", "c = −6.", "−6."] }
+    ],
+    "challenge": [
+      { "id": "vie-c1", "type": "number", "q": "x² − 5x + 6 = 0. Find p² + q² = (p+q)² − 2pq.", "answer": "13", "hintLadder": ["25 − 2·6.", "25 − 12.", "13."] },
+      { "id": "vie-c2", "type": "number", "q": "Roots of a monic quadratic are 4 and 5. The x-coefficient b = ?", "answer": "-9", "hintLadder": ["Sum = −b.", "9 = −b.", "−9."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "vie-x1", "type": "number", "q": "x² − 8x + 15 = 0. Sum of roots = ?", "answer": "8", "hintLadder": ["−b.", "−(−8).", "8."] },
+      { "id": "vie-x2", "type": "mcq", "q": "For monic x² + bx + c, the sum of roots is…", "options": [{ "label": "−b" }, { "label": "+b", "mistakeTag": "vieta-sign" }], "answer": "−b", "hintLadder": ["Mind the sign.", "Minus.", "−b."] },
+      { "id": "vie-x3", "type": "number", "q": "x² − 8x + 15 = 0. Product of roots = ?", "answer": "15", "hintLadder": ["= c.", "= 15.", "15."] },
+      { "id": "vie-x4", "type": "mcq", "q": "The product of the roots equals…", "options": [{ "label": "The constant term c" }, { "label": "The x-coefficient b", "mistakeTag": "swap-sum-product" }], "answer": "The constant term c", "hintLadder": ["Product uses c.", "Constant.", "c."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Show a grown-up x² − 5x + 6 = 0. Explain that WITHOUT factoring, the roots sum to −(−5) = 5 and multiply to 6, so they must be 2 and 3. Then show p² + q² = (p+q)² − 2pq = 25 − 12 = 13.",
+  "revisionCard": {
+    "summary": "Vieta: monic x² + bx + c has roots summing to −b and multiplying to c. Monic cubic x³ + bx² + cx + d: sum = −b, pair-sum = c, product = −d (signs alternate). Use p² + q² = (p+q)² − 2pq. Watch the minus on the sum.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "Maths Olympiad (RMO/INMO) — algebra", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Sum of roots = −b, product = c (monic quadratic)", "unpack": "Signs alternate for higher degree. p²+q² = (p+q)² − 2pq gets symmetric sums." },
+  "studentQuestions": [
+    { "q": "What if the leading coefficient isn't 1?", "a": "Divide by it first: for ax² + bx + c, sum = −b/a and product = c/a." },
+    { "q": "How do I build an equation with roots 2 and 3?", "a": "Use (x − 2)(x − 3) = x² − (sum)x + product = x² − 5x + 6 — Vieta in reverse." }
+  ],
+  "formulas": [
+    { "name": "Quadratic Vieta", "formula": "p + q = −b/a,  pq = c/a", "remember": "sum = −b/a, product = c/a", "whenToUse": "Sum/product of roots of a quadratic." },
+    { "name": "Symmetric sum", "formula": "p² + q² = (p+q)² − 2pq", "remember": "square the sum, subtract twice product", "whenToUse": "Getting p²+q² from Vieta." }
+  ]
+}
