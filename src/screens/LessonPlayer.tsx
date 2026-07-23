@@ -34,9 +34,12 @@ function collectMethods(c: Concept): UIMethod[] {
 export function LessonPlayer({
   concept,
   onExit,
+  onDeepDive,
 }: {
   concept: Concept;
   onExit: () => void;
+  /** Send this concept to Ask Robo to explore it further. */
+  onDeepDive?: () => void;
 }) {
   const [tab, setTab] = useState<Tab>("story");
   const [mode, setMode] = useState<"learn" | "trick" | "practice" | "mastery" | "done">("learn");
@@ -194,6 +197,11 @@ export function LessonPlayer({
         )}
         <h1>{concept.name}</h1>
         {concept.gameMission && <span className="fm-mission">Mission: {concept.gameMission.title}</span>}
+        {onDeepDive && (
+          <button className="fm-deepdive-btn" onClick={onDeepDive} title="Explore this concept deeper with Robo">
+            🔬 Explore deeper with Robo
+          </button>
+        )}
       </header>
 
       {mode === "learn" && (

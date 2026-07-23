@@ -50,10 +50,13 @@ function matchLesson(q: string, concepts: ConceptCard[]): { id: string; name: st
   return bestScore >= 1 ? best : null;
 }
 
-export function AskRobo({ profile, concepts, onOpen }: {
+export function AskRobo({ profile, concepts, onOpen, seed, onSeedConsumed }: {
   profile: Profile;
   concepts: ConceptCard[];
   onOpen: (id: string) => void;
+  /** When a learner taps a concept's deep-dive icon, we open straight into an "explore this" chat. */
+  seed?: { id: string; name: string } | null;
+  onSeedConsumed?: () => void;
 }) {
   const [ai, setAi] = useState<AiStatus | null>(null);
   const [msgs, setMsgs] = useState<Msg[]>([]);
@@ -61,12 +64,25 @@ export function AskRobo({ profile, concepts, onOpen }: {
   const [busy, setBusy] = useState(false);
   const [lastQ, setLastQ] = useState("");
   const endRef = useRef<HTMLDivElement | null>(null);
+  const seededRef = useRef<string | null>(null);
 
   useEffect(() => { api.aiStatus().then(setAi).catch(() => setAi(null)); }, []);
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [msgs, busy]);
   useEffect(() => () => stopSpeaking(), []);
 
   const usable = aiUsable(ai);
+
+  // Deep-dive: a concept was handed in — auto-ask Robo to explore it (once AI status is known).
+  // If the tutor is off, prefill the box so the question is ready when a grown-up enables it.
+  useEffect(() => {
+    if (!seed) { seededRef.current = null; return; }
+    if (seededRef.current === seed.id || ai === null) return;
+    seededRef.current = seed.id;
+    const question = `Tell me more about "${seed.name}". Explain it simply for my level, give a real-life example, and one surprising fact.`;
+    if (usable) void ask(question); else setInput(question);
+    onSeedConsumed?.();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [seed, ai, usable]);
 
   async function ask(question: string) {
     const q = question.trim();

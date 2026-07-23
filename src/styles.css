@@ -2322,3 +2322,106 @@ button:disabled:hover, [aria-disabled="true"]:hover { transform: none !important
 .fm-chip-choice, .fm-choice, .fm-theme-swatch, .fm-view-toggle button, .fm-stage-tab {
   cursor: pointer; user-select: none;
 }
+
+/* ============================================================
+   Deep-dive icon + Fun Facts screen (added for Explore-with-Robo
+   and the 200 trilingual math facts).
+   ============================================================ */
+
+/* --- Deep-dive 🔬 icon on concept cards --- */
+.fm-node-wrap, .fm-mm-leaf-wrap, .fm-search-item-wrap { position: relative; display: block; }
+.fm-node-wrap .fm-node, .fm-search-item-wrap .fm-search-item { width: 100%; }
+.fm-deepdive {
+  position: absolute; top: 6px; right: 6px; z-index: 2;
+  width: 30px; height: 30px; padding: 0; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 15px; border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 16%, var(--card));
+  border: 1px solid var(--glass-brd); color: var(--ink);
+  cursor: pointer; opacity: 0.55; transition: transform .15s ease, opacity .15s ease, background .15s ease;
+}
+.fm-node-wrap:hover .fm-deepdive, .fm-mm-leaf-wrap:hover .fm-deepdive, .fm-search-item-wrap:hover .fm-deepdive { opacity: 1; }
+.fm-deepdive:hover { transform: scale(1.15); opacity: 1; background: color-mix(in srgb, var(--accent) 34%, var(--card)); }
+.fm-deepdive:focus-visible { outline: 2px solid var(--accent); opacity: 1; }
+.fm-mm-leaf-wrap .fm-deepdive { top: 4px; right: 4px; width: 26px; height: 26px; font-size: 13px; }
+
+/* Explore-deeper button inside a lesson header */
+.fm-deepdive-btn {
+  margin-left: auto; align-self: center;
+  padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 0.9rem;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 90%, #fff), var(--accent));
+  color: #fff; border: none; cursor: pointer; white-space: nowrap;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 40%, transparent);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.fm-deepdive-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px color-mix(in srgb, var(--accent) 50%, transparent); }
+.fm-deepdive-btn:active { transform: translateY(0); }
+
+/* --- Home fun-fact teaser --- */
+.fm-fact-teaser {
+  display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
+  margin: 14px 0 4px; padding: 14px 18px; border-radius: 18px; cursor: pointer;
+  background: color-mix(in srgb, var(--accent) 10%, var(--card));
+  border: 1px solid var(--glass-brd); color: var(--ink);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.fm-fact-teaser:hover { transform: translateY(-2px); box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 22%, transparent); }
+.fm-fact-teaser-ic { font-size: 1.8rem; flex: 0 0 auto; }
+.fm-fact-teaser-body { display: flex; flex-direction: column; gap: 2px; flex: 1 1 auto; min-width: 0; }
+.fm-fact-teaser-lbl { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--accent); }
+.fm-fact-teaser-text { font-size: 0.98rem; line-height: 1.35; }
+.fm-fact-teaser-go { flex: 0 0 auto; font-weight: 700; font-size: 0.85rem; color: var(--accent); white-space: nowrap; }
+
+/* --- Fun Facts screen --- */
+.fm-facts { max-width: 1080px; margin: 0 auto; padding: 8px 4px 60px; }
+.fm-facts-head h1 { margin: 0 0 4px; font-size: 1.6rem; }
+.fm-fact-spotlight {
+  margin: 18px 0; padding: 22px 24px; border-radius: 22px; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 20%, var(--card)), var(--card));
+  border: 1px solid var(--glass-brd);
+}
+.fm-fact-spot-badge { display: inline-block; font-size: 0.78rem; font-weight: 800; color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, var(--card)); padding: 4px 12px; border-radius: 999px; margin-bottom: 12px; }
+.fm-fact-spot-text { font-size: 1.5rem; line-height: 1.4; font-weight: 700; margin: 0 0 16px; }
+.fm-fact-spot-actions { display: flex; align-items: center; gap: 12px; }
+.fm-fact-surprise { padding: 10px 20px; border-radius: 999px; }
+
+.fm-fact-cats { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 14px; }
+.fm-fact-chip {
+  padding: 7px 14px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+  background: var(--card); border: 1px solid var(--glass-brd); color: var(--ink);
+  transition: background .12s ease, transform .12s ease;
+}
+.fm-fact-chip:hover { transform: translateY(-1px); }
+.fm-fact-chip.on { background: var(--accent); color: #fff; border-color: transparent; }
+
+.fm-fact-search { margin: 4px 0 10px; }
+
+.fm-fact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-top: 8px; }
+.fm-fact-card {
+  display: flex; flex-direction: column; gap: 10px; padding: 16px 18px; border-radius: 18px;
+  background: var(--card); border: 1px solid var(--glass-brd);
+  border-left: 4px solid var(--accent);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.fm-fact-card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px color-mix(in srgb, var(--ink) 12%, transparent); }
+.fm-fact-card-cat { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; color: var(--muted); }
+.fm-fact-card-text { font-size: 1rem; line-height: 1.45; flex: 1 1 auto; margin: 0; }
+.fm-fact-card-foot { display: flex; align-items: center; justify-content: space-between; }
+.fm-fact-card-num { font-size: 0.8rem; font-weight: 700; color: var(--muted); }
+
+/* Per-category accent stripes so the grid reads as a colourful collection. */
+.fm-fact-card.cat-numbers { border-left-color: #4db8ff; }
+.fm-fact-card.cat-geometry { border-left-color: #a15dff; }
+.fm-fact-card.cat-indian { border-left-color: #ff9f1c; }
+.fm-fact-card.cat-minds { border-left-color: #ff5db1; }
+.fm-fact-card.cat-innovations { border-left-color: #2ec4b6; }
+.fm-fact-card.cat-patterns { border-left-color: #f4c20d; }
+.fm-fact-card.cat-everyday { border-left-color: #06d6a0; }
+.fm-fact-card.cat-play { border-left-color: #ef476f; }
+
+@media (max-width: 560px) {
+  .fm-fact-spot-text { font-size: 1.2rem; }
+  .fm-fact-grid { grid-template-columns: 1fr; }
+  .fm-deepdive-btn { font-size: 0.8rem; padding: 7px 10px; }
+}

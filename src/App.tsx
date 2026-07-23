@@ -4,6 +4,7 @@ import { WorldMap } from "./screens/WorldMap";
 import { LessonPlayer } from "./screens/LessonPlayer";
 import { MistakeClinic } from "./screens/MistakeClinic";
 import { AskRobo } from "./screens/AskRobo";
+import { FunFacts } from "./screens/FunFacts";
 import { ParentDashboard } from "./screens/ParentDashboard";
 import { Onboarding } from "./screens/Onboarding";
 // Heavy calculator/tool popups are code-split into their own chunks so the main
@@ -15,7 +16,7 @@ import { Emoji3D } from "./components/ObjectIcon";
 import { RoboAvatar } from "./components/RoboAvatar";
 import { isAutoRead, setAutoRead, stopSpeaking, setSpeechLang } from "./speech";
 
-type Screen = "map" | "clinic" | "ask" | "parent";
+type Screen = "map" | "clinic" | "ask" | "facts" | "parent";
 
 /* Global display language. Translated packs (hi/te) carry the same concept ids,
  * so progress is shared; untranslated lessons fall back to English automatically. */
@@ -49,6 +50,9 @@ export default function App() {
   const [booting, setBooting] = useState(true);
   const [concepts, setConcepts] = useState<ConceptCard[] | null>(null);
   const [open, setOpen] = useState<Concept | null>(null);
+  // When a learner taps the deep-dive icon, we hand Robo a seed so it opens straight
+  // into an "explore this concept" chat. Cleared once Ask Robo has consumed it.
+  const [askSeed, setAskSeed] = useState<{ id: string; name: string } | null>(null);
   const [autoRead, setAutoReadState] = useState(isAutoRead());
   const [theme, setTheme] = useState<ThemeId>(() => {
     const s = localStorage.getItem("fm_theme");
@@ -125,13 +129,22 @@ export default function App() {
     }
   }
 
+  /** Deep dive: send this concept to Ask Robo to explore it further. */
+  function deepDive(id: string, name?: string) {
+    const label = name ?? open?.name ?? concepts?.find((c) => c.id === id)?.name ?? id;
+    stopSpeaking();
+    setAskSeed({ id, name: label });
+    setOpen(null);
+    setScreen("ask");
+  }
+
   if (booting) return <div className="fm-loading">Waking up Fraction Fox… 🦊</div>;
   if (!profile) return <Onboarding onReady={onReady} />;
 
   if (open) {
     return <>
       <Doodles />
-      <LessonPlayer concept={open} onExit={() => { setOpen(null); refresh(); }} />
+      <LessonPlayer concept={open} onExit={() => { setOpen(null); refresh(); }} onDeepDive={() => deepDive(open!.id, open!.name)} />
       <Suspense fallback={null}><MathToolbox /><AdvancedToolbox /></Suspense>
     </>;
   }
@@ -144,6 +157,7 @@ export default function App() {
         <button className={screen === "map" ? "active" : ""} onClick={() => { setScreen("map"); refresh(); }}>🌳 Ganita Grove</button>
         <button className={screen === "clinic" ? "active" : ""} onClick={() => setScreen("clinic")}>🏥 Mistake Clinic</button>
         <button className={`fm-nav-robo ${screen === "ask" ? "active" : ""}`} onClick={() => setScreen("ask")}><RoboAvatar size={20} /> Ask Robo</button>
+        <button className={screen === "facts" ? "active" : ""} onClick={() => setScreen("facts")}>💡 Fun Facts</button>
         <button className={screen === "parent" ? "active" : ""} onClick={() => setScreen("parent")}>👨‍👩‍👧 Parents</button>
         <button className="fm-user-chip" onClick={switchUser} title="Switch user">🦊 {profile.name} ⇄</button>
         <button className={`fm-autoread ${autoRead ? "active" : ""}`} onClick={toggleAutoRead}
@@ -193,10 +207,11 @@ export default function App() {
           )}
         </div>
       </nav>
-      {screen === "map" && concepts && <WorldMap concepts={concepts} profile={profile} onOpen={openConcept} />}
+      {screen === "map" && concepts && <WorldMap concepts={concepts} profile={profile} onOpen={openConcept} onDeepDive={deepDive} onFacts={() => setScreen("facts")} lang={lang} />}
       {screen === "map" && !concepts && <div className="fm-loading">Loading…</div>}
       {screen === "clinic" && <MistakeClinic />}
-      {screen === "ask" && <AskRobo profile={profile} concepts={concepts ?? []} onOpen={openConcept} />}
+      {screen === "ask" && <AskRobo profile={profile} concepts={concepts ?? []} onOpen={openConcept} seed={askSeed} onSeedConsumed={() => setAskSeed(null)} />}
+      {screen === "facts" && <FunFacts lang={lang} />}
       {screen === "parent" && <ParentDashboard autoUnlock={profile.role !== "student"} />}
       <Suspense fallback={null}><MathToolbox /><AdvancedToolbox /></Suspense>
     </>

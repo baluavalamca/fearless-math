@@ -8,10 +8,19 @@
  * keeps the prerequisite roadmap exactly as before. The lesson flow (onOpen ->
  * LessonPlayer) is untouched.
  */
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ConceptCard, Profile } from "../api";
 import { Emoji3D } from "../components/ObjectIcon";
 import { GameHud } from "../components/GameHud";
+import { MATH_FACTS, LangKey, factText } from "../data/mathFacts";
+
+/** Deep-dive label per language for the 🔬 icon and the home teaser. */
+const DEEP_LABEL: Record<LangKey, string> = { en: "Explore with Robo", hi: "रोबो के साथ खोजें", te: "రోబోతో అన్వేషించు" };
+const FACT_TEASER: Record<LangKey, { did: string; more: string }> = {
+  en: { did: "Did you know?", more: "More fun facts →" },
+  hi: { did: "क्या तुम जानते हो?", more: "और मज़ेदार तथ्य →" },
+  te: { did: "నీకు తెలుసా?", more: "మరిన్ని సరదా వాస్తవాలు →" },
+};
 
 // `name` = the real maths topic (shown as the primary label so it's clear, not generic).
 // `world` = the playful theme name, kept as a small subtitle for kid-friendly flavour.
@@ -70,10 +79,18 @@ export function WorldMap({
   concepts,
   profile,
   onOpen,
+  onDeepDive,
+  onFacts,
+  lang = "en",
 }: {
   concepts: ConceptCard[];
   profile: Profile;
   onOpen: (id: string) => void;
+  /** Deep-dive: hand this concept to Ask Robo to explore it further. */
+  onDeepDive?: (id: string, name: string) => void;
+  /** Open the Fun Facts screen (from the home teaser). */
+  onFacts?: () => void;
+  lang?: LangKey;
 }) {
   const explore = localStorage.getItem("fm_explore") === "1";
   const [view, setView] = useState<"home" | "class">("home");
@@ -98,6 +115,9 @@ export function WorldMap({
     localStorage.setItem(key, JSON.stringify({ last: today, count }));
     setStreak(count);
   }, [profile.id]);
+
+  // One random fun fact for the home teaser (fresh each time the home mounts).
+  const teaser = useMemo(() => MATH_FACTS[Math.floor(Math.random() * MATH_FACTS.length)], []);
 
   const mastered = concepts.filter((c) => c.status === "mastered").length;
   const mCount = useCountUp(mastered);
@@ -128,30 +148,47 @@ export function WorldMap({
   const currentId = inStage.find((c) => ACTIVE.includes(c.status))?.id;
   const shownWorlds = strand === "all" ? worldsHere : [strand];
 
+  // Small 🔬 deep-dive icon — sibling button (never nested) that sends the concept to Ask Robo.
+  const deepBtn = (c: ConceptCard) =>
+    onDeepDive ? (
+      <button
+        className="fm-deepdive"
+        onClick={(e) => { e.stopPropagation(); onDeepDive(c.id, c.name); }}
+        title={DEEP_LABEL[lang]}
+        aria-label={`${DEEP_LABEL[lang]}: ${c.name}`}
+      >🔬</button>
+    ) : null;
+
   // Guided PATH node (keeps unlock rules — locked stays disabled).
   function pathNode(c: ConceptCard) {
     const locked = c.status === "locked" && !explore;
     const isCur = c.id === currentId;
     const dot = c.status === "mastered" ? "⭐" : locked ? "🔒" : isCur ? "▶" : "•";
     return (
-      <button key={c.id} className={`fm-node ${c.status} ${isCur ? "current" : ""}`} disabled={locked} onClick={() => onOpen(c.id)}>
-        <span className="fm-node-dot">{dot}</span>
-        <span className="fm-node-body">
-          <span className="fm-node-name">{c.name}</span>
-          <span className="fm-node-status">{isCur ? "You're here — let's go!" : statusText(c.status)}</span>
-        </span>
-        {isCur && <span className="fm-node-start">Start</span>}
-      </button>
+      <div key={c.id} className="fm-node-wrap">
+        <button className={`fm-node ${c.status} ${isCur ? "current" : ""}`} disabled={locked} onClick={() => onOpen(c.id)}>
+          <span className="fm-node-dot">{dot}</span>
+          <span className="fm-node-body">
+            <span className="fm-node-name">{c.name}</span>
+            <span className="fm-node-status">{isCur ? "You're here — let's go!" : statusText(c.status)}</span>
+          </span>
+          {isCur && <span className="fm-node-start">Start</span>}
+        </button>
+        {deepBtn(c)}
+      </div>
     );
   }
 
   // Free-choice leaf (mind map + search) — any concept can be opened.
   function leaf(c: ConceptCard) {
     return (
-      <button key={c.id} className={`fm-mm-leaf ${c.status}`} onClick={() => onOpen(c.id)} title={c.name}>
-        <span className="fm-mm-leaf-dot">{statusDot(c.status)}</span>
-        <span className="fm-mm-leaf-name">{c.name}</span>
-      </button>
+      <div key={c.id} className="fm-mm-leaf-wrap">
+        <button className={`fm-mm-leaf ${c.status}`} onClick={() => onOpen(c.id)} title={c.name}>
+          <span className="fm-mm-leaf-dot">{statusDot(c.status)}</span>
+          <span className="fm-mm-leaf-name">{c.name}</span>
+        </button>
+        {deepBtn(c)}
+      </div>
     );
   }
 
@@ -182,6 +219,17 @@ export function WorldMap({
 
       {view === "home" && !q && <GameHud concepts={concepts} streak={streak} />}
 
+      {view === "home" && !q && onFacts && (
+        <button className="fm-fact-teaser" onClick={onFacts} title={FACT_TEASER[lang].more}>
+          <span className="fm-fact-teaser-ic">💡</span>
+          <span className="fm-fact-teaser-body">
+            <span className="fm-fact-teaser-lbl">{FACT_TEASER[lang].did}</span>
+            <span className="fm-fact-teaser-text">{factText(teaser, lang)}</span>
+          </span>
+          <span className="fm-fact-teaser-go">{FACT_TEASER[lang].more}</span>
+        </button>
+      )}
+
       {/* -------- SEARCH (always available, above the classes) -------- */}
       <div className="fm-search-wrap">
         <span className="fm-search-ic">🔍</span>
@@ -199,14 +247,17 @@ export function WorldMap({
         <div className="fm-search-results">
           <p className="fm-search-count">{results.length ? `${results.length} concept${results.length > 1 ? "s" : ""} found — tap one to learn it` : "No concepts match that. Try another word."}</p>
           {results.map((c) => (
-            <button key={c.id} className={`fm-search-item ${c.status}`} onClick={() => onOpen(c.id)}>
-              <span className="fm-search-item-dot">{statusDot(c.status)}</span>
-              <span className="fm-search-item-body">
-                <span className="fm-search-item-name">{c.name}</span>
-                <span className="fm-search-item-meta">{stageLabelOf(c.grade)} · {STRAND_THEME[c.strand]?.name ?? c.strand}</span>
-              </span>
-              <span className="fm-search-item-go">{statusText(c.status)}</span>
-            </button>
+            <div key={c.id} className="fm-search-item-wrap">
+              <button className={`fm-search-item ${c.status}`} onClick={() => onOpen(c.id)}>
+                <span className="fm-search-item-dot">{statusDot(c.status)}</span>
+                <span className="fm-search-item-body">
+                  <span className="fm-search-item-name">{c.name}</span>
+                  <span className="fm-search-item-meta">{stageLabelOf(c.grade)} · {STRAND_THEME[c.strand]?.name ?? c.strand}</span>
+                </span>
+                <span className="fm-search-item-go">{statusText(c.status)}</span>
+              </button>
+              {deepBtn(c)}
+            </div>
           ))}
         </div>
       ) : view === "home" ? (
