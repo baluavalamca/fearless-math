@@ -60,10 +60,10 @@ export function setSpeechLang(bcp47: string): void {
 }
 export function currentSpeechLang(): string { return speechLang; }
 
-function pickVoice(): SpeechSynthesisVoice | null {
+function pickVoice(langOverride?: string): SpeechSynthesisVoice | null {
   const voices = window.speechSynthesis.getVoices();
   if (!voices.length) return null;
-  const target = speechLang.slice(0, 2).toLowerCase(); // "en" | "hi" | "te"
+  const target = (langOverride ?? speechLang).slice(0, 2).toLowerCase(); // "en" | "hi" | "te"
   // Score every voice; the highest wins. "Natural"/"Neural"/"Online" voices are
   // a big quality jump over the old robotic default, so we strongly prefer them,
   // then warm female names, then an Indian → British → US English preference.
@@ -244,4 +244,32 @@ export function setAutoRead(on: boolean): void {
 /** Speak only when auto-read is enabled. */
 export function autoSpeak(text: string): void {
   if (isAutoRead() && text) speak(text);
+}
+
+/**
+ * Pronounce one short phrase in a SPECIFIC language (BCP-47), independent of the
+ * app's global read-aloud language. Used by the Trilingual Dictionary so the
+ * English / Telugu / Hindi buttons each speak in their own voice. Uses the browser
+ * voices directly (works offline); if the OS has no Telugu/Hindi voice installed it
+ * falls back to the default voice, which is a device limitation, not an app bug.
+ */
+export function speakInLang(text: string, bcp47: string, onEnd?: () => void): void {
+  stopSpeaking();
+  const token = speakToken;
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) { onEnd?.(); return; }
+  // Only strip emojis/symbols; do NOT apply the English word-substitutions (they'd
+  // corrupt Hindi/Telugu pronunciation).
+  const clean = (text || "").replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, " ").replace(/\s+/g, " ").trim();
+  if (!clean) { onEnd?.(); return; }
+  const u = new SpeechSynthesisUtterance(clean);
+  const v = pickVoice(bcp47);
+  if (v) u.voice = v;
+  u.lang = bcp47;
+  u.rate = 0.9;
+  u.pitch = 1.12;
+  const finish = () => { stopKeepAlive(); if (token === speakToken) onEnd?.(); };
+  u.onend = finish;
+  u.onerror = finish;
+  startKeepAlive();
+  window.speechSynthesis.speak(u);
 }

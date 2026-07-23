@@ -5,6 +5,7 @@ import { LessonPlayer } from "./screens/LessonPlayer";
 import { MistakeClinic } from "./screens/MistakeClinic";
 import { AskRobo } from "./screens/AskRobo";
 import { FunFacts } from "./screens/FunFacts";
+import { Dictionary } from "./screens/Dictionary";
 import { Algorithms } from "./screens/Algorithms";
 import { ParentDashboard } from "./screens/ParentDashboard";
 import { Onboarding } from "./screens/Onboarding";
@@ -17,7 +18,7 @@ import { Emoji3D } from "./components/ObjectIcon";
 import { RoboAvatar } from "./components/RoboAvatar";
 import { isAutoRead, setAutoRead, stopSpeaking, setSpeechLang } from "./speech";
 
-type Screen = "map" | "clinic" | "ask" | "facts" | "algos" | "parent";
+type Screen = "map" | "clinic" | "ask" | "facts" | "algos" | "dict" | "parent";
 
 /* Global display language. Translated packs (hi/te) carry the same concept ids,
  * so progress is shared; untranslated lessons fall back to English automatically. */
@@ -160,6 +161,7 @@ export default function App() {
         <button className={`fm-nav-robo ${screen === "ask" ? "active" : ""}`} onClick={() => setScreen("ask")}><RoboAvatar size={20} /> Ask Robo</button>
         <button className={screen === "facts" ? "active" : ""} onClick={() => setScreen("facts")}>💡 Fun Facts</button>
         <button className={screen === "algos" ? "active" : ""} onClick={() => setScreen("algos")}>🧠 Algorithms</button>
+        <button className={screen === "dict" ? "active" : ""} onClick={() => setScreen("dict")}>📖 Dictionary</button>
         <button className={screen === "parent" ? "active" : ""} onClick={() => setScreen("parent")}>👨‍👩‍👧 Parents</button>
         <button className="fm-user-chip" onClick={switchUser} title="Switch user">🦊 {profile.name} ⇄</button>
         <button className={`fm-autoread ${autoRead ? "active" : ""}`} onClick={toggleAutoRead}
@@ -215,6 +217,7 @@ export default function App() {
       {screen === "ask" && <AskRobo profile={profile} concepts={concepts ?? []} onOpen={openConcept} seed={askSeed} onSeedConsumed={() => setAskSeed(null)} />}
       {screen === "facts" && <FunFacts lang={lang} />}
       {screen === "algos" && <Algorithms />}
+      {screen === "dict" && <Dictionary lang={lang} />}
       {screen === "parent" && <ParentDashboard autoUnlock={profile.role !== "student"} />}
       <Suspense fallback={null}><MathToolbox /><AdvancedToolbox /></Suspense>
     </>
