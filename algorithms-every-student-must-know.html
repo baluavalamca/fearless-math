@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Algorithms Every Student Must Know — An Interactive Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#070b17; --bg2:#0b1224; --panel:#0f1a30; --panel2:#132241;
+    --ink:#e8eefc; --muted:#93a3c4; --line:rgba(255,255,255,.10);
+    --c1:#22d3ee; --c2:#4f7bff; --c3:#a855f7; --ok:#34d399; --warn:#fbbf24; --bad:#fb7185;
+    --grad:linear-gradient(120deg,var(--c1),var(--c2),var(--c3));
+    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    --shadow:0 24px 60px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;font-family:var(--sans);color:var(--ink);line-height:1.6;
+    background:
+      radial-gradient(1200px 700px at 80% -10%, rgba(79,123,255,.18), transparent 60%),
+      radial-gradient(900px 600px at -10% 10%, rgba(168,85,247,.16), transparent 55%),
+      radial-gradient(900px 700px at 50% 120%, rgba(34,211,238,.12), transparent 55%),
+      var(--bg);
+    background-attachment:fixed;
+  }
+  a{color:var(--c1);text-decoration:none}
+  ::selection{background:rgba(79,123,255,.35)}
+  .wrap{display:grid;grid-template-columns:270px minmax(0,1fr);gap:0;max-width:1400px;margin:0 auto}
+
+  /* Sidebar */
+  aside{position:sticky;top:0;height:100vh;overflow-y:auto;padding:26px 18px 40px;border-right:1px solid var(--line);
+    background:linear-gradient(180deg,rgba(10,16,34,.9),rgba(7,11,23,.75));backdrop-filter:blur(8px)}
+  aside::-webkit-scrollbar{width:8px}aside::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:8px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.02rem;margin-bottom:4px}
+  .brand .logo{width:34px;height:34px;border-radius:10px;background:var(--grad);display:grid;place-items:center;font-size:18px;box-shadow:0 6px 18px rgba(79,123,255,.5)}
+  .brand small{display:block;color:var(--muted);font-weight:500;font-size:.72rem;letter-spacing:.02em}
+  .searchbox{margin:16px 0 10px;position:relative}
+  .searchbox input{width:100%;padding:10px 12px 10px 34px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);font-size:.86rem;font-family:var(--sans)}
+  .searchbox input:focus{outline:none;border-color:var(--c2);box-shadow:0 0 0 3px rgba(79,123,255,.22)}
+  .searchbox .ic{position:absolute;left:11px;top:9px;opacity:.7}
+  nav.toc a{display:block;padding:7px 12px;border-radius:9px;color:var(--muted);font-size:.86rem;font-weight:500;border:1px solid transparent}
+  nav.toc a:hover{color:var(--ink);background:rgba(255,255,255,.05)}
+  nav.toc a.active{color:var(--ink);background:rgba(79,123,255,.16);border-color:rgba(79,123,255,.3)}
+  nav.toc .grp{margin:14px 0 4px;padding-left:12px;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:#5f6f92;font-weight:700}
+
+  main{padding:38px clamp(18px,4vw,56px) 90px;min-width:0}
+
+  /* Hero */
+  .hero{padding:34px 0 8px}
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c1);
+    padding:6px 12px;border:1px solid rgba(34,211,238,.35);border-radius:999px;background:rgba(34,211,238,.08)}
+  h1{font-size:clamp(2rem,4.4vw,3.3rem);line-height:1.08;margin:16px 0 10px;font-weight:800;letter-spacing:-.02em}
+  h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:1.08rem;color:#c3cee6;max-width:70ch}
+  .mettowers{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+  .metowers .m{padding:12px 16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03)}
+  .metowers .m b{display:block;font-size:1.35rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .metowers .m span{font-size:.78rem;color:var(--muted)}
+
+  section{scroll-margin-top:20px;padding-top:46px}
+  h2{font-size:1.65rem;margin:0 0 6px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
+  h2 .num{font-size:.8rem;font-family:var(--mono);color:var(--c1);border:1px solid rgba(34,211,238,.35);border-radius:8px;padding:4px 8px}
+  h3{font-size:1.12rem;margin:22px 0 6px}
+  .sec-intro{color:var(--muted);max-width:74ch;margin-bottom:6px}
+  p{margin:.5rem 0}
+
+  .card{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:18px;padding:22px;margin:18px 0;box-shadow:var(--shadow)}
+  .card.tight{padding:16px 18px}
+  .algo{border-left:3px solid var(--c2)}
+  .algo h3{margin-top:0;display:flex;align-items:center;gap:10px}
+  .pill{font-size:.68rem;font-weight:700;letter-spacing:.03em;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+  .pill.best{color:var(--ok);border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.08)}
+  .pill.warn{color:var(--warn);border-color:rgba(251,191,36,.4);background:rgba(251,191,36,.08)}
+  .pill.bad{color:var(--bad);border-color:rgba(251,113,133,.4);background:rgba(251,113,133,.08)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr}}
+
+  .kv{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+  .kv .t{font-family:var(--mono);font-size:.78rem;padding:5px 10px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+  .kv .t b{color:var(--c1)}
+
+  ul.clean{margin:.4rem 0 .2rem;padding-left:1.1rem}
+  ul.clean li{margin:.28rem 0}
+  .when{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  @media(max-width:560px){.when{grid-template-columns:1fr}}
+  .when div{padding:10px 12px;border-radius:12px;font-size:.9rem;border:1px solid var(--line)}
+  .when .good{background:rgba(52,211,153,.07);border-color:rgba(52,211,153,.3)}
+  .when .good b{color:var(--ok)}
+  .when .avoid{background:rgba(251,113,133,.07);border-color:rgba(251,113,133,.3)}
+  .when .avoid b{color:var(--bad)}
+
+  /* Code */
+  .code{position:relative;margin:12px 0}
+  .code pre{margin:0;padding:16px 16px;border-radius:14px;background:#060a15;border:1px solid var(--line);overflow:auto;font-family:var(--mono);font-size:.82rem;line-height:1.55}
+  .code .lang{position:absolute;top:9px;right:44px;font-size:.66rem;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em}
+  .code .copy{position:absolute;top:7px;right:8px;font-size:.7rem;padding:4px 9px;border-radius:8px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--muted);cursor:pointer}
+  .code .copy:hover{color:var(--ink);border-color:var(--c2)}
+  code.inl{font-family:var(--mono);font-size:.86em;background:rgba(255,255,255,.06);padding:1px 6px;border-radius:6px;color:#cfe0ff}
+  .tok-k{color:#7cc5ff}.tok-s{color:#9ff5b8}.tok-c{color:#5f6f92;font-style:italic}.tok-n{color:#ffcf8b}.tok-f{color:#c9a2ff}
+
+  /* Tables */
+  .tablewrap{overflow:auto;border:1px solid var(--line);border-radius:14px;margin:14px 0}
+  table{border-collapse:collapse;width:100%;font-size:.86rem;min-width:560px}
+  th,td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+  th{background:rgba(255,255,255,.04);font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);position:sticky;top:0}
+  tbody tr:hover{background:rgba(79,123,255,.06)}
+  td.mono,th.mono{font-family:var(--mono)}
+  .g-ok{color:var(--ok)}.g-mid{color:var(--warn)}.g-bad{color:var(--bad)}
+
+  /* Interactive */
+  .lab{background:linear-gradient(180deg,var(--panel2),var(--bg2));border:1px solid rgba(79,123,255,.28);border-radius:18px;padding:20px;margin:18px 0}
+  .lab h4{margin:0 0 4px;font-size:1rem;display:flex;align-items:center;gap:8px}
+  .lab .hint{color:var(--muted);font-size:.85rem;margin-bottom:12px}
+  .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0}
+  .btn{font-family:var(--sans);font-weight:600;font-size:.84rem;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);cursor:pointer;transition:.15s}
+  .btn:hover{border-color:var(--c2);transform:translateY(-1px)}
+  .btn.primary{background:var(--grad);border:none;color:#04122e;font-weight:700;box-shadow:0 8px 20px rgba(79,123,255,.4)}
+  .btn.on{border-color:var(--c1);background:rgba(34,211,238,.14)}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+  input[type=range]{accent-color:var(--c2)}
+  .sortbars{display:flex;align-items:flex-end;gap:2px;height:220px;padding:10px;background:#060a15;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .sortbars .bar{flex:1;background:linear-gradient(180deg,#3a4f86,#22305a);border-radius:3px 3px 0 0;transition:height .06s linear}
+  .sortbars .bar.cmp{background:linear-gradient(180deg,var(--warn),#b9791a)}
+  .sortbars .bar.swp{background:linear-gradient(180deg,var(--bad),#a12c40)}
+  .sortbars .bar.done{background:linear-gradient(180deg,var(--ok),#1c7d5a)}
+  .stat{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+  .stat b{color:var(--c1)}
+
+  .bsrow{display:flex;gap:4px;flex-wrap:wrap;margin:10px 0}
+  .bscell{min-width:38px;height:44px;display:grid;place-items:center;border-radius:8px;font-family:var(--mono);font-weight:600;border:1px solid var(--line);background:rgba(255,255,255,.03);position:relative}
+  .bscell.lo{box-shadow:inset 0 -3px 0 var(--c1)}
+  .bscell.hi{box-shadow:inset 0 -3px 0 var(--c3)}
+  .bscell.mid{background:rgba(251,191,36,.18);border-color:var(--warn)}
+  .bscell.out{opacity:.28}
+  .bscell.found{background:rgba(52,211,153,.22);border-color:var(--ok)}
+  .bslabel{font-size:.62rem;position:absolute;top:-16px;color:var(--muted)}
+
+  canvas{max-width:100%;display:block;background:#060a15;border:1px solid var(--line);border-radius:12px}
+
+  /* Accordion */
+  .qa details{border:1px solid var(--line);border-radius:12px;margin:8px 0;background:rgba(255,255,255,.03);overflow:hidden}
+  .qa summary{cursor:pointer;padding:13px 16px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+  .qa summary::-webkit-details-marker{display:none}
+  .qa summary::after{content:"+";color:var(--c1);font-weight:800}
+  .qa details[open] summary::after{content:"–"}
+  .qa .a{padding:0 16px 14px;color:#c8d3ea}
+
+  /* Roadmap */
+  .road{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:14px}
+  .road .step{padding:16px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(180deg,var(--panel),var(--bg2))}
+  .road .step .n{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--grad);color:#04122e;font-weight:800;margin-bottom:8px}
+  .road .step h4{margin:0 0 4px;font-size:.98rem}
+  .road .step p{margin:0;font-size:.84rem;color:var(--muted)}
+
+  .callout{border-radius:14px;padding:14px 16px;margin:14px 0;border:1px solid var(--line);background:rgba(79,123,255,.08);font-size:.92rem}
+  .callout b{color:var(--c1)}
+  footer{border-top:1px solid var(--line);margin-top:60px;padding-top:22px;color:var(--muted);font-size:.85rem}
+  .nores{display:none;color:var(--warn);padding:16px;border:1px dashed var(--line);border-radius:12px;margin-top:20px}
+  .hidden{display:none !important}
+  @media(max-width:960px){
+    .wrap{grid-template-columns:1fr}
+    aside{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line)}
+    nav.toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:2px}
+    nav.toc .grp{grid-column:1/-1}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <!-- Sidebar -->
+  <aside>
+    <div class="brand"><span class="logo">Σ</span><div>Algorithms 101<small>Must-know · CS &amp; interviews</small></div></div>
+    <div class="searchbox"><span class="ic">🔍</span><input id="q" type="text" placeholder="Filter algorithms…" aria-label="Filter"></div>
+    <nav class="toc" id="toc">
+      <div class="grp">Start here</div>
+      <a href="#intro">What is an algorithm?</a>
+      <a href="#bigo">Big-O &amp; complexity</a>
+      <div class="grp">Searching</div>
+      <a href="#linear">Linear search</a>
+      <a href="#binary">Binary search ★</a>
+      <div class="grp">Sorting</div>
+      <a href="#simple-sorts">Bubble · Insertion · Selection</a>
+      <a href="#merge">Merge sort ★</a>
+      <a href="#quick">Quick sort ★</a>
+      <a href="#heap">Heap sort</a>
+      <a href="#sort-table">Sorting cheat-sheet</a>
+      <div class="grp">Graphs</div>
+      <a href="#bfs">BFS ★</a>
+      <a href="#dfs">DFS ★</a>
+      <a href="#dijkstra">Dijkstra ★</a>
+      <a href="#toposort">Topological sort</a>
+      <a href="#dsu">Union-Find (DSU)</a>
+      <div class="grp">Paradigms</div>
+      <a href="#recursion">Recursion &amp; D&amp;C</a>
+      <a href="#dp">Dynamic programming ★</a>
+      <a href="#greedy">Greedy</a>
+      <a href="#backtracking">Backtracking</a>
+      <div class="grp">More toolkit</div>
+      <a href="#hashing">Hashing</a>
+      <a href="#strings">String matching (KMP)</a>
+      <a href="#math">Number theory</a>
+      <a href="#patterns">Interview patterns</a>
+      <div class="grp">Finish</div>
+      <a href="#interview">Interview Q&amp;A</a>
+      <a href="#roadmap">Study roadmap</a>
+    </nav>
+  </aside>
+
+  <!-- Content -->
+  <main>
+    <div class="hero" data-noskip>
+      <span class="kicker">◆ Interactive study guide</span>
+      <h1>The Algorithms <span class="g">Every Student Must Know</span></h1>
+      <p class="lede">A tour of the algorithms that show up in every data-structures course, every coding interview, and most real software. For each one: the core idea, how it works step by step, the exact time &amp; space cost, clean code, and when to reach for it — plus live visualizers you can play with.</p>
+      <div class="metowers">
+        <div class="m"><b>25+</b><span>algorithms</span></div>
+        <div class="m"><b>3</b><span>live visualizers</span></div>
+        <div class="m"><b>7</b><span>complexity classes</span></div>
+        <div class="m"><b>★</b><span>= interview-critical</span></div>
+      </div>
+      <div class="callout" style="margin-top:22px">💡 <b>How to use this:</b> read top to bottom the first time — each section builds on the last. Later, use the search box (top-left) to jump to any algorithm for revision. The ★ items are the ones interviewers ask about most.</div>
+    </div>
+
+    <!-- INTRO -->
+    <section id="intro" data-tags="algorithm definition correctness pseudocode basics">
+      <h2><span class="num">00</span> What is an algorithm?</h2>
+      <p class="sec-intro">An <b>algorithm</b> is a finite, unambiguous, step-by-step procedure that transforms an <i>input</i> into a correct <i>output</i>. Think of it as a recipe a computer can follow with zero guessing.</p>
+      <div class="card">
+        <h3>Three questions to ask about any algorithm</h3>
+        <ul class="clean">
+          <li><b>Is it correct?</b> Does it produce the right answer for <i>every</i> valid input, including empty, single-element, and duplicate cases?</li>
+          <li><b>How fast is it?</b> How does the running time grow as the input <code class="inl">n</code> grows? This is <b>time complexity</b>.</li>
+          <li><b>How much memory?</b> Extra space used beyond the input is <b>space complexity</b>.</li>
+        </ul>
+        <p>Great engineers don't memorise code — they memorise <b>ideas and trade-offs</b>. The same handful of patterns (divide &amp; conquer, greedy choices, remembering sub-answers, exploring a graph) reappear everywhere. Learn the patterns and you can rebuild the code on demand.</p>
+      </div>
+    </section>
+
+    <!-- BIG-O -->
+    <section id="bigo" data-tags="big o notation time complexity space complexity growth asymptotic worst average best">
+      <h2><span class="num">01</span> Big-O &amp; complexity — the language of speed</h2>
+      <p class="sec-intro">Big-O describes how an algorithm's cost <b>grows</b> as input size <code class="inl">n</code> grows, ignoring constants and small terms. It answers "will this still work when n is a million?"</p>
+
+      <div class="lab">
+        <h4>📈 Live: watch the growth curves</h4>
+        <p class="hint">Slide <code class="inl">n</code> and see how many "steps" each complexity class needs. Notice how O(n²) and O(2ⁿ) explode while O(log n) barely moves.</p>
+        <canvas id="bigoCanvas" width="820" height="300" aria-label="Big-O growth chart"></canvas>
+        <div class="controls">
+          <label class="stat">n = <b id="bigoN">32</b></label>
+          <input id="bigoRange" type="range" min="2" max="64" value="32" style="flex:1;min-width:180px">
+        </div>
+        <div class="controls" id="bigoLegend"></div>
+      </div>
+
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Notation</th><th>Name</th><th>Feels like</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td class="mono g-ok">O(1)</td><td>Constant</td><td>Instant, any size</td><td>Array index, hash lookup</td></tr>
+            <tr><td class="mono g-ok">O(log n)</td><td>Logarithmic</td><td>Halves each step</td><td>Binary search</td></tr>
+            <tr><td class="mono g-ok">O(n)</td><td>Linear</td><td>One pass</td><td>Linear search, BFS/DFS</td></tr>
+            <tr><td class="mono g-mid">O(n log n)</td><td>Linearithmic</td><td>Best for sorting</td><td>Merge sort, heap sort</td></tr>
+            <tr><td class="mono g-mid">O(n²)</td><td>Quadratic</td><td>Nested loops</td><td>Bubble sort, naive pairs</td></tr>
+            <tr><td class="mono g-bad">O(2ⁿ)</td><td>Exponential</td><td>Doubles each add</td><td>Naive recursion, subsets</td></tr>
+            <tr><td class="mono g-bad">O(n!)</td><td>Factorial</td><td>Brute-force order</td><td>Permutations, naive TSP</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">🎯 <b>Rule of thumb:</b> for <code class="inl">n</code> up to ~10⁸ you want O(n) or O(n log n). O(n²) is fine to ~10⁴. Anything O(2ⁿ) is only OK for tiny n (≈20). Always state <b>best / average / worst</b> case — quicksort is O(n log n) average but O(n²) worst.</div>
+    </section>
+
+    <!-- LINEAR SEARCH -->
+    <section id="linear" data-tags="linear search sequential search unsorted">
+      <h2><span class="num">02</span> Linear search</h2>
+      <div class="card algo">
+        <h3>Linear (sequential) search <span class="pill best">O(n)</span><span class="pill">O(1) space</span></h3>
+        <p><b>Idea:</b> walk through the list one item at a time until you find the target (or run out). The only option when data is <b>unsorted</b>.</p>
+        <div class="kv"><span class="t">Best <b>O(1)</b></span><span class="t">Average <b>O(n)</b></span><span class="t">Worst <b>O(n)</b></span><span class="t">Space <b>O(1)</b></span></div>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>def linear_search(arr, target):
+    for i, x in enumerate(arr):
+        if x == target:
+            return i          # found — return the index
+    return -1                 # not found</pre></div>
+        <div class="when">
+          <div class="good"><b>Use when</b> data is unsorted, small, or you only search once.</div>
+          <div class="avoid"><b>Avoid when</b> data is sorted or searched repeatedly — use binary search or a hash set.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BINARY SEARCH -->
+    <section id="binary" data-tags="binary search sorted divide halve logarithmic star">
+      <h2><span class="num">03</span> Binary search <span class="pill best">★ interview-critical</span></h2>
+      <p class="sec-intro">On a <b>sorted</b> array, repeatedly look at the middle element and throw away half the search space. This is the single most important "halving" idea in all of computing.</p>
+
+      <div class="lab">
+        <h4>🔎 Live: step through binary search</h4>
+        <p class="hint">The array is sorted. Pick a target, then press <b>Step</b> to watch the window (lo…hi) shrink. Blue = lo, purple = hi, yellow = mid.</p>
+        <div class="controls">
+          <label class="stat">Target:</label>
+          <select id="bsTarget" class="btn"></select>
+          <button class="btn primary" id="bsStep">▶ Step</button>
+          <button class="btn" id="bsReset">↻ Reset</button>
+          <span class="stat" id="bsStat">Ready.</span>
+        </div>
+        <div class="bsrow" id="bsRow"></div>
+      </div>
+
+      <div class="card algo">
+        <h3>Binary search <span class="pill best">O(log n)</span><span class="pill">needs sorted input</span></h3>
+        <div class="kv"><span class="t">Best <b>O(1)</b></span><span class="t">Avg/Worst <b>O(log n)</b></span><span class="t">Space <b>O(1)</b></span></div>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>def binary_search(arr, target):
+    lo, hi = 0, len(arr) - 1
+    while lo &lt;= hi:
+        mid = (lo + hi) // 2        # avoids overflow in most languages: lo + (hi-lo)//2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] &lt; target:
+            lo = mid + 1            # target is in the right half
+        else:
+            hi = mid - 1           # target is in the left half
+    return -1</pre></div>
+        <div class="when">
+          <div class="good"><b>Use when</b> the array is sorted, or you can binary-search on an <i>answer</i> (see patterns).</div>
+          <div class="avoid"><b>Avoid when</b> data is unsorted (sorting first costs O(n log n)) or changes constantly.</div>
+        </div>
+        <p class="stat">⚠️ Classic bugs: wrong <code class="inl">&lt;=</code> vs <code class="inl">&lt;</code>, forgetting <code class="inl">mid ± 1</code> (infinite loop), and integer overflow on <code class="inl">(lo+hi)</code> in languages with fixed ints.</p>
+      </div>
+    </section>
+
+    <!-- SIMPLE SORTS -->
+    <section id="simple-sorts" data-tags="bubble sort insertion sort selection sort quadratic swap">
+      <h2><span class="num">04</span> The simple sorts — Bubble, Insertion, Selection</h2>
+      <p class="sec-intro">These are O(n²) and too slow for big data, but they're where everyone learns sorting — and insertion sort is genuinely useful for tiny or nearly-sorted arrays.</p>
+
+      <div class="lab">
+        <h4>📊 Live: sorting visualizer</h4>
+        <p class="hint">Pick an algorithm and press <b>Sort</b>. Yellow = comparing, red = swapping/placing, green = locked in place. Watch how the efficient sorts settle far faster.</p>
+        <div class="controls" id="sortAlgos"></div>
+        <div class="sortbars" id="bars"></div>
+        <div class="controls">
+          <button class="btn primary" id="sortRun">▶ Sort</button>
+          <button class="btn" id="sortShuffle">🔀 Shuffle</button>
+          <label class="stat">Speed</label><input id="sortSpeed" type="range" min="1" max="100" value="55">
+          <label class="stat">Size</label><input id="sortSize" type="range" min="12" max="80" value="40">
+          <span class="stat">comparisons <b id="cmpN">0</b> · swaps <b id="swpN">0</b></span>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="card algo tight">
+          <h3>Bubble sort <span class="pill bad">O(n²)</span></h3>
+          <p>Repeatedly swap adjacent out-of-order pairs; the largest "bubbles" to the end each pass. Mostly a teaching tool.</p>
+          <div class="kv"><span class="t">Best <b>O(n)</b></span><span class="t">Worst <b>O(n²)</b></span><span class="t">Stable ✔</span></div>
+        </div>
+        <div class="card algo tight">
+          <h3>Selection sort <span class="pill bad">O(n²)</span></h3>
+          <p>Each pass finds the minimum of the rest and puts it next. Few swaps (O(n)), but always O(n²) comparisons.</p>
+          <div class="kv"><span class="t">All cases <b>O(n²)</b></span><span class="t">Swaps <b>O(n)</b></span><span class="t">Stable ✗</span></div>
+        </div>
+      </div>
+      <div class="card algo">
+        <h3>Insertion sort <span class="pill warn">O(n²) worst · O(n) nearly-sorted</span></h3>
+        <p>Build a sorted prefix by inserting each new element into its right place, like sorting a hand of cards. <b>Excellent</b> for small or nearly-sorted data — real sort libraries switch to it for tiny sub-arrays.</p>
+        <div class="kv"><span class="t">Best <b>O(n)</b></span><span class="t">Worst <b>O(n²)</b></span><span class="t">Space <b>O(1)</b></span><span class="t">Stable ✔</span></div>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>def insertion_sort(a):
+    for i in range(1, len(a)):
+        key, j = a[i], i - 1
+        while j &gt;= 0 and a[j] &gt; key:   # shift bigger elements right
+            a[j + 1] = a[j]
+            j -= 1
+        a[j + 1] = key                # drop key into the gap
+    return a</pre></div>
+      </div>
+    </section>
+
+    <!-- MERGE SORT -->
+    <section id="merge" data-tags="merge sort divide and conquer stable n log n recursion star">
+      <h2><span class="num">05</span> Merge sort <span class="pill best">★</span></h2>
+      <div class="card algo">
+        <h3>Merge sort <span class="pill best">O(n log n) always</span><span class="pill">stable</span></h3>
+        <p><b>Idea (divide &amp; conquer):</b> split the array in half, sort each half recursively, then <b>merge</b> the two sorted halves in linear time. Guaranteed O(n log n) in every case — the reliable choice, and the standard for sorting linked lists and huge/external data.</p>
+        <div class="kv"><span class="t">Best/Avg/Worst <b>O(n log n)</b></span><span class="t">Space <b>O(n)</b></span><span class="t">Stable ✔</span></div>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>def merge_sort(a):
+    if len(a) &lt;= 1:
+        return a
+    mid = len(a) // 2
+    left  = merge_sort(a[:mid])       # sort left half
+    right = merge_sort(a[mid:])       # sort right half
+    return merge(left, right)
+
+def merge(l, r):
+    out, i, j = [], 0, 0
+    while i &lt; len(l) and j &lt; len(r):   # weave two sorted lists
+        if l[i] &lt;= r[j]: out.append(l[i]); i += 1
+        else:            out.append(r[j]); j += 1
+    out.extend(l[i:]); out.extend(r[j:])
+    return out</pre></div>
+        <div class="when">
+          <div class="good"><b>Use when</b> you need guaranteed speed, stability, or you're sorting linked lists / data too big for memory.</div>
+          <div class="avoid"><b>Avoid when</b> memory is tight — it needs O(n) extra space (quicksort sorts in place).</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK SORT -->
+    <section id="quick" data-tags="quick sort pivot partition in place average star">
+      <h2><span class="num">06</span> Quick sort <span class="pill best">★</span></h2>
+      <div class="card algo">
+        <h3>Quick sort <span class="pill best">O(n log n) avg</span><span class="pill bad">O(n²) worst</span></h3>
+        <p><b>Idea:</b> pick a <b>pivot</b>, <b>partition</b> the array so smaller elements go left and larger go right, then recurse on each side. Sorts <b>in place</b> and is usually the fastest in practice — which is why it's the default in many standard libraries (with tweaks).</p>
+        <div class="kv"><span class="t">Best/Avg <b>O(n log n)</b></span><span class="t">Worst <b>O(n²)</b></span><span class="t">Space <b>O(log n)</b></span><span class="t">Stable ✗</span></div>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>def quick_sort(a, lo=0, hi=None):
+    if hi is None: hi = len(a) - 1
+    if lo &lt; hi:
+        p = partition(a, lo, hi)      # pivot lands in final spot
+        quick_sort(a, lo, p - 1)
+        quick_sort(a, p + 1, hi)
+    return a
+
+def partition(a, lo, hi):
+    pivot = a[hi]                     # Lomuto scheme
+    i = lo - 1
+    for j in range(lo, hi):
+        if a[j] &lt;= pivot:
+            i += 1
+            a[i], a[j] = a[j], a[i]
+    a[i + 1], a[hi] = a[hi], a[i + 1]
+    return i + 1</pre></div>
+        <div class="callout">🛡️ The O(n²) worst case hits when the pivot is always the smallest/largest (e.g. already-sorted input with a naive pivot). Fixes: <b>random pivot</b> or <b>median-of-three</b>. Real libraries use <b>introsort</b> (quicksort that falls back to heap sort when recursion gets too deep).</div>
+      </div>
+    </section>
+
+    <!-- HEAP SORT -->
+    <section id="heap" data-tags="heap sort binary heap priority queue in place">
+      <h2><span class="num">07</span> Heap sort &amp; the binary heap</h2>
+      <div class="card algo">
+        <h3>Heap sort <span class="pill best">O(n log n) always</span><span class="pill">in place</span></h3>
+        <p>A <b>binary heap</b> is a tree (stored in an array) where each parent is ≥ its children (max-heap). It gives you the max/min in O(1) and insert/remove in O(log n) — that's a <b>priority queue</b>. Heap sort builds a heap, then repeatedly pops the max to the end.</p>
+        <div class="kv"><span class="t">All cases <b>O(n log n)</b></span><span class="t">Space <b>O(1)</b></span><span class="t">Stable ✗</span></div>
+        <p><b>Why it matters:</b> the heap / priority queue is the real prize — it powers Dijkstra's algorithm, Huffman coding, event simulations, "top-K" queries, and task schedulers. In interviews, reach for a heap whenever you hear <i>"k largest / smallest / closest"</i> or <i>"merge k sorted…"</i>.</p>
+      </div>
+    </section>
+
+    <!-- SORT CHEAT SHEET -->
+    <section id="sort-table" data-tags="sorting comparison cheat sheet table stable">
+      <h2><span class="num">08</span> Sorting cheat-sheet</h2>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Algorithm</th><th class="mono">Best</th><th class="mono">Average</th><th class="mono">Worst</th><th class="mono">Space</th><th>Stable</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Bubble</td><td class="mono g-ok">n</td><td class="mono g-bad">n²</td><td class="mono g-bad">n²</td><td class="mono g-ok">1</td><td class="g-ok">✔</td><td>Teaching only</td></tr>
+            <tr><td>Selection</td><td class="mono g-bad">n²</td><td class="mono g-bad">n²</td><td class="mono g-bad">n²</td><td class="mono g-ok">1</td><td class="g-bad">✗</td><td>Fewest swaps</td></tr>
+            <tr><td>Insertion</td><td class="mono g-ok">n</td><td class="mono g-bad">n²</td><td class="mono g-bad">n²</td><td class="mono g-ok">1</td><td class="g-ok">✔</td><td>Great for small / nearly sorted</td></tr>
+            <tr><td>Merge</td><td class="mono g-mid">n log n</td><td class="mono g-mid">n log n</td><td class="mono g-mid">n log n</td><td class="mono g-bad">n</td><td class="g-ok">✔</td><td>Reliable; linked lists / external</td></tr>
+            <tr><td>Quick</td><td class="mono g-mid">n log n</td><td class="mono g-mid">n log n</td><td class="mono g-bad">n²</td><td class="mono g-ok">log n</td><td class="g-bad">✗</td><td>Fastest in practice</td></tr>
+            <tr><td>Heap</td><td class="mono g-mid">n log n</td><td class="mono g-mid">n log n</td><td class="mono g-mid">n log n</td><td class="mono g-ok">1</td><td class="g-bad">✗</td><td>In-place, no worst-case blow-up</td></tr>
+            <tr><td>Counting / Radix</td><td class="mono g-ok">n + k</td><td class="mono g-ok">n + k</td><td class="mono g-ok">n + k</td><td class="mono g-mid">n + k</td><td class="g-ok">✔</td><td>Integers in a known range; beats n log n</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">🧠 <b>Stable</b> = equal elements keep their original order (matters when sorting by multiple keys). <b>Counting/Radix</b> aren't comparison sorts, so they dodge the O(n log n) lower bound — but only work for integers/keys in a bounded range.</div>
+    </section>
+
+    <!-- BFS -->
+    <section id="bfs" data-tags="breadth first search bfs queue shortest path unweighted graph level star">
+      <h2><span class="num">09</span> Breadth-First Search (BFS) <span class="pill best">★</span></h2>
+      <div class="card algo">
+        <h3>BFS <span class="pill best">O(V + E)</span><span class="pill">uses a queue</span></h3>
+        <p>Explore a graph <b>level by level</b> from a start node using a <b>queue</b>. On an <b>unweighted</b> graph, BFS finds the <b>shortest path</b> (fewest edges). Think: ripples spreading on water.</p>
+        <div class="kv"><span class="t">Time <b>O(V + E)</b></span><span class="t">Space <b>O(V)</b></span><span class="t">Shortest path (unweighted) ✔</span></div>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>from collections import deque
+
+def bfs(graph, start):
+    seen = {start}
+    q = deque([start])
+    order = []
+    while q:
+        node = q.popleft()            # FIFO — nearest first
+        order.append(node)
+        for nb in graph[node]:
+            if nb not in seen:
+                seen.add(nb)
+                q.append(nb)
+    return order</pre></div>
+        <div class="when">
+          <div class="good"><b>Use for</b> shortest path in unweighted graphs, level-order traversal, "minimum steps" puzzles, flood fill.</div>
+          <div class="avoid"><b>Avoid for</b> weighted shortest paths — that needs Dijkstra.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DFS -->
+    <section id="dfs" data-tags="depth first search dfs stack recursion backtracking cycle connected components star">
+      <h2><span class="num">10</span> Depth-First Search (DFS) <span class="pill best">★</span></h2>
+      <div class="card algo">
+        <h3>DFS <span class="pill best">O(V + E)</span><span class="pill">stack / recursion</span></h3>
+        <p>Go as <b>deep</b> as possible along one path, then backtrack. Implemented with recursion (the call stack) or an explicit stack. The backbone of cycle detection, connected components, topological sort, and most backtracking.</p>
+        <div class="kv"><span class="t">Time <b>O(V + E)</b></span><span class="t">Space <b>O(V)</b></span></div>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>def dfs(graph, node, seen=None):
+    if seen is None: seen = set()
+    seen.add(node)
+    for nb in graph[node]:
+        if nb not in seen:
+            dfs(graph, nb, seen)      # dive deeper before siblings
+    return seen</pre></div>
+        <div class="when">
+          <div class="good"><b>Use for</b> cycle detection, connected components, topological order, maze/grid exploration, path existence.</div>
+          <div class="avoid"><b>Avoid for</b> shortest paths — DFS doesn't find them; and watch stack depth on huge graphs (use an iterative stack).</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIJKSTRA -->
+    <section id="dijkstra" data-tags="dijkstra shortest path weighted graph priority queue heap greedy star">
+      <h2><span class="num">11</span> Dijkstra's shortest path <span class="pill best">★</span></h2>
+      <div class="card algo">
+        <h3>Dijkstra <span class="pill best">O((V + E) log V)</span><span class="pill">needs a min-heap</span></h3>
+        <p>Finds the shortest path from a source to every node in a graph with <b>non-negative</b> weights. It's a <b>greedy</b> algorithm powered by a <b>priority queue</b>: always expand the closest unfinished node next. This is the map-app / network-routing classic.</p>
+        <div class="kv"><span class="t">Time <b>O((V+E) log V)</b></span><span class="t">Space <b>O(V)</b></span><span class="t">Non-negative weights only</span></div>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>import heapq
+
+def dijkstra(graph, src):             # graph[u] = [(v, weight), ...]
+    dist = {u: float('inf') for u in graph}
+    dist[src] = 0
+    pq = [(0, src)]                   # (distance, node) min-heap
+    while pq:
+        d, u = heapq.heappop(pq)
+        if d &gt; dist[u]:               # stale entry — skip
+            continue
+        for v, w in graph[u]:
+            if d + w &lt; dist[v]:       # found a shorter route
+                dist[v] = d + w
+                heapq.heappush(pq, (dist[v], v))
+    return dist</pre></div>
+        <div class="callout">⚠️ Dijkstra <b>breaks with negative edges</b>. For those, use <b>Bellman-Ford</b> O(V·E) (also detects negative cycles). For all-pairs shortest paths on small graphs, use <b>Floyd-Warshall</b> O(V³).</div>
+      </div>
+    </section>
+
+    <!-- TOPO SORT -->
+    <section id="toposort" data-tags="topological sort dag directed acyclic graph ordering dependencies kahn">
+      <h2><span class="num">12</span> Topological sort</h2>
+      <div class="card algo">
+        <h3>Topological sort <span class="pill best">O(V + E)</span><span class="pill">DAGs only</span></h3>
+        <p>Order the nodes of a <b>directed acyclic graph</b> so every edge points "forward" — i.e. every task comes after its prerequisites. Course scheduling, build systems (Make/npm), and spreadsheet recalculation all rely on it.</p>
+        <p><b>Kahn's algorithm (BFS style):</b> repeatedly take a node with <b>in-degree 0</b>, output it, and remove its outgoing edges. If nodes remain but none has in-degree 0, the graph has a <b>cycle</b> (no valid order).</p>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>from collections import deque
+
+def topo_sort(graph):                 # graph[u] = list of successors
+    indeg = {u: 0 for u in graph}
+    for u in graph:
+        for v in graph[u]:
+            indeg[v] += 1
+    q = deque([u for u in graph if indeg[u] == 0])
+    order = []
+    while q:
+        u = q.popleft(); order.append(u)
+        for v in graph[u]:
+            indeg[v] -= 1
+            if indeg[v] == 0:
+                q.append(v)
+    return order if len(order) == len(graph) else None  # None ⇒ cycle</pre></div>
+      </div>
+    </section>
+
+    <!-- DSU -->
+    <section id="dsu" data-tags="union find disjoint set dsu connectivity kruskal path compression">
+      <h2><span class="num">13</span> Union-Find (Disjoint Set Union)</h2>
+      <div class="card algo">
+        <h3>Union-Find <span class="pill best">≈ O(1) per op</span><span class="pill">amortised</span></h3>
+        <p>Tracks a collection of items grouped into disjoint sets, answering "are a and b in the same group?" and "merge these two groups" almost instantly. With <b>path compression</b> + <b>union by rank</b>, each operation is nearly O(1) (inverse-Ackermann α(n)).</p>
+        <p><b>Where it shines:</b> Kruskal's minimum spanning tree, detecting cycles while adding edges, network/friend-connectivity, and grid "islands" problems.</p>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>class DSU:
+    def __init__(self, n):
+        self.parent = list(range(n))
+        self.rank = [0] * n
+    def find(self, x):
+        while self.parent[x] != x:
+            self.parent[x] = self.parent[self.parent[x]]  # path compression
+            x = self.parent[x]
+        return x
+    def union(self, a, b):
+        ra, rb = self.find(a), self.find(b)
+        if ra == rb: return False     # already connected (a cycle if adding an edge)
+        if self.rank[ra] &lt; self.rank[rb]: ra, rb = rb, ra
+        self.parent[rb] = ra
+        if self.rank[ra] == self.rank[rb]: self.rank[ra] += 1
+        return True</pre></div>
+        <div class="callout">🌉 <b>Minimum Spanning Tree</b> (cheapest set of edges connecting everything): <b>Kruskal</b> = sort edges, add each if it doesn't form a cycle (Union-Find). <b>Prim</b> = grow the tree greedily with a heap. Both are must-knows for "connect all cities at minimum cost".</div>
+      </div>
+    </section>
+
+    <!-- RECURSION -->
+    <section id="recursion" data-tags="recursion divide and conquer base case call stack">
+      <h2><span class="num">14</span> Recursion &amp; divide-and-conquer</h2>
+      <div class="card">
+        <p><b>Recursion</b> = a function that calls itself on a smaller sub-problem until a <b>base case</b> stops it. <b>Divide-and-conquer</b> is the pattern: split the problem, solve the pieces recursively, combine the results (merge sort, quick sort, binary search all use it).</p>
+        <ul class="clean">
+          <li><b>Always define the base case first</b> — the smallest input you can answer directly. Miss it and you get infinite recursion / stack overflow.</li>
+          <li>Trust the recursion: assume the recursive call is correct for smaller inputs, then just combine.</li>
+          <li>Cost often follows the <b>Master Theorem</b>: splitting into 2 halves + linear combine ⇒ O(n log n).</li>
+        </ul>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>def factorial(n):
+    if n &lt;= 1:            # base case
+        return 1
+    return n * factorial(n - 1)   # recursive case</pre></div>
+      </div>
+    </section>
+
+    <!-- DP -->
+    <section id="dp" data-tags="dynamic programming dp memoization tabulation knapsack lcs fibonacci coin change overlapping subproblems star">
+      <h2><span class="num">15</span> Dynamic Programming (DP) <span class="pill best">★</span></h2>
+      <p class="sec-intro">DP solves problems with <b>overlapping sub-problems</b> by solving each sub-problem <b>once</b> and reusing the answer — turning exponential brute force into polynomial time. The most feared interview topic, but it's one idea: <i>remember what you've already computed.</i></p>
+
+      <div class="card">
+        <h3>Two flavours, same idea</h3>
+        <ul class="clean">
+          <li><b>Memoization (top-down):</b> write the natural recursion, then cache each result in a dictionary/array. Compute on demand.</li>
+          <li><b>Tabulation (bottom-up):</b> fill a table from the smallest sub-problems upward. Usually a bit faster, no recursion depth limit.</li>
+        </ul>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre># Fibonacci: naive recursion is O(2^n); memoized DP is O(n).
+from functools import lru_cache
+
+@lru_cache(maxsize=None)              # top-down memoization
+def fib(n):
+    if n &lt; 2: return n
+    return fib(n - 1) + fib(n - 2)
+
+def fib_tab(n):                       # bottom-up tabulation, O(1) space
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a</pre></div>
+      </div>
+
+      <div class="grid2">
+        <div class="card algo tight">
+          <h3>0/1 Knapsack</h3>
+          <p>Maximise value of items packed under a weight limit; each item taken or not. <span class="pill">O(n·W)</span></p>
+          <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>def knapsack(wt, val, W):
+    n = len(wt)
+    dp = [[0]*(W+1) for _ in range(n+1)]
+    for i in range(1, n+1):
+        for w in range(W+1):
+            dp[i][w] = dp[i-1][w]        # skip item i
+            if wt[i-1] &lt;= w:             # or take it
+                dp[i][w] = max(dp[i][w],
+                    val[i-1] + dp[i-1][w-wt[i-1]])
+    return dp[n][W]</pre></div>
+        </div>
+        <div class="card algo tight">
+          <h3>Longest Common Subsequence</h3>
+          <p>Longest sequence appearing (in order) in two strings — basis of <code class="inl">diff</code> and DNA alignment. <span class="pill">O(m·n)</span></p>
+          <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>def lcs(a, b):
+    m, n = len(a), len(b)
+    dp = [[0]*(n+1) for _ in range(m+1)]
+    for i in range(1, m+1):
+        for j in range(1, n+1):
+            if a[i-1] == b[j-1]:
+                dp[i][j] = dp[i-1][j-1] + 1
+            else:
+                dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+    return dp[m][n]</pre></div>
+        </div>
+      </div>
+      <div class="callout">🔑 <b>How to spot a DP problem:</b> you're asked for a <b>min / max / count / "is it possible"</b>, choices compound, and a brute-force recursion would re-solve the same sub-problems. Other classics to know: <b>coin change</b>, <b>longest increasing subsequence</b>, <b>edit distance</b>, <b>matrix path sums</b>, <b>subset sum</b>.</div>
+    </section>
+
+    <!-- GREEDY -->
+    <section id="greedy" data-tags="greedy algorithm activity selection huffman interval scheduling local optimal">
+      <h2><span class="num">16</span> Greedy algorithms</h2>
+      <div class="card algo">
+        <h3>Greedy <span class="pill best">usually O(n log n)</span></h3>
+        <p>Build the answer by always taking the <b>best-looking choice right now</b>, never reconsidering. Fast and simple — but only correct when local choices lead to a global optimum (you must be able to prove it, or it can silently give wrong answers).</p>
+        <p><b>Must-know greedy wins:</b> interval / activity scheduling (pick the earliest-finishing meeting), Huffman coding (optimal compression), Dijkstra, Kruskal &amp; Prim (MST), and fractional knapsack.</p>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre># Activity selection: attend the most non-overlapping meetings.
+def max_activities(intervals):        # intervals = [(start, end), ...]
+    intervals.sort(key=lambda x: x[1])   # sort by earliest finish
+    count, end = 0, float('-inf')
+    for s, e in intervals:
+        if s &gt;= end:                  # doesn't clash — take it
+            count += 1
+            end = e
+    return count</pre></div>
+        <div class="when">
+          <div class="good"><b>Use when</b> you can prove the greedy choice is safe (exchange argument), and you need speed.</div>
+          <div class="avoid"><b>Avoid when</b> choices interact — e.g. 0/1 knapsack. Greedy fails there; use DP.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BACKTRACKING -->
+    <section id="backtracking" data-tags="backtracking n queens permutations subsets sudoku constraint search">
+      <h2><span class="num">17</span> Backtracking</h2>
+      <div class="card algo">
+        <h3>Backtracking <span class="pill warn">exponential, but pruned</span></h3>
+        <p>Systematically build candidates one choice at a time; the moment a partial choice can't possibly work, <b>undo it and try the next</b> ("prune"). It's DFS over the space of solutions. The go-to for puzzles and "generate all valid…" problems.</p>
+        <p><b>Signature problems:</b> N-Queens, Sudoku solver, generating all permutations / subsets / combinations, word search, and the "restore IP addresses" style questions.</p>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre># All subsets (the power set) via backtracking.
+def subsets(nums):
+    res, path = [], []
+    def dfs(i):
+        if i == len(nums):
+            res.append(path[:])       # record a complete choice
+            return
+        dfs(i + 1)                    # choice: skip nums[i]
+        path.append(nums[i])          # choice: take nums[i]
+        dfs(i + 1)
+        path.pop()                    # backtrack — undo the choice
+    dfs(0)
+    return res</pre></div>
+        <div class="callout">✂️ The whole art is <b>pruning</b>: the earlier you detect a dead end, the faster it runs. Good pruning turns "impossible" brute force into "instant."</div>
+      </div>
+    </section>
+
+    <!-- HASHING -->
+    <section id="hashing" data-tags="hashing hash table hash map set collision o(1) lookup">
+      <h2><span class="num">18</span> Hashing &amp; hash tables</h2>
+      <div class="card algo">
+        <h3>Hash table <span class="pill best">O(1) average lookup</span></h3>
+        <p>A <b>hash function</b> maps a key to an array index, giving average <b>O(1)</b> insert, delete, and lookup. This is the dictionary / hash map / set you use every day — and the single biggest "cheat code" in interviews for turning O(n²) into O(n).</p>
+        <ul class="clean">
+          <li><b>Collisions</b> (two keys → same slot) are handled by chaining (linked lists) or open addressing (probing).</li>
+          <li>Worst case is O(n) if everything collides, but with a good hash it's effectively O(1).</li>
+          <li>Keys must be <b>hashable / immutable</b> (strings, numbers, tuples).</li>
+        </ul>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre># Two-sum in O(n): remember what you've seen in a hash map.
+def two_sum(nums, target):
+    seen = {}                         # value -&gt; index
+    for i, x in enumerate(nums):
+        if target - x in seen:        # complement already seen?
+            return [seen[target - x], i]
+        seen[x] = i
+    return []</pre></div>
+        <div class="callout">💡 <b>Interview reflex:</b> "find a pair / duplicate / count of…" ⇒ a hash set or hash map almost always cuts a nested loop down to a single pass.</div>
+      </div>
+    </section>
+
+    <!-- STRINGS -->
+    <section id="strings" data-tags="string matching kmp rabin karp pattern search substring">
+      <h2><span class="num">19</span> String pattern matching (KMP &amp; Rabin-Karp)</h2>
+      <div class="card algo">
+        <h3>Finding a pattern in text <span class="pill best">O(n + m)</span></h3>
+        <p>Naively searching for a pattern of length <code class="inl">m</code> in text of length <code class="inl">n</code> is O(n·m). Two classic algorithms fix that:</p>
+        <ul class="clean">
+          <li><b>KMP (Knuth-Morris-Pratt)</b> — precomputes a "failure/LPS table" so that after a mismatch it never re-checks characters it already matched. Guaranteed <b>O(n + m)</b>.</li>
+          <li><b>Rabin-Karp</b> — hashes the pattern and each sliding window of the text; compares hashes first (a "rolling hash" updates in O(1)). Great for <b>multiple-pattern</b> search and plagiarism detection. O(n + m) average.</li>
+        </ul>
+        <div class="callout">📚 You rarely re-implement these from scratch in interviews, but you should <b>recognise them by name</b> and know they beat the naive O(n·m). The <i>rolling hash</i> idea also powers many "substring" problems.</div>
+      </div>
+    </section>
+
+    <!-- MATH -->
+    <section id="math" data-tags="number theory gcd euclid sieve of eratosthenes primes fast exponentiation modular">
+      <h2><span class="num">20</span> Number-theory essentials</h2>
+      <div class="grid2">
+        <div class="card algo tight">
+          <h3>Euclid's GCD <span class="pill best">O(log n)</span></h3>
+          <p>Greatest common divisor by repeated remainder — 2,300 years old and still optimal.</p>
+          <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a</pre></div>
+        </div>
+        <div class="card algo tight">
+          <h3>Fast exponentiation <span class="pill best">O(log n)</span></h3>
+          <p>Compute <code class="inl">a^n</code> by squaring — essential for big powers and cryptography (with a mod).</p>
+          <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>def power(a, n):
+    result = 1
+    while n:
+        if n &amp; 1: result *= a   # bit set ⇒ multiply
+        a *= a                  # square the base
+        n &gt;&gt;= 1                  # shift to next bit
+    return result</pre></div>
+        </div>
+      </div>
+      <div class="card algo">
+        <h3>Sieve of Eratosthenes <span class="pill best">O(n log log n)</span></h3>
+        <p>Find every prime up to <code class="inl">n</code> by crossing out multiples. The fastest simple way to list many primes.</p>
+        <div class="code"><span class="lang">python</span><button class="copy">Copy</button><pre>def primes_up_to(n):
+    is_prime = [True] * (n + 1)
+    is_prime[0] = is_prime[1] = False
+    for p in range(2, int(n**0.5) + 1):
+        if is_prime[p]:
+            for m in range(p*p, n + 1, p):   # cross out multiples of p
+                is_prime[m] = False
+    return [i for i, ok in enumerate(is_prime) if ok]</pre></div>
+      </div>
+    </section>
+
+    <!-- PATTERNS -->
+    <section id="patterns" data-tags="interview patterns two pointers sliding window prefix sum binary search on answer">
+      <h2><span class="num">21</span> Interview patterns worth their weight</h2>
+      <p class="sec-intro">Beyond named algorithms, these reusable <b>patterns</b> crack a huge share of interview problems. Recognising the pattern is half the battle.</p>
+      <div class="grid2">
+        <div class="card tight"><h3>👉 Two pointers</h3><p>Two indices moving through a (usually sorted) array — pair sums, removing duplicates, reversing, container-with-most-water. Turns O(n²) into O(n).</p></div>
+        <div class="card tight"><h3>🪟 Sliding window</h3><p>A moving sub-array/sub-string window that grows and shrinks — "longest substring without repeats", "max sum of k elements". O(n).</p></div>
+        <div class="card tight"><h3>➕ Prefix sums</h3><p>Precompute running totals so any range sum is O(1). Basis of many subarray-sum and 2-D grid questions.</p></div>
+        <div class="card tight"><h3>🎯 Binary search on the answer</h3><p>When the answer is monotonic ("can we do it in ≤ X?"), binary-search over the answer itself — "minimum capacity to ship in D days", "Koko eating bananas".</p></div>
+        <div class="card tight"><h3>📚 Stack for structure</h3><p>Matching brackets, "next greater element", evaluating expressions, monotonic-stack problems.</p></div>
+        <div class="card tight"><h3>🔺 Heap for top-K</h3><p>"k largest / closest / most frequent", "merge k sorted lists" — a size-k heap gives O(n log k).</p></div>
+      </div>
+    </section>
+
+    <!-- INTERVIEW Q&A -->
+    <section id="interview" data-tags="interview questions answers viva quiz">
+      <h2><span class="num">22</span> Interview Q&amp;A — quick-fire</h2>
+      <div class="qa">
+        <details><summary>Why is quicksort often faster than merge sort if both are O(n log n)?</summary><div class="a">Quicksort sorts <b>in place</b> with excellent cache locality and small constant factors, while merge sort needs O(n) extra memory and does more data movement. Quicksort's downside is the O(n²) worst case, which good pivot choice (random / median-of-three) makes vanishingly unlikely.</div></details>
+        <details><summary>When would you use BFS over DFS?</summary><div class="a">Use <b>BFS</b> for the <b>shortest path / fewest steps</b> in an unweighted graph and for level-order processing. Use <b>DFS</b> for path existence, cycle detection, connected components, topological sort, and backtracking. Both are O(V+E); the difference is order of exploration.</div></details>
+        <details><summary>What makes a problem solvable by dynamic programming?</summary><div class="a">Two properties: <b>optimal substructure</b> (the best answer is built from best answers to sub-problems) and <b>overlapping sub-problems</b> (the same sub-problems recur). If sub-problems are independent, plain divide-and-conquer suffices; if greedy choices are provably safe, greedy is simpler.</div></details>
+        <details><summary>Why can't Dijkstra handle negative edge weights?</summary><div class="a">Dijkstra "finalises" a node the moment it's popped as the closest, assuming no cheaper route can appear later. A negative edge could create a cheaper route <i>after</i> finalisation, breaking that assumption. Use <b>Bellman-Ford</b> (O(V·E)) for negative edges — it also detects negative cycles.</div></details>
+        <details><summary>Hash table lookup is O(1) — so what's the catch?</summary><div class="a">It's O(1) <b>on average</b>. Worst case is O(n) if many keys collide into one bucket (or a hostile input targets the hash). Good hash functions, load-factor resizing, and treeing long buckets keep it effectively constant in practice.</div></details>
+        <details><summary>Greedy vs DP for the knapsack problem?</summary><div class="a"><b>Fractional</b> knapsack (you can take part of an item) is solved <b>greedily</b> by value-per-weight. <b>0/1</b> knapsack (whole items only) needs <b>DP</b> — greedy gives wrong answers because taking a high-ratio item can block a better combination.</div></details>
+        <details><summary>How do you find a cycle in a graph?</summary><div class="a"><b>Undirected:</b> DFS and check for a visited neighbour that isn't the parent, or use Union-Find while adding edges (an edge joining two nodes already in the same set = cycle). <b>Directed:</b> DFS with three colours (white/grey/black) — a back-edge to a grey node means a cycle; or run Kahn's topo sort and see if any node is left unprocessed.</div></details>
+        <details><summary>What does "stable sort" mean and when does it matter?</summary><div class="a">A stable sort keeps <b>equal</b> elements in their original relative order. It matters when sorting by one key after another (e.g. sort by name, then stably by age → names stay ordered within each age). Merge and insertion sort are stable; quick and heap sort are not.</div></details>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap" data-tags="study plan roadmap order learn practice">
+      <h2><span class="num">23</span> A study roadmap that works</h2>
+      <div class="road">
+        <div class="step"><div class="n">1</div><h4>Complexity first</h4><p>Get comfortable reading Big-O. You can't compare algorithms without it.</p></div>
+        <div class="step"><div class="n">2</div><h4>Search &amp; sort</h4><p>Binary search + merge/quick sort. Implement them from memory until it's automatic.</p></div>
+        <div class="step"><div class="n">3</div><h4>Data structures</h4><p>Arrays, stacks, queues, hash maps, heaps, trees. Algorithms live on these.</p></div>
+        <div class="step"><div class="n">4</div><h4>Graphs</h4><p>BFS, DFS, then Dijkstra, topo sort, Union-Find. Draw them by hand.</p></div>
+        <div class="step"><div class="n">5</div><h4>Paradigms</h4><p>Recursion → greedy → backtracking → DP, in that order of difficulty.</p></div>
+        <div class="step"><div class="n">6</div><h4>Patterns &amp; practice</h4><p>Two pointers, sliding window, top-K. Then grind problems: 3–5 a week, review your misses.</p></div>
+      </div>
+      <div class="callout" style="margin-top:18px">🚀 <b>The meta-skill:</b> after solving a problem, ask <i>"what pattern was this, and what's the next-level version?"</i> Pattern recognition — not memorised code — is what makes algorithms feel easy.</div>
+    </section>
+
+    <div class="nores" id="nores">No algorithms match your filter. Clear the search to see them all.</div>
+
+    <footer>
+      <p><b>Algorithms Every Student Must Know</b> — an interactive study guide. Complexities follow the standard CLRS / competitive-programming conventions. Snippets are illustrative Python; production libraries add optimisations (e.g. introsort, Timsort).</p>
+      <p>Made for focused study &amp; interview prep · works fully offline once loaded.</p>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Copy buttons ---------- */
+  document.querySelectorAll('.code .copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var pre = btn.parentElement.querySelector('pre');
+      var txt = pre.innerText;
+      navigator.clipboard && navigator.clipboard.writeText(txt).then(function(){
+        var old = btn.textContent; btn.textContent = 'Copied ✓';
+        setTimeout(function(){ btn.textContent = old; }, 1200);
+      }).catch(function(){});
+    });
+  });
+
+  /* ---------- Scroll-spy for the TOC ---------- */
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  function onScroll(){
+    var y = window.scrollY + 120, cur = sections[0];
+    for (var i=0;i<sections.length;i++){ if (sections[i].offsetTop <= y) cur = sections[i]; }
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#'+ (cur && cur.id)); });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* ---------- Search / filter ---------- */
+  var q = document.getElementById('q');
+  var allSections = Array.prototype.slice.call(document.querySelectorAll('main section'));
+  var nores = document.getElementById('nores');
+  q.addEventListener('input', function(){
+    var term = q.value.trim().toLowerCase();
+    var anyShown = false;
+    allSections.forEach(function(sec){
+      var hay = (sec.getAttribute('data-tags')||'') + ' ' + sec.textContent.toLowerCase();
+      var show = !term || hay.toLowerCase().indexOf(term) !== -1;
+      sec.classList.toggle('hidden', !show);
+      if (show) anyShown = true;
+    });
+    // Sidebar links follow their target sections.
+    links.forEach(function(a){
+      var t = document.querySelector(a.getAttribute('href'));
+      if (t && t.tagName === 'SECTION') a.style.display = t.classList.contains('hidden') ? 'none' : '';
+    });
+    nores.style.display = anyShown ? 'none' : 'block';
+  });
+
+  /* ---------- Big-O growth chart ---------- */
+  var bc = document.getElementById('bigoCanvas');
+  if (bc){
+    var ctx = bc.getContext('2d');
+    var funcs = [
+      {name:'O(1)',     f:function(n){return 1;},               col:'#34d399'},
+      {name:'O(log n)', f:function(n){return Math.log2(n);},    col:'#22d3ee'},
+      {name:'O(n)',     f:function(n){return n;},               col:'#4f7bff'},
+      {name:'O(n log n)',f:function(n){return n*Math.log2(n);}, col:'#a855f7'},
+      {name:'O(n²)',    f:function(n){return n*n;},             col:'#fbbf24'},
+      {name:'O(2ⁿ)',    f:function(n){return Math.pow(2,n);},   col:'#fb7185'}
+    ];
+    var on = funcs.map(function(){return true;});
+    var legend = document.getElementById('bigoLegend');
+    funcs.forEach(function(fn, idx){
+      var b = document.createElement('button');
+      b.className = 'btn on'; b.textContent = fn.name;
+      b.style.borderColor = fn.col;
+      b.addEventListener('click', function(){ on[idx] = !on[idx]; b.classList.toggle('on', on[idx]); draw(); });
+      legend.appendChild(b);
+    });
+    var range = document.getElementById('bigoRange'), nOut = document.getElementById('bigoN');
+    function draw(){
+      var W = bc.width, H = bc.height, pad = 34;
+      var N = parseInt(range.value,10); nOut.textContent = N;
+      ctx.clearRect(0,0,W,H);
+      // grid
+      ctx.strokeStyle = 'rgba(255,255,255,.06)'; ctx.lineWidth = 1;
+      for (var gx=0; gx<=10; gx++){ var x=pad+(W-2*pad)*gx/10; ctx.beginPath(); ctx.moveTo(x,pad); ctx.lineTo(x,H-pad); ctx.stroke(); }
+      for (var gy=0; gy<=5; gy++){ var y=pad+(H-2*pad)*gy/5; ctx.beginPath(); ctx.moveTo(pad,y); ctx.lineTo(W-pad,y); ctx.stroke(); }
+      // find max among enabled for scaling (log scale for readability)
+      var maxV = 1;
+      funcs.forEach(function(fn,i){ if(on[i]){ var v=fn.f(N); if(v>maxV) maxV=v; } });
+      var logMax = Math.log10(maxV+1);
+      funcs.forEach(function(fn,i){
+        if(!on[i]) return;
+        ctx.strokeStyle = fn.col; ctx.lineWidth = 2.4; ctx.beginPath();
+        for (var s=0; s<=120; s++){
+          var nn = 1 + (N-1)*s/120;
+          var v = fn.f(nn); if (v<1) v=1; if (v>maxV) v=maxV;
+          var px = pad + (W-2*pad)*(nn-1)/(N-1);
+          var py = (H-pad) - (H-2*pad)*(Math.log10(v+1)/logMax);
+          if (s===0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
+        }
+        ctx.stroke();
+      });
+      ctx.fillStyle = 'rgba(147,163,196,.9)'; ctx.font = '11px "JetBrains Mono", monospace';
+      ctx.fillText('steps (log scale) →', pad, pad-12);
+      ctx.fillText('input size n →', W-pad-96, H-pad+22);
+    }
+    range.addEventListener('input', draw);
+    draw();
+  }
+
+  /* ---------- Binary search stepper ---------- */
+  (function(){
+    var base = [3,8,12,17,23,29,34,41,47,52,58,63,71,79,85,92];
+    var row = document.getElementById('bsRow'), sel = document.getElementById('bsTarget');
+    var stat = document.getElementById('bsStat');
+    var lo=0, hi=base.length-1, mid=-1, done=false, found=-1;
+    base.forEach(function(v){ var o=document.createElement('option'); o.value=v; o.textContent=v; sel.appendChild(o); });
+    // add a couple of missing targets
+    [40,100].forEach(function(v){ var o=document.createElement('option'); o.value=v; o.textContent=v+' (absent)'; sel.appendChild(o); });
+    sel.value = 47;
+    function render(){
+      row.innerHTML='';
+      base.forEach(function(v,i){
+        var c=document.createElement('div'); c.className='bscell'; c.textContent=v;
+        if(done){ if(i===found) c.classList.add('found'); else c.classList.add('out'); }
+        else {
+          if(i<lo||i>hi) c.classList.add('out');
+          if(i===lo){ c.classList.add('lo'); var l=document.createElement('span'); l.className='bslabel'; l.textContent='lo'; c.appendChild(l); }
+          if(i===hi){ c.classList.add('hi'); if(i!==lo){ var h=document.createElement('span'); h.className='bslabel'; h.style.right='2px'; h.textContent='hi'; c.appendChild(h);} }
+          if(i===mid) c.classList.add('mid');
+        }
+        row.appendChild(c);
+      });
+    }
+    function reset(){ lo=0; hi=base.length-1; mid=-1; done=false; found=-1; stat.textContent='Ready — press Step.'; render(); }
+    function step(){
+      if(done){ return; }
+      var t=parseInt(sel.value,10);
+      if(lo>hi){ done=true; stat.textContent = '❌ '+t+' not found (window empty).'; render(); return; }
+      mid=Math.floor((lo+hi)/2);
+      render();
+      if(base[mid]===t){ found=mid; done=true; stat.textContent='✅ Found '+t+' at index '+mid+'.'; render(); }
+      else if(base[mid]<t){ stat.textContent='arr[mid]='+base[mid]+' < '+t+' → search RIGHT half.'; lo=mid+1; }
+      else { stat.textContent='arr[mid]='+base[mid]+' > '+t+' → search LEFT half.'; hi=mid-1; }
+    }
+    document.getElementById('bsStep').addEventListener('click', step);
+    document.getElementById('bsReset').addEventListener('click', reset);
+    sel.addEventListener('change', reset);
+    reset();
+  })();
+
+  /* ---------- Sorting visualizer ---------- */
+  (function(){
+    var barsEl = document.getElementById('bars');
+    var cmpOut = document.getElementById('cmpN'), swpOut = document.getElementById('swpN');
+    var speedEl = document.getElementById('sortSpeed'), sizeEl = document.getElementById('sortSize');
+    var runBtn = document.getElementById('sortRun'), shufBtn = document.getElementById('sortShuffle');
+    var algoWrap = document.getElementById('sortAlgos');
+    var arr=[], frames=[], playing=false, timer=null, cmp=0, swp=0, algo='bubble';
+
+    var algos = [['bubble','Bubble'],['insertion','Insertion'],['selection','Selection'],['merge','Merge'],['quick','Quick']];
+    algos.forEach(function(a,i){
+      var b=document.createElement('button'); b.className='btn'+(i===0?' on':''); b.textContent=a[1];
+      b.addEventListener('click', function(){ algo=a[0]; algoWrap.querySelectorAll('.btn').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); });
+      algoWrap.appendChild(b);
+    });
+
+    function newArray(){
+      var n=parseInt(sizeEl.value,10); arr=[];
+      for(var i=0;i<n;i++) arr.push(Math.floor(Math.random()*95)+5);
+      cmp=0; swp=0; cmpOut.textContent=0; swpOut.textContent=0;
+      render(arr, {});
+    }
+    function render(a, meta){
+      barsEl.innerHTML='';
+      a.forEach(function(v,i){
+        var d=document.createElement('div'); d.className='bar';
+        if(meta.cmp && meta.cmp.indexOf(i)>=0) d.className+=' cmp';
+        if(meta.swp && meta.swp.indexOf(i)>=0) d.className+=' swp';
+        if(meta.done && meta.done.indexOf(i)>=0) d.className+=' done';
+        d.style.height=v+'%';
+        barsEl.appendChild(d);
+      });
+    }
+    // Record frames: each frame = {a:[...], cmp:[], swp:[], done:[], c:cmpCount, s:swapCount}
+    function record(){
+      var a=arr.slice(); frames=[]; var c={n:0}, s={n:0};
+      function snap(cmpIdx, swpIdx, done){ frames.push({a:a.slice(), cmp:cmpIdx||[], swp:swpIdx||[], done:done||[], c:c.n, s:s.n}); }
+      if(algo==='bubble'){
+        for(var i=0;i<a.length;i++){ for(var j=0;j<a.length-1-i;j++){ c.n++; snap([j,j+1],[],markDone(a.length,i)); if(a[j]>a[j+1]){ var t=a[j];a[j]=a[j+1];a[j+1]=t; s.n++; snap([],[j,j+1],markDone(a.length,i)); } } }
+      } else if(algo==='insertion'){
+        for(var i2=1;i2<a.length;i2++){ var key=a[i2], j2=i2-1; c.n++; snap([j2,i2],[],[]); while(j2>=0&&a[j2]>key){ a[j2+1]=a[j2]; s.n++; snap([],[j2,j2+1],[]); j2--; if(j2>=0){c.n++; snap([j2,i2],[],[]);} } a[j2+1]=key; snap([],[j2+1],[]); }
+      } else if(algo==='selection'){
+        for(var i3=0;i3<a.length;i3++){ var m=i3; for(var j3=i3+1;j3<a.length;j3++){ c.n++; snap([m,j3],[],markDoneL(i3)); if(a[j3]<a[m]) m=j3; } if(m!==i3){ var t3=a[i3];a[i3]=a[m];a[m]=t3; s.n++; snap([],[i3,m],markDoneL(i3)); } }
+      } else if(algo==='merge'){
+        mergeSort(a,0,a.length-1,c,s,snap);
+      } else if(algo==='quick'){
+        quickSort(a,0,a.length-1,c,s,snap);
+      }
+      // final: all done
+      var allDone=[]; for(var k=0;k<a.length;k++) allDone.push(k);
+      frames.push({a:a.slice(), cmp:[], swp:[], done:allDone, c:c.n, s:s.n});
+      function markDone(len,i){ var d=[]; for(var x=len-i;x<len;x++) d.push(x); return d; }
+      function markDoneL(i){ var d=[]; for(var x=0;x<i;x++) d.push(x); return d; }
+    }
+    function mergeSort(a,l,r,c,s,snap){
+      if(l>=r) return;
+      var mid=(l+r)>>1;
+      mergeSort(a,l,mid,c,s,snap); mergeSort(a,mid+1,r,c,s,snap);
+      var left=a.slice(l,mid+1), right=a.slice(mid+1,r+1), i=0,j=0,k=l;
+      while(i<left.length&&j<right.length){ c.n++; snap([k],[],[]); if(left[i]<=right[j]){ a[k]=left[i]; i++; } else { a[k]=right[j]; j++; } s.n++; snap([],[k],[]); k++; }
+      while(i<left.length){ a[k]=left[i]; i++; s.n++; snap([],[k],[]); k++; }
+      while(j<right.length){ a[k]=right[j]; j++; s.n++; snap([],[k],[]); k++; }
+    }
+    function quickSort(a,lo,hi,c,s,snap){
+      if(lo>=hi) return;
+      var pivot=a[hi], i=lo-1;
+      for(var j=lo;j<hi;j++){ c.n++; snap([j,hi],[],[]); if(a[j]<=pivot){ i++; var t=a[i];a[i]=a[j];a[j]=t; s.n++; snap([],[i,j],[]); } }
+      var t2=a[i+1];a[i+1]=a[hi];a[hi]=t2; s.n++; snap([],[i+1,hi],[]);
+      quickSort(a,lo,i,c,s,snap); quickSort(a,i+2,hi,c,s,snap);
+    }
+    function play(){
+      if(playing){ stop(); return; }
+      record(); playing=true; runBtn.textContent='⏸ Pause'; var idx=0;
+      function tick(){
+        if(idx>=frames.length){ stop(); return; }
+        var f=frames[idx++]; arr=f.a.slice(); render(f.a,{cmp:f.cmp,swp:f.swp,done:f.done});
+        cmpOut.textContent=f.c; swpOut.textContent=f.s;
+        var delay=Math.max(4, 210 - parseInt(speedEl.value,10)*2);
+        timer=setTimeout(tick, delay);
+      }
+      tick();
+    }
+    function stop(){ playing=false; runBtn.textContent='▶ Sort'; if(timer){ clearTimeout(timer); timer=null; } }
+    runBtn.addEventListener('click', play);
+    shufBtn.addEventListener('click', function(){ stop(); newArray(); });
+    sizeEl.addEventListener('input', function(){ stop(); newArray(); });
+    newArray();
+  })();
+})();
+</script>
+</body>
+</html>

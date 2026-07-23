@@ -5,6 +5,7 @@ import { LessonPlayer } from "./screens/LessonPlayer";
 import { MistakeClinic } from "./screens/MistakeClinic";
 import { AskRobo } from "./screens/AskRobo";
 import { FunFacts } from "./screens/FunFacts";
+import { Algorithms } from "./screens/Algorithms";
 import { ParentDashboard } from "./screens/ParentDashboard";
 import { Onboarding } from "./screens/Onboarding";
 // Heavy calculator/tool popups are code-split into their own chunks so the main
@@ -16,7 +17,7 @@ import { Emoji3D } from "./components/ObjectIcon";
 import { RoboAvatar } from "./components/RoboAvatar";
 import { isAutoRead, setAutoRead, stopSpeaking, setSpeechLang } from "./speech";
 
-type Screen = "map" | "clinic" | "ask" | "facts" | "parent";
+type Screen = "map" | "clinic" | "ask" | "facts" | "algos" | "parent";
 
 /* Global display language. Translated packs (hi/te) carry the same concept ids,
  * so progress is shared; untranslated lessons fall back to English automatically. */
@@ -158,6 +159,7 @@ export default function App() {
         <button className={screen === "clinic" ? "active" : ""} onClick={() => setScreen("clinic")}>🏥 Mistake Clinic</button>
         <button className={`fm-nav-robo ${screen === "ask" ? "active" : ""}`} onClick={() => setScreen("ask")}><RoboAvatar size={20} /> Ask Robo</button>
         <button className={screen === "facts" ? "active" : ""} onClick={() => setScreen("facts")}>💡 Fun Facts</button>
+        <button className={screen === "algos" ? "active" : ""} onClick={() => setScreen("algos")}>🧠 Algorithms</button>
         <button className={screen === "parent" ? "active" : ""} onClick={() => setScreen("parent")}>👨‍👩‍👧 Parents</button>
         <button className="fm-user-chip" onClick={switchUser} title="Switch user">🦊 {profile.name} ⇄</button>
         <button className={`fm-autoread ${autoRead ? "active" : ""}`} onClick={toggleAutoRead}
@@ -212,6 +214,7 @@ export default function App() {
       {screen === "clinic" && <MistakeClinic />}
       {screen === "ask" && <AskRobo profile={profile} concepts={concepts ?? []} onOpen={openConcept} seed={askSeed} onSeedConsumed={() => setAskSeed(null)} />}
       {screen === "facts" && <FunFacts lang={lang} />}
+      {screen === "algos" && <Algorithms />}
       {screen === "parent" && <ParentDashboard autoUnlock={profile.role !== "student"} />}
       <Suspense fallback={null}><MathToolbox /><AdvancedToolbox /></Suspense>
     </>
