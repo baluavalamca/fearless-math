@@ -1,0 +1,172 @@
+{
+  "id": "apt-03-mixtures-alligation",
+  "name": "Mixtures and Alligation — Blending at the Right Ratio",
+  "grade": 12,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "When you blend two things of different values (prices, strengths, speeds) the mix lands at a MEAN value in between. Alligation is a fast rule that finds the RATIO in which to mix them to hit a target mean: the ratio of the two amounts is the CROSS difference — (dearer − mean) : (mean − cheaper). The cheaper item's share is proportional to how far the DEARER value is from the mean.",
+  "whyNeeded": "Shopkeepers mixing tea or rice, chemists diluting acid, dairies mixing milk and water, and investors blending returns all use alligation. It appears constantly in SSC, Bank and Railway aptitude papers, and the cross rule turns a messy equation into a 10-second answer.",
+  "realLifeUses": [
+    "A grocer mixing ₹80/kg and ₹100/kg rice to sell at ₹90/kg",
+    "A dairy adding water to milk to hit a target price",
+    "A chemist diluting a strong solution to a required strength",
+    "Blending two petrol grades to a target octane",
+    "SSC / Bank / Railway quantitative aptitude questions"
+  ],
+  "vocabulary": [
+    { "term": "mean value", "meaning": "The final value of the mixture — always BETWEEN the two ingredients' values." },
+    { "term": "cheaper / dearer", "meaning": "The lower-value and higher-value ingredients being blended." },
+    { "term": "alligation (cross rule)", "meaning": "cheaper : dearer = (dearer − mean) : (mean − cheaper)." },
+    { "term": "ratio of the mix", "meaning": "How many parts of each ingredient go into the blend." }
+  ],
+  "story": {
+    "title": "Ajji's Perfect Chai Blend",
+    "characters": ["Ajji", "the tea seller"],
+    "text": "Ajji wants tea that costs ₹90 a kilo. The seller has a cheaper tea at ₹80 and a fancy one at ₹100. 'In what ratio should I mix them?' The seller draws a cross: dearer minus mean is 100 − 90 = 10; mean minus cheaper is 90 − 80 = 10. 'So mix them 10 : 10, that's 1 : 1 — equal parts.' Ajji nods. When she wants ₹85 tea instead, the cross gives 15 : 5 = 3 : 1 — three parts cheap to one part fancy, because ₹85 sits closer to the cheaper tea.",
+    "extractedProblem": "Mix ₹80/kg and ₹100/kg tea to get ₹90/kg. In what ratio (cheaper : dearer)?",
+    "answerInStory": "1 : 1 — the cross gives (100−90) : (90−80) = 10 : 10 = 1 : 1."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "Target ₹85: cheaper ₹80, dearer ₹100", "parts": [ { "value": 80, "label": "cheap" }, { "value": 20, "label": "gap" } ], "showTotal": false },
+        { "label": "dearer − mean = 100 − 85 = 15 (cheaper's parts)", "parts": [ { "value": 15, "label": "15" } ], "showTotal": false },
+        { "label": "mean − cheaper = 85 − 80 = 5 (dearer's parts)", "parts": [ { "value": 5, "label": "5" } ], "showTotal": false },
+        { "label": "Ratio cheaper : dearer = 15 : 5 = 3 : 1", "parts": [ { "value": 15, "label": "cheap ×3" }, { "value": 5, "label": "dear ×1" } ], "showTotal": false }
+      ]
+    },
+    "caption": "Cross rule: the ingredient nearer the mean is used LESS. Ratio cheaper : dearer = (dearer − mean) : (mean − cheaper)."
+  },
+  "teachingGallery": [
+    {
+      "title": "The cross rule",
+      "note": "cheaper : dearer = (dearer − mean) : (mean − cheaper). The side FARTHER from the mean gets the bigger share.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "80 & 100 → mean 90", "parts": [ { "value": 10, "label": "10" }, { "value": 10, "label": "10" } ], "showTotal": false } ] }, "caption": "Mean in the middle → 10 : 10 = 1 : 1." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "Milk 0 water, target closer to milk", "parts": [ { "value": 3, "label": "milk 3" }, { "value": 1, "label": "water 1" } ], "showTotal": false } ] }, "caption": "Water (value 0) blended with milk shifts the price the same way." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Write cheaper, dearer and the mean; cross-subtract to get the ratio; the value nearer the mean is used less.",
+    "steps": [
+      "Identify the cheaper value, the dearer value, and the target mean (mean is always between them).",
+      "cheaper's parts = dearer − mean.",
+      "dearer's parts = mean − cheaper.",
+      "Ratio cheaper : dearer = (dearer − mean) : (mean − cheaper); simplify."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Equation method",
+      "whenToUse": "To see WHY the cross rule works.",
+      "steps": [
+        "Let x parts cheaper (price c) and y parts dearer (price d) give mean m.",
+        "Total value: cx + dy = m(x + y).",
+        "Rearrange: x(m − c) = y(d − m) → x : y = (d − m) : (m − c)."
+      ],
+      "example": "c=80, d=100, m=85 → x:y = 15 : 5 = 3 : 1."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "In what ratio must rice at ₹60/kg be mixed with rice at ₹90/kg to get a mixture worth ₹70/kg?",
+      "steps": [
+        "cheaper = 60, dearer = 90, mean = 70.",
+        "cheaper's parts = 90 − 70 = 20.",
+        "dearer's parts = 70 − 60 = 10.",
+        "Ratio 20 : 10 = 2 : 1 (cheaper : dearer)."
+      ],
+      "answer": "2 : 1"
+    },
+    {
+      "problem": "How much water (free, value 0) must be added to 1 litre of milk worth ₹50 to make it worth ₹40 per litre?",
+      "steps": [
+        "cheaper = water = 0, dearer = milk = 50, mean = 40.",
+        "water's parts = 50 − 40 = 10.",
+        "milk's parts = 40 − 0 = 40.",
+        "water : milk = 10 : 40 = 1 : 4 → to 1 L milk add 1/4 L water = 0.25 L."
+      ],
+      "answer": "0.25"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Cross-subtract, farther side wins",
+    "intro": "cheaper : dearer = (dearer − mean) : (mean − cheaper). Read the ratio straight off the cross.",
+    "questions": [
+      { "id": "apt03-trick-1", "type": "text", "q": "Cheaper 40, dearer 60, mean 50. Ratio cheaper : dearer? (write like 1:1)", "answer": "1:1", "hintLadder": ["60 − 50 = 10.", "50 − 40 = 10.", "10 : 10 = 1 : 1."], "explain": "Mean in the middle → 1:1." },
+      { "id": "apt03-trick-2", "type": "text", "q": "Cheaper 20, dearer 30, mean 22. Ratio cheaper : dearer? (like a:b)", "answer": "4:1", "hintLadder": ["30 − 22 = 8.", "22 − 20 = 2.", "8 : 2 = 4 : 1."], "explain": "Closer to cheaper → more cheaper. 4:1." },
+      { "id": "apt03-trick-3", "type": "text", "q": "Cheaper 10, dearer 40, mean 30. Ratio cheaper : dearer?", "answer": "1:2", "hintLadder": ["40 − 30 = 10.", "30 − 10 = 20.", "10 : 20 = 1 : 2."], "explain": "Closer to dearer → more dearer. 1:2." },
+      { "id": "apt03-trick-4", "type": "text", "q": "Cheaper 0 (water), dearer 100, mean 80. Ratio water : dearer?", "answer": "1:4", "hintLadder": ["100 − 80 = 20.", "80 − 0 = 80.", "20 : 80 = 1 : 4."], "explain": "Add 1 part water to 4 parts. 1:4." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "ratio-flipped",
+      "mistake": "Assigning (mean − cheaper) to the cheaper side, flipping the ratio.",
+      "fix": "The ingredient FARTHER from the mean is used MORE. cheaper's parts = (dearer − mean); dearer's parts = (mean − cheaper). Sanity-check: if the mean is close to the cheaper price, you must be using more of the cheaper item."
+    },
+    {
+      "mistakeTag": "mean-outside",
+      "mistake": "Taking a target mean that is not between the two values (e.g. mean 110 when items are 80 and 100).",
+      "fix": "A blend can never be cheaper than the cheapest or dearer than the dearest ingredient. The mean must lie BETWEEN the two values."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "text", "q": "Cheaper 50, dearer 70, mean 60. Ratio cheaper : dearer? (like 1:1)", "answer": "1:1", "hintLadder": ["70 − 60 = 10.", "60 − 50 = 10.", "1 : 1."] },
+      { "id": "e2", "type": "mcq", "q": "Mixing rice at ₹80 and ₹100, the mixture price must be…", "options": [ { "label": "Between ₹80 and ₹100" }, { "label": "Below ₹80", "mistakeTag": "mean-outside" }, { "label": "Above ₹100", "mistakeTag": "mean-outside" } ], "answer": "Between ₹80 and ₹100", "hintLadder": ["A blend sits in between.", "Never cheaper than the cheapest.", "Never dearer than the dearest."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "text", "q": "Tea ₹90 and ₹120 blended to ₹100. Ratio cheaper : dearer?", "answer": "2:1", "hintLadder": ["120 − 100 = 20.", "100 − 90 = 10.", "20 : 10 = 2 : 1."] },
+      { "id": "m2", "type": "text", "q": "Milk ₹0 water and ₹60 milk blended to ₹48. Ratio water : milk?", "answer": "1:4", "hintLadder": ["60 − 48 = 12.", "48 − 0 = 48.", "12 : 48 = 1 : 4."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "text", "q": "Two alloys with 40% and 60% copper are mixed to get 55% copper. Ratio of first : second?", "answer": "1:3", "hintLadder": ["Treat % like values: 40, 60, mean 55.", "60 − 55 = 5 (first's parts); 55 − 40 = 15 (second's parts).", "5 : 15 = 1 : 3."] },
+      { "id": "c2", "type": "mcq", "q": "The mean is much closer to the dearer value. You will use…", "options": [ { "label": "More of the dearer item" }, { "label": "More of the cheaper item", "mistakeTag": "ratio-flipped" } ], "answer": "More of the dearer item", "hintLadder": ["Nearer the dearer price.", "So the blend is mostly dearer.", "Use more dearer."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "text", "q": "Cheaper 30, dearer 50, mean 40. Ratio cheaper : dearer? (1:1 style)", "answer": "1:1", "hintLadder": ["50 − 40 = 10.", "40 − 30 = 10.", "1 : 1."] },
+      { "id": "mc2", "type": "text", "q": "Cheaper 100, dearer 160, mean 120. Ratio cheaper : dearer?", "answer": "2:1", "hintLadder": ["160 − 120 = 40.", "120 − 100 = 20.", "40 : 20 = 2 : 1."] },
+      { "id": "mc3", "type": "mcq", "q": "Which ingredient is used in a bigger share?", "options": [ { "label": "The one farther from the mean value" }, { "label": "The one nearer the mean value", "mistakeTag": "ratio-flipped" } ], "answer": "The one farther from the mean value", "hintLadder": ["Cross rule.", "Farther gap = bigger parts.", "Farther wins."] },
+      { "id": "mc4", "type": "text", "q": "Water ₹0 and juice ₹80 blended to ₹50. Ratio water : juice?", "answer": "3:5", "hintLadder": ["80 − 50 = 30 (water parts).", "50 − 0 = 50 (juice parts).", "30 : 50 = 3 : 5."] },
+      { "id": "mc5", "type": "mcq", "q": "A mixture of ₹80 and ₹100 rice is claimed to cost ₹105. This is…", "options": [ { "label": "Impossible — mean must be between 80 and 100" }, { "label": "Fine if you mix carefully", "mistakeTag": "mean-outside" } ], "answer": "Impossible — mean must be between 80 and 100", "hintLadder": ["A blend can't beat the dearest.", "105 > 100.", "So it's impossible."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach the alligation cross to a friend: blend ₹80 and ₹100 rice to ₹85, draw the cross (100−85 and 85−80), and explain why the cheaper item takes the bigger share when the mean is close to the cheaper price.",
+  "revisionCard": {
+    "summary": "Blends land at a mean BETWEEN the two values. Cross rule: cheaper : dearer = (dearer − mean) : (mean − cheaper). The ingredient farther from the mean is used more. Water counts as value 0. Mean must lie between the two ingredient values.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Fraction Kitchen (Ganita Grove)",
+    "title": "The Perfect Blend",
+    "brief": "Hit the target price on every mix! Cross-subtract to find the ratio, use more of the farther ingredient, and reject the impossible 'out-of-range' orders.",
+    "character": "Fraction Fox"
+  },
+  "realLifeProject": "Mix two juices or two teas of different strengths to hit a taste you like. Note the ratio you used, then check it with the alligation cross treating 'strength' as the value.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive aptitude (Quantitative) — Mixtures & Alligation",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Cross-subtract; farther from the mean = bigger share",
+    "unpack": "cheaper : dearer = (dearer − mean) : (mean − cheaper). Mean sits between. Water = value 0."
+  },
+  "formulas": [
+    { "name": "Alligation", "formula": "cheaper : dearer = (dearer − mean) : (mean − cheaper)", "remember": "cross-subtract", "whenToUse": "Ratio to blend two values to a target mean." }
+  ],
+  "studentQuestions": [
+    { "q": "Why is the cheaper item's share (dearer − mean)?", "a": "Because the blend must balance: the farther the dearer value is above the mean, the more cheap stuff you need to pull the average back down." },
+    { "q": "Does alligation work for percentages and speeds too?", "a": "Yes — any 'value per unit' works: prices, concentrations, percentages, even average speeds." }
+  ]
+}

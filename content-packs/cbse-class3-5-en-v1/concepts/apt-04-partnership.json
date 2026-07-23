@@ -1,0 +1,171 @@
+{
+  "id": "apt-04-partnership",
+  "name": "Partnership — Sharing Profit Fairly",
+  "grade": 12,
+  "strand": "operations",
+  "prerequisites": [],
+  "whatIsIt": "When people run a business together, profit is split in the ratio of what each one actually 'put in' — and that means money AND time. Each partner's share weight = capital × months invested. Divide the profit in the ratio of these weights. If everyone invests for the same time, the ratio is simply the ratio of their capitals.",
+  "whyNeeded": "Family businesses, start-ups, chit funds, and shop partnerships all split earnings this way. Partnership is a steady favourite in SSC, Bank and Railway aptitude papers, and the capital × time idea keeps the split fair when partners join or leave at different times.",
+  "realLifeUses": [
+    "Two friends opening a tea stall with different amounts of money",
+    "A start-up where founders join at different months",
+    "Splitting rent or trip costs by how long each person stayed",
+    "A chit fund or investment pool sharing returns",
+    "SSC / Bank / Railway quantitative aptitude questions"
+  ],
+  "vocabulary": [
+    { "term": "capital", "meaning": "The money a partner invests in the business." },
+    { "term": "capital × time", "meaning": "Each partner's share weight — money multiplied by the months it stayed invested." },
+    { "term": "profit ratio", "meaning": "Profit is divided in the ratio of the partners' capital × time weights." },
+    { "term": "working / sleeping partner", "meaning": "A working partner may take an extra salary before profit is split by capital." }
+  ],
+  "story": {
+    "title": "The Two-Friend Tea Stall",
+    "characters": ["Kiran", "Meena"],
+    "text": "Kiran puts ₹5,000 into a tea stall; Meena puts ₹3,000. At year end they make ₹4,000 profit. 'Half each?' asks Kiran. Meena's father shakes his head: 'Share it by what each put in. Both invested the whole year, so the ratio is just the money: 5000 : 3000 = 5 : 3. That's 8 equal shares. Kiran gets 5 shares, Meena 3. Each share is 4000 ÷ 8 = ₹500, so Kiran gets ₹2,500 and Meena ₹1,500.' Fair and clear.",
+    "extractedProblem": "Kiran invests ₹5000, Meena ₹3000, both for the full year; profit ₹4000. What is Kiran's share?",
+    "answerInStory": "₹2,500 — ratio 5 : 3, eight shares of ₹500, Kiran takes five."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "Profit ₹4000 split in ratio 5 : 3", "parts": [ { "value": 5, "label": "Kiran" }, { "value": 3, "label": "Meena" } ], "showTotal": false },
+        { "label": "8 shares → each share = 4000 ÷ 8 = ₹500", "parts": [ { "value": 500, "label": "one share" } ], "showTotal": false },
+        { "label": "Kiran = 5 × 500 = ₹2500", "parts": [ { "value": 2500, "label": "Kiran" } ], "showTotal": false },
+        { "label": "Meena = 3 × 500 = ₹1500", "parts": [ { "value": 1500, "label": "Meena" } ], "showTotal": false }
+      ]
+    },
+    "caption": "Profit follows the ratio of capital × time. Same time → ratio is just the money. Total parts → value per part → each partner's cut."
+  },
+  "teachingGallery": [
+    {
+      "title": "Split by capital × time",
+      "note": "Weight = capital × months. Add the weights for total parts; profit ÷ total parts = one part's value.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "Same time: 6000 & 4000 → 3 : 2", "parts": [ { "value": 3, "label": "A" }, { "value": 2, "label": "B" } ], "showTotal": false } ] }, "caption": "Equal time → just compare money: 3 : 2." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "A ₹1000×12, B ₹2000×6", "parts": [ { "value": 12000, "label": "A weight" }, { "value": 12000, "label": "B weight" } ], "showTotal": false } ] }, "caption": "12000 : 12000 = 1 : 1 — different money & time can still be equal!" }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "For each partner compute capital × months; make the ratio; split profit by that ratio.",
+    "steps": [
+      "For each partner, weight = capital × time (in the same time unit, e.g. months).",
+      "Write the ratio of weights and simplify.",
+      "Total parts = sum of the ratio numbers; one part = profit ÷ total parts.",
+      "Each partner's share = their ratio number × one part."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Equal-time shortcut",
+      "whenToUse": "When all partners invest for the same duration.",
+      "steps": [
+        "Time cancels out — just use the ratio of capitals.",
+        "Split profit in the capital ratio."
+      ],
+      "example": "₹5000 & ₹3000 for a full year → 5 : 3."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A invests ₹6000 and B invests ₹4000 for the same time. Profit ₹2500. Find B's share.",
+      "steps": [
+        "Same time → ratio of capitals 6000 : 4000 = 3 : 2.",
+        "Total parts = 3 + 2 = 5; one part = 2500 ÷ 5 = 500.",
+        "B has 2 parts → 2 × 500 = ₹1000.",
+        "(Check: A gets 3 × 500 = 1500; 1500 + 1000 = 2500.)"
+      ],
+      "answer": "1000"
+    },
+    {
+      "problem": "A invests ₹1000 for 12 months; B invests ₹2000 for 6 months. Profit ₹3000. Find A's share.",
+      "steps": [
+        "Weights: A = 1000 × 12 = 12000; B = 2000 × 6 = 12000.",
+        "Ratio 12000 : 12000 = 1 : 1.",
+        "Total parts = 2; one part = 3000 ÷ 2 = 1500.",
+        "A's share = 1 × 1500 = ₹1500 (equal split, even though amounts differ)."
+      ],
+      "answer": "1500"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Weight = capital × time",
+    "intro": "Multiply each partner's money by their months, ratio them, then split.",
+    "questions": [
+      { "id": "apt04-trick-1", "type": "number", "q": "A:₹2000, B:₹2000, same time. Profit ₹800. A's share (₹)?", "answer": "400", "hintLadder": ["Equal money & time → 1 : 1.", "Half each.", "800 ÷ 2 = 400."], "explain": "Equal split: ₹400." },
+      { "id": "apt04-trick-2", "type": "number", "q": "A:₹3000, B:₹1000, same time. Profit ₹800. A's share (₹)?", "answer": "600", "hintLadder": ["Ratio 3 : 1, total 4 parts.", "One part = 800 ÷ 4 = 200.", "A = 3 × 200 = 600."], "explain": "₹600." },
+      { "id": "apt04-trick-3", "type": "number", "q": "A:₹5000, B:₹5000, same time. Profit ₹1000. B's share (₹)?", "answer": "500", "hintLadder": ["Equal → 1 : 1.", "Half each.", "₹500."], "explain": "₹500." },
+      { "id": "apt04-trick-4", "type": "number", "q": "A:₹1000×6, B:₹1000×12. Profit ₹900. B's share (₹)?", "answer": "600", "hintLadder": ["Weights 6000 : 12000 = 1 : 2.", "3 parts, one = 300.", "B = 2 × 300 = 600."], "explain": "₹600." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "ignored-time",
+      "mistake": "Splitting only by money when partners invested for different lengths of time.",
+      "fix": "Profit follows capital × TIME. Someone who invests less money but for much longer can still earn an equal (or bigger) share. Always multiply money by months first."
+    },
+    {
+      "mistakeTag": "split-equally-always",
+      "mistake": "Dividing profit equally regardless of how much each partner invested.",
+      "fix": "Equal split only happens when the capital × time weights are equal. Otherwise use the ratio of the weights."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "A:₹4000, B:₹2000, same time. Profit ₹600. A's share (₹)?", "answer": "400", "hintLadder": ["Ratio 4000 : 2000 = 2 : 1.", "3 parts, one = 200.", "A = 2 × 200 = 400."] },
+      { "id": "e2", "type": "mcq", "q": "Two partners invest equal money for equal time. Profit is split…", "options": [ { "label": "Equally" }, { "label": "By who works harder", "mistakeTag": "split-equally-always" } ], "answer": "Equally", "hintLadder": ["Equal weights.", "Ratio 1 : 1.", "Equal split."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "A:₹8000, B:₹12000, same time. Profit ₹1000. B's share (₹)?", "answer": "600", "hintLadder": ["Ratio 8 : 12 = 2 : 3.", "5 parts, one = 200.", "B = 3 × 200 = 600."] },
+      { "id": "m2", "type": "number", "q": "A:₹2000×12, B:₹4000×6. Profit ₹1200. A's share (₹)?", "answer": "600", "hintLadder": ["Weights 24000 : 24000 = 1 : 1.", "2 parts, one = 600.", "A = ₹600."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "A:₹3000×4, B:₹2000×6. Profit ₹1200. B's share (₹)?", "answer": "600", "hintLadder": ["Weights 12000 : 12000 = 1 : 1.", "Equal split.", "₹600."] },
+      { "id": "c2", "type": "mcq", "q": "A puts in less money but stays invested twice as long as B. It's possible A's share is…", "options": [ { "label": "Equal to or more than B's" }, { "label": "Always less than B's", "mistakeTag": "ignored-time" } ], "answer": "Equal to or more than B's", "hintLadder": ["Share = money × time.", "Extra time can balance less money.", "So A can match or beat B."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "A:₹1000, B:₹1000, same time. Profit ₹500. A's share (₹)?", "answer": "250", "hintLadder": ["Equal → 1 : 1.", "Half each.", "₹250."] },
+      { "id": "mc2", "type": "number", "q": "A:₹6000, B:₹2000, same time. Profit ₹800. A's share (₹)?", "answer": "600", "hintLadder": ["Ratio 3 : 1.", "4 parts, one = 200.", "A = 3 × 200 = 600."] },
+      { "id": "mc3", "type": "mcq", "q": "A partner's profit share depends on…", "options": [ { "label": "Capital × time invested" }, { "label": "Only how much money, never time", "mistakeTag": "ignored-time" } ], "answer": "Capital × time invested", "hintLadder": ["Money AND months.", "Multiply them.", "That's the weight."] },
+      { "id": "mc4", "type": "number", "q": "A:₹5000×2, B:₹2000×5. Profit ₹1000. A's share (₹)?", "answer": "500", "hintLadder": ["Weights 10000 : 10000 = 1 : 1.", "Equal split.", "₹500."] },
+      { "id": "mc5", "type": "number", "q": "A:₹9000, B:₹3000, same time. Profit ₹1600. B's share (₹)?", "answer": "400", "hintLadder": ["Ratio 3 : 1.", "4 parts, one = 400.", "B = 1 × 400 = 400."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend the partnership rule: profit is split by capital × time. Use A ₹1000 for 12 months and B ₹2000 for 6 months, show both weights are 12000, and explain why they split the profit equally despite investing different amounts.",
+  "revisionCard": {
+    "summary": "Profit ratio = ratio of (capital × time) weights. Same time → just compare money. Total parts → one part = profit ÷ total → each share = ratio number × one part. More time can offset less money. Equal split only when weights are equal.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Operations Farm (Ganita Grove)",
+    "title": "Fair Shares Stall",
+    "brief": "Run the stall, weigh each partner's capital × time, and split the day's profit so nobody grumbles. Catch the traps where time changes everything!",
+    "character": "Multi the Mixer"
+  },
+  "realLifeProject": "Plan a pretend two-person business: each 'invests' a made-up amount for a made-up number of months. Compute the capital × time weights and split a pretend profit fairly — then swap the times and watch the fair split change.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive aptitude (Quantitative) — Partnership",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Share = capital × time",
+    "unpack": "Weight each partner by money × months. Ratio the weights. Same time → just the money."
+  },
+  "formulas": [
+    { "name": "Profit share", "formula": "share ∝ capital × time", "remember": "money times months", "whenToUse": "Any partnership split." }
+  ],
+  "studentQuestions": [
+    { "q": "Why multiply money by time?", "a": "Because ₹1000 kept in for a whole year does more 'work' than ₹1000 kept in for one month — time matters as much as money." },
+    { "q": "What if times are the same?", "a": "Then time cancels out and you just split in the ratio of the amounts invested." }
+  ]
+}

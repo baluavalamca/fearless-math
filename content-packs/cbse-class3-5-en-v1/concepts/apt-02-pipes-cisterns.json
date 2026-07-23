@@ -1,0 +1,173 @@
+{
+  "id": "apt-02-pipes-cisterns",
+  "name": "Pipes and Cisterns — Filling and Leaking",
+  "grade": 12,
+  "strand": "operations",
+  "prerequisites": ["apt-01-time-work"],
+  "whatIsIt": "Pipes-and-cisterns is time-and-work in disguise: a tank is the 'job'. An inlet pipe does POSITIVE work (fills part of the tank each hour); an outlet pipe or a leak does NEGATIVE work (empties part each hour). Add the rates with their signs to get the net rate, then divide the tank by the net rate.",
+  "whyNeeded": "Water tanks, fuel tanks, reservoirs, and even 'money in vs money out' budgeting are pipes-and-cisterns problems. It is a guaranteed topic in SSC, Bank and Railway aptitude papers, and the sign trick (fill +, leak −) makes even tricky leak problems quick.",
+  "realLifeUses": [
+    "A tap filling a bucket while a small hole leaks water out",
+    "An overhead tank with two inlet pipes and one outlet",
+    "A petrol tank filling while the engine draws fuel",
+    "A reservoir: rain inflow vs irrigation outflow",
+    "SSC / Bank / Railway quantitative aptitude questions"
+  ],
+  "vocabulary": [
+    { "term": "inlet pipe", "meaning": "Fills the tank — a positive rate (part of the tank per hour)." },
+    { "term": "outlet / leak", "meaning": "Empties the tank — a negative rate (subtract it)." },
+    { "term": "net rate", "meaning": "Sum of all rates with signs; positive net fills, negative net empties." },
+    { "term": "capacity (LCM units)", "meaning": "Set tank capacity = LCM of the pipe times so each rate is a whole number." }
+  ],
+  "story": {
+    "title": "The Tap and the Hidden Leak",
+    "characters": ["Ravi", "his grandmother"],
+    "text": "Ravi's tap fills the water drum in 6 hours. But there's a small leak that would empty a full drum in 12 hours. 'So how long to fill it now?' Grandmother says: 'Make the drum 12 units — that's the LCM. The tap adds 12 ÷ 6 = 2 units an hour; the leak removes 12 ÷ 12 = 1 unit an hour. Net = 2 − 1 = 1 unit an hour, so filling the 12-unit drum takes 12 hours instead of 6.' Ravi finally understands why the drum takes so long.",
+    "extractedProblem": "A tap fills a drum in 6 hours; a leak empties it in 12 hours. With both acting, how long to fill?",
+    "answerInStory": "12 hours — net rate is 2 − 1 = 1 unit/hour on a 12-unit drum."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "Tank = 12 units (LCM of 6 & 12)", "parts": [ { "value": 12, "label": "capacity" } ], "showTotal": false },
+        { "label": "Tap fills +2 units/hour (12÷6)", "parts": [ { "value": 2, "label": "in" } ], "showTotal": false },
+        { "label": "Leak removes −1 unit/hour (12÷12)", "parts": [ { "value": 1, "label": "out" } ], "showTotal": false },
+        { "label": "Net = +1 unit/hour → 12 ÷ 1 = 12 hours", "parts": [ { "value": 1, "label": "net" } ], "showTotal": false }
+      ]
+    },
+    "caption": "Fill is positive, leak is negative. Add the signed rates for the net rate, then divide the capacity by it."
+  },
+  "teachingGallery": [
+    {
+      "title": "Fill +, leak −, then divide",
+      "note": "Capacity = LCM of the times. Inlet rate is positive, outlet/leak rate is negative. Time = capacity ÷ net rate.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "Two taps: 4h and 6h", "parts": [ { "value": 3, "label": "A" }, { "value": 2, "label": "B" } ], "showTotal": false } ] }, "caption": "Cap 12: A 3/h, B 2/h → net 5/h → 12÷5 = 2.4 hours." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "Fill 3/h, leak 1/h", "parts": [ { "value": 3, "label": "+" }, { "value": 1, "label": "−" } ], "showTotal": false } ] }, "caption": "Net = 3 − 1 = 2 units/hour." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Capacity = LCM of the pipe times; add signed rates (fill +, empty −); divide capacity by net rate.",
+    "steps": [
+      "Set tank capacity = LCM of all the given times.",
+      "Inlet rate = capacity ÷ its fill time (positive).",
+      "Outlet/leak rate = capacity ÷ its empty time (negative).",
+      "Net rate = sum of signed rates; time = capacity ÷ net rate."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Fraction method",
+      "whenToUse": "When you like 1/a notation.",
+      "steps": [
+        "Fill in 1/a per hour, empty in 1/b per hour.",
+        "Net per hour = 1/a − 1/b.",
+        "Time = 1 ÷ (net per hour)."
+      ],
+      "example": "Fill 6h, leak 12h → 1/6 − 1/12 = 1/12 → 12 hours."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Pipe A fills a tank in 4 hours, pipe B in 6 hours. Both open — how long to fill?",
+      "steps": [
+        "Capacity = LCM(4, 6) = 12 units.",
+        "A = 12 ÷ 4 = 3 units/h; B = 12 ÷ 6 = 2 units/h.",
+        "Net = 3 + 2 = 5 units/h.",
+        "Time = 12 ÷ 5 = 2.4 hours."
+      ],
+      "answer": "2.4"
+    },
+    {
+      "problem": "A pipe fills a cistern in 5 hours; a waste pipe empties it in 10 hours. Both open, how long to fill?",
+      "steps": [
+        "Capacity = LCM(5, 10) = 10 units.",
+        "Fill = 10 ÷ 5 = 2 units/h; waste = 10 ÷ 10 = 1 unit/h (negative).",
+        "Net = 2 − 1 = 1 unit/h.",
+        "Time = 10 ÷ 1 = 10 hours."
+      ],
+      "answer": "10"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Net rate = fills minus leaks",
+    "intro": "Capacity = LCM; add inlets, subtract outlets; divide.",
+    "questions": [
+      { "id": "apt02-trick-1", "type": "number", "q": "Fill in 3h, fill in 6h (both taps). Hours to fill?", "answer": "2", "hintLadder": ["Cap = LCM(3,6) = 6.", "Rates 2 + 1 = 3/h.", "6 ÷ 3 = 2."], "explain": "6 ÷ 3 = 2 hours." },
+      { "id": "apt02-trick-2", "type": "number", "q": "Fill in 4h, leak empties in 8h. Hours to fill?", "answer": "8", "hintLadder": ["Cap = LCM(4,8) = 8.", "Net = 2 − 1 = 1/h.", "8 ÷ 1 = 8."], "explain": "8 ÷ 1 = 8 hours." },
+      { "id": "apt02-trick-3", "type": "number", "q": "Fill in 2h, fill in 2h (both taps). Hours to fill?", "answer": "1", "hintLadder": ["Cap = 2, each 1/h.", "Net = 2/h.", "2 ÷ 2 = 1."], "explain": "1 hour." },
+      { "id": "apt02-trick-4", "type": "number", "q": "Fill in 6h, leak empties in 18h. Hours to fill?", "answer": "9", "hintLadder": ["Cap = LCM(6,18) = 18.", "Net = 3 − 1 = 2/h.", "18 ÷ 2 = 9."], "explain": "18 ÷ 2 = 9 hours." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "leak-added-not-subtracted",
+      "mistake": "Adding the leak's rate instead of subtracting it, so the tank seems to fill faster with a leak.",
+      "fix": "A leak fights the fill — its rate is NEGATIVE. Subtract it. If the net rate ends up negative, the tank can never fill (it empties)."
+    },
+    {
+      "mistakeTag": "added-the-times",
+      "mistake": "Adding the fill times (6 + 12 = 18) to combine pipes.",
+      "fix": "Combine RATES, not times. Two inlets together fill faster than either alone, so the time must drop below the fastest pipe."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "Two taps fill a tank in 6h and 3h. Both open — hours to fill?", "answer": "2", "hintLadder": ["Cap = LCM(6,3) = 6.", "Rates 1 + 2 = 3/h.", "6 ÷ 3 = 2."] },
+      { "id": "e2", "type": "mcq", "q": "A tank fills in 5h but a leak empties it in 10h. With both, filling will be…", "options": [ { "label": "Slower than 5 hours" }, { "label": "Faster than 5 hours", "mistakeTag": "leak-added-not-subtracted" } ], "answer": "Slower than 5 hours", "hintLadder": ["A leak removes water.", "So it fights the fill.", "It must take longer than 5 hours (it's 10)."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "Fill in 12h; leak empties in 24h. Hours to fill with both?", "answer": "24", "hintLadder": ["Cap = LCM(12,24) = 24.", "Net = 2 − 1 = 1/h.", "24 ÷ 1 = 24."] },
+      { "id": "m2", "type": "number", "q": "Pipes fill in 10h and 15h. Both open — hours to fill?", "answer": "6", "hintLadder": ["Cap = LCM(10,15) = 30.", "3 + 2 = 5/h.", "30 ÷ 5 = 6."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "Two inlets fill in 6h and 12h; one outlet empties in 8h. All open — hours to fill?", "answer": "8", "hintLadder": ["Cap = LCM(6,12,8) = 24.", "Rates: 4 + 2 − 3 = 3 units/h.", "24 ÷ 3 = 8 hours."] },
+      { "id": "c2", "type": "mcq", "q": "The net rate of a tank system comes out NEGATIVE. What happens?", "options": [ { "label": "The tank empties and never fills" }, { "label": "It fills very fast", "mistakeTag": "leak-added-not-subtracted" } ], "answer": "The tank empties and never fills", "hintLadder": ["Negative net = more out than in.", "Water level falls.", "It can never fill."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "Taps fill in 4h and 4h. Both open — hours to fill?", "answer": "2", "hintLadder": ["Cap = 4, each 1/h.", "Net 2/h.", "4 ÷ 2 = 2."] },
+      { "id": "mc2", "type": "number", "q": "Fill in 8h; leak empties in 24h. Hours to fill?", "answer": "12", "hintLadder": ["Cap = LCM(8,24) = 24.", "Net = 3 − 1 = 2/h.", "24 ÷ 2 = 12."] },
+      { "id": "mc3", "type": "mcq", "q": "How do you combine an inlet and an outlet pipe?", "options": [ { "label": "Subtract the outlet's rate from the inlet's" }, { "label": "Add both rates", "mistakeTag": "leak-added-not-subtracted" } ], "answer": "Subtract the outlet's rate from the inlet's", "hintLadder": ["Outlet removes water.", "Its rate is negative.", "So subtract it."] },
+      { "id": "mc4", "type": "number", "q": "Pipes fill in 9h and 18h. Both open — hours to fill?", "answer": "6", "hintLadder": ["Cap = LCM(9,18) = 18.", "2 + 1 = 3/h.", "18 ÷ 3 = 6."] },
+      { "id": "mc5", "type": "mcq", "q": "Two inlets, times 6h and 12h. The joint fill time is…", "options": [ { "label": "Less than 6 hours" }, { "label": "18 hours (6 + 12)", "mistakeTag": "added-the-times" } ], "answer": "Less than 6 hours", "hintLadder": ["Two taps help each other.", "Faster than the quicker tap.", "So under 6 hours (it's 4)."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach someone the sign rule for pipes: inlets are +, outlets/leaks are −. Use a tank that fills in 6h and leaks empty in 12h, make it 12 units, and show why the net rate is +1 and it takes 12 hours.",
+  "revisionCard": {
+    "summary": "Pipes = time-and-work with signs. Capacity = LCM of times. Inlet rate +, outlet/leak rate −. Net rate = signed sum; time = capacity ÷ net. Negative net ⇒ empties, never fills. Two inlets always beat the fastest single pipe.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Operations Farm (Ganita Grove)",
+    "title": "Fill the Tank, Beat the Leak",
+    "brief": "Open the right pipes, subtract the sneaky leaks, and hit the fill line before time runs out. Spot the traps where a leak turns the net rate negative!",
+    "character": "Multi the Mixer"
+  },
+  "realLifeProject": "Fill a bucket from a tap while it drips from a tiny hole (or imagine one). Estimate the fill rate and the leak rate in 'buckets per minute', subtract, and predict the fill time — then check with a real timer.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive aptitude (Quantitative) — Pipes & Cisterns",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Fill +, leak −, then divide",
+    "unpack": "Capacity = LCM. Net rate = inlets − outlets. Time = capacity ÷ net. Negative net means it empties."
+  },
+  "formulas": [
+    { "name": "Net rate", "formula": "net = Σ inlets − Σ outlets", "remember": "in minus out", "whenToUse": "Any mix of fill and empty pipes." },
+    { "name": "Fill time", "formula": "T = capacity ÷ net rate", "remember": "job over speed", "whenToUse": "After finding the net rate." }
+  ],
+  "studentQuestions": [
+    { "q": "What if the leak is faster than the tap?", "a": "Then the net rate is negative — more water leaves than enters, so the tank empties and can never fill." },
+    { "q": "Is this really the same as time-and-work?", "a": "Yes! The tank is the job, pipes are workers. The only new idea is that outlets do negative work." }
+  ]
+}

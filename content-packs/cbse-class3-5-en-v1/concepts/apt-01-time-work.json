@@ -1,0 +1,183 @@
+{
+  "id": "apt-01-time-work",
+  "name": "Time and Work — Rates that Add Up",
+  "grade": 12,
+  "strand": "operations",
+  "prerequisites": [],
+  "whatIsIt": "Time-and-work problems compare how fast people finish a job. The key is RATE = work per day. If A finishes a job in 10 days, A's rate is 1/10 of the job each day. When people work together, their rates ADD (never their days). The fastest trick: make the whole job = LCM of the times, so each person's daily work is a whole number.",
+  "whyNeeded": "Every project — building a wall, filling a tank, finishing an assignment, staffing a shift — is a time-and-work question. It is one of the most common topics in SSC, Bank, Railway and campus aptitude tests, and the LCM trick lets you solve most problems in under 30 seconds.",
+  "realLifeUses": [
+    "Builders: 6 masons finish a wall in 4 days — how long with 8 masons?",
+    "Software sprint: 3 developers ship a feature in 9 days — add one, how fast?",
+    "Farming: two tractors ploughing a field together",
+    "Home: two taps filling a water tank at different speeds",
+    "Exams: SSC/Bank/Railway quantitative aptitude papers"
+  ],
+  "vocabulary": [
+    { "term": "rate (work/day)", "meaning": "The fraction of the job one worker does in one day. A finishes in 10 days → rate 1/10." },
+    { "term": "unit of work (LCM method)", "meaning": "Set total job = LCM of the times so each rate is a whole number of units per day." },
+    { "term": "man-days", "meaning": "Workers × days needed for a job. If a job is 24 man-days, 4 people take 6 days." },
+    { "term": "efficiency", "meaning": "How much work per day — a faster worker has higher efficiency (a bigger rate)." }
+  ],
+  "story": {
+    "title": "Two Painters and One Wall",
+    "characters": ["Asha", "Bhola"],
+    "text": "Asha can whitewash a whole wall in 10 days; Bhola takes 15 days. 'If we join hands, how long?' asks Bhola. Their uncle smiles: 'Don't add the days — add the WORK per day. Call the wall 30 units (that's the LCM of 10 and 15). Asha paints 30 ÷ 10 = 3 units a day, Bhola 30 ÷ 15 = 2 units a day. Together that's 5 units a day, so the 30-unit wall takes 30 ÷ 5 = 6 days.' Both are amazed it beats each of their own times.",
+    "extractedProblem": "Asha alone takes 10 days, Bhola alone takes 15 days. Working together, how many days to paint the wall?",
+    "answerInStory": "6 days — total job 30 units, combined rate 5 units/day, so 30 ÷ 5 = 6."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "Whole job = 30 units (LCM of 10 & 15)", "parts": [ { "value": 30, "label": "the wall" } ], "showTotal": false },
+        { "label": "Asha's rate = 30÷10 = 3 units/day", "parts": [ { "value": 3, "label": "per day" } ], "showTotal": false },
+        { "label": "Bhola's rate = 30÷15 = 2 units/day", "parts": [ { "value": 2, "label": "per day" } ], "showTotal": false },
+        { "label": "Together = 5 units/day → 30÷5 = 6 days", "parts": [ { "value": 3, "label": "Asha" }, { "value": 2, "label": "Bhola" } ], "showTotal": false }
+      ]
+    },
+    "caption": "The LCM trick: make the job a whole number of units, turn each time into units/day, ADD the rates, then divide. Together they beat both solo times."
+  },
+  "teachingGallery": [
+    {
+      "title": "Add the rates, not the days",
+      "note": "Total job = LCM of the times. Each person's units/day = total ÷ their days. Combined time = total ÷ (sum of rates).",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "Job = 12 units (A:6, B:12)", "parts": [ { "value": 12, "label": "job" } ], "showTotal": false } ] }, "caption": "A: 12÷6 = 2/day, B: 12÷12 = 1/day → together 3/day → 12÷3 = 4 days." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "Together = 3 units/day", "parts": [ { "value": 2, "label": "A" }, { "value": 1, "label": "B" } ], "showTotal": false } ] }, "caption": "Rates add: 2 + 1 = 3 units per day." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "24 man-days: 4 people → 6 days", "parts": [ { "value": 6, "label": "6 days" }, { "value": 6, "label": "" }, { "value": 6, "label": "" }, { "value": 6, "label": "" } ], "showTotal": false } ] }, "caption": "Man-days stay constant: 6 people × 4 days = 4 people × 6 days = 24." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Turn each time into a daily rate, add rates for teamwork, divide the job by the combined rate.",
+    "steps": [
+      "Let total work = LCM of all the given times (so rates are whole numbers).",
+      "Each worker's rate = total work ÷ their days.",
+      "Working together, ADD the rates to get the combined units/day.",
+      "Time together = total work ÷ combined rate."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Fraction (1/a + 1/b) method",
+      "whenToUse": "When you prefer fractions to the LCM units.",
+      "steps": [
+        "A's one-day work = 1/a, B's one-day work = 1/b.",
+        "Together's one-day work = 1/a + 1/b.",
+        "Time together = 1 ÷ (1/a + 1/b) = ab/(a+b)."
+      ],
+      "example": "a=10, b=15 → ab/(a+b) = 150/25 = 6 days."
+    },
+    {
+      "name": "Man-days method",
+      "whenToUse": "When the number of workers changes.",
+      "steps": [
+        "Total man-days = workers × days (this stays constant for the same job).",
+        "New days = total man-days ÷ new number of workers."
+      ],
+      "example": "6 masons × 4 days = 24 man-days → 8 masons take 24 ÷ 8 = 3 days."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A does a job in 12 days, B in 6 days. How many days together?",
+      "steps": [
+        "Total job = LCM(12, 6) = 12 units.",
+        "A's rate = 12 ÷ 12 = 1 unit/day; B's rate = 12 ÷ 6 = 2 units/day.",
+        "Together = 1 + 2 = 3 units/day.",
+        "Time = 12 ÷ 3 = 4 days."
+      ],
+      "answer": "4"
+    },
+    {
+      "problem": "6 workers build a wall in 8 days. How many days would 4 workers take (same wall)?",
+      "steps": [
+        "Total work = 6 × 8 = 48 man-days.",
+        "Man-days stay the same for the same wall.",
+        "New days = 48 ÷ 4 = 12 days.",
+        "Fewer workers → more days (inverse relationship)."
+      ],
+      "answer": "12"
+    }
+  ],
+  "trickPractice": {
+    "trick": "LCM units: rate = total ÷ days, then add",
+    "intro": "Make the job the LCM of the times so every rate is a whole number, then just add the units/day.",
+    "questions": [
+      { "id": "apt01-trick-1", "type": "number", "q": "A: 10 days, B: 10 days. Together = ? days", "answer": "5", "hintLadder": ["Job = LCM(10,10) = 10 units.", "Each does 1 unit/day → together 2/day.", "10 ÷ 2 = 5."], "explain": "Equal speeds halve the time: 5 days." },
+      { "id": "apt01-trick-2", "type": "number", "q": "A: 20 days, B: 30 days. Together = ? days", "answer": "12", "hintLadder": ["Job = LCM(20,30) = 60 units.", "A: 3/day, B: 2/day → together 5/day.", "60 ÷ 5 = 12."], "explain": "60 ÷ 5 = 12 days." },
+      { "id": "apt01-trick-3", "type": "number", "q": "A: 8 days, B: 24 days. Together = ? days", "answer": "6", "hintLadder": ["Job = LCM(8,24) = 24 units.", "A: 3/day, B: 1/day → together 4/day.", "24 ÷ 4 = 6."], "explain": "24 ÷ 4 = 6 days." },
+      { "id": "apt01-trick-4", "type": "number", "q": "A: 15 days, B: 10 days. Together = ? days", "answer": "6", "hintLadder": ["Job = LCM(15,10) = 30 units.", "A: 2/day, B: 3/day → together 5/day.", "30 ÷ 5 = 6."], "explain": "30 ÷ 5 = 6 days." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "added-the-days",
+      "mistake": "Adding the two times (10 + 15 = 25) or averaging them (12.5) to get the joint time.",
+      "fix": "Never add days! People working together finish FASTER than either alone, so the answer must be less than the smaller time. Add RATES (work/day), then divide the job by the total rate."
+    },
+    {
+      "mistakeTag": "workers-days-direct",
+      "mistake": "Thinking more workers means more days (treating workers and days as directly proportional).",
+      "fix": "Workers and days are INVERSELY proportional — more workers, fewer days. Keep man-days (workers × days) constant."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "A finishes in 6 days, B in 3 days. Together they take how many days?", "answer": "2", "hintLadder": ["Job = LCM(6,3) = 6 units.", "A: 1/day, B: 2/day → together 3/day.", "6 ÷ 3 = 2."] },
+      { "id": "e2", "type": "mcq", "q": "A takes 12 days and B takes 12 days. How long together?", "options": [ { "label": "6 days" }, { "label": "24 days", "mistakeTag": "added-the-days" }, { "label": "12 days", "mistakeTag": "added-the-days" } ], "answer": "6 days", "hintLadder": ["Equal speeds share the job.", "Each does 1/12 per day → together 2/12 = 1/6.", "So 6 days."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "A: 18 days, B: 9 days. Together = ? days", "answer": "6", "hintLadder": ["Job = LCM(18,9) = 18 units.", "A: 1/day, B: 2/day → together 3/day.", "18 ÷ 3 = 6."] },
+      { "id": "m2", "type": "number", "q": "8 men build a bridge in 15 days. How many days for 10 men?", "answer": "12", "hintLadder": ["Man-days = 8 × 15 = 120.", "Same job → man-days constant.", "120 ÷ 10 = 12."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "A: 12 days, B: 15 days, C: 20 days. All three together = ? days", "answer": "5", "hintLadder": ["Job = LCM(12,15,20) = 60 units.", "Rates: A 5, B 4, C 3 → total 12/day.", "60 ÷ 12 = 5 days."] },
+      { "id": "c2", "type": "mcq", "q": "A does a job in 10 days, B in 15 days. They work together — will the joint time be more or less than 10 days?", "options": [ { "label": "Less than 10 days" }, { "label": "More than 15 days", "mistakeTag": "added-the-days" }, { "label": "Exactly 25 days", "mistakeTag": "added-the-days" } ], "answer": "Less than 10 days", "hintLadder": ["Two people help each other.", "Together must beat the faster person.", "So the answer is under 10 days (it's 6)."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "A: 4 days, B: 4 days. Together = ? days", "answer": "2", "hintLadder": ["Equal speeds.", "Each 1/4 per day → 2/4 = 1/2.", "So 2 days."] },
+      { "id": "mc2", "type": "number", "q": "A: 24 days, B: 8 days. Together = ? days", "answer": "6", "hintLadder": ["Job = LCM(24,8) = 24.", "A 1/day, B 3/day → 4/day.", "24 ÷ 4 = 6."] },
+      { "id": "mc3", "type": "mcq", "q": "12 workers finish in 10 days. To finish faster you should…", "options": [ { "label": "Add more workers" }, { "label": "Remove workers", "mistakeTag": "workers-days-direct" } ], "answer": "Add more workers", "hintLadder": ["Workers and days are inverse.", "More hands, less time.", "Fewer workers would take longer."] },
+      { "id": "mc4", "type": "number", "q": "A: 30 days, B: 20 days. Together = ? days", "answer": "12", "hintLadder": ["Job = LCM(30,20) = 60.", "A 2/day, B 3/day → 5/day.", "60 ÷ 5 = 12."] },
+      { "id": "mc5", "type": "number", "q": "15 men dig a trench in 8 days. How many days for 12 men?", "answer": "10", "hintLadder": ["Man-days = 15 × 8 = 120.", "Constant for the same trench.", "120 ÷ 12 = 10."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend the LCM trick for time-and-work: pick two times (say 6 and 12 days), make the job the LCM, turn each into units/day, add the rates, and divide. Explain WHY you never add the days.",
+  "revisionCard": {
+    "summary": "Rate = work/day. Job = LCM of the times so rates are whole units. Together: ADD rates, time = job ÷ combined rate → ab/(a+b) for two people. Workers × days = man-days is constant (inverse: more workers, fewer days). The joint time is always less than the fastest solo time.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Operations Farm (Ganita Grove)",
+    "title": "The Two-Painter Challenge",
+    "brief": "Race the clock! Combine workers with different speeds, add their rates the smart way, and finish each job before the timer — but never fall for the 'add the days' trap.",
+    "character": "Multi the Mixer"
+  },
+  "realLifeProject": "Time a real chore two ways: how long you take to tidy a room alone, and with a helper. Turn each into 'rooms per hour' and check that together you finish faster than either alone — that's rates adding up.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive aptitude (Quantitative) — Time & Work",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Add the RATES, never the days",
+    "unpack": "Job = LCM of times. Two people: ab/(a+b). Together always beats the faster one. Workers × days stays constant."
+  },
+  "formulas": [
+    { "name": "Two together", "formula": "T = ab / (a + b)", "remember": "product over sum", "whenToUse": "A alone a days, B alone b days." },
+    { "name": "Man-days", "formula": "M₁ × D₁ = M₂ × D₂", "remember": "workers × days is constant", "whenToUse": "Same job, different number of workers." }
+  ],
+  "studentQuestions": [
+    { "q": "Why can't I just add 10 and 15 days?", "a": "Because together they help each other, so the job finishes faster — the answer must be under 10, not 25. Add work-per-day instead." },
+    { "q": "Why use the LCM?", "a": "It turns the job into a whole number of units, so each person's daily work is a neat whole number and there are no fractions to juggle." }
+  ]
+}

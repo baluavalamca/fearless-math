@@ -1,0 +1,171 @@
+{
+  "id": "apt-11-clock-aptitude",
+  "name": "Clocks — Angles Between the Hands",
+  "grade": 12,
+  "strand": "measurement",
+  "prerequisites": [],
+  "whatIsIt": "A clock face is a circle of 360°, split into 12 hours, so each hour mark is 30° apart. The MINUTE hand sweeps a full 360° in 60 minutes → 6° per minute. The HOUR hand sweeps 360° in 12 hours → only 0.5° per minute (it creeps as the minutes pass). The angle between the hands at H hours M minutes is |30H − 5.5M| degrees (take the smaller of that and 360 minus it).",
+  "whyNeeded": "Clock-angle puzzles are a favourite in SSC, Bank, Railway and campus aptitude tests. They also sharpen the powerful idea of two things moving at different speeds around a circle — the same maths as gears, laps and orbits.",
+  "realLifeUses": [
+    "Puzzle questions: 'angle between the hands at 3:20?'",
+    "When do the hands overlap or make a straight line?",
+    "Understanding why the hour hand isn't exactly on the hour mark",
+    "Gears and dials that turn at different rates",
+    "SSC / Bank / Railway quantitative aptitude questions"
+  ],
+  "vocabulary": [
+    { "term": "30° per hour mark", "meaning": "360° ÷ 12 = 30°, the gap between two hour numbers." },
+    { "term": "minute hand speed", "meaning": "6° per minute (360° in 60 minutes)." },
+    { "term": "hour hand speed", "meaning": "0.5° per minute — it drifts forward as minutes pass." },
+    { "term": "angle formula", "meaning": "Angle = |30H − 5.5M|; if over 180°, use 360 − that for the smaller angle." }
+  ],
+  "story": {
+    "title": "The Angle at Half Past Three",
+    "characters": ["Sameer", "his aunt"],
+    "text": "Sameer asks, 'What's the angle between the hands at 3:30?' His aunt uses the rule: 'Hour part: 30 × 3 = 90. Minute part: 5.5 × 30 = 165. The angle is |90 − 165| = 75°.' Sameer is surprised it isn't 90° — 'because the hour hand has already crept halfway to 4 by 3:30,' she explains. 'At exactly 3:00 it would be 30 × 3 − 0 = 90°, but those extra 30 minutes moved the hour hand 15° forward.'",
+    "extractedProblem": "Find the angle between the clock hands at 3:30.",
+    "answerInStory": "75° — |30×3 − 5.5×30| = |90 − 165| = 75° (the hour hand crept 15° past the 3)."
+  },
+  "visual": {
+    "component": "ClockFace",
+    "props": {
+      "clocks": [
+        { "hour": 3, "minute": 0, "label": "3:00 → 90°" },
+        { "hour": 3, "minute": 30, "label": "3:30 → 75°" },
+        { "hour": 6, "minute": 0, "label": "6:00 → 180°" }
+      ]
+    },
+    "caption": "Each hour mark is 30°. Minute hand 6°/min, hour hand only 0.5°/min. Angle = |30H − 5.5M|; the hour hand's creep is why 3:30 is 75°, not 90°."
+  },
+  "teachingGallery": [
+    {
+      "title": "Angle = |30H − 5.5M|",
+      "note": "Hour marks are 30° apart. The hour hand drifts 0.5° each minute, so use 5.5M not 6M.",
+      "examples": [
+        { "component": "ClockFace", "props": { "clocks": [ { "hour": 9, "minute": 0, "label": "9:00 → 90°" } ] }, "caption": "|30×9 − 0| = 270 → smaller angle 360 − 270 = 90°." },
+        { "component": "ClockFace", "props": { "clocks": [ { "hour": 12, "minute": 0, "label": "12:00 → 0°" } ] }, "caption": "Both hands together → 0°." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Use angle = |30H − 5.5M|; if it exceeds 180°, subtract from 360 for the smaller angle.",
+    "steps": [
+      "Hour part = 30 × H (degrees for the hour).",
+      "Minute part = 5.5 × M (0.5 for the drifting hour hand + 5.5 handles both).",
+      "Angle = |30H − 5.5M|.",
+      "If the result is more than 180°, the smaller angle is 360 − result."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Speed-gap method",
+      "whenToUse": "To see WHY the formula works.",
+      "steps": [
+        "Minute hand moves 6°/min, hour hand 0.5°/min.",
+        "They separate at 6 − 0.5 = 5.5° per minute from the top of the hour.",
+        "Combine with the 30° per hour head start of the hour hand."
+      ],
+      "example": "At 3:30 the minute hand is at 180°, hour hand at 90 + 15 = 105° → gap 75°."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Find the angle between the hands at 3:00.",
+      "steps": [
+        "Angle = |30H − 5.5M|.",
+        "= |30 × 3 − 5.5 × 0|.",
+        "= |90 − 0|.",
+        "= 90°."
+      ],
+      "answer": "90"
+    },
+    {
+      "problem": "Find the angle between the hands at 2:20.",
+      "steps": [
+        "Hour part = 30 × 2 = 60.",
+        "Minute part = 5.5 × 20 = 110.",
+        "Angle = |60 − 110| = 50°.",
+        "50° is under 180°, so that's the answer."
+      ],
+      "answer": "50"
+    }
+  ],
+  "trickPractice": {
+    "trick": "|30H − 5.5M|, then keep the smaller angle",
+    "intro": "Plug hour and minute into the formula; if over 180°, subtract from 360.",
+    "questions": [
+      { "id": "apt11-trick-1", "type": "number", "q": "Angle at 6:00 (degrees)?", "answer": "180", "hintLadder": ["|30×6 − 0|.", "= 180.", "Straight line."], "explain": "180°." },
+      { "id": "apt11-trick-2", "type": "number", "q": "Angle at 3:00 (degrees)?", "answer": "90", "hintLadder": ["|30×3 − 0|.", "= 90.", "Right angle."], "explain": "90°." },
+      { "id": "apt11-trick-3", "type": "number", "q": "Angle at 9:00 (degrees, smaller)?", "answer": "90", "hintLadder": ["|30×9| = 270.", "360 − 270.", "= 90."], "explain": "90°." },
+      { "id": "apt11-trick-4", "type": "number", "q": "Angle at 4:00 (degrees)?", "answer": "120", "hintLadder": ["|30×4 − 0|.", "= 120.", "Four hour marks."], "explain": "120°." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "hour-hand-frozen",
+      "mistake": "Assuming the hour hand stays exactly on the hour mark as minutes pass (getting 90° at 3:30).",
+      "fix": "The hour hand CREEPS — 0.5° every minute. By 3:30 it has moved 15° past the 3. That's why the formula uses 5.5M, and 3:30 is 75°, not 90°."
+    },
+    {
+      "mistakeTag": "reflex-not-reduced",
+      "mistake": "Reporting the big (reflex) angle when the smaller angle is expected.",
+      "fix": "If |30H − 5.5M| comes out above 180°, subtract it from 360 to get the usual (smaller) angle between the hands."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "Angle at 2:00 (degrees)?", "answer": "60", "hintLadder": ["|30×2 − 0|.", "= 60.", "Two hour marks."] },
+      { "id": "e2", "type": "mcq", "q": "How far does the minute hand turn in one minute?", "options": [ { "label": "6°" }, { "label": "1°", "mistakeTag": "hour-hand-frozen" } ], "answer": "6°", "hintLadder": ["360° in 60 min.", "360 ÷ 60.", "= 6° per minute."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "Angle at 3:30 (degrees)?", "answer": "75", "hintLadder": ["|30×3 − 5.5×30|.", "|90 − 165|.", "= 75."] },
+      { "id": "m2", "type": "number", "q": "Angle at 5:00 (degrees)?", "answer": "150", "hintLadder": ["|30×5 − 0|.", "= 150.", "Five hour marks."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "Angle at 4:20 (degrees)?", "answer": "10", "hintLadder": ["Hour part 30×4 = 120.", "Minute part 5.5×20 = 110.", "|120 − 110| = 10."] },
+      { "id": "c2", "type": "mcq", "q": "At 3:30 the angle is 75°, not 90°, because…", "options": [ { "label": "The hour hand has crept past the 3" }, { "label": "The clock is wrong", "mistakeTag": "hour-hand-frozen" } ], "answer": "The hour hand has crept past the 3", "hintLadder": ["Hour hand moves each minute.", "By :30 it's 15° past.", "So the gap shrinks."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "Angle at 12:00 (degrees)?", "answer": "0", "hintLadder": ["Both hands together.", "|0 − 0|.", "= 0."] },
+      { "id": "mc2", "type": "number", "q": "Angle at 3:00 (degrees)?", "answer": "90", "hintLadder": ["|30×3|.", "= 90.", "Right angle."] },
+      { "id": "mc3", "type": "mcq", "q": "The hour hand moves how many degrees per minute?", "options": [ { "label": "0.5°" }, { "label": "6°", "mistakeTag": "hour-hand-frozen" } ], "answer": "0.5°", "hintLadder": ["360° in 12 hours.", "= 30° per hour.", "÷60 = 0.5° per min."] },
+      { "id": "mc4", "type": "number", "q": "Angle at 2:20 (degrees)?", "answer": "50", "hintLadder": ["30×2 = 60; 5.5×20 = 110.", "|60 − 110|.", "= 50."] },
+      { "id": "mc5", "type": "number", "q": "Angle at 6:00 (degrees)?", "answer": "180", "hintLadder": ["|30×6|.", "= 180.", "Straight line."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend the clock-angle formula |30H − 5.5M|. Use 3:30 to show why the answer is 75° and not 90° — because the hour hand creeps 0.5° every minute and has moved 15° past the 3.",
+  "revisionCard": {
+    "summary": "Hour marks 30° apart. Minute hand 6°/min, hour hand 0.5°/min. Angle = |30H − 5.5M|; if over 180°, use 360 − it. The hour hand's creep (5.5M, not 6M) is the whole trick — 3:30 gives 75°, not 90°.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Measurement Island (Ganita Grove)",
+    "title": "Beat the Clock Angles",
+    "brief": "Snap the angle between the hands for any time! Use the 30H − 5.5M rule, keep the smaller angle, and never freeze the creeping hour hand.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Pick five random times on a real clock. Predict each angle with |30H − 5.5M|, then hold a protractor to the clock face (or estimate) and check how close you were.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive aptitude (Quantitative) — Clocks",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Angle = |30H − 5.5M|",
+    "unpack": "30° per hour mark. Hour hand creeps 0.5°/min. Over 180° → take 360 − it."
+  },
+  "formulas": [
+    { "name": "Hand angle", "formula": "θ = |30H − 5.5M|", "remember": "thirty-H minus five-point-five-M", "whenToUse": "Angle between the hands at H:M." }
+  ],
+  "studentQuestions": [
+    { "q": "Why 5.5M and not 6M?", "a": "The minute hand gains 6° a minute but the hour hand also creeps 0.5° a minute, so their relative movement is 6 − 0.5 = 5.5° per minute." },
+    { "q": "How many times do the hands overlap in 12 hours?", "a": "11 times — not 12 — because the hour hand keeps moving, so it takes a little over an hour for the minute hand to catch up each time." }
+  ]
+}

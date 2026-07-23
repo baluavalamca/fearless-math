@@ -1,0 +1,172 @@
+{
+  "id": "apt-10-surds-indices",
+  "name": "Surds and Indices — Powers and Roots Made Simple",
+  "grade": 12,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "An INDEX (power) is repeated multiplication: 2⁵ means 2 multiplied five times. A few laws do all the work: to MULTIPLY same-base powers you ADD the indices (aᵐ·aⁿ = aᵐ⁺ⁿ); to DIVIDE you SUBTRACT (aᵐ ÷ aⁿ = aᵐ⁻ⁿ); a power of a power MULTIPLIES ((aᵐ)ⁿ = aᵐⁿ); anything to the power 0 is 1; and a negative power means 'one over' (a⁻ⁿ = 1/aⁿ). A SURD is a root that isn't exact, like √2 — and √a = a^(1/2).",
+  "whyNeeded": "Indices power scientific notation, growth, compound interest, and computer science. Surds and indices appear directly in SSC, Bank and Railway aptitude papers and underpin all of algebra — mastering the five laws makes huge expressions collapse to one line.",
+  "realLifeUses": [
+    "Scientific notation for very big/small numbers (3 × 10⁸ m/s)",
+    "Doubling and growth: 2ⁿ bacteria, chessboard grains",
+    "Square roots in the Pythagoras theorem and distances",
+    "Simplifying formulas quickly in algebra",
+    "SSC / Bank / Railway quantitative aptitude questions"
+  ],
+  "vocabulary": [
+    { "term": "base and index", "meaning": "In aⁿ, a is the base and n is the index (power/exponent) — how many times a is multiplied." },
+    { "term": "aᵐ · aⁿ = aᵐ⁺ⁿ", "meaning": "Same base, multiplying → ADD the indices." },
+    { "term": "a⁰ = 1", "meaning": "Any non-zero number to the power 0 equals 1." },
+    { "term": "surd", "meaning": "An irrational root like √2 or ∛5; √a = a^(1/2)." }
+  ],
+  "story": {
+    "title": "The Doubling Rice Puzzle",
+    "characters": ["Anaya", "her teacher"],
+    "text": "Anaya reads that a chessboard doubles rice every square: 2, 4, 8, 16… 'How do I write square 10?' Her teacher says: 'That's 2¹⁰. And here's the magic — 2³ × 2² is not messy: same base, so ADD the powers: 2³⁺² = 2⁵ = 32. To go the other way, 2⁵ ÷ 2² subtracts: 2³ = 8. A power of a power multiplies: (2²)³ = 2⁶ = 64. And 2⁰ is just 1.' Anaya realises the five index laws turn scary powers into simple addition.",
+    "extractedProblem": "Simplify 2³ × 2² using the index laws, and give its value.",
+    "answerInStory": "2³ × 2² = 2³⁺² = 2⁵ = 32 (add the indices when multiplying same bases)."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "2³ = 2×2×2 = 8", "parts": [ { "value": 2, "label": "2" }, { "value": 2, "label": "2" }, { "value": 2, "label": "2" } ], "showTotal": false },
+        { "label": "2² = 2×2 = 4", "parts": [ { "value": 2, "label": "2" }, { "value": 2, "label": "2" } ], "showTotal": false },
+        { "label": "2³ × 2² = five 2's = 2⁵ = 32", "parts": [ { "value": 2, "label": "2" }, { "value": 2, "label": "2" }, { "value": 2, "label": "2" }, { "value": 2, "label": "2" }, { "value": 2, "label": "2" } ], "showTotal": false }
+      ]
+    },
+    "caption": "Multiplying same-base powers just lines up more factors, so you ADD the indices: three 2's times two 2's makes five 2's = 2⁵."
+  },
+  "teachingGallery": [
+    {
+      "title": "The five index laws",
+      "note": "×: add. ÷: subtract. Power of power: multiply. a⁰ = 1. a⁻ⁿ = 1/aⁿ.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "3² = 9", "parts": [ { "value": 3, "label": "3" }, { "value": 3, "label": "3" } ], "showTotal": false } ] }, "caption": "3² = 3 × 3 = 9." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "(2²)³ = 2⁶ = 64", "parts": [ { "value": 4, "label": "2²" }, { "value": 4, "label": "2²" }, { "value": 4, "label": "2²" } ], "showTotal": false } ] }, "caption": "Power of a power: 2×3 = 6 → 2⁶ = 64." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Match the operation to a law: multiply→add, divide→subtract, power-of-power→multiply, zero power→1, negative→reciprocal.",
+    "steps": [
+      "Multiplying same bases: aᵐ · aⁿ = aᵐ⁺ⁿ (add indices).",
+      "Dividing same bases: aᵐ ÷ aⁿ = aᵐ⁻ⁿ (subtract indices).",
+      "Power of a power: (aᵐ)ⁿ = aᵐⁿ (multiply indices).",
+      "Special cases: a⁰ = 1; a⁻ⁿ = 1/aⁿ; a^(1/2) = √a."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Expand and count",
+      "whenToUse": "When you forget a law — just write the factors out.",
+      "steps": [
+        "Write each power as repeated multiplication.",
+        "Count the factors of the base to read off the new index."
+      ],
+      "example": "2³ × 2² = (2·2·2)(2·2) = five 2's = 2⁵ = 32."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Simplify 5³ × 5² and give its value.",
+      "steps": [
+        "Same base, multiplying → add indices: 5³⁺² = 5⁵.",
+        "5⁵ = 5·5·5·5·5.",
+        "= 3125.",
+        "So 5³ × 5² = 3125."
+      ],
+      "answer": "3125"
+    },
+    {
+      "problem": "Evaluate (3²)² and 7⁰.",
+      "steps": [
+        "Power of a power → multiply indices: (3²)² = 3⁴.",
+        "3⁴ = 81.",
+        "Any non-zero number to the power 0 is 1, so 7⁰ = 1.",
+        "The question's main value (3²)² = 81."
+      ],
+      "answer": "81"
+    }
+  ],
+  "trickPractice": {
+    "trick": "× add, ÷ subtract, power×power multiply",
+    "intro": "Match the operation to the law and read off the new index.",
+    "questions": [
+      { "id": "apt10-trick-1", "type": "number", "q": "2⁴ = ?", "answer": "16", "hintLadder": ["2×2×2×2.", "= 16.", "Four 2's."], "explain": "16." },
+      { "id": "apt10-trick-2", "type": "number", "q": "2³ × 2² = ? (value)", "answer": "32", "hintLadder": ["Add indices → 2⁵.", "2⁵ = 32.", "Same base, multiply → add."], "explain": "32." },
+      { "id": "apt10-trick-3", "type": "number", "q": "(3²)² = ? (value)", "answer": "81", "hintLadder": ["Multiply indices → 3⁴.", "3⁴ = 81.", "Power of a power."], "explain": "81." },
+      { "id": "apt10-trick-4", "type": "number", "q": "√144 = ?", "answer": "12", "hintLadder": ["What squared is 144?", "12 × 12 = 144.", "= 12."], "explain": "12." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "multiplied-indices-when-multiplying",
+      "mistake": "Multiplying the indices when multiplying same-base powers (writing 2³ × 2² = 2⁶).",
+      "fix": "When you MULTIPLY same bases you ADD the indices (2³⁺² = 2⁵ = 32). You only MULTIPLY indices for a power OF a power, (2³)² = 2⁶."
+    },
+    {
+      "mistakeTag": "zero-power-zero",
+      "mistake": "Thinking a⁰ = 0.",
+      "fix": "Any non-zero number to the power 0 is 1, not 0. (Check the pattern: 2³=8, 2²=4, 2¹=2, 2⁰=1 — each step ÷2.)"
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "3³ = ?", "answer": "27", "hintLadder": ["3×3×3.", "9 × 3.", "= 27."] },
+      { "id": "e2", "type": "mcq", "q": "2³ × 2² equals…", "options": [ { "label": "2⁵ = 32" }, { "label": "2⁶ = 64", "mistakeTag": "multiplied-indices-when-multiplying" } ], "answer": "2⁵ = 32", "hintLadder": ["Multiply same base → add powers.", "3 + 2 = 5.", "2⁵ = 32."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "2⁶ ÷ 2³ = ? (value)", "answer": "8", "hintLadder": ["Subtract indices → 2³.", "2³ = 8.", "Dividing → subtract."] },
+      { "id": "m2", "type": "number", "q": "√169 = ?", "answer": "13", "hintLadder": ["13 × 13.", "= 169.", "So √169 = 13."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "(2³)² = ? (value)", "answer": "64", "hintLadder": ["Multiply indices → 2⁶.", "2⁶ = 64.", "Power of a power."] },
+      { "id": "c2", "type": "mcq", "q": "5⁰ equals…", "options": [ { "label": "1" }, { "label": "0", "mistakeTag": "zero-power-zero" } ], "answer": "1", "hintLadder": ["Any non-zero to power 0.", "Pattern halves down to 1.", "= 1."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "2⁵ = ?", "answer": "32", "hintLadder": ["2×2×2×2×2.", "= 32.", "Five 2's."] },
+      { "id": "mc2", "type": "number", "q": "3² × 3² = ? (value)", "answer": "81", "hintLadder": ["Add indices → 3⁴.", "3⁴ = 81.", "Multiply → add."] },
+      { "id": "mc3", "type": "mcq", "q": "When you MULTIPLY same-base powers, the indices are…", "options": [ { "label": "Added" }, { "label": "Multiplied", "mistakeTag": "multiplied-indices-when-multiplying" } ], "answer": "Added", "hintLadder": ["More factors line up.", "So add the counts.", "aᵐ·aⁿ = aᵐ⁺ⁿ."] },
+      { "id": "mc4", "type": "number", "q": "√81 = ?", "answer": "9", "hintLadder": ["9 × 9 = 81.", "So √81 = 9.", "Perfect square."] },
+      { "id": "mc5", "type": "number", "q": "10⁰ = ?", "answer": "1", "hintLadder": ["Power 0.", "Any non-zero base.", "= 1."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend the index laws: show 2³ × 2² = 2⁵ (add), 2⁶ ÷ 2³ = 2³ (subtract), (2²)³ = 2⁶ (multiply), and 5⁰ = 1. Explain why multiplying adds the powers by writing out the factors.",
+  "revisionCard": {
+    "summary": "aᵐ·aⁿ = aᵐ⁺ⁿ (×→add), aᵐ÷aⁿ = aᵐ⁻ⁿ (÷→subtract), (aᵐ)ⁿ = aᵐⁿ (power→multiply), a⁰ = 1, a⁻ⁿ = 1/aⁿ, a^(1/2) = √a. Don't multiply indices when you're just multiplying — that's only for a power of a power.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "Power Tower Climb",
+    "brief": "Climb the tower of powers! Add, subtract or multiply the indices with the right law, snap roots to whole numbers, and dodge the '2³×2² = 2⁶' trap.",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Make a doubling chart: 2⁰, 2¹, 2², … up to 2¹⁰. Notice how fast it grows, and check that 2³ × 2² lands on the same square as 2⁵.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive aptitude (Quantitative) — Surds & Indices",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "× add, ÷ subtract, power-of-power multiply, a⁰ = 1",
+    "unpack": "Same base rules the indices. Negative power = reciprocal. √a = a^(1/2)."
+  },
+  "formulas": [
+    { "name": "Product law", "formula": "aᵐ · aⁿ = aᵐ⁺ⁿ", "remember": "multiply → add", "whenToUse": "Same base, multiplying." },
+    { "name": "Power of a power", "formula": "(aᵐ)ⁿ = aᵐⁿ", "remember": "power → multiply", "whenToUse": "A bracketed power raised again." },
+    { "name": "Zero & negative", "formula": "a⁰ = 1 ,  a⁻ⁿ = 1/aⁿ", "remember": "zero is one; negative flips", "whenToUse": "Special exponents." }
+  ],
+  "studentQuestions": [
+    { "q": "Why does multiplying add the powers?", "a": "Because 2³ × 2² just puts three 2's next to two 2's — five 2's altogether — so the new power is 3 + 2 = 5." },
+    { "q": "Why is anything to the power 0 equal to 1?", "a": "Follow the halving pattern down: 2³=8, 2²=4, 2¹=2, so 2⁰=1. Dividing by the base each step lands you on 1." }
+  ]
+}

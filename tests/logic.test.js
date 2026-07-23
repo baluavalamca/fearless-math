@@ -78,7 +78,7 @@ t("graduated after all reviews", () =>
 console.log("\ncontentLoader");
 const { packs, concepts } = loadPacks(path.join(__dirname, "..", "content-packs"));
 t("packs load (Class 3-5 + PP1-2 + hi/te translation packs)", () => assert.strictEqual(packs.length, 6));
-t("all 181 concepts present across 2 packs", () => assert.strictEqual(concepts.size, 181));
+t("all 194 concepts present across 2 packs", () => assert.strictEqual(concepts.size, 194));
 t("every answer key in every concept verifies against itself", () => {
   for (const c of concepts.values()) {
     const all = [...c.practice.easy, ...c.practice.medium, ...c.practice.challenge, ...c.masteryCheck.questions];
@@ -97,7 +97,12 @@ t("full path: place value -> add -> subtract/multiply -> divide -> fractions", (
   const all = [...concepts.values()];
 
   const u0 = unlockedConcepts(all, []);
-  assert.deepStrictEqual(u0, ["found-01-prenumber"], "pre-number readiness is now the single root");
+  // Foundation has a single root (pre-number readiness). The Aptitude band (grade-12
+  // competitive chapters) is intentionally standalone — each apt-* chapter has no
+  // prerequisites so learners can jump straight in — so those are roots too.
+  assert.ok(u0.includes("found-01-prenumber"), "pre-number readiness is the foundation root");
+  assert.ok(u0.every((id) => id === "found-01-prenumber" || id.startsWith("apt-")),
+    "the only roots are foundation pre-number + standalone aptitude chapters");
 
   // Foundation: pre-number -> counting -> counting-to-100 -> place value
   assert.ok(unlockedConcepts(all, ["found-01-prenumber"]).includes("pp1-01-count-to-10"), "pre-number unlocks counting");

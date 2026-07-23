@@ -45,6 +45,7 @@ const STAGES: { id: string; label: string; sub: string; grades: number[]; badge:
   { id: "class10", label: "Class 10", sub: "Board year", grades: [9], badge: "10" },
   { id: "class11", label: "Class 11", sub: "Senior secondary", grades: [10], badge: "11" },
   { id: "class12", label: "Class 12", sub: "IIT-JEE foundation", grades: [11], badge: "12" },
+  { id: "aptitude", label: "Aptitude", sub: "Competitive exams", grades: [12], badge: "🎯" },
 ];
 // Map a learner's class number to the matching stage tab.
 const bandOf = (g: number) =>

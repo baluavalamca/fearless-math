@@ -1,0 +1,174 @@
+{
+  "id": "apt-13-data-interpretation",
+  "name": "Data Interpretation — Reading Charts Fast",
+  "grade": 12,
+  "strand": "data",
+  "prerequisites": [],
+  "whatIsIt": "Data Interpretation (DI) is answering questions from a chart or table — bar graphs, line graphs, pie charts and tables. You already know the maths (totals, differences, averages, percentages, ratios); DI is the skill of reading the RIGHT numbers off the picture quickly and then applying the right operation. In exams, one chart powers several questions, so accurate reading saves huge time.",
+  "whyNeeded": "DI is a whole scoring section in Bank (IBPS/SBI), SSC, CAT and campus aptitude tests. It is also everyday literacy: reading sales dashboards, election results, cricket run charts and news infographics without being misled.",
+  "realLifeUses": [
+    "Reading a shop's monthly sales chart",
+    "Comparing run rates or scores across matches",
+    "Understanding a budget pie chart or election bar graph",
+    "Spotting the trend in a company dashboard",
+    "Bank / SSC / CAT data-interpretation sections"
+  ],
+  "vocabulary": [
+    { "term": "total", "meaning": "Add every bar's value." },
+    { "term": "average (mean)", "meaning": "Total ÷ number of items." },
+    { "term": "difference", "meaning": "Bigger bar minus smaller bar." },
+    { "term": "percentage share", "meaning": "One bar ÷ total × 100 — its slice of the whole." }
+  ],
+  "story": {
+    "title": "Reading the Sweet-Shop Sales Board",
+    "characters": ["Prakash", "the shop owner"],
+    "text": "The shop's board shows units sold: Jan 20, Feb 40, Mar 60, Apr 50, May 30. 'Which was the best month?' Prakash scans the bars: 'March — the tallest at 60.' 'Total for five months?' He adds: 20+40+60+50+30 = 200. 'Average per month?' 200 ÷ 5 = 40. 'What share was April?' 50 out of 200 = 25%. The owner smiles: 'You didn't recompute anything — you just read the right bars and did one operation each.'",
+    "extractedProblem": "From the chart (Jan 20, Feb 40, Mar 60, Apr 50, May 30), find the total and the average per month.",
+    "answerInStory": "Total = 200 units; average = 200 ÷ 5 = 40 per month."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": {
+      "categories": [
+        { "label": "Jan", "value": 20, "icon": "📦" },
+        { "label": "Feb", "value": 40, "icon": "📦" },
+        { "label": "Mar", "value": 60, "icon": "📦" },
+        { "label": "Apr", "value": 50, "icon": "📦" },
+        { "label": "May", "value": 30, "icon": "📦" }
+      ],
+      "unit": "units"
+    },
+    "caption": "Read the bar heights straight off: Jan 20, Feb 40, Mar 60, Apr 50, May 30. Total 200, average 40, and April is 50/200 = 25% of the total."
+  },
+  "teachingGallery": [
+    {
+      "title": "Read the bar, then do ONE operation",
+      "note": "Total = add all. Average = total ÷ count. Share = bar ÷ total × 100.",
+      "examples": [
+        { "component": "BarChart", "props": { "categories": [ { "label": "A", "value": 30, "icon": "🔵" }, { "label": "B", "value": 20, "icon": "🟢" } ], "unit": "items" }, "caption": "Difference A − B = 10; total 50; A is 60%." },
+        { "component": "BarChart", "props": { "categories": [ { "label": "P", "value": 25, "icon": "🟠" }, { "label": "Q", "value": 25, "icon": "🟣" } ], "unit": "items" }, "caption": "Equal bars → 50% each, average 25." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Read the exact values off the chart, decide which operation the question needs, compute once.",
+    "steps": [
+      "Read the required bar values directly from the chart (don't estimate if labels are given).",
+      "Pick the operation: total (add), average (total ÷ count), difference (subtract), share (part ÷ total × 100).",
+      "Do that one calculation.",
+      "Sanity-check against the picture (the tallest bar should give the biggest number)."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Approximate-then-check",
+      "whenToUse": "For 'roughly how much / which is bigger' questions to save time.",
+      "steps": [
+        "Compare bar heights by eye for quick 'bigger/smaller' answers.",
+        "Only compute exactly when the question needs a number."
+      ],
+      "example": "Mar is clearly the tallest, so it's the highest month without any addition."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "From Jan 20, Feb 40, Mar 60, Apr 50, May 30 — find the total units sold.",
+      "steps": [
+        "Add every bar: 20 + 40 + 60 + 50 + 30.",
+        "= 60 + 60 + 30 + 50.",
+        "= 200.",
+        "Total = 200 units."
+      ],
+      "answer": "200"
+    },
+    {
+      "problem": "Using the same data, what percentage of the total was sold in April?",
+      "steps": [
+        "April = 50; total = 200.",
+        "Share = part ÷ total × 100.",
+        "= 50 ÷ 200 × 100.",
+        "= 25%."
+      ],
+      "answer": "25"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Read the bar, then one operation",
+    "intro": "Data: Jan 20, Feb 40, Mar 60, Apr 50, May 30. Answer each with a single step.",
+    "questions": [
+      { "id": "apt13-trick-1", "type": "number", "q": "Value of the March bar?", "answer": "60", "hintLadder": ["Read March directly.", "Tallest bar.", "= 60."], "explain": "60 units." },
+      { "id": "apt13-trick-2", "type": "number", "q": "Total of all five months?", "answer": "200", "hintLadder": ["Add all bars.", "20+40+60+50+30.", "= 200."], "explain": "200 units." },
+      { "id": "apt13-trick-3", "type": "number", "q": "Average per month?", "answer": "40", "hintLadder": ["Total ÷ count.", "200 ÷ 5.", "= 40."], "explain": "40 units." },
+      { "id": "apt13-trick-4", "type": "number", "q": "Difference between March and January?", "answer": "40", "hintLadder": ["60 − 20.", "= 40.", "Bigger minus smaller."], "explain": "40 units." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "misread-bar",
+      "mistake": "Reading a bar's height wrongly (e.g. eyeballing 55 when the label clearly says 50).",
+      "fix": "When exact values or gridlines are given, READ them, don't estimate. Line the bar top up with the axis carefully before computing."
+    },
+    {
+      "mistakeTag": "wrong-operation",
+      "mistake": "Using the wrong operation — e.g. adding when the question asks for the average, or forgetting to ÷ total for a percentage.",
+      "fix": "Match the word to the operation: 'total' → add, 'average' → ÷ count, 'how much more' → subtract, 'what percent / share' → part ÷ total × 100."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "Value of the February bar (Jan 20, Feb 40, Mar 60, Apr 50, May 30)?", "answer": "40", "hintLadder": ["Read February.", "Second bar.", "= 40."] },
+      { "id": "e2", "type": "mcq", "q": "Which month had the highest sales?", "options": [ { "label": "March (60)" }, { "label": "January (20)", "mistakeTag": "misread-bar" } ], "answer": "March (60)", "hintLadder": ["Find the tallest bar.", "Compare heights.", "March at 60."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "Total of April and May?", "answer": "80", "hintLadder": ["50 + 30.", "= 80.", "Add the two bars."] },
+      { "id": "m2", "type": "number", "q": "How many more units in March than in May?", "answer": "30", "hintLadder": ["60 − 30.", "= 30.", "Difference."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "What percent of the total (200) was sold in February?", "answer": "20", "hintLadder": ["40 ÷ 200 × 100.", "= 20.", "Part over total."] },
+      { "id": "c2", "type": "mcq", "q": "The question asks for the AVERAGE per month. You should…", "options": [ { "label": "Divide the total by the number of months" }, { "label": "Just add all the bars", "mistakeTag": "wrong-operation" } ], "answer": "Divide the total by the number of months", "hintLadder": ["Average = total ÷ count.", "5 months.", "200 ÷ 5 = 40."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "Value of the May bar?", "answer": "30", "hintLadder": ["Read May.", "Last bar.", "= 30."] },
+      { "id": "mc2", "type": "number", "q": "Total of Jan, Feb and Mar?", "answer": "120", "hintLadder": ["20 + 40 + 60.", "= 120.", "Add three bars."] },
+      { "id": "mc3", "type": "mcq", "q": "To find a month's PERCENTAGE share you…", "options": [ { "label": "Divide that month by the total, then ×100" }, { "label": "Subtract it from the total", "mistakeTag": "wrong-operation" } ], "answer": "Divide that month by the total, then ×100", "hintLadder": ["Share = part ÷ whole.", "Then ×100 for percent.", "Not a subtraction."] },
+      { "id": "mc4", "type": "number", "q": "Difference between the highest and lowest month?", "answer": "40", "hintLadder": ["Highest 60 (Mar), lowest 20 (Jan).", "60 − 20.", "= 40."] },
+      { "id": "mc5", "type": "number", "q": "Average of April and May (two months)?", "answer": "40", "hintLadder": ["(50 + 30) ÷ 2.", "80 ÷ 2.", "= 40."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend to read a bar chart fast: use Jan 20, Feb 40, Mar 60, Apr 50, May 30 and show how to get the total (add), the average (÷5), and April's share (50/200 ×100). Stress: read the bar first, then do ONE operation.",
+  "revisionCard": {
+    "summary": "DI = read the right values off the chart, then apply one operation. Total = add all; average = total ÷ count; difference = subtract; share = part ÷ total × 100. Read exact labels (don't eyeball) and match the question word to the operation.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Data Newsroom (Ganita Grove)",
+    "title": "Chart-Reader Challenge",
+    "brief": "Beat the clock reading the newsroom charts! Grab the right bar values, pick add / average / subtract / percent correctly, and file each answer before deadline.",
+    "character": "Nyla the Newshound"
+  },
+  "realLifeProject": "Find a real bar chart (news, cricket, a report). Read off three values and compute the total, the average, and one item's percentage share — exactly like an exam DI set.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive aptitude (Quantitative) — Data Interpretation",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Read the bar, then ONE operation",
+    "unpack": "Total = add. Average = total ÷ count. Share = part ÷ total × 100. Match the question word to the operation."
+  },
+  "formulas": [
+    { "name": "Average", "formula": "average = total ÷ count", "remember": "sum over how many", "whenToUse": "'Average per…' questions." },
+    { "name": "Percentage share", "formula": "share% = part ÷ total × 100", "remember": "part over whole, times 100", "whenToUse": "'What percent / share' questions." }
+  ],
+  "studentQuestions": [
+    { "q": "Do I recompute for every question?", "a": "No — read the values once. Most DI questions reuse the same chart; just pick the right operation each time." },
+    { "q": "How do I avoid silly errors?", "a": "Read exact labels rather than eyeballing, and check that the tallest bar gives the biggest number and shares add up to 100%." }
+  ]
+}

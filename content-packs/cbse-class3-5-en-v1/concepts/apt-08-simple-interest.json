@@ -1,0 +1,172 @@
+{
+  "id": "apt-08-simple-interest",
+  "name": "Simple Interest — Rent on Money",
+  "grade": 12,
+  "strand": "measurement",
+  "prerequisites": [],
+  "whatIsIt": "Interest is the rent you pay to borrow money (or earn to lend it). SIMPLE interest is charged only on the original amount (the PRINCIPAL) every year — it never earns interest on interest. The formula is SI = P × R × T ÷ 100, where P is the principal, R the rate per year (in %), and T the time in years. The total you repay (the AMOUNT) is A = P + SI.",
+  "whyNeeded": "Loans, savings, EMIs, gold loans and fixed deposits all start from interest. Simple interest is a guaranteed SSC, Bank and Railway aptitude topic and the base for understanding the more powerful compound interest.",
+  "realLifeUses": [
+    "Borrowing ₹10,000 from a bank at 8% for 2 years",
+    "Interest earned on a savings deposit",
+    "A shopkeeper's short-term loan for stock",
+    "Comparing two loan offers before choosing one",
+    "SSC / Bank / Railway quantitative aptitude questions"
+  ],
+  "vocabulary": [
+    { "term": "principal (P)", "meaning": "The original sum borrowed or invested." },
+    { "term": "rate (R)", "meaning": "The percent charged per year, e.g. 8% per annum." },
+    { "term": "time (T)", "meaning": "The number of years the money is borrowed/invested." },
+    { "term": "amount (A)", "meaning": "Principal plus interest: A = P + SI." }
+  ],
+  "story": {
+    "title": "The Fair Loan",
+    "characters": ["Rekha", "the bank clerk"],
+    "text": "Rekha borrows ₹5,000 at 10% simple interest for 3 years. 'How much do I repay?' The clerk works it out: 'Each year the interest is 10% of ₹5,000 = ₹500. Over 3 years that's 3 × ₹500 = ₹1,500. So SI = 5000 × 10 × 3 ÷ 100 = ₹1,500, and the total AMOUNT is 5000 + 1500 = ₹6,500.' Rekha likes that the interest is the same every year — it's only ever on the original ₹5,000.",
+    "extractedProblem": "₹5,000 at 10% simple interest for 3 years — find the interest and the total amount.",
+    "answerInStory": "SI = ₹1,500; Amount = ₹6,500 (interest is a flat ₹500 each year)."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "Principal ₹5000", "parts": [ { "value": 5000, "label": "P" } ], "showTotal": false },
+        { "label": "Interest = ₹500 each year × 3", "parts": [ { "value": 500, "label": "yr1" }, { "value": 500, "label": "yr2" }, { "value": 500, "label": "yr3" } ], "showTotal": false },
+        { "label": "SI = 5000×10×3÷100 = ₹1500", "parts": [ { "value": 1500, "label": "interest" } ], "showTotal": false },
+        { "label": "Amount = P + SI = ₹6500", "parts": [ { "value": 5000, "label": "P" }, { "value": 1500, "label": "SI" } ], "showTotal": false }
+      ]
+    },
+    "caption": "Simple interest is the SAME every year because it is always taken on the original principal. Amount = principal + interest."
+  },
+  "teachingGallery": [
+    {
+      "title": "SI = PRT/100, Amount = P + SI",
+      "note": "The yearly interest is a flat P×R/100. Total interest = that × T.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "₹1000 @ 5% for 2 yr", "parts": [ { "value": 50, "label": "yr1" }, { "value": 50, "label": "yr2" } ], "showTotal": false } ] }, "caption": "SI = 1000×5×2÷100 = ₹100." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "Amount = 1000 + 100", "parts": [ { "value": 1000, "label": "P" }, { "value": 100, "label": "SI" } ], "showTotal": false } ] }, "caption": "Amount = ₹1100." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Multiply principal, rate and time, divide by 100 for the interest; add to principal for the amount.",
+    "steps": [
+      "Write down P (principal), R (rate % per year), T (time in years).",
+      "SI = P × R × T ÷ 100.",
+      "Amount A = P + SI.",
+      "If T is in months, convert to years (months ÷ 12) first."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Yearly-interest method",
+      "whenToUse": "For quick mental sums.",
+      "steps": [
+        "One year's interest = P × R ÷ 100.",
+        "Multiply by the number of years."
+      ],
+      "example": "₹2000 @ 6% → ₹120/year → 4 years = ₹480."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Find the simple interest on ₹8,000 at 5% per annum for 4 years.",
+      "steps": [
+        "SI = P × R × T ÷ 100.",
+        "= 8000 × 5 × 4 ÷ 100.",
+        "= 160000 ÷ 100.",
+        "= ₹1,600."
+      ],
+      "answer": "1600"
+    },
+    {
+      "problem": "₹1,200 is lent at 10% per annum. Find the total amount after 2 years.",
+      "steps": [
+        "SI = 1200 × 10 × 2 ÷ 100 = ₹240.",
+        "Amount = P + SI.",
+        "= 1200 + 240.",
+        "= ₹1,440."
+      ],
+      "answer": "1440"
+    }
+  ],
+  "trickPractice": {
+    "trick": "One year's interest × years",
+    "intro": "Find P×R/100 for one year, multiply by T; add to P for the amount.",
+    "questions": [
+      { "id": "apt08-trick-1", "type": "number", "q": "SI on ₹1000 at 10% for 1 year (₹)?", "answer": "100", "hintLadder": ["10% of 1000.", "1000 × 10 ÷ 100.", "= 100."], "explain": "₹100." },
+      { "id": "apt08-trick-2", "type": "number", "q": "SI on ₹2000 at 5% for 3 years (₹)?", "answer": "300", "hintLadder": ["Per year = 100.", "× 3 years.", "= 300."], "explain": "₹300." },
+      { "id": "apt08-trick-3", "type": "number", "q": "Amount: ₹500 at 10% for 2 years (₹)?", "answer": "600", "hintLadder": ["SI = 500×10×2÷100 = 100.", "Amount = 500 + 100.", "= 600."], "explain": "₹600." },
+      { "id": "apt08-trick-4", "type": "number", "q": "SI on ₹4000 at 8% for 2 years (₹)?", "answer": "640", "hintLadder": ["Per year = 320.", "× 2.", "= 640."], "explain": "₹640." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "forgot-divide-100",
+      "mistake": "Computing P × R × T but forgetting to divide by 100 (treating the rate as a whole number, not a percent).",
+      "fix": "R is a PERCENT — always divide by 100. 10% means 10/100 = 0.1, so ₹1000 at 10% is ₹100, not ₹10,000."
+    },
+    {
+      "mistakeTag": "confused-si-amount",
+      "mistake": "Reporting the interest when the question asks for the total amount (or vice versa).",
+      "fix": "Interest is the extra money (SI). Amount is principal + interest. Read carefully: 'how much interest' vs 'how much to repay / total amount'."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "SI on ₹1000 at 5% for 2 years (₹)?", "answer": "100", "hintLadder": ["1000 × 5 × 2 ÷ 100.", "10000 ÷ 100.", "= 100."] },
+      { "id": "e2", "type": "mcq", "q": "10% of ₹1000 for one year is…", "options": [ { "label": "₹100" }, { "label": "₹10000", "mistakeTag": "forgot-divide-100" } ], "answer": "₹100", "hintLadder": ["Percent means ÷100.", "1000 × 10 ÷ 100.", "= 100."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "SI on ₹6000 at 7% for 3 years (₹)?", "answer": "1260", "hintLadder": ["6000 × 7 × 3 ÷ 100.", "126000 ÷ 100.", "= 1260."] },
+      { "id": "m2", "type": "number", "q": "Amount: ₹2000 at 5% for 4 years (₹)?", "answer": "2400", "hintLadder": ["SI = 2000×5×4÷100 = 400.", "Amount = 2000 + 400.", "= 2400."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "SI on ₹1200 at 10% for 6 months (₹)? (6 months = 0.5 year)", "answer": "60", "hintLadder": ["T = 6 ÷ 12 = 0.5.", "1200 × 10 × 0.5 ÷ 100.", "= 60."] },
+      { "id": "c2", "type": "mcq", "q": "The question asks 'total amount to repay'. You should give…", "options": [ { "label": "Principal + interest" }, { "label": "Only the interest", "mistakeTag": "confused-si-amount" } ], "answer": "Principal + interest", "hintLadder": ["Amount = P + SI.", "Repay the whole thing.", "Add them."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "SI on ₹500 at 10% for 2 years (₹)?", "answer": "100", "hintLadder": ["500 × 10 × 2 ÷ 100.", "10000 ÷ 100.", "= 100."] },
+      { "id": "mc2", "type": "number", "q": "SI on ₹10000 at 6% for 1 year (₹)?", "answer": "600", "hintLadder": ["10000 × 6 ÷ 100.", "= 600.", "One year only."] },
+      { "id": "mc3", "type": "mcq", "q": "In simple interest, each year's interest is…", "options": [ { "label": "The same (on the original principal)" }, { "label": "Bigger every year", "mistakeTag": "confused-si-amount" } ], "answer": "The same (on the original principal)", "hintLadder": ["Simple = on principal only.", "Never on interest.", "So it's flat each year."] },
+      { "id": "mc4", "type": "number", "q": "Amount: ₹3000 at 5% for 2 years (₹)?", "answer": "3300", "hintLadder": ["SI = 3000×5×2÷100 = 300.", "3000 + 300.", "= 3300."] },
+      { "id": "mc5", "type": "number", "q": "SI on ₹2500 at 4% for 3 years (₹)?", "answer": "300", "hintLadder": ["2500 × 4 × 3 ÷ 100.", "30000 ÷ 100.", "= 300."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend simple interest: SI = PRT/100 and Amount = P + SI. Use ₹5000 at 10% for 3 years, show the flat ₹500 each year, and explain why simple interest never grows on itself.",
+  "revisionCard": {
+    "summary": "SI = P × R × T ÷ 100 (R is % per year, T in years). Amount = P + SI. Each year's interest is the SAME because it's always on the original principal. Convert months to years (÷12). Don't forget the ÷100, and know whether the question wants interest or total amount.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Measurement Island (Ganita Grove)",
+    "title": "The Fair Loan Desk",
+    "brief": "Run the loan desk! Compute each customer's flat yearly interest, total the amount, and dodge the two traps — forgetting ÷100 and mixing up interest with amount.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Find a real savings or loan rate (ask a grown-up or check a bank site). Take a pretend ₹1,000 and work out the simple interest for 1, 2 and 3 years — notice the interest is the same each year.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive aptitude (Quantitative) — Simple Interest",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "SI = PRT/100; Amount = P + SI",
+    "unpack": "Flat interest each year on the original principal. Divide by 100. Months ÷ 12 for years."
+  },
+  "formulas": [
+    { "name": "Simple interest", "formula": "SI = P·R·T / 100", "remember": "principal × rate × time ÷ 100", "whenToUse": "Interest on the original sum only." },
+    { "name": "Amount", "formula": "A = P + SI", "remember": "principal plus interest", "whenToUse": "Total to repay or receive." }
+  ],
+  "studentQuestions": [
+    { "q": "Why is simple interest the same every year?", "a": "Because it is always calculated on the original principal, never on the interest already earned — so nothing grows year to year." },
+    { "q": "What if the time is in months?", "a": "Convert to years by dividing by 12 (e.g. 6 months = 0.5 year) before using the formula." }
+  ]
+}

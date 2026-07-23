@@ -1,0 +1,173 @@
+{
+  "id": "apt-05-boats-streams",
+  "name": "Boats and Streams — Going With and Against the Flow",
+  "grade": 12,
+  "strand": "operations",
+  "prerequisites": [],
+  "whatIsIt": "A boat has its own speed in still water; a river adds or subtracts its current. DOWNSTREAM (with the flow) the boat goes faster: boat + stream. UPSTREAM (against the flow) it goes slower: boat − stream. From the two, you recover both hidden speeds: boat speed = (down + up) ÷ 2, and stream speed = (down − up) ÷ 2. It's the same idea whenever something helps or fights motion — a plane with tail/head wind, a walker on a moving escalator.",
+  "whyNeeded": "Rowing, ferries, swimming, planes in wind, and escalators all follow this add/subtract rule. Boats-and-streams is a classic SSC, Bank and Railway aptitude topic, and the two half-sum formulas crack most questions instantly.",
+  "realLifeUses": [
+    "A rower going down a river vs struggling back upstream",
+    "A ferry crossing a flowing river",
+    "A plane with a tailwind (faster) or headwind (slower)",
+    "Walking on a moving airport escalator, with or against it",
+    "SSC / Bank / Railway quantitative aptitude questions"
+  ],
+  "vocabulary": [
+    { "term": "still-water speed", "meaning": "The boat's own speed with no current (what you'd row in a pond)." },
+    { "term": "stream / current", "meaning": "The river's speed; it adds going downstream, subtracts going upstream." },
+    { "term": "downstream", "meaning": "With the flow — speed = boat + stream (faster)." },
+    { "term": "upstream", "meaning": "Against the flow — speed = boat − stream (slower)." }
+  ],
+  "story": {
+    "title": "Rowing to the Village and Back",
+    "characters": ["Latha", "the old boatman"],
+    "text": "Latha rows downstream at 12 km/h but crawls back upstream at only 8 km/h. 'The river is playing tricks!' The boatman laughs: 'The river helps you one way and fights you the other. Your true rowing speed is the average of the two — (12 + 8) ÷ 2 = 10 km/h. And the river's speed is half the difference — (12 − 8) ÷ 2 = 2 km/h. Downstream you get 10 + 2 = 12; upstream 10 − 2 = 8. See?' Latha finally understands the river's arithmetic.",
+    "extractedProblem": "A boat goes 12 km/h downstream and 8 km/h upstream. Find the boat's still-water speed and the stream speed.",
+    "answerInStory": "Boat = (12 + 8) ÷ 2 = 10 km/h; stream = (12 − 8) ÷ 2 = 2 km/h."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "Downstream = boat + stream = 12", "parts": [ { "value": 10, "label": "boat" }, { "value": 2, "label": "stream" } ], "showTotal": false },
+        { "label": "Upstream = boat − stream = 8", "parts": [ { "value": 8, "label": "boat − stream" } ], "showTotal": false },
+        { "label": "Boat = (12 + 8) ÷ 2 = 10", "parts": [ { "value": 10, "label": "still water" } ], "showTotal": false },
+        { "label": "Stream = (12 − 8) ÷ 2 = 2", "parts": [ { "value": 2, "label": "current" } ], "showTotal": false }
+      ]
+    },
+    "caption": "The current ADDS downstream and SUBTRACTS upstream. Recover the hidden speeds: boat = half the sum, stream = half the difference."
+  },
+  "teachingGallery": [
+    {
+      "title": "Add going down, subtract going up",
+      "note": "Down = b + s, Up = b − s. So b = (down + up)/2 and s = (down − up)/2.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "b=10, s=3", "parts": [ { "value": 10, "label": "boat" }, { "value": 3, "label": "stream" } ], "showTotal": false } ] }, "caption": "Down = 13, Up = 7." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "Down 15, Up 9 → b=12, s=3", "parts": [ { "value": 12, "label": "boat" }, { "value": 3, "label": "stream" } ], "showTotal": false } ] }, "caption": "b = (15+9)/2 = 12, s = (15−9)/2 = 3." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Downstream speed = boat + stream; upstream = boat − stream; solve the pair with the half-sum and half-difference.",
+    "steps": [
+      "Downstream speed D = boat + stream.",
+      "Upstream speed U = boat − stream.",
+      "Boat's still-water speed = (D + U) ÷ 2.",
+      "Stream speed = (D − U) ÷ 2. (Time = distance ÷ the right speed.)"
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Forward direction",
+      "whenToUse": "When you know boat and stream and need the two travel speeds.",
+      "steps": [
+        "Downstream = boat + stream.",
+        "Upstream = boat − stream.",
+        "Time = distance ÷ speed for each leg."
+      ],
+      "example": "boat 10, stream 2 → down 12, up 8."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A boat rows 15 km/h downstream and 9 km/h upstream. Find the still-water speed.",
+      "steps": [
+        "Boat = (D + U) ÷ 2.",
+        "= (15 + 9) ÷ 2.",
+        "= 24 ÷ 2.",
+        "= 12 km/h."
+      ],
+      "answer": "12"
+    },
+    {
+      "problem": "Same boat (down 15, up 9). Find the stream (current) speed.",
+      "steps": [
+        "Stream = (D − U) ÷ 2.",
+        "= (15 − 9) ÷ 2.",
+        "= 6 ÷ 2.",
+        "= 3 km/h."
+      ],
+      "answer": "3"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Boat = half the sum, stream = half the difference",
+    "intro": "Given downstream and upstream speeds, average them for the boat and half their gap for the current.",
+    "questions": [
+      { "id": "apt05-trick-1", "type": "number", "q": "Down 10, Up 6. Boat speed (km/h)?", "answer": "8", "hintLadder": ["(10 + 6) ÷ 2.", "16 ÷ 2.", "= 8."], "explain": "Boat = 8 km/h." },
+      { "id": "apt05-trick-2", "type": "number", "q": "Down 10, Up 6. Stream speed (km/h)?", "answer": "2", "hintLadder": ["(10 − 6) ÷ 2.", "4 ÷ 2.", "= 2."], "explain": "Stream = 2 km/h." },
+      { "id": "apt05-trick-3", "type": "number", "q": "Boat 9, stream 3. Downstream speed?", "answer": "12", "hintLadder": ["Down = boat + stream.", "9 + 3.", "= 12."], "explain": "12 km/h." },
+      { "id": "apt05-trick-4", "type": "number", "q": "Boat 9, stream 3. Upstream speed?", "answer": "6", "hintLadder": ["Up = boat − stream.", "9 − 3.", "= 6."], "explain": "6 km/h." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "swapped-up-down",
+      "mistake": "Adding the stream for upstream and subtracting it for downstream (getting the directions backwards).",
+      "fix": "The current HELPS you downstream (add) and FIGHTS you upstream (subtract). Downstream must be the FASTER speed. If your 'upstream' came out faster than 'downstream', you swapped them."
+    },
+    {
+      "mistakeTag": "used-sum-for-stream",
+      "mistake": "Using half the SUM for the stream and half the DIFFERENCE for the boat.",
+      "fix": "The bigger quantity is the boat: boat = (D + U)/2 (half the sum), stream = (D − U)/2 (half the difference). The stream is always the smaller of the two."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "Down 14, Up 10. Boat speed (km/h)?", "answer": "12", "hintLadder": ["(14 + 10) ÷ 2.", "24 ÷ 2.", "= 12."] },
+      { "id": "e2", "type": "mcq", "q": "Going downstream, the boat is…", "options": [ { "label": "Faster (current helps)" }, { "label": "Slower (current fights)", "mistakeTag": "swapped-up-down" } ], "answer": "Faster (current helps)", "hintLadder": ["Downstream = with the flow.", "The river pushes you along.", "So faster."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "Down 18, Up 12. Stream speed (km/h)?", "answer": "3", "hintLadder": ["(18 − 12) ÷ 2.", "6 ÷ 2.", "= 3."] },
+      { "id": "m2", "type": "number", "q": "Boat 20, stream 5. Downstream speed?", "answer": "25", "hintLadder": ["Down = boat + stream.", "20 + 5.", "= 25."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "A boat covers 36 km downstream at 12 km/h downstream speed. How many hours?", "answer": "3", "hintLadder": ["Time = distance ÷ speed.", "36 ÷ 12.", "= 3 hours."] },
+      { "id": "c2", "type": "mcq", "q": "Which of these is always the larger speed?", "options": [ { "label": "Boat's still-water speed" }, { "label": "The stream speed", "mistakeTag": "used-sum-for-stream" } ], "answer": "Boat's still-water speed", "hintLadder": ["A boat must move even with no current.", "The stream is only the extra push.", "So the boat speed is the bigger one."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "Down 8, Up 4. Boat speed?", "answer": "6", "hintLadder": ["(8 + 4) ÷ 2.", "12 ÷ 2.", "= 6."] },
+      { "id": "mc2", "type": "number", "q": "Down 8, Up 4. Stream speed?", "answer": "2", "hintLadder": ["(8 − 4) ÷ 2.", "4 ÷ 2.", "= 2."] },
+      { "id": "mc3", "type": "mcq", "q": "Upstream speed equals…", "options": [ { "label": "boat − stream" }, { "label": "boat + stream", "mistakeTag": "swapped-up-down" } ], "answer": "boat − stream", "hintLadder": ["Against the flow.", "The river fights you.", "So subtract."] },
+      { "id": "mc4", "type": "number", "q": "Boat 15, stream 5. Upstream speed?", "answer": "10", "hintLadder": ["Up = boat − stream.", "15 − 5.", "= 10."] },
+      { "id": "mc5", "type": "number", "q": "Down 22, Up 14. Boat speed?", "answer": "18", "hintLadder": ["(22 + 14) ÷ 2.", "36 ÷ 2.", "= 18."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend the boats rule: downstream adds the current, upstream subtracts it. Use down 12, up 8 and show boat = (12+8)/2 = 10 and stream = (12−8)/2 = 2. Explain why downstream must be the faster speed.",
+  "revisionCard": {
+    "summary": "Downstream = boat + stream (faster); Upstream = boat − stream (slower). Boat = (D + U)/2 (half the sum); Stream = (D − U)/2 (half the difference). The boat speed is always larger than the stream. Same add/subtract idea works for wind and escalators. Time = distance ÷ the right speed.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Measurement Island (Ganita Grove)",
+    "title": "Row With the River",
+    "brief": "Race up and down the river! Add the current going down, subtract it going up, and recover the hidden boat and stream speeds before the tide turns.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "On an airport escalator (or a treadmill), estimate your normal walking speed, then your speed walking with it and against it. Notice: with = walk + belt, against = walk − belt — exactly boats and streams.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive aptitude (Quantitative) — Boats & Streams",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Down adds, Up subtracts; boat = half-sum, stream = half-difference",
+    "unpack": "D = b + s, U = b − s. b = (D+U)/2, s = (D−U)/2. Boat speed is always the bigger one."
+  },
+  "formulas": [
+    { "name": "Directional speeds", "formula": "D = b + s ,  U = b − s", "remember": "down add, up subtract", "whenToUse": "Boat & current given." },
+    { "name": "Recover hidden speeds", "formula": "b = (D+U)/2 ,  s = (D−U)/2", "remember": "half-sum & half-difference", "whenToUse": "Down & up speeds given." }
+  ],
+  "studentQuestions": [
+    { "q": "Why is downstream always faster?", "a": "Because the river's current pushes the boat in the same direction, so its speed adds to the boat's own speed." },
+    { "q": "Does this work for aeroplanes?", "a": "Yes — a tailwind adds to the plane's speed (like downstream) and a headwind subtracts (like upstream)." }
+  ]
+}

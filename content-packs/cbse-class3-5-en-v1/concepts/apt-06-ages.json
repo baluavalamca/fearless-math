@@ -1,0 +1,171 @@
+{
+  "id": "apt-06-ages",
+  "name": "Problems on Ages — Past, Present and Future",
+  "grade": 12,
+  "strand": "operations",
+  "prerequisites": [],
+  "whatIsIt": "Age problems are word puzzles you turn into simple equations. The golden rule: everyone ages by the SAME amount, so the DIFFERENCE between two people's ages never changes. To go back t years, subtract t from each present age; to go forward t years, add t. Let the unknown present age be x, translate the sentence, and solve.",
+  "whyNeeded": "These 'father is thrice the son' puzzles are a staple of SSC, Bank, Railway and campus aptitude papers. They also train the core skill of turning ordinary English into an equation — the heart of all word-problem solving.",
+  "realLifeUses": [
+    "Working out a parent's age from clues about a child's age",
+    "Family riddles: 'ten years ago I was twice your age'",
+    "Checking eligibility dates (minimum age from a year gap)",
+    "Puzzle and quiz questions",
+    "SSC / Bank / Railway quantitative aptitude questions"
+  ],
+  "vocabulary": [
+    { "term": "present age", "meaning": "The age right now — usually the unknown x you solve for." },
+    { "term": "age difference", "meaning": "How many years apart two people are — this stays the SAME forever." },
+    { "term": "t years ago", "meaning": "Subtract t from each present age." },
+    { "term": "t years hence", "meaning": "Add t to each present age (hence = in the future)." }
+  ],
+  "story": {
+    "title": "Guess Appa's Age",
+    "characters": ["Nila", "her father Appa"],
+    "text": "Nila is 10. 'Appa, you're four times my age!' So Appa is 40 now. 'But in 5 years, will you still be four times me?' Appa smiles: 'Add 5 to both — I'll be 45, you'll be 15. 45 is only three times 15, not four. Our AGE GAP stays 30 forever, but the ratio changes as we both grow.' Nila realises the difference is the trick — always 30 years between them.",
+    "extractedProblem": "Nila is 10 and Appa is four times as old. How old will Appa be in 5 years, and is he still four times Nila?",
+    "answerInStory": "Appa is 40 now, 45 in 5 years; Nila will be 15, so 45 is 3× — the ratio changed, but the gap stayed 30."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "Now: Nila 10, Appa 40 (gap 30)", "parts": [ { "value": 10, "label": "Nila" }, { "value": 30, "label": "gap" } ], "showTotal": false },
+        { "label": "In 5 years: Nila 15, Appa 45 (gap still 30)", "parts": [ { "value": 15, "label": "Nila" }, { "value": 30, "label": "gap" } ], "showTotal": false },
+        { "label": "The gap never changes; the ratio does", "parts": [ { "value": 30, "label": "always 30" } ], "showTotal": false }
+      ]
+    },
+    "caption": "Both people age the same amount, so the age DIFFERENCE is constant. Only the ratio between them changes over time."
+  },
+  "teachingGallery": [
+    {
+      "title": "Let x = present age, translate, solve",
+      "note": "Same time passes for everyone → the difference is fixed. 'ago' subtracts, 'hence' adds.",
+      "examples": [
+        { "component": "BarModel", "props": { "bars": [ { "label": "Son x, Father 3x, gap 2x", "parts": [ { "value": 10, "label": "son x" }, { "value": 20, "label": "gap 2x" } ], "showTotal": false } ] }, "caption": "If son is 10, father 30, gap 20 — the gap is 2x." },
+        { "component": "BarModel", "props": { "bars": [ { "label": "5 years ago: subtract 5 from each", "parts": [ { "value": 5, "label": "son−5" }, { "value": 20, "label": "gap" } ], "showTotal": false } ] }, "caption": "Going back 5 years keeps the gap the same." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Name the present age x, shift by t for past/future, write the sentence as an equation, and solve.",
+    "steps": [
+      "Let the unknown present age be x (write the other ages in terms of x).",
+      "For 't years ago', use (x − t); for 't years hence', use (x + t).",
+      "Translate the clue into an equation and solve for x.",
+      "Use the fixed age difference as a quick check."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Fixed-difference shortcut",
+      "whenToUse": "When two ratios (now and later) are given.",
+      "steps": [
+        "The age difference stays constant.",
+        "Set difference-from-ratio-1 = difference-from-ratio-2 and solve."
+      ],
+      "example": "Ages 3:4 now, 5:6 later — the constant gap pins down the actual ages."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A father is 4 times his son's age. The son is 8. How old is the father?",
+      "steps": [
+        "Let son = 8, father = 4 × 8.",
+        "= 32.",
+        "Check the gap: 32 − 8 = 24 years.",
+        "Father is 32."
+      ],
+      "answer": "32"
+    },
+    {
+      "problem": "The sum of a mother's and daughter's ages is 50, and the mother is 4 times the daughter. Find the daughter's age.",
+      "steps": [
+        "Let daughter = x, mother = 4x.",
+        "x + 4x = 50 → 5x = 50.",
+        "x = 10.",
+        "Daughter is 10 (mother 40)."
+      ],
+      "answer": "10"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Same time passes → age gap is constant",
+    "intro": "Set x = present age, add/subtract t for future/past, solve the little equation.",
+    "questions": [
+      { "id": "apt06-trick-1", "type": "number", "q": "Son 12, father is 3× as old. Father's age?", "answer": "36", "hintLadder": ["3 × son.", "3 × 12.", "= 36."], "explain": "36." },
+      { "id": "apt06-trick-2", "type": "number", "q": "A is 25 now. How old in 7 years?", "answer": "32", "hintLadder": ["'Hence' means add.", "25 + 7.", "= 32."], "explain": "32." },
+      { "id": "apt06-trick-3", "type": "number", "q": "B is 30 now. How old 8 years ago?", "answer": "22", "hintLadder": ["'Ago' means subtract.", "30 − 8.", "= 22."], "explain": "22." },
+      { "id": "apt06-trick-4", "type": "number", "q": "Sum of two ages is 60, ratio 2 : 1. Older age?", "answer": "40", "hintLadder": ["3 parts = 60 → one part 20.", "Older = 2 parts.", "2 × 20 = 40."], "explain": "40." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "changed-only-one-age",
+      "mistake": "Adding the t years to only one person when moving to the past or future.",
+      "fix": "Time passes for EVERYONE. If you go 5 years ahead, add 5 to every age in the problem — not just one."
+    },
+    {
+      "mistakeTag": "ratio-gap-confused",
+      "mistake": "Assuming the ratio between two ages stays the same over the years.",
+      "fix": "The DIFFERENCE stays constant, not the ratio. A father twice his son's age won't stay twice as old — but the gap between them never changes."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "Daughter is 9; mother is 5 times as old. Mother's age?", "answer": "45", "hintLadder": ["5 × 9.", "= 45.", "Gap = 36."] },
+      { "id": "e2", "type": "mcq", "q": "If 6 years pass, whose age changes?", "options": [ { "label": "Everyone's, by 6 years" }, { "label": "Only the youngest person's", "mistakeTag": "changed-only-one-age" } ], "answer": "Everyone's, by 6 years", "hintLadder": ["Time is fair.", "All age together.", "Add 6 to each."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "Sum of ages of A and B is 44, and A is 3 times B. Find B.", "answer": "11", "hintLadder": ["B = x, A = 3x.", "4x = 44.", "x = 11."] },
+      { "id": "m2", "type": "number", "q": "Ravi is 40. Five years ago he was how old?", "answer": "35", "hintLadder": ["'Ago' = subtract.", "40 − 5.", "= 35."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "A father is 30 years older than his son. In 10 years, how much older will he be?", "answer": "30", "hintLadder": ["The gap is fixed forever.", "Both age 10 years.", "Still 30 years older."] },
+      { "id": "c2", "type": "mcq", "q": "A man is twice his son's age now. Twenty years later he will be…", "options": [ { "label": "Less than twice as old" }, { "label": "Still exactly twice as old", "mistakeTag": "ratio-gap-confused" } ], "answer": "Less than twice as old", "hintLadder": ["The gap stays the same.", "But both get older.", "So the ratio shrinks below 2."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "Son is 7, father is 6 times as old. Father's age?", "answer": "42", "hintLadder": ["6 × 7.", "= 42.", "Gap 35."] },
+      { "id": "mc2", "type": "number", "q": "Sum of two ages is 36, ratio 2 : 1. Older age?", "answer": "24", "hintLadder": ["3 parts = 36 → one 12.", "Older = 2 parts.", "24."] },
+      { "id": "mc3", "type": "mcq", "q": "Over the years, what stays constant between two people?", "options": [ { "label": "Their age difference" }, { "label": "Their age ratio", "mistakeTag": "ratio-gap-confused" } ], "answer": "Their age difference", "hintLadder": ["Both age equally.", "Difference is fixed.", "Ratio drifts."] },
+      { "id": "mc4", "type": "number", "q": "Meera is 28. How old will she be in 12 years?", "answer": "40", "hintLadder": ["'Hence' = add.", "28 + 12.", "= 40."] },
+      { "id": "mc5", "type": "number", "q": "A is 45, B is 15. What is their age difference?", "answer": "30", "hintLadder": ["45 − 15.", "= 30.", "This never changes."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend the golden rule of age problems: the DIFFERENCE stays constant but the ratio changes. Use a parent aged 40 and child aged 10, jump 5 years ahead for both, and show why the '4 times' becomes '3 times'.",
+  "revisionCard": {
+    "summary": "Let present age = x; write others in terms of x. 'Ago' subtracts t, 'hence' adds t — to EVERYONE. The age difference is constant; the ratio is not. Translate the sentence to an equation and solve. Quick check: recompute the fixed gap.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Operations Farm (Ganita Grove)",
+    "title": "Age Detective",
+    "brief": "Crack every family riddle! Name the unknown, shift the years for everyone, and solve — while dodging the 'ratio stays the same' trap.",
+    "character": "Multi the Mixer"
+  },
+  "realLifeProject": "Ask two family members their ages and write three true clues (a sum, a difference, and a 'years ago' fact). Give the clues to someone else and let them solve for the ages — just like an exam age problem.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive aptitude (Quantitative) — Problems on Ages",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "The age GAP never changes; the ratio does",
+    "unpack": "Let x = now. 'Ago' subtracts t, 'hence' adds t — to everyone. Difference is constant."
+  },
+  "formulas": [
+    { "name": "Time shift", "formula": "age ± t for everyone", "remember": "ago −, hence +", "whenToUse": "Moving to past or future." },
+    { "name": "Constant gap", "formula": "A − B = constant", "remember": "difference never changes", "whenToUse": "Two ratios given at different times." }
+  ],
+  "studentQuestions": [
+    { "q": "Why doesn't the ratio stay the same?", "a": "Adding the same number of years to both ages changes the ratio (40:10 is 4×, but 45:15 is only 3×) even though the 30-year gap is unchanged." },
+    { "q": "How do I start a hard age problem?", "a": "Name the present age x, write everyone else in terms of x, then turn each sentence into an equation and solve." }
+  ]
+}
