@@ -1,0 +1,164 @@
+{
+  "id": "reason-02-letter-series",
+  "name": "Letter Series — Alphabet Patterns",
+  "grade": 13,
+  "strand": "numbers",
+  "prerequisites": ["reason-01-number-series"],
+  "whatIsIt": "A letter series is a number series in disguise. Give every letter its position number (A=1, B=2, C=3 … Z=26), and the alphabet pattern becomes an ordinary number pattern you already know how to solve. Then translate the answer position back into a letter.",
+  "whyNeeded": "Letter and alpha-numeric series appear in almost every reasoning paper. Once you use the A=1…Z=26 table, they stop being scary — they are just 'add' or 'skip' patterns on positions.",
+  "realLifeUses": [
+    "Reasoning sections of SSC / Bank / Railway exams",
+    "Code and cipher puzzles",
+    "Spotting patterns in labels and part numbers",
+    "Quiz and Olympiad rounds",
+    "Building the base skill for coding-decoding"
+  ],
+  "vocabulary": [
+    { "term": "position number", "meaning": "The place of a letter in the alphabet: A=1, B=2 … Z=26." },
+    { "term": "skip", "meaning": "How many letters you jump each step (A, C, E skips 2)." },
+    { "term": "wrap around", "meaning": "After Z you go back to A (Z=26, then A=1 again)." }
+  ],
+  "story": {
+    "title": "Letters Are Just Numbers Wearing Hats",
+    "characters": ["Ravi", "his sister"],
+    "text": "Ravi is stuck on A, C, E, G, __. His sister writes the positions: A=1, C=3, E=5, G=7. 'See? 1, 3, 5, 7 — odd numbers, skip 2. Next is 9, and the 9th letter is I.' Ravi grins: 'So letters are just numbers wearing hats!' She adds one rule: 'After Z (26) you wrap back to A.' Now Ravi turns every letter series into a number series first.",
+    "extractedProblem": "What comes next: A, C, E, G, __ ?",
+    "answerInStory": "I — positions are 1, 3, 5, 7 (skip 2), next position 9 = the letter I."
+  },
+  "visual": {
+    "component": "NumberTrack",
+    "props": {
+      "tracks": [
+        { "terms": [1, 3, 5, 7], "jump": 2 }
+      ]
+    },
+    "caption": "A=1, C=3, E=5, G=7. As positions it's 1,3,5,7 (skip 2). Next position 9 = the letter I."
+  },
+  "teachingGallery": [
+    {
+      "title": "Turn letters into positions, solve, translate back",
+      "note": "A=1 … Z=26. Solve the number pattern, then map the answer number to its letter.",
+      "examples": [
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [2, 4, 6, 8], "jump": 2 } ] }, "caption": "B,D,F,H = 2,4,6,8 → next 10 = J." },
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [1, 4, 7, 10], "jump": 3 } ] }, "caption": "A,D,G,J = 1,4,7,10 → next 13 = M." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Write A=1…Z=26 positions under the letters, solve the number pattern, then convert the answer position back to a letter (wrapping after 26).",
+    "steps": [
+      "Write each letter's position number (A=1, B=2 … Z=26).",
+      "Find the number pattern (usually a constant skip).",
+      "Extend the pattern to the next position number.",
+      "Convert that position back to a letter; if it goes past 26, wrap around (27→A)."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Count on your fingers",
+      "whenToUse": "Small skips, no need to write positions.",
+      "steps": [
+        "Say the alphabet and physically skip the pattern.",
+        "A … (skip B) C … (skip D) E — the skip of 2 is easy to feel."
+      ],
+      "example": "A, C, E, G → keep skipping one letter → I."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Find the next letter: Z, X, V, T, __",
+      "steps": [
+        "Positions: Z=26, X=24, V=22, T=20.",
+        "The pattern is subtract 2 each time.",
+        "Next position 20 − 2 = 18.",
+        "The 18th letter is R."
+      ],
+      "answer": "R"
+    },
+    {
+      "problem": "Find the next letter: A, B, D, G, __",
+      "steps": [
+        "Positions: 1, 2, 4, 7.",
+        "Gaps are 1, 2, 3 — growing by 1.",
+        "Next gap is 4, so 7 + 4 = 11.",
+        "The 11th letter is K."
+      ],
+      "answer": "K"
+    }
+  ],
+  "trickPractice": {
+    "trick": "A=1…Z=26, solve, translate back",
+    "intro": "Always convert to positions first.",
+    "questions": [
+      { "id": "reason02-trick-1", "type": "text", "q": "Next letter: B, D, F, H, __", "answer": "J", "hintLadder": ["Positions 2,4,6,8.", "Skip 2 → 10.", "10th letter is J."], "explain": "Skip 2 → J." },
+      { "id": "reason02-trick-2", "type": "text", "q": "Next letter: A, C, E, G, __", "answer": "I", "hintLadder": ["1,3,5,7.", "Next 9.", "9th letter is I."], "explain": "Odd positions → I." },
+      { "id": "reason02-trick-3", "type": "text", "q": "Next letter: C, F, I, L, __", "answer": "O", "hintLadder": ["3,6,9,12.", "Skip 3 → 15.", "15th letter is O."], "explain": "Skip 3 → O." },
+      { "id": "reason02-trick-4", "type": "text", "q": "Next letter: Y, W, U, S, __", "answer": "Q", "hintLadder": ["25,23,21,19.", "Subtract 2 → 17.", "17th letter is Q."], "explain": "Back by 2 → Q." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "forgot-position-table",
+      "mistake": "Guessing letters directly and losing count in the middle of the alphabet.",
+      "fix": "Write A=1…Z=26 (or at least count carefully). Turning letters into numbers removes almost all the guesswork."
+    },
+    {
+      "mistakeTag": "no-wrap-after-z",
+      "mistake": "Getting stuck when the pattern goes past Z, or past A when counting backwards.",
+      "fix": "Wrap around: after Z (26) comes A (1) again; before A comes Z. Treat the alphabet as a loop."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "text", "q": "Next letter: A, B, C, D, __", "answer": "E", "hintLadder": ["1,2,3,4.", "Add 1 → 5.", "5th letter is E."] },
+      { "id": "e2", "type": "mcq", "q": "In A, C, E, G the skip is…", "options": [ { "label": "2 letters" }, { "label": "1 letter", "mistakeTag": "forgot-position-table" } ], "answer": "2 letters", "hintLadder": ["Positions 1,3,5,7.", "Gap is 2.", "Skip 2."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "text", "q": "Next letter: D, H, L, P, __", "answer": "T", "hintLadder": ["4,8,12,16.", "Skip 4 → 20.", "20th letter is T."] },
+      { "id": "m2", "type": "text", "q": "Next letter: A, D, G, J, __", "answer": "M", "hintLadder": ["1,4,7,10.", "Skip 3 → 13.", "13th is M."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "text", "q": "Next letter: A, B, D, G, __", "answer": "K", "hintLadder": ["1,2,4,7 gaps 1,2,3.", "Next gap 4 → 11.", "11th is K."] },
+      { "id": "c2", "type": "mcq", "q": "The pattern reaches Z and must continue. You should…", "options": [ { "label": "Wrap around to A" }, { "label": "Stop, there is no answer", "mistakeTag": "no-wrap-after-z" } ], "answer": "Wrap around to A", "hintLadder": ["Alphabet is a loop.", "After 26 comes 1.", "Z → A."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "text", "q": "Next letter: B, D, F, H, __", "answer": "J", "hintLadder": ["2,4,6,8.", "Skip 2 → 10.", "J."] },
+      { "id": "mc2", "type": "text", "q": "Next letter: Z, X, V, T, __", "answer": "R", "hintLadder": ["26,24,22,20.", "−2 → 18.", "R."] },
+      { "id": "mc3", "type": "mcq", "q": "The first step for any letter series is…", "options": [ { "label": "Write A=1…Z=26 positions" }, { "label": "Guess the vowels", "mistakeTag": "forgot-position-table" } ], "answer": "Write A=1…Z=26 positions", "hintLadder": ["Letters → numbers.", "Solve the number pattern.", "Translate back."] },
+      { "id": "mc4", "type": "text", "q": "Next letter: C, F, I, L, __", "answer": "O", "hintLadder": ["3,6,9,12.", "Skip 3 → 15.", "O."] },
+      { "id": "mc5", "type": "text", "q": "Next letter: A, C, F, J, __", "answer": "O", "hintLadder": ["1,3,6,10 gaps 2,3,4.", "Next gap 5 → 15.", "O."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Show a friend how to solve A, C, E, G by writing positions 1, 3, 5, 7 → next 9 → I. Explain the A=1…Z=26 table and the wrap-around rule after Z.",
+  "revisionCard": {
+    "summary": "Letter series = number series in disguise. Write A=1…Z=26 positions, solve the (usually constant-skip) number pattern, then translate the next position back to a letter. Wrap around after Z (27→A). Backwards series just subtract.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "Alphabet Decoder",
+    "brief": "Convert letters to positions, crack the skip, and name the next letter! Remember to wrap past Z back to A.",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Write your name, replace each letter with its position number, and challenge a friend to decode it back. Then make one letter-series puzzle with a skip of 3.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Logical) — Letter Series",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Letters are numbers wearing hats (A=1…Z=26)",
+    "unpack": "Convert to positions, solve the skip pattern, translate back, wrap after Z."
+  },
+  "studentQuestions": [
+    { "q": "Do I have to memorise every position?", "a": "It helps to know the anchors: A=1, E=5, J=10, O=15, T=20, Z=26. From an anchor you can count a few steps quickly." },
+    { "q": "What happens after Z?", "a": "You wrap around — after Z (26) comes A (1) again, like a loop. Counting backwards, before A comes Z." }
+  ]
+}

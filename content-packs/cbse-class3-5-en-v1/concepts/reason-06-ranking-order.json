@@ -1,0 +1,166 @@
+{
+  "id": "reason-06-ranking-order",
+  "name": "Ranking & Order — Positions in a Row",
+  "grade": 13,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "Ranking puzzles tell you someone's position from two ends of a row or list and ask for the total, or ask a new rank after people join or leave. The master formula is: Total = (rank from top) + (rank from bottom) − 1. The '− 1' is because the person is counted once from each end.",
+  "whyNeeded": "Ranking-and-order questions appear in almost every reasoning paper and are quick marks once you know the '+ minus one' rule. They also sharpen careful counting — the source of most silly errors.",
+  "realLifeUses": [
+    "Reasoning sections of competitive exams",
+    "Reading class ranks and merit lists",
+    "Queue and waiting-line positions",
+    "Sports standings and leaderboards",
+    "Any 'how many in total' counting problem"
+  ],
+  "vocabulary": [
+    { "term": "rank from top", "meaning": "Your position counting from the start/front (1st, 2nd…)." },
+    { "term": "rank from bottom", "meaning": "Your position counting from the end/back." },
+    { "term": "double counting", "meaning": "The error of counting the same person from both ends without subtracting 1." },
+    { "term": "total count", "meaning": "How many people are in the row altogether." }
+  ],
+  "story": {
+    "title": "Counted Twice, Subtract Once",
+    "characters": ["Priya", "her friend"],
+    "text": "Priya is 5th from the front and 8th from the back in a line. 'So the line has 5 + 8 = 13?' Her friend says 'Careful — YOU got counted from both ends, so you're counted twice. Subtract 1.' Total = 5 + 8 − 1 = 12. Priya nods: 'The person in the middle is shared, so minus one.' The rule sticks: add the two ranks, then subtract 1.",
+    "extractedProblem": "Priya is 5th from front and 8th from back. How many in the line?",
+    "answerInStory": "12 — total = 5 + 8 − 1 = 12 (she is counted from both ends, so subtract 1)."
+  },
+  "visual": {
+    "component": "NumberTrack",
+    "props": {
+      "tracks": [
+        { "terms": [1, 2, 3, 4, 5], "jump": 1 }
+      ]
+    },
+    "caption": "5th from front + 8th from back counts the same person twice. Total = 5 + 8 − 1 = 12."
+  },
+  "teachingGallery": [
+    {
+      "title": "Add the two ranks, subtract 1",
+      "note": "Total = top rank + bottom rank − 1. The − 1 removes the person counted from both ends.",
+      "examples": [
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [1, 2, 3, 4, 5, 6], "jump": 1 } ] }, "caption": "3rd from front + 4th from back → 3 + 4 − 1 = 6 total." },
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], "jump": 1 } ] }, "caption": "6th from front + 5th from back → 6 + 5 − 1 = 10 total." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Use Total = rank-from-top + rank-from-bottom − 1. To find a rank from the other end, rearrange: rank-from-bottom = Total − rank-from-top + 1.",
+    "steps": [
+      "Identify the person's rank from the top and from the bottom.",
+      "Add the two ranks.",
+      "Subtract 1 (the person is counted from both ends).",
+      "That is the total; to find one rank when you know the total, rearrange the same formula."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Draw dots",
+      "whenToUse": "When you're unsure whether to subtract 1.",
+      "steps": [
+        "Draw a small row of dots and mark the person.",
+        "Count from each end and see the shared dot in the middle.",
+        "The single shared dot is exactly why you subtract 1."
+      ],
+      "example": "Dots for 2nd front / 3rd back: ● ●(you) ● ● → 4 dots = 2 + 3 − 1."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Ravi is 7th from the top and 6th from the bottom of a merit list. How many students are there?",
+      "steps": [
+        "Add the ranks: 7 + 6 = 13.",
+        "Subtract 1 because Ravi is counted from both ends.",
+        "13 − 1 = 12.",
+        "There are 12 students."
+      ],
+      "answer": "12"
+    },
+    {
+      "problem": "In a row of 20, Sita is 8th from the left. What is her rank from the right?",
+      "steps": [
+        "Use rank-from-right = Total − rank-from-left + 1.",
+        "= 20 − 8 + 1.",
+        "= 13.",
+        "Sita is 13th from the right."
+      ],
+      "answer": "13th"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Total = top + bottom − 1",
+    "intro": "Add the two ranks, then subtract one for the shared person.",
+    "questions": [
+      { "id": "reason06-trick-1", "type": "number", "q": "3rd from front, 4th from back. Total in row?", "answer": "6", "hintLadder": ["3 + 4.", "Minus 1.", "6."], "explain": "3+4−1 = 6." },
+      { "id": "reason06-trick-2", "type": "number", "q": "5th from top, 5th from bottom. Total?", "answer": "9", "hintLadder": ["5 + 5.", "Minus 1.", "9."], "explain": "5+5−1 = 9." },
+      { "id": "reason06-trick-3", "type": "number", "q": "Row of 10, 4th from left. Rank from right?", "answer": "7", "hintLadder": ["10 − 4 + 1.", "= 7.", "7th."], "explain": "10−4+1 = 7." },
+      { "id": "reason06-trick-4", "type": "number", "q": "6th from front, 9th from back. Total?", "answer": "14", "hintLadder": ["6 + 9.", "Minus 1.", "14."], "explain": "6+9−1 = 14." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "forgot-minus-one",
+      "mistake": "Adding the two ranks and forgetting to subtract 1 (saying 5 + 8 = 13).",
+      "fix": "The person sits in BOTH counts, so they're counted twice. Always subtract 1: total = top + bottom − 1."
+    },
+    {
+      "mistakeTag": "off-by-one-rearrange",
+      "mistake": "Forgetting the + 1 when finding a rank from the other end.",
+      "fix": "Rearranged, the formula is rank-from-other-end = Total − rank + 1. The + 1 keeps it consistent with the − 1 rule."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "2nd from front, 3rd from back. Total?", "answer": "4", "hintLadder": ["2 + 3.", "Minus 1.", "4."] },
+      { "id": "e2", "type": "mcq", "q": "5th from top + 8th from bottom gives a total of…", "options": [ { "label": "12 (subtract 1)" }, { "label": "13 (just add)", "mistakeTag": "forgot-minus-one" } ], "answer": "12 (subtract 1)", "hintLadder": ["Counted twice.", "5 + 8 − 1.", "12."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "7th from top, 6th from bottom. Total?", "answer": "12", "hintLadder": ["7 + 6.", "Minus 1.", "12."] },
+      { "id": "m2", "type": "number", "q": "Row of 15, 4th from left. Rank from right?", "answer": "12", "hintLadder": ["15 − 4 + 1.", "= 12.", "12th."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "Class of 30, Amit is 12th from top. Rank from bottom?", "answer": "19", "hintLadder": ["30 − 12 + 1.", "= 19.", "19th."] },
+      { "id": "c2", "type": "mcq", "q": "Why subtract 1 in the ranking formula?", "options": [ { "label": "The person is counted from both ends" }, { "label": "To make the number smaller", "mistakeTag": "forgot-minus-one" } ], "answer": "The person is counted from both ends", "hintLadder": ["Shared middle person.", "Counted twice.", "Remove one."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "4th from front, 5th from back. Total?", "answer": "8", "hintLadder": ["4 + 5.", "Minus 1.", "8."] },
+      { "id": "mc2", "type": "number", "q": "10th from top, 6th from bottom. Total?", "answer": "15", "hintLadder": ["10 + 6.", "Minus 1.", "15."] },
+      { "id": "mc3", "type": "mcq", "q": "The ranking master formula is…", "options": [ { "label": "top + bottom − 1" }, { "label": "top + bottom", "mistakeTag": "forgot-minus-one" } ], "answer": "top + bottom − 1", "hintLadder": ["Person counted twice.", "Subtract one.", "top + bottom − 1."] },
+      { "id": "mc4", "type": "number", "q": "Row of 25, 10th from left. Rank from right?", "answer": "16", "hintLadder": ["25 − 10 + 1.", "= 16.", "16th."] },
+      { "id": "mc5", "type": "number", "q": "8th from top, 8th from bottom. Total?", "answer": "15", "hintLadder": ["8 + 8.", "Minus 1.", "15."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend why 5th-from-front and 8th-from-back means 12 in the row, not 13. Use the 'counted from both ends, so subtract 1' idea and the formula Total = top + bottom − 1.",
+  "revisionCard": {
+    "summary": "Ranking & order: Total = rank-from-top + rank-from-bottom − 1 (the − 1 removes the person counted from both ends). To get a rank from the other end: rank = Total − known-rank + 1. When in doubt, draw dots and see the shared middle person. Watch the off-by-one on both formulas.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "Line-Up Logic",
+    "brief": "Work out how many animals are in the queue from two clues — add the ranks and never forget to subtract the one that's counted twice!",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Line up 6–8 friends. Pick one and have everyone verify: their rank from each end should add to (total + 1). Prove the formula with real people.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Analytical) — Ranking & Order",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Counted twice — subtract once",
+    "unpack": "Total = top + bottom − 1; the shared person is counted from both ends."
+  },
+  "studentQuestions": [
+    { "q": "When do I add 1 and when do I subtract 1?", "a": "Finding the TOTAL from two ranks → subtract 1. Finding a rank from the OTHER end when you know the total → Total − rank + 1 (add 1). They come from the same rule." },
+    { "q": "What if people join or leave the line?", "a": "Adjust the total first, then recompute. Draw the row if positions shift — a quick sketch prevents off-by-one mistakes." }
+  ]
+}

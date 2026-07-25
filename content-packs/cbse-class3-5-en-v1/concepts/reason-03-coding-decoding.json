@@ -1,0 +1,166 @@
+{
+  "id": "reason-03-coding-decoding",
+  "name": "Coding–Decoding — Secret Letter Codes",
+  "grade": 13,
+  "strand": "numbers",
+  "prerequisites": ["reason-02-letter-series"],
+  "whatIsIt": "In coding–decoding, a word is turned into a code by a hidden rule — most often 'shift each letter forward or backward by a fixed number of places'. Find the shift by comparing ONE known letter with its code, then apply the same shift to decode or encode any other word.",
+  "whyNeeded": "Coding–decoding is a guaranteed scorer in reasoning papers. It is really just letter-series thinking applied to whole words, and the same shift trick cracks most questions in seconds.",
+  "realLifeUses": [
+    "Reasoning sections of competitive exams",
+    "Understanding simple ciphers (Caesar shift)",
+    "Password and pattern puzzles",
+    "Quiz and escape-room clues",
+    "Foundation for how computers encode text"
+  ],
+  "vocabulary": [
+    { "term": "shift", "meaning": "How many places each letter moves in the alphabet (+ forward, − backward)." },
+    { "term": "encode", "meaning": "Turn a real word into its code." },
+    { "term": "decode", "meaning": "Turn a code back into the real word (shift the opposite way)." },
+    { "term": "Caesar shift", "meaning": "A code where every letter moves the same number of places." }
+  ],
+  "story": {
+    "title": "One Letter Gives the Secret Away",
+    "characters": ["Meera", "Arjun"],
+    "text": "Arjun writes: 'If CAT is coded as DBU, what is DOG?' Meera checks just one letter: C→D is +1. She tests another: A→B is +1, T→U is +1. 'The whole code is shift +1!' So DOG → E, P, H = EPH. To decode, she shifts the opposite way (−1). Meera's rule: compare one letter with its code to find the shift, then apply it everywhere.",
+    "extractedProblem": "If CAT = DBU, then DOG = ?",
+    "answerInStory": "EPH — the code is 'shift each letter +1', so D→E, O→P, G→H."
+  },
+  "visual": {
+    "component": "NumberTrack",
+    "props": {
+      "tracks": [
+        { "terms": [1, 2, 3, 4, 5], "jump": 1 }
+      ]
+    },
+    "caption": "A '+1' code moves every letter forward one place: C→D, A→B, T→U. Find the shift from one letter, then apply it to all."
+  },
+  "teachingGallery": [
+    {
+      "title": "Find the shift from one letter, then apply it",
+      "note": "Compare a letter with its code → that's the shift. Same shift encodes; opposite shift decodes.",
+      "examples": [
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [1, 3, 5, 7, 9], "jump": 2 } ] }, "caption": "A '+2' code: A→C, B→D, C→E." },
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [3, 6, 9, 12, 15], "jump": 3 } ] }, "caption": "A '+3' code (classic Caesar): A→D, B→E, C→F." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Line up the word with its code, find the shift from one letter pair, confirm on a second, then apply the same shift (or its opposite to decode).",
+    "steps": [
+      "Write the word above its code, letter by letter.",
+      "Find the shift for one pair (e.g. C→D is +1).",
+      "Confirm the shift is the same on another pair.",
+      "Apply that shift to the new word to encode, or the opposite shift to decode. Wrap around after Z."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Use position numbers",
+      "whenToUse": "When the shift is large or you keep miscounting letters.",
+      "steps": [
+        "Convert letters to positions (A=1…Z=26).",
+        "Shift = code position − letter position.",
+        "Add the shift to each new letter's position, then convert back (wrap past 26)."
+      ],
+      "example": "C(3)→D(4) shift +1. DOG = 4,15,7 → 5,16,8 = E,P,H."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "If DOG is coded FQI, what is the code for CAT?",
+      "steps": [
+        "D→F is +2, O→Q is +2, G→I is +2 — shift is +2.",
+        "Apply +2 to CAT.",
+        "C→E, A→C, T→V.",
+        "So CAT is coded ECV."
+      ],
+      "answer": "ECV"
+    },
+    {
+      "problem": "A code shifts +1. Decode the message EPH.",
+      "steps": [
+        "To decode, shift the opposite way: −1.",
+        "E→D, P→O, H→G.",
+        "Read the result.",
+        "The word is DOG."
+      ],
+      "answer": "DOG"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Compare one letter → get the shift → apply it",
+    "intro": "You only need ONE letter pair to unlock the whole code.",
+    "questions": [
+      { "id": "reason03-trick-1", "type": "text", "q": "If A→B, then C→ ?", "answer": "D", "hintLadder": ["Shift is +1.", "C plus 1.", "C→D."], "explain": "+1 → D." },
+      { "id": "reason03-trick-2", "type": "text", "q": "If CAT=DBU, code for A is…", "answer": "B", "hintLadder": ["Shift +1.", "A+1.", "B."], "explain": "+1 → B." },
+      { "id": "reason03-trick-3", "type": "text", "q": "Code is +2. Encode B.", "answer": "D", "hintLadder": ["B+2.", "Count two on.", "B→D."], "explain": "+2 → D." },
+      { "id": "reason03-trick-4", "type": "text", "q": "Code is +1. Decode F.", "answer": "E", "hintLadder": ["Decode = −1.", "F−1.", "E."], "explain": "−1 → E." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "wrong-shift-direction",
+      "mistake": "Shifting forward when you should decode (shift backward), or vice-versa.",
+      "fix": "Encoding uses the shift as given; DECODING uses the opposite sign. If +3 made the code, decode with −3."
+    },
+    {
+      "mistakeTag": "assumed-shift-from-none",
+      "mistake": "Guessing the shift without checking a known letter pair.",
+      "fix": "Never assume. Compare at least one letter with its code to MEASURE the shift, then confirm on a second pair."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "text", "q": "If A→C, then B→ ? (same code)", "answer": "D", "hintLadder": ["Shift +2.", "B+2.", "D."] },
+      { "id": "e2", "type": "mcq", "q": "To DECODE a +1 code you shift…", "options": [ { "label": "Backward by 1" }, { "label": "Forward by 1", "mistakeTag": "wrong-shift-direction" } ], "answer": "Backward by 1", "hintLadder": ["Decode reverses.", "Opposite of +1.", "−1."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "text", "q": "If DOG=FQI, code for CAT is…", "answer": "ECV", "hintLadder": ["Shift +2.", "C→E, A→C, T→V.", "ECV."] },
+      { "id": "m2", "type": "text", "q": "Code is +3. Encode CAB.", "answer": "FDE", "hintLadder": ["C→F, A→D, B→E.", "Each +3.", "FDE."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "text", "q": "If SUN=TVO, code for MOON is… (find the shift first)", "answer": "NPPO", "hintLadder": ["S→T is +1.", "M→N, O→P, O→P, N→O.", "NPPO."] },
+      { "id": "c2", "type": "mcq", "q": "Before coding a new word you must first…", "options": [ { "label": "Measure the shift from a known pair" }, { "label": "Assume it is +1", "mistakeTag": "assumed-shift-from-none" } ], "answer": "Measure the shift from a known pair", "hintLadder": ["Never guess.", "Compare one letter.", "Then apply."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "text", "q": "If CAT=DBU, code for DOG is…", "answer": "EPH", "hintLadder": ["Shift +1.", "D→E, O→P, G→H.", "EPH."] },
+      { "id": "mc2", "type": "text", "q": "Code is +2. Encode BAG.", "answer": "DCI", "hintLadder": ["B→D, A→C, G→I.", "Each +2.", "DCI."] },
+      { "id": "mc3", "type": "mcq", "q": "Encoding vs decoding differ by…", "options": [ { "label": "The direction of the shift" }, { "label": "Nothing, they are identical", "mistakeTag": "wrong-shift-direction" } ], "answer": "The direction of the shift", "hintLadder": ["Encode = given shift.", "Decode = opposite.", "Direction flips."] },
+      { "id": "mc4", "type": "text", "q": "If A→D (shift +3), decode G.", "answer": "D", "hintLadder": ["Decode = −3.", "G−3.", "D."] },
+      { "id": "mc5", "type": "text", "q": "If PEN=QFO, code for INK is…", "answer": "JOL", "hintLadder": ["P→Q is +1.", "I→J, N→O, K→L.", "JOL."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend to crack CAT=DBU → DOG=EPH. Show how comparing just C→D reveals the +1 shift, and explain that decoding uses the opposite shift.",
+  "revisionCard": {
+    "summary": "Coding–decoding = find the hidden shift. Compare one letter with its code to measure the shift, confirm on a second pair, then apply the same shift to encode or the OPPOSITE shift to decode. Use A=1…Z=26 for big shifts, and wrap around after Z.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "Secret Agent Cipher",
+    "brief": "Intercept the code, measure the shift from one letter, and decode the message! Watch the direction — decoding shifts the other way.",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Invent a +4 shift code and write a short secret message to a friend. Give them one letter's decode as a clue and see if they can crack the rest.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Logical) — Coding–Decoding",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "One letter reveals the whole shift",
+    "unpack": "Measure the shift from a known pair, apply it forward to encode or backward to decode."
+  },
+  "studentQuestions": [
+    { "q": "What if different letters seem to shift by different amounts?", "a": "Then the rule isn't a simple shift — check for reversing the word, +1/+2 alternating, or position-based rules. Test your rule on every letter before trusting it." },
+    { "q": "How do I handle a shift that runs past Z?", "a": "Wrap around: after Z comes A. With positions, if the number goes above 26 subtract 26 (e.g. 27→1=A)." }
+  ]
+}

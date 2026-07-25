@@ -1,0 +1,166 @@
+{
+  "id": "reason-04-analogy-odd-one-out",
+  "name": "Analogy & Odd-One-Out — Spot the Relationship",
+  "grade": 13,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "Both puzzles are about finding the RELATIONSHIP. In an analogy (A : B :: C : ?), you find how A links to B, then apply the SAME link to C. In odd-one-out, every item shares a hidden property except one — you find the shared rule, and the item that breaks it is the odd one.",
+  "whyNeeded": "Analogy and classification questions are everywhere in reasoning and vocabulary tests. They train you to name the exact relationship instead of relying on a vague 'feels similar'.",
+  "realLifeUses": [
+    "Verbal and non-verbal reasoning sections",
+    "Vocabulary and GK classification questions",
+    "Sorting and categorising information",
+    "Spotting the exception in a data set",
+    "Quiz 'which one doesn't belong' rounds"
+  ],
+  "vocabulary": [
+    { "term": "analogy", "meaning": "A : B :: C : D — the pair C:D must share the SAME relationship as A:B." },
+    { "term": "relationship", "meaning": "The exact rule linking a pair (double, opposite, part-of, same category…)." },
+    { "term": "odd one out", "meaning": "The single item that does NOT share the rule the others share." },
+    { "term": "category", "meaning": "A group defined by a shared property (even numbers, fruits, squares…)." }
+  ],
+  "story": {
+    "title": "Name the Link, Then Reuse It",
+    "characters": ["Sana", "her teacher"],
+    "text": "Teacher writes 2 : 4 :: 5 : ?. Sana says '7?' Teacher asks: 'What is the LINK from 2 to 4?' Sana: 'It doubles!' 'Then reuse the same link on 5.' '5 doubled is 10!' Next: 'Odd one out — 4, 9, 16, 20, 25.' Sana lists them: 4,9,16,25 are perfect squares, but 20 is not. '20 is the odd one!' The lesson: first NAME the rule, then apply or break it.",
+    "extractedProblem": "2 : 4 :: 5 : ? and odd one out of 4, 9, 16, 20, 25",
+    "answerInStory": "10 (the link is 'double'), and 20 is the odd one (the rest are perfect squares)."
+  },
+  "visual": {
+    "component": "ArrayGrid",
+    "props": {
+      "grids": [
+        { "rows": 2, "cols": 2, "label": "2 → double → 4" },
+        { "rows": 5, "cols": 2, "label": "5 → double → 10" }
+      ]
+    },
+    "caption": "Analogy: find the link (here 'double') from the first pair, then apply the SAME link to the second."
+  },
+  "teachingGallery": [
+    {
+      "title": "First name the rule, then apply or break it",
+      "note": "Analogy: reuse the rule. Odd-one-out: find the rule the majority shares; the exception breaks it.",
+      "examples": [
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 3, "cols": 3, "label": "3 × 3 = 9 (square)" } ] }, "caption": "4, 9, 16, 25 are squares; 20 is not — the odd one." },
+        { "component": "ArrayGrid", "props": { "grids": [ { "rows": 1, "cols": 6, "label": "2,4,6,8,10 even — 7 breaks it" } ] }, "caption": "Odd one out: the item that doesn't fit the shared property." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "State the relationship in words. For analogy, apply that same relationship to the new item. For odd-one-out, keep the item that does NOT obey the shared rule.",
+    "steps": [
+      "Look at the given pair (or the whole set) and describe the link in a short phrase.",
+      "Check the link is exact — 'doubles', 'opposite', 'is a square', 'same category'.",
+      "For analogy: apply the identical link to the new term to get the answer.",
+      "For odd-one-out: the answer is the single item that breaks the shared rule."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Try the obvious categories",
+      "whenToUse": "When you can't spot the rule quickly.",
+      "steps": [
+        "Run a mental checklist: even/odd, squares/cubes, primes, same first letter, same group (fruits, metals).",
+        "The first checklist item that splits the set 'all-but-one' is your rule."
+      ],
+      "example": "3, 5, 7, 9, 11 → all odd, but is one non-prime? 9 is not prime → odd one 9."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Complete the analogy: 3 : 9 :: 4 : ?",
+      "steps": [
+        "Link from 3 to 9: it is 3 squared (3 × 3).",
+        "Apply the same link to 4.",
+        "4 squared = 4 × 4 = 16.",
+        "So the answer is 16."
+      ],
+      "answer": "16"
+    },
+    {
+      "problem": "Find the odd one out: 8, 27, 64, 100, 125",
+      "steps": [
+        "Check for cubes: 8 = 2³, 27 = 3³, 64 = 4³, 125 = 5³.",
+        "100 is not a perfect cube (it is 10²).",
+        "So 100 breaks the shared 'cube' rule.",
+        "The odd one out is 100."
+      ],
+      "answer": "100"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Say the rule in one short phrase first",
+    "intro": "If you can name the link, the answer is easy.",
+    "questions": [
+      { "id": "reason04-trick-1", "type": "number", "q": "2 : 4 :: 5 : ? (link = double)", "answer": "10", "hintLadder": ["Link doubles.", "5 × 2.", "10."], "explain": "Double → 10." },
+      { "id": "reason04-trick-2", "type": "number", "q": "Odd one out: 4, 9, 16, 20, 25 → give the odd number", "answer": "20", "hintLadder": ["Rest are squares.", "20 is not.", "20."], "explain": "Non-square → 20." },
+      { "id": "reason04-trick-3", "type": "number", "q": "10 : 5 :: 8 : ? (link = half)", "answer": "4", "hintLadder": ["Link halves.", "8 ÷ 2.", "4."], "explain": "Half → 4." },
+      { "id": "reason04-trick-4", "type": "number", "q": "Odd one out: 2, 3, 5, 8, 11 → give the odd number", "answer": "8", "hintLadder": ["Rest are primes.", "8 is not prime.", "8."], "explain": "Non-prime → 8." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "vague-relationship",
+      "mistake": "Choosing an answer that 'feels related' without naming the exact rule.",
+      "fix": "Force yourself to say the link in words ('doubles', 'is a square'). A precise rule gives one clear answer; a vague feeling gives wrong ones."
+    },
+    {
+      "mistakeTag": "picked-a-fitting-item",
+      "mistake": "In odd-one-out, picking an item that DOES fit the rule instead of the exception.",
+      "fix": "Find the property the MAJORITY shares; the answer is the one that breaks it, not one that follows it."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "1 : 2 :: 4 : ? (link = double)", "answer": "8", "hintLadder": ["Double.", "4 × 2.", "8."] },
+      { "id": "e2", "type": "mcq", "q": "Odd one out: 2, 4, 6, 7, 8", "options": [ { "label": "7 (the only odd number)" }, { "label": "8 (the largest)", "mistakeTag": "picked-a-fitting-item" } ], "answer": "7 (the only odd number)", "hintLadder": ["Rest are even.", "7 is odd.", "7."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "3 : 9 :: 5 : ? (link = square)", "answer": "25", "hintLadder": ["3² = 9.", "5².", "25."] },
+      { "id": "m2", "type": "number", "q": "Odd one out: 8, 27, 64, 100 → give the odd number", "answer": "100", "hintLadder": ["Rest are cubes.", "100 is not.", "100."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "6 : 36 :: 9 : ? (link = square)", "answer": "81", "hintLadder": ["6² = 36.", "9².", "81."] },
+      { "id": "c2", "type": "mcq", "q": "The safest first move in these puzzles is…", "options": [ { "label": "Name the rule in words" }, { "label": "Pick what looks similar", "mistakeTag": "vague-relationship" } ], "answer": "Name the rule in words", "hintLadder": ["Exact rule → one answer.", "Vague → errors.", "State the link."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "2 : 6 :: 3 : ? (link = triple)", "answer": "9", "hintLadder": ["×3.", "3 × 3.", "9."] },
+      { "id": "mc2", "type": "number", "q": "Odd one out: 4, 9, 16, 20, 25 → give the odd number", "answer": "20", "hintLadder": ["Squares except one.", "20 not a square.", "20."] },
+      { "id": "mc3", "type": "mcq", "q": "In odd-one-out you keep the item that…", "options": [ { "label": "Breaks the shared rule" }, { "label": "Fits the shared rule best", "mistakeTag": "picked-a-fitting-item" } ], "answer": "Breaks the shared rule", "hintLadder": ["Majority share a rule.", "Answer is the exception.", "It breaks the rule."] },
+      { "id": "mc4", "type": "number", "q": "10 : 100 :: 7 : ? (link = square)", "answer": "49", "hintLadder": ["10² = 100.", "7².", "49."] },
+      { "id": "mc5", "type": "number", "q": "Odd one out: 3, 5, 7, 9, 11 → give the odd number", "answer": "9", "hintLadder": ["Rest are primes.", "9 = 3×3.", "9."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Explain to a friend how to solve 2 : 4 :: 5 : ? by naming the link ('double') and reusing it → 10. Then show odd-one-out of 4, 9, 16, 20, 25 → 20, because the others are perfect squares.",
+  "revisionCard": {
+    "summary": "Analogy & odd-one-out are both about the RELATIONSHIP. Analogy A:B::C:? — name the exact link from A to B, apply it to C. Odd-one-out — find the property the majority share (even, square, cube, prime, same category); the answer is the one that breaks it. Always state the rule in words first.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "Spot the Odd Beast",
+    "brief": "Name the hidden link and either complete the pair or catch the creature that doesn't belong! Precise rules win; vague guesses lose.",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Make a 'which one doesn't belong?' card with five items (four sharing a rule, one breaking it). Test three friends — a good card makes them explain the exact rule.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Logical) — Analogy & Classification",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Name the rule, then apply it or break it",
+    "unpack": "Analogy reuses the link; odd-one-out keeps the item that breaks the shared rule."
+  },
+  "studentQuestions": [
+    { "q": "What if two answers seem to fit the analogy?", "a": "Your rule is too loose. Tighten it — 'doubles' and 'adds 2' both fit 2→4, so check the second pair to decide which rule the question really means." },
+    { "q": "How do I get faster at odd-one-out?", "a": "Run a quick checklist: even/odd, squares, cubes, primes, same category. The first property that splits the set 'all-but-one' is your rule." }
+  ]
+}

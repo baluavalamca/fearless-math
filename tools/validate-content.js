@@ -81,7 +81,7 @@ function validateConcept(file) {
   // 1. STRUCTURE
   if (!TAG_RE.test(c.id || "")) err("id missing or not kebab-case");
   if (!isStr(c.name, 3)) err("name missing");
-  if (!Number.isInteger(c.grade) || c.grade < 0 || c.grade > 12) err("grade must be 0-12");
+  if (!Number.isInteger(c.grade) || c.grade < 0 || c.grade > 13) err("grade must be 0-13");
   if (!["numbers","operations","fractions","geometry","measurement","data"].includes(c.strand))
     err(`strand "${c.strand}" invalid`);
   if (!Array.isArray(c.prerequisites)) err("prerequisites must be an array");

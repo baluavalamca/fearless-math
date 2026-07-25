@@ -1,0 +1,165 @@
+{
+  "id": "reason-01-number-series",
+  "name": "Number Series — Find the Next Number",
+  "grade": 13,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "A number series is a list that follows a hidden RULE — your job is to spot the rule and predict the next term. The commonest rules are: add a constant (2, 5, 8, 11…), multiply by a constant (3, 6, 12, 24…), squares or cubes (1, 4, 9, 16…), and 'differences of differences'. The trick is to look at the GAPS between terms first.",
+  "whyNeeded": "Number series is the single most common reasoning topic in SSC, Bank, Railway and campus aptitude tests. It trains pattern recognition — the same skill behind coding, science and problem-solving everywhere.",
+  "realLifeUses": [
+    "Aptitude and IQ test questions",
+    "Spotting trends in data (sales rising by a fixed amount)",
+    "Predicting the next step in a repeating process",
+    "Puzzle and quiz rounds",
+    "SSC / Bank / Railway reasoning sections"
+  ],
+  "vocabulary": [
+    { "term": "term", "meaning": "One number in the series." },
+    { "term": "common difference", "meaning": "The fixed amount added each step (in an add-pattern)." },
+    { "term": "common ratio", "meaning": "The fixed number you multiply by each step (in a times-pattern)." },
+    { "term": "difference pattern", "meaning": "Look at the gaps between terms; sometimes the gaps themselves follow a rule." }
+  ],
+  "story": {
+    "title": "The Gap Between the Steps",
+    "characters": ["Isha", "her coach"],
+    "text": "Isha sees 2, 5, 8, 11, __ and freezes. Her coach says: 'Don't stare at the numbers — look at the GAPS. 2 to 5 is +3, 5 to 8 is +3, 8 to 11 is +3. The rule is add 3, so next is 11 + 3 = 14.' Then a trickier one: 3, 6, 12, 24, __. 'The gaps grow, so try times: each doubles. Next is 24 × 2 = 48.' Isha learns to always check the gaps first, then try multiply, then squares.",
+    "extractedProblem": "What comes next: 2, 5, 8, 11, __ ?",
+    "answerInStory": "14 — the rule is 'add 3' (each gap is +3), so 11 + 3 = 14."
+  },
+  "visual": {
+    "component": "NumberTrack",
+    "props": {
+      "tracks": [
+        { "terms": [2, 5, 8, 11], "jump": 3 }
+      ]
+    },
+    "caption": "Look at the jumps first: 2→5→8→11 each jump is +3, so the next number is 11 + 3 = 14."
+  },
+  "teachingGallery": [
+    {
+      "title": "Check the gaps, then multiply, then squares",
+      "note": "Add-pattern: constant gaps. Times-pattern: gaps grow fast. Square/cube: compare with 1,4,9,16 / 1,8,27.",
+      "examples": [
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [5, 10, 15, 20], "jump": 5 } ] }, "caption": "Add 5 each time → next 25." },
+        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [0, 2, 4, 6], "jump": 2 } ] }, "caption": "Even numbers, add 2 → next 8." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Find the differences; if constant it's an add-rule; if growing fast try a times-rule; else test squares/cubes or alternating patterns.",
+    "steps": [
+      "Write the gaps between consecutive terms.",
+      "If the gaps are equal, the rule is 'add that gap'.",
+      "If the terms grow fast, test 'multiply by a constant'.",
+      "Else compare with squares (1,4,9,16), cubes (1,8,27), or check alternating/odd-even patterns."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Second differences",
+      "whenToUse": "When the gaps themselves change by a constant.",
+      "steps": [
+        "Take the differences of the terms, then the differences of those.",
+        "If that second layer is constant, extend it back up."
+      ],
+      "example": "1, 3, 6, 10 → gaps 2,3,4 → next gap 5 → 10 + 5 = 15."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Find the next term: 3, 6, 12, 24, __",
+      "steps": [
+        "Gaps 3, 6, 12 grow fast — try multiply.",
+        "6 ÷ 3 = 2, 12 ÷ 6 = 2, 24 ÷ 12 = 2 — the ratio is 2.",
+        "So multiply by 2 each time.",
+        "24 × 2 = 48."
+      ],
+      "answer": "48"
+    },
+    {
+      "problem": "Find the next term: 1, 4, 9, 16, __",
+      "steps": [
+        "These are 1², 2², 3², 4² — the square numbers.",
+        "The next square is 5².",
+        "5² = 25.",
+        "So the next term is 25."
+      ],
+      "answer": "25"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Gaps first, then times, then squares",
+    "intro": "Always look at the differences before guessing.",
+    "questions": [
+      { "id": "reason01-trick-1", "type": "number", "q": "Next: 4, 8, 12, 16, __", "answer": "20", "hintLadder": ["Gaps are +4.", "Add 4.", "16 + 4 = 20."], "explain": "Add 4 → 20." },
+      { "id": "reason01-trick-2", "type": "number", "q": "Next: 2, 4, 8, 16, __", "answer": "32", "hintLadder": ["Each doubles.", "×2.", "16 × 2 = 32."], "explain": "×2 → 32." },
+      { "id": "reason01-trick-3", "type": "number", "q": "Next: 10, 20, 30, 40, __", "answer": "50", "hintLadder": ["Gaps +10.", "Add 10.", "40 + 10 = 50."], "explain": "Add 10 → 50." },
+      { "id": "reason01-trick-4", "type": "number", "q": "Next: 1, 8, 27, __ (cubes)", "answer": "64", "hintLadder": ["1³, 2³, 3³.", "Next is 4³.", "4³ = 64."], "explain": "Cubes → 64." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "ignored-the-gaps",
+      "mistake": "Guessing a rule from the numbers alone without checking the differences.",
+      "fix": "Always write the GAPS first. Equal gaps → add-rule; fast growth → times-rule. The gaps reveal the pattern almost every time."
+    },
+    {
+      "mistakeTag": "add-when-multiply",
+      "mistake": "Forcing an add-rule when the terms are clearly multiplying (calling 3,6,12,24 an add-6 pattern).",
+      "fix": "If the gaps keep GROWING, it isn't a constant add — test division: if each term ÷ the one before is the same, it's a times-rule."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "Next: 3, 6, 9, 12, __", "answer": "15", "hintLadder": ["Gaps +3.", "Add 3.", "12 + 3 = 15."] },
+      { "id": "e2", "type": "mcq", "q": "In 5, 10, 15, 20, the rule is…", "options": [ { "label": "Add 5" }, { "label": "Multiply by 5", "mistakeTag": "add-when-multiply" } ], "answer": "Add 5", "hintLadder": ["Check a gap.", "10 − 5 = 5, constant.", "Add 5."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "Next: 2, 6, 18, 54, __", "answer": "162", "hintLadder": ["6÷2 = 3, ratio 3.", "×3 each time.", "54 × 3 = 162."] },
+      { "id": "m2", "type": "number", "q": "Next: 1, 4, 9, 16, 25, __", "answer": "36", "hintLadder": ["These are squares.", "Next is 6².", "6² = 36."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "Next: 1, 3, 6, 10, __ (triangular)", "answer": "15", "hintLadder": ["Gaps 2, 3, 4.", "Next gap 5.", "10 + 5 = 15."] },
+      { "id": "c2", "type": "mcq", "q": "The gaps in a series keep DOUBLING. The rule is probably…", "options": [ { "label": "Multiply, not add" }, { "label": "Add a constant", "mistakeTag": "add-when-multiply" } ], "answer": "Multiply, not add", "hintLadder": ["Growing gaps.", "Not a constant add.", "Test a multiply-rule."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "Next: 7, 14, 21, 28, __", "answer": "35", "hintLadder": ["Gaps +7.", "Add 7.", "28 + 7 = 35."] },
+      { "id": "mc2", "type": "number", "q": "Next: 3, 9, 27, __", "answer": "81", "hintLadder": ["×3 each.", "27 × 3.", "= 81."] },
+      { "id": "mc3", "type": "mcq", "q": "The first thing to check in a number series is…", "options": [ { "label": "The gaps between terms" }, { "label": "The last digit only", "mistakeTag": "ignored-the-gaps" } ], "answer": "The gaps between terms", "hintLadder": ["Differences reveal the rule.", "Equal gaps → add.", "Growing gaps → times."] },
+      { "id": "mc4", "type": "number", "q": "Next: 100, 90, 80, 70, __", "answer": "60", "hintLadder": ["Gaps −10.", "Subtract 10.", "70 − 10 = 60."] },
+      { "id": "mc5", "type": "number", "q": "Next: 2, 4, 8, 16, 32, __", "answer": "64", "hintLadder": ["Doubling.", "×2.", "32 × 2 = 64."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend the number-series method: write the gaps first. Use 2, 5, 8, 11 (add 3 → 14) and 3, 6, 12, 24 (times 2 → 48), and explain how the gaps tell you whether to add or multiply.",
+  "revisionCard": {
+    "summary": "Number series = find the hidden rule. Step 1: write the GAPS. Equal gaps → add that number. Fast growth → check a common ratio (multiply). Else test squares (1,4,9,16), cubes (1,8,27), or second differences (1,3,6,10). Predict the next term from the rule.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "Crack the Sequence",
+    "brief": "Spot the hidden rule and fill the blank before time runs out! Check the gaps, try multiply, test squares — and never force an add when it's really a times.",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Make three number-series puzzles for a friend: one add-rule, one times-rule, one squares. Swap and solve — the puzzle-maker must be able to state the rule.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Logical) — Number Series",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Gaps first: equal → add, growing → multiply",
+    "unpack": "Differences reveal the rule. Then test squares, cubes, or second differences."
+  },
+  "studentQuestions": [
+    { "q": "Where do I start on a hard series?", "a": "Always write the gaps between terms first — equal gaps mean 'add', fast-growing gaps mean 'multiply'." },
+    { "q": "What if the gaps aren't equal or a nice ratio?", "a": "Take the gaps of the gaps (second differences), or compare with squares/cubes and odd/even alternating patterns." }
+  ]
+}
