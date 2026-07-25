@@ -20,6 +20,19 @@ import { isAutoRead, setAutoRead, stopSpeaking, setSpeechLang } from "./speech";
 
 type Screen = "map" | "clinic" | "ask" | "facts" | "algos" | "dict" | "parent";
 
+/* Every destination lives in the bottom menu sheet (no top nav bar), so the
+ * whole screen belongs to the lesson content. Data-driven so the dock label,
+ * the sheet tiles and the active state all stay in sync. */
+const NAV: { id: Screen; icon: string; label: string; sub: string }[] = [
+  { id: "map", icon: "🌳", label: "Ganita Grove", sub: "Your learning path" },
+  { id: "clinic", icon: "🏥", label: "Mistake Clinic", sub: "Fix what trips you up" },
+  { id: "ask", icon: "🤖", label: "Ask Robo", sub: "Your AI maths tutor" },
+  { id: "facts", icon: "💡", label: "Fun Facts", sub: "200 maths wonders" },
+  { id: "algos", icon: "🧠", label: "Algorithms", sub: "Must-know algorithms" },
+  { id: "dict", icon: "📖", label: "Dictionary", sub: "EN · తెలుగు · हिंदी" },
+  { id: "parent", icon: "👨‍👩‍👧", label: "Parents", sub: "Progress & settings" },
+];
+
 /* Global display language. Translated packs (hi/te) carry the same concept ids,
  * so progress is shared; untranslated lessons fall back to English automatically. */
 type LangId = "en" | "hi" | "te";
@@ -61,12 +74,12 @@ export default function App() {
     return (THEMES.find((t) => t.id === s)?.id) ?? "light";
   });
 
-  const [themeMenu, setThemeMenu] = useState(false);
   const [lang, setLang] = useState<LangId>(() => {
     const s = localStorage.getItem("fm_lang");
     return (LANGS.find((l) => l.id === s)?.id) ?? "en";
   });
-  const [langMenu, setLangMenu] = useState(false);
+  // The single bottom menu sheet replaces the old top navigation bar.
+  const [menu, setMenu] = useState(false);
   function toggleAutoRead() { const next = !autoRead; setAutoRead(next); setAutoReadState(next); }
 
   // Apply the display language: set <html lang> (drives the Indic font via CSS),
@@ -83,11 +96,25 @@ export default function App() {
   }
   function changeLanguage(next: LangId) {
     setLang(next);
-    setLangMenu(false);
     void applyLanguage(next, true);
   }
 
+  /** Jump to a screen from the bottom menu and close the sheet behind you. */
+  function go(next: Screen) {
+    stopSpeaking();
+    setMenu(false);
+    setScreen(next);
+    if (next === "map") void refresh();
+  }
+
   useEffect(() => { stopSpeaking(); }, [screen, open]);
+  // Escape closes the bottom menu, like any other dialog in the app.
+  useEffect(() => {
+    if (!menu) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMenu(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menu]);
   useEffect(() => {
     const t = THEMES.find((x) => x.id === theme) ?? THEMES[0];
     document.documentElement.setAttribute("data-theme", t.id);
@@ -151,66 +178,12 @@ export default function App() {
     </>;
   }
 
+  const here = NAV.find((n) => n.id === screen) ?? NAV[0];
+
   return (
     <>
       <Doodles />
-      <nav className="fm-nav" aria-label="Main navigation">
-        <span className="fm-brand"><Emoji3D char="🦊" size={24} /> FearlessMath</span>
-        <button className={screen === "map" ? "active" : ""} onClick={() => { setScreen("map"); refresh(); }}>🌳 Ganita Grove</button>
-        <button className={screen === "clinic" ? "active" : ""} onClick={() => setScreen("clinic")}>🏥 Mistake Clinic</button>
-        <button className={`fm-nav-robo ${screen === "ask" ? "active" : ""}`} onClick={() => setScreen("ask")}><RoboAvatar size={20} /> Ask Robo</button>
-        <button className={screen === "facts" ? "active" : ""} onClick={() => setScreen("facts")}>💡 Fun Facts</button>
-        <button className={screen === "algos" ? "active" : ""} onClick={() => setScreen("algos")}>🧠 Algorithms</button>
-        <button className={screen === "dict" ? "active" : ""} onClick={() => setScreen("dict")}>📖 Dictionary</button>
-        <button className={screen === "parent" ? "active" : ""} onClick={() => setScreen("parent")}>👨‍👩‍👧 Parents</button>
-        <button className="fm-user-chip" onClick={switchUser} title="Switch user">🦊 {profile.name} ⇄</button>
-        <button className={`fm-autoread ${autoRead ? "active" : ""}`} onClick={toggleAutoRead}
-          title="When ON, the app reads every screen aloud automatically">
-          {autoRead ? "🔊 Auto-read ON" : "🔇 Auto-read OFF"}
-        </button>
-        <div className="fm-theme-wrap">
-          <button className="fm-theme-toggle" onClick={() => setLangMenu((v) => !v)}
-            aria-haspopup="true" aria-expanded={langMenu} title="Language / भाषा / భాష">
-            🌐 {(LANGS.find((l) => l.id === lang) ?? LANGS[0]).native} ▾
-          </button>
-          {langMenu && (
-            <>
-              <div className="fm-theme-backdrop" onClick={() => setLangMenu(false)} />
-              <div className="fm-theme-menu" role="menu" aria-label="Choose a language">
-                {LANGS.map((l) => (
-                  <button key={l.id} role="menuitemradio" aria-checked={lang === l.id}
-                    className={"fm-theme-swatch" + (lang === l.id ? " on" : "")}
-                    onClick={() => changeLanguage(l.id)}>
-                    <span className="fm-theme-name">🌐 {l.native}</span>
-                  </button>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-        <div className="fm-theme-wrap">
-          <button className="fm-theme-toggle" onClick={() => setThemeMenu((v) => !v)}
-            aria-haspopup="true" aria-expanded={themeMenu} title="Choose a theme">
-            {(THEMES.find((t) => t.id === theme) ?? THEMES[0]).icon}{" "}
-            {(THEMES.find((t) => t.id === theme) ?? THEMES[0]).label} ▾
-          </button>
-          {themeMenu && (
-            <>
-              <div className="fm-theme-backdrop" onClick={() => setThemeMenu(false)} />
-              <div className="fm-theme-menu" role="menu" aria-label="Choose a theme">
-                {THEMES.map((t) => (
-                  <button key={t.id} role="menuitemradio" aria-checked={theme === t.id}
-                    className={"fm-theme-swatch" + (theme === t.id ? " on" : "")}
-                    onClick={() => { setTheme(t.id); setThemeMenu(false); }}>
-                    <span className="fm-theme-chip" style={{ background: t.sw }} aria-hidden />
-                    <span className="fm-theme-name">{t.icon} {t.label}</span>
-                  </button>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-      </nav>
+      <main className="fm-main">
       {screen === "map" && concepts && <WorldMap concepts={concepts} profile={profile} onOpen={openConcept} onDeepDive={deepDive} onFacts={() => setScreen("facts")} lang={lang} />}
       {screen === "map" && !concepts && <div className="fm-loading">Loading…</div>}
       {screen === "clinic" && <MistakeClinic />}
@@ -219,6 +192,77 @@ export default function App() {
       {screen === "algos" && <Algorithms />}
       {screen === "dict" && <Dictionary lang={lang} />}
       {screen === "parent" && <ParentDashboard autoUnlock={profile.role !== "student"} />}
+      </main>
+
+      {/* Bottom launcher — the only always-on chrome. Tapping it opens the menu sheet. */}
+      <button className={"fm-dock" + (menu ? " open" : "")} onClick={() => setMenu((v) => !v)}
+        aria-haspopup="dialog" aria-expanded={menu} title="Open the menu">
+        <Emoji3D char="🦊" size={22} />
+        <span className="fm-dock-cur">{here.icon} {here.label}</span>
+        <span className="fm-dock-caret" aria-hidden>▴</span>
+      </button>
+
+      {menu && (
+        <>
+          <div className="fm-menu-backdrop" onClick={() => setMenu(false)} />
+          <div className="fm-menu" role="dialog" aria-modal="true" aria-label="Main menu">
+            <div className="fm-menu-grip" aria-hidden />
+            <div className="fm-menu-head">
+              <span className="fm-brand"><Emoji3D char="🦊" size={22} /> FearlessMath</span>
+              <button className="fm-menu-x" onClick={() => setMenu(false)} aria-label="Close menu">✕</button>
+            </div>
+
+            <p className="fm-menu-sec">Explore</p>
+            <div className="fm-menu-grid">
+              {NAV.map((n) => (
+                <button key={n.id} className={"fm-menu-tile" + (screen === n.id ? " on" : "")}
+                  onClick={() => go(n.id)} aria-current={screen === n.id ? "page" : undefined}>
+                  <span className="fm-menu-ico">
+                    {n.id === "ask" ? <RoboAvatar size={24} /> : <Emoji3D char={n.icon} size={24} />}
+                  </span>
+                  <span className="fm-menu-txt">
+                    <b>{n.label}</b>
+                    <small>{n.sub}</small>
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            <p className="fm-menu-sec">Settings</p>
+            <div className="fm-menu-row">
+              <button className="fm-menu-chip" onClick={() => { setMenu(false); switchUser(); }} title="Switch user">
+                🦊 {profile.name} ⇄
+              </button>
+              <button className={"fm-menu-chip" + (autoRead ? " on" : "")} onClick={toggleAutoRead}
+                title="When ON, the app reads every screen aloud automatically">
+                {autoRead ? "🔊 Auto-read ON" : "🔇 Auto-read OFF"}
+              </button>
+            </div>
+
+            <p className="fm-menu-sub">🌐 Language</p>
+            <div className="fm-menu-row" role="radiogroup" aria-label="Choose a language">
+              {LANGS.map((l) => (
+                <button key={l.id} role="radio" aria-checked={lang === l.id}
+                  className={"fm-menu-chip" + (lang === l.id ? " on" : "")}
+                  onClick={() => changeLanguage(l.id)}>{l.native}</button>
+              ))}
+            </div>
+
+            <p className="fm-menu-sub">🎨 Theme</p>
+            <div className="fm-menu-row" role="radiogroup" aria-label="Choose a theme">
+              {THEMES.map((t) => (
+                <button key={t.id} role="radio" aria-checked={theme === t.id}
+                  className={"fm-menu-chip" + (theme === t.id ? " on" : "")}
+                  onClick={() => setTheme(t.id)}>
+                  <span className="fm-theme-chip" style={{ background: t.sw }} aria-hidden />
+                  {t.icon} {t.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+
       <Suspense fallback={null}><MathToolbox /><AdvancedToolbox /></Suspense>
     </>
   );
