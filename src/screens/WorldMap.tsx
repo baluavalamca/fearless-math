@@ -8,19 +8,14 @@
  * keeps the prerequisite roadmap exactly as before. The lesson flow (onOpen ->
  * LessonPlayer) is untouched.
  */
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { ConceptCard, Profile } from "../api";
 import { Emoji3D } from "../components/ObjectIcon";
 import { GameHud } from "../components/GameHud";
-import { MATH_FACTS, LangKey, factText } from "../data/mathFacts";
+import { LangKey } from "../data/mathFacts";
 
-/** Deep-dive label per language for the 🔬 icon and the home teaser. */
+/** Deep-dive label per language for the 🔬 icon. */
 const DEEP_LABEL: Record<LangKey, string> = { en: "Explore with Robo", hi: "रोबो के साथ खोजें", te: "రోబోతో అన్వేషించు" };
-const FACT_TEASER: Record<LangKey, { did: string; more: string }> = {
-  en: { did: "Did you know?", more: "More fun facts →" },
-  hi: { did: "क्या तुम जानते हो?", more: "और मज़ेदार तथ्य →" },
-  te: { did: "నీకు తెలుసా?", more: "మరిన్ని సరదా వాస్తవాలు →" },
-};
 
 // `name` = the real maths topic (shown as the primary label so it's clear, not generic).
 // `world` = the playful theme name, kept as a small subtitle for kid-friendly flavour.
@@ -117,9 +112,6 @@ export function WorldMap({
     localStorage.setItem(key, JSON.stringify({ last: today, count }));
     setStreak(count);
   }, [profile.id]);
-
-  // One random fun fact for the home teaser (fresh each time the home mounts).
-  const teaser = useMemo(() => MATH_FACTS[Math.floor(Math.random() * MATH_FACTS.length)], []);
 
   const mastered = concepts.filter((c) => c.status === "mastered").length;
   const mCount = useCountUp(mastered);
@@ -220,17 +212,6 @@ export function WorldMap({
       )}
 
       {view === "home" && !q && <GameHud concepts={concepts} streak={streak} />}
-
-      {view === "home" && !q && onFacts && (
-        <button className="fm-fact-teaser" onClick={onFacts} title={FACT_TEASER[lang].more}>
-          <span className="fm-fact-teaser-ic">💡</span>
-          <span className="fm-fact-teaser-body">
-            <span className="fm-fact-teaser-lbl">{FACT_TEASER[lang].did}</span>
-            <span className="fm-fact-teaser-text">{factText(teaser, lang)}</span>
-          </span>
-          <span className="fm-fact-teaser-go">{FACT_TEASER[lang].more}</span>
-        </button>
-      )}
 
       {/* -------- SEARCH (always available, above the classes) -------- */}
       <div className="fm-search-wrap">
