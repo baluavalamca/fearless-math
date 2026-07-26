@@ -20,18 +20,22 @@ import { isAutoRead, setAutoRead, stopSpeaking, setSpeechLang } from "./speech";
 
 type Screen = "map" | "clinic" | "ask" | "facts" | "algos" | "dict" | "parent";
 
-/* Every destination lives in the bottom menu sheet (no top nav bar), so the
- * whole screen belongs to the lesson content. Data-driven so the dock label,
- * the sheet tiles and the active state all stay in sync. */
-const NAV: { id: Screen; icon: string; label: string; sub: string }[] = [
-  { id: "map", icon: "🌳", label: "Ganita Grove", sub: "Your learning path" },
-  { id: "clinic", icon: "🏥", label: "Mistake Clinic", sub: "Fix what trips you up" },
+/* Navigation is split in two:
+ *  TOP  — the two everyday destinations a learner uses constantly.
+ *  MENU — everything else, tucked into the bottom popup sheet.
+ * Both are data-driven so labels and active states stay in sync. */
+const TOP_NAV: { id: Screen; icon: string; label: string }[] = [
+  { id: "map", icon: "🌳", label: "Ganita Grove" },
+  { id: "clinic", icon: "🏥", label: "Mistake Clinic" },
+];
+const MENU_NAV: { id: Screen; icon: string; label: string; sub: string }[] = [
   { id: "ask", icon: "🤖", label: "Ask Robo", sub: "Your AI maths tutor" },
   { id: "facts", icon: "💡", label: "Fun Facts", sub: "200 maths wonders" },
   { id: "algos", icon: "🧠", label: "Algorithms", sub: "Must-know algorithms" },
   { id: "dict", icon: "📖", label: "Dictionary", sub: "EN · తెలుగు · हिंदी" },
   { id: "parent", icon: "👨‍👩‍👧", label: "Parents", sub: "Progress & settings" },
 ];
+const ALL_NAV = [...TOP_NAV, ...MENU_NAV];
 
 /* Global display language. Translated packs (hi/te) carry the same concept ids,
  * so progress is shared; untranslated lessons fall back to English automatically. */
@@ -178,11 +182,24 @@ export default function App() {
     </>;
   }
 
-  const here = NAV.find((n) => n.id === screen) ?? NAV[0];
+  const here = ALL_NAV.find((n) => n.id === screen) ?? ALL_NAV[0];
 
   return (
     <>
       <Doodles />
+      {/* Slim top bar: clickable logo (goes home) + the two everyday destinations. */}
+      <nav className="fm-nav" aria-label="Main navigation">
+        <button className="fm-brand-btn" onClick={() => go("map")} title="Go to the home screen" aria-label="FearlessMath — go home">
+          <Emoji3D char="🦊" size={24} />
+          <span className="fm-brand">FearlessMath</span>
+        </button>
+        {TOP_NAV.map((n) => (
+          <button key={n.id} className={screen === n.id ? "active" : ""} onClick={() => go(n.id)}
+            aria-current={screen === n.id ? "page" : undefined}>
+            {n.icon} {n.label}
+          </button>
+        ))}
+      </nav>
       <main className="fm-main">
       {screen === "map" && concepts && <WorldMap concepts={concepts} profile={profile} onOpen={openConcept} onDeepDive={deepDive} onFacts={() => setScreen("facts")} lang={lang} />}
       {screen === "map" && !concepts && <div className="fm-loading">Loading…</div>}
@@ -214,7 +231,7 @@ export default function App() {
 
             <p className="fm-menu-sec">Explore</p>
             <div className="fm-menu-grid">
-              {NAV.map((n) => (
+              {MENU_NAV.map((n) => (
                 <button key={n.id} className={"fm-menu-tile" + (screen === n.id ? " on" : "")}
                   onClick={() => go(n.id)} aria-current={screen === n.id ? "page" : undefined}>
                   <span className="fm-menu-ico">

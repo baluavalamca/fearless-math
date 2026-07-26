@@ -101,16 +101,16 @@ button { font: inherit; cursor: pointer; }
 .fm-lesson { max-width: 1120px; margin: 0 auto; padding: 24px 40px 64px; }
 .fm-lesson-head { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .fm-back { background: none; border: 2px solid var(--line); border-radius: 12px; padding: 8px 14px; }
-.fm-mission { background: #fff2df; border-radius: 999px; padding: 6px 14px; font-size: 15px; }
+.fm-mission { background: color-mix(in srgb, var(--accent) 16%, var(--card)); color: var(--ink); border-radius: 999px; padding: 6px 14px; font-size: 15px; }
 .fm-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0; }
 .fm-tabs button {
   border: 2px solid var(--line); background: var(--card);
   border-radius: 999px; padding: 10px 18px; min-height: 48px;
 }
-.fm-tabs button.active { background: var(--accent); border-color: var(--accent-dark); color: #fff; font-weight: 700; }
+.fm-tabs button.active { background: var(--accent); border-color: var(--accent-dark); color: var(--on-accent); font-weight: 700; }
 .fm-canvas { background: var(--card); border: 2px solid var(--line); border-radius: 20px; padding: 24px; }
 .fm-story { font-size: 20px; }
-.fm-callout { background: #fff6e8; border-left: 6px solid var(--accent); border-radius: 8px; padding: 12px 16px; margin: 14px 0; }
+.fm-callout { background: color-mix(in srgb, var(--accent) 12%, var(--card)); color: var(--ink); border-left: 6px solid var(--accent); border-radius: 8px; padding: 12px 16px; margin: 14px 0; }
 .fm-when { color: var(--muted); }
 .fm-answer { font-weight: 700; color: var(--good); }
 .fm-worked, .fm-alt-method { margin-bottom: 24px; }
@@ -129,15 +129,15 @@ figcaption { color: var(--muted); margin-top: 8px; }
 .fm-options { display: grid; gap: 12px; margin: 16px 0; }
 .fm-option {
   text-align: left; padding: 14px 18px; min-height: 52px;
-  border: 2px solid var(--line); border-radius: 14px; background: #fffdf9; font-size: 18px;
+  border: 2px solid var(--line); border-radius: 14px; background: var(--card); color: var(--ink); font-size: 18px;
   display: flex; align-items: center; gap: 12px;
 }
 .fm-option svg { flex: 0 0 auto; }
 .fm-option:hover { border-color: var(--accent); }
 
 /* Concept recap kept one tap away during practice */
-.fm-recap { margin: 0 0 14px; border: 2px dashed var(--line); border-radius: 14px; background: #fffdf6; padding: 8px 14px; }
-.fm-recap > summary { cursor: pointer; font-weight: 700; color: var(--ink, #5a3a1a); list-style: none; }
+.fm-recap { margin: 0 0 14px; border: 2px dashed var(--line); border-radius: 14px; background: color-mix(in srgb, var(--accent) 7%, var(--card)); color: var(--ink); padding: 8px 14px; }
+.fm-recap > summary { cursor: pointer; font-weight: 700; color: var(--ink); list-style: none; }
 .fm-recap > summary::-webkit-details-marker { display: none; }
 .fm-recap > summary::before { content: "▸ "; }
 .fm-recap[open] > summary::before { content: "▾ "; }
@@ -148,13 +148,13 @@ figcaption { color: var(--muted); margin-top: 8px; }
 .fm-toolbox-fab {
   position: fixed; right: 20px; bottom: 18px; z-index: 60; display: flex; align-items: center; justify-content: center;
   padding: 12px 20px; min-width: 156px; border-radius: 999px; font-size: 15px; font-weight: 800; cursor: pointer;
-  color: var(--ink); border: 2px solid #e0a91f; background: linear-gradient(135deg, #ffd964, #ff9f43);
+  color: var(--on-accent); border: 2px solid var(--accent-dark); background: var(--grad-brand);
   box-shadow: 0 8px 22px rgba(0,0,0,0.22);
 }
 .fm-toolbox-fab:hover { filter: brightness(1.04); }
 .fm-toolbox-sheet {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 61;
-  background: #fbf6ec; border-top: 3px solid #f0c979; border-radius: 22px 22px 0 0;
+  background: var(--card); color: var(--ink); border-top: 3px solid var(--accent); border-radius: 22px 22px 0 0;
   box-shadow: 0 -12px 40px rgba(0,0,0,0.28); height: 92vh; max-height: 92vh; display: flex; flex-direction: column;
   animation: fm-sheet-up 0.24s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -169,7 +169,7 @@ figcaption { color: var(--muted); margin-top: 8px; }
 .fm-tool-tile { display: flex; align-items: center; gap: 8px; text-align: left; padding: 10px 10px; border-radius: 14px;
   border: 2px solid transparent; background: var(--card); font-size: 14px; font-weight: 600; color: var(--ink); cursor: pointer; }
 .fm-tool-tile:hover { border-color: #f0cf8a; }
-.fm-tool-tile.active { background: linear-gradient(135deg, #ffd964, #ff9f43); border-color: #e0a91f; color: var(--ink); box-shadow: 0 4px 12px rgba(224,169,31,0.35); }
+.fm-tool-tile.active { background: var(--grad-brand); border-color: var(--accent-dark); color: var(--on-accent); box-shadow: var(--shadow-sm); }
 .fm-tool-tile-icon { font-size: 22px; width: 26px; text-align: center; }
 /* Stage */
 .fm-tool-stage { flex: 1; min-width: 0; overflow: auto; padding: 16px 24px 24px; display: flex; justify-content: center; }
@@ -437,8 +437,8 @@ figcaption { color: var(--muted); margin-top: 8px; }
 /* "✨ Picture it" button + poster popup */
 .fm-picture-btn {
   margin-top: 14px; padding: 10px 18px; border-radius: 999px; font-size: 16px; font-weight: 700;
-  color: var(--ink); border: 2px solid #f2c777; cursor: pointer;
-  background: linear-gradient(135deg, #fff0cf, #ffd9f0);
+  color: var(--ink); border: 2px solid color-mix(in srgb, var(--accent) 55%, var(--line)); cursor: pointer;
+  background: color-mix(in srgb, var(--accent) 18%, var(--card));
 }
 .fm-picture-btn:hover { filter: brightness(1.03); }
 .fm-modal-backdrop { position: fixed; inset: 0; background: rgba(30,20,10,0.55); display: grid; place-items: center; z-index: 50; padding: 20px; }
@@ -464,7 +464,7 @@ figcaption { color: var(--muted); margin-top: 8px; }
   background: linear-gradient(135deg, #d7f0ff, #bfe0ff);
 }
 .fm-read-btn:hover { filter: brightness(1.03); }
-.fm-read-btn.on { background: linear-gradient(135deg, #ffd9d0, #ffc2b3); border-color: #ff9f8a; color: #7a2a17; animation: fm-pulse 1s ease-in-out infinite; }
+.fm-read-btn.on { background: color-mix(in srgb, var(--accent) 22%, var(--card)); border-color: var(--accent); color: var(--ink); animation: fm-pulse 1s ease-in-out infinite; }
 @keyframes fm-pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.04); } }
 
 /* "Another Way" — scannable strategy cards (tap to open, compare freely) */
@@ -488,8 +488,9 @@ figcaption { color: var(--muted); margin-top: 8px; }
 body.skin-playful .fm-way-card { border-radius: 22px; }
 
 /* Trick drill — practice the shortcut, not just the standard way */
-.fm-trick-cta { margin-top: 18px; padding: 14px 16px; border-radius: 16px;
-  background: linear-gradient(135deg, #fff6e0, #ffe9c7); border: 2px solid #f6c979; }
+.fm-trick-cta { margin-top: 18px; padding: 14px 16px; border-radius: 16px; color: var(--ink);
+  background: color-mix(in srgb, var(--accent) 15%, var(--card));
+  border: 2px solid color-mix(in srgb, var(--accent) 50%, var(--line)); }
 .fm-trick-cta p { margin: 0 0 10px; }
 .fm-trick-banner { margin: 0 0 12px; padding: 10px 14px; border-radius: 12px;
   background: var(--fm-empty); border: 1px solid #f0cf8a; font-size: 17px; }
@@ -558,23 +559,32 @@ body.skin-playful .fm-way-card { border-radius: 22px; }
   border-radius: 999px; padding: 9px 18px; min-height: 44px; font-size: 15.5px; font-weight: 600; white-space: nowrap;
 }
 .fm-nav button:hover { border-color: var(--accent); }
-.fm-nav button.active { background: var(--accent); border-color: var(--accent-dark); color: #fff; font-weight: 700; }
-.fm-nav .fm-user-chip { margin-left: auto; background: #fff2df; font-weight: 700; }
-.fm-nav .fm-autoread { background: #f2f7ff; }
-.fm-nav .fm-autoread.active { background: #2e7d32; border-color: #1d5a21; color: #fff; }
+.fm-nav button.active { background: var(--accent); border-color: var(--accent-dark); color: var(--on-accent); font-weight: 700; }
+/* Clickable logo — takes you home from anywhere. */
+.fm-brand-btn { display: inline-flex; align-items: center; gap: 7px; border: 0 !important;
+  background: transparent !important; padding: 4px 10px 4px 4px !important; margin-right: 4px; cursor: pointer; }
+.fm-brand-btn:hover .fm-brand { filter: brightness(1.12); }
+.fm-brand-btn:active { transform: scale(0.97); }
+.fm-brand-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 12px; }
 
-/* Region themes */
+/* Region themes — each strand keeps its own hue, but the tint is mixed into the
+   themed card colour, so regions follow every theme (light AND dark) instead of
+   being locked to fixed pastels. */
 .fm-region {
   border-radius: 20px; padding: 16px 18px 20px; margin-top: 24px;
-  border: 2px solid var(--line);
+  border: 2px solid color-mix(in srgb, var(--rc, var(--accent)) 38%, var(--line));
+  background: linear-gradient(160deg,
+    color-mix(in srgb, var(--rc, var(--accent)) 16%, var(--card)),
+    color-mix(in srgb, var(--rc, var(--accent)) 4%, var(--card)));
+  color: var(--ink);
 }
-.region-numbers    { background: linear-gradient(160deg, #eef7e9, #fdfbf3); border-color: #bcd9ad; }
-.region-operations { background: linear-gradient(160deg, #fdf3dc, #fffaf0); border-color: #e8cf9a; }
-.region-fractions  { background: linear-gradient(160deg, #fdeae0, #fff7f0); border-color: #eab99a; }
-.region-geometry   { background: linear-gradient(160deg, #e8f0fb, #f8fbff); border-color: #a9c4ea; }
-.region-measurement{ background: linear-gradient(160deg, #e6f6f4, #f6fffd); border-color: #9ad4cc; }
-.region-data       { background: linear-gradient(160deg, #f3ecfa, #fdf9ff); border-color: #cbb3e3; }
-.fm-worldmap { background: linear-gradient(180deg, #f3fae9 0%, var(--bg) 240px); border-radius: 0 0 24px 24px; }
+.region-numbers    { --rc: #57a83f; }
+.region-operations { --rc: #e0a91f; }
+.region-fractions  { --rc: #e5793a; }
+.region-geometry   { --rc: #3b7fd4; }
+.region-measurement{ --rc: #16a394; }
+.region-data       { --rc: #8b5cf6; }
+.fm-worldmap { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 10%, var(--bg)) 0%, var(--bg) 240px); border-radius: 0 0 24px 24px; }
 .fm-feedback-row { display: flex; align-items: flex-start; gap: 14px; }
 .fm-clinic-hero { display: flex; align-items: center; gap: 18px; }
 
@@ -829,7 +839,8 @@ input[type=range] { accent-color: #2f6bff; }
 
 /* ---- Continue / Up-next card (icon | body | Go) ---- */
 .fm-continue { display: flex; align-items: center; gap: 16px; width: 100%; text-align: left;
-  background: linear-gradient(135deg, #fff, #fff6e8); border: 2px solid #f0d9a8; border-radius: 18px;
+  background: color-mix(in srgb, var(--accent) 10%, var(--card)); color: var(--ink);
+  border: 2px solid color-mix(in srgb, var(--accent) 38%, var(--line)); border-radius: 18px;
   padding: 14px 18px; margin: 6px 24px 18px; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer; }
 .fm-continue { width: calc(100% - 48px); }
 .fm-continue:hover { border-color: var(--accent); }
@@ -852,7 +863,7 @@ input[type=range] { accent-color: #2f6bff; }
 
 /* ---- World menu tabs ---- */
 /* ---------------- Ask Robo (maths tutor chat) ---------------- */
-.fm-askrobo { max-width: 860px; margin: 0 auto; padding: 18px 20px 8px; display: flex; flex-direction: column; min-height: calc(100vh - 130px); }
+.fm-askrobo { max-width: 860px; margin: 0 auto; padding: 18px 20px 8px; display: flex; flex-direction: column; min-height: calc(100vh - 190px); }
 .fm-ar-head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
 .fm-ar-head h1 { margin: 0; font-size: 24px; }
 /* Robo Reason mascot logo (custom SVG). */
@@ -1042,18 +1053,16 @@ body::before {
   transition: transform .14s ease, box-shadow .16s ease, border-color .14s ease; }
 .fm-theme-toggle:hover { border-color: #8b5cf6; box-shadow: var(--shadow-sm); transform: translateY(-1px); }
 
-/* ---------- DARK-MODE surface patches for hardcoded light fills ---------- */
-[data-mode="dark"] .fm-worldmap { background: transparent; }
-[data-mode="dark"] .region-numbers, [data-mode="dark"] .region-operations,
-[data-mode="dark"] .region-fractions, [data-mode="dark"] .region-geometry,
-[data-mode="dark"] .region-measurement, [data-mode="dark"] .region-data,
+/* ---------- DARK-MODE surface patches for hardcoded light fills ----------
+   Regions and the world map are now token-tinted (see .fm-region above), so
+   they theme themselves in every mode and no longer need flattening here. */
 [data-mode="dark"] .fm-continue { background: var(--gloss), var(--glass); border-color: var(--glass-brd); }
 
 [data-mode="dark"] .fm-callout, [data-mode="dark"] .fm-mission,
 [data-mode="dark"] .fm-badge, [data-mode="dark"] .fm-user-chip,
 [data-mode="dark"] .fm-objbadge, [data-mode="dark"] .fm-ntile.blank,
 [data-mode="dark"] .fm-objtile.mark, [data-mode="dark"] .fm-speak,
-[data-mode="dark"] .fm-mission { background: rgba(255,159,67,0.16); color: var(--ink); }
+[data-mode="dark"] .fm-mission { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--ink); }
 [data-mode="dark"] .fm-callout { border-left-color: var(--accent); }
 
 [data-mode="dark"] .fm-recap, [data-mode="dark"] .fm-option,
@@ -1478,7 +1487,33 @@ body::before {
 .fm-generated { background: color-mix(in srgb, var(--good) 12%, transparent); border-color: color-mix(in srgb, var(--good) 34%, transparent); color: var(--ink); }
 .fm-method-switch button { background: var(--card); border-color: var(--line); color: var(--ink); }
 .fm-method-switch button:hover { border-color: var(--accent); }
+.fm-method-switch button.active { background: var(--accent); border-color: var(--accent-dark); color: var(--on-accent); }
 .fm-node.current .fm-node-dot { box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 30%, transparent); }
+
+/* Remaining fixed-cream surfaces that carried text — now themed, so the text
+   stays readable in every palette (light and dark alike). */
+.fm-way-card { background: var(--card); border-color: var(--line); color: var(--ink); }
+.fm-way-card.star { background: color-mix(in srgb, var(--accent) 14%, var(--card));
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.fm-way-badge { background: var(--accent); color: var(--on-accent); }
+.fm-step-dot { background: color-mix(in srgb, var(--ink) 12%, var(--card)); color: var(--muted); }
+.fm-step.current { color: var(--on-accent); }
+.fm-step.done { background: color-mix(in srgb, var(--good) 14%, var(--card));
+  border-color: color-mix(in srgb, var(--good) 42%, var(--line)); color: var(--good); }
+.fm-step.done .fm-step-dot { background: var(--good); color: var(--on-accent); }
+.fm-gallery-lead { background: color-mix(in srgb, var(--accent) 9%, var(--card));
+  border-color: var(--line); color: var(--ink); }
+.fm-gallery-grid > .fm-visual { background: var(--card); border-color: var(--line); color: var(--ink); }
+.fm-scratch { background: var(--card); border-color: var(--line); }
+.fm-modal { background: var(--card); color: var(--ink); }
+.fm-modal-backdrop { background: color-mix(in srgb, var(--ink) 55%, transparent); }
+.fm-modal-x { background: color-mix(in srgb, var(--ink) 10%, var(--card)); color: var(--ink); }
+.fm-acc-bar { background: color-mix(in srgb, var(--ink) 12%, var(--card)); }
+.fm-acc-bar div.hi { background: var(--good); }
+.fm-chip.on { background: var(--accent); border-color: var(--accent-dark); color: var(--on-accent); }
+.fm-img-styles button.active { background: var(--accent); border-color: var(--accent-dark); color: var(--on-accent); }
+.fm-read-btn.on { background: color-mix(in srgb, var(--accent) 22%, var(--card));
+  border-color: var(--accent); color: var(--ink); }
 
 /* Math Tools popup adopts the theme */
 .fm-tool-rail { border-right-color: var(--line); }
@@ -2430,7 +2465,7 @@ button:disabled:hover, [aria-disabled="true"]:hover { transform: none !important
    Algorithms screen — embeds the interactive CS study guide
    (public/algorithms.html) in an isolated iframe.
    ============================================================ */
-.fm-algos{max-width:1400px;margin:0 auto;padding:8px 4px 24px;display:flex;flex-direction:column;min-height:calc(100vh - 120px)}
+.fm-algos{max-width:1400px;margin:0 auto;padding:8px 4px 24px;display:flex;flex-direction:column;min-height:calc(100vh - 190px)}
 .fm-algos-head h1{margin:0 0 4px;font-size:1.5rem}
 .fm-algos-frame{position:relative;flex:1;margin-top:12px;border-radius:18px;overflow:hidden;border:1px solid var(--glass-brd);background:#070b17;min-height:70vh;box-shadow:0 20px 50px rgba(0,0,0,.28)}
 .fm-algos-iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
