@@ -14,6 +14,8 @@ import { Abacus, AbacusSpec } from "./Abacus";
 import { ObjectRow, SeqSpec } from "./ObjectRow";
 import { NumberTrack, TrackSpec } from "./NumberTrack";
 import { FunctionPlot, PlotSpec } from "./FunctionPlot";
+import { ReasoningFigure, FigurePanelSpec } from "./ReasoningFigure";
+import { DiceViews, DiceSpec } from "./DiceViews";
 import type { SolidSpec } from "./Solid3D";
 import type { Scene3DSpec } from "./Scene3D";
 // Three.js 3D visuals are code-split — only loaded when a 3D visual actually appears.
@@ -100,6 +102,10 @@ function VisualSwitch({ visual }: { visual: VisualSpec }) {
           <Scene3D spec={visual.props as unknown as Scene3DSpec} caption={visual.caption} />
         </Suspense>
       );
+    case "ReasoningFigure":
+      return <ReasoningFigure panels={visual.props.panels as FigurePanelSpec[]} caption={visual.caption} />;
+    case "DiceViews":
+      return <DiceViews dice={visual.props.dice as DiceSpec[]} caption={visual.caption} />;
     default:
       // Unknown component: fail soft, never break a lesson
       return visual.caption ? <p className="fm-callout">{visual.caption}</p> : null;

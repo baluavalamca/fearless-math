@@ -1,0 +1,174 @@
+{
+  "id": "reason-10-puzzles",
+  "name": "Logical Puzzles — Floors, Grids and Elimination Tables",
+  "grade": 13,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "Logical puzzles give a set of people or things (floors of a building, friends and their favourite fruit, houses and colours) along with several clues, and ask you to work out exactly who/what goes where. You solve them by drawing a table, filling in every direct clue immediately, and crossing out impossible options until only one arrangement fits everything.",
+  "whyNeeded": "These 'grid puzzles' are some of the most time-consuming reasoning questions if attempted without a system, but genuinely fast once you build the habit of filling a table clue by clue instead of guessing. They also build the exact elimination skill used across every other reasoning topic.",
+  "realLifeUses": [
+    "Reasoning sections of SSC, banking and railway exams",
+    "Sudoku-style and logic-grid puzzle books",
+    "Scheduling or assigning people to roles/rooms from constraints",
+    "Careful, systematic problem-solving in general"
+  ],
+  "vocabulary": [
+    { "term": "direct clue", "meaning": "A clue that places one fact immediately, with no reasoning needed (e.g. 'C lives on floor 3')." },
+    { "term": "elimination", "meaning": "Ruling out an option because a clue makes it impossible, even without knowing the final answer yet." },
+    { "term": "grid / table", "meaning": "Rows and columns used to track every person against every attribute, ticking or crossing out as clues are applied." }
+  ],
+  "story": {
+    "title": "The Five-Floor Building",
+    "characters": ["Tara", "her neighbor Aakash"],
+    "text": "Tara is told: 'C lives on floor 3. A lives immediately above C. E lives on the topmost floor. B lives immediately below D.' She sketches 5 floors as boxes. C goes straight into floor 3. A must be floor 4 (right above C). E takes floor 5 (the top). Only floors 1 and 2 are left, for B and D — and B must be immediately below D, so B is floor 1, D is floor 2. 'Every clue placed someone or ruled something out,' Tara tells Aakash. 'No guessing needed at all.'",
+    "extractedProblem": "5 people A-E live on floors 1-5. C is on floor 3. A is immediately above C. E is on the topmost floor. B is immediately below D. Find everyone's floor.",
+    "answerInStory": "B=1, D=2, C=3, A=4, E=5 — each clue fixed a floor directly, leaving only one possible arrangement."
+  },
+  "visual": {
+    "component": "NumberTrack",
+    "props": { "tracks": [ { "terms": [1, 2, 3, 4, 5], "jump": 1 } ] },
+    "caption": "Picture the floors as a stacked number track — fill in every direct clue first, then use 'immediately above/below' clues to lock in the rest."
+  },
+  "teachingGallery": [
+    {
+      "title": "Direct clues before relative clues",
+      "note": "Always place every 'X is on floor 3' style clue first — these need zero reasoning. Relative clues ('immediately above', 'below') come next, once some floors are already fixed.",
+      "examples": [
+        {
+          "component": "NumberTrack",
+          "props": { "tracks": [ { "terms": [1, 2, 3, 4], "jump": 1 } ] },
+          "caption": "4 friends, 4 fruits: place every 'X likes Y' direct clue into the table first, then use 'doesn't like' clues to eliminate the rest."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Draw a table (or a stack of floor-boxes) with every person and every attribute. Apply every DIRECT clue first (facts stated outright). Then apply relative and negative clues, crossing out impossible combinations, until each row has only one option left.",
+    "steps": [
+      "List all the people/items down one side and all the floors/attributes across the top.",
+      "Fill in every direct clue immediately — these are free facts.",
+      "Apply relative clues (immediately above/below, next to) using the floors/positions already fixed.",
+      "Apply negative clues ('doesn't like X', 'is not on floor Y') to cross out remaining possibilities until everything is pinned down."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Elimination table",
+      "whenToUse": "Attribute puzzles (who likes what) rather than position puzzles.",
+      "steps": [
+        "Draw a grid: people as rows, attribute options as columns.",
+        "Tick a cell when a clue confirms it; cross out a whole row/column once that person/attribute is used up.",
+        "Any row left with only one un-crossed cell is solved — use that to cross out the same option elsewhere."
+      ],
+      "example": "4 friends, 4 fruits: once Q=banana is ticked, cross out 'banana' for P, R, and S."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "5 people A-E live on floors 1-5 (1=bottom). C is on floor 3. A is immediately above C. E is on the topmost floor. B is immediately below D. Find everyone's floor.",
+      "steps": [
+        "C is on floor 3 (direct clue).",
+        "A is immediately above C → A is on floor 4.",
+        "E is on the topmost floor → E is on floor 5.",
+        "Only floors 1 and 2 remain, for B and D. B is immediately below D → B=1, D=2.",
+        "Final: B=1, D=2, C=3, A=4, E=5."
+      ],
+      "answer": "B=1, D=2, C=3, A=4, E=5"
+    },
+    {
+      "problem": "4 friends P, Q, R, S each like a different fruit: mango, apple, banana, grape. P doesn't like mango or apple. Q likes banana. R doesn't like grape. S likes mango. Find each friend's fruit.",
+      "steps": [
+        "Q likes banana (direct clue).",
+        "S likes mango (direct clue).",
+        "Remaining fruits apple and grape go to P and R.",
+        "P doesn't like apple (given), so P must like grape.",
+        "R doesn't like grape (given, and it's already taken by P anyway), so R likes apple.",
+        "Final: P=grape, Q=banana, R=apple, S=mango."
+      ],
+      "answer": "P=grape, Q=banana, R=apple, S=mango"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Direct clues first, always",
+    "intro": "Fill in every 'X is Y' fact before touching a single relative or negative clue.",
+    "questions": [
+      { "id": "reason10-trick-1", "type": "text", "q": "4 floors. X is on floor 2. Y is immediately above X. Y's floor?", "answer": "3", "hintLadder": ["X is on floor 2.", "Immediately above = +1.", "Floor 3."] },
+      { "id": "reason10-trick-2", "type": "text", "q": "3 friends like tea, coffee, or juice. A likes tea. B doesn't like juice. What does B like?", "answer": "Coffee", "hintLadder": ["A has tea.", "B doesn't like juice.", "Only coffee is left for B."] },
+      { "id": "reason10-trick-3", "type": "text", "q": "5 floors. E is on the topmost floor (floor 5). D is immediately below E. D's floor?", "answer": "4", "hintLadder": ["E is on floor 5.", "Immediately below = −1.", "Floor 4."] },
+      { "id": "reason10-trick-4", "type": "mcq", "q": "In a grid puzzle, which type of clue should you apply FIRST?", "options": [ { "label": "Direct clues (X is Y)" }, { "label": "Negative clues (X is not Y)", "mistakeTag": "negative-clue-first" } ], "answer": "Direct clues (X is Y)", "hintLadder": ["Direct clues need no reasoning.", "They anchor the whole grid.", "Direct clues first."] }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "negative-clue-first",
+      "mistake": "Trying to apply 'doesn't like / is not on floor' clues before any direct clue is placed, leading to guesswork.",
+      "fix": "Direct clues are free facts — place ALL of them first. Negative clues only become useful for elimination once some positions are already fixed."
+    },
+    {
+      "mistakeTag": "no-final-check",
+      "mistake": "Declaring an arrangement finished without checking it against every single original clue.",
+      "fix": "After filling the whole table, re-read every clue one more time against your finished grid — one missed clue can silently break the answer."
+    },
+    {
+      "mistakeTag": "guessed-instead-of-eliminated",
+      "mistake": "Guessing a placement when two options seem equally possible, instead of finding the clue that actually rules one out.",
+      "fix": "If you're stuck, re-read the clues you haven't used yet — logical puzzles are always designed so every clue is needed to reach a single answer."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "text", "q": "4 floors. X is on floor 1. Y is immediately above X. Y's floor?", "answer": "2", "hintLadder": ["X on floor 1.", "Immediately above = +1.", "Floor 2."] },
+      { "id": "e2", "type": "text", "q": "3 friends like red, blue, or green. A likes red. B doesn't like green. B's colour?", "answer": "Blue", "hintLadder": ["A has red.", "B doesn't like green.", "Only blue is left."] },
+      { "id": "e3", "type": "mcq", "q": "A puzzle clue says 'C lives on floor 3.' This is a…", "options": [ { "label": "Direct clue" }, { "label": "Relative clue", "mistakeTag": "negative-clue-first" } ], "answer": "Direct clue", "hintLadder": ["It states a fact outright.", "No comparison to another person.", "Direct clue."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "text", "q": "5 floors. C is on floor 3. A is immediately above C. A's floor?", "answer": "4", "hintLadder": ["C = 3.", "Immediately above = +1.", "Floor 4."] },
+      { "id": "m2", "type": "text", "q": "4 friends P,Q,R,S like cricket, football, tennis, or chess. Q likes chess. S likes football. P doesn't like tennis. What does P like?", "answer": "Cricket", "hintLadder": ["Q=chess, S=football.", "Remaining: cricket, tennis for P,R.", "P doesn't like tennis → P=cricket."] },
+      { "id": "m3", "type": "mcq", "q": "If two placements both seem possible, what should you do?", "options": [ { "label": "Re-read unused clues to find the deciding one" }, { "label": "Pick either one" , "mistakeTag": "guessed-instead-of-eliminated" } ], "answer": "Re-read unused clues to find the deciding one", "hintLadder": ["A well-formed puzzle has one answer.", "An unused clue must decide it.", "Re-read the clues."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "text", "q": "5 floors. E is topmost (5). B is immediately below D. C is on floor 3. A is immediately above C. Only floors 1,2 remain for B,D. B's floor?", "answer": "1", "hintLadder": ["E=5, C=3, A=4.", "Floors 1,2 left for B,D.", "B immediately below D → B=1, D=2."] },
+      { "id": "c2", "type": "text", "q": "4 friends like mango, apple, banana, grape. P doesn't like mango or apple. Q likes banana. S likes mango. What does P like?", "answer": "Grape", "hintLadder": ["Q=banana, S=mango.", "Remaining: apple, grape for P,R.", "P doesn't like apple → P=grape."] },
+      { "id": "c3", "type": "mcq", "q": "After completing a puzzle grid, the smart next step is to…", "options": [ { "label": "Check every clue against the finished grid" }, { "label": "Move on immediately", "mistakeTag": "no-final-check" } ], "answer": "Check every clue against the finished grid", "hintLadder": ["A full grid can still be wrong.", "Only a re-check confirms it.", "Check every clue."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "text", "q": "4 floors. X is on floor 2. Y is immediately below X. Y's floor?", "answer": "1", "hintLadder": ["X on floor 2.", "Immediately below = −1.", "Floor 1."] },
+      { "id": "mc2", "type": "text", "q": "5 floors. C is on floor 3. A is immediately above C. E is topmost. A's floor?", "answer": "4", "hintLadder": ["C=3.", "Immediately above = +1.", "Floor 4."] },
+      { "id": "mc3", "type": "text", "q": "3 friends like tea, coffee, juice. A likes juice. B doesn't like tea. B's drink?", "answer": "Coffee", "hintLadder": ["A=juice.", "B doesn't like tea.", "Only coffee left."] },
+      { "id": "mc4", "type": "mcq", "q": "Which clue type should always be applied first in a grid puzzle?", "options": [ { "label": "Direct clues" }, { "label": "Negative clues", "mistakeTag": "negative-clue-first" } ], "answer": "Direct clues", "hintLadder": ["They're free, guaranteed facts.", "They anchor everything else.", "Direct clues."] },
+      { "id": "mc5", "type": "text", "q": "4 friends like mango, apple, banana, grape. Q likes banana, S likes mango, P doesn't like apple. R's fruit?", "answer": "Apple", "hintLadder": ["Q=banana, S=mango.", "P doesn't like apple → P=grape.", "Only apple is left for R."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend how to solve the 5-floor puzzle (C=3, A above C, E on top, B below D) by filling direct clues first and only then the relative ones.",
+  "revisionCard": {
+    "summary": "Draw a table or floor-stack for every person/item against every attribute/position. Apply direct clues first (they're free facts), then relative clues (immediately above/below/next to) using what's already fixed, then negative clues to eliminate remaining options. Always re-check the finished grid against every original clue before answering.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The Treehouse Floors",
+    "brief": "Work out which jungle animal lives on which treehouse floor using their clues — direct facts first, then the tricky relative ones!",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Make up your own 4-clue puzzle about your family or friends (who sits where, who likes what) and give it to someone else to solve using a table.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Analytical) — Logical Puzzles",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Direct clues first, always",
+    "unpack": "Free facts go in immediately; relative and negative clues do the eliminating afterward."
+  },
+  "studentQuestions": [
+    { "q": "What if a puzzle seems to have two possible answers?", "a": "Re-read every clue slowly — a properly written logic puzzle always has exactly one valid solution, so an unused or misread clue is the reason two seem to fit." },
+    { "q": "Is there a faster way than drawing a full table every time?", "a": "For small puzzles (4-5 items), yes — many people can track it mentally once they're fast at direct-clues-first. But for anything with 5+ items and multiple attributes, a table prevents careless errors even for experienced solvers." }
+  ]
+}

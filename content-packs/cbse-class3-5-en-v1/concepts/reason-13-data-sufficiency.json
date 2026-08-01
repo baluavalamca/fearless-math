@@ -1,0 +1,169 @@
+{
+  "id": "reason-13-data-sufficiency",
+  "name": "Data Sufficiency — Do You Have ENOUGH to Answer?",
+  "grade": 13,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "Data sufficiency questions give you a question and two pieces of information (Statement I and Statement II). You don't actually solve for the final answer — you only decide whether each statement, alone or combined, gives ENOUGH information to answer the question with one definite value or a definite yes/no.",
+  "whyNeeded": "This flips the usual math habit of 'find the answer' into 'decide if it's even possible to find the answer' — a genuinely different skill that shows up constantly in real research and decision-making: knowing when you have enough evidence versus when you're still guessing.",
+  "realLifeUses": [
+    "Reasoning/quant sections of banking, SSC and MBA entrance exams",
+    "Deciding if you have enough evidence before making a real-world decision",
+    "Scientific and legal reasoning — recognizing insufficient evidence"
+  ],
+  "vocabulary": [
+    { "term": "sufficient", "meaning": "A statement is sufficient if it pins down exactly ONE possible answer to the question — no more checking needed." },
+    { "term": "insufficient", "meaning": "A statement is insufficient if more than one different answer is still possible after using it." },
+    { "term": "alone", "meaning": "Using only that one statement, ignoring the other completely, while deciding sufficiency." },
+    { "term": "together", "meaning": "Combining both statements' information — only tried if NEITHER statement worked alone." }
+  ],
+  "story": {
+    "title": "Just Enough Clues",
+    "characters": ["Farah", "her father"],
+    "text": "Farah's father asks: 'What is the number?' Statement I: 'It's between 20 and 30.' Farah says that alone isn't enough — could be 21, 22, up to 29. Statement II: 'It's a multiple of 9.' Alone, that's not enough either — 9, 18, 27, 36... too many options. But her father says, 'Now use BOTH together.' Farah checks: between 20-30 AND a multiple of 9 — only 27 fits! 'Neither clue alone was enough,' she realizes, 'but together they pin down exactly one number.'",
+    "extractedProblem": "Question: What is the number? Statement I: It is between 20 and 30. Statement II: It is a multiple of 9. Is each statement alone sufficient, or only together?",
+    "answerInStory": "Neither statement alone is sufficient, but both together give exactly one answer: 27."
+  },
+  "visual": {
+    "component": "NumberTrack",
+    "props": { "tracks": [ { "terms": [21, 24, 27, 30], "jump": 3 } ] },
+    "caption": "Each statement narrows down the possible numbers on the track. Sufficient means only ONE number is left standing; insufficient means more than one still fits."
+  },
+  "teachingGallery": [
+    {
+      "title": "One number left = sufficient",
+      "note": "Test each statement by asking: after using ONLY this clue, how many different valid answers are still possible? One = sufficient. More than one = insufficient.",
+      "examples": [
+        {
+          "component": "NumberTrack",
+          "props": { "tracks": [ { "terms": [21, 22, 23, 24, 25, 26, 27, 28, 29], "jump": 1 } ] },
+          "caption": "'Between 20 and 30' alone leaves 9 possible numbers on the track — far too many, so it's insufficient by itself."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "NEVER combine the statements first. Check Statement I completely alone — does it pin down exactly one answer? Then check Statement II completely alone, forgetting Statement I. Only if BOTH fail alone do you combine them and check together.",
+    "steps": [
+      "Read the question carefully — know exactly what needs to be pinned down (a value, or a definite yes/no).",
+      "Test Statement I alone: list what's still possible. One answer = sufficient. More than one = insufficient.",
+      "Test Statement II alone, completely ignoring Statement I. Same check.",
+      "If neither works alone, combine both statements together and test again.",
+      "State the result: 'I alone', 'II alone', 'both together', 'either alone', or 'not even together'."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Yes/No consistency check",
+      "whenToUse": "Questions asking 'Is X true?' rather than 'What is X?'",
+      "steps": [
+        "A statement is sufficient for a yes/no question ONLY if it gives the SAME answer (always yes, or always no) in every possible case.",
+        "If a statement could make the answer sometimes yes and sometimes no depending on other unknowns, it is insufficient — even though it does narrow things down."
+      ],
+      "example": "Q: Is x > 10? Statement: x is a two-digit number (10-99). Could be x=10 (not >10) or x=50 (>10) — inconsistent answers, so insufficient."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Question: What is the value of x? Statement I: x + 5 = 12. Statement II: x is a prime number. Is each statement sufficient?",
+      "steps": [
+        "Test Statement I alone: x + 5 = 12 gives exactly one value, x = 7. Only one possible answer — sufficient.",
+        "Test Statement II alone: x could be 2, 3, 5, 7, 11... many prime numbers work. More than one possible answer — insufficient.",
+        "Statement I alone is sufficient, but Statement II alone is not."
+      ],
+      "answer": "Statement I alone is sufficient (x = 7); Statement II alone is not"
+    },
+    {
+      "problem": "Question: What is the number? Statement I: The number is between 20 and 30. Statement II: The number is a multiple of 9. Is each statement sufficient, alone or together?",
+      "steps": [
+        "Test Statement I alone: numbers 21 through 29 all fit — many possible answers, insufficient.",
+        "Test Statement II alone: multiples of 9 are 9, 18, 27, 36... many possible answers, insufficient.",
+        "Since neither works alone, combine both: numbers between 20-30 AND multiples of 9 → only 27 satisfies both.",
+        "Both together give exactly one answer, 27 — sufficient only when combined."
+      ],
+      "answer": "Neither statement alone is sufficient; both together are sufficient (the number is 27)"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Check I alone, then II alone — never combine first",
+    "intro": "Combining too early is the #1 mistake. Always test each statement completely separately before ever combining them.",
+    "questions": [
+      { "id": "reason13-trick-1", "type": "mcq", "q": "Question: What is y? Statement: y − 4 = 10. Is this statement alone sufficient?", "options": [ { "label": "Yes — y = 14, exactly one answer" }, { "label": "No, need more info", "mistakeTag": "wrongly-combined-too-early" } ], "answer": "Yes — y = 14, exactly one answer", "hintLadder": ["y − 4 = 10 solves directly.", "y = 14, only one value.", "Sufficient alone."] },
+      { "id": "reason13-trick-2", "type": "mcq", "q": "Question: What is z? Statement: z is an even number less than 10. Is this alone sufficient?", "options": [ { "label": "Yes" }, { "label": "No — 2, 4, 6, 8 all fit" } ], "answer": "No — 2, 4, 6, 8 all fit", "hintLadder": ["List all even numbers under 10.", "2,4,6,8 — four options.", "More than one answer = insufficient."] },
+      { "id": "reason13-trick-3", "type": "mcq", "q": "The very first thing to do in a data sufficiency question is…", "options": [ { "label": "Test Statement I completely alone" }, { "label": "Combine both statements right away", "mistakeTag": "wrongly-combined-too-early" } ], "answer": "Test Statement I completely alone", "hintLadder": ["Combining too early hides which statement actually mattered.", "Always test alone first.", "Statement I alone, first."] }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "wrongly-combined-too-early",
+      "mistake": "Combining both statements together before checking if either one works completely alone.",
+      "fix": "Always test Statement I alone (forgetting II exists), then Statement II alone (forgetting I exists). Only combine if both fail alone — this order is non-negotiable."
+    },
+    {
+      "mistakeTag": "assumed-must-solve",
+      "mistake": "Trying to actually calculate the final numeric answer, when the question only asks whether enough information exists.",
+      "fix": "You often don't need the exact answer at all — just decide how many different answers remain possible. One = sufficient, whatever that one value happens to be."
+    },
+    {
+      "mistakeTag": "ignored-either-case",
+      "mistake": "Missing that BOTH statements might independently be sufficient on their own (the 'either alone' case), and assuming only one order of checking (I first) applies.",
+      "fix": "Always finish checking BOTH statements fully alone, even after Statement I already works — Statement II might also be independently sufficient, giving an 'either alone' result."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "mcq", "q": "Question: What is n? Statement: n + 3 = 9. Sufficient alone?", "options": [ { "label": "Yes — n = 6" }, { "label": "No", "mistakeTag": "assumed-must-solve" } ], "answer": "Yes — n = 6", "hintLadder": ["n+3=9 solves directly.", "n=6, one answer.", "Sufficient."] },
+      { "id": "e2", "type": "mcq", "q": "Question: What is n? Statement: n is a two-digit number. Sufficient alone?", "options": [ { "label": "Yes" }, { "label": "No — many two-digit numbers exist" } ], "answer": "No — many two-digit numbers exist", "hintLadder": ["Two-digit numbers: 10 to 99.", "That's 90 possible values.", "Far too many — insufficient."] },
+      { "id": "e3", "type": "text", "q": "Question: Is x = 5? Statement: x + 0 = 5. Is the statement sufficient (yes/no)?", "answer": "Yes", "hintLadder": ["x + 0 = 5 means x = 5 directly.", "One exact value confirmed.", "Yes, sufficient."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "mcq", "q": "Question: What is the number? Statement I: it is odd. Statement II: it is between 10 and 13. Are I and II each sufficient ALONE?", "options": [ { "label": "Neither is sufficient alone" }, { "label": "Both are sufficient alone", "mistakeTag": "assumed-must-solve" } ], "answer": "Neither is sufficient alone", "hintLadder": ["I alone: many odd numbers exist.", "II alone: 11 and 12 both fit.", "Neither pins down one value alone."] },
+      { "id": "m2", "type": "text", "q": "Using both together: odd AND between 10-13 — what's the number?", "answer": "11", "hintLadder": ["Numbers strictly between 10 and 13: 11, 12.", "Which of these is odd?", "11."] },
+      { "id": "m3", "type": "mcq", "q": "Question: Is p > 20? Statement: p is a positive number less than 100. Sufficient alone?", "options": [ { "label": "Yes" }, { "label": "No — could be less than or more than 20" } ], "answer": "No — could be less than or more than 20", "hintLadder": ["p could be 5 (not >20) or 50 (>20).", "Different answers possible.", "Insufficient — inconsistent yes/no."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "mcq", "q": "Question: What is the number? Statement I: between 30-40. Statement II: multiple of 6. What's the sufficiency result?", "options": [ { "label": "Neither alone; both together give 36" } , { "label": "Statement I alone is enough", "mistakeTag": "wrongly-combined-too-early" } ], "answer": "Neither alone; both together give 36", "hintLadder": ["I alone: 31-39, many options.", "II alone: 6,12,18,24,30,36,42... many options.", "Together: only 36 fits both."] },
+      { "id": "c2", "type": "mcq", "q": "Question: Is y even? Statement I: y is divisible by 4. Statement II: y is divisible by 10. Is Statement I ALONE sufficient?", "options": [ { "label": "Yes — every multiple of 4 is even" }, { "label": "No", "mistakeTag": "ignored-either-case" } ], "answer": "Yes — every multiple of 4 is even", "hintLadder": ["Multiples of 4: 4,8,12,16... all even.", "Answer is always 'yes, even' — consistent.", "Sufficient alone."] },
+      { "id": "c3", "type": "text", "q": "In the previous question, is Statement II ALSO independently sufficient alone?", "answer": "Yes", "hintLadder": ["Multiples of 10: 10,20,30... all even too.", "Also always gives 'yes'.", "Yes — so this is an 'either alone' case."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "mcq", "q": "Question: What is m? Statement: m − 2 = 8. Sufficient alone?", "options": [ { "label": "Yes — m = 10" }, { "label": "No" } ], "answer": "Yes — m = 10", "hintLadder": ["m−2=8 solves directly.", "m=10, unique.", "Sufficient."] },
+      { "id": "mc2", "type": "mcq", "q": "Question: What is k? Statement: k is a prime number under 20. Sufficient alone?", "options": [ { "label": "Yes" }, { "label": "No — many primes fit" } ], "answer": "No — many primes fit", "hintLadder": ["Primes under 20: 2,3,5,7,11,13,17,19.", "Eight possible values.", "Insufficient."] },
+      { "id": "mc3", "type": "text", "q": "Question: What is the number? Statement I: between 40-50. Statement II: multiple of 11. Combine both — what's the number?", "answer": "44", "hintLadder": ["Multiples of 11: 11,22,33,44,55...", "Which is between 40-50?", "44."] },
+      { "id": "mc4", "type": "mcq", "q": "What should you check FIRST in any data sufficiency question?", "options": [ { "label": "Statement I completely alone" }, { "label": "Both statements combined", "mistakeTag": "wrongly-combined-too-early" } ], "answer": "Statement I completely alone", "hintLadder": ["Never combine first.", "Test each statement in isolation.", "Statement I alone, first."] },
+      { "id": "mc5", "type": "mcq", "q": "A statement for a yes/no question is sufficient only if…", "options": [ { "label": "It gives the SAME yes/no answer in every possible case" }, { "label": "It narrows the options down at all", "mistakeTag": "ignored-either-case" } ], "answer": "It gives the SAME yes/no answer in every possible case", "hintLadder": ["Narrowing isn't enough by itself.", "Every remaining case must agree.", "Same answer every time = sufficient."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend why you must check Statement I and Statement II completely separately, using the 'number between 20-30, multiple of 9' example where neither works alone but both together give 27.",
+  "revisionCard": {
+    "summary": "Data sufficiency asks whether you have ENOUGH information, not what the final answer is. Test Statement I alone, then Statement II alone — never combine first. One remaining possible answer = sufficient; more than one = insufficient. Only combine both statements if neither works alone. For yes/no questions, a statement is sufficient only if it gives the same answer in every possible case.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "Enough Clues?",
+    "brief": "Help the jungle detective decide if each clue is enough to catch the mystery number — or if she needs both together!",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Think of a real decision you made recently (choosing a snack, a game, a route home) and identify: what single piece of information alone would have been enough to decide, versus what needed two pieces of information together.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Analytical) — Data Sufficiency",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Test I alone, then II alone — never combine first",
+    "unpack": "One possible answer left = sufficient; more than one = insufficient; combine only as a last resort."
+  },
+  "studentQuestions": [
+    { "q": "Do I ever need to state the actual final answer?", "a": "Sometimes it helps to find it as a side effect (like discovering 27), but the actual question being tested is only 'is there enough information' — not the number itself." },
+    { "q": "What if both statements are individually sufficient?", "a": "That's a valid and common result called 'either alone' — it just means you have two independent, complete ways to answer the question." }
+  ]
+}

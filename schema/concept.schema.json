@@ -44,7 +44,7 @@
       "type": "object",
       "required": ["component", "props", "caption"],
       "properties": {
-        "component": { "enum": ["NumberLine", "BarModel", "ArrayGrid", "FractionStrip", "AreaModel", "PlaceValueBlocks", "GeometryCanvas", "ClockFace", "BarChart", "PizzaSlices", "Abacus", "ObjectRow", "NumberTrack"] },
+        "component": { "enum": ["NumberLine", "BarModel", "ArrayGrid", "FractionStrip", "AreaModel", "PlaceValueBlocks", "GeometryCanvas", "ClockFace", "BarChart", "PizzaSlices", "Abacus", "ObjectRow", "NumberTrack", "FunctionPlot", "Solid3D", "Scene3D", "ReasoningFigure", "DiceViews"] },
         "props": { "type": "object" },
         "caption": { "type": "string" }
       }

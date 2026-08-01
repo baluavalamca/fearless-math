@@ -1,0 +1,194 @@
+{
+  "id": "apt-15-averages",
+  "name": "Averages — The Level Line, Replacements and Average Speed",
+  "grade": 12,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "An average is the single number that 'levels out' a group of values — total divided by how many there are. Beyond the basic formula, competitive exams test three classic twists: combining two group averages, what happens when one member is swapped for another, and average speed (which is NOT the simple average of two speeds when the distance is the same both times).",
+  "whyNeeded": "Averages hide in almost every data-based question — batting averages, class marks, monthly expenses, speed problems. The exam trap is always the same: people average things that shouldn't be averaged directly (like two different speeds over the same distance), so knowing the three twists below is worth easy marks.",
+  "realLifeUses": [
+    "A cricketer's batting or bowling average",
+    "Average marks of a class, or of one student across subjects",
+    "Average speed on a round trip (there and back)",
+    "Reasoning/quant sections of every competitive exam"
+  ],
+  "vocabulary": [
+    { "term": "Average (mean)", "meaning": "Sum of all values ÷ how many values there are." },
+    { "term": "Replacement", "meaning": "One member of a group leaves and a new one joins — the average shifts by exactly the difference, spread over the group size." },
+    { "term": "Average speed", "meaning": "Total distance ÷ total time — for equal distances at two speeds, it is 2xy/(x+y), not (x+y)/2." },
+    { "term": "Weighted average", "meaning": "Combining two groups' averages, giving more weight to the bigger group." }
+  ],
+  "story": {
+    "title": "The Batting Average Puzzle",
+    "characters": ["Arjun", "his coach"],
+    "text": "Arjun has scored an average of 40 runs in 9 innings. In his 10th innings he scores 60. 'My average must be 50 now — 40 and 60 in the middle!' he says. His coach shakes her head: 'Averages don't work like that. Add up your NEW total: 9×40 + 60 = 420. Divide by 10 innings: 42.' Arjun is surprised it's so much less than 50 — the extra 20 runs (60−40) only lifts the average by 20÷10 = 2, because it gets shared across all 10 innings, not just 2.",
+    "extractedProblem": "Average of 9 innings is 40. The 10th innings scores 60. Find the new average.",
+    "answerInStory": "42 — new total (420) ÷ new count (10). The 20-run surplus only adds 2 to the average because it's spread over all 10 innings."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": {
+      "categories": [
+        { "label": "Match 1-9 avg", "value": 40, "icon": "🏏" },
+        { "label": "Match 10", "value": 60, "icon": "🏏" }
+      ],
+      "unit": "runs"
+    },
+    "caption": "The 10th score (60) is above the old average (40) — it pulls the average up, but only by a share of the surplus, not the full jump."
+  },
+  "teachingGallery": [
+    {
+      "title": "New average after one more value",
+      "note": "New total = (old average × old count) + new value. New average = new total ÷ new count.",
+      "examples": [
+        {
+          "component": "BarChart",
+          "props": { "categories": [ { "label": "Old avg (4)", "value": 20, "icon": "📊" }, { "label": "5th value", "value": 30, "icon": "📊" } ], "unit": "" },
+          "caption": "Average of 4 numbers is 20. A 5th number, 30, joins → new average = (4×20+30)/5 = 22."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Average = Total ÷ Count, so Total = Average × Count. Whenever a value is added, removed, or replaced, work in TOTALS (not averages) first, then divide by the new count at the very end.",
+    "steps": [
+      "Convert the known average to a total: Total = Average × Count.",
+      "Add, remove, or replace the value(s) in the total.",
+      "Divide the new total by the new count to get the new average.",
+      "For average speed over equal distances at speeds x and y: use 2xy/(x+y), never (x+y)/2."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Deviation (shortcut) method",
+      "whenToUse": "Mental-math speed for 'new average after a change' questions.",
+      "steps": [
+        "Find how far the new value is from the OLD average (its deviation).",
+        "Divide that deviation by the new count.",
+        "Add (or subtract) that share to the old average."
+      ],
+      "example": "Old average 40, new value 60 → deviation +20, over 10 people → +2 → new average 42."
+    },
+    {
+      "name": "Weighted-average blend",
+      "whenToUse": "Combining two groups with different sizes and different averages.",
+      "steps": [
+        "Combined average = (n₁×avg₁ + n₂×avg₂) / (n₁+n₂).",
+        "This is exactly the alligation idea — the combined average sits closer to the bigger group's average."
+      ],
+      "example": "30 students avg 60 marks, 20 students avg 80 marks → combined = (30×60+20×80)/50 = 68."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "The average of 5 numbers is 24. If one number is removed, the average of the remaining 4 becomes 22. Find the removed number.",
+      "steps": [
+        "Total of 5 numbers = 5 × 24 = 120.",
+        "Total of remaining 4 numbers = 4 × 22 = 88.",
+        "Removed number = 120 − 88 = 32."
+      ],
+      "answer": "32"
+    },
+    {
+      "problem": "A car travels from A to B at 40 km/h and returns at 60 km/h. Find the average speed for the whole trip.",
+      "steps": [
+        "Equal distance both ways, so use average speed = 2xy/(x+y).",
+        "= 2 × 40 × 60 / (40 + 60).",
+        "= 4800 / 100 = 48 km/h."
+      ],
+      "answer": "48 km/h"
+    },
+    {
+      "problem": "The average weight of 8 boys is 45 kg. One boy weighing 37 kg is replaced by a new boy, and the average rises to 46 kg. Find the new boy's weight.",
+      "steps": [
+        "Old total = 8 × 45 = 360 kg.",
+        "New total = 8 × 46 = 368 kg.",
+        "New boy's weight = old total − old member + new total's increase = 37 + (368 − 360) = 37 + 8 = 45 kg."
+      ],
+      "answer": "45 kg"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Work in totals, divide last",
+    "intro": "Never average an average directly — convert to totals, adjust, then divide once at the end.",
+    "questions": [
+      { "id": "apt15-trick-1", "type": "number", "q": "Average of 6 numbers is 15. Find their total.", "answer": "90", "hintLadder": ["Total = avg × count.", "15 × 6.", "= 90."], "explain": "15 × 6 = 90." },
+      { "id": "apt15-trick-2", "type": "number", "q": "Total of 4 numbers is 80. A 5th number, 30, is added. New average?", "answer": "22", "hintLadder": ["New total = 110.", "110 ÷ 5.", "= 22."], "explain": "(80+30)/5 = 22." },
+      { "id": "apt15-trick-3", "type": "number", "q": "Speeds 30 and 60 km/h, same distance both ways. Average speed?", "answer": "40", "hintLadder": ["Use 2xy/(x+y).", "2×30×60 ÷ 90.", "= 40."], "explain": "2×30×60/90 = 40." },
+      { "id": "apt15-trick-4", "type": "number", "q": "Average of 5 numbers is 20. One number, 10, is removed. New average of the rest?", "answer": "22.5", "hintLadder": ["Old total = 100.", "Remove 10 → 90.", "90 ÷ 4 = 22.5."], "explain": "(100−10)/4 = 22.5." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "averaged-the-average",
+      "mistake": "Adding a new value straight to the average instead of converting to totals first (e.g. thinking 40 and 60 gives an average of 50 for a 10th data point among 9).",
+      "fix": "Always go Average × Count = Total first. Adjust the total, then divide by the new count."
+    },
+    {
+      "mistakeTag": "arithmetic-mean-speed",
+      "mistake": "Averaging two speeds directly as (x+y)/2 for a there-and-back trip.",
+      "fix": "For EQUAL distances at two different speeds, average speed = 2xy/(x+y) — the harmonic mean, not the arithmetic mean, because more time is spent at the slower speed."
+    },
+    {
+      "mistakeTag": "wrong-count",
+      "mistake": "Dividing by the old count instead of the new count after a value is added or removed.",
+      "fix": "The count always changes when a value joins or leaves — recount before the final division."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "Average of 10, 20, 30. Find it.", "answer": "20", "hintLadder": ["Total = 60.", "60 ÷ 3.", "= 20."] },
+      { "id": "e2", "type": "number", "q": "Average of 5 numbers is 12. Find their total.", "answer": "60", "hintLadder": ["Total = avg × count.", "12 × 5.", "= 60."] },
+      { "id": "e3", "type": "mcq", "q": "To find a new average after a value is added, you should first…", "options": [ { "label": "Convert the old average to a total" }, { "label": "Average the two numbers directly", "mistakeTag": "averaged-the-average" } ], "answer": "Convert the old average to a total", "hintLadder": ["Totals first.", "Then adjust.", "Convert to total."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "Average of 4 numbers is 18. A 5th number, 33, is added. New average?", "answer": "21", "hintLadder": ["Old total = 72.", "New total = 105.", "105 ÷ 5 = 21."] },
+      { "id": "m2", "type": "number", "q": "A train covers a distance at 50 km/h and returns at 75 km/h. Average speed?", "answer": "60", "hintLadder": ["2xy/(x+y).", "2×50×75 ÷ 125.", "= 60."] },
+      { "id": "m3", "type": "number", "q": "Average age of 20 students is 15 years. 5 students of average age 12 join. New average age of all 25?", "answer": "14.4", "hintLadder": ["Total1 = 300, Total2 = 60.", "Combined = 360.", "360 ÷ 25 = 14.4."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "Average of 7 numbers is 30. One number is misread as 45 instead of the correct 15. Find the correct average.", "answer": "25.71", "hintLadder": ["Old total (with error) = 210.", "Correct total = 210 − 45 + 15 = 180.", "180 ÷ 7 ≈ 25.71."] },
+      { "id": "c2", "type": "number", "q": "The average of 11 results is 50. The average of the first 6 is 49 and of the last 6 is 52. Find the 6th result.", "answer": "56", "hintLadder": ["Total of 11 = 550.", "6×49 + 6×52 = 606, but the 6th is counted twice.", "6th = 606 − 550 = 56."] },
+      { "id": "c3", "type": "mcq", "q": "A boy of weight 40 kg is replaced by a new boy, raising a group's average by 2 kg over 10 boys. New boy's weight?", "options": [ { "label": "60 kg" }, { "label": "42 kg", "mistakeTag": "wrong-count" } ], "answer": "60 kg", "hintLadder": ["Total rises by 2×10=20.", "New boy = old boy + rise.", "40+20 = 60."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "Average of 6 numbers is 25. Find their total.", "answer": "150", "hintLadder": ["Total = avg × count.", "25 × 6.", "= 150."] },
+      { "id": "mc2", "type": "number", "q": "Average of 4 numbers is 20. A 5th, 40, is added. New average?", "answer": "24", "hintLadder": ["Old total = 80.", "New total = 120.", "120 ÷ 5 = 24."] },
+      { "id": "mc3", "type": "number", "q": "Speeds 20 and 30 km/h, same distance both ways. Average speed?", "answer": "24", "hintLadder": ["2xy/(x+y).", "2×20×30 ÷ 50.", "= 24."] },
+      { "id": "mc4", "type": "mcq", "q": "Average speed for a round trip at two different speeds over the same distance uses…", "options": [ { "label": "The harmonic mean, 2xy/(x+y)" }, { "label": "The simple mean, (x+y)/2", "mistakeTag": "arithmetic-mean-speed" } ], "answer": "The harmonic mean, 2xy/(x+y)", "hintLadder": ["More time at the slower speed.", "So it pulls the average down.", "Harmonic mean."] },
+      { "id": "mc5", "type": "number", "q": "Average of 5 numbers is 16. One number, 6, is removed. New average of the rest?", "answer": "18.5", "hintLadder": ["Old total = 80.", "Remove 6 → 74.", "74 ÷ 4 = 18.5."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend why Arjun's average only rose from 40 to 42 (not 50) after scoring 60 in his 10th innings — use the 'convert to totals first' idea.",
+  "revisionCard": {
+    "summary": "Average = Total ÷ Count. Always work in totals: Total = Average × Count, adjust for the change, then divide by the NEW count. Average speed for equal distances at speeds x,y = 2xy/(x+y) — never the simple mean. Combined average of two groups = (n₁avg₁ + n₂avg₂)/(n₁+n₂).",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The Level-Line Challenge",
+    "brief": "Keep the jungle scoreboard's average level accurate every time an animal's score is added, removed, or swapped!",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Track your own scores in any game or subject over 5 attempts. After each new score, recompute your running average using the totals method — see how much (or little) each new score moves it.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Quantitative Aptitude) — Averages",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Totals first, divide last",
+    "unpack": "Average × Count = Total — adjust the total, then divide once at the end."
+  },
+  "studentQuestions": [
+    { "q": "Why isn't average speed just (x+y)/2 for a round trip?", "a": "Because you spend MORE time travelling at the slower speed (same distance, but slower means longer time), so the true average is pulled toward the slower speed — that's exactly what 2xy/(x+y) does." },
+    { "q": "What's the fastest way to handle 'a value is replaced' questions?", "a": "Find how the total changed (new average × count − old average × count), and that change equals (new member's value − old member's value)." }
+  ]
+}

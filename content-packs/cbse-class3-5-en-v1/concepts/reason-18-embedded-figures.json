@@ -1,0 +1,173 @@
+{
+  "id": "reason-18-embedded-figures",
+  "name": "Embedded Figures — Spotting and Counting Hidden Shapes",
+  "grade": 13,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "Embedded figure questions hide a simple shape inside a more complex, overlapping one, and ask you to find it — or to count exactly how many shapes of a certain kind (like triangles) are hiding inside a figure once you include the ones formed by COMBINING smaller regions together.",
+  "whyNeeded": "This trains systematic visual scanning instead of guessing: counting every small region first, then every possible combination of adjacent regions, so you never miss a hidden or combined shape.",
+  "realLifeUses": [
+    "Reasoning sections of SSC, banking, and railway exams",
+    "Reading complex technical diagrams and blueprints",
+    "Geometry — recognizing shapes within shapes",
+    "Careful, exhaustive visual counting in general"
+  ],
+  "vocabulary": [
+    { "term": "embedded figure", "meaning": "A simple shape hidden inside a more complex figure, formed by some of its lines." },
+    { "term": "region", "meaning": "One of the smallest separate areas a complex figure is divided into by its lines." },
+    { "term": "combined figure", "meaning": "A larger shape formed by joining two or more adjacent regions together." }
+  ],
+  "story": {
+    "title": "The Diagonal Square",
+    "characters": ["Kabir", "his older sister Meera"],
+    "text": "Meera draws a square and both its diagonals, crossing in the middle. 'How many triangles can you find?' she asks. Kabir counts the 4 small triangles made by the crossing diagonals — 1, 2, 3, 4. 'Good start,' says Meera, 'but look again — each HALF of the square, cut by just one diagonal, is ALSO a triangle, made of two small ones joined together.' Kabir finds 4 more of those. '4 small plus 4 combined — 8 triangles total!' he says, surprised he'd missed half of them at first.",
+    "extractedProblem": "A square has both its diagonals drawn, crossing at the center. How many triangles are there in total?",
+    "answerInStory": "8 triangles — 4 small ones from the crossing diagonals, plus 4 larger ones formed by combining two small triangles across each diagonal."
+  },
+  "visual": {
+    "component": "ReasoningFigure",
+    "props": {
+      "panels": [
+        { "kind": "shape", "shapeKind": "triangle", "label": "1 small region" },
+        { "kind": "shape", "shapeKind": "star", "label": "Complex figure to search" }
+      ]
+    },
+    "caption": "Systematically scan a complex figure region by region — a 5-pointed star, for example, is built from 5 overlapping triangles, each one a hidden embedded shape."
+  },
+  "teachingGallery": [
+    {
+      "title": "Small regions first, then combinations",
+      "note": "Never count only the smallest visible regions — always ALSO check every way two or more adjacent regions can combine into a bigger version of the target shape.",
+      "examples": [
+        {
+          "component": "ReasoningFigure",
+          "props": { "panels": [ { "kind": "shape", "shapeKind": "triangle", "count": 4, "label": "4 small triangles" } ] },
+          "caption": "A square split by both diagonals gives 4 small triangles — but combining adjacent pairs across each diagonal gives 4 MORE (larger) triangles, for 8 total."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "First count every smallest separate region that matches the target shape. Then systematically check every possible combination of 2, 3, or more ADJACENT regions to see if that combination also forms the target shape. Add both counts together for the total.",
+    "steps": [
+      "Identify the target shape you're counting or searching for (e.g. triangles).",
+      "Count every smallest individual region matching that shape first.",
+      "Check every pair of adjacent regions — does combining them form a larger version of the target shape too?",
+      "Check larger combinations (3+ regions) if the figure is complex enough to have them.",
+      "Add all matching counts together for the final total — never stop after just the smallest regions."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Vertex-triangulation formula (for polygons split from one corner)",
+      "whenToUse": "A polygon with all diagonals drawn from a single vertex.",
+      "steps": [
+        "Count the number of sides of the polygon (n).",
+        "The number of triangles formed is always n − 2, when all diagonals are drawn from just one vertex."
+      ],
+      "example": "A hexagon (6 sides) triangulated from one vertex gives 6 − 2 = 4 triangles."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A square has both diagonals drawn, crossing at the center. How many triangles are there in total?",
+      "steps": [
+        "Count the smallest regions: the two diagonals cross to form 4 small triangles.",
+        "Check combinations: each diagonal alone splits the square into 2 halves, and each half (made of 2 small triangles) is itself a bigger triangle — that's 4 more (2 halves per diagonal × 2 diagonals).",
+        "Total: 4 small + 4 combined = 8 triangles."
+      ],
+      "answer": "8 triangles"
+    },
+    {
+      "problem": "A pentagon (5 sides) has all its diagonals drawn from just ONE vertex. How many triangles does this create?",
+      "steps": [
+        "Use the vertex-triangulation formula: triangles = n − 2, where n is the number of sides.",
+        "For a pentagon, n = 5.",
+        "Triangles = 5 − 2 = 3."
+      ],
+      "answer": "3 triangles"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Count small regions first, THEN check every combination",
+    "intro": "Missing the combined (larger) shapes is the single most common error — always check combinations after the small regions.",
+    "questions": [
+      { "id": "reason18-trick-1", "type": "text", "q": "A triangle has one median drawn (from one vertex to the midpoint of the opposite side). How many triangles in total (including the original)?", "answer": "3", "hintLadder": ["The median splits it into 2 small triangles.", "Plus the original big triangle itself.", "2 + 1 = 3."] },
+      { "id": "reason18-trick-2", "type": "mcq", "q": "After counting the 4 small triangles in a diagonal-crossed square, what should you check next?", "options": [ { "label": "Whether adjacent regions combine into larger triangles" }, { "label": "Nothing — you're done", "mistakeTag": "missed-larger-combinations" } ], "answer": "Whether adjacent regions combine into larger triangles", "hintLadder": ["Small regions are never the full count.", "Always check adjacent combinations too.", "Check combinations next."] },
+      { "id": "reason18-trick-3", "type": "text", "q": "A hexagon (6 sides) has all diagonals drawn from one vertex. How many triangles form?", "answer": "4", "hintLadder": ["Use n − 2.", "6 − 2 = 4.", "4 triangles."] }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "missed-larger-combinations",
+      "mistake": "Stopping after counting only the smallest visible regions, missing the larger shapes formed by combining adjacent regions.",
+      "fix": "Always ask 'can I combine two or more adjacent regions into the target shape too?' after counting the smallest ones — this step is where most of the missed shapes hide."
+    },
+    {
+      "mistakeTag": "double-counted-figures",
+      "mistake": "Counting the same combined shape more than once by approaching it from different starting regions.",
+      "fix": "Track counted shapes systematically (e.g. by labeling regions 1, 2, 3... and listing exactly which region-numbers make up each shape you count) to avoid counting the same one twice."
+    },
+    {
+      "mistakeTag": "wrong-formula-for-polygon",
+      "mistake": "Misremembering or misapplying the n−2 vertex-triangulation formula, such as using it for diagonals drawn from multiple different vertices (where it doesn't apply).",
+      "fix": "The n−2 formula only works when ALL diagonals come from a single vertex. If diagonals come from multiple vertices or cross each other, count small regions and combinations by hand instead."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "text", "q": "A rectangle has both diagonals drawn, crossing at the center. How many triangles in total?", "answer": "8", "hintLadder": ["Same logic as a square: 4 small + 4 combined.", "4+4.", "8."] },
+      { "id": "e2", "type": "text", "q": "A pentagon (5 sides) has all diagonals from one vertex. How many triangles?", "answer": "3", "hintLadder": ["n − 2.", "5 − 2.", "3."] },
+      { "id": "e3", "type": "mcq", "q": "What is the very first step in counting embedded shapes?", "options": [ { "label": "Count every smallest individual region first" }, { "label": "Guess the total based on how complex it looks", "mistakeTag": "missed-larger-combinations" } ], "answer": "Count every smallest individual region first", "hintLadder": ["Start with the smallest pieces.", "Then build up combinations.", "Smallest regions first."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "text", "q": "A heptagon (7 sides) has all diagonals from one vertex. How many triangles?", "answer": "5", "hintLadder": ["n − 2.", "7 − 2.", "5."] },
+      { "id": "m2", "type": "text", "q": "A triangle has one median drawn. How many triangles total, including the original?", "answer": "3", "hintLadder": ["Median splits it into 2 small triangles.", "Plus the original.", "2+1=3."] },
+      { "id": "m3", "type": "mcq", "q": "A square with both diagonals is said to have '4 triangles'. Is this the complete, correct count?", "options": [ { "label": "No — it's missing the 4 larger combined triangles (total is 8)" }, { "label": "Yes, that's correct" } ], "answer": "No — it's missing the 4 larger combined triangles (total is 8)", "hintLadder": ["4 is only the small regions.", "4 more come from combining adjacent halves.", "True total is 8."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "text", "q": "An octagon (8 sides) has all diagonals from one vertex. How many triangles?", "answer": "6", "hintLadder": ["n − 2.", "8 − 2.", "6."] },
+      { "id": "c2", "type": "text", "q": "A square with both diagonals also has how many RECTANGLES in total (counting only the outer square shape)?", "answer": "1", "hintLadder": ["Diagonals don't create any smaller rectangles.", "Only the original square counts as a rectangle-type shape.", "1."] },
+      { "id": "c3", "type": "mcq", "q": "The n−2 triangulation formula applies when diagonals are drawn…", "options": [ { "label": "All from a single vertex" }, { "label": "From several different vertices at once", "mistakeTag": "wrong-formula-for-polygon" } ], "answer": "All from a single vertex", "hintLadder": ["The formula assumes one shared vertex.", "Multiple vertices need hand-counting instead.", "Single vertex only."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "text", "q": "A square with both diagonals drawn has how many triangles total?", "answer": "8", "hintLadder": ["4 small + 4 combined.", "4+4.", "8."] },
+      { "id": "mc2", "type": "text", "q": "A hexagon (6 sides) triangulated from one vertex has how many triangles?", "answer": "4", "hintLadder": ["n−2.", "6−2.", "4."] },
+      { "id": "mc3", "type": "text", "q": "A triangle with one median drawn has how many triangles total (including the original)?", "answer": "3", "hintLadder": ["2 small + the original.", "2+1.", "3."] },
+      { "id": "mc4", "type": "mcq", "q": "The most common mistake in embedded-figure counting is…", "options": [ { "label": "Forgetting to check for larger combined shapes" }, { "label": "Counting too many small regions", "mistakeTag": "missed-larger-combinations" } ], "answer": "Forgetting to check for larger combined shapes", "hintLadder": ["Small regions alone undercount.", "Combinations are usually missed.", "Forgetting combinations."] },
+      { "id": "mc5", "type": "text", "q": "A pentagon (5 sides) triangulated from one vertex has how many triangles?", "answer": "3", "hintLadder": ["n−2.", "5−2.", "3."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend why a square with both diagonals has 8 triangles, not just 4, using the 'small regions first, then combinations' method.",
+  "revisionCard": {
+    "summary": "Count every smallest individual region matching the target shape first, then systematically check every combination of adjacent regions for larger matching shapes — add both counts together. For polygons with all diagonals from a single vertex, use the shortcut n − 2 (sides minus 2) to find the triangle count directly.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "Hidden Shapes in the Canopy",
+    "brief": "Search the jungle canopy patterns for every hidden triangle — small ones AND the bigger combined ones!",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Draw a square with both diagonals on paper, count the triangles yourself before checking the answer (8), then try a pentagon with diagonals from one corner and verify the n−2 formula.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Non-Verbal) — Embedded Figures",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Small regions first, THEN combinations",
+    "unpack": "Total shapes = smallest regions + every valid combination of adjacent regions."
+  },
+  "studentQuestions": [
+    { "q": "Is there a shortcut for counting squares or other shapes too, not just triangles?", "a": "Not one universal formula like n−2, but the same 'small regions first, then check combinations' method works for any shape — squares, rectangles, or any polygon you're asked to count." },
+    { "q": "What if the figure is too complex to count by eye?", "a": "Label every smallest region with a number or letter, then systematically list which labels combine to form each valid shape — this turns a visual guessing game into a reliable, checkable list." }
+  ]
+}

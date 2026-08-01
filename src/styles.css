@@ -122,6 +122,16 @@ button { font: inherit; cursor: pointer; }
 .fm-strip-label { font-weight: 700; min-width: 120px; }
 figcaption { color: var(--muted); margin-top: 8px; }
 
+/* Geometry / reasoning-figure / dice panels */
+.fm-geo-row, .fm-rf-row, .fm-dice-row {
+  display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 16px;
+}
+.fm-geo-item, .fm-rf-panel, .fm-dice-item {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px;
+}
+.fm-rf-panel .fm-strip-label, .fm-dice-item .fm-strip-label { min-width: 0; text-align: center; font-size: 14px; }
+
 /* Practice */
 .fm-practice { background: var(--card); border: 2px solid var(--line); border-radius: 20px; padding: 24px; margin-top: 18px; }
 .fm-progress { color: var(--muted); font-size: 15px; }

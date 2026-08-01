@@ -1,0 +1,181 @@
+{
+  "id": "reason-16-mirror-water-images",
+  "name": "Mirror and Water Images — Flipping Letters, Words and Clocks",
+  "grade": 13,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "A mirror image flips something left-to-right, exactly like holding it up to a vertical mirror. A water image flips something top-to-bottom, like looking at its reflection in still water below it. Some letters and clock times look identical after flipping; most don't — learning which is which is the whole skill.",
+  "whyNeeded": "Mirror/water image questions train precise left-right and top-bottom spatial reasoning — recognizing exactly what changes and what stays the same under a flip, a skill used in reading maps, following diagrams, and any visual-spatial task.",
+  "realLifeUses": [
+    "Reasoning sections of SSC, banking and railway exams",
+    "Reading a reflection correctly (mirrors, water, glass)",
+    "Understanding flipped/mirrored images in design and printing",
+    "Map-reading and spatial orientation"
+  ],
+  "vocabulary": [
+    { "term": "mirror image", "meaning": "The left-right flipped version of something, as seen in a vertical mirror; left and right swap, top and bottom stay the same." },
+    { "term": "water image", "meaning": "The top-bottom flipped version of something, as seen reflected in water below it; top and bottom swap, left and right stay the same." },
+    { "term": "mirror-symmetric letter", "meaning": "A capital letter that looks exactly the same after a left-right flip: A, H, I, M, O, T, U, V, W, X, Y." },
+    { "term": "water-symmetric letter", "meaning": "A capital letter that looks exactly the same after a top-bottom flip: B, C, D, E, H, I, K, O, X." }
+  ],
+  "story": {
+    "title": "The Word That Doesn't Change",
+    "characters": ["Naina", "her grandmother"],
+    "text": "Naina's grandmother holds up a card that says 'TOT' to a mirror. 'It still says TOT!' Naina says, surprised. Her grandmother explains: 'A mirror flips left-right. T and O are letters that look the same when flipped — and TOT reads the same forwards and backwards too, so both effects cancel out perfectly.' Then she holds up 'BOX' to the mirror — it looks completely garbled. 'B isn't mirror-symmetric,' her grandmother says, 'so as soon as one letter breaks the pattern, the whole word changes.'",
+    "extractedProblem": "Does the word 'TOT' look identical in a mirror? Does the word 'BOX' look identical in a mirror?",
+    "answerInStory": "TOT looks identical (all letters mirror-symmetric, and it's a palindrome); BOX does not (B is not mirror-symmetric)."
+  },
+  "visual": {
+    "component": "ReasoningFigure",
+    "props": {
+      "panels": [
+        { "kind": "text", "text": "TOT", "flip": "none", "label": "Original word" },
+        { "kind": "text", "text": "TOT", "flip": "h", "label": "Mirror image" }
+      ]
+    },
+    "caption": "TOT is built only from mirror-symmetric letters (T, O, T) and reads the same forwards and backwards — so its mirror image looks identical to the original."
+  },
+  "teachingGallery": [
+    {
+      "title": "Water image: flips top-bottom, not left-right",
+      "note": "A water image keeps left-right order the same but flips every letter upside down. Only letters symmetric about a horizontal line (B, C, D, E, H, I, K, O, X) survive this unchanged.",
+      "examples": [
+        {
+          "component": "ReasoningFigure",
+          "props": {
+            "panels": [
+              { "kind": "text", "text": "HIKE", "flip": "none", "label": "Original word" },
+              { "kind": "text", "text": "HIKE", "flip": "v", "label": "Water image" }
+            ]
+          },
+          "caption": "HIKE is built only from water-symmetric letters (H, I, K, E) — its water image looks identical, just flipped upside down, with left-right order unchanged."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "For a MIRROR image: check if every letter is mirror-symmetric AND the word reads the same forwards and backwards (a palindrome) — both conditions are needed for the mirror image to look identical. For a WATER image: check if every letter is water-symmetric — left-right order never changes, so no palindrome check is needed.",
+    "steps": [
+      "Identify whether the question asks for a mirror image (left-right flip) or a water image (top-bottom flip).",
+      "For mirror images: check each letter against the mirror-symmetric list (A, H, I, M, O, T, U, V, W, X, Y), AND check if the word is a palindrome.",
+      "For water images: check each letter against the water-symmetric list (B, C, D, E, H, I, K, O, X) only — no palindrome check needed.",
+      "If every letter passes and (for mirrors) the palindrome check also passes, the flipped version looks identical to the original.",
+      "For clock times: use the mirror-time formula 11:60 minus the actual time."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Clock mirror-time formula",
+      "whenToUse": "Questions asking what a clock's reflection in a mirror shows.",
+      "steps": [
+        "Take the actual time shown on the clock.",
+        "Subtract it from 11:60 (treat this like 12:00, but written as 11:60 to make the subtraction easy without needing to borrow).",
+        "The result is exactly what the mirror image of the clock would show."
+      ],
+      "example": "Actual time 3:15 → 11:60 − 3:15 = 8:45. The mirror image of a clock showing 3:15 shows 8:45."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Does the mirror image of the word 'MOM' look identical to the word itself?",
+      "steps": [
+        "Check each letter for mirror symmetry: M is in the symmetric list (A,H,I,M,O,T,U,V,W,X,Y). O is in the list too.",
+        "All letters (M, O, M) are mirror-symmetric.",
+        "Check if the word is a palindrome: MOM reversed is MOM — yes, it's a palindrome.",
+        "Both conditions pass, so the mirror image of MOM looks identical to MOM."
+      ],
+      "answer": "Yes, MOM's mirror image looks identical to MOM"
+    },
+    {
+      "problem": "A clock shows 4:20. What time does its mirror image show?",
+      "steps": [
+        "Use the mirror-time formula: 11:60 minus the actual time.",
+        "11:60 − 4:20 → hours: 11 − 4 = 7. minutes: 60 − 20 = 40.",
+        "Mirror time = 7:40."
+      ],
+      "answer": "7:40"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Mirror flips left-right AND reverses order; water flips top-bottom only",
+    "intro": "Remember: a mirror image needs BOTH symmetric letters and a palindrome word; a water image only needs symmetric letters.",
+    "questions": [
+      { "id": "reason16-trick-1", "type": "mcq", "q": "Is the letter 'B' mirror-symmetric (looks the same after a left-right flip)?", "options": [ { "label": "No" }, { "label": "Yes", "mistakeTag": "confused-mirror-water-list" } ], "answer": "No", "hintLadder": ["Mirror-symmetric list: A,H,I,M,O,T,U,V,W,X,Y.", "B is not in that list.", "No, B is not mirror-symmetric."] },
+      { "id": "reason16-trick-2", "type": "mcq", "q": "Is the letter 'B' water-symmetric (looks the same after a top-bottom flip)?", "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "confused-mirror-water-list" } ], "answer": "Yes", "hintLadder": ["Water-symmetric list: B,C,D,E,H,I,K,O,X.", "B IS in that list.", "Yes, B is water-symmetric."] },
+      { "id": "reason16-trick-3", "type": "text", "q": "A clock shows 6:10. What does its mirror image show? (Use 11:60 − actual time)", "answer": "5:50", "hintLadder": ["11:60 − 6:10.", "Hours: 11−6=5. Minutes: 60−10=50.", "5:50."] }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "confused-mirror-water-list",
+      "mistake": "Mixing up the mirror-symmetric letter list with the water-symmetric letter list — they overlap (H, I, O, X) but are not identical.",
+      "fix": "Mirror = left-right flip → A,H,I,M,O,T,U,V,W,X,Y. Water = top-bottom flip → B,C,D,E,H,I,K,O,X. Memorize them as two separate lists that happen to share only a few letters."
+    },
+    {
+      "mistakeTag": "forgot-palindrome-check",
+      "mistake": "Checking only whether each letter is mirror-symmetric for a mirror-image word question, forgetting that the word's LETTER ORDER also reverses.",
+      "fix": "A mirror image needs BOTH: every letter individually symmetric, AND the whole word being a palindrome (reads the same forwards/backwards) — missing either check gives a wrong answer."
+    },
+    {
+      "mistakeTag": "wrong-clock-subtraction",
+      "mistake": "Subtracting the actual time from 12:00 directly and getting a borrowing error, instead of using the cleaner 11:60 form.",
+      "fix": "Always rewrite 12:00 as 11:60 before subtracting — this avoids needing to 'borrow' an hour and keeps the minutes subtraction simple."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "mcq", "q": "Is 'H' mirror-symmetric?", "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "confused-mirror-water-list" } ], "answer": "Yes", "hintLadder": ["Check the mirror list: A,H,I,M,O,T,U,V,W,X,Y.", "H is in it.", "Yes."] },
+      { "id": "e2", "type": "mcq", "q": "Is 'C' water-symmetric?", "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "confused-mirror-water-list" } ], "answer": "Yes", "hintLadder": ["Check the water list: B,C,D,E,H,I,K,O,X.", "C is in it.", "Yes."] },
+      { "id": "e3", "type": "text", "q": "A clock shows 2:00. What does its mirror image show?", "answer": "10:00", "hintLadder": ["11:60 − 2:00.", "Hours: 11−2=9, but written as 12−2=10 when minutes are 00.", "10:00."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "mcq", "q": "Does the mirror image of 'WOW' look identical to 'WOW'?", "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "forgot-palindrome-check" } ], "answer": "Yes", "hintLadder": ["W and O are both mirror-symmetric.", "WOW reversed is WOW — a palindrome.", "Both checks pass — yes."] },
+      { "id": "m2", "type": "mcq", "q": "Does the mirror image of 'TAB' look identical to 'TAB'?", "options": [ { "label": "Yes", "mistakeTag": "confused-mirror-water-list" }, { "label": "No" } ], "answer": "No", "hintLadder": ["B is not mirror-symmetric.", "One broken letter is enough.", "No."] },
+      { "id": "m3", "type": "text", "q": "A clock shows 5:25. What does its mirror image show?", "answer": "6:35", "hintLadder": ["11:60 − 5:25.", "Hours: 11−5=6. Minutes: 60−25=35.", "6:35."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "mcq", "q": "Does the water image of 'DECK' look identical to 'DECK'?", "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "confused-mirror-water-list" } ], "answer": "Yes", "hintLadder": ["D,E,C,K — check each against the water list (B,C,D,E,H,I,K,O,X).", "All four letters are in it.", "Water image doesn't need a palindrome check — yes."] },
+      { "id": "c2", "type": "mcq", "q": "Does the mirror image of 'TAT' look identical to 'TAT'?", "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "confused-mirror-water-list" } ], "answer": "Yes", "hintLadder": ["T and A are both mirror-symmetric.", "TAT reversed is TAT — a palindrome.", "Both checks pass — yes."] },
+      { "id": "c3", "type": "text", "q": "A clock shows 9:50. What does its mirror image show?", "answer": "2:10", "hintLadder": ["11:60 − 9:50.", "Hours: 11−9=2. Minutes: 60−50=10.", "2:10."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "mcq", "q": "Is 'X' both mirror-symmetric AND water-symmetric?", "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "confused-mirror-water-list" } ], "answer": "Yes", "hintLadder": ["X is in both the mirror list and the water list.", "It's one of the few letters shared by both.", "Yes."] },
+      { "id": "mc2", "type": "mcq", "q": "Does the mirror image of 'DAD' look identical to 'DAD'?", "options": [ { "label": "Yes", "mistakeTag": "confused-mirror-water-list" }, { "label": "No" } ], "answer": "No", "hintLadder": ["D is NOT in the mirror-symmetric list.", "Even though DAD is a palindrome, D breaks the letter check.", "No."] },
+      { "id": "mc3", "type": "text", "q": "A clock shows 1:35. What does its mirror image show?", "answer": "10:25", "hintLadder": ["11:60 − 1:35.", "Hours: 11−1=10. Minutes: 60−35=25.", "10:25."] },
+      { "id": "mc4", "type": "mcq", "q": "Does the water image of 'OXIDE' look identical to 'OXIDE'?", "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "confused-mirror-water-list" } ], "answer": "Yes", "hintLadder": ["O,X,I,D,E — check each against the water list.", "All five letters are water-symmetric.", "Yes."] },
+      { "id": "mc5", "type": "mcq", "q": "What TWO checks are needed to confirm a word's mirror image looks identical?", "options": [ { "label": "Every letter mirror-symmetric AND the word is a palindrome" }, { "label": "Just that every letter is mirror-symmetric", "mistakeTag": "forgot-palindrome-check" } ], "answer": "Every letter mirror-symmetric AND the word is a palindrome", "hintLadder": ["Letters alone aren't enough.", "Order also flips in a mirror.", "Both checks are required."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend why TOT looks the same in a mirror but TAB does not, using the mirror-symmetric letter list and the palindrome check.",
+  "revisionCard": {
+    "summary": "Mirror image = left-right flip; needs every letter mirror-symmetric (A,H,I,M,O,T,U,V,W,X,Y) AND the word to be a palindrome. Water image = top-bottom flip; needs every letter water-symmetric (B,C,D,E,H,I,K,O,X), with no palindrome check since left-right order never changes. Clock mirror times: subtract the actual time from 11:60.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The Reflection Pool",
+    "brief": "Check which jungle signs still make sense when reflected in the mirror pond — mirror or water style!",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Write 3 words using only mirror-symmetric letters that are also palindromes (like TOT, WOW), then check each one really does look the same when you hold it up to an actual mirror.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Non-Verbal) — Mirror & Water Images",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Mirror flips left-right + reverses order; water flips top-bottom only",
+    "unpack": "Two different symmetric-letter lists, and only mirrors need the extra palindrome check."
+  },
+  "studentQuestions": [
+    { "q": "Why does a mirror image reverse the letter order but a water image doesn't?", "a": "A mirror reflects left-to-right, so the letter that was on the right ends up appearing on the left (reversing order). A water reflection flips top-to-bottom only — nothing swaps left-right, so the order of letters stays exactly the same, just each one is upside down." },
+    { "q": "Is there a quick way to remember the two letter lists?", "a": "Notice the overlap: H, I, O, X appear in BOTH lists because they have a kind of 4-way symmetry. Learning those 4 first, then adding the rest to each list separately, is easier than memorizing two lists from scratch." }
+  ]
+}

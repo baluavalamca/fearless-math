@@ -1,0 +1,174 @@
+{
+  "id": "reason-14-input-output",
+  "name": "Input-Output Machines — Finding the Hidden Rearranging Rule",
+  "grade": 13,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "An input-output machine question shows you a starting line of numbers (the Input) and then several 'Steps', each rearranging the line a little more, one move at a time. You're not told the rule — you have to discover it by comparing consecutive steps, then use that same rule to predict a step you weren't shown.",
+  "whyNeeded": "This trains pattern-detection under a strict rule: exactly one clear change per step, applied consistently every time. It's the same skill used in following any multi-step procedure or algorithm correctly.",
+  "realLifeUses": [
+    "Reasoning sections of banking and SSC exams",
+    "Following step-by-step instructions or recipes exactly",
+    "Understanding how sorting algorithms work, one comparison at a time",
+    "Spotting a consistent pattern from limited given examples"
+  ],
+  "vocabulary": [
+    { "term": "input", "meaning": "The original, unrearranged starting line of numbers." },
+    { "term": "step", "meaning": "One stage of the machine's output, after applying the rule exactly once more than the step before it." },
+    { "term": "rule", "meaning": "The one consistent action the machine repeats each step (e.g. 'move the largest untouched number to the next empty front position')." },
+    { "term": "untouched / remaining", "meaning": "Numbers that haven't been moved into their final position yet — the rule only picks from these." }
+  ],
+  "story": {
+    "title": "The Sorting Machine",
+    "characters": ["Aryan", "his robotics club mentor"],
+    "text": "Aryan's mentor shows him: Input: 9 40 16 27. Step I: 40 9 16 27. 'What changed?' she asks. Aryan notices 40 jumped to the very front, and the rest — 9, 16, 27 — kept their original order. Step II: 40 27 9 16. 'Now what?' 27 jumped to the second spot, leaving 9 and 16 in their same relative order behind it. Aryan predicts the rule: each step, the largest number that hasn't moved yet jumps to the next open front position. He confidently predicts Step III: 40 27 16 9 — and checks it's exactly right.",
+    "extractedProblem": "Input: 9 40 16 27. Step I: 40 9 16 27. Step II: 40 27 9 16. What is Step III?",
+    "answerInStory": "Step III: 40 27 16 9 — each step, the largest untouched number moves to the next front position."
+  },
+  "visual": {
+    "component": "NumberTrack",
+    "props": { "tracks": [ { "terms": [9, 40, 16, 27], "jump": 1 } ] },
+    "caption": "Watch how only ONE number moves position between each consecutive step — spotting that single change reveals the machine's rule."
+  },
+  "teachingGallery": [
+    {
+      "title": "Compare consecutive steps, not input to final",
+      "note": "Always compare Step I to Step II (or Input to Step I) — never jump straight to comparing Input with a much later step, since several changes will have piled up by then and hide the actual one-move-per-step rule.",
+      "examples": [
+        {
+          "component": "NumberTrack",
+          "props": { "tracks": [ { "terms": [6, 21, 33, 50], "jump": 1 } ] },
+          "caption": "A different machine: each step, the SMALLEST untouched number moves to the next front position, building an ascending order from the left instead."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Line up the Input and each given Step. Compare consecutive lines one pair at a time to spot exactly what single change happened. State the rule in words. Apply that same rule, one more time, to produce the next unseen step.",
+    "steps": [
+      "Write the Input and every given Step, one per line, lined up in columns.",
+      "Compare Input to Step I: what single number moved, and to where?",
+      "Compare Step I to Step II: does the same kind of move happen again (same direction — largest or smallest untouched — moving to the next front or back position)?",
+      "State the rule clearly in one sentence once confirmed by at least two consecutive comparisons.",
+      "Apply the rule once more, carefully, to build the requested next step."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Track the 'remaining' set",
+      "whenToUse": "Any input-output machine question, as a double-check.",
+      "steps": [
+        "After each step, write down which numbers are already 'placed' (moved into their final position) and which are still 'remaining'.",
+        "The rule only ever picks from the remaining set — placed numbers never move again.",
+        "This prevents accidentally re-selecting a number that already moved."
+      ],
+      "example": "After Step II (40 27 9 16), placed = {40, 27}; remaining = {9, 16}, kept in their original relative order."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Input: 9 40 16 27. Step I: 40 9 16 27. Step II: 40 27 9 16. Find Step III.",
+      "steps": [
+        "Input to Step I: 40 jumped from position 2 to the front. Remaining numbers (9, 16, 27) kept their original relative order.",
+        "Step I to Step II: 27 jumped from the end to position 2. Remaining numbers (9, 16) kept their original relative order.",
+        "Rule confirmed: each step, the largest untouched number moves to the next front position; the rest keep their relative order.",
+        "Remaining after Step II: {9, 16}. The largest of these, 16, moves to position 3. The last number, 9, stays at the end.",
+        "Step III: 40 27 16 9."
+      ],
+      "answer": "Step III: 40 27 16 9"
+    },
+    {
+      "problem": "Input: 50 6 21 33. Step I: 6 50 21 33. Step II: 6 21 50 33. Find Step III.",
+      "steps": [
+        "Input to Step I: 6 jumped from position 2 to the front. Remaining (50, 21, 33) kept their original relative order.",
+        "Step I to Step II: 21 jumped from position 3 to position 2. Remaining (50, 33) kept their original relative order.",
+        "Rule confirmed: each step, the SMALLEST untouched number moves to the next front position.",
+        "Remaining after Step II: {50, 33}. The smallest, 33, moves to position 3. The last number, 50, stays at the end.",
+        "Step III: 6 21 33 50."
+      ],
+      "answer": "Step III: 6 21 33 50"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Compare consecutive steps to find what moved",
+    "intro": "Look at neighboring lines only — Input→I, then I→II — to isolate exactly one clean move each time.",
+    "questions": [
+      { "id": "reason14-trick-1", "type": "text", "q": "Input: 3 18 7. Step I: 18 3 7. What single number moved, and to which position?", "answer": "18 moved to position 1 (the front)", "hintLadder": ["Compare position by position.", "18 was in position 2, now in position 1.", "18 moved to the front."] },
+      { "id": "reason14-trick-2", "type": "mcq", "q": "In an input-output machine question, how many numbers typically move position in a single step?", "options": [ { "label": "Exactly one" }, { "label": "As many as needed", "mistakeTag": "missed-one-step-one-move" } ], "answer": "Exactly one", "hintLadder": ["Each step is one clean, consistent move.", "Multiple moves per step would hide the rule.", "Exactly one."] },
+      { "id": "reason14-trick-3", "type": "mcq", "q": "Once a number has moved into its position, can the rule pick it again in a later step?", "options": [ { "label": "No — only untouched/remaining numbers are picked" }, { "label": "Yes, it can move again", "mistakeTag": "lost-track-of-remaining" } ], "answer": "No — only untouched/remaining numbers are picked", "hintLadder": ["Placed numbers stay fixed.", "Only the 'remaining' set is eligible each step.", "No, it can't move again."] }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "missed-one-step-one-move",
+      "mistake": "Assuming multiple numbers can shift position within a single step, instead of exactly one clean move per step.",
+      "fix": "A correctly-formed machine question always changes exactly one number's position per step. If your predicted step changes more than one, re-check the rule."
+    },
+    {
+      "mistakeTag": "lost-track-of-remaining",
+      "mistake": "Accidentally re-selecting a number that was already moved into place in an earlier step.",
+      "fix": "Keep a running list of which numbers are already 'placed' after each step — the rule only ever picks from what's left in the 'remaining' set."
+    },
+    {
+      "mistakeTag": "compared-too-far-apart",
+      "mistake": "Comparing the Input directly to a later step (like Step III) to guess the rule, missing the smaller single-move pattern hidden in between.",
+      "fix": "Always compare NEIGHBORING lines (Input→Step I, Step I→Step II) to isolate one clean change at a time before jumping ahead."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "text", "q": "Input: 5 12 8. Step I: 12 5 8. Which number moved to the front?", "answer": "12", "hintLadder": ["Compare Input and Step I position by position.", "12 moved from position 2 to position 1.", "12."] },
+      { "id": "e2", "type": "mcq", "q": "In these machines, does each step change one number's position or several?", "options": [ { "label": "Exactly one" }, { "label": "Several at once", "mistakeTag": "missed-one-step-one-move" } ], "answer": "Exactly one", "hintLadder": ["Rule = one clean move per step.", "Confirms the pattern.", "Exactly one."] },
+      { "id": "e3", "type": "text", "q": "Input: 20 4 15. Step I: 4 20 15. What rule moved the number to the front — largest or smallest?", "answer": "Smallest", "hintLadder": ["4 is the smallest of the three.", "It jumped to the front.", "Smallest untouched moves to front."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "text", "q": "Input: 9 40 16 27. Step I: 40 9 16 27. Step II: 40 27 9 16. Find Step III.", "answer": "40 27 16 9", "hintLadder": ["Rule: largest untouched moves to next front spot.", "Remaining after Step II: 9, 16.", "16 (larger) moves next: 40 27 16 9."] },
+      { "id": "m2", "type": "text", "q": "Input: 50 6 21 33. Step I: 6 50 21 33. Step II: 6 21 50 33. Find Step III.", "answer": "6 21 33 50", "hintLadder": ["Rule: smallest untouched moves to next front spot.", "Remaining after Step II: 50, 33.", "33 (smaller) moves next: 6 21 33 50."] },
+      { "id": "m3", "type": "mcq", "q": "After Step II of the 9/40/16/27 machine (40 27 9 16), which numbers are already 'placed'?", "options": [ { "label": "40 and 27" }, { "label": "9 and 16", "mistakeTag": "lost-track-of-remaining" } ], "answer": "40 and 27", "hintLadder": ["They occupy the front positions already.", "They won't move again.", "40 and 27 are placed."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "text", "q": "Input: 14 3 29 8. If the rule is 'largest untouched moves to next front spot', what is Step I?", "answer": "29 14 3 8", "hintLadder": ["Largest of all four is 29.", "It jumps to the front; rest keep original relative order (14,3,8).", "29 14 3 8."] },
+      { "id": "c2", "type": "text", "q": "Continuing from Step I (29 14 3 8), what is Step II under the same rule?", "answer": "29 14 3 8", "hintLadder": ["Remaining: 14, 3, 8. Largest of these is 14.", "14 is already in position 2 — no visible change this step.", "Step II stays 29 14 3 8 (already correctly placed)."] },
+      { "id": "c3", "type": "mcq", "q": "If comparing two steps shows TWO numbers changed position at once, what should you conclude?", "options": [ { "label": "Likely a step was skipped in between — re-check for a missing step" }, { "label": "The rule allows two moves per step", "mistakeTag": "missed-one-step-one-move" } ], "answer": "Likely a step was skipped in between — re-check for a missing step", "hintLadder": ["Standard rule = one move per step.", "Two changes suggests a gap.", "Check for a missing step."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "text", "q": "Input: 7 22 10. Step I: 22 7 10. Which number moved and where?", "answer": "22 moved to the front (position 1)", "hintLadder": ["Compare position by position.", "22 was in position 2.", "Now in position 1."] },
+      { "id": "mc2", "type": "text", "q": "Input: 9 40 16 27. Step I: 40 9 16 27. Step II: 40 27 9 16. What is Step III?", "answer": "40 27 16 9", "hintLadder": ["Rule: largest untouched to next front spot.", "Remaining: 9, 16.", "16 moves next: 40 27 16 9."] },
+      { "id": "mc3", "type": "mcq", "q": "How many numbers should change position in a single, correctly-identified step?", "options": [ { "label": "Exactly one" }, { "label": "Two or more", "mistakeTag": "missed-one-step-one-move" } ], "answer": "Exactly one", "hintLadder": ["One clean move defines the rule.", "More than one hides the pattern.", "Exactly one."] },
+      { "id": "mc4", "type": "mcq", "q": "Once 40 has been placed at the front in Step I, can it move again in Step II?", "options": [ { "label": "No, it's already placed" }, { "label": "Yes, if it's still the largest", "mistakeTag": "lost-track-of-remaining" } ], "answer": "No, it's already placed", "hintLadder": ["Placed numbers stay fixed.", "Only remaining numbers are eligible.", "No, 40 stays put."] },
+      { "id": "mc5", "type": "text", "q": "Input: 50 6 21 33. Step I: 6 50 21 33. Step II: 6 21 50 33. What is Step III?", "answer": "6 21 33 50", "hintLadder": ["Rule: smallest untouched to next front spot.", "Remaining: 50, 33.", "33 moves next: 6 21 33 50."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend how to find the hidden rule in an input-output machine, using the 9/40/16/27 example where the largest untouched number moves to the front each step.",
+  "revisionCard": {
+    "summary": "Compare NEIGHBORING lines (Input to Step I, Step I to Step II) to spot exactly one clean move per step. State the rule in one sentence once confirmed twice. Keep track of which numbers are already 'placed' — the rule only ever picks from the 'remaining' set. Apply the same rule once more to build the next unseen step.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The Jungle Sorting Machine",
+    "brief": "Watch the jungle machine rearrange numbers step by step and predict what it will do next!",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Write 4 numbers of your choice as an Input, then hand-simulate 'largest untouched moves to front' for 3 steps, checking each step follows the one-move rule.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Analytical) — Input-Output",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Compare neighbors, not the whole gap",
+    "unpack": "Look at Input→Step I and Step I→Step II to isolate exactly one clean move at a time."
+  },
+  "studentQuestions": [
+    { "q": "What if I can't find any single clean move between two steps?", "a": "Double-check you're comparing NEIGHBORING steps, not skipping one — comparing Input directly to Step II (skipping Step I) will show two changes at once and hide the real one-move-per-step rule." },
+    { "q": "Do all input-output machines only move the largest or smallest number?", "a": "Those are the two most common rules, but some machines use other patterns (like alternating largest-then-smallest, or moving numbers to the back instead of front) — always verify your guessed rule against at least two consecutive steps before trusting it." }
+  ]
+}

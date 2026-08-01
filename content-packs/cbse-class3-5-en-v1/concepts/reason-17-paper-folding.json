@@ -1,0 +1,191 @@
+{
+  "id": "reason-17-paper-folding",
+  "name": "Paper Folding and Punching — Predicting the Unfolded Pattern",
+  "grade": 13,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "A square paper is folded one or more times, then a hole is punched through all the folded layers. Your job is to predict exactly how many holes — and where — will appear once the paper is fully unfolded again, based on how many times it was folded and where the punch landed.",
+  "whyNeeded": "This builds mental visualization of layered symmetry: understanding that a punch through folded layers creates a MIRRORED pattern across every fold line once unfolded — real spatial reasoning used in design, packaging, and geometry.",
+  "realLifeUses": [
+    "Reasoning sections of SSC, banking and railway exams",
+    "Paper crafts, origami, and pattern cutting (like paper snowflakes)",
+    "Understanding symmetry in packaging and textile design",
+    "Visualizing 3D-to-2D transformations generally"
+  ],
+  "vocabulary": [
+    { "term": "fold line / crease", "meaning": "The line along which the paper is folded — every hole gets mirrored across each crease when unfolded." },
+    { "term": "punch", "meaning": "A hole made through all the currently-folded layers of paper at once." },
+    { "term": "unfolded pattern", "meaning": "How the paper looks once every fold is opened back out flat, showing all the mirrored holes." }
+  ],
+  "story": {
+    "title": "The Paper Snowflake Rule",
+    "characters": ["Zoya", "her art teacher"],
+    "text": "Zoya's teacher folds a square paper in half once (one crease) and punches a single hole near the edge, away from the fold. 'How many holes when I unfold it?' she asks. Zoya thinks: one fold means the hole gets mirrored across that one crease line — so 2 holes total. She's right! Then the teacher folds a fresh paper twice (two creases, a plus-sign) and punches once. 'Now how many?' Two fold lines means the hole mirrors across BOTH — 4 holes total, one in each quarter of the paper.",
+    "extractedProblem": "A paper folded once (1 crease) is punched once, away from the fold. How many holes appear unfolded? What about a paper folded twice (2 creases) punched once, away from both folds?",
+    "answerInStory": "1 fold → 2 holes. 2 folds → 4 holes — each fold line doubles the hole count, as long as the punch isn't exactly on a crease."
+  },
+  "visual": {
+    "component": "ReasoningFigure",
+    "props": {
+      "panels": [
+        { "kind": "fold", "foldLines": 1, "punch": [{ "x": 0.3, "y": 0.5 }], "unfolded": false, "label": "Folded once, punched" },
+        { "kind": "fold", "foldLines": 1, "punch": [{ "x": 0.3, "y": 0.5 }], "unfolded": true, "label": "Unfolded: 2 holes" }
+      ]
+    },
+    "caption": "One fold line means the punch mirrors across that single crease — resulting in exactly 2 holes once unfolded."
+  },
+  "teachingGallery": [
+    {
+      "title": "Two fold lines double the mirroring",
+      "note": "With two creases (a horizontal AND a vertical fold), a single punch mirrors across BOTH lines — appearing once in each of the paper's four quarters.",
+      "examples": [
+        {
+          "component": "ReasoningFigure",
+          "props": {
+            "panels": [
+              { "kind": "fold", "foldLines": 2, "punch": [{ "x": 0.25, "y": 0.25 }], "unfolded": false, "label": "Folded twice, punched" },
+              { "kind": "fold", "foldLines": 2, "punch": [{ "x": 0.25, "y": 0.25 }], "unfolded": true, "label": "Unfolded: 4 holes" }
+            ]
+          },
+          "caption": "Two fold lines (crossing like a plus sign) mirror one punch into all four quarters — 4 holes total, one per quarter."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Count the number of fold lines (creases). If the punch is NOT exactly on any crease, the number of holes when unfolded is 2 raised to the power of the number of fold lines (2 for 1 fold, 4 for 2 folds). If the punch IS exactly on a crease, that mirror direction doesn't create a new hole, so the count is less than the usual power of 2.",
+    "steps": [
+      "Count how many fold lines (creases) the paper has.",
+      "Check whether the punch location lies exactly on any crease line, or is clearly off every crease.",
+      "If off every crease: holes when unfolded = 2 to the power of (number of fold lines).",
+      "If exactly on one crease: that fold direction doesn't double the hole, so divide the usual count by 2 for each crease the punch sits on.",
+      "Positions mirror symmetrically across every crease — sketch each mirrored copy to find exact hole positions, not just the count."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Unfold one step at a time",
+      "whenToUse": "When multiple folds make the direct formula confusing.",
+      "steps": [
+        "Mentally unfold just the LAST fold made — this doubles the current hole(s), mirrored across that last crease.",
+        "Repeat for the second-to-last fold, then the first — doubling again each time.",
+        "This step-by-step approach avoids errors even in more complex multi-fold problems."
+      ],
+      "example": "2 folds, 1 punch: unfold the last crease → 2 holes. Unfold the first crease → 4 holes total."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A square paper is folded once (1 crease) and punched once, clearly away from the fold line. How many holes appear when unfolded?",
+      "steps": [
+        "Count the fold lines: 1.",
+        "Check the punch: it's away from the crease, not on it.",
+        "Holes when unfolded = 2 to the power of 1 = 2.",
+        "The unfolded paper shows 2 holes, mirrored across the single crease."
+      ],
+      "answer": "2 holes"
+    },
+    {
+      "problem": "A square paper is folded twice (2 creases, like a plus sign) and punched once, clearly away from both fold lines. How many holes appear when unfolded?",
+      "steps": [
+        "Count the fold lines: 2.",
+        "Check the punch: away from both creases.",
+        "Holes when unfolded = 2 to the power of 2 = 4.",
+        "The unfolded paper shows 4 holes, one mirrored into each quarter."
+      ],
+      "answer": "4 holes"
+    },
+    {
+      "problem": "A square paper is folded once (1 crease) and punched exactly ON the crease line. How many holes appear when unfolded?",
+      "steps": [
+        "Count the fold lines: 1, so the usual formula gives 2 to the power of 1 = 2.",
+        "But the punch is exactly ON the crease — mirroring a point that's already on the fold line lands it right back on itself.",
+        "So instead of 2 separate holes, there is only 1 hole, sitting right on where the crease was.",
+        "The unfolded paper shows just 1 hole."
+      ],
+      "answer": "1 hole (on-crease exception)"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Count fold lines, then think 2-to-the-power",
+    "intro": "Off-crease punches double per fold line; on-crease punches break that doubling.",
+    "questions": [
+      { "id": "reason17-trick-1", "type": "text", "q": "3 fold lines, punch clearly off every crease. How many holes when unfolded?", "answer": "8", "hintLadder": ["2 to the power of 3.", "2×2×2.", "8."] },
+      { "id": "reason17-trick-2", "type": "mcq", "q": "If the punch lands exactly on a crease, does that crease still double the hole count?", "options": [ { "label": "No — mirroring a point on the line lands back on itself" }, { "label": "Yes, always doubles", "mistakeTag": "forgot-crease-exception" } ], "answer": "No — mirroring a point on the line lands back on itself", "hintLadder": ["A point on the fold line has no 'other side'.", "Mirroring it gives the same point.", "No extra hole from that crease."] },
+      { "id": "reason17-trick-3", "type": "text", "q": "2 fold lines, punch clearly off both creases. How many holes when unfolded?", "answer": "4", "hintLadder": ["2 to the power of 2.", "2×2.", "4."] }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "forgot-crease-exception",
+      "mistake": "Always applying the 2-to-the-power formula even when the punch is exactly on a fold line, missing that on-crease punches don't double.",
+      "fix": "Always check the punch's exact location first. Only apply the full 2-to-the-power formula when the punch is clearly off every crease line."
+    },
+    {
+      "mistakeTag": "miscounted-fold-lines",
+      "mistake": "Miscounting how many distinct crease lines the paper ends up with (e.g. treating a diagonal fold and its reverse as two separate creases when they're the same line).",
+      "fix": "Carefully trace and count only the DISTINCT crease lines visible if you flattened the paper back out — don't count a fold made and then unfolded again as a real crease."
+    },
+    {
+      "mistakeTag": "wrong-mirror-direction",
+      "mistake": "Mirroring a hole in the wrong direction (e.g. reflecting across a horizontal crease as if it were vertical).",
+      "fix": "Each crease has its own mirror direction — a vertical crease reflects left-right; a horizontal crease reflects top-bottom. Match the mirror direction to the actual crease orientation."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "text", "q": "1 fold line, punch off the crease. How many holes when unfolded?", "answer": "2", "hintLadder": ["2 to the power of 1.", "= 2.", "2 holes."] },
+      { "id": "e2", "type": "text", "q": "2 fold lines, punch off both creases. How many holes when unfolded?", "answer": "4", "hintLadder": ["2 to the power of 2.", "= 4.", "4 holes."] },
+      { "id": "e3", "type": "mcq", "q": "Does an 'on-crease' punch usually give MORE or FEWER holes than the standard formula predicts?", "options": [ { "label": "Fewer" }, { "label": "More", "mistakeTag": "forgot-crease-exception" } ], "answer": "Fewer", "hintLadder": ["The crease's mirror doesn't add a new copy.", "So the total is less than 2-to-the-power.", "Fewer holes."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "text", "q": "3 fold lines, punch off every crease. How many holes when unfolded?", "answer": "8", "hintLadder": ["2 to the power of 3.", "2×2×2.", "8."] },
+      { "id": "m2", "type": "text", "q": "2 fold lines, punch exactly on ONE of the two creases (but off the other). How many holes when unfolded?", "answer": "2", "hintLadder": ["Normally 2 to the power of 2 = 4.", "One crease doesn't double (punch is on it), so divide by 2.", "4 ÷ 2 = 2."] },
+      { "id": "m3", "type": "mcq", "q": "A paper is folded, unfolded, then folded again along the SAME line. How many distinct creases does it actually have?", "options": [ { "label": "1" }, { "label": "2", "mistakeTag": "miscounted-fold-lines" } ], "answer": "1", "hintLadder": ["Refolding the same line doesn't create a new crease.", "It's still just one physical fold line.", "1 distinct crease."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "text", "q": "1 fold line, punch exactly on the crease. How many holes when unfolded?", "answer": "1", "hintLadder": ["Normally 2 to the power of 1 = 2.", "On-crease punch doesn't double.", "1 hole only."] },
+      { "id": "c2", "type": "text", "q": "4 fold lines, punch off every crease. How many holes when unfolded?", "answer": "16", "hintLadder": ["2 to the power of 4.", "2×2×2×2.", "16."] },
+      { "id": "c3", "type": "mcq", "q": "2 fold lines, punch exactly on BOTH creases (right at the center where they cross). How many holes when unfolded?", "options": [ { "label": "1" }, { "label": "4", "mistakeTag": "forgot-crease-exception" } ], "answer": "1", "hintLadder": ["Both mirror directions land back on the same center point.", "Neither crease adds a new copy.", "Just 1 hole, at the center."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "text", "q": "1 fold line, punch off the crease. Holes when unfolded?", "answer": "2", "hintLadder": ["2 to the power of 1.", "= 2.", "2 holes."] },
+      { "id": "mc2", "type": "text", "q": "2 fold lines, punch off both creases. Holes when unfolded?", "answer": "4", "hintLadder": ["2 to the power of 2.", "= 4.", "4 holes."] },
+      { "id": "mc3", "type": "text", "q": "3 fold lines, punch off every crease. Holes when unfolded?", "answer": "8", "hintLadder": ["2 to the power of 3.", "= 8.", "8 holes."] },
+      { "id": "mc4", "type": "mcq", "q": "Does punching exactly on a crease line still double the hole count for that fold?", "options": [ { "label": "No" }, { "label": "Yes", "mistakeTag": "forgot-crease-exception" } ], "answer": "No", "hintLadder": ["A point on the line mirrors to itself.", "No new copy is created.", "No, it doesn't double."] },
+      { "id": "mc5", "type": "text", "q": "1 fold line, punch exactly on the crease. Holes when unfolded?", "answer": "1", "hintLadder": ["Normally 2, but on-crease breaks the doubling.", "Just the original hole remains.", "1 hole."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend the 2-to-the-power rule for paper folding, using the 2-fold, 4-hole example, and explain why an on-crease punch breaks the doubling.",
+  "revisionCard": {
+    "summary": "Count the distinct fold lines. If the punch is clearly off every crease, holes when unfolded = 2 to the power of the number of fold lines (2, 4, 8...). If the punch sits exactly on a crease, that fold direction doesn't double the hole count — divide by 2 for each crease it sits on. Each hole mirrors symmetrically across its crease's direction (vertical crease = left-right mirror; horizontal crease = top-bottom mirror).",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The Jungle Leaf-Punch Puzzle",
+    "brief": "Fold and punch jungle leaves, then predict exactly how many holes appear when they're unfolded!",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Fold a real square paper once or twice, punch a hole away from the creases, predict the hole count using the formula, then unfold it and check if your prediction was correct.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Non-Verbal) — Paper Folding",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "n folds, off-crease punch → 2ⁿ holes",
+    "unpack": "Each fold line doubles the hole count, unless the punch sits exactly on that crease."
+  },
+  "studentQuestions": [
+    { "q": "What if the paper is folded diagonally instead of straight up-down or left-right?", "a": "The same rule applies — the mirror direction just follows the diagonal crease instead of a straight horizontal or vertical line. Count the fold lines and check on-crease vs off-crease exactly the same way." },
+    { "q": "Why does 2-to-the-power work here?", "a": "Each fold line independently doubles whatever holes already exist by mirroring them across it — one fold doubles once (×2), two folds double twice (×2×2=×4), and so on, which is exactly how powers of 2 build up." }
+  ]
+}

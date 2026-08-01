@@ -1,0 +1,184 @@
+{
+  "id": "reason-07-blood-relations",
+  "name": "Blood Relations — Reading the Family Tree",
+  "grade": 13,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "Blood-relation puzzles describe a chain of family links in words — 'A is B's father, B is C's sister' — and ask how the first and last person are related. You solve them by turning the words into a small family tree, one generation per row, then reading the relationship straight off the tree.",
+  "whyNeeded": "Blood relations are a guaranteed-scoring topic in every reasoning section — the logic never changes, only the names and chain length. Getting comfortable drawing quick family trees turns a confusing paragraph into an obvious answer in under a minute.",
+  "realLifeUses": [
+    "Reasoning sections of SSC, banking and railway exams",
+    "Untangling how relatives are connected at a family function",
+    "Following genealogy or family-tree charts",
+    "Sharpening careful, step-by-step reading of a chain of clues"
+  ],
+  "vocabulary": [
+    { "term": "generation row", "meaning": "All family members of the same age-level (grandparents, parents, children) drawn on one line." },
+    { "term": "gender tag", "meaning": "Marking each person M (male) or F (female) — it decides whether the final answer is son/daughter, brother/sister, etc." },
+    { "term": "only child clue", "meaning": "Phrases like 'only son' or 'only daughter' — a powerful clue that pins down exactly who a person is." }
+  ],
+  "story": {
+    "title": "The Photograph Puzzle",
+    "characters": ["Vikram", "his cousin Anu"],
+    "text": "Vikram shows Anu an old photo. 'She is the daughter of my grandfather's only son,' he says. Anu thinks aloud: 'Your grandfather's only son — since you're male and in this family, that has to be YOUR father, right? There's no other son.' Vikram nods. 'So the daughter of my father... is my sister!' Anu grins — one careful sentence, read generation by generation, gave the whole answer.",
+    "extractedProblem": "A man says: 'She is the daughter of my grandfather's only son.' How is she related to the man?",
+    "answerInStory": "Sister — the grandfather's only son must be the man's own father (since the man himself is that son), so the daughter of his father is his sister."
+  },
+  "visual": {
+    "component": "NumberTrack",
+    "props": { "tracks": [ { "terms": [1, 2, 3], "jump": 1 } ] },
+    "caption": "Think of a family tree as rows going down: grandparents on top, parents in the middle, children at the bottom — read the chain one generation at a time."
+  },
+  "teachingGallery": [
+    {
+      "title": "Build the tree row by row",
+      "note": "Write each new person on the correct generation row as you read the sentence, then connect them with lines before answering.",
+      "examples": [
+        {
+          "component": "NumberTrack",
+          "props": { "tracks": [ { "terms": [1, 2], "jump": 1 } ] },
+          "caption": "'A is B's father, B is C's brother' → row 1: A. Row 2: B and C (siblings). A is the father of both, so A is C's father too."
+        },
+        {
+          "component": "NumberTrack",
+          "props": { "tracks": [ { "terms": [1, 2, 3], "jump": 1 } ] },
+          "caption": "'P is Q's mother, Q is R's son' → row 1: P. Row 2: Q (male, since 'son'). R is Q's parent, so R sits ABOVE Q — R is P's husband or P herself; since R ≠ P, R is Q's father, making R P's husband."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Read the sentence clue by clue. Each time a new person is named, add them to a generation row above, below, or beside the people already placed, marking their gender. When the whole chain is drawn, read the relationship straight off the tree.",
+    "steps": [
+      "Underline every named person and every relationship word in the sentence.",
+      "Draw one small row per generation; place the first person and add each new person to the correct row as you read.",
+      "Mark M or F next to each person using the relationship words (son=M, daughter=F, etc.).",
+      "Read the final relationship directly from the completed tree, using the gender tag of the person being described to pick the exact word (brother vs sister, son vs daughter)."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Symbol shorthand",
+      "whenToUse": "Long chains with many people — words get confusing, symbols don't.",
+      "steps": [
+        "Use + for father-of / mother-of (parent-of), and − for son-of / daughter-of (child-of), with an arrow showing direction.",
+        "Chain the symbols exactly as the sentence gives them.",
+        "Follow the arrows to read the final relationship."
+      ],
+      "example": "'A is the father of B, B is the brother of C' → A → B (parent), B — C (siblings) → A is also C's father."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A is B's mother. B is C's father. How is A related to C?",
+      "steps": [
+        "Row 1: A (female, since 'mother').",
+        "Row 2: B (male, since 'father' of C). A is B's mother, so B is below A.",
+        "Row 3: C. B is C's father, so C is below B.",
+        "A is B's mother, and B is C's father, so A is C's grandmother."
+      ],
+      "answer": "Grandmother"
+    },
+    {
+      "problem": "Pointing to a man, Riya said, 'He is the son of my mother's only brother.' How is the man related to Riya?",
+      "steps": [
+        "My mother's only brother = Riya's maternal uncle.",
+        "The son of Riya's uncle is Riya's cousin.",
+        "Since the man is male, the relation is cousin (brother-term does not apply, as he is not Riya's sibling)."
+      ],
+      "answer": "Cousin"
+    },
+    {
+      "problem": "A's father is B's brother, and C is A's sister. How is B related to C?",
+      "steps": [
+        "B is the brother of A's father, so B is A's uncle.",
+        "C is A's sister, meaning C shares the same father as A.",
+        "So B is also C's uncle."
+      ],
+      "answer": "Uncle"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Row by row, gender first",
+    "intro": "Draw the generation rows as you read, and mark gender the moment a relationship word gives it away.",
+    "questions": [
+      { "id": "reason07-trick-1", "type": "text", "q": "A is B's father. B is C's sister. A is C's ___ (relation)?", "answer": "Father", "hintLadder": ["Same row: B and C are siblings.", "A is above them, as B's father.", "So A is also C's father."], "explain": "A is B's father; B and C are siblings, so A is C's father too." },
+      { "id": "reason07-trick-2", "type": "text", "q": "P is Q's mother. Q is R's brother. P is R's ___ (relation)?", "answer": "Mother", "hintLadder": ["Q and R are siblings.", "P is Q's mother, so P is above them.", "P is R's mother too."], "explain": "Same-generation siblings share the same mother." },
+      { "id": "reason07-trick-3", "type": "text", "q": "X is Y's son. Y is Z's daughter. X is Z's ___ (relation, X is male)?", "answer": "Grandson", "hintLadder": ["Z is Y's mother.", "X is Y's son, one row below.", "So X is Z's grandson."], "explain": "X (Y's son) is one generation below Y, who is Z's daughter — so X is Z's grandson." },
+      { "id": "reason07-trick-4", "type": "text", "q": "M is N's husband. N is O's mother. M is O's ___ (relation)?", "answer": "Father", "hintLadder": ["N is O's mother.", "M is N's husband.", "So M is O's father."], "explain": "A mother's husband is the child's father." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "ignored-gender",
+      "mistake": "Answering 'brother' when the person described is female, or vice versa, by ignoring the gender clue given earlier in the sentence.",
+      "fix": "Always mark M/F the moment a relationship word reveals it, and use that tag for the FINAL answer word (son/daughter, brother/sister)."
+    },
+    {
+      "mistakeTag": "wrong-generation-row",
+      "mistake": "Placing a newly-introduced person on the wrong generation row, which breaks the whole tree.",
+      "fix": "Before placing anyone new, ask: is this relationship word parent-of, child-of, or same-generation (sibling/spouse)? That tells you exactly which row they belong on."
+    },
+    {
+      "mistakeTag": "only-child-missed",
+      "mistake": "Ignoring an 'only son' / 'only daughter' clue, which is often the key fact that pins the whole puzzle down.",
+      "fix": "'Only son/daughter' means there is exactly one such person — often the speaker themselves, or a specific known relative. Treat it as a strong, decisive clue."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "text", "q": "A is B's father. B is C's brother. A is C's ___ (relation)?", "answer": "Father", "hintLadder": ["B and C are siblings.", "A is B's father.", "So A is C's father too."] },
+      { "id": "e2", "type": "text", "q": "P is Q's mother. Q is R's sister. P is R's ___ (relation)?", "answer": "Mother", "hintLadder": ["Q and R are siblings.", "P is Q's mother.", "So P is R's mother too."] },
+      { "id": "e3", "type": "mcq", "q": "If X is Y's son, X is placed on which row relative to Y?", "options": [ { "label": "One row below Y" }, { "label": "Same row as Y", "mistakeTag": "wrong-generation-row" } ], "answer": "One row below Y", "hintLadder": ["Son = child.", "Children sit below parents.", "One row below."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "text", "q": "A is B's mother. B is C's father. A is C's ___ (relation)?", "answer": "Grandmother", "hintLadder": ["A is B's mother.", "B is C's father.", "A is two rows above C: grandmother."] },
+      { "id": "m2", "type": "text", "q": "M is N's brother. N is O's mother. M is O's ___ (relation, M is male)?", "answer": "Uncle", "hintLadder": ["N is O's mother.", "M is N's brother.", "Mother's brother = uncle."] },
+      { "id": "m3", "type": "text", "q": "A has only one daughter, Meera. Meera's husband's father is B. B is Meera's ___ (relation)?", "answer": "Father-in-law", "hintLadder": ["B is the father of Meera's husband.", "Husband's father is a well-known in-law term.", "Father-in-law."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "text", "q": "A's father is B's brother, and C is A's sister. B is C's ___ (relation, B is male)?", "answer": "Uncle", "hintLadder": ["B is brother of A's father.", "So B is A's uncle.", "C is A's sister, so B is C's uncle too."] },
+      { "id": "c2", "type": "text", "q": "A man, pointing to a photograph, says 'I have no brother, and that man's father is my father's son.' Whose photograph is he pointing at?", "answer": "His son", "hintLadder": ["He has no brother, so 'my father's son' can only be himself.", "So the sentence becomes 'that man's father is myself.'", "That makes 'that man' his own son."] },
+      { "id": "c3", "type": "mcq", "q": "In a blood-relation chain, 'only son' most usefully tells you…", "options": [ { "label": "Exactly which specific person is meant" }, { "label": "Nothing extra beyond 'a son'", "mistakeTag": "only-child-missed" } ], "answer": "Exactly which specific person is meant", "hintLadder": ["It rules out other sons.", "So it pins down one person.", "Exactly which person."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "text", "q": "A is B's father. B is C's sister. A is C's ___ (relation)?", "answer": "Father", "hintLadder": ["B and C are siblings.", "A is B's father.", "So A is C's father too."] },
+      { "id": "mc2", "type": "text", "q": "P is Q's mother. Q is R's father. P is R's ___ (relation)?", "answer": "Grandmother", "hintLadder": ["P is Q's mother.", "Q is R's father.", "P is two rows above R: grandmother."] },
+      { "id": "mc3", "type": "text", "q": "M is N's sister. N is O's mother. M is O's ___ (relation, M is female)?", "answer": "Aunt", "hintLadder": ["N is O's mother.", "M is N's sister.", "Mother's sister = aunt."] },
+      { "id": "mc4", "type": "mcq", "q": "The gender tag of the person being described decides…", "options": [ { "label": "Whether the answer is son/daughter or brother/sister" }, { "label": "Nothing — the answer word is always the same", "mistakeTag": "ignored-gender" } ], "answer": "Whether the answer is son/daughter or brother/sister", "hintLadder": ["Same path, different word.", "Gender changes the word.", "Son/daughter, brother/sister."] },
+      { "id": "mc5", "type": "text", "q": "X is Y's husband. Y is Z's mother. X is Z's ___ (relation)?", "answer": "Father", "hintLadder": ["Y is Z's mother.", "X is Y's husband.", "Mother's husband = father."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend how to turn 'A is B's father, B is C's sister' into a two-row family tree, and explain why A ends up being C's father too.",
+  "revisionCard": {
+    "summary": "Draw one row per generation as you read the sentence, adding each new person above (parent), below (child), or beside (sibling/spouse) the people already placed, tagging M/F as you go. Read the final answer straight off the tree, choosing son/daughter or brother/sister to match the gender of the person being described. 'Only son/daughter' clues are powerful — they pin down exactly one person.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The Family Tree Detective",
+    "brief": "Help sort out who's who in the jungle animal families by drawing quick family trees from their chatter!",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Draw your own family tree going back two generations (grandparents, parents, you and siblings/cousins), label M/F, then write 3 blood-relation sentences about it for a friend to solve.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Analytical) — Blood Relations",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "One row per generation",
+    "unpack": "Draw parents above, children below, siblings beside — then read the answer off the tree."
+  },
+  "studentQuestions": [
+    { "q": "Why does the same relationship chain sometimes give 'brother' and sometimes 'cousin'?", "a": "It depends on whether the two people share the same parents (siblings) or only share a grandparent through different parents (cousins) — always check which generation row the shared ancestor sits on." },
+    { "q": "What's the fastest way to handle a long chain of 4-5 relationships?", "a": "Build the tree incrementally, one clue at a time, instead of trying to hold the whole sentence in your head — each clue only ever adds one person to one row." }
+  ]
+}

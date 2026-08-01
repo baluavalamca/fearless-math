@@ -1,0 +1,197 @@
+{
+  "id": "apt-16-simplification-approximation",
+  "name": "Simplification and Approximation — BODMAS Speed and Smart Rounding",
+  "grade": 12,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "Simplification is solving a mixed expression (brackets, 'of', division, multiplication, addition, subtraction all in one line) in the ONE correct order — BODMAS. Approximation is rounding each number in a big, messy expression to a nearby convenient value so you can estimate the answer in seconds instead of computing it exactly.",
+  "whyNeeded": "Almost every quant section opens with 8-10 simplification/approximation questions worth quick, guaranteed marks — but only if the order of operations is automatic and rounding is done confidently. Getting the order wrong is the single most common reason for a 'silly mistake' on an otherwise easy question.",
+  "realLifeUses": [
+    "Mentally checking a restaurant or shopping bill",
+    "Quant/reasoning sections of every competitive exam — always among the first questions",
+    "Estimating a total cost before an exact calculator check",
+    "Reading and simplifying formulas in science and finance"
+  ],
+  "vocabulary": [
+    { "term": "BODMAS", "meaning": "Brackets, Of, Division, Multiplication, Addition, Subtraction — the order to solve a mixed expression in." },
+    { "term": "Vinculum", "meaning": "A bar drawn over a group of terms (like a fraction bar) — solved first, even before brackets." },
+    { "term": "Approximation (≈)", "meaning": "Rounding each number to a nearby convenient value to estimate the answer quickly." },
+    { "term": "'Of'", "meaning": "Means multiply, but is solved right after brackets — before division and multiplication signs." }
+  ],
+  "story": {
+    "title": "The Left-to-Right Trap",
+    "characters": ["Kavya", "her tutor"],
+    "text": "Kavya solves 8 + 4 × 2 by going left to right: '8 + 4 is 12, times 2 is 24!' Her tutor stops her: 'Multiplication comes before addition — always. Do the 4 × 2 first: that's 8. THEN add: 8 + 8 = 16.' Kavya is startled — same numbers, two totally different answers, just because of the order. 'BODMAS isn't a suggestion,' says her tutor, 'it's the one rule that makes sure everyone gets the same answer from the same expression.'",
+    "extractedProblem": "Simplify 8 + 4 × 2.",
+    "answerInStory": "16 — multiply first (4×2=8), then add (8+8=16), not left-to-right."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "Left-to-right (wrong)", "parts": [{ "value": 24, "label": "24" }] },
+        { "label": "BODMAS (correct)", "parts": [{ "value": 16, "label": "16" }] }
+      ]
+    },
+    "caption": "Same expression, 8 + 4 × 2 — going left-to-right gives 24, but the correct BODMAS order gives 16."
+  },
+  "teachingGallery": [
+    {
+      "title": "BODMAS order, one step at a time",
+      "note": "Brackets → Of → Division → Multiplication → Addition → Subtraction. Do only ONE operation type per pass through the expression.",
+      "examples": [
+        {
+          "component": "BarModel",
+          "props": { "bars": [
+            { "label": "18 − 2 × 3 (wrong: 16×3=48)", "parts": [{ "value": 48, "label": "48" }] },
+            { "label": "18 − 2 × 3 (correct)", "parts": [{ "value": 12, "label": "12" }] }
+          ] },
+          "caption": "Multiply first: 2×3=6, then subtract: 18−6=12 — not (18−2) first."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Scan the expression once per letter of BODMAS: solve every bracket, then every 'of', then every division (left to right), then every multiplication (left to right), then every addition/subtraction together left to right.",
+    "steps": [
+      "Solve anything under a vinculum (bar) first, then innermost brackets outward.",
+      "Solve every 'of' (a multiply, but before ÷ and ×).",
+      "Solve every ÷ and × together, left to right, in the order they appear.",
+      "Solve every + and − together, left to right, in the order they appear."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Approximation rounding",
+      "whenToUse": "When the question has 'approximately' or '≈' and exact decimals aren't needed.",
+      "steps": [
+        "Round each number to the nearest convenient value (whole number, or nearest 10/100).",
+        "Compute with the rounded numbers — much faster mentally.",
+        "Pick the answer option closest to your estimate."
+      ],
+      "example": "48.97 × 5.03 ≈ 49 × 5 = 245 (actual value is 246.36 — close enough to identify the right option)."
+    },
+    {
+      "name": "Bracket-first sweep",
+      "whenToUse": "Nested brackets: ( ), then { }, then [ ].",
+      "steps": [
+        "Always clear the innermost, roundest bracket ( ) first.",
+        "Then curly { }, then square [ ] — working outward.",
+        "Re-check BODMAS inside each bracket as you clear it."
+      ],
+      "example": "[10 − {2 + (3 × 2)}] = [10 − {2+6}] = [10 − 8] = 2."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Simplify: 24 ÷ 4 × 2 + 6 − 3",
+      "steps": [
+        "÷ and × together, left to right: 24 ÷ 4 = 6, then 6 × 2 = 12.",
+        "Expression is now 12 + 6 − 3.",
+        "+ and − together, left to right: 12 + 6 = 18, then 18 − 3 = 15."
+      ],
+      "answer": "15"
+    },
+    {
+      "problem": "Simplify: 1/2 of 40 + 15 ÷ 3",
+      "steps": [
+        "'Of' first: 1/2 of 40 = 20.",
+        "Division next: 15 ÷ 3 = 5.",
+        "Add: 20 + 5 = 25."
+      ],
+      "answer": "25"
+    },
+    {
+      "problem": "Approximate: 599.8 + 79.97 − 20.03",
+      "steps": [
+        "Round each number: 600 + 80 − 20.",
+        "600 + 80 = 680.",
+        "680 − 20 = 660."
+      ],
+      "answer": "660"
+    }
+  ],
+  "trickPractice": {
+    "trick": "One letter of BODMAS per pass",
+    "intro": "Don't jump around — clear ALL of one operation type before moving to the next letter of BODMAS.",
+    "questions": [
+      { "id": "apt16-trick-1", "type": "number", "q": "Simplify: 6 + 2 × 5", "answer": "16", "hintLadder": ["× first: 2×5=10.", "Then add.", "6+10=16."], "explain": "6+2×5 = 6+10 = 16." },
+      { "id": "apt16-trick-2", "type": "number", "q": "Simplify: 20 − 12 ÷ 4", "answer": "17", "hintLadder": ["÷ first: 12÷4=3.", "Then subtract.", "20−3=17."], "explain": "20−12÷4 = 20−3 = 17." },
+      { "id": "apt16-trick-3", "type": "number", "q": "Simplify: 1/4 of 20 + 5", "answer": "10", "hintLadder": ["'Of' first: 1/4 of 20=5.", "Then add.", "5+5=10."], "explain": "1/4 of 20 = 5, then +5 = 10." },
+      { "id": "apt16-trick-4", "type": "number", "q": "Approximate: 401 + 199 − 100 (round to nearest 100 first)", "answer": "500", "hintLadder": ["400+200−100.", "600−100.", "= 500."], "explain": "Rounded: 400+200−100=500 (actual 500 too)." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "left-to-right-error",
+      "mistake": "Solving a mixed expression strictly left to right instead of following BODMAS (e.g. 8 + 4 × 2 as (8+4)×2).",
+      "fix": "Multiplication and division ALWAYS happen before addition and subtraction, no matter where they sit in the line. Scan for × and ÷ first."
+    },
+    {
+      "mistakeTag": "of-after-division",
+      "mistake": "Solving division or multiplication before an 'of' that appears earlier in the expression.",
+      "fix": "'Of' is solved right after brackets — before any ÷ or × sign — even though it also means 'multiply'."
+    },
+    {
+      "mistakeTag": "over-rounding",
+      "mistake": "Rounding numbers so aggressively during approximation that the estimate lands closer to a wrong answer option.",
+      "fix": "Round to the nearest sensible unit (nearest 1, 10, or 100 depending on the numbers' size) — not to the nearest 1000 for numbers like 48.97."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "Simplify: 5 + 3 × 4", "answer": "17", "hintLadder": ["× first: 3×4=12.", "Then add.", "5+12=17."] },
+      { "id": "e2", "type": "number", "q": "Simplify: 30 − 4 × 5", "answer": "10", "hintLadder": ["× first: 4×5=20.", "Then subtract.", "30−20=10."] },
+      { "id": "e3", "type": "mcq", "q": "In BODMAS, which comes first: Division or Addition?", "options": [ { "label": "Division" }, { "label": "Addition", "mistakeTag": "left-to-right-error" } ], "answer": "Division", "hintLadder": ["D comes before A in BODMAS.", "÷ and × before + and −.", "Division."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "Simplify: 2/5 of 25 − 3 + 6", "answer": "13", "hintLadder": ["Of first: 2/5 of 25=10.", "10−3+6.", "= 13."] },
+      { "id": "m2", "type": "number", "q": "Simplify: 36 ÷ 6 × 3 − 2", "answer": "16", "hintLadder": ["÷,× left to right: 36÷6=6, 6×3=18.", "18−2.", "= 16."] },
+      { "id": "m3", "type": "number", "q": "Approximate: 249.9 × 4.02", "answer": "1000", "hintLadder": ["Round: 250 × 4.", "= 1000.", "Close estimate."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "Simplify: [20 − {3 + (2 × 2)}] × 2", "answer": "26", "hintLadder": ["Innermost: 2×2=4.", "{3+4}=7, [20−7]=13.", "13×2=26."] },
+      { "id": "c2", "type": "number", "q": "Simplify: 3/4 of 60 ÷ 5 + 2 × 3", "answer": "15", "hintLadder": ["Of: 3/4 of 60=45.", "÷: 45÷5=9. ×: 2×3=6.", "9+6=15."] },
+      { "id": "c3", "type": "mcq", "q": "Approximate 5999 ÷ 149.7 to the nearest whole option:", "options": [ { "label": "40" }, { "label": "60", "mistakeTag": "over-rounding" } ], "answer": "40", "hintLadder": ["Round: 6000 ÷ 150.", "= 40.", "40."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "Simplify: 7 + 2 × 6", "answer": "19", "hintLadder": ["× first: 2×6=12.", "Then add.", "7+12=19."] },
+      { "id": "mc2", "type": "number", "q": "Simplify: 40 ÷ 8 + 3 × 2", "answer": "11", "hintLadder": ["÷: 40÷8=5. ×: 3×2=6.", "5+6.", "= 11."] },
+      { "id": "mc3", "type": "number", "q": "Simplify: 1/3 of 30 − 4", "answer": "6", "hintLadder": ["Of first: 1/3 of 30=10.", "Then subtract.", "10−4=6."] },
+      { "id": "mc4", "type": "mcq", "q": "'Of' is solved…", "options": [ { "label": "Right after brackets, before ÷ and ×" }, { "label": "After division", "mistakeTag": "of-after-division" } ], "answer": "Right after brackets, before ÷ and ×", "hintLadder": ["O comes before D in BODMAS.", "So of before division.", "Right after brackets."] },
+      { "id": "mc5", "type": "number", "q": "Approximate: 601 − 199 + 100 (round to nearest 100)", "answer": "500", "hintLadder": ["600−200+100.", "400+100.", "= 500."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend why 8 + 4 × 2 equals 16 and not 24, walking through BODMAS one letter at a time.",
+  "revisionCard": {
+    "summary": "BODMAS: Brackets, Of, Division, Multiplication, Addition, Subtraction — clear one letter completely (left to right) before moving to the next. 'Of' is a multiply but comes right after brackets. For approximation, round each number sensibly (nearest 1/10/100 depending on size) and compute the rounded expression for a fast, close estimate.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The BODMAS Order Line",
+    "brief": "Line up the jungle's operation signs in the correct BODMAS order before the expression can be solved!",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Write down 3 real shopping-bill style expressions (like 'price of 3 items + 2 items on offer') and solve each with BODMAS, then check with a calculator.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Quantitative Aptitude) — Simplification and Approximation",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "One letter of BODMAS at a time",
+    "unpack": "Brackets, Of, Division, Multiplication, Addition, Subtraction — clear each fully before the next."
+  },
+  "studentQuestions": [
+    { "q": "Why does 'of' come before division if both are just multiplying?", "a": "It's a fixed convention (Brackets, Of, Division, Multiplication...) so that everyone reading the same expression gets the same answer — without an agreed order, the same expression could mean different things to different people." },
+    { "q": "How do I know how much to round during approximation?", "a": "Round to a size that matches the numbers involved — nearest 1 for numbers under 10, nearest 10 for numbers in the hundreds, nearest 100 for numbers in the thousands. The goal is a close estimate, not perfect accuracy." }
+  ]
+}

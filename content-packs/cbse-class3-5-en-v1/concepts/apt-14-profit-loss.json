@@ -1,0 +1,205 @@
+{
+  "id": "apt-14-profit-loss",
+  "name": "Profit and Loss — Buying, Selling and the Percent That Matters",
+  "grade": 12,
+  "strand": "numbers",
+  "prerequisites": [],
+  "whatIsIt": "Profit and Loss compares what something cost you (Cost Price, CP) to what you sold it for (Selling Price, SP). If SP is more than CP you made a profit; if SP is less than CP you made a loss. The exam trick is that profit% and loss% are ALWAYS calculated on the Cost Price, never on the selling price.",
+  "whyNeeded": "Every shop, every trade, every 'we bought it cheap and sold it dear' story runs on this one idea. Competitive exams love it because a tiny wording change — 'profit on CP' vs a false-weight trick — flips the whole answer, so speed alone isn't enough; you need the right formula on autopilot.",
+  "realLifeUses": [
+    "A shopkeeper pricing goods to make a target profit",
+    "Reasoning sections of SSC, banking and railway exams",
+    "Understanding markup vs margin in a family business",
+    "Working out real returns after buying and reselling anything — a phone, a cycle, shares"
+  ],
+  "vocabulary": [
+    { "term": "Cost Price (CP)", "meaning": "What the seller paid to get the item." },
+    { "term": "Selling Price (SP)", "meaning": "What the item was actually sold for." },
+    { "term": "Profit", "meaning": "SP − CP, when SP is bigger." },
+    { "term": "Loss", "meaning": "CP − SP, when CP is bigger." },
+    { "term": "Profit % / Loss %", "meaning": "The profit or loss written as a percentage of the Cost Price — always CP, never SP." }
+  ],
+  "story": {
+    "title": "Ramu's Mango Cart",
+    "characters": ["Ramu", "his sister Divya"],
+    "text": "Ramu buys a crate of mangoes for ₹800 and sells the whole crate for ₹1000. 'I made ₹200,' he tells Divya proudly. She asks, 'Yes, but what's your profit PERCENT?' Ramu pauses — is it 200 out of 1000, or 200 out of 800? Divya explains: percent is always out of what you SPENT, the ₹800. So profit% = 200/800 × 100 = 25%. 'If you'd said 20% using the ₹1000, you'd have undersold your own hard work,' she laughs.",
+    "extractedProblem": "CP = ₹800, SP = ₹1000. Find the profit percent.",
+    "answerInStory": "25% — profit ₹200 is calculated on the ₹800 cost price, not the ₹1000 selling price."
+  },
+  "visual": {
+    "component": "BarModel",
+    "props": {
+      "bars": [
+        { "label": "Cost Price", "parts": [{ "value": 800, "label": "₹800" }] },
+        { "label": "Selling Price", "parts": [{ "value": 800, "label": "₹800" }, { "value": 200, "label": "₹200 profit", "shaded": true }] }
+      ]
+    },
+    "caption": "SP is the CP bar plus a profit slice on top — the slice, out of the CP bar, is the profit percent."
+  },
+  "teachingGallery": [
+    {
+      "title": "Profit % is always on CP",
+      "note": "Draw the CP bar first, then show SP as CP plus (or minus) the profit (or loss) slice.",
+      "examples": [
+        {
+          "component": "BarModel",
+          "props": { "bars": [
+            { "label": "CP", "parts": [{ "value": 500, "label": "₹500" }] },
+            { "label": "SP", "parts": [{ "value": 500, "label": "₹500" }, { "value": 100, "label": "₹100 profit", "shaded": true }] }
+          ] },
+          "caption": "CP ₹500, profit ₹100 → profit% = 100/500 × 100 = 20%."
+        },
+        {
+          "component": "BarModel",
+          "props": { "bars": [
+            { "label": "CP", "parts": [{ "value": 600, "label": "₹600" }] },
+            { "label": "SP", "parts": [{ "value": 450, "label": "₹450" }] }
+          ] },
+          "caption": "CP ₹600, SP ₹450 → loss ₹150 → loss% = 150/600 × 100 = 25%."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Find CP and SP first. Profit or Loss = SP − CP (sign tells you which). Then Profit%/Loss% = (Profit or Loss ÷ CP) × 100. To go the other way — from a percent to SP — use SP = CP × (100 ± %) / 100.",
+    "steps": [
+      "Identify CP and SP from the question.",
+      "Subtract: SP − CP. Positive means profit, negative means loss.",
+      "Divide the profit/loss by CP (never SP), then × 100 for the percent.",
+      "If asked for SP or CP given a percent, rearrange: SP = CP(100+P)/100 for profit, SP = CP(100−L)/100 for loss."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "100-base shortcut",
+      "whenToUse": "When you're given a profit/loss percent and CP, and need SP fast.",
+      "steps": [
+        "Treat CP as 100 parts.",
+        "Profit p% means SP is (100+p) parts; loss l% means SP is (100−l) parts.",
+        "SP = CP × (that number) / 100."
+      ],
+      "example": "CP ₹400 at 15% profit → SP = 400 × 115/100 = ₹460."
+    },
+    {
+      "name": "False-weight trick",
+      "whenToUse": "A dishonest seller uses a lighter weight but charges for the full weight, at cost price.",
+      "steps": [
+        "Profit% = (True weight − False weight) / False weight × 100.",
+        "This works because 'selling at cost price with less weight' is mathematically identical to profiting on the missing weight."
+      ],
+      "example": "Claims to sell 1000 g for the price of 1000 g, but the weight used is only 800 g → profit% = (1000−800)/800 × 100 = 25%."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A book costs a shop ₹250 and is sold for ₹300. Find the profit percent.",
+      "steps": [
+        "Profit = SP − CP = 300 − 250 = ₹50.",
+        "Profit% = 50/250 × 100.",
+        "= 20%."
+      ],
+      "answer": "20%"
+    },
+    {
+      "problem": "A cycle bought for ₹4000 is sold at a loss of 12%. Find the selling price.",
+      "steps": [
+        "Loss means SP = CP × (100 − 12)/100.",
+        "SP = 4000 × 88/100.",
+        "= ₹3520."
+      ],
+      "answer": "₹3520"
+    },
+    {
+      "problem": "A trader sells goods at 15% profit for ₹4600. Find the cost price.",
+      "steps": [
+        "SP = CP × (100+15)/100, so CP = SP × 100/115.",
+        "CP = 4600 × 100/115.",
+        "= ₹4000."
+      ],
+      "answer": "₹4000"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Percent is always on CP",
+    "intro": "Every profit% or loss% question is (difference ÷ CP) × 100 — CP is the base, always.",
+    "questions": [
+      { "id": "apt14-trick-1", "type": "number", "q": "CP ₹300, SP ₹360. Profit%?", "answer": "20", "hintLadder": ["Profit = 60.", "60 ÷ CP(300).", "× 100 = 20."], "explain": "60/300 × 100 = 20%." },
+      { "id": "apt14-trick-2", "type": "number", "q": "CP ₹500, SP ₹400. Loss%?", "answer": "20", "hintLadder": ["Loss = 100.", "100 ÷ CP(500).", "× 100 = 20."], "explain": "100/500 × 100 = 20%." },
+      { "id": "apt14-trick-3", "type": "number", "q": "CP ₹200, profit 10%. Find SP.", "answer": "220", "hintLadder": ["SP = CP × 110/100.", "200 × 1.1.", "= 220."], "explain": "200 × 110/100 = 220." },
+      { "id": "apt14-trick-4", "type": "number", "q": "SP ₹690 at 15% profit. Find CP.", "answer": "600", "hintLadder": ["CP = SP × 100/115.", "690 × 100 ÷ 115.", "= 600."], "explain": "690 × 100/115 = 600." }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "percent-on-sp",
+      "mistake": "Calculating profit% or loss% using the Selling Price as the base instead of the Cost Price.",
+      "fix": "Percent is ALWAYS out of the Cost Price — that's the money that was actually risked. 'Profit on SP' is a different (and much rarer) question type."
+    },
+    {
+      "mistakeTag": "sign-confusion",
+      "mistake": "Mixing up which of CP/SP is bigger, so profit gets called loss or vice-versa.",
+      "fix": "SP > CP is profit; SP < CP is loss. Write SP − CP first — the sign tells you instantly."
+    },
+    {
+      "mistakeTag": "wrong-rearrange",
+      "mistake": "Using SP = CP × (100+p)/100 when going backward from SP to CP, forgetting to flip the fraction.",
+      "fix": "Forward (CP known): SP = CP × (100±p)/100. Backward (SP known): CP = SP × 100/(100±p) — the 100 always sits with whichever price you DON'T know."
+    }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "e1", "type": "number", "q": "CP ₹100, SP ₹120. Profit%?", "answer": "20", "hintLadder": ["Profit = 20.", "20 ÷ 100.", "× 100 = 20."] },
+      { "id": "e2", "type": "number", "q": "CP ₹150, SP ₹120. Loss%?", "answer": "20", "hintLadder": ["Loss = 30.", "30 ÷ 150.", "× 100 = 20."] },
+      { "id": "e3", "type": "mcq", "q": "Profit% is always calculated on…", "options": [ { "label": "Cost Price" }, { "label": "Selling Price", "mistakeTag": "percent-on-sp" } ], "answer": "Cost Price", "hintLadder": ["The money risked.", "That's what was spent.", "Cost Price."] }
+    ],
+    "medium": [
+      { "id": "m1", "type": "number", "q": "CP ₹800, profit 25%. Find SP.", "answer": "1000", "hintLadder": ["SP = CP × 125/100.", "800 × 1.25.", "= 1000."] },
+      { "id": "m2", "type": "number", "q": "SP ₹460 at a loss of 8%. Find CP.", "answer": "500", "hintLadder": ["CP = SP × 100/(100−8).", "460 × 100 ÷ 92.", "= 500."] },
+      { "id": "m3", "type": "number", "q": "A pen bought at ₹40 is sold at ₹34. Find loss%.", "answer": "15", "hintLadder": ["Loss = 6.", "6 ÷ 40.", "× 100 = 15."] }
+    ],
+    "challenge": [
+      { "id": "c1", "type": "number", "q": "A shopkeeper claims to sell at cost price but uses a weight of 900 g for every 1000 g billed. Find his profit%.", "answer": "11.11", "hintLadder": ["Profit% = (1000−900)/900 × 100.", "100 ÷ 900.", "≈ 11.11%."] },
+      { "id": "c2", "type": "number", "q": "An item is sold at 20% profit; had it been sold for ₹40 more, the profit would have been 30%. Find the CP.", "answer": "400", "hintLadder": ["30% CP − 20% CP = ₹40.", "10% of CP = 40.", "CP = 400."] },
+      { "id": "c3", "type": "mcq", "q": "Goods sold at 10% loss instead of 10% profit fetch ₹40 less. Find CP.", "options": [ { "label": "₹200" }, { "label": "₹400", "mistakeTag": "sign-confusion" } ], "answer": "₹200", "hintLadder": ["Difference = 20% of CP.", "20% of CP = 40.", "CP = 200."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "mc1", "type": "number", "q": "CP ₹250, SP ₹300. Profit%?", "answer": "20", "hintLadder": ["Profit = 50.", "50 ÷ 250.", "× 100 = 20."] },
+      { "id": "mc2", "type": "number", "q": "CP ₹900, loss 10%. Find SP.", "answer": "810", "hintLadder": ["SP = CP × 90/100.", "900 × 0.9.", "= 810."] },
+      { "id": "mc3", "type": "number", "q": "SP ₹276 at 15% profit. Find CP.", "answer": "240", "hintLadder": ["CP = SP × 100/115.", "276 × 100 ÷ 115.", "= 240."] },
+      { "id": "mc4", "type": "mcq", "q": "SP is less than CP — this is called a…", "options": [ { "label": "Loss" }, { "label": "Profit", "mistakeTag": "sign-confusion" } ], "answer": "Loss", "hintLadder": ["Spent more than earned.", "That's a loss.", "Loss."] },
+      { "id": "mc5", "type": "number", "q": "A radio bought for ₹1200 is sold for ₹1500. Profit%?", "answer": "25", "hintLadder": ["Profit = 300.", "300 ÷ 1200.", "× 100 = 25."] }
+    ],
+    "passThreshold": 0.8,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Teach a friend why profit% is always calculated on the Cost Price and never the Selling Price, using the ₹800-mango-crate story where profit is ₹200 but the percent is 25%, not 20%.",
+  "revisionCard": {
+    "summary": "Profit/Loss = SP − CP (positive = profit, negative = loss). Percent is ALWAYS (Profit or Loss ÷ CP) × 100 — CP is the base. Forward: SP = CP(100±%)/100. Backward: CP = SP × 100/(100±%). False-weight trick: profit% = (true weight − false weight)/false weight × 100.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The Fair-Price Market",
+    "brief": "Help traders in the jungle market price their goods correctly — always measure profit against what they spent, not what they earned!",
+    "character": "Neena Number"
+  },
+  "realLifeProject": "Pick 3 items around your home and imagine reselling them. Decide a fair selling price for a 15% profit on what they'd have cost new, and show your CP/SP/profit% working.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "Competitive reasoning (Quantitative Aptitude) — Profit and Loss",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Percent always rides on CP",
+    "unpack": "Profit or Loss ÷ CP × 100 — never divide by SP."
+  },
+  "studentQuestions": [
+    { "q": "Why isn't the percent calculated on the Selling Price?", "a": "Because CP is what was actually invested — the percent measures the RETURN on that investment. Using SP would understate every profit and overstate every loss." },
+    { "q": "What's the fastest way to find SP from CP and a profit percent?", "a": "SP = CP × (100 + profit%)/100. Treat CP as 100 parts and scale up (or down for a loss) in one multiplication." }
+  ]
+}
