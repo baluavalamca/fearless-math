@@ -860,15 +860,29 @@ input[type=range] { accent-color: #2f6bff; }
 .fm-adv-steps li { padding: 4px 0; color: #22314f; font-size: 15.5px; }
 .fm-adv-row span { color: #5b6b86; font-weight: 700; font-size: 15px; }
 /* ---- Home hero greeting ---- */
-.fm-hero { display: flex; align-items: center; gap: 16px; padding: 20px 24px 8px; }
+.fm-hero { display: flex; align-items: center; gap: 16px; padding: 20px 24px 8px; flex-wrap: wrap; }
 .fm-hero-fox { font-size: 40px; flex: none; }
 .fm-hero-text { flex: 1; min-width: 0; }
 .fm-hero-hi { font-size: 22px; font-weight: 800; color: var(--ink); }
 .fm-hero-sub { font-size: 14px; color: #7a6a4e; margin-top: 2px; }
+.fm-hero-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex: none; }
 .fm-hero-stats { display: flex; gap: 12px; flex: none; }
 .fm-stat { background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 8px 14px; text-align: center; min-width: 82px; }
 .fm-stat b { display: block; font-size: 18px; }
 .fm-stat span { font-size: 11px; color: #8a765a; }
+
+/* Compact EN / हिं / తె switcher, top-right of the home banner. */
+.fm-hero-lang { display: flex; gap: 5px; }
+.fm-hero-lang-chip {
+  cursor: pointer; padding: 4px 11px; min-height: 26px; border-radius: 999px;
+  background: var(--card); border: 1.5px solid var(--line); color: var(--muted);
+  font-size: 12.5px; font-weight: 800; letter-spacing: .2px;
+  transition: transform .1s ease, border-color .12s ease, color .12s ease;
+}
+.fm-hero-lang-chip:hover { border-color: var(--accent); color: var(--ink); transform: translateY(-1px); }
+.fm-hero-lang-chip.on { border-color: var(--accent); color: var(--ink);
+  background: color-mix(in srgb, var(--accent) 16%, var(--card));
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 38%, transparent) inset; }
 
 /* ---- Continue / Up-next card (icon | body | Go) ---- */
 .fm-continue { display: flex; align-items: center; gap: 16px; width: 100%; text-align: left;

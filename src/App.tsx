@@ -201,7 +201,7 @@ export default function App() {
         ))}
       </nav>
       <main className="fm-main">
-      {screen === "map" && concepts && <WorldMap concepts={concepts} profile={profile} onOpen={openConcept} onDeepDive={deepDive} onFacts={() => setScreen("facts")} lang={lang} />}
+      {screen === "map" && concepts && <WorldMap concepts={concepts} profile={profile} onOpen={openConcept} onDeepDive={deepDive} onFacts={() => setScreen("facts")} lang={lang} onChangeLanguage={changeLanguage} />}
       {screen === "map" && !concepts && <div className="fm-loading">Loading…</div>}
       {screen === "clinic" && <MistakeClinic />}
       {screen === "ask" && <AskRobo profile={profile} concepts={concepts ?? []} onOpen={openConcept} seed={askSeed} onSeedConsumed={() => setAskSeed(null)} />}
@@ -254,15 +254,6 @@ export default function App() {
                 title="When ON, the app reads every screen aloud automatically">
                 {autoRead ? "🔊 Auto-read ON" : "🔇 Auto-read OFF"}
               </button>
-            </div>
-
-            <p className="fm-menu-sub">🌐 Language</p>
-            <div className="fm-menu-row" role="radiogroup" aria-label="Choose a language">
-              {LANGS.map((l) => (
-                <button key={l.id} role="radio" aria-checked={lang === l.id}
-                  className={"fm-menu-chip" + (lang === l.id ? " on" : "")}
-                  onClick={() => changeLanguage(l.id)}>{l.native}</button>
-              ))}
             </div>
 
             <p className="fm-menu-sub">🎨 Theme</p>

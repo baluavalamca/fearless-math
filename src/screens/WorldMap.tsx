@@ -17,6 +17,13 @@ import { LangKey } from "../data/mathFacts";
 /** Deep-dive label per language for the 🔬 icon. */
 const DEEP_LABEL: Record<LangKey, string> = { en: "Explore with Robo", hi: "रोबो के साथ खोजें", te: "రోబోతో అన్వేషించు" };
 
+/** Compact language switcher shown top-right of the home banner. */
+const HERO_LANGS: { id: LangKey; label: string; native: string }[] = [
+  { id: "en", label: "EN", native: "English" },
+  { id: "hi", label: "हिं", native: "हिंदी" },
+  { id: "te", label: "తె", native: "తెలుగు" },
+];
+
 // `name` = the real maths topic (shown as the primary label so it's clear, not generic).
 // `world` = the playful theme name, kept as a small subtitle for kid-friendly flavour.
 const STRAND_THEME: Record<string, { icon: string; name: string; world: string; cls: string }> = {
@@ -79,6 +86,7 @@ export function WorldMap({
   onDeepDive,
   onFacts,
   lang = "en",
+  onChangeLanguage,
 }: {
   concepts: ConceptCard[];
   profile: Profile;
@@ -88,6 +96,8 @@ export function WorldMap({
   /** Open the Fun Facts screen (from the home teaser). */
   onFacts?: () => void;
   lang?: LangKey;
+  /** Switch the app's display language (EN / हिंदी / తెలుగు). */
+  onChangeLanguage?: (lang: LangKey) => void;
 }) {
   const explore = localStorage.getItem("fm_explore") === "1";
   const [view, setView] = useState<"home" | "class">("home");
@@ -194,9 +204,18 @@ export function WorldMap({
           <div className="fm-hero-hi">Hi {profile.name}! Ready for some maths?</div>
           <div className="fm-hero-sub">Mistakes are welcome here — let's keep going.</div>
         </div>
-        <div className="fm-hero-stats">
-          <div className="fm-stat"><b>⭐ {mCount}</b><span>mastered</span></div>
-          <div className="fm-stat"><b>🔥 {sCount}</b><span>day streak</span></div>
+        <div className="fm-hero-right">
+          <div className="fm-hero-lang" role="radiogroup" aria-label="Choose a language">
+            {HERO_LANGS.map((l) => (
+              <button key={l.id} role="radio" aria-checked={lang === l.id} title={l.native}
+                className={"fm-hero-lang-chip" + (lang === l.id ? " on" : "")}
+                onClick={() => onChangeLanguage?.(l.id)}>{l.label}</button>
+            ))}
+          </div>
+          <div className="fm-hero-stats">
+            <div className="fm-stat"><b>⭐ {mCount}</b><span>mastered</span></div>
+            <div className="fm-stat"><b>🔥 {sCount}</b><span>day streak</span></div>
+          </div>
         </div>
       </div>
 
