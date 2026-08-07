@@ -177,7 +177,7 @@ export default function App() {
   if (open) {
     return <>
       <Doodles />
-      <LessonPlayer concept={open} onExit={() => { setOpen(null); refresh(); }} onDeepDive={() => deepDive(open!.id, open!.name)} />
+      <LessonPlayer concept={open} lang={lang} onExit={() => { setOpen(null); refresh(); }} onDeepDive={() => deepDive(open!.id, open!.name)} />
       <Suspense fallback={null}><MathToolbox /><AdvancedToolbox /></Suspense>
     </>;
   }

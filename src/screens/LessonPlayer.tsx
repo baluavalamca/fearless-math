@@ -16,6 +16,7 @@ import { Flashcards } from "../components/Flashcards";
 import { ConceptInfographic } from "../components/ConceptInfographic";
 import { MathTex } from "../components/Math";
 import { TextbookMode } from "../components/TextbookMode";
+import { DictLang } from "../data/mathDictionary";
 import { Practice } from "./Practice";
 
 type Tab = "story" | "picture" | "gallery" | "meaning" | "steps" | "anotherWay" | "examples" | "flashcards" | "infographic";
@@ -34,10 +35,12 @@ function collectMethods(c: Concept): UIMethod[] {
 
 export function LessonPlayer({
   concept,
+  lang = "en",
   onExit,
   onDeepDive,
 }: {
   concept: Concept;
+  lang?: DictLang;
   onExit: () => void;
   /** Send this concept to Ask Robo to explore it further. */
   onDeepDive?: () => void;
@@ -211,7 +214,7 @@ export function LessonPlayer({
       </header>
 
       {mode === "textbook" && (
-        <TextbookMode concept={concept} onExit={() => setMode("learn")} />
+        <TextbookMode concept={concept} lang={lang} onExit={() => setMode("learn")} />
       )}
 
       {mode === "learn" && (
