@@ -15,6 +15,7 @@ import { ConceptImageModal } from "../components/ConceptImageModal";
 import { Flashcards } from "../components/Flashcards";
 import { ConceptInfographic } from "../components/ConceptInfographic";
 import { MathTex } from "../components/Math";
+import { TextbookMode } from "../components/TextbookMode";
 import { Practice } from "./Practice";
 
 type Tab = "story" | "picture" | "gallery" | "meaning" | "steps" | "anotherWay" | "examples" | "flashcards" | "infographic";
@@ -42,7 +43,7 @@ export function LessonPlayer({
   onDeepDive?: () => void;
 }) {
   const [tab, setTab] = useState<Tab>("story");
-  const [mode, setMode] = useState<"learn" | "trick" | "practice" | "mastery" | "done">("learn");
+  const [mode, setMode] = useState<"learn" | "trick" | "practice" | "mastery" | "done" | "textbook">("learn");
   const [masteryMsg, setMasteryMsg] = useState<string | null>(null);
   const [gen, setGen] = useState<GeneratedExample | null>(null);
   const [ai, setAi] = useState<AiStatus | null>(null);
@@ -197,12 +198,21 @@ export function LessonPlayer({
         )}
         <h1>{concept.name}</h1>
         {concept.gameMission && <span className="fm-mission">Mission: {concept.gameMission.title}</span>}
+        {mode !== "textbook" && (
+          <button className="fm-textbook-btn" onClick={() => setMode("textbook")} title="Read this concept as a textbook chapter, with formulas, MCQs, fill-in-the-blanks and a glossary">
+            📘 Textbook view
+          </button>
+        )}
         {onDeepDive && (
           <button className="fm-deepdive-btn" onClick={onDeepDive} title="Explore this concept deeper with Robo">
             🔬 Explore deeper with Robo
           </button>
         )}
       </header>
+
+      {mode === "textbook" && (
+        <TextbookMode concept={concept} onExit={() => setMode("learn")} />
+      )}
 
       {mode === "learn" && (
         <>

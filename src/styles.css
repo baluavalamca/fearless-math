@@ -2425,6 +2425,103 @@ button:disabled:hover, [aria-disabled="true"]:hover { transform: none !important
 .fm-deepdive-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px color-mix(in srgb, var(--accent) 50%, transparent); }
 .fm-deepdive-btn:active { transform: translateY(0); }
 
+/* ============================================================
+   TEXTBOOK MODE — NCERT-guidebook-style chapter view.
+   Uses the same theme tokens as the rest of the app (card/line/ink/accent)
+   so it stays correct across every theme (light/dark/aurora/blackwell/etc),
+   with a serif heading + numbered chapter feel layered on top for a
+   distinct "reading a textbook" flavour.
+   ============================================================ */
+.fm-textbook-btn {
+  margin-left: auto; align-self: center;
+  padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 0.9rem;
+  background: var(--card); color: var(--ink); border: 2px solid var(--line); cursor: pointer; white-space: nowrap;
+  transition: transform .15s ease, border-color .15s ease;
+}
+.fm-textbook-btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+
+.fm-textbook { display: flex; flex-direction: column; gap: 14px; }
+.fm-tb-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.fm-tb-title { font-size: 26px; margin: 0; font-family: "Georgia", "Noto Serif", serif; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.fm-tb-subtitle { font-size: 15px; font-weight: 500; color: var(--muted); font-family: var(--font); }
+.fm-tb-toc-toggle { margin-left: auto; background: var(--card); border: 2px solid var(--line); border-radius: 12px; padding: 8px 14px; font-weight: 700; color: var(--ink); cursor: pointer; }
+
+.fm-tb-body { display: flex; gap: 18px; align-items: flex-start; }
+.fm-tb-toc {
+  width: 260px; flex: 0 0 260px; background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 10px; position: sticky; top: 12px;
+  max-height: 74vh; overflow-y: auto; transition: width .18s ease, opacity .18s ease;
+}
+.fm-tb-toc.closed { width: 0; flex-basis: 0; padding: 0; border: none; overflow: hidden; opacity: 0; }
+.fm-tb-toc-head { font-weight: 800; font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; padding: 6px 10px 10px; }
+.fm-tb-toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.fm-tb-toc-item {
+  width: 100%; display: flex; align-items: center; gap: 8px; text-align: left;
+  background: none; border: none; border-radius: 10px; padding: 8px 10px; cursor: pointer;
+  color: var(--ink); font-size: 14px;
+}
+.fm-tb-toc-item:hover { background: var(--fm-empty); }
+.fm-tb-toc-item.active { background: color-mix(in srgb, var(--accent) 18%, var(--card)); font-weight: 800; }
+.fm-tb-toc-item.visited .fm-tb-toc-num { color: var(--good); }
+.fm-tb-toc-num { font-size: 12px; font-weight: 800; color: var(--muted); min-width: 16px; }
+.fm-tb-toc-icon { font-size: 15px; }
+.fm-tb-toc-label { flex: 1; }
+
+.fm-tb-page { flex: 1; min-width: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 26px; box-shadow: var(--shadow-sm); }
+.fm-tb-page-tools { display: flex; justify-content: flex-end; margin-bottom: 4px; }
+.fm-tb-section { max-width: 760px; }
+.fm-tb-h2 { font-family: "Georgia", "Noto Serif", serif; font-size: 24px; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid var(--line); padding-bottom: 10px; margin-bottom: 16px; }
+.fm-tb-h2-num {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 30px; height: 30px;
+  border-radius: 50%; background: var(--accent); color: var(--on-accent); font-size: 15px; font-weight: 800;
+}
+.fm-tb-lead { font-size: 17px; }
+.fm-tb-steps { padding-left: 22px; }
+.fm-tb-visual { margin-top: 14px; }
+.fm-tb-example { margin-bottom: 18px; padding: 14px 16px; background: var(--fm-empty); border-radius: 14px; }
+
+.fm-tb-mistakes { display: flex; flex-direction: column; gap: 10px; }
+.fm-tb-mistake-card { background: var(--fm-empty); border-radius: 12px; padding: 10px 14px; }
+.fm-tb-mistake-wrong { margin: 0 0 4px; color: #c0392b; }
+.fm-tb-mistake-fix { margin: 0; color: var(--good); }
+
+.fm-tb-mcq-list, .fm-tb-blanks-list { display: flex; flex-direction: column; gap: 14px; }
+.fm-tb-mcq-card, .fm-tb-blank-card { background: var(--fm-empty); border-radius: 14px; padding: 14px 16px; }
+.fm-tb-mcq-q { margin: 0 0 10px; font-size: 16px; }
+.fm-tb-mcq-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.fm-tb-mcq-opt { background: var(--card); border: 2px solid var(--line); border-radius: 10px; padding: 8px 14px; cursor: pointer; font-weight: 600; color: var(--ink); }
+.fm-tb-mcq-opt:disabled { cursor: default; }
+.fm-tb-mcq-opt.correct, .fm-tb-mcq-opt.reveal-correct { border-color: var(--good); background: color-mix(in srgb, var(--good) 16%, var(--card)); }
+.fm-tb-mcq-opt.wrong { border-color: #c0392b; background: color-mix(in srgb, #c0392b 14%, var(--card)); }
+.fm-tb-mcq-feedback { margin: 10px 0 0; font-weight: 700; }
+.fm-tb-mcq-feedback.good { color: var(--good); }
+.fm-tb-mcq-feedback.bad { color: #c0392b; }
+
+.fm-tb-blank-sentence { margin: 0 0 8px; }
+.fm-tb-blank-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.fm-tb-blank-input { max-width: 220px; }
+.fm-tb-blank-result { font-weight: 700; }
+.fm-tb-blank-result.good { color: var(--good); }
+.fm-tb-blank-result.bad { color: #c0392b; }
+.fm-tb-blank-hint { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+
+.fm-tb-glossary { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin: 0; }
+.fm-tb-glossary-item { background: var(--fm-empty); border-radius: 12px; padding: 10px 14px; }
+.fm-tb-glossary-item dt { font-weight: 800; font-family: "Georgia", "Noto Serif", serif; }
+.fm-tb-glossary-item dd { margin: 4px 0 0; }
+
+.fm-tb-summary-box { font-size: 17px; }
+
+.fm-tb-foot { display: flex; align-items: center; gap: 14px; margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line); }
+.fm-tb-foot-progress { color: var(--muted); font-weight: 700; font-size: 14px; }
+
+@media (max-width: 860px) {
+  .fm-tb-body { flex-direction: column; }
+  .fm-tb-toc { width: 100%; flex-basis: auto; position: static; max-height: none; }
+  .fm-tb-toc.closed { display: none; }
+  .fm-tb-page { padding: 16px 18px; }
+}
+
 /* --- Home fun-fact teaser --- */
 .fm-fact-teaser {
   display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
