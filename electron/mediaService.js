@@ -51,8 +51,20 @@ function init(dataDir) {
       settings.voice.ver = 1;
       changed = true;
     }
+    if ((saved.voice?.ver || 0) < 2) {
+      // Upgrade older installs to a warm, kid-friendly, top-rated female v3 voice.
+      // Sarvam's own speaker guide (docs.sarvam.ai) rates "priya" as one of the two
+      // best female speakers overall (alongside "ishita"), described as "Cheerful &
+      // Engaging" and officially recommended for Hindi/Telugu/Marathi/Gujarati/English
+      // — the languages this app speaks. Earlier installs may still be on Sarvam's
+      // factory default ("shubh", a confident/bold MALE voice), which is what made
+      // read-aloud sound harsh/robotic instead of like a warm story being told.
+      settings.voice.speaker = "priya";
+      settings.voice.ver = 2;
+      changed = true;
+    }
     if (changed) saveSettings();
-  } catch { settings.image.ver = 2; settings.voice.ver = 1; /* first run */ }
+  } catch { settings.image.ver = 2; settings.voice.ver = 2; /* first run */ }
 }
 function saveSettings() {
   fs.writeFileSync(path.join(dir, "media-settings.json"), JSON.stringify(settings, null, 2));
@@ -175,7 +187,11 @@ function ttsCachePath(hash) { return path.join(ttsDir, `${hash}.wav`); }
 /** Convert text to speech via Sarvam. Returns base64 WAV, or ok:false to fall back.
  *  Identical requests are served from a disk cache — instant, offline, and free. */
 const V2_SPEAKERS = new Set(["anushka", "manisha", "vidya", "arya", "abhilash", "karun", "hitesh"]);
-const V3_DEFAULT_SPEAKER = "anushka"; // warm female; auto-mapped to a v3 voice below if needed
+// "priya" — per Sarvam's official speaker guide, one of the two best-rated female
+// v3 voices ("Cheerful & Engaging"), recommended for Hindi/Telugu/Marathi/Gujarati/
+// English (every language this app speaks). Used both as the default AND as the
+// safety-net fallback when a v2-only or unknown speaker name is requested on v3.
+const V3_DEFAULT_SPEAKER = "priya";
 const V3_FEMALE = "priya";            // valid v3 warm female fallback
 
 async function sarvamTTS({ text, speaker, pace, temperature }) {
@@ -210,6 +226,9 @@ async function sarvamTTS({ text, speaker, pace, temperature }) {
     speech_sample_rate: 22050,
   };
   if (isV3) body.temperature = useTemp;          // v3: expressiveness
+  // `enable_preprocessing` is a v2-ONLY parameter (Sarvam docs: "not available for
+  // bulbul:v3" — sending it on a v3 request risks a 422). Bulbul v3 already does its
+  // own number/date/abbreviation normalization, so nothing is lost by omitting it here.
   else body.enable_preprocessing = true;         // v2 only
   try {
     const res = await fetch("https://api.sarvam.ai/text-to-speech", {

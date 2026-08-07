@@ -7,6 +7,14 @@ const logic = require("./logic");
 const ai = require("./aiService");
 const media = require("./mediaService");
 
+// Some Windows GPU driver / virtual-display combinations leave the Chromium
+// compositor unable to flush a frame to the actual window surface — the DOM
+// renders correctly (verified via devtools) but the window paints solid white
+// forever. Disabling GPU compositing trades a little rendering perf for a
+// window that reliably paints on every machine. Must be called before
+// app.whenReady()/app ready.
+app.disableHardwareAcceleration();
+
 let store, content, userConceptsDir;
 
 /* User-authored concepts (from the "Create a Lesson" feature) live in a writable

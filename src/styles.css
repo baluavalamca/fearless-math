@@ -118,6 +118,20 @@ button { font: inherit; cursor: pointer; }
 
 /* Visual */
 .fm-visual { margin: 0; }
+/* GLOBAL visual sizing — applies to every diagram/graphic in every concept
+ * (worked examples, teaching galleries, and every "Another Way"/alt-method card).
+ * Individual visual components (Abacus, ArrayGrid, AreaModel, …) each carry their
+ * own small inline max-width cap left over from early layouts; this single rule
+ * (with !important, since it must win over those inline styles) lets every one of
+ * them fill the real width of its card instead of staying pinned tiny/cramped.
+ * height:auto keeps the SVG's own aspect ratio, so nothing crops — it just scales
+ * up cleanly. Fixing this here fixes it everywhere at once, not concept-by-concept. */
+.fm-visual svg, .fm-way-body svg, .fm-canvas svg, .fm-gallery-grid svg {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}
 .fm-strip-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
 .fm-strip-label { font-weight: 700; min-width: 120px; }
 figcaption { color: var(--muted); margin-top: 8px; }
@@ -696,8 +710,17 @@ body.skin-playful .fm-region-title { font-size: 1.6em; }
 }
 .fm-method-switch button:hover { border-color: #c9a86a; }
 .fm-method-switch button.active { background: var(--fm-shade, #ff9f43); border-color: #8d6e3f; color: var(--ink); }
-.fm-abacus-row { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; }
-.fm-abacus { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.fm-abacus-row { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; justify-content: center; }
+.fm-abacus { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 220px; flex: 1 1 220px; max-width: 460px; }
+.fm-abacus-legend {
+  background: color-mix(in srgb, var(--accent) 10%, var(--card));
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 10px 14px; margin: 0 0 14px; font-size: 15px; line-height: 1.5; color: var(--ink);
+}
+.fm-abacus-swatch {
+  display: inline-block; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--fm-shade, #ff9f43); border: 2px solid #8d6e3f; vertical-align: -2px;
+}
 
 /* ============================================================
    Advanced Math popup (Class 6 → JEE) — separate blue dock.

@@ -16,13 +16,20 @@ let chosenVoice: SpeechSynthesisVoice | null = null;
  * friendly to children. */
 export type SpeakStyle = "story" | "concept" | "board" | "praise";
 interface VoicePreset { rate: number; pitch: number; pace: number; temperature: number }
+// Sarvam's documented `temperature` range for bulbul:v3 is 0.01–1.0. Their own
+// guidance: 0.6 = "balanced, natural yet reliable" (general/EdTech), 0.7–0.8 =
+// "expressive, warm, conversational — storytelling", 0.9–1.0 = "highly expressive,
+// variable — entertainment/character voices". Values above 1.0 are out of range
+// (and pushing temperature to the very top edge makes rarer words, like "digit",
+// more likely to come out garbled) — so every style here is kept inside 0.01–1.0,
+// with "story" tuned to Sarvam's own storytelling sweet spot instead of the max.
 const PRESETS: Record<SpeakStyle, VoicePreset> = {
   // rate/pitch → browser voice;  pace/temperature → Sarvam bulbul:v3
   // Slower + a warmer, higher pitch reads friendlier to little ones.
-  story:   { rate: 0.86, pitch: 1.34, pace: 0.82, temperature: 1.0 },
+  story:   { rate: 0.86, pitch: 1.34, pace: 0.82, temperature: 0.78 },
   concept: { rate: 0.90, pitch: 1.22, pace: 0.94, temperature: 0.5 },
   board:   { rate: 0.90, pitch: 1.18, pace: 0.92, temperature: 0.45 },
-  praise:  { rate: 0.98, pitch: 1.38, pace: 1.0,  temperature: 1.15 }, // bright + excited
+  praise:  { rate: 0.98, pitch: 1.38, pace: 1.0,  temperature: 1.0 }, // bright + excited, clamped to Sarvam's max
 };
 
 /** Short, varied cheers spoken when a child answers correctly. */
@@ -99,9 +106,31 @@ if (typeof window !== "undefined" && "speechSynthesis" in window) {
   window.speechSynthesis.onvoiceschanged = () => { chosenVoice = pickVoice(); };
 }
 
+/**
+ * A few ordinary English words trip up TTS engines (both the browser's and
+ * Sarvam's bulbul:v3) into reading them letter-by-letter instead of as a whole
+ * word — e.g. "digit" coming out as "d, i, g, i, t". This is the same class of
+ * problem Sarvam's own docs solve with a server-side "pronunciation dictionary"
+ * (see https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/pronunciation-dictionary):
+ * swap the troublesome word for an alternate spelling that reads the same way
+ * out loud but doesn't trigger the letter-spelling behaviour. Applied globally
+ * here (not per-lesson) so every screen benefits and it's a one-line fix to add
+ * the next reported word — not a "for this one concept" patch.
+ * Speech-only: this never touches what's shown on screen, only what's spoken.
+ */
+const PRONOUNCE_FIXES: Array<[RegExp, string]> = [
+  [/\bdigits\b/gi, "dijits"],
+  [/\bdigit\b/gi, "dijit"],
+];
+function fixPronunciation(text: string): string {
+  let out = text;
+  for (const [re, replacement] of PRONOUNCE_FIXES) out = out.replace(re, replacement);
+  return out;
+}
+
 /** Rewrite math notation into words a child hears naturally. */
 export function mathToSpeech(text: string): string {
-  return text
+  return fixPronunciation(text)
     // strip emojis and symbols that sound weird
     .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, " ")
     // fractions: 3/4 -> "3 out of 4"
