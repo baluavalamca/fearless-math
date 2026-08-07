@@ -23,7 +23,7 @@ let ttsDir = null;
 let settings = {
   // gpt-image-2 (2026) — near-perfect text rendering (incl. Hindi/Bengali), high quality.
   image: { enabled: false, keyStored: null, model: "gpt-image-2", size: "1536x864", quality: "high" },
-  voice: { provider: "browser", keyStored: null, model: "bulbul:v3", speaker: "priya", language: "en-IN", pace: 0.95, ver: 0 },
+  voice: { provider: "browser", keyStored: null, model: "bulbul:v3", speaker: "roopa", language: "en-IN", pace: 0.95, ver: 0 },
 };
 
 /* ---------------- init + settings ---------------- */
@@ -63,8 +63,24 @@ function init(dataDir) {
       settings.voice.ver = 2;
       changed = true;
     }
+    if ((saved.voice?.ver || 0) < 3) {
+      // Second pass, after direct feedback that "priya" still didn't sound like a
+      // kid-friendly storyteller. Re-checked Sarvam's official Voices page and
+      // Best-Practices speaker guide (docs.sarvam.ai) — both now publish a one-line
+      // character tag plus a measured Critical-Error-Rate (CER) quality tier for
+      // every bulbul:v3 speaker. "priya" is tagged "Cheerful & Engaging" — bright,
+      // presenter-style energy, not a soft narrator. Of all 14 female voices,
+      // "roopa" is the ONLY one tagged "Gentle & Soothing" — the warm, unhurried
+      // bedtime-story register a "kid-friendly storytelling voice" actually needs —
+      // and it's still Tier 2 "Good, safe for production" (CER 0.26%, vs. priya's
+      // Tier 1 0.13%), so reliability stays high. Moving the default (and every
+      // existing install) to it.
+      settings.voice.speaker = "roopa";
+      settings.voice.ver = 3;
+      changed = true;
+    }
     if (changed) saveSettings();
-  } catch { settings.image.ver = 2; settings.voice.ver = 2; /* first run */ }
+  } catch { settings.image.ver = 2; settings.voice.ver = 3; /* first run */ }
 }
 function saveSettings() {
   fs.writeFileSync(path.join(dir, "media-settings.json"), JSON.stringify(settings, null, 2));
@@ -187,12 +203,14 @@ function ttsCachePath(hash) { return path.join(ttsDir, `${hash}.wav`); }
 /** Convert text to speech via Sarvam. Returns base64 WAV, or ok:false to fall back.
  *  Identical requests are served from a disk cache — instant, offline, and free. */
 const V2_SPEAKERS = new Set(["anushka", "manisha", "vidya", "arya", "abhilash", "karun", "hitesh"]);
-// "priya" — per Sarvam's official speaker guide, one of the two best-rated female
-// v3 voices ("Cheerful & Engaging"), recommended for Hindi/Telugu/Marathi/Gujarati/
-// English (every language this app speaks). Used both as the default AND as the
-// safety-net fallback when a v2-only or unknown speaker name is requested on v3.
-const V3_DEFAULT_SPEAKER = "priya";
-const V3_FEMALE = "priya";            // valid v3 warm female fallback
+// "roopa" — per Sarvam's official Voices + Best-Practices speaker guide, the only
+// female v3 voice tagged "Gentle & Soothing" (every other warm/cheerful female
+// voice, like "priya", is tagged for upbeat presenter energy, not soft narration).
+// Still Tier 2 "Good, safe for production" on Sarvam's CER quality ranking
+// (0.26% critical-error rate). Used both as the default AND as the safety-net
+// fallback when a v2-only or unknown speaker name is requested on v3.
+const V3_DEFAULT_SPEAKER = "roopa";
+const V3_FEMALE = "roopa";            // valid v3 gentle/soothing female fallback
 
 async function sarvamTTS({ text, speaker, pace, temperature }) {
   const key = decryptKey(settings.voice.keyStored);

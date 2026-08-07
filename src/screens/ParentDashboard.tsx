@@ -396,9 +396,12 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
             {media?.voice.provider === "sarvam" && (
               <div className="fm-field">
                 <label>Voice (bulbul:v3)</label>
-                <select className="fm-input fm-w-model" value={media?.voice.speaker ?? "priya"} onChange={(e) => saveMedia({ voice: { speaker: e.target.value } })}>
-                  <option value="priya">Priya — warm girl (teacher)</option><option value="kavya">Kavya — bright girl</option><option value="shreya">Shreya — gentle girl</option>
-                  <option value="pooja">Pooja — cheerful girl</option><option value="ritu">Ritu — calm girl</option><option value="shubh">Shubh — friendly boy</option>
+                <select className="fm-input fm-w-model" value={media?.voice.speaker ?? "roopa"} onChange={(e) => saveMedia({ voice: { speaker: e.target.value } })}>
+                  <option value="roopa">Roopa — gentle &amp; soothing (best for stories) ★</option>
+                  <option value="priya">Priya — cheerful &amp; engaging</option><option value="neha">Neha — energetic &amp; warm</option>
+                  <option value="suhani">Suhani — pleasant &amp; soothing</option><option value="kavya">Kavya — polished &amp; articulate</option>
+                  <option value="pooja">Pooja — cheerful &amp; engaging</option><option value="ritu">Ritu — expressive &amp; lively</option>
+                  <option value="shubh">Shubh — confident &amp; bold (boy)</option>
                 </select>
               </div>
             )}

@@ -20,3 +20,4 @@ Thumbs.db
 
 # Local runtime data (never commit keys/caches)
 *.local
+dist-log.txt
