@@ -38,11 +38,15 @@ class VisualBoundary extends Component<{ caption?: string; children: ReactNode }
   }
 }
 
-export function VisualRenderer({ visual }: { visual: VisualSpec }) {
-  return <VisualBoundary caption={visual.caption}><VisualSwitch visual={visual} /></VisualBoundary>;
+/** `compact`: shrink Solid3D/Scene3D's fixed-height WebGL canvas so a 3D visual never
+ * dwarfs the surrounding text (e.g. on the Story tab, which caps other visuals to a
+ * small 440px card via CSS — but canvas height is JS-driven, so CSS alone can't shrink
+ * it). Every other visual type ignores this flag; their SVGs already auto-scale. */
+export function VisualRenderer({ visual, compact }: { visual: VisualSpec; compact?: boolean }) {
+  return <VisualBoundary caption={visual.caption}><VisualSwitch visual={visual} compact={compact} /></VisualBoundary>;
 }
 
-function VisualSwitch({ visual }: { visual: VisualSpec }) {
+function VisualSwitch({ visual, compact }: { visual: VisualSpec; compact?: boolean }) {
   switch (visual.component) {
     case "NumberTrack":
       return <NumberTrack tracks={visual.props.tracks as TrackSpec[]} caption={visual.caption} />;
@@ -93,13 +97,13 @@ function VisualSwitch({ visual }: { visual: VisualSpec }) {
     case "Solid3D":
       return (
         <Suspense fallback={<p className="fm-callout">{visual.caption ?? "Loading 3D…"}</p>}>
-          <Solid3D solids={visual.props.solids as SolidSpec[]} caption={visual.caption} />
+          <Solid3D solids={visual.props.solids as SolidSpec[]} caption={visual.caption} compact={compact} />
         </Suspense>
       );
     case "Scene3D":
       return (
         <Suspense fallback={<p className="fm-callout">{visual.caption ?? "Loading 3D…"}</p>}>
-          <Scene3D spec={visual.props as unknown as Scene3DSpec} caption={visual.caption} />
+          <Scene3D spec={visual.props as unknown as Scene3DSpec} caption={visual.caption} compact={compact} />
         </Suspense>
       );
     case "ReasoningFigure":

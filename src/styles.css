@@ -1981,6 +1981,12 @@ body.skin-playful .fm-objemoji { font-size: 74px; }
 .fm-solid3d-stage { width: 100%; height: 300px; border-radius: 16px; overflow: hidden;
   background: color-mix(in srgb, var(--accent) 6%, var(--card)); border: 1px solid var(--glass-brd); cursor: grab; }
 .fm-solid3d-stage:active { cursor: grabbing; }
+/* Story-tab preview (Solid3D/Scene3D with compact=true): the canvas itself is sized
+ * to 180px by the component (renderer.setSize), but this wrapper div still needs its
+ * OWN height dropped to match — otherwise the fixed 300px/320px box above just leaves
+ * empty space under a small canvas, which looks exactly like the "oversized visual"
+ * bug this was meant to fix. */
+.fm-solid3d-stage--compact { height: 180px; }
 .fm-solid3d-labels { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 8px; }
 .fm-solid3d-label { background: var(--glass); border: 1px solid var(--glass-brd); border-radius: 999px;
   padding: 3px 12px; font-weight: 700; font-size: 13px; color: var(--ink); }

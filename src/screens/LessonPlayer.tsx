@@ -271,7 +271,7 @@ export function LessonPlayer({
                     freeform AI illustration — so what's shown always matches the lesson. */}
                 {concept.visual && (
                   <div className="fm-story-visual">
-                    <VisualRenderer visual={concept.visual} />
+                    <VisualRenderer visual={concept.visual} compact />
                   </div>
                 )}
                 <div className="fm-callout">

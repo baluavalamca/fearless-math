@@ -23,13 +23,15 @@ function cssColor(v: string, fb: string): THREE.Color {
   catch { return new THREE.Color(fb); }
 }
 
-export function Scene3D({ spec, caption }: { spec: Scene3DSpec; caption?: string }) {
+export function Scene3D({ spec, caption, compact }: { spec: Scene3DSpec; caption?: string; compact?: boolean }) {
   const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const mount = mountRef.current;
     if (!mount || !spec) return;
-    const W = mount.clientWidth || 460, H = 320;
+    // `compact` (e.g. the Story tab preview): a shorter, fixed stage so the WebGL
+    // canvas never dwarfs the surrounding story text — see Solid3D for the same pattern.
+    const W = mount.clientWidth || 460, H = compact ? 180 : 320;
     const accent = cssColor("--accent", "#ff9f43");
     const good = cssColor("--good", "#2e7d32");
     const cool = cssColor("--accent-dark", "#b4620a");
@@ -116,7 +118,7 @@ export function Scene3D({ spec, caption }: { spec: Scene3DSpec; caption?: string
   const labels = [...(spec?.points ?? []), ...(spec?.vectors ?? [])].filter((p) => p.label);
   return (
     <figure className="fm-visual fm-solid3d">
-      <div ref={mountRef} className="fm-solid3d-stage" />
+      <div ref={mountRef} className={"fm-solid3d-stage" + (compact ? " fm-solid3d-stage--compact" : "")} />
       {(labels.length > 0 || spec?.cone?.label) && (
         <div className="fm-solid3d-labels">
           {spec?.cone?.label && <span className="fm-solid3d-label">{spec.cone.label}</span>}

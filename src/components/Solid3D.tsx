@@ -38,7 +38,7 @@ function geometryFor(kind: SolidSpec["kind"], s: number): THREE.BufferGeometry {
   }
 }
 
-export function Solid3D({ solids, caption }: { solids: SolidSpec[]; caption?: string }) {
+export function Solid3D({ solids, caption, compact }: { solids: SolidSpec[]; caption?: string; compact?: boolean }) {
   const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -47,7 +47,10 @@ export function Solid3D({ solids, caption }: { solids: SolidSpec[]; caption?: st
     const list = (solids || []).slice(0, 4);
     if (!list.length) return;
 
-    const W = mount.clientWidth || 460, H = 300;
+    // `compact` (e.g. the Story tab preview): a shorter, fixed stage so the WebGL
+    // canvas never dwarfs the surrounding story text — the CSS width cap alone can't
+    // shrink this, since renderer.setSize() drives the canvas's actual pixel height.
+    const W = mount.clientWidth || 460, H = compact ? 180 : 300;
     const accent = cssColor("--accent", "#ff9f43");
     const good = cssColor("--good", "#2e7d32");
     const ink = cssColor("--ink", "#3d2f1e");
@@ -117,7 +120,7 @@ export function Solid3D({ solids, caption }: { solids: SolidSpec[]; caption?: st
 
   return (
     <figure className="fm-visual fm-solid3d">
-      <div ref={mountRef} className="fm-solid3d-stage" />
+      <div ref={mountRef} className={"fm-solid3d-stage" + (compact ? " fm-solid3d-stage--compact" : "")} />
       {(solids ?? []).some((s) => s.label) && (
         <div className="fm-solid3d-labels">
           {solids.slice(0, 4).map((s, i) => s.label ? <span key={i} className="fm-solid3d-label">{s.label}</span> : null)}
