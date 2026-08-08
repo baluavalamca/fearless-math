@@ -141,6 +141,18 @@
       "answer": "Cylinder, 0 vertices"
     }
   ],
+  "alternateMethods": [
+    {
+      "name": "Euler's Formula check",
+      "whenToUse": "For any solid with flat faces (no curves), when you know two of Faces/Vertices/Edges and want the third.",
+      "steps": [
+        "Count or note two of the three: Faces (F), Vertices (V), Edges (E).",
+        "Use the rule: F + V − E = 2.",
+        "Rearrange to find the missing value, e.g. E = F + V − 2."
+      ],
+      "example": "Check on a cube: F=6, V=8, E=12 → 6 + 8 − 12 = 2. ✓"
+    }
+  ],
   "commonMistakes": [
     {
       "mistakeTag": "2d-3d-confusion",
@@ -151,6 +163,11 @@
       "mistakeTag": "miscount-faces-edges",
       "mistake": "Mixing up faces, edges and vertices when counting.",
       "fix": "FACE = a surface, EDGE = a line where two faces meet, VERTEX = a corner point. Count one type at a time."
+    },
+    {
+      "mistakeTag": "euler-wrong-order",
+      "mistake": "Mixing up the order in Euler's formula, e.g. writing F + E − V = 2.",
+      "fix": "The rule is Faces + Vertices − Edges = 2 (F + V − E = 2). Vertices is ADDED, Edges is SUBTRACTED. It only works for solids with flat faces, not curved ones like spheres."
     }
   ],
   "practice": {
@@ -251,6 +268,17 @@
           "Its faces are squares.",
           "The solid is a cube."
         ]
+      },
+      {
+        "id": "g07-c3",
+        "type": "number",
+        "q": "A square pyramid has 5 faces and 5 vertices. Using Euler's formula (F + V − E = 2), how many edges does it have?",
+        "answer": "8",
+        "hintLadder": [
+          "F + V − E = 2, so E = F + V − 2.",
+          "E = 5 + 5 − 2.",
+          "Eight."
+        ]
       }
     ]
   },
@@ -316,6 +344,26 @@
           "A face is a surface.",
           "An edge is a line.",
           "Where two faces meet."
+        ]
+      },
+      {
+        "id": "g07-x5",
+        "type": "mcq",
+        "q": "Euler's formula for a solid with flat faces is…",
+        "options": [
+          {
+            "label": "Faces + Vertices − Edges = 2"
+          },
+          {
+            "label": "Faces + Edges − Vertices = 2",
+            "mistakeTag": "euler-wrong-order"
+          }
+        ],
+        "answer": "Faces + Vertices − Edges = 2",
+        "hintLadder": [
+          "Check it on a cube: 6 faces, 8 vertices, 12 edges.",
+          "6 + 8 − 12 = 2, so vertices is added, edges is subtracted.",
+          "Faces + Vertices − Edges = 2."
         ]
       }
     ],

@@ -6,6 +6,7 @@
  * and are shown in the app's active display language with an English fallback.
  */
 import { useMemo, useState } from "react";
+import { Search, X } from "lucide-react";
 import {
   FACT_CATEGORIES,
   FactCategory,
@@ -107,7 +108,7 @@ export function FunFacts({ lang = "en" }: { lang?: LangKey }) {
 
       {/* Search */}
       <div className="fm-search-wrap fm-fact-search">
-        <span className="fm-search-ic">🔍</span>
+        <span className="fm-search-ic"><Search size={16} /></span>
         <input
           className="fm-search-input"
           value={query}
@@ -115,7 +116,7 @@ export function FunFacts({ lang = "en" }: { lang?: LangKey }) {
           onChange={(e) => setQuery(e.target.value)}
           aria-label="Search fun facts"
         />
-        {query && <button className="fm-search-clear" onClick={() => setQuery("")} aria-label="Clear search">✕</button>}
+        {query && <button className="fm-search-clear" onClick={() => setQuery("")} aria-label="Clear search"><X size={16} /></button>}
       </div>
 
       <p className="fm-search-count">{list.length ? t.count(list.length) : t.none}</p>

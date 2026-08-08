@@ -1,0 +1,399 @@
+{
+  "id": "geo-29-polygon-quadrilaterals",
+  "name": "Understanding Quadrilaterals — Polygon Angle Sums and Properties",
+  "grade": 7,
+  "strand": "geometry",
+  "prerequisites": [
+    "geo-10-triangles-quads"
+  ],
+  "whatIsIt": "Every POLYGON (a closed flat shape with straight sides) has an interior angle sum you can predict: (n − 2) × 180°, where n is the number of sides. A triangle (n=3) gives 180°; a quadrilateral (n=4) gives 360°; a pentagon (n=5) gives 540°. The EXTERIOR angles of any convex polygon always add up to 360°, no matter how many sides. Quadrilaterals also come in special families — PARALLELOGRAM (opposite sides parallel and equal), RHOMBUS (parallelogram with all 4 sides equal, diagonals cross at right angles), RECTANGLE (parallelogram with all angles 90°), KITE (two pairs of adjacent equal sides), and TRAPEZIUM (exactly one pair of parallel sides) — each with its own rules about sides, angles and diagonals.",
+  "whyNeeded": "Architects and carpenters use the polygon angle-sum rule to cut roof panels, tile floors and build multi-sided frames without measuring every angle. Knowing which quadrilateral you have (rhombus, kite, trapezium...) tells you instantly which sides and angles are equal — a shortcut used in construction, design and craft.",
+  "realLifeUses": [
+    "A pentagon-shaped stop-sign or hut roof — each interior angle is 108° because (5−2)×180 = 540, and 540÷5 = 108 for a regular pentagon",
+    "A kite (the toy) has two pairs of equal adjacent sides — that's literally why it's called a kite",
+    "A rhombus-patterned floor tile (like a cricket-pitch diamond) has diagonals that cross at exactly 90°",
+    "A trapezium-shaped table or bridge truss has only one pair of parallel sides"
+  ],
+  "vocabulary": [
+    {
+      "term": "polygon",
+      "meaning": "A closed flat shape made of straight sides (triangle, quadrilateral, pentagon, hexagon...)."
+    },
+    {
+      "term": "interior angle sum",
+      "meaning": "The total of all inside angles of a polygon: (n − 2) × 180°."
+    },
+    {
+      "term": "exterior angle",
+      "meaning": "The angle between a side and the extension of the next side; all exterior angles of a convex polygon add to 360°."
+    },
+    {
+      "term": "rhombus",
+      "meaning": "A parallelogram with all 4 sides equal; diagonals cross at right angles and bisect each other."
+    },
+    {
+      "term": "kite",
+      "meaning": "A quadrilateral with two pairs of adjacent (touching) sides equal; one pair of opposite angles are equal."
+    },
+    {
+      "term": "trapezium",
+      "meaning": "A quadrilateral with exactly one pair of parallel sides."
+    }
+  ],
+  "story": {
+    "title": "The Pentagon Garden Bed",
+    "characters": [
+      "Meera",
+      "Dada"
+    ],
+    "text": "Dada is building a five-sided (pentagon) garden bed and needs to know each corner angle to cut the wood right. 'Is there a rule?' asks Meera. 'Yes — for any polygon, angles add up to (n minus 2) times 180,' says Dada. 'A pentagon has 5 sides, so (5−2)×180 = 3×180 = 540°. If it's a REGULAR pentagon, all five angles are equal: 540 ÷ 5 = 108° each.' Meera measures — 108° it is, and the bed fits together perfectly.",
+    "extractedProblem": "A regular pentagon garden bed — what is each interior angle?",
+    "answerInStory": "108° — total is (5−2)×180 = 540°, shared equally: 540 ÷ 5 = 108°."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        {
+          "kind": "pentagon",
+          "label": "pentagon: angles add to 540°"
+        },
+        {
+          "kind": "hexagon",
+          "label": "hexagon: angles add to 720°"
+        }
+      ]
+    },
+    "caption": "More sides, bigger angle sum: (n − 2) × 180° grows as n grows."
+  },
+  "teachingGallery": [
+    {
+      "title": "Quadrilateral families",
+      "note": "Each special quadrilateral has its own rule about sides, angles and diagonals.",
+      "examples": [
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "rect",
+                "w": 4,
+                "h": 2,
+                "label": "parallelogram: opposite sides parallel & equal"
+              }
+            ]
+          },
+          "caption": "Parallelogram — opposite sides are parallel and equal in length."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 3,
+                "h": 3,
+                "label": "rhombus: all 4 sides equal, diagonals cross at 90°"
+              }
+            ]
+          },
+          "caption": "Rhombus — all sides equal; diagonals cross at right angles."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "rect",
+                "w": 5,
+                "h": 2,
+                "label": "trapezium: only 1 pair of parallel sides"
+              }
+            ]
+          },
+          "caption": "Trapezium — exactly one pair of sides is parallel."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "pentagon",
+                "label": "regular pentagon: each angle 108°"
+              }
+            ]
+          },
+          "caption": "A regular pentagon splits its 540° total into five equal 108° angles."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Use (n − 2) × 180° for a polygon's interior angle sum; divide by n for a REGULAR polygon's single angle. Exterior angles of any convex polygon always total 360°.",
+    "steps": [
+      "Count the number of sides, n.",
+      "Interior angle sum = (n − 2) × 180°.",
+      "If the polygon is REGULAR (all sides and angles equal), divide the sum by n to get one angle.",
+      "Exterior angles always add up to 360° for any convex polygon, whatever n is."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Diagonals-from-one-vertex trick",
+      "whenToUse": "To SEE why the (n−2)×180° formula is true, not just memorise it.",
+      "steps": [
+        "Pick one vertex (corner) of the polygon.",
+        "Draw diagonals from it to every other non-adjacent vertex.",
+        "This splits the polygon into (n − 2) triangles.",
+        "Each triangle's angles sum to 180°, so the whole polygon sums to (n − 2) × 180°."
+      ],
+      "example": "A hexagon (n=6): drawing diagonals from one vertex makes 4 triangles, so its angle sum is 4 × 180° = 720°."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "What is the interior angle sum of a hexagon (6 sides)?",
+      "steps": [
+        "n = 6.",
+        "Interior angle sum = (n − 2) × 180° = (6 − 2) × 180° = 4 × 180°.",
+        "4 × 180° = 720°."
+      ],
+      "answer": "720°"
+    },
+    {
+      "problem": "A quadrilateral has three angles of 90°, 85° and 95°. What is the fourth angle?",
+      "steps": [
+        "Quadrilateral angle sum = 360° (since (4−2)×180 = 360).",
+        "Add the three known angles: 90 + 85 + 95 = 270°.",
+        "Fourth angle = 360° − 270° = 90°."
+      ],
+      "answer": "90°"
+    },
+    {
+      "problem": "A rhombus has diagonals of length 6 cm and 8 cm. Since a rhombus's diagonals cross at right angles and bisect each other, what shape is formed by one quarter of it?",
+      "steps": [
+        "The diagonals of a rhombus bisect each other AND cross at 90°.",
+        "Each half-diagonal is 3 cm and 4 cm.",
+        "One quarter of the rhombus is a right triangle with legs 3 cm and 4 cm."
+      ],
+      "answer": "A right triangle with legs 3 cm and 4 cm"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "wrong-n-minus-2",
+      "mistake": "Forgetting to subtract 2 from n before multiplying by 180° (e.g. using n × 180° instead of (n−2) × 180°).",
+      "fix": "Always subtract 2 FIRST: (n − 2) × 180°. For a pentagon that's (5−2)×180 = 540°, not 5×180 = 900°."
+    },
+    {
+      "mistakeTag": "confused-quad-family",
+      "mistake": "Mixing up which quadrilateral has which property — e.g. saying every parallelogram has equal diagonals, or every kite is a rhombus.",
+      "fix": "Only a RECTANGLE (or square) has equal diagonals. Only a RHOMBUS (or square) has all 4 sides equal AND diagonals at 90°. A kite has two PAIRS of adjacent equal sides, not all four equal — check the specific rule for each shape."
+    },
+    {
+      "mistakeTag": "exterior-sum-wrong",
+      "mistake": "Thinking the exterior-angle-sum rule (360°) changes with the number of sides, like the interior rule does.",
+      "fix": "The sum of exterior angles is ALWAYS 360° for any convex polygon, no matter how many sides it has — only the interior sum grows with n."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "g29-e1",
+        "type": "number",
+        "q": "What is the interior angle sum of a pentagon (5 sides)? Use (n − 2) × 180°.",
+        "answer": "540",
+        "hintLadder": [
+          "n = 5, so n − 2 = 3.",
+          "3 × 180° = ?",
+          "540°."
+        ]
+      },
+      {
+        "id": "g29-e2",
+        "type": "mcq",
+        "q": "A rhombus always has…",
+        "options": [
+          {
+            "label": "All 4 sides equal"
+          },
+          {
+            "label": "All 4 angles equal to 90°",
+            "mistakeTag": "confused-quad-family"
+          }
+        ],
+        "answer": "All 4 sides equal",
+        "hintLadder": [
+          "Think of the diamond shape on a playing card.",
+          "Its four sides are all the same length.",
+          "All 4 sides equal."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "g29-m1",
+        "type": "number",
+        "q": "What is the interior angle sum of a hexagon (6 sides)?",
+        "answer": "720",
+        "hintLadder": [
+          "n = 6, n − 2 = 4.",
+          "4 × 180° = ?",
+          "720°."
+        ]
+      },
+      {
+        "id": "g29-m2",
+        "type": "mcq",
+        "q": "The exterior angles of any convex polygon always add up to…",
+        "options": [
+          {
+            "label": "360°"
+          },
+          {
+            "label": "It depends on the number of sides",
+            "mistakeTag": "exterior-sum-wrong"
+          }
+        ],
+        "answer": "360°",
+        "hintLadder": [
+          "This one never changes with n.",
+          "It's the same rule as walking all the way around a shape back to where you started — one full turn.",
+          "360°."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "g29-c1",
+        "type": "number",
+        "q": "A regular octagon has 8 sides. What is each interior angle? (Find the sum, then divide by 8.)",
+        "answer": "135",
+        "hintLadder": [
+          "Sum = (8−2)×180° = 1080°.",
+          "Regular means all 8 angles are equal — divide the sum by 8.",
+          "1080 ÷ 8 = 135°."
+        ]
+      },
+      {
+        "id": "g29-c2",
+        "type": "mcq",
+        "q": "A trapezium is a quadrilateral with…",
+        "options": [
+          {
+            "label": "Exactly one pair of parallel sides"
+          },
+          {
+            "label": "Two pairs of parallel sides",
+            "mistakeTag": "confused-quad-family"
+          }
+        ],
+        "answer": "Exactly one pair of parallel sides",
+        "hintLadder": [
+          "A parallelogram has TWO pairs — that's different.",
+          "A trapezium has just ONE pair.",
+          "Exactly one pair of parallel sides."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "g29-x1",
+        "type": "number",
+        "q": "What is the interior angle sum of a quadrilateral (4 sides)?",
+        "answer": "360",
+        "hintLadder": [
+          "n = 4, n − 2 = 2.",
+          "2 × 180° = ?",
+          "360°."
+        ]
+      },
+      {
+        "id": "g29-x2",
+        "type": "number",
+        "q": "A polygon has an interior angle sum of 900°. Using (n−2)×180 = 900, how many sides does it have?",
+        "answer": "7",
+        "hintLadder": [
+          "900 ÷ 180 = n − 2.",
+          "900 ÷ 180 = 5, so n − 2 = 5.",
+          "n = 7."
+        ]
+      },
+      {
+        "id": "g29-x3",
+        "type": "mcq",
+        "q": "A kite has…",
+        "options": [
+          {
+            "label": "Two pairs of adjacent equal sides"
+          },
+          {
+            "label": "All four sides equal",
+            "mistakeTag": "confused-quad-family"
+          }
+        ],
+        "answer": "Two pairs of adjacent equal sides",
+        "hintLadder": [
+          "Think of the flying toy's shape.",
+          "The two TOUCHING sides at the top are equal, and the two at the bottom are equal — but top ≠ bottom.",
+          "Two pairs of adjacent equal sides."
+        ]
+      },
+      {
+        "id": "g29-x4",
+        "type": "mcq",
+        "q": "Priya says a hexagon's angle sum is 6 × 180° = 1080°. What's wrong?",
+        "options": [
+          {
+            "label": "She forgot to subtract 2 from n first: (6−2)×180 = 720°"
+          },
+          {
+            "label": "Nothing, she's right",
+            "mistakeTag": "wrong-n-minus-2"
+          }
+        ],
+        "answer": "She forgot to subtract 2 from n first: (6−2)×180 = 720°",
+        "hintLadder": [
+          "The rule is (n−2)×180°, not n×180°.",
+          "For n=6: (6−2)×180 = 4×180.",
+          "720°, not 1080°."
+        ]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Find a five- or six-sided object at home (a stop sign picture, a hexagonal floor tile, a pentagon-shaped clock). Tell a grown-up its interior angle sum using (n−2)×180°, and name one special quadrilateral (rhombus, kite or trapezium) and its rule.",
+  "revisionCard": {
+    "summary": "Interior angle sum of an n-sided polygon: (n−2) × 180°. Regular polygon: divide by n for one angle. Exterior angles of ANY convex polygon always total 360°. Rhombus: all sides equal, diagonals cross at 90°. Kite: two pairs of adjacent equal sides. Trapezium: exactly one pair of parallel sides. Parallelogram: opposite sides parallel & equal.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 8 (Understanding Quadrilaterals — polygon angle sums & quadrilateral properties)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Interior angle sum of a polygon: (n − 2) × 180°. Exterior angles: always 360° total.",
+    "unpack": "Rhombus: all sides equal, diagonals at 90°. Kite: two pairs of adjacent equal sides. Trapezium: one pair of parallel sides. Parallelogram: opposite sides parallel & equal. Rectangle: parallelogram with all 90° angles."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why does a triangle's angle sum equal 180° in the polygon formula?",
+      "a": "For n=3: (3−2)×180° = 1×180° = 180° — the formula matches the familiar triangle rule exactly, since a triangle can't be split into any smaller triangles from one vertex."
+    },
+    {
+      "q": "What's the difference between a rhombus and a kite?",
+      "a": "A rhombus has all FOUR sides equal. A kite has two PAIRS of adjacent (touching) sides equal, but the two pairs can be different lengths from each other."
+    }
+  ]
+}

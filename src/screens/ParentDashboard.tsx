@@ -4,6 +4,7 @@
  * PINs). Parent-dashboard PIN default 1234; per-child login PINs are set here too.
  */
 import { useEffect, useState, type ReactNode } from "react";
+import { Check } from "lucide-react";
 import { AiStatus, DashboardData, MediaStatus, MediaConfig, Profile, ProviderInfo, api } from "../api";
 import { refreshVoiceStatus } from "../speech";
 import { CreateLesson } from "./CreateLesson";
@@ -442,18 +443,44 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
             </div>
             {media?.voice.provider === "sarvam" && (
               <div className="fm-field">
-                <label>Voice (bulbul:v3)</label>
-                <select className="fm-input fm-w-model" value={media?.voice.speaker ?? "roopa"} onChange={(e) => saveMedia({ voice: { speaker: e.target.value } })}>
-                  <option value="roopa">Roopa — gentle &amp; soothing (best for stories) ★</option>
-                  <option value="priya">Priya — cheerful &amp; engaging</option><option value="neha">Neha — energetic &amp; warm</option>
-                  <option value="suhani">Suhani — pleasant &amp; soothing</option><option value="kavya">Kavya — polished &amp; articulate</option>
-                  <option value="pooja">Pooja — cheerful &amp; engaging</option><option value="ritu">Ritu — expressive &amp; lively</option>
-                  <option value="shubh">Shubh — confident &amp; bold (boy)</option>
+                <label>AI voice model</label>
+                <select className="fm-input fm-w-model" value={media?.voice.model ?? "bulbul:v3"} onChange={(e) => {
+                  const m = e.target.value;
+                  saveMedia({ voice: { model: m, speaker: m === "bulbul:v2" ? "anushka" : "roopa" } });
+                }}>
+                  <option value="bulbul:v3">Bulbul v3 — newest, best for storytelling ★</option>
+                  <option value="bulbul:v2">Bulbul v2 — classic voices</option>
+                </select>
+              </div>
+            )}
+            {media?.voice.provider === "sarvam" && (
+              <div className="fm-field">
+                <label>Voice ({media?.voice.model ?? "bulbul:v3"})</label>
+                <select className="fm-input fm-w-model" value={media?.voice.speaker ?? ((media?.voice.model ?? "bulbul:v3") === "bulbul:v2" ? "anushka" : "roopa")} onChange={(e) => saveMedia({ voice: { speaker: e.target.value } })}>
+                  {(media?.voice.model ?? "bulbul:v3") === "bulbul:v2" ? (
+                    <>
+                      <option value="anushka">Anushka — warm &amp; clear (girl) ★</option>
+                      <option value="manisha">Manisha — soft &amp; friendly (girl)</option>
+                      <option value="vidya">Vidya — calm &amp; pleasant (girl)</option>
+                      <option value="arya">Arya — bright &amp; cheerful (girl)</option>
+                      <option value="abhilash">Abhilash — steady &amp; confident (boy)</option>
+                      <option value="karun">Karun — friendly &amp; energetic (boy)</option>
+                      <option value="hitesh">Hitesh — bold &amp; expressive (boy)</option>
+                    </>
+                  ) : (
+                    <>
+                      <option value="roopa">Roopa — gentle &amp; soothing (best for stories) ★</option>
+                      <option value="priya">Priya — cheerful &amp; engaging</option><option value="neha">Neha — energetic &amp; warm</option>
+                      <option value="suhani">Suhani — pleasant &amp; soothing</option><option value="kavya">Kavya — polished &amp; articulate</option>
+                      <option value="pooja">Pooja — cheerful &amp; engaging</option><option value="ritu">Ritu — expressive &amp; lively</option>
+                      <option value="shubh">Shubh — confident &amp; bold (boy)</option>
+                    </>
+                  )}
                 </select>
               </div>
             )}
             <div className="fm-pill-row">
-              <span className="fm-pill on">{media?.voice.provider === "sarvam" ? `Sarvam (${media?.voice.speaker})` : "Built-in"}</span>
+              <span className="fm-pill on">{media?.voice.provider === "sarvam" ? `Sarvam ${media?.voice.model ?? "bulbul:v3"} (${media?.voice.speaker})` : "Built-in"}</span>
               <span className={`fm-pill ${media?.voice.hasKey ? "on" : "off"}`}>{media?.voice.hasKey ? "Key saved" : "No key"}</span>
             </div>
           </Section>
@@ -483,7 +510,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
           <Section id="languages" icon="🌐" title="Languages" sub={`English is always on. Turn on Hindi or Telugu to let ${data?.profile?.name || "your child"} switch to them from the home screen.`}>
             <div className="fm-setting">
               <div className="fm-setting-txt"><b>English</b><span>Always available — the default language.</span></div>
-              <span className="fm-badge">✓ Always on</span>
+              <span className="fm-badge"><Check size={12} /> Always on</span>
             </div>
             <div className="fm-setting">
               <div className="fm-setting-txt"><b>हिंदी (Hindi)</b><span>Lesson text, the language switcher chip, and read-aloud will offer Hindi.</span></div>

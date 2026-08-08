@@ -78,7 +78,7 @@ button { font: inherit; cursor: pointer; }
 .fm-loading { display: grid; place-items: center; height: 100vh; font-size: 24px; }
 
 /* World map */
-.fm-worldmap { max-width: 1300px; margin: 0 auto; padding: 28px 40px 64px; }
+.fm-worldmap { max-width: clamp(760px, 95vw, 1500px); margin: 0 auto; padding: 28px clamp(16px, 4vw, 40px) 64px; }
 .fm-sub { color: var(--muted); margin-top: -8px; }
 .fm-region { margin-top: 28px; }
 .fm-region-title { text-transform: capitalize; border-bottom: 3px dashed var(--line); padding-bottom: 4px; }
@@ -97,8 +97,10 @@ button { font: inherit; cursor: pointer; }
 .fm-stop-name { font-weight: 700; }
 .fm-stop-char { font-size: 14px; color: var(--muted); }
 
-/* Lesson */
-.fm-lesson { max-width: 1120px; margin: 0 auto; padding: 24px 40px 64px; }
+/* Lesson — fluid width: grows toward 1360px on wide monitors (so the gallery grid,
+ * flashcards, etc. get real room instead of sitting in a narrow fixed column with
+ * empty space either side) and shrinks toward the viewport on small/tablet screens. */
+.fm-lesson { max-width: clamp(720px, 94vw, 1360px); margin: 0 auto; padding: clamp(16px, 3vw, 24px) clamp(16px, 4vw, 40px) 64px; }
 .fm-lesson-head { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .fm-back { background: none; border: 2px solid var(--line); border-radius: 12px; padding: 8px 14px; }
 .fm-mission { background: color-mix(in srgb, var(--accent) 16%, var(--card)); color: var(--ink); border-radius: 999px; padding: 6px 14px; font-size: 15px; }
@@ -108,7 +110,7 @@ button { font: inherit; cursor: pointer; }
   border-radius: 999px; padding: 10px 18px; min-height: 48px;
 }
 .fm-tabs button.active { background: var(--accent); border-color: var(--accent-dark); color: var(--on-accent); font-weight: 700; }
-.fm-canvas { background: var(--card); border: 2px solid var(--line); border-radius: 20px; padding: 24px; }
+.fm-canvas { background: var(--card); border: 2px solid var(--line); border-radius: 20px; padding: clamp(16px, 3vw, 24px); }
 .fm-story { font-size: 20px; }
 .fm-callout { background: color-mix(in srgb, var(--accent) 12%, var(--card)); color: var(--ink); border-left: 6px solid var(--accent); border-radius: 8px; padding: 12px 16px; margin: 14px 0; }
 .fm-when { color: var(--muted); }
@@ -135,6 +137,13 @@ button { font: inherit; cursor: pointer; }
 .fm-strip-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
 .fm-strip-label { font-weight: 700; min-width: 120px; }
 figcaption { color: var(--muted); margin-top: 8px; }
+
+/* Place-value blocks — fixed-size cells that wrap instead of shrinking, so a set
+ * with lots of blocks (e.g. 9 hundreds + 9 tens + 9 ones for "999") always stays
+ * legible instead of being squeezed by the global width:100% svg rule above. */
+.fm-pvb-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; flex-wrap: wrap; }
+.fm-pvb-blocks { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 8px; }
+.fm-pvb-cell { flex: 0 0 auto; display: inline-block; filter: drop-shadow(0 2px 3px rgba(0,0,0,.14)); }
 
 /* Geometry / reasoning-figure / dice panels */
 .fm-geo-row, .fm-rf-row, .fm-dice-row {
@@ -243,9 +252,9 @@ figcaption { color: var(--muted); margin-top: 8px; }
 .fm-rek-count { color: #fff; font-weight: 800; font-size: 20px; margin-left: 10px; min-width: 24px; }
 
 /* Place-value bead abacus (Th / H / T / O) */
-.fm-pvab { display: flex; flex-direction: column; gap: 10px; background: #6b4a2a; padding: 14px 16px; border-radius: 16px; width: 100%; max-width: 580px; }
+.fm-pvab { display: flex; flex-direction: column; gap: 8px; background: #6b4a2a; padding: 14px 16px; border-radius: 16px; width: 100%; max-width: 640px; }
 .fm-pvab-rod { display: flex; align-items: center; gap: 10px; }
-.fm-pvab-name { flex: 0 0 96px; text-align: right; font-size: 13px; font-weight: 800; background: rgba(255,255,255,0.92); border-radius: 8px; padding: 5px 8px; }
+.fm-pvab-name { flex: 0 0 108px; text-align: right; font-size: 12.5px; font-weight: 800; background: rgba(255,255,255,0.92); border-radius: 8px; padding: 5px 8px; line-height: 1.15; }
 .fm-pvab-beads { flex: 1; display: flex; gap: 4px; align-items: center; min-height: 30px; }
 .fm-pvab-bead { width: 26px; height: 26px; border-radius: 50%; border: 2px solid; cursor: pointer; transition: margin-left 0.12s ease; }
 .fm-pvab-bead.on { box-shadow: 0 2px 5px rgba(0,0,0,0.35); }
@@ -482,9 +491,18 @@ figcaption { color: var(--muted); margin-top: 8px; }
   background: color-mix(in srgb, var(--accent) 18%, var(--card));
 }
 .fm-picture-btn:hover { filter: brightness(1.03); }
+/* Small, deterministic concept-visual shown inline on the story page — same
+ * authored visual as the Gallery tab, capped small so it never dominates the
+ * story text. This replaces relying on a big freeform AI illustration. */
+.fm-story-visual {
+  max-width: 440px; margin: 14px auto 0; background: #fffdf9; border: 1px solid var(--line);
+  border-radius: 14px; padding: 10px;
+}
+.fm-story-visual .fm-visual { margin: 0; border: none; padding: 0; }
 .fm-modal-backdrop { position: fixed; inset: 0; background: rgba(30,20,10,0.55); display: grid; place-items: center; z-index: 50; padding: 20px; }
 .fm-modal { background: #fffdf8; border-radius: 20px; width: min(920px, 96vw); max-height: 92vh; overflow: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
-.fm-img-modal { padding: 16px 18px 18px; width: min(1120px, 96vw); }
+/* Kept modest — this is now an optional "extra", not the primary story visual. */
+.fm-img-modal { padding: 16px 18px 18px; width: min(640px, 92vw); }
 .fm-modal-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .fm-modal-head h2 { margin: 4px 0; }
 .fm-modal-x { border: none; background: #f0e6d6; width: 34px; height: 34px; border-radius: 50%; font-size: 16px; cursor: pointer; }
@@ -492,7 +510,7 @@ figcaption { color: var(--muted); margin-top: 8px; }
 .fm-img-styles button { border: 2px solid var(--line); background: var(--card); border-radius: 999px; padding: 8px 14px; font-size: 15px; cursor: pointer; }
 .fm-img-styles button.active { background: #ff9f43; border-color: #8d6e3f; color: var(--ink); font-weight: 700; }
 /* Fixed 16:9 stage so posters always show at the right shape (letterboxed if needed). */
-.fm-img-stage { width: 100%; aspect-ratio: 16 / 9; max-height: 70vh; display: grid; place-items: center;
+.fm-img-stage { width: 100%; aspect-ratio: 16 / 9; max-height: 40vh; display: grid; place-items: center;
   background: #fbf5ea; border: 1px dashed var(--line); border-radius: 14px; padding: 8px; overflow: hidden; }
 .fm-img-poster { width: 100%; height: 100%; object-fit: contain; border-radius: 12px; }
 .fm-img-empty { text-align: center; color: var(--muted); font-size: 17px; max-width: 620px; }
@@ -557,7 +575,13 @@ body.skin-playful .fm-way-card { border-radius: 22px; }
 .fm-gallery-group { margin: 18px 0 8px; }
 .fm-gallery-group h2 { margin: 6px 0; }
 .fm-gallery-note { margin: 0 0 8px; color: #6a5a44; }
-.fm-gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+/* auto-fit (not auto-fill): with auto-fill, CSS Grid reserves empty column TRACKS
+ * to fill the row even when there are fewer actual cards than tracks — that blank
+ * reserved space is exactly what was pushing real cards to look small/cramped on
+ * the right. auto-fit collapses those empty tracks, so the cards that DO exist
+ * stretch to use the full available width — bigger, easier to read, no wasted
+ * space on wide screens, and still wraps to a single column on narrow ones. */
+.fm-gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; align-items: start; }
 .fm-gallery-grid > .fm-visual { margin: 0; background: #fffdf9; border: 1px solid var(--line); border-radius: 14px; padding: 10px; }
 
 .fm-answer-row { display: flex; gap: 12px; margin: 16px 0; }
@@ -630,7 +654,7 @@ body.skin-playful .fm-way-card { border-radius: 22px; }
 .fm-clinic-hero { display: flex; align-items: center; gap: 18px; }
 
 /* Mistake Clinic */
-.fm-clinic { max-width: 1120px; margin: 0 auto; padding: 28px 40px 64px; }
+.fm-clinic { max-width: clamp(720px, 94vw, 1360px); margin: 0 auto; padding: 28px clamp(16px, 4vw, 40px) 64px; }
 .fm-clinic-card {
   background: var(--card); border: 2px solid var(--line); border-radius: 16px;
   margin-top: 14px; overflow: hidden;
@@ -647,7 +671,7 @@ body.skin-playful .fm-way-card { border-radius: 22px; }
 /* Parent dashboard */
 .fm-pin-gate { text-align: center; padding: 64px 24px; }
 .fm-pin-error { color: #b3261e; }
-.fm-dashboard { max-width: 1300px; margin: 0 auto; padding: 28px 40px 64px; }
+.fm-dashboard { max-width: clamp(760px, 95vw, 1500px); margin: 0 auto; padding: 28px clamp(16px, 4vw, 40px) 64px; }
 .fm-dash-summary { display: flex; gap: 14px; flex-wrap: wrap; margin: 18px 0; }
 .fm-dash-stat {
   background: var(--card); border: 2px solid var(--line); border-radius: 16px;
@@ -1905,19 +1929,24 @@ body.skin-playful .fm-objemoji { font-size: 74px; }
 .fm-funfact { margin-top: 14px; background: color-mix(in srgb, var(--accent) 12%, var(--card)); border: 1px solid var(--glass-brd);
   border-radius: 14px; padding: 10px 14px; color: var(--ink); }
 
-/* Flashcards */
-.fm-flashcards { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+/* Flashcards — big, legible, 16:9 card that scales with the viewport instead of
+ * sitting tiny (460px) inside a much wider lesson canvas. width uses min() so it
+ * never overflows a narrow/mobile screen; aspect-ratio keeps a clean 16:9 shape;
+ * overflow-y:auto on the face is a safety net if a long card's text needs more
+ * room than the ratio gives it, so text never clips or spills out of the card. */
+.fm-flashcards { display: flex; flex-direction: column; align-items: center; gap: 16px; width: 100%; }
 .fm-fc-progress { color: var(--muted); font-weight: 700; }
-.fm-fc-card { width: 100%; max-width: 460px; min-height: 190px; border-radius: 20px; cursor: pointer;
+.fm-fc-card { width: min(100%, 860px); aspect-ratio: 16 / 9; min-height: 220px; border-radius: 24px; cursor: pointer;
   border: 2px solid var(--glass-brd); background: var(--grad-brand); color: var(--on-accent);
   box-shadow: var(--shadow-md, 0 8px 22px rgba(0,0,0,.14)); transition: transform .12s ease, filter .12s ease; padding: 0; }
 .fm-fc-card:hover { transform: translateY(-3px); filter: brightness(1.03); }
 .fm-fc-card.flipped { background: var(--card); color: var(--ink); border-color: var(--accent); }
-.fm-fc-face { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
-  min-height: 190px; padding: 22px 24px; text-align: center; }
-.fm-fc-tag { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; opacity: .8; }
-.fm-fc-text { font-size: 19px; font-weight: 700; line-height: 1.35; }
-.fm-fc-hint { font-size: 12px; opacity: .7; margin-top: 4px; }
+.fm-fc-face { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  width: 100%; height: 100%; box-sizing: border-box; padding: clamp(20px, 4vw, 44px) clamp(24px, 6vw, 64px);
+  text-align: center; overflow-y: auto; }
+.fm-fc-tag { font-size: clamp(12px, 1.3vw, 15px); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; opacity: .8; }
+.fm-fc-text { font-size: clamp(20px, 3vw, 30px); font-weight: 700; line-height: 1.4; overflow-wrap: anywhere; }
+.fm-fc-hint { font-size: clamp(12px, 1.2vw, 14px); opacity: .7; margin-top: 4px; }
 .fm-fc-actions { display: flex; gap: 12px; }
 .fm-fc-done { text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center; padding: 18px; }
 .fm-fc-score { font-size: 20px; }

@@ -6,6 +6,7 @@
  * memory mechanisms the app's spaced-revision schedule already uses).
  */
 import { useMemo, useState } from "react";
+import { RotateCcw } from "lucide-react";
 import { Concept } from "../api";
 import { speak } from "../speech";
 
@@ -43,7 +44,7 @@ export function Flashcards({ concept }: { concept: Concept }) {
       <div className="fm-fc-done">
         <p className="fm-fc-score">🌟 You knew <strong>{known.size}</strong> of <strong>{cards.length}</strong> cards!</p>
         <p className="fm-muted">{known.size === cards.length ? "Perfect — come back in a few days to keep it strong." : "Great start — flip through the ‘review’ ones again."}</p>
-        <button className="fm-primary" onClick={() => { setI(0); setFlipped(false); setKnown(new Set()); setReviewed(false); }}>↻ Study again</button>
+        <button className="fm-primary" onClick={() => { setI(0); setFlipped(false); setKnown(new Set()); setReviewed(false); }}><RotateCcw size={16} /> Study again</button>
       </div>
     );
   }

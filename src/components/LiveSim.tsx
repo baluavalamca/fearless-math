@@ -5,6 +5,7 @@
  * based on `spec.kind`, and renders the shared slider + live-formula controls.
  */
 import { lazy, Suspense, useMemo, useState } from "react";
+import { RotateCcw } from "lucide-react";
 import { Concept } from "../api";
 import { evalExpr } from "../liveExpr";
 import { LiveGraph2D } from "./LiveGraph2D";
@@ -72,7 +73,7 @@ export function LiveSimPanel({ spec }: { spec: LiveSimSpec }) {
           ))}
 
           <button type="button" className="fm-livesim-reset" onClick={() => setValues(defaultsOf(spec))}>
-            ↺ Reset
+            <RotateCcw size={14} /> Reset
           </button>
 
           <div className="fm-livesim-formulas">

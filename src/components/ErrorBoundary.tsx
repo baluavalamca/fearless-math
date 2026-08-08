@@ -5,6 +5,7 @@
  * VisualBoundary; this is the outer safety net for the whole app shell.)
  */
 import { Component, ErrorInfo, ReactNode } from "react";
+import { RotateCcw } from "lucide-react";
 
 interface State {
   error: Error | null;
@@ -30,7 +31,7 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, State> {
             <div className="fm-crash-fox">🦊</div>
             <h1>Oops! Fraction Fox tripped.</h1>
             <p>Something went wrong — but nothing is lost. Your progress is saved. Let's start fresh.</p>
-            <button className="fm-primary" onClick={() => window.location.reload()}>↻ Try again</button>
+            <button className="fm-primary" onClick={() => window.location.reload()}><RotateCcw size={16} /> Try again</button>
           </div>
         </div>
       );

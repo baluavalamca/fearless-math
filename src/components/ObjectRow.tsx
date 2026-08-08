@@ -5,6 +5,7 @@
  * pop badge — turning any picture row into a hands-on counting game.
  */
 import { useState } from "react";
+import { RotateCcw } from "lucide-react";
 import { ObjectIcon } from "./ObjectIcon";
 import { speak } from "../speech";
 
@@ -81,7 +82,7 @@ function Row({ s }: { s: SeqSpec }) {
         {letters ? "🔢 1 2 3" : "🔤 A B C"}
       </button>
       {counted.length > 0 && (
-        <button type="button" className="fm-objreset" onClick={() => setCounted([])}>↺ count again</button>
+        <button type="button" className="fm-objreset" onClick={() => setCounted([])}><RotateCcw size={12} /> count again</button>
       )}
     </div>
   );

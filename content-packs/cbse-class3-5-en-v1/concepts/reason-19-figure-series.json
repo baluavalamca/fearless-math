@@ -121,18 +121,23 @@
       "mistakeTag": "miscounted-elements",
       "mistake": "Miscounting the number of small shapes in one of the given figures, throwing off the detected fixed step.",
       "fix": "Recount each given figure's shapes carefully at least twice before comparing consecutive counts — an early miscount cascades into a wrong final prediction."
+    },
+    {
+      "mistakeTag": "wrong-series-type",
+      "mistake": "Believing figure series are built from color or size changes rather than rotation or count.",
+      "fix": "The two classic figure-series types tested here are rotation (a fixed angle change) and counting (a fixed change in the number of shapes) — color and size aren't the pattern types to look for."
     }
   ],
   "practice": {
     "easy": [
       { "id": "e1", "type": "text", "q": "Rotation series: 0°, 90°, 180°. What is the 4th rotation?", "answer": "270°", "hintLadder": ["Fixed step: +90°.", "180°+90°.", "270°."] },
       { "id": "e2", "type": "text", "q": "Counting series: 1, 2, 3 squares. How many in the 4th figure?", "answer": "4", "hintLadder": ["Fixed step: +1.", "3+1.", "4."] },
-      { "id": "e3", "type": "mcq", "q": "What are the two most common types of figure series?", "options": [ { "label": "Rotation series and counting series" }, { "label": "Color series and size series" } ], "answer": "Rotation series and counting series", "hintLadder": ["Shapes either turn or multiply.", "Two classic patterns.", "Rotation and counting."] }
+      { "id": "e3", "type": "mcq", "q": "What are the two most common types of figure series?", "options": [ { "label": "Rotation series and counting series" }, { "label": "Color series and size series", "mistakeTag": "wrong-series-type" } ], "answer": "Rotation series and counting series", "hintLadder": ["Shapes either turn or multiply.", "Two classic patterns.", "Rotation and counting."] }
     ],
     "medium": [
       { "id": "m1", "type": "text", "q": "Rotation series: 0°, 60°, 120°. What is the 4th rotation?", "answer": "180°", "hintLadder": ["Fixed step: +60°.", "120°+60°.", "180°."] },
       { "id": "m2", "type": "text", "q": "Counting series: 10, 8, 6 dots (decreasing). How many in the 4th figure?", "answer": "4", "hintLadder": ["Fixed step: −2.", "6−2.", "4."] },
-      { "id": "m3", "type": "mcq", "q": "A rotation series shows 0°, 90°, and then what looks like 270° for the third figure. What should you suspect?", "options": [ { "label": "The direction may have reversed (counter-clockwise), not a +180° step" }, { "label": "It's just a bigger fixed step of +180°" } ], "answer": "The direction may have reversed (counter-clockwise), not a +180° step", "hintLadder": ["0° to 90° is +90°.", "90° to 270° could be +180° OR a −180°(reverse direction) interpretation.", "Always double-check direction, not just angle size."] }
+      { "id": "m3", "type": "mcq", "q": "A rotation series shows 0°, 90°, and then what looks like 270° for the third figure. What should you suspect?", "options": [ { "label": "The direction may have reversed (counter-clockwise), not a +180° step" }, { "label": "It's just a bigger fixed step of +180°", "mistakeTag": "ignored-direction" } ], "answer": "The direction may have reversed (counter-clockwise), not a +180° step", "hintLadder": ["0° to 90° is +90°.", "90° to 270° could be +180° OR a −180°(reverse direction) interpretation.", "Always double-check direction, not just angle size."] }
     ],
     "challenge": [
       { "id": "c1", "type": "text", "q": "Rotation series: 0°, 45°, 90°, 135°. What is the 5th rotation?", "answer": "180°", "hintLadder": ["Fixed step: +45°.", "135°+45°.", "180°."] },

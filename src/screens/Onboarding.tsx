@@ -4,6 +4,7 @@
  * age, and — for kids — an optional login PIN. Data is saved locally per profile.
  */
 import { useEffect, useState } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Profile, api } from "../api";
 
 const ROLES = [
@@ -81,8 +82,8 @@ export function Onboarding({ onReady }: { onReady: (p: Profile) => void }) {
             onKeyDown={(e) => e.key === "Enter" && pinTry.length >= 4 && submitPin()} />
           {pinErr && <p className="fm-pin-error">That's not the right PIN — try again.</p>}
           <div className="fm-onboard-actions">
-            <button className="fm-secondary" onClick={() => setPinFor(null)}>← Back</button>
-            <button className="fm-primary" disabled={pinTry.length < 4} onClick={submitPin}>Let's go →</button>
+            <button className="fm-secondary" onClick={() => setPinFor(null)}><ArrowLeft size={16} /> Back</button>
+            <button className="fm-primary" disabled={pinTry.length < 4} onClick={submitPin}>Let's go <ArrowRight size={16} /></button>
           </div>
         </div>
       </div>
@@ -164,8 +165,8 @@ export function Onboarding({ onReady }: { onReady: (p: Profile) => void }) {
             )}
 
             <div className="fm-onboard-actions">
-              {profiles.length > 0 && <button className="fm-secondary" onClick={() => setMode("pick")}>← Back</button>}
-              <button className="fm-primary" disabled={!name.trim() || grade == null} onClick={create}>Start learning →</button>
+              {profiles.length > 0 && <button className="fm-secondary" onClick={() => setMode("pick")}><ArrowLeft size={16} /> Back</button>}
+              <button className="fm-primary" disabled={!name.trim() || grade == null} onClick={create}>Start learning <ArrowRight size={16} /></button>
             </div>
           </>
         )}

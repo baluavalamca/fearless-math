@@ -6,6 +6,7 @@
  * Finance, Fraction/Decimal/Percent + Ratio, Formula Sheet.
  */
 import { useEffect, useMemo, useRef, useState } from "react";
+import { ChevronDown, ChevronUp, X } from "lucide-react";
 import { Emoji3D } from "./ObjectIcon";
 import { Surface3D } from "./Surface3D";
 import { Solid3D, SolidSpec } from "./Solid3D";
@@ -1433,7 +1434,7 @@ export function AdvancedToolbox() {
         <div className="fm-toolbox-sheet fm-adv-theme" role="dialog" aria-label="Advanced math tools">
           <div className="fm-toolbox-top">
             <h2>🎓 Advanced Math <small className="fm-adv-sub">Class 6 → JEE</small></h2>
-            <button className="fm-modal-x" aria-label="Close tools" onClick={() => setOpen(false)}>✕</button>
+            <button className="fm-modal-x" aria-label="Close tools" onClick={() => setOpen(false)}><X size={18} /></button>
           </div>
           <div className="fm-toolbox-main">
             <nav className="fm-tool-rail" aria-label="Choose a tool">
@@ -1450,7 +1451,7 @@ export function AdvancedToolbox() {
                   <span><Emoji3D char={meta.icon} size={22} /> {meta.label}</span>
                   <button className={`fm-tool-info ${showHelp ? "on" : ""}`} onClick={() => setShowHelp((v) => !v)}
                     aria-label={showHelp ? "Hide the how-to-use steps" : "Show the how-to-use steps"} title={showHelp ? "Hide steps" : "How to use this tool"}>
-                    {showHelp ? "Hide steps ▲" : "How to use ▾"}
+                    {showHelp ? <>Hide steps <ChevronUp size={14} /></> : <>How to use <ChevronDown size={14} /></>}
                   </button>
                 </header>
                 <div className="fm-tool-card-body">

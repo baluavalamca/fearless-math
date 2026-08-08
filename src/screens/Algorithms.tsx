@@ -9,6 +9,7 @@
  * live React visualizers: Big-O growth chart, binary-search stepper, sorting animation.
  */
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Pause, Play, RotateCcw, Search, X } from "lucide-react";
 
 /* ─────────────────────────── data model ─────────────────────────── */
 
@@ -552,8 +553,8 @@ function BinaryLab() {
           <option value={40}>40 (absent)</option>
           <option value={100}>100 (absent)</option>
         </select>
-        <button className="fm-algo-btn primary" onClick={step}>▶ Step</button>
-        <button className="fm-algo-btn" onClick={() => reset()}>↻ Reset</button>
+        <button className="fm-algo-btn primary" onClick={step}><Play size={14} /> Step</button>
+        <button className="fm-algo-btn" onClick={() => reset()}><RotateCcw size={14} /> Reset</button>
         <span className="fm-algo-stat">{msg}</span>
       </div>
       <div className="fm-bs-row">
@@ -666,7 +667,7 @@ function SortingLab() {
         })}
       </div>
       <div className="fm-algo-controls">
-        <button className="fm-algo-btn primary" onClick={play}>{playing ? "⏸ Pause" : "▶ Sort"}</button>
+        <button className="fm-algo-btn primary" onClick={play}>{playing ? <><Pause size={14} /> Pause</> : <><Play size={14} /> Sort</>}</button>
         <button className="fm-algo-btn" onClick={() => { stop(); newArray(); }}>🔀 Shuffle</button>
         <label className="fm-algo-stat">Speed</label><input type="range" min={1} max={100} value={speed} onChange={(e) => setSpeed(parseInt(e.target.value, 10))} />
         <label className="fm-algo-stat">Size</label><input type="range" min={12} max={80} value={size} onChange={(e) => { stop(); setSize(parseInt(e.target.value, 10)); setTimeout(newArray, 0); }} />
@@ -704,9 +705,9 @@ export function Algorithms() {
       </div>
 
       <div className="fm-search-wrap fm-algo-search">
-        <span className="fm-search-ic">🔍</span>
+        <span className="fm-search-ic"><Search size={16} /></span>
         <input className="fm-search-input" value={query} placeholder="Search algorithms — try 'binary', 'graph', 'dynamic'…" onChange={(e) => setQuery(e.target.value)} aria-label="Search algorithms" />
-        {query && <button className="fm-search-clear" onClick={() => setQuery("")} aria-label="Clear search">✕</button>}
+        {query && <button className="fm-search-clear" onClick={() => setQuery("")} aria-label="Clear search"><X size={16} /></button>}
       </div>
 
       {/* Foundations */}

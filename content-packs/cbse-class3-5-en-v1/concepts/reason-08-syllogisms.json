@@ -118,31 +118,41 @@
       "mistakeTag": "ignored-some-not",
       "mistake": "Missing that 'Some A are B' + 'No B are C' gives a valid but easy-to-miss conclusion: 'Some A are NOT C' (not 'Some A are C').",
       "fix": "When the second premise is 'No', the valid conclusion about the outer group is always a NEGATIVE 'some are not', never a positive 'some are'."
+    },
+    {
+      "mistakeTag": "all-some-chain-error",
+      "mistake": "Assuming 'All A are B' + 'Some B are C' guarantees 'Some A are C', by assuming the B-C overlap must land inside A.",
+      "fix": "Only the reverse chains: 'Some A are B' + 'All B are C' gives 'Some A are C'. With 'All A are B' + 'Some B are C', the C-overlap could sit entirely in the part of B that has no A — no valid conclusion follows."
+    },
+    {
+      "mistakeTag": "chained-different-somes",
+      "mistake": "Chaining 'Some A are B' with 'Some B are C' as if both point to the same slice of B, giving 'Some A are C'.",
+      "fix": "Two 'Some' statements can describe completely different parts of B — nothing links the A-side overlap to the C-side overlap, so no valid conclusion follows from two 'Some' premises alone."
     }
   ],
   "practice": {
     "easy": [
       { "id": "e1", "type": "mcq", "q": "All dogs are animals. All animals are living things. Conclusion: All dogs are living things.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "assumed-converse" } ], "answer": "Follows", "hintLadder": ["Chain pattern.", "Dogs inside Animals inside Living things.", "Follows."] },
-      { "id": "e2", "type": "mcq", "q": "All squares are rectangles. Conclusion: All rectangles are squares.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "assumed-converse" } ], "answer": "Does not follow", "hintLadder": ["This is the converse.", "Rectangles can be non-square.", "Does not follow."] },
+      { "id": "e2", "type": "mcq", "q": "All squares are rectangles. Conclusion: All rectangles are squares.", "options": [ { "label": "Follows", "mistakeTag": "assumed-converse" }, { "label": "Does not follow" } ], "answer": "Does not follow", "hintLadder": ["This is the converse.", "Rectangles can be non-square.", "Does not follow."] },
       { "id": "e3", "type": "mcq", "q": "Some birds are parrots. All parrots can talk (in this puzzle). Conclusion: Some birds can talk.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "ignored-some-not" } ], "answer": "Follows", "hintLadder": ["Some A are B, All B are C pattern.", "Overlap of birds/parrots is inside 'can talk'.", "Follows."] }
     ],
     "medium": [
       { "id": "m1", "type": "mcq", "q": "All pens are tools. No tools are toys. Conclusion: No pens are toys.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "two-negatives-error" } ], "answer": "Follows", "hintLadder": ["All A are B, No B are C pattern.", "Pens fully inside Tools, Tools avoids Toys.", "Follows."] },
       { "id": "m2", "type": "mcq", "q": "Some teachers are singers. No singers are shy. Conclusion: Some teachers are not shy.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "ignored-some-not" } ], "answer": "Follows", "hintLadder": ["Some A are B, No B are C pattern.", "The teacher-singer overlap avoids 'shy'.", "Some teachers are not shy — follows."] },
-      { "id": "m3", "type": "mcq", "q": "No apples are vegetables. Some vegetables are green. Conclusion: No apples are green.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "two-negatives-error" } ], "answer": "Does not follow", "hintLadder": ["Apples avoid Vegetables entirely, that's separate from 'green'.", "Apples could still be green through another path.", "Does not follow."] }
+      { "id": "m3", "type": "mcq", "q": "No apples are vegetables. Some vegetables are green. Conclusion: No apples are green.", "options": [ { "label": "Follows", "mistakeTag": "two-negatives-error" }, { "label": "Does not follow" } ], "answer": "Does not follow", "hintLadder": ["Apples avoid Vegetables entirely, that's separate from 'green'.", "Apples could still be green through another path.", "Does not follow."] }
     ],
     "challenge": [
-      { "id": "c1", "type": "mcq", "q": "All A are B. Some B are C. Conclusion: Some A are C.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "assumed-converse" } ], "answer": "Does not follow", "hintLadder": ["A is inside B, but the B-C overlap could sit in the part of B without any A.", "So A and C might never touch.", "Does not follow."] },
-      { "id": "c2", "type": "mcq", "q": "Some A are B. Some B are C. Conclusion: Some A are C.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "two-negatives-error" } ], "answer": "Does not follow", "hintLadder": ["Two 'Some' premises about different overlaps.", "The A-B overlap and B-C overlap need not be the same slice of B.", "Does not follow."] },
+      { "id": "c1", "type": "mcq", "q": "All A are B. Some B are C. Conclusion: Some A are C.", "options": [ { "label": "Follows", "mistakeTag": "all-some-chain-error" }, { "label": "Does not follow" } ], "answer": "Does not follow", "hintLadder": ["A is inside B, but the B-C overlap could sit in the part of B without any A.", "So A and C might never touch.", "Does not follow."] },
+      { "id": "c2", "type": "mcq", "q": "Some A are B. Some B are C. Conclusion: Some A are C.", "options": [ { "label": "Follows", "mistakeTag": "chained-different-somes" }, { "label": "Does not follow" } ], "answer": "Does not follow", "hintLadder": ["Two 'Some' premises about different overlaps.", "The A-B overlap and B-C overlap need not be the same slice of B.", "Does not follow."] },
       { "id": "c3", "type": "text", "q": "All A are B. No B are C. What is the strongest valid conclusion about A and C (one word: 'No' or 'Some')?", "answer": "No", "hintLadder": ["A sits fully inside B.", "B never touches C.", "So A never touches C: 'No A are C'."] }
     ]
   },
   "masteryCheck": {
     "questions": [
       { "id": "mc1", "type": "mcq", "q": "All mangoes are fruits. All fruits are food. Conclusion: All mangoes are food.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "assumed-converse" } ], "answer": "Follows", "hintLadder": ["Chain pattern.", "Mangoes inside Fruits inside Food.", "Follows."] },
-      { "id": "mc2", "type": "mcq", "q": "All cats are pets. Conclusion: All pets are cats.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "assumed-converse" } ], "answer": "Does not follow", "hintLadder": ["Converse of the statement.", "Pets could include dogs too.", "Does not follow."] },
+      { "id": "mc2", "type": "mcq", "q": "All cats are pets. Conclusion: All pets are cats.", "options": [ { "label": "Follows", "mistakeTag": "assumed-converse" }, { "label": "Does not follow" } ], "answer": "Does not follow", "hintLadder": ["Converse of the statement.", "Pets could include dogs too.", "Does not follow."] },
       { "id": "mc3", "type": "mcq", "q": "Some pens are red. All red things are bright. Conclusion: Some pens are bright.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "two-negatives-error" } ], "answer": "Follows", "hintLadder": ["Some A are B, All B are C pattern.", "The pen-red overlap is inside 'bright'.", "Follows."] },
-      { "id": "mc4", "type": "mcq", "q": "No snakes are birds. No birds are fish. Conclusion: No snakes are fish.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "two-negatives-error" } ], "answer": "Does not follow", "hintLadder": ["Two negative premises.", "Snakes and fish are left unpinned.", "Does not follow."] },
+      { "id": "mc4", "type": "mcq", "q": "No snakes are birds. No birds are fish. Conclusion: No snakes are fish.", "options": [ { "label": "Follows", "mistakeTag": "two-negatives-error" }, { "label": "Does not follow" } ], "answer": "Does not follow", "hintLadder": ["Two negative premises.", "Snakes and fish are left unpinned.", "Does not follow."] },
       { "id": "mc5", "type": "mcq", "q": "Some doctors are writers. No writers are lazy. Conclusion: Some doctors are not lazy.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "ignored-some-not" } ], "answer": "Follows", "hintLadder": ["Some A are B, No B are C pattern.", "The doctor-writer overlap avoids 'lazy'.", "Some doctors are not lazy — follows."] }
     ],
     "passThreshold": 0.8,

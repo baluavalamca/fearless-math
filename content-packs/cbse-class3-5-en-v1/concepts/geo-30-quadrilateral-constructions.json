@@ -1,0 +1,380 @@
+{
+  "id": "geo-30-quadrilateral-constructions",
+  "name": "Practical Geometry — Constructing Quadrilaterals",
+  "grade": 7,
+  "strand": "geometry",
+  "prerequisites": [
+    "geo-29-polygon-quadrilaterals",
+    "geo-22-constructions"
+  ],
+  "whatIsIt": "A TRIANGLE can be built exactly from just 3 measurements (like SSS). A QUADRILATERAL needs FIVE independent measurements, because it can be split by one diagonal into TWO triangles — and building those two triangles, one after another, builds the whole quadrilateral. The most common case: given all 4 SIDES and 1 DIAGONAL, draw the first triangle using the diagonal and two sides (SSS), then draw the second triangle on the other side of the same diagonal using the remaining two sides.",
+  "whyNeeded": "Surveyors laying out a four-sided plot, carpenters framing a trapezoid window, and tailors cutting a kite-shaped panel all need to build an exact quadrilateral from a handful of measurements — this diagonal-splitting method is how it's done with just a compass and ruler, no protractor needed.",
+  "realLifeUses": [
+    "A surveyor plots a four-sided field from measured sides and one diagonal distance",
+    "A carpenter marks a trapezoid window frame from its side lengths",
+    "A kite-maker cuts an exact kite shape from its two diagonal lengths",
+    "A tile-setter constructs a rhombus tile from its side and one diagonal"
+  ],
+  "vocabulary": [
+    {
+      "term": "diagonal",
+      "meaning": "A line joining two opposite (non-adjacent) corners of a quadrilateral; it splits the quadrilateral into two triangles."
+    },
+    {
+      "term": "SSS construction",
+      "meaning": "Building a triangle from its three side lengths using compass arcs, with no angles given."
+    },
+    {
+      "term": "independent measurements",
+      "meaning": "The minimum set of side/angle/diagonal facts needed to fix a shape's size and form exactly — 3 for a triangle, 5 for a quadrilateral."
+    }
+  ],
+  "story": {
+    "title": "The Kite-Maker's Diagonal",
+    "characters": [
+      "Farhan",
+      "Bua"
+    ],
+    "text": "Farhan wants to build a kite shape exactly, but he only has the four side lengths and the length of one diagonal. 'Draw the diagonal first,' says Bua. 'It splits your kite into two triangles. Use the diagonal and two sides to draw the first triangle with your compass — arcs from each end. Then use the diagonal and the other two sides to draw the second triangle on the other side.' Farhan draws both triangles sharing the diagonal — and the kite appears, exact to the millimetre.",
+    "extractedProblem": "Given all 4 sides of a kite and one diagonal, how do you construct it exactly?",
+    "answerInStory": "Draw the diagonal, then build the two triangles on either side of it using SSS — the diagonal is the shared side of both triangles."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": {
+      "shapes": [
+        {
+          "kind": "rect",
+          "w": 4,
+          "h": 2,
+          "label": "diagonal splits a quadrilateral into 2 triangles"
+        }
+      ]
+    },
+    "caption": "One diagonal turns a hard 4-sided problem into two easy SSS triangle constructions."
+  },
+  "teachingGallery": [
+    {
+      "title": "Two triangles make a quadrilateral",
+      "note": "Every quadrilateral construction method reduces to drawing two triangles that share a diagonal or a side.",
+      "examples": [
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "triangle",
+                "label": "triangle 1: uses the diagonal + 2 sides"
+              }
+            ]
+          },
+          "caption": "First, build one triangle from the diagonal and two of the sides (SSS)."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "triangle",
+                "label": "triangle 2: uses the same diagonal + other 2 sides"
+              }
+            ]
+          },
+          "caption": "Then build the second triangle on the other side of the SAME diagonal."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "w": 3,
+                "h": 3,
+                "label": "rhombus from 1 side + 1 diagonal"
+              }
+            ]
+          },
+          "caption": "A rhombus needs only 1 side + 1 diagonal, since all 4 sides are already equal."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Given 4 sides and 1 diagonal: draw the diagonal, then build the two triangles that share it, one on each side, using SSS.",
+    "steps": [
+      "Draw the diagonal first as a straight segment of its given length — call its ends A and C.",
+      "From A and C, draw compass arcs using the two given sides that meet at B; where they cross is B.",
+      "From A and C, draw compass arcs using the other two given sides that meet at D; where they cross is D.",
+      "Join A-B-C-D-A — the quadrilateral is complete, built from two SSS triangles sharing diagonal AC."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "3 sides + 2 diagonals",
+      "whenToUse": "When both diagonals are given along with 3 sides, instead of 4 sides + 1 diagonal.",
+      "steps": [
+        "Draw one diagonal as a segment.",
+        "Use it with two adjacent sides to build the first triangle (SSS).",
+        "Use the SECOND diagonal, drawn from one already-placed vertex, together with the remaining side to fix the last vertex.",
+        "Join all four vertices in order to complete the quadrilateral."
+      ],
+      "example": "Given AC=6cm, BD=5cm, AB=4cm, BC=3cm, CD=4cm: build triangle ABC from AB, BC, AC (SSS), then use BD and CD to fix D."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Construct quadrilateral ABCD where AB=5cm, BC=4cm, CD=4cm, DA=3cm, and diagonal AC=6cm.",
+      "steps": [
+        "Draw diagonal AC = 6 cm.",
+        "From A, draw an arc of radius 5 cm (for AB); from C, draw an arc of radius 4 cm (for BC). They cross at B.",
+        "From A, draw an arc of radius 3 cm (for AD); from C, draw an arc of radius 4 cm (for CD). They cross at D (on the other side of AC).",
+        "Join A-B-C-D-A to complete the quadrilateral."
+      ],
+      "answer": "Quadrilateral ABCD built from two SSS triangles (ABC and ACD) sharing diagonal AC."
+    },
+    {
+      "problem": "How many independent measurements are needed to construct any quadrilateral exactly, and why?",
+      "steps": [
+        "A triangle needs 3 measurements (like SSS) to be fixed exactly.",
+        "A quadrilateral splits into 2 triangles by one diagonal.",
+        "Those two triangles share the diagonal itself, so together they need 3 + 3 − 1 = 5 independent measurements (the shared diagonal is only counted once)."
+      ],
+      "answer": "5 independent measurements"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "forgot-diagonal-first",
+      "mistake": "Trying to place all four sides directly without drawing the diagonal first, leading to a shape that doesn't close up correctly.",
+      "fix": "Always draw the DIAGONAL first — it becomes the shared side of the two triangles and anchors the whole construction."
+    },
+    {
+      "mistakeTag": "wrong-independent-count",
+      "mistake": "Assuming a quadrilateral needs only 4 measurements (just the 4 sides), like a triangle needs 3.",
+      "fix": "Four sides alone can flex into many different shapes (like a wobbly frame) — a quadrilateral needs a FIFTH measurement (a diagonal or an angle) to be fixed into one exact shape."
+    },
+    {
+      "mistakeTag": "vertex-wrong-side",
+      "mistake": "Placing the second triangle's new vertex on the SAME side of the diagonal as the first, collapsing the quadrilateral.",
+      "fix": "The two triangles must be on OPPOSITE sides of the shared diagonal, so the quadrilateral opens up into its proper four-sided shape."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "g30-e1",
+        "type": "number",
+        "q": "How many independent measurements are needed to construct any quadrilateral exactly?",
+        "answer": "5",
+        "hintLadder": [
+          "A triangle needs 3.",
+          "A quadrilateral is two triangles sharing one diagonal.",
+          "3 + 3 − 1 (shared diagonal) = 5."
+        ]
+      },
+      {
+        "id": "g30-e2",
+        "type": "mcq",
+        "q": "To construct a quadrilateral from its 4 sides and 1 diagonal, what should you draw FIRST?",
+        "options": [
+          {
+            "label": "The diagonal"
+          },
+          {
+            "label": "All four sides at once",
+            "mistakeTag": "forgot-diagonal-first"
+          }
+        ],
+        "answer": "The diagonal",
+        "hintLadder": [
+          "The diagonal becomes the shared side of two triangles.",
+          "It anchors both triangle constructions.",
+          "The diagonal."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "g30-m1",
+        "type": "mcq",
+        "q": "Why isn't 4 sides alone enough to fix a quadrilateral's exact shape?",
+        "options": [
+          {
+            "label": "Four sides can still flex into different shapes, like a wobbly frame"
+          },
+          {
+            "label": "Four sides is already one too many",
+            "mistakeTag": "wrong-independent-count"
+          }
+        ],
+        "answer": "Four sides can still flex into different shapes, like a wobbly frame",
+        "hintLadder": [
+          "Think of a rectangle frame with hinged corners.",
+          "You can push it sideways into a parallelogram without changing any side length.",
+          "It needs a 5th measurement (a diagonal or an angle) to lock the shape."
+        ]
+      },
+      {
+        "id": "g30-m2",
+        "type": "mcq",
+        "q": "The two triangles used to build a quadrilateral from a diagonal must be on…",
+        "options": [
+          {
+            "label": "Opposite sides of the diagonal"
+          },
+          {
+            "label": "The same side of the diagonal",
+            "mistakeTag": "vertex-wrong-side"
+          }
+        ],
+        "answer": "Opposite sides of the diagonal",
+        "hintLadder": [
+          "If both triangles were on the same side, the quadrilateral would collapse flat.",
+          "The diagonal splits the shape into two halves, one on each side.",
+          "Opposite sides."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "g30-c1",
+        "type": "mcq",
+        "q": "To construct a rhombus, why is only 1 side + 1 diagonal enough (fewer than the usual 5 measurements)?",
+        "options": [
+          {
+            "label": "Because all 4 sides of a rhombus are already known to be equal"
+          },
+          {
+            "label": "Because a rhombus doesn't need a diagonal",
+            "mistakeTag": "wrong-independent-count"
+          }
+        ],
+        "answer": "Because all 4 sides of a rhombus are already known to be equal",
+        "hintLadder": [
+          "A rhombus's special property already fixes 3 of the 4 side measurements for you.",
+          "You only need 1 side (all others match it) + 1 diagonal.",
+          "That's the special property doing the work."
+        ]
+      },
+      {
+        "id": "g30-c2",
+        "type": "number",
+        "q": "In the SSS-diagonal method for a quadrilateral ABCD with diagonal AC, the first triangle ABC uses AC and which 2 sides?",
+        "answer": "2",
+        "hintLadder": [
+          "Triangle ABC has three sides: AB, BC, and AC.",
+          "AC is the diagonal (already drawn); the other two sides of that triangle are AB and BC.",
+          "2 sides (AB and BC), plus the diagonal AC."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "g30-x1",
+        "type": "number",
+        "q": "How many independent measurements does a quadrilateral construction need?",
+        "answer": "5",
+        "hintLadder": [
+          "Two triangles share one diagonal.",
+          "3 + 3 − 1.",
+          "5."
+        ]
+      },
+      {
+        "id": "g30-x2",
+        "type": "mcq",
+        "q": "Given all 4 sides and 1 diagonal of a quadrilateral, the diagonal splits it into…",
+        "options": [
+          {
+            "label": "Two triangles, built by SSS"
+          },
+          {
+            "label": "Two quadrilaterals",
+            "mistakeTag": "forgot-diagonal-first"
+          }
+        ],
+        "answer": "Two triangles, built by SSS",
+        "hintLadder": [
+          "A diagonal joins two opposite corners.",
+          "That line splits a 4-sided shape into two 3-sided ones.",
+          "Two triangles."
+        ]
+      },
+      {
+        "id": "g30-x3",
+        "type": "mcq",
+        "q": "Reema builds both triangles of a quadrilateral on the SAME side of the diagonal. What happens?",
+        "options": [
+          {
+            "label": "The quadrilateral collapses — it doesn't open into a proper 4-sided shape"
+          },
+          {
+            "label": "Nothing, it still works fine",
+            "mistakeTag": "vertex-wrong-side"
+          }
+        ],
+        "answer": "The quadrilateral collapses — it doesn't open into a proper 4-sided shape",
+        "hintLadder": [
+          "The diagonal must have a triangle on EACH side.",
+          "Same-side triangles overlap instead of forming four corners.",
+          "It collapses."
+        ]
+      },
+      {
+        "id": "g30-x4",
+        "type": "mcq",
+        "q": "Why does a rhombus need fewer measurements (just 1 side + 1 diagonal) than a general quadrilateral (5 measurements)?",
+        "options": [
+          {
+            "label": "Its equal-sides property already fixes 3 of the 5 needed facts"
+          },
+          {
+            "label": "Rhombuses don't actually need any measurements",
+            "mistakeTag": "wrong-independent-count"
+          }
+        ],
+        "answer": "Its equal-sides property already fixes 3 of the 5 needed facts",
+        "hintLadder": [
+          "A rhombus is a special quadrilateral with a known property: all sides equal.",
+          "That property does some of the work for you.",
+          "It fixes 3 of the 5 facts, leaving just 1 side + 1 diagonal to give."
+        ]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw any diagonal on paper, then show a grown-up how you'd build a triangle on each side of it using a ruler (pretend compass) to make a 4-sided shape. Explain why a quadrilateral needs 5 measurements but a triangle only needs 3.",
+  "revisionCard": {
+    "summary": "A quadrilateral needs 5 independent measurements (a triangle needs 3). Standard method: draw the diagonal first, then build a triangle (SSS) on EACH side of it. Special quadrilaterals (rhombus, etc.) need fewer measurements because their properties already fix some facts.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 8 (Practical Geometry — constructing quadrilaterals)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "A quadrilateral needs 5 measurements: draw the diagonal first, then build a triangle (SSS) on each side of it.",
+    "unpack": "Triangle needs 3 measurements; quadrilateral needs 5 (two triangles sharing one diagonal: 3+3−1). Special shapes like a rhombus need fewer because their properties fix some facts for you."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why does a quadrilateral need 5 measurements and not 4?",
+      "a": "Four sides alone can still flex into different shapes, like a hinged frame. A 5th fact (a diagonal or an angle) locks the shape into one exact form."
+    },
+    {
+      "q": "What's the very first thing to draw when constructing a quadrilateral from 4 sides + 1 diagonal?",
+      "a": "The diagonal itself — it becomes the shared side of the two triangles you'll build, one on each side of it."
+    }
+  ]
+}

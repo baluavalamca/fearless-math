@@ -1,4 +1,5 @@
 import { useEffect, useState, lazy, Suspense } from "react";
+import { ChevronUp, X } from "lucide-react";
 import { api, Concept, ConceptCard, Profile } from "./api";
 import { WorldMap } from "./screens/WorldMap";
 import { LessonPlayer } from "./screens/LessonPlayer";
@@ -7,6 +8,7 @@ import { AskRobo } from "./screens/AskRobo";
 import { FunFacts } from "./screens/FunFacts";
 import { Dictionary } from "./screens/Dictionary";
 import { Algorithms } from "./screens/Algorithms";
+import { TipsAndTricks } from "./screens/TipsAndTricks";
 import { ParentDashboard } from "./screens/ParentDashboard";
 import { Onboarding } from "./screens/Onboarding";
 // Heavy calculator/tool popups are code-split into their own chunks so the main
@@ -18,7 +20,7 @@ import { Emoji3D } from "./components/ObjectIcon";
 import { RoboAvatar } from "./components/RoboAvatar";
 import { isAutoRead, setAutoRead, stopSpeaking, setSpeechLang } from "./speech";
 
-type Screen = "map" | "clinic" | "ask" | "facts" | "algos" | "dict" | "parent";
+type Screen = "map" | "clinic" | "ask" | "facts" | "tricks" | "algos" | "dict" | "parent";
 
 /* Navigation is split in two:
  *  TOP  — the two everyday destinations a learner uses constantly.
@@ -31,6 +33,7 @@ const TOP_NAV: { id: Screen; icon: string; label: string }[] = [
 const MENU_NAV: { id: Screen; icon: string; label: string; sub: string }[] = [
   { id: "ask", icon: "🤖", label: "Ask Robo", sub: "Your AI maths tutor" },
   { id: "facts", icon: "💡", label: "Fun Facts", sub: "200 maths wonders" },
+  { id: "tricks", icon: "🪄", label: "Tips & Tricks", sub: "Fast mental maths" },
   { id: "algos", icon: "🧠", label: "Algorithms", sub: "Must-know algorithms" },
   { id: "dict", icon: "📖", label: "Dictionary", sub: "EN · తెలుగు · हिंदी" },
   { id: "parent", icon: "👨‍👩‍👧", label: "Parents", sub: "Progress & settings" },
@@ -242,6 +245,7 @@ export default function App() {
       {screen === "clinic" && <MistakeClinic />}
       {screen === "ask" && <AskRobo profile={profile} concepts={concepts ?? []} onOpen={openConcept} seed={askSeed} onSeedConsumed={() => setAskSeed(null)} />}
       {screen === "facts" && <FunFacts lang={lang} />}
+      {screen === "tricks" && <TipsAndTricks />}
       {screen === "algos" && <Algorithms />}
       {screen === "dict" && <Dictionary lang={lang} />}
       {screen === "parent" && <ParentDashboard autoUnlock={profile.role !== "student"} />}
@@ -252,7 +256,7 @@ export default function App() {
         aria-haspopup="dialog" aria-expanded={menu} title="Open the menu">
         <Emoji3D char="🦊" size={22} />
         <span className="fm-dock-cur">{here.icon} {here.label}</span>
-        <span className="fm-dock-caret" aria-hidden>▴</span>
+        <span className="fm-dock-caret" aria-hidden><ChevronUp size={16} /></span>
       </button>
 
       {menu && (
@@ -262,7 +266,7 @@ export default function App() {
             <div className="fm-menu-grip" aria-hidden />
             <div className="fm-menu-head">
               <span className="fm-brand"><Emoji3D char="🦊" size={22} /> FearlessMath</span>
-              <button className="fm-menu-x" onClick={() => setMenu(false)} aria-label="Close menu">✕</button>
+              <button className="fm-menu-x" onClick={() => setMenu(false)} aria-label="Close menu"><X size={18} /></button>
             </div>
 
             <p className="fm-menu-sec">Explore</p>

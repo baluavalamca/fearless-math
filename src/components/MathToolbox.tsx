@@ -5,6 +5,7 @@
  * Everything works offline.
  */
 import { useEffect, useRef, useState } from "react";
+import { ChevronDown, ChevronUp, X } from "lucide-react";
 import { VisualRenderer, VisualSpec } from "./VisualRenderer";
 import { SpeakButton } from "./SpeakButton";
 import { Emoji3D } from "./ObjectIcon";
@@ -45,9 +46,9 @@ const HELP: Record<ToolId, { what: string; use: string[]; tip: string }> = {
     tip: "π gives 3.14159…, and % turns a number into hundredths.",
   },
   abacus: {
-    what: "A bead frame that shows a number by place value: Thousands, Hundreds, Tens and Ones.",
-    use: ["Each coloured rod is one place.", "Tap a bead to slide beads across — the digit (0–9) shows on the right.", "The big number on top is the total.", "Tap 'Clear all' to reset to zero."],
-    tip: "See how 2 hundreds + 3 tens + 5 ones makes 235.",
+    what: "A bead frame that shows a number by place value — all the way up, the Indian way: Crores, Ten Lakhs, Lakhs, Ten Thousands, Thousands, Hundreds, Tens and Ones.",
+    use: ["Each coloured rod is one place.", "Tap a bead to slide beads across — the digit (0–9) shows on the right.", "The big number on top is the total, shown with Indian commas (e.g. 12,34,567).", "Tap 'Clear all' to reset to zero."],
+    tip: "1 lakh = 1,00,000 · 1 crore = 1,00,00,000 = 100 lakh. Build one bead at a time and watch the total grow.",
   },
   counters: {
     what: "Two ten-frames to count and picture numbers up to 20.",
@@ -176,7 +177,7 @@ export function MathToolbox() {
         <div className="fm-toolbox-sheet" role="dialog" aria-label="Math tools">
           <div className="fm-toolbox-top">
             <h2>🧰 Math Tools</h2>
-            <button className="fm-modal-x" aria-label="Close tools" onClick={() => setOpen(false)}>✕</button>
+            <button className="fm-modal-x" aria-label="Close tools" onClick={() => setOpen(false)}><X size={18} /></button>
           </div>
           <div className="fm-toolbox-main">
             <nav className="fm-tool-rail" aria-label="Choose a tool">
@@ -193,7 +194,7 @@ export function MathToolbox() {
                   <span><Emoji3D char={active.icon} size={22} /> {active.label}</span>
                   <button className={`fm-tool-info ${showHelp ? "on" : ""}`} onClick={() => setShowHelp((v) => !v)}
                     aria-label={showHelp ? "Hide the how-to-use steps" : "Show the how-to-use steps"} title={showHelp ? "Hide steps" : "How to use this tool"}>
-                    {showHelp ? "Hide steps ▲" : "How to use ▾"}
+                    {showHelp ? <>Hide steps <ChevronUp size={14} /></> : <>How to use <ChevronDown size={14} /></>}
                   </button>
                 </header>
                 <div className="fm-tool-card-body">
@@ -367,21 +368,31 @@ function SciCalc() {
   );
 }
 
-/* ---------------- Abacus — place-value bead frame (Th / H / T / O) ---------------- */
+/* ---------------- Abacus — Indian place-value bead frame (Crore … Ones) ----------------
+ * Full Indian numbering system: after Thousands comes Ten Thousands, then the
+ * Indian-only places — Lakh, Ten Lakh, Crore — instead of stopping at Thousands
+ * the way a Western place-value frame would. Order is highest-to-lowest place so
+ * kids read the rods top-to-bottom exactly like they'd write the number left-to-right,
+ * and the live total renders with Indian comma grouping (12,34,56,789). */
 function AbacusTool() {
   const rods = [
+    { key: "cr", label: "Crores", place: 10000000, color: "#7c3aed" },
+    { key: "tl", label: "Ten Lakhs", place: 1000000, color: "#0891b2" },
+    { key: "lk", label: "Lakhs", place: 100000, color: "#db2777" },
+    { key: "tth", label: "Ten Thousands", place: 10000, color: "#b45309" },
     { key: "th", label: "Thousands", place: 1000, color: "#2f7bd6" },
     { key: "h", label: "Hundreds", place: 100, color: "#3fae4a" },
     { key: "t", label: "Tens", place: 10, color: "#f0a132" },
     { key: "o", label: "Ones", place: 1, color: "#e2352f" },
   ];
-  const [counts, setCounts] = useState<Record<string, number>>({ th: 0, h: 2, t: 3, o: 5 });
+  const emptyCounts = Object.fromEntries(rods.map((r) => [r.key, 0])) as Record<string, number>;
+  const [counts, setCounts] = useState<Record<string, number>>({ ...emptyCounts, h: 2, t: 3, o: 5 });
   const total = rods.reduce((s, r) => s + counts[r.key] * r.place, 0);
   const setRod = (k: string, n: number) => setCounts((p) => ({ ...p, [k]: n }));
   return (
     <div className="fm-tool-col">
       <div className="fm-abacus-total">{total.toLocaleString("en-IN")}</div>
-      <p className="fm-tool-hint">Each rod is a place. Tap a bead to slide beads across (0–9 per rod).</p>
+      <p className="fm-tool-hint">Each rod is a place — all the way up to Crores, the Indian way. Tap a bead to slide it across (0–9 per rod).</p>
       <div className="fm-pvab">
         {rods.map((r) => {
           const active = counts[r.key];
@@ -406,7 +417,7 @@ function AbacusTool() {
           );
         })}
       </div>
-      <button className="fm-chip" onClick={() => setCounts({ th: 0, h: 0, t: 0, o: 0 })}>Clear all</button>
+      <button className="fm-chip" onClick={() => setCounts(emptyCounts)}>Clear all</button>
     </div>
   );
 }

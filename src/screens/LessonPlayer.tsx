@@ -4,6 +4,7 @@
  * The method switcher is the runtime face of the Methodology Engine.
  */
 import { Fragment, useEffect, useMemo, useState } from "react";
+import { ArrowLeft, ArrowRight, Check, ChevronDown } from "lucide-react";
 import { AiStatus, Concept, aiUsable, api } from "../api";
 import { VisualRenderer, VisualSpec } from "../components/VisualRenderer";
 import { SpeakButton } from "../components/SpeakButton";
@@ -199,7 +200,7 @@ export function LessonPlayer({
   return (
     <div className="fm-lesson">
       <header className="fm-lesson-head">
-        <button className="fm-back" onClick={onExit}>← Grove</button>
+        <button className="fm-back" onClick={onExit}><ArrowLeft size={16} /> Grove</button>
         {concept.gameMission?.character && (
           <Character
             name={concept.gameMission.character}
@@ -235,7 +236,7 @@ export function LessonPlayer({
                   className={`fm-step ${i < stepIdx ? "done" : i === stepIdx ? "current" : "todo"}`}
                   onClick={() => setTab(t.id)}
                 >
-                  <span className="fm-step-dot">{i < stepIdx ? "✓" : i + 1}</span>
+                  <span className="fm-step-dot">{i < stepIdx ? <Check size={14} /> : i + 1}</span>
                   <span className="fm-step-label">{STEP_NAME[t.id] ?? t.label}</span>
                 </button>
               </Fragment>
@@ -266,11 +267,18 @@ export function LessonPlayer({
                   )}
                   <p className="fm-bubble fm-story">{concept.story.text}</p>
                 </div>
+                {/* A small, deterministic picture of THIS concept's own visual — not a
+                    freeform AI illustration — so what's shown always matches the lesson. */}
+                {concept.visual && (
+                  <div className="fm-story-visual">
+                    <VisualRenderer visual={concept.visual} />
+                  </div>
+                )}
                 <div className="fm-callout">
                   <strong>The math inside the story:</strong> {concept.story.extractedProblem}
                   <br /><strong>Answer:</strong> {concept.story.answerInStory}
                 </div>
-                <button className="fm-picture-btn" onClick={() => setImgStyle("story")}>✨ Picture this story</button>
+                <button className="fm-picture-btn" onClick={() => setImgStyle("story")}>✨ Draw an AI picture of this story (optional)</button>
               </article>
             )}
             {tab === "gallery" && (
@@ -375,7 +383,7 @@ export function LessonPlayer({
                   <details className="fm-way-card" key={i} open={i === 0}>
                     <summary className="fm-way-summary">
                       <span className="fm-way-title">{m.kind} · {m.name}</span>
-                      <span className="fm-way-chev">▾</span>
+                      <span className="fm-way-chev"><ChevronDown size={16} /></span>
                     </summary>
                     <div className="fm-way-body">
                       <p className="fm-way-when">👉 <strong>Use this when:</strong> {m.whenToUse}</p>
@@ -460,10 +468,10 @@ export function LessonPlayer({
               return (
                 <>
                   <button className="fm-secondary" disabled={ci <= 0}
-                    onClick={() => { if (ci > 0) setTab(tabs[ci - 1].id); }}>← Back</button>
+                    onClick={() => { if (ci > 0) setTab(tabs[ci - 1].id); }}><ArrowLeft size={16} /> Back</button>
                   <span className="fm-foot-spacer" />
                   {ci < tabs.length - 1
-                    ? <button className="fm-primary" onClick={() => setTab(tabs[ci + 1].id)}>Next →</button>
+                    ? <button className="fm-primary" onClick={() => setTab(tabs[ci + 1].id)}>Next <ArrowRight size={16} /></button>
                     : <button className="fm-primary" onClick={startPractice}>I'm ready to try! ✏️</button>}
                 </>
               );
@@ -544,7 +552,7 @@ function StepReveal({ steps }: { steps: string[] }) {
     <div>
       <ol>{steps.slice(0, shown).map((s, i) => <li key={i}>{s}</li>)}</ol>
       {shown < steps.length && (
-        <button className="fm-secondary" onClick={() => setShown(shown + 1)}>Next step →</button>
+        <button className="fm-secondary" onClick={() => setShown(shown + 1)}>Next step <ArrowRight size={16} /></button>
       )}
     </div>
   );

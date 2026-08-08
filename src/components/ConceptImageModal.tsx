@@ -5,6 +5,7 @@
  * instantly instead of regenerating. Degrades gracefully with no API key.
  */
 import { useEffect, useState } from "react";
+import { X } from "lucide-react";
 import { Concept, MediaStatus, api } from "../api";
 import { speak, stopSpeaking, isSpeechAvailable } from "../speech";
 
@@ -133,7 +134,7 @@ export function ConceptImageModal({
       <div className="fm-modal fm-img-modal" onClick={(e) => e.stopPropagation()}>
         <div className="fm-modal-head">
           <h2>✨ Picture it — {concept.name}</h2>
-          <button className="fm-modal-x" aria-label="Close" onClick={onClose}>✕</button>
+          <button className="fm-modal-x" aria-label="Close" onClick={onClose}><X size={18} /></button>
         </div>
 
         <div className="fm-img-styles">

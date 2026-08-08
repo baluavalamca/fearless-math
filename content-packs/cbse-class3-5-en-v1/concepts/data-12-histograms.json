@@ -1,0 +1,384 @@
+{
+  "id": "data-12-histograms",
+  "name": "Histograms — Bars for Continuous Data",
+  "grade": 7,
+  "strand": "data",
+  "prerequisites": [
+    "data-01-bar-graphs",
+    "data-06-statistics"
+  ],
+  "whatIsIt": "A HISTOGRAM looks like a bar graph but is used for CONTINUOUS (measured) data grouped into equal CLASS INTERVALS, like heights 140-145cm, 145-150cm, 150-155cm. Because the data flows continuously from one interval into the next, histogram bars TOUCH with no gaps — unlike a bar graph, whose bars represent separate categories (like fruit names) and always have gaps between them.",
+  "whyNeeded": "Doctors group patient heights or weights into ranges; teachers group exam marks into bands (0-20, 20-40...); weather stations group daily temperatures into ranges. Whenever data is measured (not counted as separate categories), a histogram is the right way to see how it's spread out.",
+  "realLifeUses": [
+    "Grouping a class's exam marks into bands: 0-20, 20-40, 40-60, 60-80, 80-100",
+    "Showing how many days in a month fell into each temperature range",
+    "Grouping people's heights into 10cm bands for a clothing size study",
+    "Showing delivery times grouped into 5-minute intervals for a food app"
+  ],
+  "vocabulary": [
+    {
+      "term": "class interval",
+      "meaning": "An equal-width range that groups continuous data, like 20-40 or 40-60."
+    },
+    {
+      "term": "frequency",
+      "meaning": "How many data values fall inside a class interval."
+    },
+    {
+      "term": "continuous data",
+      "meaning": "Data that can take any value in a range (like height or time), as opposed to separate categories (like fruit names)."
+    }
+  ],
+  "story": {
+    "title": "The Marks Band Report",
+    "characters": [
+      "Ms. Iyer",
+      "Karan"
+    ],
+    "text": "Ms. Iyer has 30 students' exam marks and wants to show how many scored in each band. 'A bar graph for fruit votes has gaps between bars because mango and banana are separate things,' she explains. 'But marks flow continuously from 0 to 100 — so I group them into bands of 20, and draw the bars TOUCHING, because 20 flows straight into the next band starting at 20.' Karan counts: 0-20 has 2 students, 20-40 has 5, 40-60 has 12, 60-80 has 8, 80-100 has 3. The touching bars show the whole class 'bunched up' in the middle band.",
+    "extractedProblem": "30 students' marks are grouped into bands of 20 (0-20, 20-40, 40-60, 60-80, 80-100). Why do the histogram bars touch, unlike a fruit bar graph?",
+    "answerInStory": "Because marks are continuous — 40-60 flows directly into 60-80 with no gap in between, so the bars touch to show that."
+  },
+  "visual": {
+    "component": "BarChart",
+    "props": {
+      "categories": [
+        {
+          "label": "0-20",
+          "value": 2
+        },
+        {
+          "label": "20-40",
+          "value": 5
+        },
+        {
+          "label": "40-60",
+          "value": 12
+        },
+        {
+          "label": "60-80",
+          "value": 8
+        },
+        {
+          "label": "80-100",
+          "value": 3
+        }
+      ],
+      "unit": "students"
+    },
+    "caption": "Each bar's WIDTH is a class interval (0-20, 20-40...) and its HEIGHT is the frequency — how many students scored in that band. In a real histogram these bars touch, since the marks flow continuously from one band into the next."
+  },
+  "teachingGallery": [
+    {
+      "title": "Bar graph vs histogram",
+      "note": "Same-looking bars, very different meaning — gaps vs no gaps tells you which one you're looking at.",
+      "examples": [
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "mango",
+                "value": 12,
+                "icon": "🥭"
+              },
+              {
+                "label": "banana",
+                "value": 8,
+                "icon": "🍌"
+              }
+            ],
+            "unit": "votes"
+          },
+          "caption": "Bar graph: separate CATEGORIES (fruit names) — bars have gaps between them."
+        },
+        {
+          "component": "BarChart",
+          "props": {
+            "categories": [
+              {
+                "label": "10-15°C",
+                "value": 4
+              },
+              {
+                "label": "15-20°C",
+                "value": 9
+              },
+              {
+                "label": "20-25°C",
+                "value": 6
+              }
+            ],
+            "unit": "days"
+          },
+          "caption": "Histogram: CONTINUOUS temperature ranges — bars touch with no gaps, since 15°C flows straight into the next band."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Group the continuous data into equal class intervals, count how many values fall in each (the frequency), then draw touching bars whose heights are those frequencies.",
+    "steps": [
+      "Choose equal-width class intervals that cover the full range of the data (e.g. 0-20, 20-40, 40-60...).",
+      "Count how many data values fall into each interval — this is the frequency.",
+      "Draw bars for each interval: width = the interval, height = the frequency.",
+      "Draw the bars TOUCHING each other (no gaps), since the intervals flow continuously into one another."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "10 plants have heights (cm): 12, 18, 22, 25, 31, 33, 38, 41, 44, 47. Group into class intervals of 10 (10-20, 20-30, 30-40, 40-50) and find each frequency.",
+      "steps": [
+        "10-20: 12, 18 → frequency 2.",
+        "20-30: 22, 25 → frequency 2.",
+        "30-40: 31, 33, 38 → frequency 3.",
+        "40-50: 41, 44, 47 → frequency 3."
+      ],
+      "answer": "10-20: 2, 20-30: 2, 30-40: 3, 40-50: 3"
+    },
+    {
+      "problem": "A histogram of delivery times has a very tall bar for 20-25 minutes and short bars on either side. What does this shape tell you?",
+      "steps": [
+        "Most deliveries cluster tightly around the 20-25 minute band — that's where the tall bar is.",
+        "Few deliveries are much faster or much slower than that band, shown by the short bars.",
+        "The data is concentrated near 20-25 minutes, with little spread."
+      ],
+      "answer": "Most delivery times fall between 20-25 minutes; very few are much faster or slower."
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "gaps-in-histogram",
+      "mistake": "Drawing gaps between histogram bars, as if it were a bar graph of separate categories.",
+      "fix": "Histogram bars must TOUCH — the class intervals flow continuously into one another, unlike separate categories in a bar graph."
+    },
+    {
+      "mistakeTag": "unequal-class-widths",
+      "mistake": "Using class intervals of different widths (like 0-10, 10-30, 30-40) without adjusting, making bar heights misleading.",
+      "fix": "Keep every class interval the SAME width (e.g. all bands of 20) so bar heights can be compared fairly."
+    },
+    {
+      "mistakeTag": "histogram-vs-bargraph-confused",
+      "mistake": "Using a histogram for categorical data (like favourite fruit) instead of a bar graph.",
+      "fix": "Use a histogram only for CONTINUOUS, measured data grouped into ranges. Use a bar graph for separate categories like fruit names or colours."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "d12-e1",
+        "type": "mcq",
+        "q": "In a histogram, the bars…",
+        "options": [
+          {
+            "label": "Touch each other with no gaps"
+          },
+          {
+            "label": "Have gaps between them",
+            "mistakeTag": "gaps-in-histogram"
+          }
+        ],
+        "answer": "Touch each other with no gaps",
+        "hintLadder": [
+          "Histograms show continuous, flowing data.",
+          "One class interval flows straight into the next.",
+          "The bars touch."
+        ]
+      },
+      {
+        "id": "d12-e2",
+        "type": "mcq",
+        "q": "Which is the right chart for showing exam marks grouped into bands of 20?",
+        "options": [
+          {
+            "label": "A histogram"
+          },
+          {
+            "label": "A bar graph of fruit names",
+            "mistakeTag": "histogram-vs-bargraph-confused"
+          }
+        ],
+        "answer": "A histogram",
+        "hintLadder": [
+          "Marks are continuous, measured data.",
+          "Grouped into equal-width bands.",
+          "A histogram."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "d12-m1",
+        "type": "number",
+        "q": "Heights 14, 19, 23, 27 fall into class intervals 10-20 and 20-30. What is the frequency of the 10-20 interval?",
+        "answer": "2",
+        "hintLadder": [
+          "Which values are between 10 and 20?",
+          "14 and 19 are in that range.",
+          "2."
+        ]
+      },
+      {
+        "id": "d12-m2",
+        "type": "mcq",
+        "q": "A histogram's class intervals should be…",
+        "options": [
+          {
+            "label": "All the same width"
+          },
+          {
+            "label": "Any width you like",
+            "mistakeTag": "unequal-class-widths"
+          }
+        ],
+        "answer": "All the same width",
+        "hintLadder": [
+          "If widths differ, tall bars could just mean a wider band, not more data.",
+          "Equal widths keep the comparison fair.",
+          "All the same width."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "d12-c1",
+        "type": "number",
+        "q": "Marks 5, 15, 25, 35, 45, 55, 65 are grouped into bands of 20 (0-20, 20-40, 40-60, 60-80). How many marks fall in the 40-60 band?",
+        "answer": "2",
+        "hintLadder": [
+          "List which of the marks are ≥40 and <60.",
+          "45 and 55 are in that range.",
+          "2."
+        ]
+      },
+      {
+        "id": "d12-c2",
+        "type": "mcq",
+        "q": "A histogram has a very tall bar in the middle band and short bars on both sides. What does that shape tell you?",
+        "options": [
+          {
+            "label": "Most of the data is concentrated near the middle band"
+          },
+          {
+            "label": "The data is spread out evenly",
+            "mistakeTag": "unequal-class-widths"
+          }
+        ],
+        "answer": "Most of the data is concentrated near the middle band",
+        "hintLadder": [
+          "Taller bar = more data values in that band.",
+          "One very tall bar means most values cluster there.",
+          "Most of the data is concentrated near the middle."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "d12-x1",
+        "type": "mcq",
+        "q": "What's the main visual difference between a histogram and a bar graph?",
+        "options": [
+          {
+            "label": "Histogram bars touch; bar graph bars have gaps"
+          },
+          {
+            "label": "There is no difference",
+            "mistakeTag": "histogram-vs-bargraph-confused"
+          }
+        ],
+        "answer": "Histogram bars touch; bar graph bars have gaps",
+        "hintLadder": [
+          "One is for continuous data, one is for separate categories.",
+          "Continuous data flows, so its bars touch.",
+          "Histogram bars touch; bar graph bars have gaps."
+        ]
+      },
+      {
+        "id": "d12-x2",
+        "type": "number",
+        "q": "Marks 8, 12, 22, 28, 33 are grouped into bands of 10 (0-10, 10-20, 20-30, 30-40). What is the frequency of the 20-30 band?",
+        "answer": "2",
+        "hintLadder": [
+          "Which values are ≥20 and <30?",
+          "22 and 28.",
+          "2."
+        ]
+      },
+      {
+        "id": "d12-x3",
+        "type": "mcq",
+        "q": "Should histogram class intervals all be the same width?",
+        "options": [
+          {
+            "label": "Yes, for a fair comparison"
+          },
+          {
+            "label": "No, any widths work",
+            "mistakeTag": "unequal-class-widths"
+          }
+        ],
+        "answer": "Yes, for a fair comparison",
+        "hintLadder": [
+          "Different widths make bar heights misleading.",
+          "Equal widths keep it fair.",
+          "Yes."
+        ]
+      },
+      {
+        "id": "d12-x4",
+        "type": "mcq",
+        "q": "Should you use a histogram for 'favourite colour' survey data?",
+        "options": [
+          {
+            "label": "No — that's separate categories, use a bar graph instead"
+          },
+          {
+            "label": "Yes, histograms work for any data",
+            "mistakeTag": "histogram-vs-bargraph-confused"
+          }
+        ],
+        "answer": "No — that's separate categories, use a bar graph instead",
+        "hintLadder": [
+          "Favourite colour is categorical, not continuous.",
+          "Histograms are for measured, continuous data.",
+          "No — use a bar graph."
+        ]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Take a set of numbers (like the ages of everyone in your family, or your last 10 test scores) and group them into equal bands. Draw the touching bars to a grown-up and explain why a histogram's bars touch while a bar graph's bars don't.",
+  "revisionCard": {
+    "summary": "Histogram: for CONTINUOUS data grouped into equal-width class intervals; bars TOUCH (no gaps). Bar graph: for separate CATEGORIES; bars have gaps. Frequency = how many values fall in each interval. Keep all class widths equal for a fair comparison.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 8 (Data Handling — histograms); revisited in Class 9-11 statistics",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Histogram = bar graph for continuous data, grouped into equal class intervals — bars TOUCH.",
+    "unpack": "Frequency = count of values per interval. Bar graph (categories) has gaps; histogram (continuous data) has none. Keep class widths equal for a fair picture."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why do histogram bars touch but bar graph bars don't?",
+      "a": "Histogram bars represent continuous data (like marks or heights) that flows from one interval straight into the next, so there's no real gap. Bar graph bars represent separate categories (like fruit names), which have nothing in between them."
+    },
+    {
+      "q": "What happens if I use different class-interval widths in one histogram?",
+      "a": "The bar heights become misleading — a wider band naturally catches more values even if the data isn't actually denser there. Keep every interval the same width for a fair comparison."
+    }
+  ]
+}

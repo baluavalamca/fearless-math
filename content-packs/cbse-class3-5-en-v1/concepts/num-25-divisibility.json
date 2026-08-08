@@ -6,7 +6,7 @@
   "prerequisites": [
     "num-16-factors-multiples"
   ],
-  "whatIsIt": "Divisibility rules let you tell if one number divides another EXACTLY, without doing the full division. By 2: even last digit. By 5: ends in 0 or 5. By 10: ends in 0. By 3: digit sum divisible by 3. By 9: digit sum divisible by 9. By 4: last two digits divisible by 4. By 6: divisible by 2 AND 3.",
+  "whatIsIt": "Divisibility rules let you tell if one number divides another EXACTLY, without doing the full division. By 2: even last digit. By 5: ends in 0 or 5. By 10: ends in 0. By 3: digit sum divisible by 3. By 9: digit sum divisible by 9. By 4: last two digits divisible by 4. By 6: divisible by 2 AND 3. By 11: the ALTERNATING digit sum (add and subtract digits in turn, right to left) is 0 or divisible by 11.",
   "whyNeeded": "These quick checks make factoring, simplifying fractions and mental maths fast. Instead of long division you glance at the number and know — a real time-saver for the rest of maths.",
   "realLifeUses": [
     "Sharing 126 sweets equally among 3 or 6 friends — will it be even?",
@@ -26,6 +26,10 @@
     {
       "term": "even number",
       "meaning": "A number ending in 0, 2, 4, 6 or 8 (divisible by 2)."
+    },
+    {
+      "term": "alternating sum",
+      "meaning": "Add and subtract digits by turns from the right (for 11): + first digit − next + next − next..."
     }
   ],
   "story": {
@@ -129,7 +133,8 @@
       "By 2, 5, 10: look at the LAST digit (even; 0 or 5; 0).",
       "By 3 or 9: add the digits; if the sum divides by 3 (or 9), so does the number.",
       "By 4: check if the last TWO digits divide by 4.",
-      "By 6: it must pass BOTH the 2-rule and the 3-rule."
+      "By 6: it must pass BOTH the 2-rule and the 3-rule.",
+      "By 11: from the right, add and subtract digits by turns; if that total is 0 or a multiple of 11, so is the number."
     ]
   },
   "workedExamples": [
@@ -150,6 +155,16 @@
         "So 128 is divisible by 4."
       ],
       "answer": "yes"
+    },
+    {
+      "problem": "Is 2453 divisible by 11?",
+      "steps": [
+        "Write the alternating sum from the right: 3 − 5 + 4 − 2.",
+        "3 − 5 + 4 − 2 = 0.",
+        "0 is a multiple of 11 (0 × 11), so 2453 IS divisible by 11.",
+        "Check: 2453 ÷ 11 = 223 exactly."
+      ],
+      "answer": "yes"
     }
   ],
   "commonMistakes": [
@@ -162,6 +177,11 @@
       "mistakeTag": "six-only-one-check",
       "mistake": "Saying a number divides by 6 after checking only the 2-rule (or only the 3-rule).",
       "fix": "By 6 you need BOTH: divisible by 2 AND by 3. Check both."
+    },
+    {
+      "mistakeTag": "plain-sum-not-alternating",
+      "mistake": "Using the plain digit sum for the 11-rule (like the 3-rule or 9-rule), instead of adding and subtracting digits by turns.",
+      "fix": "The 11-rule is different — it's an ALTERNATING sum (+, −, +, −...), not a plain sum. For 2453: 3 − 5 + 4 − 2 = 0, not 2+4+5+3 = 14."
     }
   ],
   "practice": {
@@ -289,6 +309,26 @@
           "1 + 3 = 4.",
           "Not divisible by 3."
         ]
+      },
+      {
+        "id": "n25-c3",
+        "type": "mcq",
+        "q": "Is 9856 divisible by 11? (alternating sum from the right: 6 − 5 + 8 − 9)",
+        "options": [
+          {
+            "label": "No — the plain digit sum 9+8+5+6 = 28 isn't a multiple of 11",
+            "mistakeTag": "plain-sum-not-alternating"
+          },
+          {
+            "label": "Yes — the alternating sum is 0"
+          }
+        ],
+        "answer": "Yes — the alternating sum is 0",
+        "hintLadder": [
+          "Alternate +/− from the right, don't just add every digit.",
+          "6 − 5 + 8 − 9 = 0.",
+          "0 is a multiple of 11, so yes."
+        ]
       }
     ]
   },
@@ -373,6 +413,26 @@
           "Need both rules.",
           "2 and 3."
         ]
+      },
+      {
+        "id": "n25-x5",
+        "type": "mcq",
+        "q": "Is 1331 divisible by 11? (alternating sum from the right: 1 − 3 + 3 − 1)",
+        "options": [
+          {
+            "label": "Yes — the alternating sum is 0"
+          },
+          {
+            "label": "No",
+            "mistakeTag": "plain-sum-not-alternating"
+          }
+        ],
+        "answer": "Yes — the alternating sum is 0",
+        "hintLadder": [
+          "Alternate +, −, +, − from the right.",
+          "1 − 3 + 3 − 1 = 0.",
+          "0 is a multiple of 11, so yes."
+        ]
       }
     ],
     "passThreshold": 0.75,
@@ -380,7 +440,7 @@
   },
   "teachBackPrompt": "Give a grown-up a 3-digit number and quickly say which of 2, 3, 5, 9 and 10 divide it — then prove one with the actual division. Explain the digit-sum trick for 3 and 9.",
   "revisionCard": {
-    "summary": "÷2: even last digit. ÷5: ends 0 or 5. ÷10: ends 0. ÷3: digit sum ÷3. ÷9: digit sum ÷9. ÷4: last two digits ÷4. ÷6: passes BOTH 2 and 3. Use digit SUM for 3 and 9 (not the last digit).",
+    "summary": "÷2: even last digit. ÷5: ends 0 or 5. ÷10: ends 0. ÷3: digit sum ÷3. ÷9: digit sum ÷9. ÷4: last two digits ÷4. ÷6: passes BOTH 2 and 3. ÷11: alternating sum (+,−,+,−...) is 0 or ÷11. Use digit SUM for 3 and 9, ALTERNATING sum for 11 (not the last digit).",
     "reviewAfterDays": [
       3,
       7,
@@ -396,8 +456,8 @@
     "reviewedBy": ""
   },
   "rememberIt": {
-    "hook": "Quick tests: 2 (even), 3 (digit sum /3), 5 (ends 0 or 5), 9 (digit sum /9), 10 (ends 0)",
-    "unpack": "4: last two digits /4. 6: divisible by 2 AND 3. 8: last three digits /8."
+    "hook": "Quick tests: 2 (even), 3 (digit sum /3), 5 (ends 0 or 5), 9 (digit sum /9), 10 (ends 0), 11 (alternating sum /11)",
+    "unpack": "4: last two digits /4. 6: divisible by 2 AND 3. 8: last three digits /8. 11: from the right, + − + − the digits; total 0 or a multiple of 11 means yes."
   },
   "studentQuestions": [
     {
@@ -407,6 +467,10 @@
     {
       "q": "How do I check divisible by 6?",
       "a": "It must pass BOTH the 2-rule (even) and the 3-rule (digit sum divisible by 3)."
+    },
+    {
+      "q": "How is the rule for 11 different from the rule for 3 or 9?",
+      "a": "For 3 and 9 you add ALL digits together. For 11 you alternate + and − as you go, starting from the right: e.g. for 2453 it's 3 − 5 + 4 − 2 = 0, which is a multiple of 11."
     }
   ]
 }

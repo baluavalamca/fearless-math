@@ -108,18 +108,33 @@
       "mistakeTag": "ignored-either-case",
       "mistake": "Missing that BOTH statements might independently be sufficient on their own (the 'either alone' case), and assuming only one order of checking (I first) applies.",
       "fix": "Always finish checking BOTH statements fully alone, even after Statement I already works — Statement II might also be independently sufficient, giving an 'either alone' result."
+    },
+    {
+      "mistakeTag": "assumed-narrow-enough",
+      "mistake": "Believing a statement is sufficient just because it sounds specific (like 'a two-digit number' or 'a prime under 20'), without actually counting how many different values still fit.",
+      "fix": "Always count: does this statement leave exactly ONE possible value? Categories like 'two-digit number' or 'prime under 20' usually still allow many — check before concluding sufficient."
+    },
+    {
+      "mistakeTag": "no-consistency-check",
+      "mistake": "Concluding a yes/no statement is sufficient without checking whether it gives the SAME answer in every possible case.",
+      "fix": "For yes/no questions, try a few different valid values allowed by the statement. If the yes/no answer changes between them, it's insufficient — even if the statement narrows things down a lot."
+    },
+    {
+      "mistakeTag": "doubted-direct-solve",
+      "mistake": "Assuming a direct one-step equation with a single unknown isn't 'enough', when it actually solves to exactly one value.",
+      "fix": "One clean equation with one unknown (like m − 2 = 8) always gives exactly one value — that's sufficient, every time."
     }
   ],
   "practice": {
     "easy": [
       { "id": "e1", "type": "mcq", "q": "Question: What is n? Statement: n + 3 = 9. Sufficient alone?", "options": [ { "label": "Yes — n = 6" }, { "label": "No", "mistakeTag": "assumed-must-solve" } ], "answer": "Yes — n = 6", "hintLadder": ["n+3=9 solves directly.", "n=6, one answer.", "Sufficient."] },
-      { "id": "e2", "type": "mcq", "q": "Question: What is n? Statement: n is a two-digit number. Sufficient alone?", "options": [ { "label": "Yes" }, { "label": "No — many two-digit numbers exist" } ], "answer": "No — many two-digit numbers exist", "hintLadder": ["Two-digit numbers: 10 to 99.", "That's 90 possible values.", "Far too many — insufficient."] },
+      { "id": "e2", "type": "mcq", "q": "Question: What is n? Statement: n is a two-digit number. Sufficient alone?", "options": [ { "label": "Yes", "mistakeTag": "assumed-narrow-enough" }, { "label": "No — many two-digit numbers exist" } ], "answer": "No — many two-digit numbers exist", "hintLadder": ["Two-digit numbers: 10 to 99.", "That's 90 possible values.", "Far too many — insufficient."] },
       { "id": "e3", "type": "text", "q": "Question: Is x = 5? Statement: x + 0 = 5. Is the statement sufficient (yes/no)?", "answer": "Yes", "hintLadder": ["x + 0 = 5 means x = 5 directly.", "One exact value confirmed.", "Yes, sufficient."] }
     ],
     "medium": [
       { "id": "m1", "type": "mcq", "q": "Question: What is the number? Statement I: it is odd. Statement II: it is between 10 and 13. Are I and II each sufficient ALONE?", "options": [ { "label": "Neither is sufficient alone" }, { "label": "Both are sufficient alone", "mistakeTag": "assumed-must-solve" } ], "answer": "Neither is sufficient alone", "hintLadder": ["I alone: many odd numbers exist.", "II alone: 11 and 12 both fit.", "Neither pins down one value alone."] },
       { "id": "m2", "type": "text", "q": "Using both together: odd AND between 10-13 — what's the number?", "answer": "11", "hintLadder": ["Numbers strictly between 10 and 13: 11, 12.", "Which of these is odd?", "11."] },
-      { "id": "m3", "type": "mcq", "q": "Question: Is p > 20? Statement: p is a positive number less than 100. Sufficient alone?", "options": [ { "label": "Yes" }, { "label": "No — could be less than or more than 20" } ], "answer": "No — could be less than or more than 20", "hintLadder": ["p could be 5 (not >20) or 50 (>20).", "Different answers possible.", "Insufficient — inconsistent yes/no."] }
+      { "id": "m3", "type": "mcq", "q": "Question: Is p > 20? Statement: p is a positive number less than 100. Sufficient alone?", "options": [ { "label": "Yes", "mistakeTag": "no-consistency-check" }, { "label": "No — could be less than or more than 20" } ], "answer": "No — could be less than or more than 20", "hintLadder": ["p could be 5 (not >20) or 50 (>20).", "Different answers possible.", "Insufficient — inconsistent yes/no."] }
     ],
     "challenge": [
       { "id": "c1", "type": "mcq", "q": "Question: What is the number? Statement I: between 30-40. Statement II: multiple of 6. What's the sufficiency result?", "options": [ { "label": "Neither alone; both together give 36" } , { "label": "Statement I alone is enough", "mistakeTag": "wrongly-combined-too-early" } ], "answer": "Neither alone; both together give 36", "hintLadder": ["I alone: 31-39, many options.", "II alone: 6,12,18,24,30,36,42... many options.", "Together: only 36 fits both."] },
@@ -129,8 +144,8 @@
   },
   "masteryCheck": {
     "questions": [
-      { "id": "mc1", "type": "mcq", "q": "Question: What is m? Statement: m − 2 = 8. Sufficient alone?", "options": [ { "label": "Yes — m = 10" }, { "label": "No" } ], "answer": "Yes — m = 10", "hintLadder": ["m−2=8 solves directly.", "m=10, unique.", "Sufficient."] },
-      { "id": "mc2", "type": "mcq", "q": "Question: What is k? Statement: k is a prime number under 20. Sufficient alone?", "options": [ { "label": "Yes" }, { "label": "No — many primes fit" } ], "answer": "No — many primes fit", "hintLadder": ["Primes under 20: 2,3,5,7,11,13,17,19.", "Eight possible values.", "Insufficient."] },
+      { "id": "mc1", "type": "mcq", "q": "Question: What is m? Statement: m − 2 = 8. Sufficient alone?", "options": [ { "label": "Yes — m = 10" }, { "label": "No", "mistakeTag": "doubted-direct-solve" } ], "answer": "Yes — m = 10", "hintLadder": ["m−2=8 solves directly.", "m=10, unique.", "Sufficient."] },
+      { "id": "mc2", "type": "mcq", "q": "Question: What is k? Statement: k is a prime number under 20. Sufficient alone?", "options": [ { "label": "Yes", "mistakeTag": "assumed-narrow-enough" }, { "label": "No — many primes fit" } ], "answer": "No — many primes fit", "hintLadder": ["Primes under 20: 2,3,5,7,11,13,17,19.", "Eight possible values.", "Insufficient."] },
       { "id": "mc3", "type": "text", "q": "Question: What is the number? Statement I: between 40-50. Statement II: multiple of 11. Combine both — what's the number?", "answer": "44", "hintLadder": ["Multiples of 11: 11,22,33,44,55...", "Which is between 40-50?", "44."] },
       { "id": "mc4", "type": "mcq", "q": "What should you check FIRST in any data sufficiency question?", "options": [ { "label": "Statement I completely alone" }, { "label": "Both statements combined", "mistakeTag": "wrongly-combined-too-early" } ], "answer": "Statement I completely alone", "hintLadder": ["Never combine first.", "Test each statement in isolation.", "Statement I alone, first."] },
       { "id": "mc5", "type": "mcq", "q": "A statement for a yes/no question is sufficient only if…", "options": [ { "label": "It gives the SAME yes/no answer in every possible case" }, { "label": "It narrows the options down at all", "mistakeTag": "ignored-either-case" } ], "answer": "It gives the SAME yes/no answer in every possible case", "hintLadder": ["Narrowing isn't enough by itself.", "Every remaining case must agree.", "Same answer every time = sufficient."] }

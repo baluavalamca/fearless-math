@@ -5,6 +5,7 @@
  * read-aloud language, so a learner can hear the Telugu and Hindi words spoken correctly.
  */
 import { useEffect, useMemo, useState } from "react";
+import { Search, X } from "lucide-react";
 import {
   DICTIONARY, DICT_CATEGORIES, DICT_BCP, DICT_NATIVE, DictCat, DictLang, DictEntry, catLabel,
 } from "../data/mathDictionary";
@@ -77,9 +78,9 @@ export function Dictionary({ lang = "en" }: { lang?: DictLang }) {
       </div>
 
       <div className="fm-search-wrap fm-dict-search">
-        <span className="fm-search-ic">🔍</span>
+        <span className="fm-search-ic"><Search size={16} /></span>
         <input className="fm-search-input" value={query} placeholder={t.search} onChange={(e) => setQuery(e.target.value)} aria-label="Search dictionary" />
-        {query && <button className="fm-search-clear" onClick={() => setQuery("")} aria-label="Clear search">✕</button>}
+        {query && <button className="fm-search-clear" onClick={() => setQuery("")} aria-label="Clear search"><X size={16} /></button>}
       </div>
 
       <div className="fm-dict-grid">

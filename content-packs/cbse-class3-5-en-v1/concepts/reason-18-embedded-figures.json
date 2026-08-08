@@ -123,7 +123,7 @@
     "medium": [
       { "id": "m1", "type": "text", "q": "A heptagon (7 sides) has all diagonals from one vertex. How many triangles?", "answer": "5", "hintLadder": ["n − 2.", "7 − 2.", "5."] },
       { "id": "m2", "type": "text", "q": "A triangle has one median drawn. How many triangles total, including the original?", "answer": "3", "hintLadder": ["Median splits it into 2 small triangles.", "Plus the original.", "2+1=3."] },
-      { "id": "m3", "type": "mcq", "q": "A square with both diagonals is said to have '4 triangles'. Is this the complete, correct count?", "options": [ { "label": "No — it's missing the 4 larger combined triangles (total is 8)" }, { "label": "Yes, that's correct" } ], "answer": "No — it's missing the 4 larger combined triangles (total is 8)", "hintLadder": ["4 is only the small regions.", "4 more come from combining adjacent halves.", "True total is 8."] }
+      { "id": "m3", "type": "mcq", "q": "A square with both diagonals is said to have '4 triangles'. Is this the complete, correct count?", "options": [ { "label": "No — it's missing the 4 larger combined triangles (total is 8)" }, { "label": "Yes, that's correct", "mistakeTag": "missed-larger-combinations" } ], "answer": "No — it's missing the 4 larger combined triangles (total is 8)", "hintLadder": ["4 is only the small regions.", "4 more come from combining adjacent halves.", "True total is 8."] }
     ],
     "challenge": [
       { "id": "c1", "type": "text", "q": "An octagon (8 sides) has all diagonals from one vertex. How many triangles?", "answer": "6", "hintLadder": ["n − 2.", "8 − 2.", "6."] },

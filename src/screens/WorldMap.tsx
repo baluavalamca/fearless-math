@@ -9,6 +9,7 @@
  * LessonPlayer) is untouched.
  */
 import { useEffect, useState } from "react";
+import { ArrowLeft, ArrowRight, ChevronRight, Search, X } from "lucide-react";
 import { ConceptCard, Profile } from "../api";
 import { Emoji3D } from "../components/ObjectIcon";
 import { GameHud } from "../components/GameHud";
@@ -226,7 +227,7 @@ export function WorldMap({
 
       {cont && view === "home" && !q && (
         <button className="fm-continue" onClick={() => onOpen(cont!.id)}>
-          <span className="fm-continue-ic">▶</span>
+          <span className="fm-continue-ic"><ArrowRight size={18} /></span>
           <span className="fm-continue-body">
             <span className="fm-continue-lbl">{byId.get(lastId) && lastId === cont.id ? "Continue where you left off" : "Up next"}</span>
             <span className="fm-continue-name">{cont.name} · {STRAND_THEME[cont.strand]?.name ?? cont.strand}</span>
@@ -239,7 +240,7 @@ export function WorldMap({
 
       {/* -------- SEARCH (always available, above the classes) -------- */}
       <div className="fm-search-wrap">
-        <span className="fm-search-ic">🔍</span>
+        <span className="fm-search-ic"><Search size={16} /></span>
         <input
           className="fm-search-input"
           value={query}
@@ -247,7 +248,7 @@ export function WorldMap({
           onChange={(e) => setQuery(e.target.value)}
           aria-label="Search concepts"
         />
-        {query && <button className="fm-search-clear" onClick={() => setQuery("")} aria-label="Clear search">✕</button>}
+        {query && <button className="fm-search-clear" onClick={() => setQuery("")} aria-label="Clear search"><X size={16} /></button>}
       </div>
 
       {q ? (
@@ -286,7 +287,7 @@ export function WorldMap({
                       ⭐ {p.m}/{p.t}
                     </span>
                   </span>
-                  <span className="fm-class-arrow">→</span>
+                  <span className="fm-class-arrow"><ChevronRight size={20} /></span>
                 </button>
               );
             })}
@@ -296,7 +297,7 @@ export function WorldMap({
         /* -------- CLASS: concepts of the chosen class -------- */
         <>
           <div className="fm-class-head">
-            <button className="fm-back-btn" onClick={() => setView("home")}>← All classes</button>
+            <button className="fm-back-btn" onClick={() => setView("home")}><ArrowLeft size={16} /> All classes</button>
             <div className="fm-class-head-title">
               <span className={`fm-class-badge${/^\d+$/.test(stageDef.badge) ? "" : " emoji"}`}>{stageDef.badge}</span>
               <span><b>{stageDef.label}</b> · {stageDef.sub}</span>

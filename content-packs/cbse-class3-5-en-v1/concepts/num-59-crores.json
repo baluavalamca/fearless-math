@@ -1,0 +1,453 @@
+{
+  "id": "num-59-crores",
+  "name": "Crores — India's Biggest Everyday Number",
+  "grade": 6,
+  "strand": "numbers",
+  "prerequisites": [
+    "num-04-place-value-6digit"
+  ],
+  "whatIsIt": "The Number Palace has one more wing! After lakh comes CRORE — India's word for ten million. A number like 3,25,00,000 has 3 crore and 25 lakh. Same comma pattern as before: three digits first, then two-two-two, all the way up.",
+  "whyNeeded": "City populations, movie box-office numbers, national budgets and big company revenues are all reported in crores. Reading and comparing crore-scale numbers confidently means big Indian news numbers never feel confusing.",
+  "realLifeUses": [
+    "A big city's population often crosses 1 crore (10,000,000) — Mumbai, Delhi, Bengaluru.",
+    "Bollywood box-office collections are reported in crores — the famous '100 crore club'.",
+    "A state or national budget is announced in thousands of crores of rupees.",
+    "A popular app or song can cross 10 crore (100 million) downloads or views."
+  ],
+  "vocabulary": [
+    {
+      "term": "crore (1,00,00,000)",
+      "meaning": "Ten million. India's word for the 8th room from the right."
+    },
+    {
+      "term": "ten crore (10,00,00,000)",
+      "meaning": "Ten crores — the 9th room."
+    },
+    {
+      "term": "Indian vs International",
+      "meaning": "India groups digits as lakh/crore; most of the world groups as thousand/million/billion — same number, two naming systems."
+    }
+  ],
+  "story": {
+    "title": "The Charity Fund Crosses a Crore",
+    "characters": [
+      "Ananya",
+      "the school principal"
+    ],
+    "text": "The school's charity fund started the year at 85,00,000. After the fair, the principal announces on stage: 'We've crossed ONE CRORE!' Ananya does the maths: 85,00,000 + 15,00,000 = 1,00,00,000 — a whole crore! 'Every extra lakh took us closer,' she grins, 'and now we've joined the crore club.'",
+    "extractedProblem": "The fund had 85,00,000. It grew by 15,00,000. What is the new total?",
+    "answerInStory": "1,00,00,000 — one full crore."
+  },
+  "visual": {
+    "component": "Abacus",
+    "props": {
+      "abaci": [
+        {
+          "value": 32500000,
+          "label": "3,25,00,000"
+        }
+      ]
+    },
+    "caption": "3,25,00,000 = 3 crore + 25 lakh. Every bead-row is one more place, now stretching all the way to Crores."
+  },
+  "teachingGallery": [
+    {
+      "title": "Crossing into crores — group with commas all the way",
+      "note": "The comma pattern never changes: 3 digits first, then every 2. Crore is just one more 2-digit group.",
+      "examples": [
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  10,
+                  100,
+                  1000,
+                  10000,
+                  100000,
+                  1000000,
+                  10000000
+                ],
+                "jump": 10
+              }
+            ]
+          },
+          "caption": "Each place is 10× the one before, all the way to crore: 1, 10, 100, 1,000, 10,000, 1,00,000, 10,00,000, 1,00,00,000."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  10000000,
+                  20000000,
+                  30000000,
+                  40000000
+                ],
+                "jump": 10000000
+              }
+            ]
+          },
+          "caption": "One crore = 1,00,00,000. Count crores: 1, 2, 3, 4 crore."
+        },
+        {
+          "component": "Abacus",
+          "props": {
+            "abaci": [
+              {
+                "value": 32500000,
+                "label": "3,25,00,000 on the abacus"
+              }
+            ]
+          },
+          "caption": "Beads by place, now reaching all the way to Crores."
+        },
+        {
+          "component": "Abacus",
+          "props": {
+            "abaci": [
+              {
+                "value": 123456789,
+                "label": "12,34,56,789 — every place, ones to crore"
+              }
+            ]
+          },
+          "caption": "Every place from Ones to Crore, lit up together."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Comma the number Indian-style all the way to crore, then read block by block from the left.",
+    "steps": [
+      "From the RIGHT: comma after 3 digits, then every 2 — this now includes one extra pair for crore. 123456789 → 12,34,56,789.",
+      "Name the blocks: [12] crore, [34] lakh, [56] thousand, [789] the rest.",
+      "Read: 'twelve crore thirty-four lakh fifty-six thousand seven hundred eighty-nine'.",
+      "Digit value = digit × its room — same rule as every place before it."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Expanded form",
+      "whenToUse": "To see every digit's true worth in a crore-scale number.",
+      "steps": [
+        "Stretch the number room by room, now including crore.",
+        "12,34,56,789 = 10,00,00,000 + 2,00,00,000 + 30,00,000 + 4,00,000 + 50,000 + 6,000 + 700 + 80 + 9.",
+        "Collapse it back to check."
+      ],
+      "example": "3,25,00,000 = 3,00,00,000 + 25,00,000."
+    },
+    {
+      "name": "Indian vs International names",
+      "whenToUse": "When a news report says 'million' or 'billion' instead of lakh/crore.",
+      "steps": [
+        "1 lakh = 100 thousand = 0.1 million.",
+        "1 crore = 10 million.",
+        "100 crore = 1 arab = 1 billion.",
+        "Convert by matching the zero-count, not the word."
+      ],
+      "example": "5 crore rupees = 5,00,00,000 rupees = 50 million rupees."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Write 3,25,00,000 in words.",
+      "steps": [
+        "Blocks: [3] crore, [25] lakh, [00] thousand, [000] rest.",
+        "3 crore 25 lakh — the rest are all zeros.",
+        "Three crore twenty-five lakh."
+      ],
+      "answer": "Three crore twenty-five lakh"
+    },
+    {
+      "problem": "Compare 95,00,000 and 1,00,00,000 — which is bigger and why?",
+      "steps": [
+        "Count digits: 95,00,000 has 7; 1,00,00,000 has 8.",
+        "More digits (in the same comma style) always wins.",
+        "1,00,00,000 is bigger — a crore always beats any number of lakhs alone."
+      ],
+      "answer": "1,00,00,000 is bigger — 8 digits beat 7."
+    }
+  ],
+  "trickPractice": {
+    "trick": "Group in pairs after the first three",
+    "intro": "From the right: 3 digits, then 2, 2, 2… crore just means one more pair joined the party.",
+    "questions": [
+      {
+        "id": "num59-trick-45678901-6",
+        "type": "number",
+        "q": "In 4,56,78,901 what is the VALUE of the digit 6?",
+        "answer": "600000",
+        "hintLadder": [
+          "Group from the right: 3, then 2-2-2.",
+          "The 6 sits in the LAKH place (the second digit of the lakh pair).",
+          "6 × 1,00,000 = 6,00,000."
+        ],
+        "explain": "6 in the lakh place = 6,00,000."
+      },
+      {
+        "id": "num59-trick-72345610-7",
+        "type": "number",
+        "q": "In 7,23,45,610 what is the VALUE of the digit 7?",
+        "answer": "70000000",
+        "hintLadder": [
+          "Group from the right: 3, then 2-2-2.",
+          "The 7 sits in the CRORE place — the very first group.",
+          "7 × 1,00,00,000 = 7,00,00,000."
+        ],
+        "explain": "7 in the crore place = 7,00,00,000."
+      },
+      {
+        "id": "num59-trick-10890234-8",
+        "type": "number",
+        "q": "In 1,08,90,234 what is the VALUE of the digit 8?",
+        "answer": "800000",
+        "hintLadder": [
+          "Group from the right: 3, then 2-2-2.",
+          "The 8 sits in the LAKH place (the second digit of the lakh pair).",
+          "8 × 1,00,000 = 8,00,000."
+        ],
+        "explain": "8 in the lakh place = 8,00,000."
+      },
+      {
+        "id": "num59-trick-63012045-3",
+        "type": "number",
+        "q": "In 6,30,12,045 what is the VALUE of the digit 3?",
+        "answer": "3000000",
+        "hintLadder": [
+          "Group from the right: 3, then 2-2-2.",
+          "The 3 sits in the TEN-LAKH place (the first digit of the lakh pair).",
+          "3 × 10,00,000 = 30,00,000."
+        ],
+        "explain": "3 in the ten-lakh place = 30,00,000."
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "commas-western-crore",
+      "mistake": "Placing commas every 3 digits Western-style even past the lakh group (123,456,789).",
+      "fix": "Indian style never changes: 3 digits first, then every 2 — even for crores: 12,34,56,789."
+    },
+    {
+      "mistakeTag": "crore-as-million",
+      "mistake": "Assuming 1 crore = 1 million.",
+      "fix": "1 crore = 1,00,00,000 = 10 million, not 1 million. A crore is TEN times a million."
+    },
+    {
+      "mistakeTag": "digit-count-crore-scale",
+      "mistake": "Comparing big crore-scale numbers by the first digit instead of the number of digits.",
+      "fix": "Count digits first: an 8-digit number always beats a 7-digit number, whatever the first digits look like."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "n59-e1",
+        "type": "number",
+        "q": "What is the VALUE of the digit 3 in 3,45,00,000? (Type like 30000000)",
+        "answer": "30000000",
+        "hintLadder": [
+          "Which room does the 3 stand in? Count from the right.",
+          "...thousands, lakhs, ten-lakhs, CROREs!",
+          "3 × 1,00,00,000."
+        ]
+      },
+      {
+        "id": "n59-e2",
+        "type": "mcq",
+        "q": "How many zeros are in one crore (1,00,00,000)?",
+        "options": [
+          {
+            "label": "7"
+          },
+          {
+            "label": "6",
+            "mistakeTag": "crore-as-million"
+          }
+        ],
+        "answer": "7",
+        "hintLadder": [
+          "Write it out: 1,00,00,000.",
+          "Count every 0 after the 1.",
+          "There are 7 zeros."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "n59-m1",
+        "type": "mcq",
+        "q": "Which is greater: 95,00,000 or 1,00,00,000?",
+        "options": [
+          {
+            "label": "1,00,00,000 — it has more digits"
+          },
+          {
+            "label": "95,00,000 — it starts with 9",
+            "mistakeTag": "digit-count-crore-scale"
+          }
+        ],
+        "answer": "1,00,00,000 — it has more digits",
+        "hintLadder": [
+          "Bridge rule: count digits FIRST.",
+          "7 digits vs 8 digits.",
+          "More digits always wins — 1,00,00,000 is bigger."
+        ]
+      },
+      {
+        "id": "n59-m2",
+        "type": "number",
+        "q": "What is the VALUE of the digit 7 in 6,72,04,500? (Type like 7000000)",
+        "answer": "7000000",
+        "hintLadder": [
+          "Group from the right: 500 | 04 | 72 | 6.",
+          "The 7 is the first digit of the '72' pair — the ten-lakh place.",
+          "7 × 10,00,000 = 70,00,000."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "n59-c1",
+        "type": "number",
+        "q": "Expanded form puzzle: 4,00,00,000 + 25,00,000 + 6,000 + 300 = ? (Type without commas)",
+        "answer": "42506300",
+        "hintLadder": [
+          "Fill each room with its part.",
+          "4 crore, 25 lakh, 6 thousand, 3 hundred.",
+          "Add them: 42,506,300 → written as 4,25,06,300."
+        ]
+      },
+      {
+        "id": "n59-c2",
+        "type": "number",
+        "q": "A charity fund had ₹85,00,00,000 (85 crore). A donation drive added ₹15,00,00,000 (15 crore). What is the new total, in crores? (Type just the number, e.g. 40)",
+        "answer": "100",
+        "hintLadder": [
+          "85 crore + 15 crore.",
+          "Add the crore-counts directly, just like adding ones.",
+          "85 + 15 = 100 crore."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "n59-x1",
+        "type": "number",
+        "q": "Value of the digit 9 in 9,45,12,000? (Type like 90000000)",
+        "answer": "90000000",
+        "hintLadder": [
+          "Which room, counting from the right?",
+          "The 8th room — crores!",
+          "9 × 1,00,00,000."
+        ]
+      },
+      {
+        "id": "n59-x2",
+        "type": "mcq",
+        "q": "One crore equals…",
+        "options": [
+          {
+            "label": "1,00,00,000 — ten million"
+          },
+          {
+            "label": "10,00,000 — one million",
+            "mistakeTag": "crore-as-million"
+          }
+        ],
+        "answer": "1,00,00,000 — ten million",
+        "hintLadder": [
+          "Count the zeros in a crore.",
+          "Seven zeros!",
+          "100 × 1,00,000 = 1,00,00,000 = ten million."
+        ]
+      },
+      {
+        "id": "n59-x3",
+        "type": "mcq",
+        "q": "Indian comma style for 123456789:",
+        "options": [
+          {
+            "label": "12,34,56,789"
+          },
+          {
+            "label": "123,456,789",
+            "mistakeTag": "commas-western-crore"
+          }
+        ],
+        "answer": "12,34,56,789",
+        "hintLadder": [
+          "Three from the right first.",
+          "Then two-by-two, forever.",
+          "789 | 56 | 34 | 12."
+        ]
+      },
+      {
+        "id": "n59-x4",
+        "type": "mcq",
+        "q": "Which is greater: 99,99,999 or 1,00,00,000?",
+        "options": [
+          {
+            "label": "1,00,00,000 — eight digits beat seven"
+          },
+          {
+            "label": "99,99,999 — it's all nines!",
+            "mistakeTag": "digit-count-crore-scale"
+          }
+        ],
+        "answer": "1,00,00,000 — eight digits beat seven",
+        "hintLadder": [
+          "Count the digits of each.",
+          "7 vs 8.",
+          "One crore beats every 7-digit number — even all-nines!"
+        ]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Find a crore-scale number in the news — a movie's box office, a city's population, or a company's revenue. Write it with Indian commas, read it aloud for someone at home, and explain what its two biggest digits are worth.",
+  "revisionCard": {
+    "summary": "Rooms keep growing left: ...ten-thousands → lakhs → CROREs (1,00,00,000). Indian commas never stop: 3 digits, then 2-2-2 forever (12,34,56,789 = crore | lakh | thousand | rest). Comparing: count digits FIRST, same rule at any scale.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Number Jungle (Ganita Grove)",
+    "title": "The Crore Club Countdown",
+    "brief": "Help the charity fund's tote board climb from lakhs into crores — group each new total with Indian commas and announce it to the crowd before the 100-crore finale!",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Crore hunt: find one real crore-scale number in the news this week (a movie's box office, a company's revenue, a city's population). Write it with Indian commas and explain the value of its two biggest digits.",
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 6 (Knowing Our Numbers — Indian numbering to crores)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Crore = 1,00,00,000 = ten million — one wing further than lakh",
+    "unpack": "Indian commas never stop: 3 then 2-2-2 forever. 12,34,56,789 reads crore | lakh | thousand | rest, same as every smaller number you've grouped before."
+  },
+  "studentQuestions": [
+    {
+      "q": "Is a crore bigger than a million?",
+      "a": "Yes — 1 crore = 1,00,00,000 = 10 million. A crore is TEN times a million."
+    },
+    {
+      "q": "What comes after crore?",
+      "a": "Ten crore (10,00,00,000), then arab (100 crore) — but crore is the one you'll meet most in everyday Indian numbers."
+    }
+  ]
+}
