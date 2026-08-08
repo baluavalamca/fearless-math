@@ -11,6 +11,7 @@ contextBridge.exposeInMainWorld("fm", {
   verifyPin: (id, pin) => ipcRenderer.invoke("profiles:verifyPin", { id, pin }),
   listConcepts: () => ipcRenderer.invoke("concepts:list"),
   getConcept: (id) => ipcRenderer.invoke("concepts:get", id),
+  listFormulas: () => ipcRenderer.invoke("concepts:listFormulas"),
   setConceptEnabled: (p) => ipcRenderer.invoke("concepts:setEnabled", p),
   contentLanguages: () => ipcRenderer.invoke("content:languages"),
   setLanguage: (lang) => ipcRenderer.invoke("content:setLanguage", lang),

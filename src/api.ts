@@ -99,6 +99,12 @@ export interface DashboardConcept {
   disabled: boolean;
 }
 
+/** One concept's worth of formulas, for the Formula Book screen (see concepts:listFormulas). */
+export interface FormulaGroup {
+  id: string; name: string; grade: number; strand: string;
+  formulas: { name: string; formula: string; remember?: string; whenToUse?: string }[];
+}
+
 export interface DashboardData {
   profile: { name: string; grade: number };
   concepts: DashboardConcept[];
@@ -110,6 +116,7 @@ interface FmBridge {
   getProfile(): Promise<{ id: number; name: string; grade: number }>;
   listConcepts(): Promise<ConceptCard[]>;
   getConcept(id: string): Promise<Concept>;
+  listFormulas(): Promise<FormulaGroup[]>;
   setConceptEnabled(p: { conceptId: string; enabled: boolean }): Promise<{ ok: boolean }>;
   contentLanguages(): Promise<string[]>;
   setLanguage(lang: string): Promise<{ lang: string; available: string[] }>;

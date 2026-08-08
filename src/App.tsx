@@ -9,6 +9,7 @@ import { FunFacts } from "./screens/FunFacts";
 import { Dictionary } from "./screens/Dictionary";
 import { Algorithms } from "./screens/Algorithms";
 import { TipsAndTricks } from "./screens/TipsAndTricks";
+import { FormulaBook } from "./screens/FormulaBook";
 import { ParentDashboard } from "./screens/ParentDashboard";
 import { Onboarding } from "./screens/Onboarding";
 // Heavy calculator/tool popups are code-split into their own chunks so the main
@@ -20,7 +21,7 @@ import { Emoji3D } from "./components/ObjectIcon";
 import { RoboAvatar } from "./components/RoboAvatar";
 import { isAutoRead, setAutoRead, stopSpeaking, setSpeechLang } from "./speech";
 
-type Screen = "map" | "clinic" | "ask" | "facts" | "tricks" | "algos" | "dict" | "parent";
+type Screen = "map" | "clinic" | "ask" | "facts" | "tricks" | "formulas" | "algos" | "dict" | "parent";
 
 /* Navigation is split in two:
  *  TOP  — the two everyday destinations a learner uses constantly.
@@ -34,6 +35,7 @@ const MENU_NAV: { id: Screen; icon: string; label: string; sub: string }[] = [
   { id: "ask", icon: "🤖", label: "Ask Robo", sub: "Your AI maths tutor" },
   { id: "facts", icon: "💡", label: "Fun Facts", sub: "200 maths wonders" },
   { id: "tricks", icon: "🪄", label: "Tips & Tricks", sub: "Fast mental maths" },
+  { id: "formulas", icon: "📐", label: "Formula Book", sub: "Every formula, one place" },
   { id: "algos", icon: "🧠", label: "Algorithms", sub: "Must-know algorithms" },
   { id: "dict", icon: "📖", label: "Dictionary", sub: "EN · తెలుగు · हिंदी" },
   { id: "parent", icon: "👨‍👩‍👧", label: "Parents", sub: "Progress & settings" },
@@ -246,6 +248,7 @@ export default function App() {
       {screen === "ask" && <AskRobo profile={profile} concepts={concepts ?? []} onOpen={openConcept} seed={askSeed} onSeedConsumed={() => setAskSeed(null)} />}
       {screen === "facts" && <FunFacts lang={lang} />}
       {screen === "tricks" && <TipsAndTricks />}
+      {screen === "formulas" && <FormulaBook onOpen={openConcept} />}
       {screen === "algos" && <Algorithms />}
       {screen === "dict" && <Dictionary lang={lang} />}
       {screen === "parent" && <ParentDashboard autoUnlock={profile.role !== "student"} />}

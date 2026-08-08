@@ -145,6 +145,29 @@ function registerIpc() {
     return c;
   });
 
+  /** Formula Book: aggregates every concept's `formulas` field into one flat list,
+   * so the screen doesn't need to fetch 300+ concepts individually. Respects the
+   * active display language (falls back to English per concept) and skips anything
+   * a parent has disabled for the active child, same as concepts:list. */
+  ipcMain.handle("concepts:listFormulas", () => {
+    const all = [...content.concepts.values()];
+    const disabled = profile ? new Set(store.listDisabledConcepts(profile.id)) : new Set();
+    return all
+      .filter((c) => !disabled.has(c.id))
+      .map((c) => {
+        const local = resolveConcept(c.id) || c;
+        return {
+          id: c.id,
+          name: local.name || c.name,
+          grade: c.grade,
+          strand: c.strand,
+          formulas: local.formulas || c.formulas || [],
+        };
+      })
+      .filter((c) => c.formulas.length > 0)
+      .sort((a, b) => (a.grade - b.grade) || a.name.localeCompare(b.name));
+  });
+
   ipcMain.handle("lesson:started", (_e, conceptId) =>
     profile ? store.upsertProgress(profile.id, conceptId, { status: "learning" }) : null);
 

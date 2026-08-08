@@ -10,6 +10,8 @@ import "katex/dist/katex.min.css";
 function toLatex(src: string): string {
   let s = " " + src + " ";
   s = s
+    .replace(/%/g, "\\%")                  // % is a LaTeX comment char — escape it or
+                                            // everything after it silently vanishes
     .replace(/\+\/-/g, " \\pm ")           // +/-  -> ±
     .replace(/<=/g, " \\le ")
     .replace(/>=/g, " \\ge ")
