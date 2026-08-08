@@ -33,6 +33,22 @@ export interface Concept {
   workedExamples: { problem: string; steps: string[]; answer: string; visual?: unknown }[];
   /** The easy method school skips — SHORTCUT drilled with its own guided practice. */
   trickPractice?: { trick: string; intro: string; questions: Question[] };
+  /** Live simulator: drag sliders, watch the shape/graph AND its formula update in
+   *  real time (GeoGebra/Desmos/PhET-style "change a value, see the math change"). */
+  liveSim?: {
+    title: string;
+    /** One playful line shown above the sliders. */
+    hook?: string;
+    kind: "solid3d" | "graph2d" | "shape2d";
+    /** Which shape/curve within the kind, e.g. "cuboid" | "cylinder" | "cone" | "sphere" | "cube"
+     *  (solid3d); "circle" | "rectangle" (shape2d); "linear" | "quadratic" (graph2d). */
+    shape: string;
+    sliders: { key: string; label: string; min: number; max: number; step?: number; default: number; unit?: string }[];
+    /** Live-computed readouts. `expr` is a tiny safe arithmetic expression over the
+     *  slider keys + PI (see src/liveExpr.ts) — never eval()'d. */
+    formulas: { name: string; expr: string; unit?: string; decimals?: number }[];
+    color?: "accent" | "good" | "cool";
+  };
   commonMistakes: { mistakeTag: string; mistake: string; fix: string }[];
   practice: { easy: Question[]; medium: Question[]; challenge: Question[] };
   masteryCheck: { questions: Question[]; passThreshold: number; requireTeachBack: boolean };
@@ -79,6 +95,8 @@ export interface DashboardConcept {
   status: string; masteryScore: number | null;
   attempts: number; correct: number; hints: number;
   nextRevisionAt: string | null;
+  /** True when a parent has switched this concept off — hidden from Ganita Grove. */
+  disabled: boolean;
 }
 
 export interface DashboardData {
@@ -92,8 +110,13 @@ interface FmBridge {
   getProfile(): Promise<{ id: number; name: string; grade: number }>;
   listConcepts(): Promise<ConceptCard[]>;
   getConcept(id: string): Promise<Concept>;
+  setConceptEnabled(p: { conceptId: string; enabled: boolean }): Promise<{ ok: boolean }>;
   contentLanguages(): Promise<string[]>;
   setLanguage(lang: string): Promise<{ lang: string; available: string[] }>;
+  /** Non-English languages ("hi", "te", ...) a parent has turned on for the active child. */
+  listEnabledLanguages(): Promise<string[]>;
+  /** Parent toggles Hindi/Telugu on/off for the active child. English can't be disabled. */
+  setLanguageEnabled(p: { lang: string; enabled: boolean }): Promise<{ ok: boolean; activeLang?: string }>;
   lessonStarted(id: string): Promise<unknown>;
   submitAnswer(p: { conceptId: string; questionId: string; context: string; answer: string; hintsUsed: number; question?: Question }): Promise<Verdict>;
   listProfiles(): Promise<Profile[]>;
@@ -112,6 +135,7 @@ interface FmBridge {
   aiExplain(p: { conceptId: string; style: "simpler" | "story" | "real-life" | "more-examples" | "fun-fact" }): Promise<AiExplain>;
   aiWhyWrong(p: { conceptId: string; questionId: string; answerGiven: string }): Promise<AiWhyWrong>;
   aiCoach(p: { conceptId: string; questionId: string; answerGiven: string; question?: Question }): Promise<AiCoach>;
+  aiRephrase(p: { conceptId: string; questionId: string; question?: Question }): Promise<AiRephrase>;
   aiAsk(p: { question: string; history?: { role: "user" | "bot"; text: string }[] }): Promise<AiAsk>;
   mediaStatus(): Promise<MediaStatus>;
   mediaConfigure(cfg: MediaConfig): Promise<MediaStatus>;
@@ -149,6 +173,7 @@ export interface ProviderInfo { id: string; label: string; kind: string; keyHint
 export interface AiExplain { ok: boolean; reason?: string; explanation?: string; example?: string }
 export interface AiWhyWrong { ok: boolean; reason?: string; explanation?: string; encouragement?: string }
 export interface AiCoach { ok: boolean; reason?: string; question?: string; diagnosis?: string; encouragement?: string }
+export interface AiRephrase { ok: boolean; reason?: string; question?: string }
 export interface AiAsk { ok: boolean; reason?: string; onTopic?: boolean; answer?: string; example?: string; tryYourself?: string; cached?: boolean }
 
 /** AI features are usable when enabled + online + has a key.
@@ -178,5 +203,12 @@ export const api: FmBridge = {
   setLanguage(lang: string) {
     _conceptCache.clear();
     return _bridge.setLanguage(lang);
+  },
+  // A parent disabling the language the child is currently using force-switches the
+  // main process back to English (see main.js) — drop the memoised lessons so the
+  // renderer picks up English text too, not stale cached Hindi/Telugu content.
+  setLanguageEnabled(p: { lang: string; enabled: boolean }) {
+    _conceptCache.clear();
+    return _bridge.setLanguageEnabled(p);
   },
 };

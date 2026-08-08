@@ -99,6 +99,20 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "Measure the Tower — Height from an Angle, Live",
+    "hook": "Drag the angle of elevation and the shadow's length — watch the tower's height update using tan!",
+    "kind": "shape2d",
+    "shape": "angle-triangle",
+    "sliders": [
+      { "key": "angle", "label": "Angle of elevation", "min": 10, "max": 80, "step": 1, "default": 45, "unit": "°" },
+      { "key": "adj", "label": "Shadow / ground distance", "min": 5, "max": 60, "step": 5, "default": 20, "unit": "m" }
+    ],
+    "formulas": [
+      { "name": "Height (adjacent × tan angle)", "expr": "adj*tan(angle)", "unit": "m" }
+    ],
+    "color": "cool"
+  },
   "standardMethod": {
     "summary": "Draw a right triangle, label the height (opposite) and ground distance (adjacent), and use tan θ = opposite ÷ adjacent (or sin/cos if the slant side is involved) to find the unknown.",
     "steps": [

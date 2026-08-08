@@ -17,11 +17,12 @@ import { ConceptInfographic } from "../components/ConceptInfographic";
 import { MathTex } from "../components/Math";
 import { TextbookMode } from "../components/TextbookMode";
 import { DictLang } from "../data/mathDictionary";
+import { LiveSimPanel } from "../components/LiveSim";
 import { Practice } from "./Practice";
 
-type Tab = "story" | "picture" | "gallery" | "meaning" | "steps" | "anotherWay" | "examples" | "flashcards" | "infographic";
+type Tab = "story" | "picture" | "gallery" | "live" | "meaning" | "steps" | "anotherWay" | "examples" | "flashcards" | "infographic";
 
-const STEP_NAME: Record<string, string> = { story: "Story", picture: "Picture", gallery: "See it", meaning: "Meaning", steps: "Steps", anotherWay: "Another way", examples: "Examples", flashcards: "Cards", infographic: "Recap" };
+const STEP_NAME: Record<string, string> = { story: "Story", picture: "Picture", gallery: "See it", live: "Try it live", meaning: "Meaning", steps: "Steps", anotherWay: "Another way", examples: "Examples", flashcards: "Cards", infographic: "Recap" };
 type UIMethod = { kind: string; name: string; whenToUse: string; steps: string[]; example: string; visual?: unknown };
 /** Gather every taught method into one ordered, labeled list — the Methodology Engine. */
 function collectMethods(c: Concept): UIMethod[] {
@@ -86,6 +87,12 @@ export function LessonPlayer({
           .join(" Next: ");
         return `${concept.visual.caption}${galleryText ? " Next: " + galleryText : ""}`;
       }
+      case "live": {
+        const ls = concept.liveSim;
+        if (!ls) return "";
+        const formulaNames = ls.formulas.map((f) => f.name).join(", ");
+        return `${ls.title}. ${ls.hook ?? ""} Drag the sliders and watch ${formulaNames || "the shape"} change live!`;
+      }
       case "meaning": {
         const remember = concept.rememberIt ? ` Remember it: ${concept.rememberIt.hook}. ${concept.rememberIt.unpack ?? ""}` : "";
         const faq = (concept.studentQuestions ?? []).map((qa) => `${qa.q} ${qa.a}`).join(" ");
@@ -120,6 +127,7 @@ export function LessonPlayer({
       // one visual tab instead of a separate "Picture" + "See it".
       { id: "gallery", label: "👀 See it" },
     ];
+    if (concept.liveSim) t.push({ id: "live", label: "🎛️ Try it live" });
     t.push({ id: "meaning", label: "💡 Meaning" });
     t.push({ id: "steps", label: "🪜 Steps" });
     if (methods.length) t.push({ id: "anotherWay", label: "🔀 Another Way" });
@@ -282,6 +290,13 @@ export function LessonPlayer({
                     </div>
                   </section>
                 ))}
+              </article>
+            )}
+            {tab === "live" && concept.liveSim && (
+              <article className="fm-live-article">
+                <h2>{concept.liveSim.title}</h2>
+                <p className="fm-live-lead">🎛️ <strong>Change the numbers, see the math change.</strong> Drag a slider — no waiting, no reload, just watch it happen.</p>
+                <LiveSimPanel spec={concept.liveSim} />
               </article>
             )}
             {tab === "meaning" && (

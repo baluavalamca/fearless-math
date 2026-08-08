@@ -102,6 +102,20 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "Sew the Flag — Triangle Area Live",
+    "hook": "Drag the base and height — watch the triangle grow and its area (½ × base × height) update live!",
+    "kind": "shape2d",
+    "shape": "triangle",
+    "sliders": [
+      { "key": "b", "label": "Base (b)", "min": 2, "max": 20, "step": 1, "default": 10, "unit": "cm" },
+      { "key": "h", "label": "Height (h)", "min": 2, "max": 20, "step": 1, "default": 6, "unit": "cm" }
+    ],
+    "formulas": [
+      { "name": "Area (½ × base × height)", "expr": "0.5*b*h", "unit": "sq cm" }
+    ],
+    "color": "good"
+  },
   "standardMethod": {
     "summary": "Pick the shape's formula, use the perpendicular height (not slant), calculate, and give the answer in square units.",
     "steps": [

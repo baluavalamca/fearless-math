@@ -94,6 +94,22 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "Turn the Angle — SOH-CAH-TOA Live",
+    "hook": "Drag the angle and the adjacent side — watch sin, cos and tan update as the triangle turns!",
+    "kind": "shape2d",
+    "shape": "angle-triangle",
+    "sliders": [
+      { "key": "angle", "label": "Angle", "min": 10, "max": 80, "step": 1, "default": 30, "unit": "°" },
+      { "key": "adj", "label": "Adjacent side", "min": 10, "max": 100, "step": 5, "default": 50, "unit": "units" }
+    ],
+    "formulas": [
+      { "name": "sin(angle)", "expr": "sin(angle)", "unit": "" },
+      { "name": "cos(angle)", "expr": "cos(angle)", "unit": "" },
+      { "name": "tan(angle)", "expr": "tan(angle)", "unit": "" }
+    ],
+    "color": "accent"
+  },
   "standardMethod": {
     "summary": "Label the sides relative to the angle, choose the ratio (SOH-CAH-TOA) that links what you know and want, and solve.",
     "steps": [

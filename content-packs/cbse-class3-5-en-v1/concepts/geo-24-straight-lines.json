@@ -106,6 +106,21 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "Drag the Line — Slope and Intercept Live",
+    "hook": "Drag m to tilt the line, drag c to slide it up and down — y = mx + c updates instantly!",
+    "kind": "graph2d",
+    "shape": "linear",
+    "sliders": [
+      { "key": "m", "label": "Slope (m)", "min": -4, "max": 4, "step": 0.5, "default": 2 },
+      { "key": "c", "label": "y-intercept (c)", "min": -6, "max": 6, "step": 1, "default": 0 }
+    ],
+    "formulas": [
+      { "name": "Slope (m)", "expr": "m" },
+      { "name": "y-intercept (c)", "expr": "c" }
+    ],
+    "color": "accent"
+  },
   "standardMethod": {
     "summary": "Slope m = (y₂ − y₁)/(x₂ − x₁). Write the line as y = mx + c; read m as slope and c as the y-intercept.",
     "steps": [

@@ -104,6 +104,22 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "Stretch the Box — Volume and Surface Area Live",
+    "hook": "Drag length, width, height — see the box fill up (volume) and its wrapping paper (surface area) change together!",
+    "kind": "solid3d",
+    "shape": "cuboid",
+    "sliders": [
+      { "key": "l", "label": "Length (l)", "min": 1, "max": 6, "step": 1, "default": 4, "unit": "units" },
+      { "key": "w", "label": "Width (w)", "min": 1, "max": 6, "step": 1, "default": 3, "unit": "units" },
+      { "key": "h", "label": "Height (h)", "min": 1, "max": 6, "step": 1, "default": 2, "unit": "units" }
+    ],
+    "formulas": [
+      { "name": "Volume (l × w × h)", "expr": "l*w*h", "unit": "cubic units" },
+      { "name": "Surface area (2(lw+wh+hl))", "expr": "2*(l*w+w*h+h*l)", "unit": "sq units" }
+    ],
+    "color": "cool"
+  },
   "standardMethod": {
     "summary": "Volume = space inside (multiply the three dimensions, or side³). Surface area = add every outside face.",
     "steps": [

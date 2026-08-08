@@ -34,8 +34,25 @@ export function Practice({
   const [aiWhy, setAiWhy] = useState<string | null>(null);
   const [aiBusy, setAiBusy] = useState(false);
   const [coach, setCoach] = useState<{ q: string; diag?: string } | null>(null);
+  // "Ask it a different way" — same question, fresh wording, for a child stuck on the
+  // phrasing rather than the maths. Only the displayed text changes; the answer key is
+  // untouched (the original `q` object is still what gets submitted).
+  const [rephrased, setRephrased] = useState<string | null>(null);
+  const [rephraseBusy, setRephraseBusy] = useState(false);
 
   useEffect(() => { api.aiStatus().then(setAi).catch(() => setAi(null)); }, []);
+
+  async function askDifferently() {
+    if (!q) return;
+    setRephraseBusy(true);
+    const r = await api.aiRephrase({ conceptId: concept.id, questionId: q.id, question: q });
+    setRephraseBusy(false);
+    if (r.ok && r.question) {
+      setRephrased(r.question);
+      autoSpeak(r.question + (q.type === "mcq" ? " Choices: " + q.options!.map((o) => o.label).join(". Or: ") : ""));
+    }
+    // Silent fallback on failure — the original wording just stays on screen.
+  }
 
   async function askWhy() {
     if (!q) return;
@@ -127,6 +144,7 @@ export function Practice({
     setVerdict(null);
     setAiWhy(null);
     setCoach(null);
+    setRephrased(null);
   }
 
   const qVisual = q.visual as VisualSpec | undefined;
@@ -145,16 +163,22 @@ export function Practice({
       )}
       <p className="fm-progress">Question {idx + 1} of {questions.length}</p>
       <h2 className="fm-question">
-        {q.q}{" "}
+        {rephrased ?? q.q}{" "}
         <SpeakButton
           label="Read the question aloud"
           text={
-            q.q +
+            (rephrased ?? q.q) +
             (q.type === "mcq" ? " Choices: " + q.options!.map((o) => o.label).join(". Or: ") : "") +
             (hintsShown > 0 ? " Hints so far: " + q.hintLadder.slice(0, hintsShown).join(" Next hint: ") : "")
           }
         />
       </h2>
+      {rephrased && <p className="fm-rephrase-note">🔄 Same question, said a different way.</p>}
+      {!verdict && aiUsable(ai) && (
+        <button className="fm-secondary fm-rephrase-btn" disabled={rephraseBusy} onClick={askDifferently}>
+          🔄 {rephraseBusy ? "Robo is rewording…" : rephrased ? "Ask it yet another way" : "Ask it a different way"}
+        </button>
+      )}
 
       {qVisual?.component && <VisualRenderer visual={qVisual} />}
 

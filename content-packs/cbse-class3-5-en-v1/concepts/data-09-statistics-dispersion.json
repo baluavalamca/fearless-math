@@ -139,6 +139,24 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "Drag the Data — Watch the Spread, Live",
+    "hook": "Drag each value — watch the range, variance and standard deviation update on the number line!",
+    "kind": "shape2d",
+    "shape": "dot-plot",
+    "sliders": [
+      { "key": "a", "label": "Value 1", "min": 0, "max": 15, "step": 1, "default": 1, "unit": "" },
+      { "key": "b", "label": "Value 2", "min": 0, "max": 15, "step": 1, "default": 3, "unit": "" },
+      { "key": "c", "label": "Value 3", "min": 0, "max": 15, "step": 1, "default": 5, "unit": "" },
+      { "key": "d", "label": "Value 4", "min": 0, "max": 15, "step": 1, "default": 7, "unit": "" }
+    ],
+    "formulas": [
+      { "name": "Range", "expr": "max(a,b,c,d)-min(a,b,c,d)", "unit": "" },
+      { "name": "Variance", "expr": "((a-(a+b+c+d)/4)^2+(b-(a+b+c+d)/4)^2+(c-(a+b+c+d)/4)^2+(d-(a+b+c+d)/4)^2)/4", "unit": "" },
+      { "name": "Standard deviation", "expr": "sqrt(((a-(a+b+c+d)/4)^2+(b-(a+b+c+d)/4)^2+(c-(a+b+c+d)/4)^2+(d-(a+b+c+d)/4)^2)/4)", "unit": "" }
+    ],
+    "color": "good"
+  },
   "standardMethod": {
     "summary": "Range = max − min. For variance: find the mean, subtract it from each value (deviation), square each, average them. Standard deviation = √variance.",
     "steps": [

@@ -116,6 +116,21 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "Drag the Parabola — See the Roots Live",
+    "hook": "Drag a, b, c and watch the curve dance — where it crosses the x-axis are the roots!",
+    "kind": "graph2d",
+    "shape": "quadratic",
+    "sliders": [
+      { "key": "a", "label": "a (curve shape)", "min": -3, "max": 3, "step": 1, "default": 1, "unit": "" },
+      { "key": "b", "label": "b", "min": -8, "max": 8, "step": 1, "default": -5, "unit": "" },
+      { "key": "c", "label": "c", "min": -8, "max": 8, "step": 1, "default": 6, "unit": "" }
+    ],
+    "formulas": [
+      { "name": "Discriminant (b² − 4ac)", "expr": "b^2-4*a*c", "unit": "" }
+    ],
+    "color": "accent"
+  },
   "standardMethod": {
     "summary": "Write it as ax² + bx + c = 0; factorise into two brackets (or take roots for x² = k); set each factor to zero to get the roots.",
     "steps": [

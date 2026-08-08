@@ -111,6 +111,21 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "Stretch the Rectangle — Area and Boundary Live",
+    "hook": "Drag width and height — count the little squares for area, and watch the boundary grow too!",
+    "kind": "shape2d",
+    "shape": "rectangle",
+    "sliders": [
+      { "key": "w", "label": "Width (w)", "min": 1, "max": 8, "step": 1, "default": 4, "unit": "units" },
+      { "key": "h", "label": "Height (h)", "min": 1, "max": 8, "step": 1, "default": 3, "unit": "units" }
+    ],
+    "formulas": [
+      { "name": "Area (w × h)", "expr": "w*h", "unit": "sq units" },
+      { "name": "Boundary (2(w + h))", "expr": "2*(w+h)", "unit": "units" }
+    ],
+    "color": "good"
+  },
   "standardMethod": {
     "summary": "For area, count unit squares (or length × breadth). For boundary, add all the side lengths.",
     "steps": [

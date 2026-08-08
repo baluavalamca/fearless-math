@@ -104,6 +104,9 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
   const [kids, setKids] = useState<Profile[]>([]);
   const [kidPins, setKidPins] = useState<Record<number, string>>({});
   const [pinMsg, setPinMsg] = useState<string | null>(null);
+  // Hindi/Telugu for the currently-open child. English is always on and isn't in this
+  // list — undefined until the first fetch resolves.
+  const [enabledLangs, setEnabledLangs] = useState<string[] | undefined>(undefined);
   const bridgeReady = typeof api.mediaConfigure === "function";
 
   function loadKids() { api.listProfiles().then((ps) => setKids(ps.filter((p) => p.role === "student"))).catch(() => setKids([])); }
@@ -114,6 +117,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
       api.aiStatus().then(setAi).catch(() => setAi(null));
       api.mediaStatus().then(setMedia).catch(() => setMedia(null));
       loadKids();
+      api.listEnabledLanguages().then(setEnabledLangs).catch(() => setEnabledLangs([]));
       if (typeof api.aiProviders === "function") api.aiProviders().then(setProviders).catch(() => setProviders(FALLBACK_PROVIDERS));
       else setProviders(FALLBACK_PROVIDERS);
     }
@@ -134,6 +138,39 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
     const r = await api.mediaClearCache("all");
     setMediaMsg(r.ok ? `Cleared ${r.removed} saved file(s).` : "Nothing to clear.");
   }
+  /** Parent switches a concept on/off for the child whose dashboard is open. Hidden concepts
+   * disappear from Ganita Grove (search, map, mind map) but keep any progress already made,
+   * so re-enabling later picks up right where the child left off. Optimistic UI + revert on error. */
+  async function toggleConceptEnabled(id: string, enabled: boolean) {
+    setData((d) => d ? { ...d, concepts: d.concepts.map((c) => c.id === id ? { ...c, disabled: !enabled } : c) } : d);
+    try {
+      await api.setConceptEnabled({ conceptId: id, enabled });
+    } catch {
+      // Revert: put it back to what it was before this toggle.
+      setData((d) => d ? { ...d, concepts: d.concepts.map((c) => c.id === id ? { ...c, disabled: enabled } : c) } : d);
+    }
+  }
+
+  /** Parent turns Hindi/Telugu on or off for the child whose dashboard is open. English is
+   * always available and can't be disabled here. Optimistic UI + revert on error, same
+   * pattern as toggleConceptEnabled above. */
+  async function toggleLanguageEnabled(lang: string, enabled: boolean) {
+    setEnabledLangs((cur) => {
+      const set = new Set(cur ?? []);
+      if (enabled) set.add(lang); else set.delete(lang);
+      return [...set];
+    });
+    try {
+      await api.setLanguageEnabled({ lang, enabled });
+    } catch {
+      setEnabledLangs((cur) => {
+        const set = new Set(cur ?? []);
+        if (enabled) set.delete(lang); else set.add(lang);
+        return [...set];
+      });
+    }
+  }
+
   async function saveKidPin(id: number, pin: string) {
     await api.setPin(id, pin);
     setKidPins((m) => ({ ...m, [id]: "" }));
@@ -236,7 +273,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
 
       {/* -------- PROGRESS -------- */}
       {tab === "progress" && (
-        <Section id="conceptmap" icon="🗺️" title="Concept map" sub="Progress by class — tap a class to expand its lessons.">
+        <Section id="conceptmap" icon="🗺️" title="Concept map" sub="Progress by class — tap a class to expand its lessons. Untick a concept to hide it from your child's map (progress is kept if you turn it back on).">
           {classGroups.map((grp, gi) => {
             const gMastered = grp.items.filter((c) => c.status === "mastered").length;
             const gAtt = grp.items.reduce((s, c) => s + c.attempts, 0);
@@ -251,17 +288,27 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
                   <span className="fm-class-bar"><i style={{ width: `${pct}%` }} /></span>
                 </summary>
                 <table className="fm-dash-table">
-                  <thead><tr><th>Concept</th><th>Status</th><th>Accuracy</th><th>Tries</th><th>Hints</th></tr></thead>
+                  <thead><tr><th>Concept</th><th>Status</th><th>Accuracy</th><th>Tries</th><th>Hints</th><th>Show to child</th></tr></thead>
                   <tbody>
                     {grp.items.map((c) => {
                       const acc = c.attempts ? Math.round((c.correct / c.attempts) * 100) : null;
                       return (
-                        <tr key={c.id}>
+                        <tr key={c.id} className={c.disabled ? "fm-row-disabled" : ""}>
                           <td>{c.name}<div className="fm-dash-strand">{c.strand} · Class {c.grade}</div></td>
                           <td>{STATUS_LABEL[c.status] ?? c.status}</td>
                           <td>{acc === null ? "—" : (<div className="fm-acc"><div className="fm-acc-bar"><div style={{ width: `${acc}%` }} className={acc >= 70 ? "hi" : "lo"} /></div><span>{acc}%</span></div>)}</td>
                           <td>{c.attempts || "—"}</td>
                           <td>{c.hints || "—"}</td>
+                          <td className="fm-enable-cell">
+                            <input
+                              type="checkbox"
+                              className="fm-enable-checkbox"
+                              checked={!c.disabled}
+                              onChange={(e) => toggleConceptEnabled(c.id, e.target.checked)}
+                              aria-label={`${c.disabled ? "Show" : "Hide"} ${c.name} for ${data.profile.name}`}
+                              title={c.disabled ? "Hidden — tick to show this concept again" : "Shown — untick to hide this concept"}
+                            />
+                          </td>
                         </tr>
                       );
                     })}
@@ -431,6 +478,21 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
               </div>
             ))}
             {pinMsg && <p className="fm-dash-note" style={{ color: "var(--good)" }}>{pinMsg}</p>}
+          </Section>
+
+          <Section id="languages" icon="🌐" title="Languages" sub={`English is always on. Turn on Hindi or Telugu to let ${data?.profile?.name || "your child"} switch to them from the home screen.`}>
+            <div className="fm-setting">
+              <div className="fm-setting-txt"><b>English</b><span>Always available — the default language.</span></div>
+              <span className="fm-badge">✓ Always on</span>
+            </div>
+            <div className="fm-setting">
+              <div className="fm-setting-txt"><b>हिंदी (Hindi)</b><span>Lesson text, the language switcher chip, and read-aloud will offer Hindi.</span></div>
+              <Switch checked={(enabledLangs ?? []).includes("hi")} onChange={(v) => toggleLanguageEnabled("hi", v)} />
+            </div>
+            <div className="fm-setting">
+              <div className="fm-setting-txt"><b>తెలుగు (Telugu)</b><span>Lesson text, the language switcher chip, and read-aloud will offer Telugu.</span></div>
+              <Switch checked={(enabledLangs ?? []).includes("te")} onChange={(v) => toggleLanguageEnabled("te", v)} />
+            </div>
           </Section>
 
           <Section id="appsettings" icon="⚙️" title="App settings" sub="Guardrails and the parent PIN.">

@@ -55,5 +55,15 @@ t("progress upsert round-trips", () => {
   const row = rows.find((r) => r.concept_id === "frac-01-equal-parts");
   assert.strictEqual(row.status, "mastered");
 });
+t("parent can disable and re-enable a concept for a child", () => {
+  assert.deepStrictEqual(store.listDisabledConcepts(p.id), []);
+  store.setConceptDisabled(p.id, "geo-05-angles", true);
+  assert.deepStrictEqual(store.listDisabledConcepts(p.id), ["geo-05-angles"]);
+  // Disabling twice must not duplicate the entry.
+  store.setConceptDisabled(p.id, "geo-05-angles", true);
+  assert.deepStrictEqual(store.listDisabledConcepts(p.id), ["geo-05-angles"]);
+  store.setConceptDisabled(p.id, "geo-05-angles", false);
+  assert.deepStrictEqual(store.listDisabledConcepts(p.id), []);
+});
 
 console.log(`\n${passed} store tests passed${process.exitCode ? " (with failures)" : ""}`);

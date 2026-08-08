@@ -303,6 +303,30 @@ STRICT RULES:
 {"question": "<one guiding question ending in ?>", "diagnosis": "slip" or "misconception", "encouragement": "<one warm sentence>"}`;
 }
 
+function buildRephrasePrompt(concept, question) {
+  const options = question.type === "mcq" && question.options
+    ? `\nOPTIONS (keep these EXACT labels — do not touch them, only the question wording may change): ${question.options.map((o) => o.label).join(", ")}`
+    : "";
+  return `You are Robo Reason, a kind math helper inside a children's app.
+VERIFIED lesson content for "${concept.name}" (Class ${concept.grade}):
+${conceptContext(concept)}
+
+A child is stuck on the WORDING of this question, not the maths itself:
+ORIGINAL QUESTION: ${question.q}
+CORRECT ANSWER (verified — the numbers and this answer must stay IDENTICAL): ${question.answer}${options}
+
+TASK: Ask the EXACT SAME maths problem again — same numbers, same operation, same difficulty,
+same correct answer — but say it in different words, e.g. a different everyday scenario or a
+simpler sentence structure. You are REWORDING, not creating a new problem.
+
+STRICT RULES:
+- Do NOT change any number. The correct answer MUST remain exactly "${question.answer}".
+- Do NOT make it easier, harder, or add/remove steps.
+- Warm, simple Class ${concept.grade} language. One or two short sentences.
+- Reply with ONLY this JSON, nothing else:
+{"question": "<the reworded question>"}`;
+}
+
 /** Backstop: the coaching question must not leak the verified answer. */
 function coachLeaksAnswer(text, answer) {
   const a = String(answer ?? "").trim().toLowerCase();
@@ -450,6 +474,26 @@ async function coach(concept, question, answerGiven, mistake) {
     const out = { question: q, diagnosis: diag, encouragement: (obj.encouragement || "").trim() };
     cache[ck] = out; saveCache();
     return { ok: true, ...out };
+  } catch (e) {
+    return { ok: false, reason: e.message || "error" };
+  }
+}
+
+/** Same question, fresh wording — for a child stuck on phrasing rather than the maths.
+ * The verified answer/numbers are never touched; only the displayed text changes.
+ * Deliberately NOT cached (unlike explain/whyWrong/coach): the child may tap this more
+ * than once on the same question, and each tap should have a real chance of sounding
+ * different — a cached, identical reply would defeat the point. */
+async function rephraseQuestion(concept, question) {
+  if (!settings.enabled || !settings.keyStored) return { ok: false, reason: "disabled" };
+  try {
+    const text = await callProvider(buildRephrasePrompt(concept, question));
+    const obj = extractJson(text);
+    const v = validateAiResponse(obj, [
+      { name: "question", required: true, min: 8, max: 400 },
+    ]);
+    if (!v.ok) return { ok: false, reason: v.reason };
+    return { ok: true, question: obj.question.trim() };
   } catch (e) {
     return { ok: false, reason: e.message || "error" };
   }
@@ -888,9 +932,9 @@ async function generateConcept({ topic, grade, language, ground = true, verify =
 }
 
 module.exports = {
-  init, configure, getStatus, providers, explain, whyWrong, coach, askTutor, generateConcept,
+  init, configure, getStatus, providers, explain, whyWrong, coach, rephraseQuestion, askTutor, generateConcept,
   // pure functions exported for tests
-  buildExplainPrompt, buildWhyWrongPrompt, buildCoachPrompt, coachLeaksAnswer, extractJson, validateAiResponse, cacheKey,
+  buildExplainPrompt, buildWhyWrongPrompt, buildCoachPrompt, buildRephrasePrompt, coachLeaksAnswer, extractJson, validateAiResponse, cacheKey,
   conceptJsonSchema, buildConceptPrompt, sanitizeConcept, validateGenerated, cleanVisual, GEN_COMPONENTS, VISUAL_COMPONENTS,
   fetchReference, verifyAnswerKeys, collectQuestions,
 };

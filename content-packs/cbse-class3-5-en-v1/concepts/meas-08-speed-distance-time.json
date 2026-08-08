@@ -130,6 +130,19 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "Distance = Speed × Time — Live Graph",
+    "hook": "Drag the speed slider and watch the distance line steepen — read off the distance at each hour!",
+    "kind": "graph2d",
+    "shape": "linear",
+    "sliders": [
+      { "key": "m", "label": "Speed (km/h)", "min": 10, "max": 100, "step": 10, "default": 60, "unit": "km/h" }
+    ],
+    "formulas": [
+      { "name": "Distance in 3 hours", "expr": "m*3", "unit": "km" }
+    ],
+    "color": "accent"
+  },
   "standardMethod": {
     "summary": "Pick the right formula from the D-S-T triangle, keep units matching, then calculate.",
     "steps": [

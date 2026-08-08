@@ -134,6 +134,20 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "The Function Machine — Live Graph",
+    "hook": "Drag m and c and watch f(x) = mx + c redraw — the table of outputs updates too!",
+    "kind": "graph2d",
+    "shape": "linear",
+    "sliders": [
+      { "key": "m", "label": "m (steepness)", "min": -3, "max": 3, "step": 1, "default": 2, "unit": "" },
+      { "key": "c", "label": "c (start value)", "min": -5, "max": 5, "step": 1, "default": 1, "unit": "" }
+    ],
+    "formulas": [
+      { "name": "f(3)", "expr": "m*3+c", "unit": "" }
+    ],
+    "color": "cool"
+  },
   "standardMethod": {
     "summary": "Apply the rule to inputs to get outputs; make a table of (x, f(x)); plot the points and join — a line for linear, a parabola for quadratic.",
     "steps": [

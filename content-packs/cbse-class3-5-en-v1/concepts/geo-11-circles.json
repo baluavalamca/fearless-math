@@ -98,6 +98,21 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "Stretch the Circle — Radius, Diameter, Circumference Live",
+    "hook": "Drag the radius slider and watch the diameter, circumference and area grow with it!",
+    "kind": "shape2d",
+    "shape": "circle",
+    "sliders": [
+      { "key": "r", "label": "Radius (r)", "min": 1, "max": 8, "step": 0.5, "default": 3, "unit": "cm" }
+    ],
+    "formulas": [
+      { "name": "Diameter (d = 2r)", "expr": "2*r", "unit": "cm" },
+      { "name": "Circumference (2πr)", "expr": "2*PI*r", "unit": "cm", "decimals": 1 },
+      { "name": "Area (πr²)", "expr": "PI*r^2", "unit": "sq cm", "decimals": 1 }
+    ],
+    "color": "good"
+  },
   "standardMethod": {
     "summary": "Use diameter = 2 × radius (and radius = diameter ÷ 2); circumference ≈ π × diameter (π ≈ 3.14).",
     "steps": [

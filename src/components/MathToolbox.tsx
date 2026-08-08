@@ -116,15 +116,23 @@ const HELP: Record<ToolId, { what: string; use: string[]; tip: string }> = {
   },
 };
 
-function ToolHelp({ id }: { id: ToolId }) {
+/** Always-visible one-line "what is this" strip — no click needed to see it. */
+function ToolBlurb({ id }: { id: ToolId }) {
   const h = HELP[id];
   const readText = `${h.what} How to use it. ${h.use.join(". ")}. Tip: ${h.tip}`;
   return (
-    <div className="fm-tool-help">
-      <div className="fm-help-top">
-        <p className="fm-help-what">{h.what}</p>
-        <SpeakButton text={readText} label="Read this help aloud" style="concept" />
-      </div>
+    <div className="fm-tool-blurb">
+      <p><b>What is this?</b> {h.what}</p>
+      <SpeakButton text={readText} label="Read this help aloud" style="concept" />
+    </div>
+  );
+}
+
+/** Collapsible step-by-step guide — appears ABOVE the tool, never hides it. */
+function ToolGuide({ id }: { id: ToolId }) {
+  const h = HELP[id];
+  return (
+    <div className="fm-tool-guide">
       <h4>How to use it</h4>
       <ol>{h.use.map((u, i) => <li key={i}>{u}</li>)}</ol>
       <p className="fm-help-tip">💡 {h.tip}</p>
@@ -132,12 +140,30 @@ function ToolHelp({ id }: { id: ToolId }) {
   );
 }
 
+/** Remembers which tools a learner has already seen, so the step guide
+ *  auto-opens only the FIRST time a tool is picked (per this device). */
+const SEEN_KEY = "fm_tools_seen_math";
+function loadSeen(): Set<string> {
+  try { return new Set(JSON.parse(localStorage.getItem(SEEN_KEY) || "[]")); } catch { return new Set(); }
+}
+function markSeen(id: string) {
+  const s = loadSeen();
+  if (s.has(id)) return;
+  s.add(id);
+  try { localStorage.setItem(SEEN_KEY, JSON.stringify([...s])); } catch { /* ignore */ }
+}
+
 export function MathToolbox() {
   const [open, setOpen] = useState(false);
   const [tool, setTool] = useState<ToolId>("calc");
-  const [showHelp, setShowHelp] = useState(false);
+  const [showHelp, setShowHelp] = useState(() => !loadSeen().has("calc"));
   const active = TOOLS.find((t) => t.id === tool)!;
-  const pick = (id: ToolId) => { setTool(id); setShowHelp(false); };
+  const pick = (id: ToolId) => {
+    setTool(id);
+    const firstTime = !loadSeen().has(id);
+    markSeen(id);
+    setShowHelp(firstTime);
+  };
 
   return (
     <>
@@ -166,12 +192,13 @@ export function MathToolbox() {
                 <header className="fm-tool-card-head">
                   <span><Emoji3D char={active.icon} size={22} /> {active.label}</span>
                   <button className={`fm-tool-info ${showHelp ? "on" : ""}`} onClick={() => setShowHelp((v) => !v)}
-                    aria-label={showHelp ? "Hide help" : "What is this tool?"} title={showHelp ? "Hide help" : "What is this? How to use it"}>
-                    {showHelp ? "✕" : "ⓘ"}
+                    aria-label={showHelp ? "Hide the how-to-use steps" : "Show the how-to-use steps"} title={showHelp ? "Hide steps" : "How to use this tool"}>
+                    {showHelp ? "Hide steps ▲" : "How to use ▾"}
                   </button>
                 </header>
                 <div className="fm-tool-card-body">
-                  {showHelp && <ToolHelp id={tool} />}
+                  <ToolBlurb id={tool} />
+                  {showHelp && <ToolGuide id={tool} />}
                   {tool === "calc" && <Calculator />}
                   {tool === "sci" && <SciCalc />}
                   {tool === "abacus" && <AbacusTool />}
@@ -463,6 +490,9 @@ function RomanTool() {
     let r = ""; for (const [v, s] of map) while (n >= v) { r += s; n -= v; } return r;
   };
   const chart: [string, number][] = [["I", 1], ["V", 5], ["X", 10], ["L", 50], ["C", 100], ["D", 500], ["M", 1000]];
+  /** Break the number into place-value pieces so kids see WHY each Roman group appears. */
+  const pieces: number[] = [];
+  { let n = clamp; for (const v of [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]) while (n >= v) { pieces.push(v); n -= v; } }
   return (
     <div className="fm-tool-col">
       <div className="fm-tool-row">
@@ -482,6 +512,9 @@ function RomanTool() {
         ))}
       </div>
       <p className="fm-tool-hint">Bigger letter before smaller → add. Smaller before bigger → subtract (IV = 4).</p>
+      <p className="fm-tool-live">
+        👉 {clamp} breaks into {pieces.join(" + ")} = <b>{pieces.map((p) => toRoman(p)).join(" ")}</b> → written together as <b>{toRoman(clamp)}</b>.
+      </p>
     </div>
   );
 }

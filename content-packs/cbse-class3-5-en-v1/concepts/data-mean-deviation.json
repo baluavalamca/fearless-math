@@ -39,6 +39,23 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "Drag the Scores — Watch the Spread, Live",
+    "hook": "Drag each score — watch the mean and the mean deviation update on the number line!",
+    "kind": "shape2d",
+    "shape": "dot-plot",
+    "sliders": [
+      { "key": "a", "label": "Score 1", "min": 0, "max": 15, "step": 1, "default": 1, "unit": "" },
+      { "key": "b", "label": "Score 2", "min": 0, "max": 15, "step": 1, "default": 3, "unit": "" },
+      { "key": "c", "label": "Score 3", "min": 0, "max": 15, "step": 1, "default": 5, "unit": "" },
+      { "key": "d", "label": "Score 4", "min": 0, "max": 15, "step": 1, "default": 7, "unit": "" }
+    ],
+    "formulas": [
+      { "name": "Mean", "expr": "(a+b+c+d)/4", "unit": "" },
+      { "name": "Mean deviation", "expr": "(abs(a-(a+b+c+d)/4)+abs(b-(a+b+c+d)/4)+abs(c-(a+b+c+d)/4)+abs(d-(a+b+c+d)/4))/4", "unit": "" }
+    ],
+    "color": "accent"
+  },
   "standardMethod": {
     "summary": "Find the mean. Take each value's distance from the mean using absolute values. Add the distances and divide by n.",
     "steps": [

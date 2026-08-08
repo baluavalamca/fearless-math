@@ -124,6 +124,46 @@ function validateConcept(file) {
       if (!isArr(q.hintLadder, 1)) err(`trickPractice.questions[${qi}].hintLadder needs >= 1 hint (the trick steps)`);
     });
   }
+  if (c.liveSim !== undefined) {
+    const ls = c.liveSim;
+    const KIND = ["solid3d", "graph2d", "shape2d"];
+    if (!isStr(ls.title)) err("liveSim.title required");
+    if (!KIND.includes(ls.kind)) err(`liveSim.kind "${ls.kind}" must be one of ${KIND.join(", ")}`);
+    if (!isStr(ls.shape)) err("liveSim.shape required");
+    if (!isArr(ls.sliders, 1)) {
+      err("liveSim.sliders needs >= 1 slider");
+    } else {
+      const keys = new Set();
+      ls.sliders.forEach((s, si) => {
+        if (!isStr(s.key)) err(`liveSim.sliders[${si}].key required`);
+        else keys.add(s.key);
+        if (!isStr(s.label)) err(`liveSim.sliders[${si}].label required`);
+        if (typeof s.min !== "number" || typeof s.max !== "number" || s.min >= s.max)
+          err(`liveSim.sliders[${si}]: min must be < max (got ${s.min}..${s.max})`);
+        if (typeof s.default !== "number" || s.default < s.min || s.default > s.max)
+          err(`liveSim.sliders[${si}]: default must be within [min,max]`);
+      });
+      if (!isArr(ls.formulas, 1)) {
+        err("liveSim.formulas needs >= 1 formula");
+      } else {
+        const allowedVars = new Set([...keys, "PI"]);
+        // Must mirror LIVE_EXPR_FUNCTIONS in src/liveExpr.ts — the whitelisted
+        // function-call names the safe evaluator supports.
+        const allowedFns = new Set(["sqrt", "abs", "sin", "cos", "tan", "min", "max"]);
+        ls.formulas.forEach((f, fi) => {
+          if (!isStr(f.name)) err(`liveSim.formulas[${fi}].name required`);
+          if (!isStr(f.expr)) { err(`liveSim.formulas[${fi}].expr required`); return; }
+          if (!/^[A-Za-z0-9_+\-*/^(),.\s]+$/.test(f.expr))
+            err(`liveSim.formulas[${fi}].expr "${f.expr}" has characters outside the safe arithmetic grammar`);
+          const idents = f.expr.match(/[A-Za-z_]+/g) || [];
+          idents.forEach((id) => {
+            if (allowedFns.has(id)) return; // whitelisted function name, not a variable
+            if (!allowedVars.has(id)) err(`liveSim.formulas[${fi}].expr uses undeclared variable "${id}" (not a slider key or PI)`);
+          });
+        });
+      }
+    }
+  }
   if (!isArr(c.commonMistakes, 2)) err("need >= 2 commonMistakes (mistake clinic)");
   if (!isStr(c.teachBackPrompt, 10)) err("teachBackPrompt required (teach-back = mastery)");
   if (!c.revisionCard || !isStr(c.revisionCard.summary) || !isArr(c.revisionCard.reviewAfterDays, 1))

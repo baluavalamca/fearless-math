@@ -254,14 +254,17 @@ function Grapher() {
   return (
     <div className="fm-adv-pad fm-adv-2col">
       <div className="fm-adv-col-left">
+        <label className="fm-adv-lbl">Function 1 — y = (blue line)</label>
         <div className="fm-adv-row">
           <span className="fm-adv-dot" style={{ background: "#2f6bff" }} />
           <input className="fm-adv-input" value={f1} onChange={(e) => setF1(e.target.value)} placeholder="e.g. x^2" aria-label="Function 1" />
         </div>
+        <label className="fm-adv-lbl">Function 2 — optional, to compare (orange line)</label>
         <div className="fm-adv-row">
           <span className="fm-adv-dot" style={{ background: "#e8590c" }} />
           <input className="fm-adv-input" value={f2} onChange={(e) => setF2(e.target.value)} placeholder="second function (optional)" aria-label="Function 2" />
         </div>
+        <label className="fm-adv-lbl">Zoom — how far the graph shows on each axis</label>
         <div className="fm-adv-chips">
           {[5, 10, 20].map((r) => (
             <button key={r} className={"fm-adv-chip" + (range === r ? " on" : "")} onClick={() => setRange(r)}>±{r}</button>
@@ -269,6 +272,10 @@ function Grapher() {
         </div>
         {warn && <p className="fm-adv-note" style={{ color: "#c92a2a" }}>{warn}</p>}
         <p className="fm-adv-note">Use <code>*</code> for ×, <code>^</code> for power. sin cos tan sqrt log ln abs · pi e</p>
+        <p className="fm-tool-live">
+          👉 Right now: plotting <b>y = {f1 || "(nothing)"}</b>{f2.trim() && <> and <b>y = {f2}</b></>} for x from <b>−{range}</b> to <b>{range}</b>.
+          Change the numbers above and the curve redraws instantly.
+        </p>
       </div>
       <div className="fm-adv-col-right">
         <canvas ref={ref} width={720} height={560} className="fm-adv-canvas" />
@@ -340,6 +347,12 @@ function StatsTool() {
           </div>
           <p className="fm-adv-note">σ is the population standard deviation (÷n).</p>
           <canvas ref={ref} width={1040} height={240} className="fm-adv-canvas" />
+          <p className="fm-tool-live">
+            👉 Right now: {stats.n} numbers, adding up to {fmt(stats.sum)}.
+            Mean = {fmt(stats.sum)} ÷ {stats.n} = <b>{fmt(stats.mean)}</b> (the dashed green line above).
+            {stats.modes.length ? <> Mode = <b>{stats.modes.join(", ")}</b> (appears most often).</> : " No mode — every value appears the same number of times."}
+            {" "}A bigger σ means the numbers are more spread out from the mean.
+          </p>
         </>
       ) : <p className="fm-adv-note">Type some numbers to begin.</p>}
     </div>
@@ -413,6 +426,10 @@ function ProbTool() {
           ))}
         </tbody>
       </table>
+      <p className="fm-tool-live">
+        👉 Right now: {total ? <>after <b>{total}</b> trials, your Experimental % is what actually happened — compare it to the Theoretical % column.</> : "Press a Run button to roll and fill the table."}
+        {" "}The more trials you run, the closer Experimental gets to Theoretical.
+      </p>
     </div>
   );
 }
@@ -477,6 +494,7 @@ function NumberTheoryTool() {
         <input type="number" className="fm-adv-input sm" value={b} onChange={(e) => setB(+e.target.value)} />
       </div>
       <div className="fm-adv-card2"><p>HCF (GCD) = <b>{g}</b> · LCM = <b>{l}</b></p></div>
+      <p className="fm-tool-live">👉 Check: HCF × LCM = {g} × {l} = <b>{g * l}</b>, and {a} × {b} = <b>{a * b}</b> — for any two numbers these always match.</p>
       <div className="fm-adv-row">
         <label className="fm-adv-lbl">n, r</label>
         <input type="number" className="fm-adv-input sm" value={nn} onChange={(e) => setNn(+e.target.value)} />
@@ -486,6 +504,7 @@ function NumberTheoryTool() {
         <p>ⁿCᵣ = <b>{nCr}</b> · ⁿPᵣ = <b>{nPr}</b> · {nn}! = <b>{factStr}</b></p>
         {rr > nn && <p className="fm-adv-note">r must be ≤ n for combinations/permutations.</p>}
       </div>
+      <p className="fm-tool-live">👉 Choosing {rr} from {nn}: use <b>nCr</b> when the ORDER doesn't matter (picking a team), use <b>nPr</b> when order DOES matter (a race's 1st/2nd/3rd) — that's why nPr ({nPr}) is bigger than nCr ({nCr}).</p>
     </div>
   );
 }
@@ -591,19 +610,23 @@ function FinanceTool() {
       </>}
       {tab === "ci" && <>
         <ThreeIn P={P} R={R} T={T} setP={setP} setR={setR} setT={setT} />
-        <div className="fm-adv-row"><label className="fm-adv-lbl">compounds/yr</label><input type="number" className="fm-adv-input sm" value={ny} onChange={(e) => setNy(+e.target.value)} /></div>
+        <label className="fm-adv-lbl">Compounds per year — 1 = yearly, 4 = quarterly, 12 = monthly</label>
+        <div className="fm-adv-row"><input type="number" className="fm-adv-input sm" value={ny} onChange={(e) => setNy(+e.target.value)} /></div>
         <div className="fm-adv-card2"><p className="fm-adv-big">CI = <b>{inr(ci)}</b></p><p className="fm-adv-note">Amount = {inr(P + ci)} · A = P(1 + R/100n)^(nT)</p></div>
+        <p className="fm-tool-live">👉 For the same ₹{P}, {R}% and {T} yrs: Simple Interest = {inr(si)} but Compound Interest = <b>{inr(ci)}</b> — CI is bigger because it earns interest on the interest already added, not just on the original ₹{P}.</p>
       </>}
       {tab === "emi" && <>
         <div className="fm-adv-row"><label className="fm-adv-lbl">Loan ₹</label><input type="number" className="fm-adv-input sm" value={eP} onChange={(e) => setEP(+e.target.value)} /></div>
         <div className="fm-adv-row"><label className="fm-adv-lbl">Rate %/yr</label><input type="number" className="fm-adv-input sm" value={eR} onChange={(e) => setER(+e.target.value)} /></div>
         <div className="fm-adv-row"><label className="fm-adv-lbl">Months</label><input type="number" className="fm-adv-input sm" value={eN} onChange={(e) => setEN(+e.target.value)} /></div>
         <div className="fm-adv-card2"><p className="fm-adv-big">EMI = <b>{inr(emi)}</b>/mo</p><p className="fm-adv-note">Total paid {inr(emi * eN)} · interest {inr(emi * eN - eP)}</p></div>
+        <p className="fm-tool-live">👉 EMI = Equated Monthly Instalment — the SAME amount you pay every month for {eN} months, which together pay back the ₹{eP} loan plus interest. A longer loan (more months) means a smaller EMI but more total interest.</p>
       </>}
       {tab === "pl" && <>
         <div className="fm-adv-row"><label className="fm-adv-lbl">Cost ₹</label><input type="number" className="fm-adv-input sm" value={cp} onChange={(e) => setCp(+e.target.value)} /></div>
         <div className="fm-adv-row"><label className="fm-adv-lbl">Sell ₹</label><input type="number" className="fm-adv-input sm" value={sp} onChange={(e) => setSp(+e.target.value)} /></div>
         <div className="fm-adv-card2"><p className="fm-adv-big">{diff >= 0 ? "Profit" : "Loss"} = <b>{inr(Math.abs(diff))}</b> ({fmt(plPct, 2)}%)</p></div>
+        <p className="fm-tool-live">👉 Profit/Loss % is always worked out on the COST price: {diff >= 0 ? "Profit" : "Loss"} % = ({inr(Math.abs(diff))} ÷ {inr(cp)}) × 100 = {fmt(plPct, 2)}%.</p>
       </>}
       {tab === "gst" && <>
         <div className="fm-adv-row"><label className="fm-adv-lbl">Amount ₹</label><input type="number" className="fm-adv-input sm" value={amt} onChange={(e) => setAmt(+e.target.value)} /></div>
@@ -784,6 +807,9 @@ function TrigTool() {
             <div className="fm-adv-stat"><b>{Math.abs(cos) < 1e-9 ? "∞" : fmt(tan, 3)}</b><span>tan</span></div>
           </div>
           <p className="fm-adv-note"><b style={{ color: "#e8590c" }}>sin</b> and <b style={{ color: "#2f6bff" }}>cos</b> waves — purple line is your angle.</p>
+          <p className="fm-tool-live">
+            👉 At {deg}° (Quadrant {deg <= 90 ? 1 : deg <= 180 ? 2 : deg <= 270 ? 3 : 4}): the <b style={{ color: "#2f6bff" }}>blue leg</b> is cos θ (how far right the point is), the <b style={{ color: "#e8590c" }}>orange leg</b> is sin θ (how far up). Drag the slider and watch both waves move together with the dot on the circle.
+          </p>
         </div>
         <div className="fm-adv-col-right">
           <canvas ref={circleRef} width={380} height={360} className="fm-adv-canvas" />
@@ -823,6 +849,11 @@ function SequencesTool() {
         <p>Sum of {n} terms = <b>{fmt(sum, 3)}</b></p>
         <p className="fm-adv-note">{kind === "ap" ? "Tₙ = a + (n−1)d · Sₙ = n/2[2a+(n−1)d]" : "Tₙ = a·r^(n−1) · Sₙ = a(rⁿ−1)/(r−1)"}</p>
       </div>
+      <p className="fm-tool-live">
+        {kind === "ap"
+          ? <>👉 Right now: start at {a} and keep <b>adding {step}</b> each time — that's why the gap between any two neighbours is always {step}.</>
+          : <>👉 Right now: start at {a} and keep <b>multiplying by {step}</b> each time — that's why each term is {step}× the one before it{Math.abs(step) < 1 ? " (so the terms shrink toward 0)" : ""}.</>}
+      </p>
     </div>
   );
 }
@@ -903,6 +934,14 @@ function MatrixTool() {
             {(result as Mat).map((row, i) => row.map((v, j) => <span key={i + "-" + j}>{fmt(v, 3)}</span>))}
           </div>}
       </div>
+      <p className="fm-tool-live">
+        👉 {op === "A+B" && "Adding matrices adds each matching position — same size only."}
+        {op === "A-B" && "Subtracting matrices subtracts each matching position — same size only."}
+        {op === "A×B" && "Matrix multiplication is NOT position-by-position: each output cell is a row of A combined with a column of B."}
+        {op === "detA" && <>The determinant tells you if A can be inverted: <b>{Math.abs(det(As)) < 1e-9 ? "it's 0, so A is singular — no inverse exists." : "it's not 0, so A DOES have an inverse."}</b></>}
+        {op === "invA" && (err ? "Edit a number in A above to make det(A) ≠ 0, then an inverse will appear." : "A × A⁻¹ gives the identity matrix — try multiplying them (A×B) after copying this result into B to check.")}
+        {op === "Aᵀ" && "Transpose flips A over its diagonal — rows become columns."}
+      </p>
     </div>
   );
 }
@@ -950,6 +989,10 @@ function ComplexTool() {
           <p>z₁ × z₂ = <b>{fmtC(prod.re, prod.im)}</b></p>
           <p>|z₁| = <b>{fmt(mod, 3)}</b> · arg(z₁) = <b>{fmt(arg, 2)}°</b></p>
           <p className="fm-adv-note">Polar: z₁ = {fmt(mod, 3)}(cos {fmt(arg, 1)}° + i·sin {fmt(arg, 1)}°)</p>
+          <p className="fm-tool-live">
+            👉 On the plot: <b style={{ color: "#2f6bff" }}>blue</b> is z₁, <b style={{ color: "#e8590c" }}>orange</b> is z₂, <b style={{ color: "#12b886" }}>green</b> is their sum (drawn tip-to-tail).
+            |z₁| = {fmt(mod, 2)} is z₁'s distance from the centre; arg(z₁) = {fmt(arg, 1)}° is the angle its arrow makes with the Re axis.
+          </p>
         </div>
       </div>
       <div className="fm-adv-col-right">
@@ -1005,6 +1048,10 @@ function SetsTool() {
           <p>A − B: <b>{"{" + aOnly.join(", ") + "}"}</b></p>
           <p>B − A: <b>{"{" + bOnly.join(", ") + "}"}</b></p>
         </div>
+        <p className="fm-tool-live">
+          👉 In the picture: the <b>middle overlap</b> ({inter.length} items) is A ∩ B — things in BOTH sets. The
+          <b> left-only</b> part ({aOnly.length}) is A − B, the <b>right-only</b> part ({bOnly.length}) is B − A. Everything shaded together is A ∪ B ({union.length}).
+        </p>
       </div>
       <div className="fm-adv-col-right">
         <canvas ref={ref} width={480} height={360} className="fm-adv-canvas" />
@@ -1083,6 +1130,11 @@ function CalculusTool() {
             : <p className="fm-adv-big">∫ from {fmt(aB, 2)} to {fmt(bB, 2)} ≈ <b>{fmt(area, 3)}</b></p>}
           <p className="fm-adv-note">{mode === "deriv" ? "The orange tangent's steepness IS the derivative." : "Green area above the axis is positive, below is negative."}</p>
         </div>
+        <p className="fm-tool-live">
+          {mode === "deriv"
+            ? <>👉 Drag the slider — the orange dot slides along the blue curve and the tangent line tilts with it. When the tangent points UP steeply, the slope (derivative) is a big positive number; flat means the derivative is near 0.</>
+            : <>👉 Change a or b — the green shaded region between them updates, and its total area is the integral's value. If the curve dips below the x-axis in that range, that part subtracts from the total.</>}
+        </p>
       </div>
       <div className="fm-adv-col-right">
         <canvas ref={ref} width={720} height={520} className="fm-adv-canvas" />
@@ -1220,6 +1272,7 @@ function GeometryTool() {
               <input type="range" min={0} max={360} value={ang} onChange={(e) => setAng(+e.target.value)} style={{ flex: 1 }} /></div>
             <div className="fm-adv-card2"><p className="fm-adv-big">{kindOf(ang)}</p>
               <p className="fm-adv-note">Acute &lt; 90° · Right = 90° · Obtuse 90–180° · Straight = 180° · Reflex &gt; 180°</p></div>
+            <p className="fm-tool-live">👉 Drag the slider — the blue arm swings around the fixed grey arm. The orange arc shows the angle BETWEEN the two arms, which is what {ang}° measures.</p>
           </div>
           <div className="fm-adv-col-right">
             <canvas ref={angRef} width={460} height={360} className="fm-adv-canvas" />
@@ -1228,17 +1281,19 @@ function GeometryTool() {
       ) : (
         <div className="fm-adv-vizrow">
           <div className="fm-adv-col-left">
-            <div className="fm-adv-row"><label className="fm-adv-lbl">Sides a, b, c</label>
-              <input type="number" className="fm-adv-input sm" value={sa} onChange={(e) => setSa(+e.target.value)} />
-              <input type="number" className="fm-adv-input sm" value={sb} onChange={(e) => setSb(+e.target.value)} />
-              <input type="number" className="fm-adv-input sm" value={sc} onChange={(e) => setSc(+e.target.value)} /></div>
+            <label className="fm-adv-lbl">Sides a, b, c — type any three lengths</label>
+            <div className="fm-adv-row">
+              <input type="number" className="fm-adv-input sm" value={sa} onChange={(e) => setSa(+e.target.value)} placeholder="a" aria-label="side a" />
+              <input type="number" className="fm-adv-input sm" value={sb} onChange={(e) => setSb(+e.target.value)} placeholder="b" aria-label="side b" />
+              <input type="number" className="fm-adv-input sm" value={sc} onChange={(e) => setSc(+e.target.value)} placeholder="c" aria-label="side c" /></div>
             <div className="fm-adv-card2">
               {valid ? <>
                 <p>Angles: A = <b>{fmt(angA, 2)}°</b>, B = <b>{fmt(angB, 2)}°</b>, C = <b>{fmt(angC, 2)}°</b></p>
                 <p className="fm-adv-big">Area = <b>{fmt(area, 3)}</b> sq units</p>
                 <p className="fm-adv-note">Angles via cosine rule · Area via Heron's formula</p>
-              </> : <p className="fm-adv-note">Those three sides can't form a triangle.</p>}
+              </> : <p className="fm-adv-note">Those three sides can't form a triangle — the two shortest sides must add up to MORE than the longest side.</p>}
             </div>
+            <p className="fm-tool-live">👉 Angle A is opposite side a, angle B is opposite side b, angle C is opposite side c — that's why making one side longer makes the angle across from it bigger.</p>
           </div>
           <div className="fm-adv-col-right">
             <canvas ref={triRef} width={460} height={360} className="fm-adv-canvas" />
@@ -1302,6 +1357,11 @@ function Surface3DTool() {
           {presets.map((p) => <button key={p} className={"fm-adv-chip" + (fxy === p ? " on" : "")} onClick={() => setFxy(p)}>{p}</button>)}
         </div>
         <p className="fm-adv-note">Real 3D — <b>drag to spin</b>, scroll to zoom. Colour = height. Try a bowl (x²+y²), a saddle (x²−y²) or ripples.</p>
+        <p className="fm-tool-live">
+          👉 z = {fxy || "(nothing)"} — for every (x, y) point on the flat floor, the surface rises or dips to the height z tells it to.
+          {fxy === "x^2 + y^2" && " This one only rises, so it forms a bowl (paraboloid)."}
+          {fxy === "x^2 - y^2" && " This one rises along x but dips along y, so it forms a saddle."}
+        </p>
       </div>
       <div className="fm-adv-col-right">
         <Surface3D sample={sample} />
@@ -1311,6 +1371,19 @@ function Surface3DTool() {
 }
 
 /* ---------- shell ---------- */
+
+/** Remembers which tools a learner has already opened, so the step guide
+ *  auto-expands only the FIRST time each tool is picked (per this device). */
+const SEEN_KEY = "fm_tools_seen_adv";
+function loadSeen(): Set<string> {
+  try { return new Set(JSON.parse(localStorage.getItem(SEEN_KEY) || "[]")); } catch { return new Set(); }
+}
+function markSeen(id: string) {
+  const s = loadSeen();
+  if (s.has(id)) return;
+  s.add(id);
+  try { localStorage.setItem(SEEN_KEY, JSON.stringify([...s])); } catch { /* ignore */ }
+}
 
 function renderTool(id: ToolId) {
   switch (id) {
@@ -1337,11 +1410,16 @@ function renderTool(id: ToolId) {
 export function AdvancedToolbox() {
   const [open, setOpen] = useState(false);
   const [tool, setTool] = useState<ToolId>("grapher");
-  const [showHelp, setShowHelp] = useState(false);
+  const [showHelp, setShowHelp] = useState(() => !loadSeen().has("grapher"));
   const meta = TOOLS.find((t) => t.id === tool)!;
   const help = HELP[tool];
 
-  const pick = (id: ToolId) => { setTool(id); setShowHelp(false); };
+  const pick = (id: ToolId) => {
+    setTool(id);
+    const firstTime = !loadSeen().has(id);
+    markSeen(id);
+    setShowHelp(firstTime);
+  };
 
   return (
     <>
@@ -1371,19 +1449,20 @@ export function AdvancedToolbox() {
                 <header className="fm-tool-card-head">
                   <span><Emoji3D char={meta.icon} size={22} /> {meta.label}</span>
                   <button className={`fm-tool-info ${showHelp ? "on" : ""}`} onClick={() => setShowHelp((v) => !v)}
-                    aria-label={showHelp ? "Hide help" : "What is this tool?"} title={showHelp ? "Hide help" : "What is this? How to use it"}>
-                    {showHelp ? "✕" : "ⓘ"}
+                    aria-label={showHelp ? "Hide the how-to-use steps" : "Show the how-to-use steps"} title={showHelp ? "Hide steps" : "How to use this tool"}>
+                    {showHelp ? "Hide steps ▲" : "How to use ▾"}
                   </button>
                 </header>
                 <div className="fm-tool-card-body">
-                  {showHelp ? (
+                  <p className="fm-adv-blurb"><b>What is this?</b> {help.what}</p>
+                  {showHelp && (
                     <div className="fm-adv-help">
-                      <p><b>What is it?</b> {help.what}</p>
                       <p><b>How to use:</b></p>
                       <ol>{help.use.map((u, k) => <li key={k}>{u}</li>)}</ol>
                       <p className="fm-adv-tip">💡 {help.tip}</p>
                     </div>
-                  ) : renderTool(tool)}
+                  )}
+                  {renderTool(tool)}
                 </div>
               </div>
             </section>

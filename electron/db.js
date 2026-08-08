@@ -39,6 +39,12 @@ function sqliteStore(db) {
     CREATE TABLE IF NOT EXISTS badges(
       profile_id INTEGER, badge_id TEXT, earned_at TEXT,
       PRIMARY KEY(profile_id, badge_id));
+    CREATE TABLE IF NOT EXISTS disabled_concepts(
+      profile_id INTEGER, concept_id TEXT,
+      PRIMARY KEY(profile_id, concept_id));
+    CREATE TABLE IF NOT EXISTS enabled_languages(
+      profile_id INTEGER, lang TEXT,
+      PRIMARY KEY(profile_id, lang));
   `);
   for (const col of ["role TEXT DEFAULT 'student'", "age INTEGER", "pin TEXT"]) {
     try { db.exec(`ALTER TABLE profiles ADD COLUMN ${col}`); } catch {}
@@ -126,13 +132,42 @@ function sqliteStore(db) {
         FROM attempts WHERE profile_id = ? GROUP BY concept_id
       `).all(profileId);
     },
+    /** Concepts a parent has switched off for this child — hidden from Ganita Grove. */
+    listDisabledConcepts(profileId) {
+      return db.prepare("SELECT concept_id FROM disabled_concepts WHERE profile_id=?")
+        .all(profileId).map((r) => r.concept_id);
+    },
+    setConceptDisabled(profileId, conceptId, disabled) {
+      if (disabled) {
+        db.prepare("INSERT OR IGNORE INTO disabled_concepts(profile_id, concept_id) VALUES(?,?)").run(profileId, conceptId);
+      } else {
+        db.prepare("DELETE FROM disabled_concepts WHERE profile_id=? AND concept_id=?").run(profileId, conceptId);
+      }
+    },
+    /** Non-English languages a parent has turned ON for this child. English is always available. */
+    listEnabledLanguages(profileId) {
+      return db.prepare("SELECT lang FROM enabled_languages WHERE profile_id=?")
+        .all(profileId).map((r) => r.lang);
+    },
+    setLanguageEnabled(profileId, lang, enabled) {
+      if (enabled) {
+        db.prepare("INSERT OR IGNORE INTO enabled_languages(profile_id, lang) VALUES(?,?)").run(profileId, lang);
+      } else {
+        db.prepare("DELETE FROM enabled_languages WHERE profile_id=? AND lang=?").run(profileId, lang);
+      }
+    },
   };
 }
 
 /* ---------------- JSON fallback (same API) ---------------- */
 function jsonStore(file) {
-  const load = () => (fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8"))
-    : { profiles: [], progress: [], attempts: [], badges: [] });
+  const load = () => {
+    const d = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8"))
+      : { profiles: [], progress: [], attempts: [], badges: [] };
+    if (!d.disabledConcepts) d.disabledConcepts = []; // { profile_id, concept_id }
+    if (!d.enabledLanguages) d.enabledLanguages = []; // { profile_id, lang }
+    return d;
+  };
   const save = (d) => fs.writeFileSync(file, JSON.stringify(d, null, 2));
   return {
     kind: "json",
@@ -184,6 +219,28 @@ function jsonStore(file) {
       }
     },
     badges(pid) { return load().badges.filter((b) => b.profile_id === pid); },
+    /** Concepts a parent has switched off for this child — hidden from Ganita Grove. */
+    listDisabledConcepts(pid) {
+      return load().disabledConcepts.filter((d) => d.profile_id === pid).map((d) => d.concept_id);
+    },
+    setConceptDisabled(pid, conceptId, disabled) {
+      const d = load();
+      const idx = d.disabledConcepts.findIndex((x) => x.profile_id === pid && x.concept_id === conceptId);
+      if (disabled) { if (idx === -1) d.disabledConcepts.push({ profile_id: pid, concept_id: conceptId }); }
+      else if (idx !== -1) d.disabledConcepts.splice(idx, 1);
+      save(d);
+    },
+    /** Non-English languages a parent has turned ON for this child. English is always available. */
+    listEnabledLanguages(pid) {
+      return load().enabledLanguages.filter((x) => x.profile_id === pid).map((x) => x.lang);
+    },
+    setLanguageEnabled(pid, lang, enabled) {
+      const d = load();
+      const idx = d.enabledLanguages.findIndex((x) => x.profile_id === pid && x.lang === lang);
+      if (enabled) { if (idx === -1) d.enabledLanguages.push({ profile_id: pid, lang }); }
+      else if (idx !== -1) d.enabledLanguages.splice(idx, 1);
+      save(d);
+    },
     wrongQuestions(pid) {
       const groups = new Map(); // key -> {conceptId, questionId, tries, everCorrect, lastMistakeTag}
       for (const a of load().attempts) {

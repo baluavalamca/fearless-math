@@ -82,19 +82,35 @@ export default function App() {
     const s = localStorage.getItem("fm_lang");
     return (LANGS.find((l) => l.id === s)?.id) ?? "en";
   });
+  // Hindi/Telugu only show up in the switcher once a parent turns them on for the
+  // active child (English is always available and is the default). Undefined until
+  // the first fetch resolves, so WorldMap shows English-only rather than flashing
+  // languages that turn out to be disabled.
+  const [enabledLangs, setEnabledLangs] = useState<string[] | undefined>(undefined);
+  async function refreshEnabledLanguages() {
+    try { setEnabledLangs(await api.listEnabledLanguages()); } catch { setEnabledLangs([]); }
+  }
   // The single bottom menu sheet replaces the old top navigation bar.
   const [menu, setMenu] = useState(false);
   function toggleAutoRead() { const next = !autoRead; setAutoRead(next); setAutoReadState(next); }
 
   // Apply the display language: set <html lang> (drives the Indic font via CSS),
   // point read-aloud at the right voice, and tell the main process which pack to serve.
+  // The main process is the source of truth for whether `next` is actually allowed
+  // (English is always allowed; Hindi/Telugu only if the parent enabled them for this
+  // child) — we sync local state to whatever it reports back rather than assuming success.
   async function applyLanguage(next: LangId, reloadOpen: boolean) {
-    const meta = LANGS.find((l) => l.id === next) ?? LANGS[0];
-    document.documentElement.setAttribute("lang", meta.id);
-    localStorage.setItem("fm_lang", meta.id);
-    setSpeechLang(meta.bcp);
+    const requested = LANGS.find((l) => l.id === next) ?? LANGS[0];
+    let resolved = requested;
+    try {
+      const r = await api.setLanguage(requested.id);
+      if (r?.lang && r.lang !== requested.id) resolved = LANGS.find((l) => l.id === r.lang) ?? LANGS[0];
+    } catch { resolved = LANGS[0]; /* falls back to en in main */ }
+    document.documentElement.setAttribute("lang", resolved.id);
+    localStorage.setItem("fm_lang", resolved.id);
+    setSpeechLang(resolved.bcp);
     stopSpeaking();
-    try { await api.setLanguage(meta.id); } catch { /* falls back to en in main */ }
+    setLang(resolved.id);
     if (profile) await refresh();
     if (reloadOpen && open) { try { setOpen(await api.getConcept(open.id)); } catch { /* keep current */ } }
   }
@@ -108,7 +124,7 @@ export default function App() {
     stopSpeaking();
     setMenu(false);
     setScreen(next);
-    if (next === "map") void refresh();
+    if (next === "map") { void refresh(); void refreshEnabledLanguages(); }
   }
 
   useEffect(() => { stopSpeaking(); }, [screen, open]);
@@ -138,7 +154,16 @@ export default function App() {
     document.documentElement.setAttribute("lang", meta.id);
     setSpeechLang(meta.bcp);
     (async () => {
-      try { await api.setLanguage(meta.id); } catch { /* main defaults to en */ }
+      try {
+        const r = await api.setLanguage(meta.id);
+        if (r?.lang && r.lang !== meta.id) {
+          const resolved = LANGS.find((l) => l.id === r.lang) ?? LANGS[0];
+          document.documentElement.setAttribute("lang", resolved.id);
+          setSpeechLang(resolved.bcp);
+          setLang(resolved.id);
+        }
+      } catch { /* main defaults to en */ }
+      void refreshEnabledLanguages();
       try {
         const p = await api.activeProfile();
         setProfile(p); setBooting(false);
@@ -147,7 +172,18 @@ export default function App() {
     })();
   }, []);
 
-  async function onReady(p: Profile) { setProfile(p); setScreen(p.role === "student" ? "map" : "parent"); setOpen(null); await refresh(); }
+  async function onReady(p: Profile) {
+    setProfile(p); setScreen(p.role === "student" ? "map" : "parent"); setOpen(null);
+    // Each child has their own enabled-language set, and the main process resets to
+    // English on every profile switch (see profiles:setActive) — mirror that here so
+    // the switcher never shows a stale non-English selection from the previous child.
+    setEnabledLangs(undefined);
+    document.documentElement.setAttribute("lang", "en");
+    setSpeechLang("en-IN");
+    setLang("en");
+    void refreshEnabledLanguages();
+    await refresh();
+  }
   function switchUser() { stopSpeaking(); setProfile(null); setConcepts(null); setOpen(null); }
 
   async function openConcept(id: string) {
@@ -201,7 +237,7 @@ export default function App() {
         ))}
       </nav>
       <main className="fm-main">
-      {screen === "map" && concepts && <WorldMap concepts={concepts} profile={profile} onOpen={openConcept} onDeepDive={deepDive} onFacts={() => setScreen("facts")} lang={lang} onChangeLanguage={changeLanguage} />}
+      {screen === "map" && concepts && <WorldMap concepts={concepts} profile={profile} onOpen={openConcept} onDeepDive={deepDive} onFacts={() => setScreen("facts")} lang={lang} onChangeLanguage={changeLanguage} enabledLangs={enabledLangs} />}
       {screen === "map" && !concepts && <div className="fm-loading">Loading…</div>}
       {screen === "clinic" && <MistakeClinic />}
       {screen === "ask" && <AskRobo profile={profile} concepts={concepts ?? []} onOpen={openConcept} seed={askSeed} onSeedConsumed={() => setAskSeed(null)} />}

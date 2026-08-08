@@ -65,19 +65,43 @@ function registerIpc() {
   // Never leak the raw PIN to the renderer — expose only whether one is set.
   const pub = (p) => { if (!p) return p; const { pin, ...rest } = p; return { ...rest, hasPin: !!pin }; };
 
-  ipcMain.handle("content:languages", () =>
-    (content && content.conceptsByLang) ? [...content.conceptsByLang.keys()] : ["en"]);
+  // English is always available. Hindi/Telugu (or any other shipped non-English pack)
+  // only count as "available" to a child once their parent has switched it on in the
+  // Parent Dashboard — mirrors the per-child concept enable/disable pattern.
+  const langAllowedForActiveProfile = (lang) => {
+    if (lang === "en") return true;
+    if (!profile) return false;
+    return store.listEnabledLanguages(profile.id).includes(lang);
+  };
+  const availableLangsForActiveProfile = () => {
+    const shipped = content && content.conceptsByLang ? [...content.conceptsByLang.keys()] : ["en"];
+    return shipped.filter(langAllowedForActiveProfile);
+  };
+
+  ipcMain.handle("content:languages", () => availableLangsForActiveProfile());
   ipcMain.handle("content:setLanguage", (_e, lang) => {
     const has = content && content.conceptsByLang && content.conceptsByLang.has(lang);
-    activeLang = has ? lang : "en";
-    return { lang: activeLang, available: content && content.conceptsByLang ? [...content.conceptsByLang.keys()] : ["en"] };
+    activeLang = (has && langAllowedForActiveProfile(lang)) ? lang : "en";
+    return { lang: activeLang, available: availableLangsForActiveProfile() };
+  });
+
+  /** Parent turns Hindi/Telugu on or off for the currently active child. English can't
+   * be disabled. If the child was actively using a language the parent just turned off,
+   * we fall back to English immediately so the UI never shows an unavailable language. */
+  ipcMain.handle("languages:listEnabled", () =>
+    profile ? store.listEnabledLanguages(profile.id) : []);
+  ipcMain.handle("languages:setEnabled", (_e, { lang, enabled }) => {
+    if (!profile || lang === "en") return { ok: false };
+    store.setLanguageEnabled(profile.id, lang, enabled);
+    if (!enabled && activeLang === lang) activeLang = "en";
+    return { ok: true, activeLang };
   });
 
   ipcMain.handle("profile:get", () => pub(profile));
   ipcMain.handle("profiles:list", () => store.listProfiles().map(pub));
   ipcMain.handle("profiles:active", () => pub(profile) || null);
   ipcMain.handle("profiles:create", (_e, data) => { profile = store.createProfile(data); return pub(profile); });
-  ipcMain.handle("profiles:setActive", (_e, id) => { store.setActiveProfile(id); profile = store.listProfiles().find((p) => p.id === id) || profile; return pub(profile); });
+  ipcMain.handle("profiles:setActive", (_e, id) => { store.setActiveProfile(id); profile = store.listProfiles().find((p) => p.id === id) || profile; activeLang = "en"; return pub(profile); });
   ipcMain.handle("profiles:setPin", (_e, { id, pin }) => {
     const row = store.setPin(id, pin);
     if (profile && profile.id === id) profile = store.listProfiles().find((p) => p.id === id) || profile;
@@ -90,15 +114,29 @@ function registerIpc() {
     const all = [...content.concepts.values()];
     const mastered = store.getProgress(profile.id)
       .filter((p) => p.status === "mastered").map((p) => p.concept_id);
+    // Unlocking is computed against the FULL concept set (including anything a parent has
+    // switched off) so a hidden concept never blocks its descendants from unlocking.
     const unlocked = new Set(logic.unlockedConcepts(all, mastered));
     const progress = new Map(store.getProgress(profile.id).map((p) => [p.concept_id, p]));
-    return all.map((c) => ({
-      // Card text (name/world/character) shows in the active language; the unlock
-      // graph above is computed from the canonical English map (ids are shared).
-      ...conceptCard(resolveConcept(c.id) || c),
-      status: progress.get(c.id)?.status
-        || (unlocked.has(c.id) ? "available" : "locked"),
-    }));
+    const disabled = new Set(store.listDisabledConcepts(profile.id));
+    return all
+      .filter((c) => !disabled.has(c.id))
+      .map((c) => ({
+        // Card text (name/world/character) shows in the active language; the unlock
+        // graph above is computed from the canonical English map (ids are shared).
+        ...conceptCard(resolveConcept(c.id) || c),
+        status: progress.get(c.id)?.status
+          || (unlocked.has(c.id) ? "available" : "locked"),
+      }));
+  });
+
+  /** Parent switches a concept on/off for the currently active child. Hidden concepts stay
+   * hidden from Ganita Grove/search but keep any progress already recorded, so re-enabling
+   * later picks up right where the child left off. */
+  ipcMain.handle("concepts:setEnabled", (_e, { conceptId, enabled }) => {
+    if (!profile) return { ok: false };
+    store.setConceptDisabled(profile.id, conceptId, !enabled);
+    return { ok: true };
   });
 
   ipcMain.handle("concepts:get", (_e, conceptId) => {
@@ -177,6 +215,7 @@ function registerIpc() {
     if (!profile) return { profile: null, concepts: [], badges: [], tips: [] };
     const progress = new Map(store.getProgress(profile.id).map((p) => [p.concept_id, p]));
     const stats = new Map(store.stats(profile.id).map((s) => [s.conceptId, s]));
+    const disabled = new Set(store.listDisabledConcepts(profile.id));
     const conceptsOut = [...content.concepts.values()].map((c) => {
       const p = progress.get(c.id);
       const s = stats.get(c.id);
@@ -188,6 +227,7 @@ function registerIpc() {
         correct: s?.correct || 0,
         hints: s?.hints || 0,
         nextRevisionAt: p?.next_revision_at || null,
+        disabled: disabled.has(c.id),
       };
     });
     // Home tips for concepts the child is finding hard (accuracy < 70% with real attempts)
@@ -239,6 +279,16 @@ function registerIpc() {
       ? c.commonMistakes.find((mm) => mm.mistakeTag === verdict.mistakeTag) || null
       : null;
     return ai.coach(c, q, String(answerGiven), mistake);
+  });
+
+  // Ask it a different way — same maths question, fresh wording, for a child who's stuck
+  // on the PHRASING rather than the maths. The answer/numbers never change.
+  ipcMain.handle("ai:rephrase", async (_e, { conceptId, questionId, question }) => {
+    const c = content.concepts.get(conceptId);
+    if (!c) return { ok: false, reason: "unknown-concept" };
+    const q = question || allQuestions(c).find((x) => x.id === questionId);
+    if (!q) return { ok: false, reason: "unknown-question" };
+    return ai.rephraseQuestion(c, q);
   });
 
   ipcMain.handle("ai:whyWrong", async (_e, { conceptId, questionId, answerGiven }) => {

@@ -273,6 +273,22 @@
       }
     ]
   },
+  "liveSim": {
+    "title": "Build a Box — Drag to Change Volume",
+    "hook": "Drag the sliders to stretch the box — watch the volume grow live!",
+    "kind": "solid3d",
+    "shape": "cuboid",
+    "sliders": [
+      { "key": "l", "label": "Length (l)", "min": 1, "max": 6, "step": 1, "default": 3, "unit": "units" },
+      { "key": "w", "label": "Width (w)", "min": 1, "max": 6, "step": 1, "default": 2, "unit": "units" },
+      { "key": "h", "label": "Height (h)", "min": 1, "max": 6, "step": 1, "default": 2, "unit": "units" }
+    ],
+    "formulas": [
+      { "name": "Volume (V = l x w x h)", "expr": "l*w*h", "unit": "cubic units" },
+      { "name": "Surface area", "expr": "2*(l*w+w*h+h*l)", "unit": "sq units" }
+    ],
+    "color": "accent"
+  },
   "commonMistakes": [
     {
       "mistakeTag": "used-area-not-volume",

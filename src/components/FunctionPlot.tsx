@@ -24,6 +24,14 @@ export interface PlotSpec {
   color?: "accent" | "good" | "cool";
 }
 
+/** A single plotted value point, e.g. (x, y) dots so kids can see concrete values on the curve. */
+export interface Marker {
+  x: number;
+  y: number;
+  label?: string;
+  color?: "accent" | "good" | "cool";
+}
+
 const COLOR: Record<string, string> = {
   accent: "var(--accent)",
   good: "var(--good)",
@@ -34,7 +42,16 @@ const evalPoly = (c: number[], x: number) => c.reduce((s, a, i) => s + a * Math.
 const evalDeriv = (c: number[], x: number) =>
   c.reduce((s, a, i) => (i === 0 ? s : s + i * a * Math.pow(x, i - 1)), 0);
 
-export function FunctionPlot({ plots, caption }: { plots: PlotSpec[]; caption?: string }) {
+export function FunctionPlot({
+  plots,
+  caption,
+  markers,
+}: {
+  plots: PlotSpec[];
+  caption?: string;
+  /** Optional dots plotted at specific (x, y) values, e.g. a value-table's rows. */
+  markers?: Marker[];
+}) {
   const W = 460, H = 300, pad = 30;
   const list = (plots || []).filter((p) => Array.isArray(p.poly) || Array.isArray(p.points));
 
@@ -53,8 +70,10 @@ export function FunctionPlot({ plots, caption }: { plots: PlotSpec[]; caption?: 
 
   const allX = samples.flat().map((p) => p[0]);
   const allY = samples.flat().map((p) => p[1]);
-  let xmin = Math.min(...allX, -1), xmax = Math.max(...allX, 1);
-  let ymin = Math.min(...allY, -1), ymax = Math.max(...allY, 1);
+  const markerXs = (markers ?? []).map((m) => m.x);
+  const markerYs = (markers ?? []).map((m) => m.y);
+  let xmin = Math.min(...allX, ...markerXs, -1), xmax = Math.max(...allX, ...markerXs, 1);
+  let ymin = Math.min(...allY, ...markerYs, -1), ymax = Math.max(...allY, ...markerYs, 1);
   // pad the y-window a little and always include 0
   ymin = Math.min(ymin, 0); ymax = Math.max(ymax, 0);
   const yspan = (ymax - ymin) || 1; ymin -= yspan * 0.08; ymax += yspan * 0.08;
@@ -109,6 +128,18 @@ export function FunctionPlot({ plots, caption }: { plots: PlotSpec[]; caption?: 
           return <path key={"c" + i} d={d} fill="none"
             stroke={COLOR[p.color ?? "accent"]} strokeWidth={3} strokeLinejoin="round" />;
         })}
+
+        {/* plotted value points — concrete (x, y) dots so kids see the curve is built from real values */}
+        {markers && markers.map((mk, i) => (
+          <g key={"mk" + i}>
+            <circle cx={sx(mk.x)} cy={sy(mk.y)} r={4.5}
+              fill={COLOR[mk.color ?? "accent"]} stroke="var(--card)" strokeWidth={1.5} />
+            {mk.label && (
+              <text x={sx(mk.x)} y={sy(mk.y) - 9} textAnchor="middle" fontSize={11} fontWeight={700}
+                fill={COLOR[mk.color ?? "accent"]}>{mk.label}</text>
+            )}
+          </g>
+        ))}
 
         {/* tangent lines (derivatives) */}
         {list.map((p, i) => {

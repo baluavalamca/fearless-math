@@ -97,6 +97,20 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "Build the Ladder — Pythagoras Live",
+    "hook": "Drag the two short sides — watch the hypotenuse (the ladder!) update using a² + b² = c².",
+    "kind": "shape2d",
+    "shape": "right-triangle",
+    "sliders": [
+      { "key": "a", "label": "Side a", "min": 3, "max": 12, "step": 1, "default": 3, "unit": "units" },
+      { "key": "b", "label": "Side b", "min": 3, "max": 12, "step": 1, "default": 4, "unit": "units" }
+    ],
+    "formulas": [
+      { "name": "Hypotenuse (c = √(a² + b²))", "expr": "sqrt(a^2+b^2)", "unit": "units" }
+    ],
+    "color": "accent"
+  },
   "standardMethod": {
     "summary": "Identify the right angle and hypotenuse; use a² + b² = c², squaring and taking roots to find the missing side.",
     "steps": [

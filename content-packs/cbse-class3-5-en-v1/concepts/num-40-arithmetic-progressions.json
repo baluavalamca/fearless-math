@@ -114,6 +114,20 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "AP Terms — Live Line",
+    "hook": "Drag the common difference and first term — x counts jumps from the first term, y is the term's value!",
+    "kind": "graph2d",
+    "shape": "linear",
+    "sliders": [
+      { "key": "m", "label": "Common difference (d)", "min": 1, "max": 10, "step": 1, "default": 4, "unit": "" },
+      { "key": "c", "label": "First term (a)", "min": 0, "max": 20, "step": 1, "default": 3, "unit": "" }
+    ],
+    "formulas": [
+      { "name": "5th term (4 jumps on)", "expr": "m*4+c", "unit": "" }
+    ],
+    "color": "good"
+  },
   "standardMethod": {
     "summary": "Find a and d, then use a_n = a + (n − 1)d for any term and S_n = n/2 × (2a + (n − 1)d) for the total.",
     "steps": [

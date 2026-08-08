@@ -103,6 +103,20 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "Grow the Cube — Squares and Cubes Live",
+    "hook": "Drag the side length — watch how fast volume (cube) grows compared to area (square)!",
+    "kind": "solid3d",
+    "shape": "cube",
+    "sliders": [
+      { "key": "s", "label": "Side (s)", "min": 1, "max": 8, "step": 1, "default": 3, "unit": "units" }
+    ],
+    "formulas": [
+      { "name": "Square (s²)", "expr": "s^2", "unit": "sq units" },
+      { "name": "Cube (s³)", "expr": "s^3", "unit": "cubic units" }
+    ],
+    "color": "accent"
+  },
   "standardMethod": {
     "summary": "To square, multiply a number by itself; to cube, by itself three times. A root reverses it — find what number gives that value.",
     "steps": [

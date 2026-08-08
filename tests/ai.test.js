@@ -1,7 +1,7 @@
 /** AI service tests — pure functions only (no network, no key needed). */
 const assert = require("assert");
 const {
-  buildExplainPrompt, buildWhyWrongPrompt, buildCoachPrompt, coachLeaksAnswer, extractJson, validateAiResponse, cacheKey,
+  buildExplainPrompt, buildWhyWrongPrompt, buildCoachPrompt, buildRephrasePrompt, coachLeaksAnswer, extractJson, validateAiResponse, cacheKey,
 } = require("../electron/aiService");
 
 let passed = 0;
@@ -51,6 +51,21 @@ t("coachLeaksAnswer catches a leaked answer and ignores single chars", () => {
   assert.strictEqual(coachLeaksAnswer("Is it really 1/2 of the whole?", "1/2"), true);
   assert.strictEqual(coachLeaksAnswer("How many equal parts are there?", "1/2"), false);
   assert.strictEqual(coachLeaksAnswer("Count 5 things — how many groups?", "5"), false);
+});
+
+console.log("\naiService.rephrase (ask it a different way)");
+t("rephrase prompt pins the verified answer and forbids changing the numbers", () => {
+  const p = buildRephrasePrompt(concept, question);
+  assert.ok(p.includes("LESSON JSON") || p.includes("VERIFIED lesson content"));
+  assert.ok(p.includes('exactly "1/2"'));
+  assert.ok(p.includes("REWORDING, not creating a new problem"));
+});
+t("rephrase prompt demands a reworded-question JSON and keeps mcq option labels fixed", () => {
+  const p = buildRephrasePrompt(concept, question);
+  assert.ok(p.includes('{"question"'));
+  const mcq = { ...question, type: "mcq", options: [{ label: "1/2" }, { label: "1/3" }] };
+  const p2 = buildRephrasePrompt(concept, mcq);
+  assert.ok(p2.includes("OPTIONS") && p2.includes("1/2, 1/3"));
 });
 
 console.log("\naiService.validation (safety guardrails)");

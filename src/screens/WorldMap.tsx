@@ -87,6 +87,7 @@ export function WorldMap({
   onFacts,
   lang = "en",
   onChangeLanguage,
+  enabledLangs,
 }: {
   concepts: ConceptCard[];
   profile: Profile;
@@ -98,6 +99,10 @@ export function WorldMap({
   lang?: LangKey;
   /** Switch the app's display language (EN / हिंदी / తెలుగు). */
   onChangeLanguage?: (lang: LangKey) => void;
+  /** Non-English language ids a parent has turned on for this child (English is always shown).
+   *  Undefined means "not loaded yet" — show English only until we know, rather than
+   *  briefly flashing Hindi/Telugu chips that may not be enabled. */
+  enabledLangs?: string[];
 }) {
   const explore = localStorage.getItem("fm_explore") === "1";
   const [view, setView] = useState<"home" | "class">("home");
@@ -206,7 +211,7 @@ export function WorldMap({
         </div>
         <div className="fm-hero-right">
           <div className="fm-hero-lang" role="radiogroup" aria-label="Choose a language">
-            {HERO_LANGS.map((l) => (
+            {HERO_LANGS.filter((l) => l.id === "en" || enabledLangs?.includes(l.id)).map((l) => (
               <button key={l.id} role="radio" aria-checked={lang === l.id} title={l.native}
                 className={"fm-hero-lang-chip" + (lang === l.id ? " on" : "")}
                 onClick={() => onChangeLanguage?.(l.id)}>{l.label}</button>

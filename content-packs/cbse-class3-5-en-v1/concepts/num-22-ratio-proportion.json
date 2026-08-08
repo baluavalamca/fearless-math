@@ -126,6 +126,19 @@
       ]
     }
   ],
+  "liveSim": {
+    "title": "Unit Rate — Price per Kilogram, Live",
+    "hook": "Drag the price-per-kg slider and watch the cost line grow — see the cost for 1, 2, 3 kg!",
+    "kind": "graph2d",
+    "shape": "linear",
+    "sliders": [
+      { "key": "m", "label": "Price per kg (₹)", "min": 5, "max": 50, "step": 5, "default": 20, "unit": "₹/kg" }
+    ],
+    "formulas": [
+      { "name": "Cost for 3 kg", "expr": "m*3", "unit": "₹" }
+    ],
+    "color": "good"
+  },
   "standardMethod": {
     "summary": "Write the comparison as a : b. To find equal ratios, multiply (or divide) BOTH parts by the same number. For sharing, add the parts to find one part's value.",
     "steps": [
