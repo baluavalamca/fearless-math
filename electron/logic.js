@@ -89,13 +89,66 @@ function unlockedConcepts(allConcepts, masteredIds) {
     .map((c) => c.id);
 }
 
-/** Spaced revision: next review date from the card + how many reviews done. */
-function nextRevisionAt(concept, masteredAtISO, reviewsDone) {
-  const days = concept.revisionCard.reviewAfterDays;
-  if (reviewsDone >= days.length) return null; // graduated
-  const d = new Date(masteredAtISO);
-  d.setDate(d.getDate() + days[reviewsDone]);
-  return d.toISOString();
+/* ---------------- Adaptive spaced repetition (SM-2 style) ----------------
+ * Classic SM-2 (SuperMemo-2): each review is scored 0-5 ("quality"). A quality
+ * below 3 means the child effectively forgot it — repetitions reset and the
+ * next review is tomorrow. A quality of 3+ grows the interval — first using
+ * the concept's own authored reviewAfterDays[0] (so content authoring still
+ * matters for the very first check-in), then via the SM-2 ease-factor growth
+ * curve — so a concept a child nails every time drifts to longer and longer
+ * gaps, while one they keep fumbling gets reviewed more often. This replaces
+ * the old fixed reviewAfterDays[reviewsDone] schedule, which was identical
+ * for every learner and never adapted to how a specific child was doing. */
+const SM2_MIN_EASE = 1.3;
+const SM2_DEFAULT_EASE = 2.5;
+
+/** Map a mastery/revision outcome to an SM-2 quality score (0-5).
+ *  `score` is the fraction correct (0..1); `teachBackDone` and `forgot` are
+ *  extra signals for the top and bottom of the scale. */
+function masteryQuality({ score, teachBackDone, forgot }) {
+  if (forgot) return 1; // failed a revision check on something once mastered — clearly forgotten
+  if (score == null) return 3;
+  if (score >= 0.95 && teachBackDone) return 5;
+  if (score >= 0.9) return 4;
+  return 3; // just cleared the mastery bar
 }
 
-module.exports = { normalize, parseFraction, checkAnswer, masteryResult, unlockedConcepts, nextRevisionAt };
+/**
+ * SM-2 review update. `prev` is the learner's current SRS state for this
+ * concept — { easeFactor, intervalDays, repetitions } (all optional; a
+ * first-ever review defaults sensibly). Returns the new state plus the next
+ * revision date, computed from `fromISO` (defaults to now).
+ */
+function sm2Update(prev, quality, { fromISO, firstIntervalDays = 3 } = {}) {
+  const q = Math.max(0, Math.min(5, quality));
+  let ease = prev?.easeFactor ?? SM2_DEFAULT_EASE;
+  let reps = prev?.repetitions ?? 0;
+  let interval;
+
+  if (q < 3) {
+    reps = 0;
+    interval = 1; // forgotten — check again tomorrow, no matter how far along they were
+  } else {
+    if (reps === 0) interval = firstIntervalDays;
+    else if (reps === 1) interval = Math.max(6, firstIntervalDays * 2);
+    else interval = Math.round((prev?.intervalDays || firstIntervalDays) * ease);
+    reps += 1;
+  }
+
+  ease = Math.max(SM2_MIN_EASE, ease + (0.1 - (5 - q) * (0.08 + (5 - q) * 0.02)));
+
+  const from = new Date(fromISO || new Date().toISOString());
+  from.setDate(from.getDate() + interval);
+
+  return {
+    easeFactor: Math.round(ease * 100) / 100,
+    intervalDays: interval,
+    repetitions: reps,
+    nextRevisionAt: from.toISOString(),
+  };
+}
+
+module.exports = {
+  normalize, parseFraction, checkAnswer, masteryResult, unlockedConcepts,
+  masteryQuality, sm2Update,
+};

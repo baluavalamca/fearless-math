@@ -1,0 +1,5 @@
+  • electron-builder  version=24.13.3 os=10.0.26200
+  • loaded configuration  file=package.json ("build" field)
+  • rebuilding native dependencies  dependencies=better-sqlite3@11.10.0 platform=win32 arch=x64
+  • install prebuilt binary  name=better-sqlite3 version=11.10.0 platform=win32 arch=x64 napi=
+  • packaging       platform=win32 arch=x64 electron=31.7.7 appOutDir=elease\win-unpacked

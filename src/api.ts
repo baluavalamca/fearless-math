@@ -95,6 +95,10 @@ export interface DashboardConcept {
   status: string; masteryScore: number | null;
   attempts: number; correct: number; hints: number;
   nextRevisionAt: string | null;
+  /** How many spaced-revision reviews this concept has passed (SM-2 repetitions).
+   *  Grows as the child keeps recalling it well; resets to 0 on a forgotten/lapsed review. */
+  reviewStreak: number;
+  masteredAt: string | null;
   /** True when a parent has switched this concept off — hidden from Ganita Grove. */
   disabled: boolean;
 }
@@ -110,6 +114,18 @@ export interface DashboardData {
   concepts: DashboardConcept[];
   badges: { badge_id: string; earned_at: string }[];
   tips: { concept: string; homeTip: string | null; fixes: string[] }[];
+}
+
+/** One day of the 14-day activity trend. */
+export interface TrendDay { date: string; attempts: number; correct: number; masteredCumulative: number }
+export interface TrendWeek { attempts: number; correct: number; accuracyPct: number | null; activeDays: number; conceptsMasteredThisWeek: number }
+export interface DashboardTrend {
+  days: TrendDay[];
+  week: TrendWeek | null;
+  /** A short weekly narrative — AI-written when a provider is configured, otherwise a
+   *  plain-language fallback computed locally (summaryOk tells you which). */
+  summary: string | null;
+  summaryOk: boolean;
 }
 
 interface FmBridge {
@@ -136,6 +152,7 @@ interface FmBridge {
   listBadges(): Promise<{ badge_id: string; earned_at: string }[]>;
   clinicList(): Promise<ClinicItem[]>;
   getDashboard(): Promise<DashboardData>;
+  getDashboardTrend(): Promise<DashboardTrend>;
   aiStatus(): Promise<AiStatus>;
   aiConfigure(cfg: { enabled?: boolean; provider?: string; apiKey?: string; model?: string; baseUrl?: string }): Promise<AiStatus>;
   aiProviders(): Promise<ProviderInfo[]>;

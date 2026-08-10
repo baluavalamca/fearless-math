@@ -696,6 +696,22 @@ body.skin-playful .fm-way-card { border-radius: 22px; }
 .fm-acc-bar div.hi { background: #2e7d32; }
 .fm-acc-bar div.lo { background: var(--accent); }
 .fm-dash-note { color: var(--muted); font-size: 15px; }
+
+/* Parent dashboard: 14-day activity trend chart */
+.fm-trend-wrap { width: 100%; }
+.fm-trend-svg { width: 100%; height: auto; display: block; }
+.fm-trend-axis { stroke: var(--line); stroke-width: 1; }
+.fm-trend-bar { fill: var(--fm-empty); }
+.fm-trend-bar.hi { fill: var(--good); }
+.fm-trend-bar.lo { fill: var(--accent); }
+.fm-trend-line { stroke: var(--accent-dark); stroke-width: 2.5; }
+.fm-trend-dot { fill: var(--accent-dark); }
+.fm-trend-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px; font-size: 13px; color: var(--muted); }
+.fm-trend-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.fm-trend-swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; }
+.fm-trend-swatch.bar { background: var(--good); }
+.fm-trend-swatch.line { background: var(--accent-dark); border-radius: 999px; height: 4px; width: 16px; }
+
 .fm-badge-row { display: flex; gap: 10px; flex-wrap: wrap; }
 .fm-badge {
   background: #fff2df; border: 2px solid var(--line); border-radius: 999px;

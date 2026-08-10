@@ -44,6 +44,28 @@ function allQuestions(c) {
   ];
 }
 
+/** Plain-language weekly summary — used whenever the AI tutor isn't configured/online,
+ * so the Parent Dashboard trend always shows something honest, not a blank state. */
+function localWeeklySummary({ attempts, correct, accuracyPct, activeDays, conceptsMasteredThisWeek }) {
+  if (attempts === 0) {
+    return "No practice logged this week. A short 10-minute session on a couple of days makes a real difference — no pressure, just little and often.";
+  }
+  const parts = [];
+  parts.push(`${attempts} question${attempts === 1 ? "" : "s"} answered across ${activeDays} active day${activeDays === 1 ? "" : "s"} this week`
+    + (accuracyPct !== null ? ` at ${accuracyPct}% accuracy.` : "."));
+  if (conceptsMasteredThisWeek > 0) {
+    parts.push(`${conceptsMasteredThisWeek} concept${conceptsMasteredThisWeek === 1 ? "" : "s"} mastered — nice steady progress.`);
+  }
+  if (accuracyPct !== null && accuracyPct < 60) {
+    parts.push("Accuracy dipped a bit — a good sign to slow down together, not a reason to worry; hints are there to help.");
+  } else if (activeDays <= 1) {
+    parts.push("Just one active day — a couple of short sessions spread across the week tends to stick better than one long one.");
+  } else {
+    parts.push("Keep the rhythm going with a few short sessions next week.");
+  }
+  return parts.join(" ");
+}
+
 function registerIpc() {
   function activeProfile() {
     const all = store.listProfiles();
@@ -200,14 +222,35 @@ function registerIpc() {
     const c = content.concepts.get(conceptId);
     const attempts = store.masteryAttempts(profile.id, conceptId);
     const result = logic.masteryResult(c, attempts, !!teachBackDone);
+    const prior = store.getProgress(profile.id).find((p) => p.concept_id === conceptId) || null;
+    const wasAlreadyMastered = prior?.status === "mastered";
+    const now = new Date().toISOString();
+    // Author-declared first check-in still matters; everything after it adapts per-student.
+    const firstIntervalDays = c.revisionCard?.reviewAfterDays?.[0] || 3;
+    const srsPrev = { easeFactor: prior?.srs_ease, intervalDays: prior?.srs_interval_days, repetitions: prior?.reviews_done };
+
     if (result.status === "mastered") {
-      const masteredAt = new Date().toISOString();
+      const quality = logic.masteryQuality({ score: result.score, teachBackDone: true });
+      const srs = logic.sm2Update(srsPrev, quality, { fromISO: now, firstIntervalDays });
       store.upsertProgress(profile.id, conceptId, {
         status: "mastered", mastery_score: result.score,
-        teach_back_done: true, mastered_at: masteredAt,
-        next_revision_at: logic.nextRevisionAt(c, masteredAt, 0),
+        teach_back_done: true, mastered_at: wasAlreadyMastered ? prior.mastered_at : now,
+        reviews_done: srs.repetitions, srs_ease: srs.easeFactor,
+        srs_interval_days: srs.intervalDays, next_revision_at: srs.nextRevisionAt,
       });
-      store.awardBadge(profile.id, "explained-it");
+      store.awardBadge(profile.id, wasAlreadyMastered ? "memory-booster" : "explained-it");
+    } else if (wasAlreadyMastered) {
+      // A revision check on an already-mastered concept came back below the bar — the
+      // strongest "forgot it" signal SM-2 has. Tighten the schedule (SM-2 "lapse": reset
+      // repetitions, review again tomorrow) but don't strip mastered status — that would
+      // re-lock every concept downstream over one shaky revision, which isn't the point.
+      const quality = logic.masteryQuality({ score: result.score, forgot: true });
+      const srs = logic.sm2Update(srsPrev, quality, { fromISO: now, firstIntervalDays });
+      store.upsertProgress(profile.id, conceptId, {
+        mastery_score: result.score,
+        reviews_done: srs.repetitions, srs_ease: srs.easeFactor,
+        srs_interval_days: srs.intervalDays, next_revision_at: srs.nextRevisionAt,
+      });
     } else {
       store.upsertProgress(profile.id, conceptId, {
         status: "practicing", mastery_score: result.score,
@@ -250,6 +293,8 @@ function registerIpc() {
         correct: s?.correct || 0,
         hints: s?.hints || 0,
         nextRevisionAt: p?.next_revision_at || null,
+        reviewStreak: p?.reviews_done || 0,
+        masteredAt: p?.mastered_at || null,
         disabled: disabled.has(c.id),
       };
     });
@@ -265,6 +310,54 @@ function registerIpc() {
         };
       });
     return { profile: { name: profile.name, grade: profile.grade }, concepts: conceptsOut, badges: store.badges(profile.id), tips };
+  });
+
+  /** Parent dashboard: 14-day activity + cumulative-mastery trend, plus a short weekly
+   * narrative — AI-written (any configured provider, incl. local/offline) when available,
+   * otherwise a plain-language fallback computed locally so this never shows a blank state. */
+  ipcMain.handle("dashboard:trend", async () => {
+    if (!profile) return { days: [], week: null, summary: null, summaryOk: false };
+    const DAYS = 14;
+    const since = new Date();
+    since.setDate(since.getDate() - (DAYS - 1));
+    since.setHours(0, 0, 0, 0);
+    const sinceISO = since.toISOString();
+
+    const activityByDay = new Map(store.dailyActivity(profile.id, sinceISO).map((r) => [r.day, r]));
+    const masteryDates = store.masteryDates(profile.id);
+    let masteredSoFar = masteryDates.filter((m) => new Date(m.masteredAt) < since).length;
+
+    const days = [];
+    for (let i = 0; i < DAYS; i++) {
+      const d = new Date(since);
+      d.setDate(d.getDate() + i);
+      const key = d.toISOString().slice(0, 10);
+      const row = activityByDay.get(key);
+      const masteredToday = masteryDates.filter((m) => String(m.masteredAt).slice(0, 10) === key).length;
+      masteredSoFar += masteredToday;
+      days.push({ date: key, attempts: row?.attempts || 0, correct: row?.correct || 0, masteredCumulative: masteredSoFar });
+    }
+
+    const last7 = days.slice(-7);
+    const weekAttempts = last7.reduce((s, d) => s + d.attempts, 0);
+    const weekCorrect = last7.reduce((s, d) => s + d.correct, 0);
+    const startOfWeekMastered = days[days.length - 8]?.masteredCumulative ?? days[0]?.masteredCumulative ?? masteredSoFar;
+    const week = {
+      attempts: weekAttempts,
+      correct: weekCorrect,
+      accuracyPct: weekAttempts ? Math.round((weekCorrect / weekAttempts) * 100) : null,
+      activeDays: last7.filter((d) => d.attempts > 0).length,
+      conceptsMasteredThisWeek: Math.max(0, masteredSoFar - startOfWeekMastered),
+    };
+
+    let summary = null, summaryOk = false;
+    try {
+      const r = await ai.weeklySummary(week);
+      if (r.ok) { summary = r.summary; summaryOk = true; }
+    } catch { /* fall through to the local summary below */ }
+    if (!summaryOk) summary = localWeeklySummary(week);
+
+    return { days, week, summary, summaryOk };
   });
 
   /* ---------- AI tutor (online, optional, grounded — §2b) ---------- */

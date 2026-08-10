@@ -23,6 +23,7 @@ contextBridge.exposeInMainWorld("fm", {
   listBadges: () => ipcRenderer.invoke("badges:list"),
   clinicList: () => ipcRenderer.invoke("clinic:list"),
   getDashboard: () => ipcRenderer.invoke("dashboard:get"),
+  getDashboardTrend: () => ipcRenderer.invoke("dashboard:trend"),
   aiStatus: () => ipcRenderer.invoke("ai:status"),
   aiConfigure: (cfg) => ipcRenderer.invoke("ai:configure", cfg),
   aiProviders: () => ipcRenderer.invoke("ai:providers"),

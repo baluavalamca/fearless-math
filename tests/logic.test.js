@@ -1,7 +1,7 @@
 /** Plain-node tests for the pure learning logic + content loading. */
 const assert = require("assert");
 const path = require("path");
-const { checkAnswer, masteryResult, unlockedConcepts, nextRevisionAt } = require("../electron/logic");
+const { checkAnswer, masteryResult, unlockedConcepts, masteryQuality, sm2Update } = require("../electron/logic");
 const { loadPacks } = require("../electron/contentLoader");
 
 let passed = 0;
@@ -67,13 +67,55 @@ t("no mastery: only roots + unknown-prereq unlocked", () =>
 t("mastering a unlocks b", () =>
   assert.deepStrictEqual(unlockedConcepts(graph, ["a"]), ["a", "b", "d"]));
 
-console.log("\nlogic.nextRevisionAt");
-t("first review 3 days out", () => {
-  const d = new Date(nextRevisionAt(concept, "2026-07-02T00:00:00.000Z", 0));
-  assert.strictEqual(d.getUTCDate(), 5);
+console.log("\nlogic.masteryQuality");
+t("failed revision on a mastered concept is a hard 'forgot it' signal", () =>
+  assert.strictEqual(masteryQuality({ score: 0.4, forgot: true }), 1));
+t("perfect score + teach-back = top quality", () =>
+  assert.strictEqual(masteryQuality({ score: 1, teachBackDone: true }), 5));
+t("strong score without teach-back is still a solid quality", () =>
+  assert.strictEqual(masteryQuality({ score: 0.9 }), 4));
+t("just-cleared-the-bar score is a middling quality", () =>
+  assert.strictEqual(masteryQuality({ score: 0.75 }), 3));
+
+console.log("\nlogic.sm2Update (adaptive spaced repetition)");
+t("first-ever mastery uses the author's first check-in day", () => {
+  const r = sm2Update({}, 4, { fromISO: "2026-07-02T00:00:00.000Z", firstIntervalDays: 3 });
+  assert.strictEqual(r.repetitions, 1);
+  assert.strictEqual(r.intervalDays, 3);
+  assert.strictEqual(new Date(r.nextRevisionAt).getUTCDate(), 5);
 });
-t("graduated after all reviews", () =>
-  assert.strictEqual(nextRevisionAt(concept, "2026-07-02T00:00:00.000Z", 3), null));
+t("second good review jumps to the classic 6-day (or 2x first) step", () => {
+  const first = sm2Update({}, 4, { fromISO: "2026-07-02T00:00:00.000Z", firstIntervalDays: 3 });
+  const second = sm2Update(first, 4, { fromISO: first.nextRevisionAt, firstIntervalDays: 3 });
+  assert.strictEqual(second.repetitions, 2);
+  assert.strictEqual(second.intervalDays, 6);
+});
+t("repeated perfect reviews grow the interval geometrically (ease > 1)", () => {
+  let state = {};
+  let from = "2026-07-02T00:00:00.000Z";
+  for (let i = 0; i < 4; i++) {
+    state = sm2Update(state, 5, { fromISO: from, firstIntervalDays: 3 });
+    from = state.nextRevisionAt;
+  }
+  // After 4 perfect reviews the interval should have grown well past the first-step size.
+  assert.ok(state.intervalDays > 6, `expected growth, got ${state.intervalDays}`);
+  assert.ok(state.easeFactor >= 2.5, "ease factor should not shrink on perfect recall");
+});
+t("a forgotten review resets repetitions and shortens the interval to 1 day", () => {
+  const strong = sm2Update({}, 5, { fromISO: "2026-07-02T00:00:00.000Z", firstIntervalDays: 3 });
+  const lapsed = sm2Update(strong, 1, { fromISO: strong.nextRevisionAt, firstIntervalDays: 3 });
+  assert.strictEqual(lapsed.repetitions, 0);
+  assert.strictEqual(lapsed.intervalDays, 1);
+});
+t("ease factor never drops below the SM-2 floor of 1.3", () => {
+  let state = {};
+  let from = "2026-07-02T00:00:00.000Z";
+  for (let i = 0; i < 10; i++) {
+    state = sm2Update(state, 3, { fromISO: from, firstIntervalDays: 3 }); // repeatedly "just barely" pass
+    from = state.nextRevisionAt;
+  }
+  assert.ok(state.easeFactor >= 1.3);
+});
 
 console.log("\ncontentLoader");
 const { packs, concepts } = loadPacks(path.join(__dirname, "..", "content-packs"));

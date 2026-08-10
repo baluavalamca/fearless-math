@@ -573,6 +573,45 @@ async function askTutor({ question, grade, history }) {
   }
 }
 
+/* ---------------- Parent Dashboard: AI weekly summary ----------------
+ * A short, honest, encouraging note for a parent, written from AGGREGATE
+ * numbers only (attempts/correct per day, concepts mastered this week,
+ * accuracy by strand) — never the child's name or any raw answer text. */
+function buildWeeklySummaryPrompt(stats) {
+  return `You are Robo Reason, writing a short WEEKLY PROGRESS NOTE for a parent about their
+child's maths practice this week, inside a children's learning app.
+
+THIS WEEK'S DATA (aggregated numbers only, no personal data):
+${JSON.stringify(stats)}
+
+TASK: Write a warm, honest, encouraging note a busy parent can read in 10 seconds: what went
+well, anything worth a gentle look (e.g. a quiet week, or lower accuracy somewhere), and ONE
+small, specific, doable suggestion for the coming week.
+
+STRICT RULES:
+- You do not know the child's name — write "your child" or similar, never invent a name.
+- Be honest but never discouraging or alarmist. No shame language, no exclamation overload.
+- No links, no brand names, nothing outside maths learning.
+- 3-5 short sentences total.
+- Reply with ONLY this JSON, nothing else:
+{"summary": "<3-5 sentences>"}`;
+}
+
+async function weeklySummary(stats) {
+  const p = PROVIDERS[settings.provider] || PROVIDERS.anthropic;
+  const usable = settings.enabled && (p.local || !!settings.keyStored);
+  if (!usable) return { ok: false, reason: "disabled" };
+  try {
+    const text = await callProvider(buildWeeklySummaryPrompt(stats));
+    const obj = extractJson(text);
+    const v = validateAiResponse(obj, [{ name: "summary", required: true, min: 20, max: 900 }]);
+    if (!v.ok) return { ok: false, reason: v.reason };
+    return { ok: true, summary: obj.summary.trim() };
+  } catch (e) {
+    return { ok: false, reason: String(e?.message || e) };
+  }
+}
+
 /* ================================================================
  * Concept generation — "Extend the syllabus" (parent/teacher only).
  * A topic (typed or spoken) becomes a FULL concept that follows the same
@@ -932,9 +971,9 @@ async function generateConcept({ topic, grade, language, ground = true, verify =
 }
 
 module.exports = {
-  init, configure, getStatus, providers, explain, whyWrong, coach, rephraseQuestion, askTutor, generateConcept,
+  init, configure, getStatus, providers, explain, whyWrong, coach, rephraseQuestion, askTutor, generateConcept, weeklySummary,
   // pure functions exported for tests
   buildExplainPrompt, buildWhyWrongPrompt, buildCoachPrompt, buildRephrasePrompt, coachLeaksAnswer, extractJson, validateAiResponse, cacheKey,
   conceptJsonSchema, buildConceptPrompt, sanitizeConcept, validateGenerated, cleanVisual, GEN_COMPONENTS, VISUAL_COMPONENTS,
-  fetchReference, verifyAnswerKeys, collectQuestions,
+  fetchReference, verifyAnswerKeys, collectQuestions, buildWeeklySummaryPrompt,
 };

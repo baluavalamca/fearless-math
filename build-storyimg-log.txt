@@ -1,0 +1,21 @@
+
+> fearless-math@0.1.0 dist
+> vite build && electron-builder --win
+
+The CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.
+vite v5.4.21 building for production...
+transforming...
+✓ 2057 modules transformed.
+rendering chunks...
+x Build failed in 4.18s
+error during build:
+[vite:build-html] The "fileName" or "name" properties of emitted chunks and assets must be strings that are neither absolute nor relative paths, received "../Users/eswar/AppData/Roaming/Claude/local-agent-mode-sessions/480831a7-1d8b-4338-9001-1dd6869e279c/b006c522-eca0-46e8-a751-4083e67297c4/local_174c6bdb-303f-4317-a93e-71145724184b/outputs/fearless-math/index.html".
+    at getRollupError (file:///C:/Users/eswar/AppData/Roaming/Claude/local-agent-mode-sessions/480831a7-1d8b-4338-9001-1dd6869e279c/b006c522-eca0-46e8-a751-4083e67297c4/local_174c6bdb-303f-4317-a93e-71145724184b/outputs/fearless-math/node_modules/rollup/dist/es/shared/parseAst.js:317:41)
+    at error (file:///C:/Users/eswar/AppData/Roaming/Claude/local-agent-mode-sessions/480831a7-1d8b-4338-9001-1dd6869e279c/b006c522-eca0-46e8-a751-4083e67297c4/local_174c6bdb-303f-4317-a93e-71145724184b/outputs/fearless-math/node_modules/rollup/dist/es/shared/parseAst.js:313:42)
+    at FileEmitter.emitFile (file:///C:/Users/eswar/AppData/Roaming/Claude/local-agent-mode-sessions/480831a7-1d8b-4338-9001-1dd6869e279c/b006c522-eca0-46e8-a751-4083e67297c4/local_174c6bdb-303f-4317-a93e-71145724184b/outputs/fearless-math/node_modules/rollup/dist/es/shared/node-entry.js:22339:24)
+    at Object.generateBundle (file:///C:/Users/eswar/AppData/Roaming/Claude/local-agent-mode-sessions/480831a7-1d8b-4338-9001-1dd6869e279c/b006c522-eca0-46e8-a751-4083e67297c4/local_174c6bdb-303f-4317-a93e-71145724184b/outputs/fearless-math/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:35646:14)
+    at async Bundle.generate (file:///C:/Users/eswar/AppData/Roaming/Claude/local-agent-mode-sessions/480831a7-1d8b-4338-9001-1dd6869e279c/b006c522-eca0-46e8-a751-4083e67297c4/local_174c6bdb-303f-4317-a93e-71145724184b/outputs/fearless-math/node_modules/rollup/dist/es/shared/node-entry.js:21082:9)
+    at async file:///C:/Users/eswar/AppData/Roaming/Claude/local-agent-mode-sessions/480831a7-1d8b-4338-9001-1dd6869e279c/b006c522-eca0-46e8-a751-4083e67297c4/local_174c6bdb-303f-4317-a93e-71145724184b/outputs/fearless-math/node_modules/rollup/dist/es/shared/node-entry.js:24015:27
+    at async catchUnfinishedHookActions (file:///C:/Users/eswar/AppData/Roaming/Claude/local-agent-mode-sessions/480831a7-1d8b-4338-9001-1dd6869e279c/b006c522-eca0-46e8-a751-4083e67297c4/local_174c6bdb-303f-4317-a93e-71145724184b/outputs/fearless-math/node_modules/rollup/dist/es/shared/node-entry.js:23380:16)
+    at async build (file:///C:/Users/eswar/AppData/Roaming/Claude/local-agent-mode-sessions/480831a7-1d8b-4338-9001-1dd6869e279c/b006c522-eca0-46e8-a751-4083e67297c4/local_174c6bdb-303f-4317-a93e-71145724184b/outputs/fearless-math/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:65715:16)
+    at async CAC.<anonymous> (file:///C:/Users/eswar/AppData/Roaming/Claude/local-agent-mode-sessions/480831a7-1d8b-4338-9001-1dd6869e279c/b006c522-eca0-46e8-a751-4083e67297c4/local_174c6bdb-303f-4317-a93e-71145724184b/outputs/fearless-math/node_modules/vite/dist/node/cli.js:829:5)

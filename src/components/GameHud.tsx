@@ -13,11 +13,13 @@ const BADGE_EMOJI: Record<string, string> = {
   "explained-it": "🎓",
   "tried-again": "💪",
   "fixed-my-mistake": "🔧",
+  "memory-booster": "🧠",
 };
 const BADGE_NAME: Record<string, string> = {
   "explained-it": "Explained it!",
   "tried-again": "Tried again",
   "fixed-my-mistake": "Fixed my mistake",
+  "memory-booster": "Memory booster",
 };
 
 export function GameHud({ concepts, streak }: { concepts: ConceptCard[]; streak: number }) {

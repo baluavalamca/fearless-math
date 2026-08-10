@@ -1,0 +1,193 @@
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+vite v5.4.21 building for production...
+transforming...
+✓ 2060 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                            0.40 kB │ gzip:   0.26 kB
+dist/assets/1f34a-CPOe4kRv.webp                                            4.10 kB
+dist/assets/1f436-bEY8UYEg.webp                                            4.16 kB
+dist/assets/1f69a-Dhfo93m9.webp                                            4.18 kB
+dist/assets/1f4aa-DNi1s9be.webp                                            4.18 kB
+dist/assets/1fad3-C2vuseZ0.webp                                            4.19 kB
+dist/assets/1f510-sS4-Hd2v.webp                                            4.24 kB
+dist/assets/1f9fd-CJY5c8Es.webp                                            4.25 kB
+dist/assets/1f355-Bce6c513.webp                                            4.26 kB
+dist/assets/1f388-gXrxzhMC.webp                                            4.30 kB
+dist/assets/1f434-DmOU-FkA.webp                                            4.32 kB
+dist/assets/1f34e-BTKavuIS.webp                                            4.34 kB
+dist/assets/1f373-AWvg_lWT.webp                                            4.37 kB
+dist/assets/1f414-CO_jE--i.webp                                            4.37 kB
+dist/assets/1f3c6-D_T52c0o.webp                                            4.38 kB
+dist/assets/KaTeX_Size3-Regular-CTq5MqoE.woff                              4.42 kB
+dist/assets/1f33c-jxFkcUgs.webp                                            4.43 kB
+dist/assets/1f426-C1YwwgjV.webp                                            4.50 kB
+dist/assets/1f430-D-Mm1jXO.webp                                            4.51 kB
+dist/assets/1f91d-Ddz-6IVb.webp                                            4.52 kB
+dist/assets/1f435-Cw2WSNOK.webp                                            4.52 kB
+dist/assets/fredoka-latin-ext-wght-normal-CYrqKuxd.woff2                   4.58 kB
+dist/assets/2600-OFncHQGd.webp                                             4.58 kB
+dist/assets/1f401-BlZvD7po.webp                                            4.60 kB
+dist/assets/2753-uKcOurqI.webp                                             4.60 kB
+dist/assets/1f410-p3HEQ0zc.webp                                            4.63 kB
+dist/assets/1f42d-DttlzQnk.webp                                            4.64 kB
+dist/assets/1f30d-Cjx4cX2q.webp                                            4.65 kB
+dist/assets/1f4b0-B1Iywu0x.webp                                            4.66 kB
+dist/assets/1f50d-X_KkdQg0.webp                                            4.67 kB
+dist/assets/1f69c-BwuU9rho.webp                                            4.70 kB
+dist/assets/1f321-Bqs5Auvs.webp                                            4.73 kB
+dist/assets/1f3dd-BqdMw-or.webp                                            4.83 kB
+dist/assets/1f50a-CQ9BbDjF.webp                                            4.84 kB
+dist/assets/1fa99-D1cfF1Jw.webp                                            4.90 kB
+dist/assets/KaTeX_Size4-Regular-Dl5lxZxV.woff2                             4.93 kB
+dist/assets/1f3a8-DsjZIHyC.webp                                            4.94 kB
+dist/assets/1f916-M9kBz_ys.webp                                            4.95 kB
+dist/assets/1f36a-BBKzIIrl.webp                                            5.02 kB
+dist/assets/1fa9c-DimtQHy9.webp                                            5.03 kB
+dist/assets/1f431-B-UmpT3f.webp                                            5.06 kB
+dist/assets/1f41d-BpKUpesw.webp                                            5.07 kB
+dist/assets/1f404-DnYj3p6Y.webp                                            5.07 kB
+dist/assets/1f324-BADnEfts.webp                                            5.08 kB
+dist/assets/1f41f-DBXAfqRG.webp                                            5.11 kB
+dist/assets/274c-DOE0DR1g.webp                                             5.12 kB
+dist/assets/1f98a-BXHMjHBE.webp                                            5.13 kB
+dist/assets/2699-DC6jifyQ.webp                                             5.17 kB
+dist/assets/1f347-DdWmFUZ-.webp                                            5.17 kB
+dist/assets/1f308-vUNfj8Uj.webp                                            5.19 kB
+dist/assets/1f327-DyP8K4T7.webp                                            5.20 kB
+dist/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2                             5.21 kB
+dist/assets/1f34c-1N-9M06-.webp                                            5.23 kB
+dist/assets/1f338-C9lKRUTj.webp                                            5.33 kB
+dist/assets/1f476-BOAVRTeE.webp                                            5.33 kB
+dist/assets/1f349-CvIpHIcn.webp                                            5.40 kB
+dist/assets/KaTeX_Size1-Regular-mCD8mA8B.woff2                             5.47 kB
+dist/assets/1f468-WYpVkSC8.webp                                            5.52 kB
+dist/assets/1f438-DUfdqa27.webp                                            5.59 kB
+dist/assets/1f9d1-CL_yqpsY.webp                                            5.61 kB
+dist/assets/1f33b-DZm7JJhW.webp                                            5.66 kB
+dist/assets/1f981-BtqswRjW.webp                                            5.68 kB
+dist/assets/1f3c5-5eyjHpue.webp                                            5.69 kB
+dist/assets/2716-BZ1DDIVc.webp                                             5.69 kB
+dist/assets/1f9d2-C4S2uVPz.webp                                            5.69 kB
+dist/assets/1f408-BS5-jtl4.webp                                            5.74 kB
+dist/assets/1f466-DEZK5p92.webp                                            5.75 kB
+dist/assets/23f1-CkFBmLzK.webp                                             5.78 kB
+dist/assets/26bd-B4n4sXiU.webp                                             5.85 kB
+dist/assets/1f3c3-i1q8kKlx.webp                                            5.86 kB
+dist/assets/1f415-aJce_-e3.webp                                            5.86 kB
+dist/assets/1f31f-0kO3Hhnn.webp                                            5.87 kB
+dist/assets/1f41c-D_hNLXgc.webp                                            5.93 kB
+dist/assets/KaTeX_Size4-Regular-BF-4gkZK.woff                              5.98 kB
+dist/assets/1f42f--HK94SSX.webp                                            6.02 kB
+dist/assets/1f469-B6aIrmQM.webp                                            6.03 kB
+dist/assets/2728-vAl7AiJq.webp                                             6.07 kB
+dist/assets/KaTeX_Size2-Regular-oD1tc_U0.woff                              6.19 kB
+dist/assets/1f9ed-CT56xVMu.webp                                            6.21 kB
+dist/assets/1f33f-DhBkRhXy.webp                                            6.25 kB
+dist/assets/noto-sans-devanagari-latin-ext-400-normal-BnQrAETZ.woff2       6.40 kB
+dist/assets/1f917-B90omlef.webp                                            6.40 kB
+dist/assets/noto-sans-devanagari-latin-ext-700-normal-BKjKJI-9.woff2       6.44 kB
+dist/assets/1f467-CyfWhhsi.webp                                            6.45 kB
+dist/assets/1f914-C0R0deet.webp                                            6.48 kB
+dist/assets/KaTeX_Size1-Regular-C195tn64.woff                              6.50 kB
+dist/assets/1fa81-DV9CyECV.webp                                            6.52 kB
+dist/assets/1f6b2-BZG4Jxes.webp                                            6.56 kB
+dist/assets/noto-sans-telugu-latin-ext-400-normal-DzVve7Fv.woff2           6.57 kB
+dist/assets/noto-sans-telugu-latin-ext-700-normal-Bf_Slvtb.woff2           6.60 kB
+dist/assets/1f41e-MbEQVyzV.webp                                            6.61 kB
+dist/assets/KaTeX_Caligraphic-Regular-Di6jR-x-.woff2                       6.91 kB
+dist/assets/KaTeX_Caligraphic-Bold-Dq_IR9rO.woff2                          6.91 kB
+dist/assets/2696-B3J_Q2-C.webp                                             7.27 kB
+dist/assets/1fabb-LNrSCXNU.webp                                            7.45 kB
+dist/assets/KaTeX_Size3-Regular-DgpXs0kz.ttf                               7.59 kB
+dist/assets/KaTeX_Caligraphic-Regular-CTRA-rTL.woff                        7.66 kB
+dist/assets/KaTeX_Caligraphic-Bold-BEiXGLvX.woff                           7.72 kB
+dist/assets/noto-sans-devanagari-latin-ext-400-normal-Bs32KOJx.woff        8.32 kB
+dist/assets/noto-sans-devanagari-latin-ext-700-normal-DXhSwleO.woff        8.37 kB
+dist/assets/noto-sans-telugu-latin-ext-700-normal-BkZ2uW01.woff            8.51 kB
+dist/assets/noto-sans-telugu-latin-ext-400-normal-DI1IggVY.woff            8.54 kB
+dist/assets/fredoka-hebrew-wght-normal-DdnsCkLr.woff2                      8.85 kB
+dist/assets/1f46a-DZcj5eyJ.webp                                            9.06 kB
+dist/assets/1f98b-CkSWbX5a.webp                                            9.16 kB
+dist/assets/1f389-nkrwVBs8.webp                                            9.18 kB
+dist/assets/1f4af-G59LLXif.webp                                            9.29 kB
+dist/assets/KaTeX_Script-Regular-D3wIWfF6.woff2                            9.64 kB
+dist/assets/1f3a1-CI-2t_CY.webp                                            9.85 kB
+dist/assets/1f9ee-BNV3Kjix.webp                                           10.31 kB
+dist/assets/KaTeX_SansSerif-Regular-DDBCnlJ7.woff2                        10.34 kB
+dist/assets/KaTeX_Size4-Regular-DWFBv043.ttf                              10.36 kB
+dist/assets/noto-sans-devanagari-latin-400-normal-BuiDGFlU.woff2          10.51 kB
+dist/assets/KaTeX_Script-Regular-D5yQViql.woff                            10.59 kB
+dist/assets/noto-sans-devanagari-latin-700-normal-DcW8oEIt.woff2          10.60 kB
+dist/assets/noto-sans-telugu-latin-700-normal-P-fIO_mt.woff2              10.72 kB
+dist/assets/noto-sans-telugu-latin-400-normal-D5HVD0Em.woff2              10.77 kB
+dist/assets/KaTeX_Fraktur-Regular-CTYiF6lA.woff2                          11.32 kB
+dist/assets/KaTeX_Fraktur-Bold-CL6g_b3V.woff2                             11.35 kB
+dist/assets/KaTeX_Size2-Regular-B7gKUWhC.ttf                              11.51 kB
+dist/assets/KaTeX_SansSerif-Italic-C3H0VqGB.woff2                         12.03 kB
+dist/assets/KaTeX_SansSerif-Bold-D1sUS0GD.woff2                           12.22 kB
+dist/assets/KaTeX_Size1-Regular-Dbsnue_I.ttf                              12.23 kB
+dist/assets/KaTeX_SansSerif-Regular-CS6fqUqJ.woff                         12.32 kB
+dist/assets/KaTeX_Caligraphic-Regular-wX97UBjC.ttf                        12.34 kB
+dist/assets/KaTeX_Caligraphic-Bold-ATXxdsX0.ttf                           12.37 kB
+dist/assets/KaTeX_Fraktur-Regular-Dxdc4cR9.woff                           13.21 kB
+dist/assets/KaTeX_Fraktur-Bold-BsDP51OF.woff                              13.30 kB
+dist/assets/noto-sans-devanagari-latin-400-normal-Bl6wi1XD.woff           13.44 kB
+dist/assets/noto-sans-devanagari-latin-700-normal-B5n956PN.woff           13.46 kB
+dist/assets/noto-sans-telugu-latin-700-normal-BeEGFXWT.woff               13.50 kB
+dist/assets/KaTeX_Typewriter-Regular-CO6r4hn1.woff2                       13.57 kB
+dist/assets/noto-sans-telugu-latin-400-normal-BY_3pSVs.woff               13.70 kB
+dist/assets/KaTeX_SansSerif-Italic-DN2j7dab.woff                          14.11 kB
+dist/assets/KaTeX_SansSerif-Bold-DbIhKOiC.woff                            14.41 kB
+dist/assets/KaTeX_Typewriter-Regular-C0xS9mPB.woff                        16.03 kB
+dist/assets/KaTeX_Math-BoldItalic-CZnvNsCZ.woff2                          16.40 kB
+dist/assets/KaTeX_Math-Italic-t53AETM-.woff2                              16.44 kB
+dist/assets/KaTeX_Script-Regular-C5JkGWo-.ttf                             16.65 kB
+dist/assets/KaTeX_Main-BoldItalic-DxDJ3AOS.woff2                          16.78 kB
+dist/assets/KaTeX_Main-Italic-NWA7e6Wa.woff2                              16.99 kB
+dist/assets/KaTeX_Math-BoldItalic-iY-2wyZ7.woff                           18.67 kB
+dist/assets/KaTeX_Math-Italic-DA0__PXp.woff                               18.75 kB
+dist/assets/KaTeX_Main-BoldItalic-SpSLRI95.woff                           19.41 kB
+dist/assets/KaTeX_SansSerif-Regular-BNo7hRIc.ttf                          19.44 kB
+dist/assets/KaTeX_Fraktur-Regular-CB_wures.ttf                            19.57 kB
+dist/assets/KaTeX_Fraktur-Bold-BdnERNNW.ttf                               19.58 kB
+dist/assets/KaTeX_Main-Italic-BMLOBm91.woff                               19.68 kB
+dist/assets/KaTeX_SansSerif-Italic-YYjJ1zSn.ttf                           22.36 kB
+dist/assets/KaTeX_SansSerif-Bold-CFMepnvq.ttf                             24.50 kB
+dist/assets/KaTeX_Main-Bold-Cx986IdX.woff2                                25.32 kB
+dist/assets/KaTeX_Main-Regular-B22Nviop.woff2                             26.27 kB
+dist/assets/KaTeX_Typewriter-Regular-D3Ib7_Hf.ttf                         27.56 kB
+dist/assets/KaTeX_AMS-Regular-BQhdFMY1.woff2                              28.08 kB
+dist/assets/fredoka-latin-wght-normal-DM6njrJ3.woff2                      29.73 kB
+dist/assets/KaTeX_Main-Bold-Jm3AIy58.woff                                 29.91 kB
+dist/assets/KaTeX_Main-Regular-Dr94JaBh.woff                              30.77 kB
+dist/assets/KaTeX_Math-BoldItalic-B3XSjfu4.ttf                            31.20 kB
+dist/assets/KaTeX_Math-Italic-flOr_0UB.ttf                                31.31 kB
+dist/assets/KaTeX_Main-BoldItalic-DzxPMmG6.ttf                            32.97 kB
+dist/assets/KaTeX_AMS-Regular-DMm9YOAa.woff                               33.52 kB
+dist/assets/KaTeX_Main-Italic-3WenGoN9.ttf                                33.58 kB
+dist/assets/noto-sans-telugu-telugu-400-normal-7lz0FJyD.woff2             35.76 kB
+dist/assets/noto-sans-telugu-telugu-700-normal-DUHCiUsY.woff2             37.45 kB
+dist/assets/noto-sans-devanagari-devanagari-400-normal-BlDd6KY1.woff2     50.42 kB
+dist/assets/KaTeX_Main-Bold-waoOVXN0.ttf                                  51.34 kB
+dist/assets/KaTeX_Main-Regular-ypZvNtVU.ttf                               53.58 kB
+dist/assets/noto-sans-devanagari-devanagari-700-normal-v9jliTCB.woff2     53.98 kB
+dist/assets/noto-sans-telugu-telugu-400-normal-B-SOWLxC.woff              56.09 kB
+dist/assets/noto-sans-telugu-telugu-700-normal-BjykHOQV.woff              57.70 kB
+dist/assets/KaTeX_AMS-Regular-DRggAlZN.ttf                                63.63 kB
+dist/assets/noto-sans-devanagari-devanagari-400-normal-CdOJmQ4E.woff      68.47 kB
+dist/assets/noto-sans-devanagari-devanagari-700-normal-h2KXAbYG.woff      71.65 kB
+dist/assets/index-spMkmxIT.css                                           188.95 kB │ gzip:  38.53 kB
+dist/assets/Solid3D-Cum7QJgf.js                                            2.71 kB │ gzip:   1.50 kB
+dist/assets/LiveSolid3D-Cy8ggdMy.js                                        3.02 kB │ gzip:   1.56 kB
+dist/assets/Scene3D-BDZ9d7OH.js                                            3.44 kB │ gzip:   1.74 kB
+dist/assets/MathToolbox-CyQXCrtL.js                                       41.34 kB │ gzip:  13.62 kB
+dist/assets/AdvancedToolbox-qCrIsxsA.js                                   65.46 kB │ gzip:  20.42 kB
+dist/assets/OrbitControls-C1nc8fN7.js                                    478.53 kB │ gzip: 121.88 kB
+dist/assets/index-DLvlwFii.js                                          1,255.18 kB │ gzip: 574.12 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 6.95s

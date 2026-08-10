@@ -5,7 +5,7 @@
  */
 import { useEffect, useState, type ReactNode } from "react";
 import { Check } from "lucide-react";
-import { AiStatus, DashboardData, MediaStatus, MediaConfig, Profile, ProviderInfo, api } from "../api";
+import { AiStatus, DashboardData, DashboardTrend, MediaStatus, MediaConfig, Profile, ProviderInfo, api } from "../api";
 import { refreshVoiceStatus } from "../speech";
 import { CreateLesson } from "./CreateLesson";
 
@@ -72,6 +72,59 @@ function Section({ icon, title, sub, id, defaultOpen = true, children }: { icon:
   );
 }
 
+/** 14-day activity trend: bars for questions answered each day, plus a line for
+ * concepts mastered so far (cumulative). No chart library — a small dependency-free
+ * SVG so this stays fast and offline-safe like the rest of the app. */
+function TrendChart({ days }: { days: DashboardTrend["days"] }) {
+  if (!days.length) return null;
+  const W = 640, H = 160, PAD = 24;
+  const innerW = W - PAD * 2, innerH = H - PAD * 2;
+  const maxAttempts = Math.max(1, ...days.map((d) => d.attempts));
+  const minMastered = days[0].masteredCumulative;
+  const maxMastered = Math.max(minMastered + 1, ...days.map((d) => d.masteredCumulative));
+  const stepX = innerW / days.length;
+  const barW = Math.max(3, stepX * 0.55);
+
+  const linePoints = days.map((d, i) => {
+    const x = PAD + stepX * i + stepX / 2;
+    const t = (d.masteredCumulative - minMastered) / (maxMastered - minMastered);
+    const y = PAD + innerH - t * innerH;
+    return `${x},${y}`;
+  }).join(" ");
+
+  return (
+    <div className="fm-trend-wrap">
+      <svg viewBox={`0 0 ${W} ${H}`} className="fm-trend-svg" role="img" aria-label="14-day activity trend">
+        <line x1={PAD} y1={PAD + innerH} x2={W - PAD} y2={PAD + innerH} className="fm-trend-axis" />
+        {days.map((d, i) => {
+          const x = PAD + stepX * i + (stepX - barW) / 2;
+          const h = (d.attempts / maxAttempts) * innerH;
+          const y = PAD + innerH - h;
+          const acc = d.attempts ? d.correct / d.attempts : null;
+          return (
+            <rect key={d.date} x={x} y={y} width={barW} height={Math.max(h, d.attempts ? 2 : 0)}
+              className={`fm-trend-bar ${acc !== null && acc >= 0.7 ? "hi" : acc !== null ? "lo" : "empty"}`}
+              rx={2}>
+              <title>{`${d.date}: ${d.attempts} question${d.attempts === 1 ? "" : "s"}${d.attempts ? `, ${Math.round((acc ?? 0) * 100)}% correct` : ""}`}</title>
+            </rect>
+          );
+        })}
+        <polyline points={linePoints} className="fm-trend-line" fill="none" />
+        {days.map((d, i) => {
+          const x = PAD + stepX * i + stepX / 2;
+          const t = (d.masteredCumulative - minMastered) / (maxMastered - minMastered);
+          const y = PAD + innerH - t * innerH;
+          return <circle key={d.date} cx={x} cy={y} r={2.5} className="fm-trend-dot" />;
+        })}
+      </svg>
+      <div className="fm-trend-legend">
+        <span><i className="fm-trend-swatch bar" /> Questions answered per day (green = 70%+ correct)</span>
+        <span><i className="fm-trend-swatch line" /> Concepts mastered (running total)</span>
+      </div>
+    </div>
+  );
+}
+
 /** Eye (visible) / eye-off (hidden) toggle icon. */
 function EyeIcon({ open }: { open: boolean }) {
   return (
@@ -90,6 +143,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
   const [pinError, setPinError] = useState(false);
   const [tab, setTab] = useState<Tab>("overview");
   const [data, setData] = useState<DashboardData | null>(null);
+  const [trend, setTrend] = useState<DashboardTrend | null>(null);
   const [newPin, setNewPin] = useState("");
   const [ai, setAi] = useState<AiStatus | null>(null);
   const [aiKey, setAiKey] = useState("");
@@ -115,6 +169,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
   useEffect(() => {
     if (unlocked) {
       api.getDashboard().then(setData);
+      if (typeof api.getDashboardTrend === "function") api.getDashboardTrend().then(setTrend).catch(() => setTrend(null));
       api.aiStatus().then(setAi).catch(() => setAi(null));
       api.mediaStatus().then(setMedia).catch(() => setMedia(null));
       loadKids();
@@ -250,6 +305,17 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
           </div>
           {dueRevisions.length > 0 && (
             <p className="fm-callout">🔔 Memory boosters due: {dueRevisions.map((c) => c.name).join(", ")}. A 5-minute revisit keeps mastery strong!</p>
+          )}
+          {trend && (
+            <Section id="trend" icon="📈" title="This week" sub="14-day activity trend, plus a short weekly note.">
+              <TrendChart days={trend.days} />
+              {trend.summary && (
+                <p className="fm-callout">
+                  {trend.summaryOk ? "🤖 " : "📝 "}{trend.summary}
+                  {!trend.summaryOk && <span className="fm-dash-note" style={{ display: "block", marginTop: 4 }}>Turn on the AI Tutor (AI &amp; Media tab) for a personalised AI-written version of this note.</span>}
+                </p>
+              )}
+            </Section>
           )}
           {data.tips.length > 0 && (
             <Section id="home-tips" icon="🏠" title="How to help at home" sub="Gentle, specific things to try together.">

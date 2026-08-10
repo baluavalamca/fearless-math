@@ -49,6 +49,10 @@ function sqliteStore(db) {
   for (const col of ["role TEXT DEFAULT 'student'", "age INTEGER", "pin TEXT"]) {
     try { db.exec(`ALTER TABLE profiles ADD COLUMN ${col}`); } catch {}
   }
+  // Adaptive spaced-repetition state (SM-2 style) — added to existing installs via migration.
+  for (const col of ["srs_ease REAL DEFAULT 2.5", "srs_interval_days INTEGER DEFAULT 0"]) {
+    try { db.exec(`ALTER TABLE concept_progress ADD COLUMN ${col}`); } catch {}
+  }
   return {
     kind: "sqlite",
     setPin(id, pin) { db.prepare("UPDATE profiles SET pin=? WHERE id=?").run(pin || null, id); return db.prepare("SELECT * FROM profiles WHERE id=?").get(id); },
@@ -86,11 +90,13 @@ function sqliteStore(db) {
       const cur = db.prepare("SELECT * FROM concept_progress WHERE profile_id=? AND concept_id=?").get(profileId, conceptId);
       const next = { ...cur, ...patch, last_activity: now };
       db.prepare(`UPDATE concept_progress SET status=?, mastery_score=?, teach_back_done=?,
-        reviews_done=?, mastered_at=?, last_activity=?, next_revision_at=?
+        reviews_done=?, mastered_at=?, last_activity=?, next_revision_at=?,
+        srs_ease=?, srs_interval_days=?
         WHERE profile_id=? AND concept_id=?`)
         .run(next.status, next.mastery_score, next.teach_back_done ? 1 : 0,
           next.reviews_done || 0, next.mastered_at, next.last_activity,
-          next.next_revision_at, profileId, conceptId);
+          next.next_revision_at, next.srs_ease ?? 2.5, next.srs_interval_days ?? 0,
+          profileId, conceptId);
       return next;
     },
     recordAttempt(a) {
@@ -155,6 +161,21 @@ function sqliteStore(db) {
       } else {
         db.prepare("DELETE FROM enabled_languages WHERE profile_id=? AND lang=?").run(profileId, lang);
       }
+    },
+    /** Per-day attempt counts for the parent dashboard trend chart, oldest first. */
+    dailyActivity(profileId, sinceISO) {
+      return db.prepare(`
+        SELECT substr(created_at,1,10) AS day, COUNT(*) AS attempts, SUM(correct) AS correct
+        FROM attempts WHERE profile_id=? AND created_at >= ?
+        GROUP BY day ORDER BY day
+      `).all(profileId, sinceISO);
+    },
+    /** Every concept's mastery date (for a cumulative "mastered over time" curve). */
+    masteryDates(profileId) {
+      return db.prepare(`
+        SELECT concept_id AS conceptId, mastered_at AS masteredAt FROM concept_progress
+        WHERE profile_id=? AND mastered_at IS NOT NULL ORDER BY mastered_at
+      `).all(profileId);
     },
   };
 }
@@ -240,6 +261,25 @@ function jsonStore(file) {
       if (enabled) { if (idx === -1) d.enabledLanguages.push({ profile_id: pid, lang }); }
       else if (idx !== -1) d.enabledLanguages.splice(idx, 1);
       save(d);
+    },
+    /** Per-day attempt counts for the parent dashboard trend chart, oldest first. */
+    dailyActivity(pid, sinceISO) {
+      const byDay = new Map();
+      for (const a of load().attempts) {
+        if (a.profileId !== pid || a.created_at < sinceISO) continue;
+        const day = String(a.created_at).slice(0, 10);
+        const row = byDay.get(day) || { day, attempts: 0, correct: 0 };
+        row.attempts++; row.correct += a.correct ? 1 : 0;
+        byDay.set(day, row);
+      }
+      return [...byDay.values()].sort((a, b) => a.day.localeCompare(b.day));
+    },
+    /** Every concept's mastery date (for a cumulative "mastered over time" curve). */
+    masteryDates(pid) {
+      return load().progress
+        .filter((p) => p.profile_id === pid && p.mastered_at)
+        .map((p) => ({ conceptId: p.concept_id, masteredAt: p.mastered_at }))
+        .sort((a, b) => String(a.masteredAt).localeCompare(String(b.masteredAt)));
     },
     wrongQuestions(pid) {
       const groups = new Map(); // key -> {conceptId, questionId, tries, everCorrect, lastMistakeTag}

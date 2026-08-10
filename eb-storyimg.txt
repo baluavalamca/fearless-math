@@ -1,0 +1,93 @@
+  • electron-builder  version=24.13.3 os=10.0.26200
+  • loaded configuration  file=package.json ("build" field)
+  • rebuilding native dependencies  dependencies=better-sqlite3@11.10.0 platform=win32 arch=x64
+  • install prebuilt binary  name=better-sqlite3 version=11.10.0 platform=win32 arch=x64 napi=
+  • packaging       platform=win32 arch=x64 electron=31.7.7 appOutDir=release\win-unpacked
+  • building        target=nsis file=release\FearlessMath Setup 0.1.0.exe archs=x64 oneClick=false perMachine=false
+  ⨯ C:\Users\eswar\AppData\Local\electron-builder\Cache\nsis\nsis-3.0.4.1\Bin\makensis.exe process failed ERR_ELECTRON_BUILDER_CANNOT_EXECUTE
+Exit code:
+1
+Output:
+Command line defined: "APP_ID=com.fearlessmath.app"
+Command line defined: "APP_GUID=27add96b-17ac-5ead-8030-95638518553a"
+Command line defined: "UNINSTALL_APP_KEY=27add96b-17ac-5ead-8030-95638518553a"
+Command line defined: "PRODUCT_NAME=FearlessMath"
+Command line defined: "PRODUCT_FILENAME=FearlessMath"
+Command line defined: "APP_FILENAME=FearlessMath"
+Command line defined: "APP_DESCRIPTION=FearlessMath - fear-free, visual, multi-method math learning (PP1 to Plus Two). Local-first Electron app."
+Command line defined: "VERSION=0.1.0"
+Command line defined: "PROJECT_DIR=C:\fmbuild"
+Command line defined: "BUILD_RESOURCES_DIR=C:\fmbuild\build"
+Command line defined: "APP_PACKAGE_NAME=fearless-math"
+Command line defined: "MUI_ICON=C:\fmbuild\build\icon.ico"
+Command line defined: "MUI_UNICON=C:\fmbuild\build\icon.ico"
+Command line defined: "APP_64=C:\fmbuild\release\fearless-math-0.1.0-x64.nsis.7z"
+Command line defined: "APP_64_NAME=fearless-math-0.1.0-x64.nsis.7z"
+Command line defined: "APP_64_HASH=0571D30A1CD3D3CEA15F840A7BD4C3B746C4F23A211FF9A71B65234CB1D032A081B3143DD5F73611BA55DAE64050DFDC7E3F5C1C5F62806F7DCEDA1A24259FF2"
+Command line defined: "APP_64_UNPACKED_SIZE=348908"
+Command line defined: "COMPANY_NAME=Bala Krishna"
+Command line defined: "APP_INSTALLER_STORE_FILE=fearless-math-updater\installer.exe"
+Command line defined: "COMPRESSION_METHOD=7z"
+Command line defined: "MULTIUSER_INSTALLMODE_ALLOW_ELEVATION"
+Command line defined: "INSTALL_MODE_PER_ALL_USERS_REQUIRED"
+Command line defined: "allowToChangeInstallationDirectory"
+Command line defined: "SHORTCUT_NAME=FearlessMath"
+Command line defined: "UNINSTALL_DISPLAY_NAME=FearlessMath 0.1.0"
+Command line defined: "MUI_WELCOMEFINISHPAGE_BITMAP=${NSISDIR}\Contrib\Graphics\Wizard\nsis3-metro.bmp"
+Command line defined: "MUI_UNWELCOMEFINISHPAGE_BITMAP=${NSISDIR}\Contrib\Graphics\Wizard\nsis3-metro.bmp"
+Command line defined: "ESTIMATED_SIZE=348908"
+Command line defined: "COMPRESS=auto"
+Command line defined: "BUILD_UNINSTALLER"
+Command line defined: "UNINSTALLER_OUT_FILE=C:\fmbuild\release\__uninstaller-nsis-fearless-math.exe"
+Processing config: C:\Users\eswar\AppData\Local\electron-builder\Cache\nsis\nsis-3.0.4.1\nsisconf.nsh
+Processing script file: "<stdin>" (UTF8)
+
+Error output:
+!include: could not open file: "C:\Users\eswar\AppData\Roaming\Claude\local-agent-mode-sessions\480831a7-1d8b-4338-9001-1dd6869e279c\b006c522-eca0-46e8-a751-4083e67297c4\local_174c6bdb-303f-4317-a93e-71145724184b\outputs\fearless-math\node_modules\app-builder-lib\templates\nsis\include\StdUtils.nsh"
+Error in script "<stdin>" on line 1 -- aborting creation process
+  failedTask=build stackTrace=Error: C:\Users\eswar\AppData\Local\electron-builder\Cache\nsis\nsis-3.0.4.1\Bin\makensis.exe process failed ERR_ELECTRON_BUILDER_CANNOT_EXECUTE
+Exit code:
+1
+Output:
+Command line defined: "APP_ID=com.fearlessmath.app"
+Command line defined: "APP_GUID=27add96b-17ac-5ead-8030-95638518553a"
+Command line defined: "UNINSTALL_APP_KEY=27add96b-17ac-5ead-8030-95638518553a"
+Command line defined: "PRODUCT_NAME=FearlessMath"
+Command line defined: "PRODUCT_FILENAME=FearlessMath"
+Command line defined: "APP_FILENAME=FearlessMath"
+Command line defined: "APP_DESCRIPTION=FearlessMath - fear-free, visual, multi-method math learning (PP1 to Plus Two). Local-first Electron app."
+Command line defined: "VERSION=0.1.0"
+Command line defined: "PROJECT_DIR=C:\fmbuild"
+Command line defined: "BUILD_RESOURCES_DIR=C:\fmbuild\build"
+Command line defined: "APP_PACKAGE_NAME=fearless-math"
+Command line defined: "MUI_ICON=C:\fmbuild\build\icon.ico"
+Command line defined: "MUI_UNICON=C:\fmbuild\build\icon.ico"
+Command line defined: "APP_64=C:\fmbuild\release\fearless-math-0.1.0-x64.nsis.7z"
+Command line defined: "APP_64_NAME=fearless-math-0.1.0-x64.nsis.7z"
+Command line defined: "APP_64_HASH=0571D30A1CD3D3CEA15F840A7BD4C3B746C4F23A211FF9A71B65234CB1D032A081B3143DD5F73611BA55DAE64050DFDC7E3F5C1C5F62806F7DCEDA1A24259FF2"
+Command line defined: "APP_64_UNPACKED_SIZE=348908"
+Command line defined: "COMPANY_NAME=Bala Krishna"
+Command line defined: "APP_INSTALLER_STORE_FILE=fearless-math-updater\installer.exe"
+Command line defined: "COMPRESSION_METHOD=7z"
+Command line defined: "MULTIUSER_INSTALLMODE_ALLOW_ELEVATION"
+Command line defined: "INSTALL_MODE_PER_ALL_USERS_REQUIRED"
+Command line defined: "allowToChangeInstallationDirectory"
+Command line defined: "SHORTCUT_NAME=FearlessMath"
+Command line defined: "UNINSTALL_DISPLAY_NAME=FearlessMath 0.1.0"
+Command line defined: "MUI_WELCOMEFINISHPAGE_BITMAP=${NSISDIR}\Contrib\Graphics\Wizard\nsis3-metro.bmp"
+Command line defined: "MUI_UNWELCOMEFINISHPAGE_BITMAP=${NSISDIR}\Contrib\Graphics\Wizard\nsis3-metro.bmp"
+Command line defined: "ESTIMATED_SIZE=348908"
+Command line defined: "COMPRESS=auto"
+Command line defined: "BUILD_UNINSTALLER"
+Command line defined: "UNINSTALLER_OUT_FILE=C:\fmbuild\release\__uninstaller-nsis-fearless-math.exe"
+Processing config: C:\Users\eswar\AppData\Local\electron-builder\Cache\nsis\nsis-3.0.4.1\nsisconf.nsh
+Processing script file: "<stdin>" (UTF8)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Error output:
+!include: could not open file: "C:\Users\eswar\AppData\Roaming\Claude\local-agent-mode-sessions\480831a7-1d8b-4338-9001-1dd6869e279c\b006c522-eca0-46e8-a751-4083e67297c4\local_174c6bdb-303f-4317-a93e-71145724184b\outputs\fearless-math\node_modules\app-builder-lib\templates\nsis\include\StdUtils.nsh"
+Error in script "<stdin>" on line 1 -- aborting creation process
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   at ChildProcess.<anonymous> (C:\Users\eswar\AppData\Roaming\Claude\local-agent-mode-sessions\480831a7-1d8b-4338-9001-1dd6869e279c\b006c522-eca0-46e8-a751-4083e67297c4\local_174c6bdb-303f-4317-a93e-71145724184b\outputs\fearless-math\node_modules\builder-util\src\util.ts:252:14)
+    at Object.onceWrapper (node:events:631:26)
+    at ChildProcess.emit (node:events:509:28)
+    at ChildProcess.cp.emit (C:\Users\eswar\AppData\Roaming\Claude\local-agent-mode-sessions\480831a7-1d8b-4338-9001-1dd6869e279c\b006c522-eca0-46e8-a751-4083e67297c4\local_174c6bdb-303f-4317-a93e-71145724184b\outputs\fearless-math\node_modules\cross-spawn\lib\enoent.js:34:29)
+    at maybeClose (node:internal/child_process:1124:16)
+    at Process.ChildProcess._handle.onexit (node:internal/child_process:306:5)
