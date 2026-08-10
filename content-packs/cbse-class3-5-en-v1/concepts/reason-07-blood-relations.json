@@ -25,8 +25,12 @@
     "answerInStory": "Sister — the grandfather's only son must be the man's own father (since the man himself is that son), so the daughter of his father is his sister."
   },
   "visual": {
-    "component": "NumberTrack",
-    "props": { "tracks": [ { "terms": [1, 2, 3], "jump": 1 } ] },
+    "component": "ReasoningFigure",
+    "props": { "panels": [
+      { "kind": "text", "text": "1", "label": "Grandfather" },
+      { "kind": "text", "text": "2", "label": "His only son" },
+      { "kind": "text", "text": "3", "label": "Son's daughter" }
+    ] },
     "caption": "Think of a family tree as rows going down: grandparents on top, parents in the middle, children at the bottom — read the chain one generation at a time."
   },
   "teachingGallery": [

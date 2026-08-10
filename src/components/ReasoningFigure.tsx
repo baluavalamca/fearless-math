@@ -4,7 +4,7 @@
 
 export interface FigurePanelSpec {
   label?: string;                 // caption under the panel, e.g. "Original", "Mirror image"
-  kind: "text" | "shape" | "fold";
+  kind: "text" | "shape" | "fold" | "venn";
   text?: string;                  // for kind "text": the letters/word/digits shown
   flip?: "h" | "v" | "hv" | "none"; // h = mirror (left-right), v = water (upside-down)
   shapeKind?: "triangle" | "square" | "circle" | "pentagon" | "star" | "arrow";
@@ -14,6 +14,7 @@ export interface FigurePanelSpec {
   punch?: { x: number; y: number }[]; // punch-hole dot positions (0..1 fractions of the folded square)
   unfolded?: boolean;              // draw the full unfolded square with holes mirrored across the fold lines
   dashed?: boolean;                // draw shape outline only (ghost/answer panel)
+  vennLabels?: string[];           // for kind "venn": 2 or 3 short labels, one per overlapping circle
 }
 
 const STROKE = "#8d6e3f", FILL = "#ffd18f", FOLD = "#4a7fd4", PUNCH = "#c0392b";
@@ -93,6 +94,7 @@ function Panel({ spec }: { spec: FigurePanelSpec }) {
           </g>
         )}
         {spec.kind === "fold" && <FoldDiagram spec={spec} W={W} H={H} />}
+        {spec.kind === "venn" && <VennDiagram labels={spec.vennLabels ?? []} />}
       </svg>
       {spec.label && <div className="fm-strip-label">{spec.label}</div>}
     </div>
@@ -133,6 +135,38 @@ function FoldDiagram({ spec, W, H }: { spec: FigurePanelSpec; W: number; H: numb
         <line x1={x0} y1={midY} x2={x0 + size} y2={midY} stroke={FOLD} strokeWidth={1} strokeDasharray="3 5" opacity={0.5} />
       )}
       {allDots.map((d, i) => <circle key={i} cx={d.x} cy={d.y} r={5} fill={PUNCH} />)}
+    </>
+  );
+}
+
+const VENN_FILLS = ["#8bb8ff", "#ffb3b3", "#a8e6a1"];
+
+/** Two or three genuinely overlapping circles, for syllogisms ("All A are B, some B
+ *  are C" — the shapes a learner is meant to draw). Circles use semi-transparent
+ *  fills so the overlap regions are visibly a mix of both colours; labels sit INSIDE
+ *  each circle's outer bulge (away from the shared/overlap zone) so they stay
+ *  readable and never clip outside the panel's viewBox. Fixed layouts (not formula-
+ *  derived from W/H) so the geometry is easy to verify by eye. */
+function VennDiagram({ labels }: { labels: string[] }) {
+  const three = labels.length >= 3;
+  const circles = three
+    ? [{ x: 60, y: 44, r: 30 }, { x: 44, y: 74, r: 30 }, { x: 76, y: 74, r: 30 }]
+    : [{ x: 42, y: 60, r: 36 }, { x: 78, y: 60, r: 36 }];
+  const labelPos = three
+    ? [{ x: 60, y: 26 }, { x: 26, y: 88 }, { x: 94, y: 88 }]
+    : [{ x: 24, y: 60 }, { x: 96, y: 60 }];
+  return (
+    <>
+      {circles.map((c, i) => (
+        <circle key={i} cx={c.x} cy={c.y} r={c.r} fill={VENN_FILLS[i % VENN_FILLS.length]}
+          fillOpacity={0.55} stroke={STROKE} strokeWidth={2} />
+      ))}
+      {labels.map((t, i) => (
+        <text key={i} x={labelPos[i].x} y={labelPos[i].y}
+          textAnchor="middle" fontSize={13} fontWeight={800} fill={STROKE}>
+          {t}
+        </text>
+      ))}
     </>
   );
 }

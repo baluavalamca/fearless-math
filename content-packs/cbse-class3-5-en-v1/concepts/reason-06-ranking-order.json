@@ -27,10 +27,12 @@
     "answerInStory": "12 — total = 5 + 8 − 1 = 12 (she is counted from both ends, so subtract 1)."
   },
   "visual": {
-    "component": "NumberTrack",
+    "component": "ReasoningFigure",
     "props": {
-      "tracks": [
-        { "terms": [1, 2, 3, 4, 5], "jump": 1 }
+      "panels": [
+        { "kind": "text", "text": "5", "label": "...from the front" },
+        { "kind": "text", "text": "8", "label": "...from the back" },
+        { "kind": "text", "text": "12", "label": "Total in the line" }
       ]
     },
     "caption": "5th from front + 8th from back counts the same person twice. Total = 5 + 8 − 1 = 12."

@@ -26,8 +26,12 @@
     "answerInStory": "Farah sits immediately to Ibrahim's right (one seat clockwise) — exactly halfway between Ibrahim and Zoya, who is two seats clockwise from Ibrahim."
   },
   "visual": {
-    "component": "NumberTrack",
-    "props": { "tracks": [ { "terms": [1, 2, 3, 4, 5, 6], "jump": 1 } ] },
+    "component": "ReasoningFigure",
+    "props": { "panels": [
+      { "kind": "text", "text": "I", "label": "Ibrahim" },
+      { "kind": "text", "text": "F", "label": "Farah (between)" },
+      { "kind": "text", "text": "Z", "label": "Zoya" }
+    ] },
     "caption": "Sketch the seats as a circle of dots first — place the person with the richest clue, then add each new clue as a dot relative to the ones already placed."
   },
   "teachingGallery": [

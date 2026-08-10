@@ -27,10 +27,11 @@
     "answerInStory": "EPH — the code is 'shift each letter +1', so D→E, O→P, G→H."
   },
   "visual": {
-    "component": "NumberTrack",
+    "component": "ReasoningFigure",
     "props": {
-      "tracks": [
-        { "terms": [1, 2, 3, 4, 5], "jump": 1 }
+      "panels": [
+        { "kind": "text", "text": "CAT", "flip": "none", "label": "Real word" },
+        { "kind": "text", "text": "DBU", "flip": "none", "label": "Coded (+1 shift)" }
       ]
     },
     "caption": "A '+1' code moves every letter forward one place: C→D, A→B, T→U. Find the shift from one letter, then apply it to all."

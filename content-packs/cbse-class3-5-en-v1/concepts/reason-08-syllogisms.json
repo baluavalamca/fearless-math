@@ -26,8 +26,8 @@
     "answerInStory": "No — the 'pets' circle can be drawn overlapping Animals without touching Cats at all, so the conclusion isn't guaranteed."
   },
   "visual": {
-    "component": "NumberTrack",
-    "props": { "tracks": [ { "terms": [1, 2, 3], "jump": 1 } ] },
+    "component": "ReasoningFigure",
+    "props": { "panels": [ { "kind": "venn", "vennLabels": ["Animals", "Cats", "Pets"] } ] },
     "caption": "Picture three overlapping circles — draw every way they COULD overlap that still fits both sentences; only trust a conclusion true in every single drawing."
   },
   "teachingGallery": [
@@ -35,9 +35,9 @@
       "title": "The five memorable patterns",
       "note": "These five combinations cover almost every syllogism you'll see — learn the shape of each, not just the words.",
       "examples": [
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [1], "jump": 1 } ] }, "caption": "All A are B + All B are C → All A are C (a full chain — A sits entirely inside C)." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [1], "jump": 1 } ] }, "caption": "All A are B + No B are C → No A are C (A is inside B, B and C never touch, so A and C never touch)." },
-        { "component": "NumberTrack", "props": { "tracks": [ { "terms": [1], "jump": 1 } ] }, "caption": "Some A are B + All B are C → Some A are C (the overlapping slice of A and B is entirely inside C too)." }
+        { "component": "ReasoningFigure", "props": { "panels": [ { "kind": "venn", "vennLabels": ["C", "B", "A"] } ] }, "caption": "All A are B + All B are C → All A are C (a full chain — A sits entirely inside C)." },
+        { "component": "ReasoningFigure", "props": { "panels": [ { "kind": "venn", "vennLabels": ["A", "B", "C"] } ] }, "caption": "All A are B + No B are C → No A are C (A is inside B, B and C never touch, so A and C never touch)." },
+        { "component": "ReasoningFigure", "props": { "panels": [ { "kind": "venn", "vennLabels": ["A", "B", "C"] } ] }, "caption": "Some A are B + All B are C → Some A are C (the overlapping slice of A and B is entirely inside C too)." }
       ]
     }
   ],

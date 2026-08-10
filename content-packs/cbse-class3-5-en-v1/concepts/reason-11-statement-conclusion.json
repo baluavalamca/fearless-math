@@ -26,8 +26,12 @@
     "answerInStory": "Only conclusion I follows (by transitivity); II contradicts the statement."
   },
   "visual": {
-    "component": "NumberTrack",
-    "props": { "tracks": [ { "terms": [1, 2, 3], "jump": 1 } ] },
+    "component": "ReasoningFigure",
+    "props": { "panels": [
+      { "kind": "text", "text": "R", "label": "Ravi (tallest)" },
+      { "kind": "text", "text": "S", "label": "Sohan" },
+      { "kind": "text", "text": "M", "label": "Mohan (shortest)" }
+    ] },
     "caption": "Think of a taller-than chain as a ladder: Ravi above Sohan above Mohan. Anything the ladder's order guarantees follows; anything it contradicts does not."
   },
   "teachingGallery": [
