@@ -128,12 +128,20 @@ button { font: inherit; cursor: pointer; }
  * them fill the real width of its card instead of staying pinned tiny/cramped.
  * height:auto keeps the SVG's own aspect ratio, so nothing crops — it just scales
  * up cleanly. Fixing this here fixes it everywhere at once, not concept-by-concept. */
-.fm-visual svg, .fm-way-body svg, .fm-canvas svg, .fm-gallery-grid svg {
+.fm-visual svg, .fm-way-body svg, .fm-canvas svg:not(.fm-char), .fm-gallery-grid svg {
   width: 100% !important;
   max-width: 100% !important;
   height: auto !important;
   display: block;
 }
+
+/* Story-tab mission-mascot avatar (the small Character icon next to the story
+ * text) — the blanket ".fm-canvas svg" sizing rule above is meant for lesson
+ * diagrams, not this decorative icon, so it's explicitly excluded (.fm-char)
+ * and pinned to a small fixed size here instead of being left to inherit
+ * whatever ancestor width happens to be in play. */
+.fm-guide { display: flex; align-items: flex-start; gap: 14px; }
+.fm-guide .fm-char { width: 56px !important; height: 56px !important; max-width: 56px !important; flex: 0 0 auto; }
 .fm-strip-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
 .fm-strip-label { font-weight: 700; min-width: 120px; }
 figcaption { color: var(--muted); margin-top: 8px; }
