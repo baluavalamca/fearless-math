@@ -5,6 +5,7 @@ import { WorldMap } from "./screens/WorldMap";
 import { LessonPlayer } from "./screens/LessonPlayer";
 import { MistakeClinic } from "./screens/MistakeClinic";
 import { AskRobo } from "./screens/AskRobo";
+import { HomeworkSolver } from "./screens/HomeworkSolver";
 import { FunFacts } from "./screens/FunFacts";
 import { Dictionary } from "./screens/Dictionary";
 import { Algorithms } from "./screens/Algorithms";
@@ -21,7 +22,7 @@ import { Emoji3D } from "./components/ObjectIcon";
 import { RoboAvatar } from "./components/RoboAvatar";
 import { isAutoRead, setAutoRead, stopSpeaking, setSpeechLang } from "./speech";
 
-type Screen = "map" | "clinic" | "ask" | "facts" | "tricks" | "formulas" | "algos" | "dict" | "parent";
+type Screen = "map" | "clinic" | "ask" | "homework" | "facts" | "tricks" | "formulas" | "algos" | "dict" | "parent";
 
 /* Navigation is split in two:
  *  TOP  — the two everyday destinations a learner uses constantly.
@@ -33,6 +34,7 @@ const TOP_NAV: { id: Screen; icon: string; label: string }[] = [
 ];
 const MENU_NAV: { id: Screen; icon: string; label: string; sub: string }[] = [
   { id: "ask", icon: "🤖", label: "Ask Robo", sub: "Your AI maths tutor" },
+  { id: "homework", icon: "📸", label: "Homework Helper", sub: "Photo → solve or coach" },
   { id: "facts", icon: "💡", label: "Fun Facts", sub: "200 maths wonders" },
   { id: "tricks", icon: "🪄", label: "Tips & Tricks", sub: "Fast mental maths" },
   { id: "formulas", icon: "📐", label: "Formula Book", sub: "Every formula, one place" },
@@ -246,6 +248,7 @@ export default function App() {
       {screen === "map" && !concepts && <div className="fm-loading">Loading…</div>}
       {screen === "clinic" && <MistakeClinic />}
       {screen === "ask" && <AskRobo profile={profile} concepts={concepts ?? []} onOpen={openConcept} seed={askSeed} onSeedConsumed={() => setAskSeed(null)} />}
+      {screen === "homework" && <HomeworkSolver profile={profile} />}
       {screen === "facts" && <FunFacts lang={lang} />}
       {screen === "tricks" && <TipsAndTricks />}
       {screen === "formulas" && <FormulaBook onOpen={openConcept} />}

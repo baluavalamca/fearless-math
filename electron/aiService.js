@@ -363,7 +363,7 @@ function cacheKey(kind, conceptId, extra) {
 
 /* ---------------- provider calls ---------------- */
 
-async function callProvider(prompt) {
+async function callProvider(prompt, opts = {}) {
   const p = PROVIDERS[settings.provider] || PROVIDERS.anthropic;
   const key = decryptKey(settings.keyStored);
   // Local providers (Ollama, LM Studio) run on-device and need no key.
@@ -371,8 +371,16 @@ async function callProvider(prompt) {
 
   const model = (settings.model && settings.model.trim()) || p.defaultModel;
   const url = providerUrl(settings.provider, p);
+  const maxTokens = opts.maxTokens || 400;
+  // Optional multi-modal image (homework photo). { mime, data: base64 (no data: prefix) }.
+  // Only VISION-capable models understand this block; a text-only model just answers
+  // from the prompt text alone, which the caller's validation will reject as bad-json.
+  const image = opts.image || null;
 
   if (p.kind === "anthropic") {
+    const content = image
+      ? [{ type: "image", source: { type: "base64", media_type: image.mime, data: image.data } }, { type: "text", text: prompt }]
+      : prompt;
     const r = await fetch(url, {
       method: "POST",
       headers: {
@@ -381,8 +389,8 @@ async function callProvider(prompt) {
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({
-        model, max_tokens: 400, temperature: 0.4,
-        messages: [{ role: "user", content: prompt }],
+        model, max_tokens: maxTokens, temperature: 0.4,
+        messages: [{ role: "user", content }],
       }),
     });
     if (!r.ok) throw new Error("provider-" + r.status);
@@ -399,12 +407,17 @@ async function callProvider(prompt) {
     if (p.authHeader) headers[p.authHeader] = key;
     else headers.authorization = `Bearer ${key}`;
   }
+  // Standard OpenAI vision message shape (image_url + data URI) — also understood by
+  // Gemini's OpenAI-compatible endpoint and most vision-capable OpenAI-style APIs.
+  const content = image
+    ? [{ type: "text", text: prompt }, { type: "image_url", image_url: { url: `data:${image.mime};base64,${image.data}` } }]
+    : prompt;
   const r = await fetch(url, {
     method: "POST",
     headers,
     body: JSON.stringify({
-      model, max_tokens: 400, temperature: 0.4,
-      messages: [{ role: "user", content: prompt }],
+      model, max_tokens: maxTokens, temperature: 0.4,
+      messages: [{ role: "user", content }],
     }),
   });
   if (!r.ok) throw new Error("provider-" + r.status);
@@ -569,6 +582,113 @@ async function askTutor({ question, grade, history }) {
       return { ok: false, reason: "local-unreachable" };
     }
     if (/provider-401|provider-403/i.test(msg)) return { ok: false, reason: "bad-key" };
+    return { ok: false, reason: msg };
+  }
+}
+
+/* ---------------- Photo/camera homework solver (OCR + solve/coach) ----------------
+ * A child (or parent) photographs a homework page. A VISION-capable model reads the
+ * printed problem(s) and either (a) SOLVES them step by step, or (b) COACHES with one
+ * Socratic guiding question per problem, Polya-style — never the final answer. Same
+ * safety model as the rest of this file: grounded single task, strict JSON, an
+ * onTopic-style safety gate ("isMathHomework"), and no learner identity ever sent —
+ * only the photo + grade level. Needs a vision-capable model on the configured
+ * provider (e.g. GPT-4o, Gemini, Claude); a text-only model will simply fail to read
+ * the image, which surfaces to the UI as a normal "couldn't read that" failure. */
+
+const HOMEWORK_MODE_INSTRUCTION = {
+  solve: `For EACH problem, give the FULL worked solution: clear numbered steps and the final answer.`,
+  coach: `For EACH problem, do NOT give the answer or the full solution. Instead ask ONE short
+Socratic guiding question (Polya-style: understand -> plan -> do -> check) that nudges the child
+toward their very next thinking step. The question MUST end with a question mark and MUST NOT
+contain or imply the final answer. Also give one tiny, answer-free "hint" nudge.`,
+};
+
+function buildHomeworkPrompt(mode, grade) {
+  const lvl = tutorLevel(grade);
+  const md = mode === "solve" ? "solve" : "coach";
+  const shape = md === "solve"
+    ? `"steps": ["<step 1>", "<step 2>", "..."], "answer": "<final answer>"`
+    : `"question": "<one guiding question ending in ?>", "hint": "<one small answer-free nudge>"`;
+  return `You are Robo Reason, a kind maths helper inside a children's learning app in India, looking
+at a PHOTO of a child's homework page. The child is about ${lvl}.
+
+TASK 1 — READ: Carefully read the photo and transcribe up to 5 distinct MATHS problems you can see,
+in plain text (notation like 1/2, x^2, sqrt(9), pi, % is fine — it will be typeset nicely). Ignore any
+handwriting/answers already scribbled by the child — transcribe the ORIGINAL PRINTED/WRITTEN QUESTION only.
+
+TASK 2 — RESPOND: ${HOMEWORK_MODE_INSTRUCTION[md]}
+
+STRICT SAFETY RULES:
+- If the photo does NOT show school mathematics homework (a different subject, a random object, a
+  person, or anything unsafe or inappropriate for a child), set "isMathHomework" to false and leave
+  "problems" as an empty array. Do not describe the photo further.
+- If you genuinely cannot read the photo clearly enough to transcribe any problem, also set
+  "isMathHomework" to false.
+- ONLY school MATHEMATICS. Warm, encouraging, simple English suited to ${lvl}. Never shame any
+  mistake already written on the page.
+- Do NOT include links, web addresses, or brand names anywhere in the reply.
+- Reply with ONLY this JSON, nothing else:
+{"isMathHomework": true or false, "problems": [{"problem": "<transcribed question>", ${shape}}]}`;
+}
+
+/** Sanitize + validate the model's homework-photo response (pure, testable). */
+function validateHomeworkResponse(obj, mode) {
+  if (!obj || typeof obj !== "object") return { ok: false, reason: "not-json" };
+  if (obj.isMathHomework === false) return { ok: true, isMathHomework: false, problems: [] };
+  if (!Array.isArray(obj.problems) || !obj.problems.length) return { ok: false, reason: "no-problems" };
+  const md = mode === "solve" ? "solve" : "coach";
+  const hasLink = (s) => /https?:\/\//i.test(String(s || ""));
+  const problems = [];
+  for (const raw of obj.problems.slice(0, 5)) {
+    if (!raw || typeof raw !== "object") continue;
+    const problem = String(raw.problem || "").trim();
+    if (problem.length < 2 || problem.length > 400 || hasLink(problem)) continue;
+    if (md === "solve") {
+      const steps = Array.isArray(raw.steps)
+        ? raw.steps.map((x) => String(x).trim()).filter((x) => x && x.length <= 300 && !hasLink(x)).slice(0, 10)
+        : [];
+      const answer = String(raw.answer || "").trim();
+      if (!steps.length || !answer || answer.length > 200 || hasLink(answer)) continue;
+      problems.push({ problem, steps, answer });
+    } else {
+      const question = String(raw.question || "").trim();
+      const hint = String(raw.hint || "").trim();
+      if (question.length < 5 || question.length > 300 || !question.endsWith("?") || hasLink(question)) continue;
+      if (hint.length > 300 || hasLink(hint)) continue;
+      problems.push({ problem, question, hint });
+    }
+  }
+  if (!problems.length) return { ok: false, reason: "no-valid-problems" };
+  return { ok: true, isMathHomework: true, problems };
+}
+
+/** Solve or coach a photographed homework page. See module header for the safety model. */
+async function solveHomework({ imageBase64, mime, grade, mode }) {
+  const p = PROVIDERS[settings.provider] || PROVIDERS.anthropic;
+  const usable = settings.enabled && (p.local || !!settings.keyStored);
+  if (!usable) return { ok: false, reason: "disabled" };
+  const data = String(imageBase64 || "").trim();
+  if (!data) return { ok: false, reason: "no-image" };
+  // ~8MB base64 ceiling (the renderer downsizes photos well below this) — keeps
+  // requests fast and inside typical provider payload limits.
+  if (data.length > 8_000_000) return { ok: false, reason: "image-too-large" };
+  const m = /^image\/(png|jpe?g|webp)$/i.test(mime || "") ? mime : "image/jpeg";
+  const g = Number.isInteger(grade) ? grade : 5;
+  const md = mode === "solve" ? "solve" : "coach";
+  try {
+    const text = await callProvider(buildHomeworkPrompt(md, g), { image: { mime: m, data }, maxTokens: 1200 });
+    const obj = extractJson(text);
+    const v = validateHomeworkResponse(obj, md);
+    if (!v.ok) return { ok: false, reason: v.reason };
+    return { ok: true, isMathHomework: v.isMathHomework, problems: v.problems, mode: md };
+  } catch (e) {
+    const msg = String(e?.message || e);
+    if (p.local && /fetch failed|ECONNREFUSED|network|Failed to fetch|socket|refused/i.test(msg)) {
+      return { ok: false, reason: "local-unreachable" };
+    }
+    if (/provider-401|provider-403/i.test(msg)) return { ok: false, reason: "bad-key" };
+    if (/provider-413|provider-400/i.test(msg)) return { ok: false, reason: "image-rejected" };
     return { ok: false, reason: msg };
   }
 }
@@ -971,9 +1091,10 @@ async function generateConcept({ topic, grade, language, ground = true, verify =
 }
 
 module.exports = {
-  init, configure, getStatus, providers, explain, whyWrong, coach, rephraseQuestion, askTutor, generateConcept, weeklySummary,
+  init, configure, getStatus, providers, explain, whyWrong, coach, rephraseQuestion, askTutor, generateConcept, weeklySummary, solveHomework,
   // pure functions exported for tests
   buildExplainPrompt, buildWhyWrongPrompt, buildCoachPrompt, buildRephrasePrompt, coachLeaksAnswer, extractJson, validateAiResponse, cacheKey,
   conceptJsonSchema, buildConceptPrompt, sanitizeConcept, validateGenerated, cleanVisual, GEN_COMPONENTS, VISUAL_COMPONENTS,
   fetchReference, verifyAnswerKeys, collectQuestions, buildWeeklySummaryPrompt,
+  buildHomeworkPrompt, validateHomeworkResponse,
 };

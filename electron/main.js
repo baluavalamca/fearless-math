@@ -379,6 +379,13 @@ function registerIpc() {
     return ai.askTutor({ question, grade, history });
   });
 
+  // Photo/camera homework solver — OCR + solve/coach on a photographed homework
+  // page. Only the photo + grade go to the provider; never the child's name.
+  ipcMain.handle("ai:homework", (_e, { imageBase64, mime, mode }) => {
+    const grade = profile ? profile.grade : 5;
+    return ai.solveHomework({ imageBase64, mime, grade, mode });
+  });
+
   ipcMain.handle("ai:explain", async (_e, { conceptId, style }) => {
     const c = content.concepts.get(conceptId);
     if (!c) return { ok: false, reason: "unknown-concept" };

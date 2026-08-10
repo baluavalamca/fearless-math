@@ -161,6 +161,7 @@ interface FmBridge {
   aiCoach(p: { conceptId: string; questionId: string; answerGiven: string; question?: Question }): Promise<AiCoach>;
   aiRephrase(p: { conceptId: string; questionId: string; question?: Question }): Promise<AiRephrase>;
   aiAsk(p: { question: string; history?: { role: "user" | "bot"; text: string }[] }): Promise<AiAsk>;
+  aiHomework(p: { imageBase64: string; mime: string; mode: "solve" | "coach" }): Promise<AiHomework>;
   mediaStatus(): Promise<MediaStatus>;
   mediaConfigure(cfg: MediaConfig): Promise<MediaStatus>;
   getCachedImage(p: { conceptId: string; style: string }): Promise<ImageResult>;
@@ -199,6 +200,14 @@ export interface AiWhyWrong { ok: boolean; reason?: string; explanation?: string
 export interface AiCoach { ok: boolean; reason?: string; question?: string; diagnosis?: string; encouragement?: string }
 export interface AiRephrase { ok: boolean; reason?: string; question?: string }
 export interface AiAsk { ok: boolean; reason?: string; onTopic?: boolean; answer?: string; example?: string; tryYourself?: string; cached?: boolean }
+export interface HomeworkProblem {
+  problem: string;
+  /** Present in "solve" mode. */
+  steps?: string[]; answer?: string;
+  /** Present in "coach" mode. */
+  question?: string; hint?: string;
+}
+export interface AiHomework { ok: boolean; reason?: string; isMathHomework?: boolean; problems?: HomeworkProblem[]; mode?: "solve" | "coach" }
 
 /** AI features are usable when enabled + online + has a key.
  *  Local providers (Ollama, LM Studio) run on-device, so they need no key and no internet. */

@@ -1028,6 +1028,39 @@ input[type=range] { accent-color: #2f6bff; }
 .fm-ar-foot { text-align: center; font-size: 12px; color: var(--muted); margin: 2px 0 6px; }
 @media (prefers-reduced-motion: reduce) { .fm-ar-typing i { animation: none; } }
 
+/* ---------------- Homework Helper (photo/camera OCR + solve/coach) ---------------- */
+.fm-hw { max-width: 780px; margin: 0 auto; padding: 18px 20px 8px; display: flex; flex-direction: column; gap: 10px; min-height: calc(100vh - 190px); }
+.fm-hw-head { display: flex; align-items: center; gap: 14px; margin-bottom: 4px; }
+.fm-hw-head h1 { margin: 0; font-size: 24px; }
+.fm-hw-mode { display: flex; gap: 10px; margin-bottom: 4px; }
+.fm-hw-mode button { flex: 1; text-align: left; border: 1.5px solid var(--glass-brd); background: var(--glass); color: var(--ink); border-radius: 14px; padding: 10px 14px; cursor: pointer; font-weight: 700; font-size: 14.5px; transition: background .15s, border-color .15s; }
+.fm-hw-mode button span { display: block; font-weight: 500; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.fm-hw-mode button.active { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent-dark); }
+.fm-hw-mode button:disabled { opacity: .55; cursor: not-allowed; }
+.fm-hw-capture, .fm-hw-preview, .fm-hw-results { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.fm-hw-choices { text-align: center; max-width: 480px; margin: auto; color: var(--ink); }
+.fm-hw-choices p { margin: 8px 0 4px; }
+.fm-hw-buttons { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.fm-hw-hint { font-size: 12.5px; color: var(--muted); margin: 2px 0; }
+.fm-hw-camerr { color: var(--accent-dark); font-size: 13.5px; }
+.fm-hw-camwrap { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.fm-hw-video { width: 100%; max-width: 560px; border-radius: 16px; background: #000; box-shadow: var(--shadow-sm); }
+.fm-hw-camactions { display: flex; gap: 10px; }
+.fm-hw-thumb { max-width: 420px; width: 100%; border-radius: 16px; box-shadow: var(--shadow-sm); border: 1px solid var(--line); }
+.fm-hw-thumb.small { max-width: 220px; }
+.fm-hw-card { width: 100%; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; box-shadow: var(--shadow-sm); }
+.fm-hw-cardhead { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.fm-hw-speak { border: none; background: transparent; cursor: pointer; font-size: 16px; padding: 2px 6px; border-radius: 8px; }
+.fm-hw-speak:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.fm-hw-problem { font-weight: 700; margin: 4px 0 8px; }
+.fm-hw-steps { margin: 6px 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.fm-hw-answer { margin-top: 8px; padding: 8px 11px; border-radius: 10px; font-size: 14.5px; background: color-mix(in srgb, var(--good) 16%, transparent); font-weight: 700; }
+.fm-hw-follow { margin-top: 10px; }
+.fm-hw-followbtn { border: 1px solid var(--line); background: var(--glass); color: var(--muted); border-radius: 999px; padding: 6px 12px; font-size: 12.5px; font-weight: 600; cursor: pointer; }
+.fm-hw-followbtn:hover:not(:disabled) { color: var(--accent-dark); border-color: var(--accent); }
+.fm-ar-inputbar.small { padding: 4px 0; position: static; background: none; }
+@media (max-width: 640px) { .fm-hw-mode { flex-direction: column; } }
+
 .fm-world-menu-label { padding: 0 24px; margin: 0 0 8px; font-size: 13.5px; font-weight: 700; color: var(--muted); }
 .fm-world-menu { display: flex; gap: 8px; flex-wrap: wrap; padding: 0 24px; margin-bottom: 20px; }
 /* Playful world name kept as a subtle subtitle beside the real topic name. */

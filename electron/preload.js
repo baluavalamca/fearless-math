@@ -32,6 +32,7 @@ contextBridge.exposeInMainWorld("fm", {
   aiCoach: (p) => ipcRenderer.invoke("ai:coach", p),
   aiRephrase: (p) => ipcRenderer.invoke("ai:rephrase", p),
   aiAsk: (p) => ipcRenderer.invoke("ai:ask", p),
+  aiHomework: (p) => ipcRenderer.invoke("ai:homework", p),
   mediaStatus: () => ipcRenderer.invoke("media:status"),
   mediaConfigure: (cfg) => ipcRenderer.invoke("media:configure", cfg),
   getCachedImage: (p) => ipcRenderer.invoke("image:cached", p),
