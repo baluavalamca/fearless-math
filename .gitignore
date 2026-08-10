@@ -22,3 +22,12 @@ Thumbs.db
 *.local
 dist-log.txt
 build-lang-log.txt
+
+# stray build/debug logs
+*.log.txt
+build-*.txt
+vite-*.txt
+eb-*.txt
+tsc-out.txt
+test-out.txt
+
