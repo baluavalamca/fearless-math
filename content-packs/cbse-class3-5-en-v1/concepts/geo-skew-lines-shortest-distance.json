@@ -1,0 +1,116 @@
+{
+  "id": "geo-skew-lines-shortest-distance",
+  "name": "Skew Lines — Shortest Distance and Coplanarity in Space",
+  "grade": 12,
+  "strand": "geometry",
+  "prerequisites": ["geo-28-3d-lines-planes", "geo-27-vectors"],
+  "whatIsIt": "Two lines in 3D space either meet, run parallel, or are SKEW — they never meet AND aren't parallel (like an overpass road and the road beneath it). Skew lines still have a well-defined SHORTEST DISTANCE between them, measured along the one segment that's perpendicular to BOTH lines at once. Two lines are COPLANAR (lie flat in one shared plane) exactly when that shortest distance formula gives zero.",
+  "whyNeeded": "Skew lines and their shortest distance are a core JEE Advanced 3D-geometry topic, and the exact tool engineers use to check clearance between a flight path and a power line, a drone's route and a building edge, or two beams in a bridge truss that cross without touching.",
+  "realLifeUses": [
+    "Checking the clearance between an aircraft's flight path and a mountain ridge or cable",
+    "Two roads crossing at different heights on a flyover — never meeting, never parallel",
+    "Robot-arm paths avoiding a fixed obstacle bar in 3D space",
+    "Checking whether two wires or pipes in a building's 3D layout could ever cross"
+  ],
+  "vocabulary": [
+    { "term": "skew lines", "meaning": "Two lines in 3D that neither meet nor are parallel." },
+    { "term": "coplanar lines", "meaning": "Two lines that lie in the same flat plane — meaning either they meet, or they're parallel." },
+    { "term": "shortest distance", "meaning": "The length of the one segment perpendicular to both skew lines at once." },
+    { "term": "direction vector", "meaning": "The vector showing which way a line points in space." }
+  ],
+  "story": {
+    "title": "The Overpass",
+    "characters": ["Ishaan", "Papa"],
+    "text": "Driving under a flyover, Ishaan asks, 'Do these two roads ever touch?' 'No,' says Papa. 'They're not parallel, and they never cross — that makes them SKEW lines. But there's still a shortest gap between them, measured straight down at the point closest on each road.' 'Can we find that with maths?' Ishaan asks. 'Yes — take the direction vectors of both roads, cross them to get a vector perpendicular to BOTH, then project the vector joining any two points on the roads onto that direction. If that shortest distance comes out to exactly zero, the roads would actually be coplanar — flat on the same level.'",
+    "extractedProblem": "What makes two lines in space \"skew\" rather than intersecting or parallel?",
+    "answerInStory": "They never meet AND they aren't parallel — like the two levels of a flyover."
+  },
+  "visual": {
+    "component": "Scene3D",
+    "props": { "axes": true, "vectors": [{ "x": 1, "y": 0, "z": 0, "label": "line 1 direction b₁ = (1,0,0)" }, { "x": 0, "y": 1, "z": 0, "label": "line 2 direction b₂ = (0,1,0)" }, { "x": 0, "y": 0, "z": 1, "label": "b₁ × b₂ = (0,0,1) — perpendicular to both" }] },
+    "caption": "Skew lines never meet or run parallel. The shortest distance between them is measured along b₁ × b₂ — the one direction perpendicular to both lines at once."
+  },
+  "teachingGallery": [
+    {
+      "title": "Skew vs coplanar",
+      "note": "The shortest-distance formula doubles as the coplanarity test.",
+      "examples": [
+        { "component": "Scene3D", "props": { "axes": true, "vectors": [{ "x": 1, "y": 0, "z": 0, "label": "line 1: b₁ = (1,0,0)" }, { "x": 0, "y": 1, "z": 0.6, "label": "line 2: b₂ — not parallel, never meets b₁'s line" }] }, "caption": "Skew: not parallel, and they never intersect." },
+        { "component": "Scene3D", "props": { "axes": true, "vectors": [{ "x": 2, "y": 0, "z": 0, "label": "b₁" }, { "x": 4, "y": 0, "z": 0, "label": "b₂ parallel to b₁ → coplanar, distance 0" }] }, "caption": "If the shortest-distance formula gives 0, the lines actually lie in one shared plane (coplanar)." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Write each line as a point plus a direction vector: r = a₁ + t·b₁ and r = a₂ + s·b₂. Find the cross product b₁ × b₂ (perpendicular to both directions). The shortest distance is the magnitude of the projection of (a₂ − a₁) onto that cross product, divided by its own magnitude. A result of 0 means the lines are coplanar.",
+    "steps": [
+      "Identify each line's point (a₁ or a₂) and direction vector (b₁ or b₂).",
+      "Compute the cross product b₁ × b₂ — the direction perpendicular to both lines.",
+      "Compute the vector between the two points, a₂ − a₁.",
+      "Shortest distance d = |(a₂ − a₁) · (b₁ × b₂)| ÷ |b₁ × b₂|.",
+      "If d = 0, the lines are coplanar (they meet or are parallel); if d ≠ 0, they are skew."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Line 1 has direction b₁ = (1, 0, 0) and line 2 has direction b₂ = (0, 1, 0). Find b₁ × b₂.",
+      "steps": [
+        "Cross product of (1,0,0) and (0,1,0) uses the determinant rule.",
+        "i(0·0 − 0·1) − j(1·0 − 0·0) + k(1·1 − 0·0).",
+        "= (0, 0, 1)."
+      ],
+      "answer": "(0, 0, 1)"
+    },
+    {
+      "problem": "If (a₂ − a₁)·(b₁ × b₂) = 0 for two lines that are not parallel, what does that tell you about the lines?",
+      "steps": [
+        "The shortest-distance formula's numerator becomes 0.",
+        "So the shortest distance d = 0 ÷ |b₁×b₂| = 0.",
+        "A shortest distance of 0 (for non-parallel lines) means they actually intersect."
+      ],
+      "answer": "The lines intersect (they are coplanar, not skew)"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "skew-assumed-parallel-test-enough", "mistake": "Checking only whether two lines are parallel and concluding they must intersect if they're not.", "fix": "Not parallel does NOT mean they meet — in 3D, two non-parallel lines can still miss each other completely. That's exactly what makes them SKEW. You must check the shortest-distance formula, not just the directions." },
+    { "mistakeTag": "skew-cross-product-order", "mistake": "Using the direction vectors' dot product instead of their cross product when finding the shortest-distance direction.", "fix": "The direction perpendicular to BOTH lines is the CROSS product b₁ × b₂ (a vector), not the dot product (which gives a single number, not a direction)." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "skew-e1", "type": "mcq", "q": "Skew lines are two lines that…", "options": [{ "label": "Never meet and are not parallel" }, { "label": "Are always parallel", "mistakeTag": "skew-assumed-parallel-test-enough" }], "answer": "Never meet and are not parallel", "hintLadder": ["Think of a flyover's two road levels.", "No crossing, no matching direction.", "Never meet and are not parallel."] },
+      { "id": "skew-e2", "type": "mcq", "q": "The direction perpendicular to both skew lines comes from their…", "options": [{ "label": "Cross product" }, { "label": "Dot product", "mistakeTag": "skew-cross-product-order" }], "answer": "Cross product", "hintLadder": ["You need a new VECTOR, not a number.", "Cross products give a perpendicular vector.", "Cross product."] }
+    ],
+    "medium": [
+      { "id": "skew-m1", "type": "text", "q": "If b₁ = (1,0,0) and b₂ = (0,1,0), find b₁ × b₂.", "answer": "(0, 0, 1)", "hintLadder": ["Use the determinant cross-product rule.", "Only the k-component survives.", "(0, 0, 1)."] },
+      { "id": "skew-m2", "type": "mcq", "q": "If the shortest-distance formula gives exactly 0 for two non-parallel lines, they must be…", "options": [{ "label": "Intersecting (coplanar)" }, { "label": "Skew", "mistakeTag": "skew-assumed-parallel-test-enough" }], "answer": "Intersecting (coplanar)", "hintLadder": ["Zero gap means they touch.", "No gap = they meet.", "Intersecting (coplanar)."] }
+    ],
+    "challenge": [
+      { "id": "skew-c1", "type": "mcq", "q": "Two lines are coplanar exactly when…", "options": [{ "label": "The shortest-distance formula equals 0" }, { "label": "Their direction vectors are perpendicular", "mistakeTag": "skew-cross-product-order" }], "answer": "The shortest-distance formula equals 0", "hintLadder": ["Zero gap between them.", "They lie flat together.", "The shortest-distance formula equals 0."] },
+      { "id": "skew-c2", "type": "text", "q": "In the shortest-distance formula d = |(a₂−a₁)·(b₁×b₂)| ÷ |b₁×b₂|, what do you divide by?", "answer": "|b₁ × b₂|", "hintLadder": ["The magnitude of the perpendicular direction.", "It's in the denominator.", "|b₁ × b₂|."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "skew-x1", "type": "mcq", "q": "Skew lines never meet AND are…", "options": [{ "label": "Not parallel" }, { "label": "Always perpendicular", "mistakeTag": "skew-assumed-parallel-test-enough" }], "answer": "Not parallel", "hintLadder": ["Two conditions define skew.", "Neither crossing nor matching direction.", "Not parallel."] },
+      { "id": "skew-x2", "type": "text", "q": "b₁ = (1,0,0), b₂ = (0,0,1). Find b₁ × b₂ using i(0·1−0·0) − j(1·1−0·0) + k(0).", "answer": "(0, -1, 0)", "hintLadder": ["Apply the determinant formula carefully.", "i-term 0, j-term −1, k-term 0.", "(0, −1, 0)."] },
+      { "id": "skew-x3", "type": "mcq", "q": "The perpendicular direction to both lines' directions is found using the…", "options": [{ "label": "Cross product" }, { "label": "Sum of the vectors", "mistakeTag": "skew-cross-product-order" }], "answer": "Cross product", "hintLadder": ["You need a vector at right angles to both.", "That's the cross product's job.", "Cross product."] },
+      { "id": "skew-x4", "type": "mcq", "q": "A shortest distance of 0 between two non-parallel lines means they are…", "options": [{ "label": "Coplanar / intersecting" }, { "label": "Skew", "mistakeTag": "skew-assumed-parallel-test-enough" }], "answer": "Coplanar / intersecting", "hintLadder": ["No gap between them at all.", "They actually touch.", "Coplanar / intersecting."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Hold two pens or pencils in the air so they neither touch nor point the same way — that's a physical model of skew lines. Explain to a grown-up why they still have a well-defined shortest gap, and how the cross product of their directions finds that gap's direction.",
+  "revisionCard": {
+    "summary": "Skew lines: never meet, not parallel. Shortest distance d = |(a₂−a₁)·(b₁×b₂)| ÷ |b₁×b₂|, where b₁, b₂ are the direction vectors and a₁, a₂ are points on each line. d = 0 ⇒ the lines are coplanar (they meet or are parallel); d ≠ 0 ⇒ genuinely skew.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 12 / JEE Advanced (Skew lines, shortest distance, coplanarity — 3D geometry)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Skew = never meet, not parallel. Shortest distance uses b₁ × b₂; zero means coplanar", "unpack": "Cross the two direction vectors, project the connecting vector onto that cross product, divide by its length." },
+  "studentQuestions": [
+    { "q": "Can parallel lines be skew?", "a": "No — parallel lines are always coplanar (you can always find one flat plane containing both). Skew specifically means NOT parallel and NOT meeting." },
+    { "q": "Why does the cross product b₁ × b₂ matter here?", "a": "It's the ONE direction perpendicular to both lines' directions at once — measuring distance along that exact direction gives the true shortest gap, not just any distance between two arbitrary points on the lines." }
+  ],
+  "formulas": [
+    { "name": "Shortest distance between skew lines", "formula": "d = |(a₂ − a₁) · (b₁ × b₂)| ÷ |b₁ × b₂|", "remember": "project the join onto the perpendicular direction", "whenToUse": "Finding the gap between two skew lines in 3D." },
+    { "name": "Coplanarity test", "formula": "d = 0  ⇔  lines are coplanar", "remember": "zero shortest distance = they share a plane", "whenToUse": "Checking whether two lines actually lie in one flat plane." }
+  ]
+}

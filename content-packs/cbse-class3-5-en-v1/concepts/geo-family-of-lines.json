@@ -1,0 +1,117 @@
+{
+  "id": "geo-family-of-lines",
+  "name": "Family of Lines — Concurrency and the Angle Bisector",
+  "grade": 11,
+  "strand": "geometry",
+  "prerequisites": ["geo-24-straight-lines"],
+  "whatIsIt": "If two lines are L₁ = 0 and L₂ = 0, then L₁ + λL₂ = 0 (for any number λ) is a FAMILY OF LINES — every one of them passes through the same point where L₁ and L₂ cross, WITHOUT needing to solve for that point first. Pick λ so the family line also satisfies one more condition (like passing through a given point). Three lines are CONCURRENT if they all pass through one common point — check this by seeing whether the third line's equation can be written as a combination of the other two.",
+  "whyNeeded": "Family of lines lets you find \"the line through the intersection of two others, plus one more condition\" WITHOUT first solving two equations for the intersection point — a fast, favourite JEE Advanced trick. Concurrency checks are used to prove three important lines (like altitudes or medians of a triangle) all meet at a single point.",
+  "realLifeUses": [
+    "Road planners checking whether three proposed roads all meet at a single junction",
+    "Quickly writing a new line through an intersection, tuned to pass through a target point",
+    "Engineering trusses: checking whether three support beams meet at one point for stability",
+    "Proving triangle centres (centroid, orthocentre) are single meeting points of three lines"
+  ],
+  "vocabulary": [
+    { "term": "family of lines", "meaning": "L₁ + λL₂ = 0 — every value of λ gives a line through the intersection of L₁ = 0 and L₂ = 0." },
+    { "term": "concurrent lines", "meaning": "Three or more lines that all pass through one common point." },
+    { "term": "λ (lambda)", "meaning": "A parameter you solve for using the extra condition given in the problem." },
+    { "term": "angle bisector", "meaning": "The locus of points equidistant from two lines; found by setting the two lines' normalised equations equal (with a ± sign)." }
+  ],
+  "story": {
+    "title": "The Shortcut Road",
+    "characters": ["Rihan", "Engineer Aunty"],
+    "text": "Two roads are drawn as x + y − 3 = 0 and x − y − 1 = 0. Rihan wants a THIRD road through their crossing point that also passes through the village at (2, 5) — but doesn't want to first solve for where the two roads meet. 'Use the family trick,' says Aunty. 'Write (x + y − 3) + λ(x − y − 1) = 0, plug in (2, 5), and solve for λ.' Plugging in: (2+5−3) + λ(2−5−1) = 0 → 4 − 4λ = 0 → λ = 1. 'So the new road is 2x − 4 = 0, or x = 2 — found without ever solving for the crossing point!' Rihan grins.",
+    "extractedProblem": "Find the line through the intersection of x + y − 3 = 0 and x − y − 1 = 0 that also passes through (2, 5).",
+    "answerInStory": "x = 2 — found using the family (x+y−3) + λ(x−y−1) = 0 with λ = 1."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": { "shapes": [{ "kind": "line", "label": "L₁ + λL₂ = 0: a whole family of lines through one crossing point" }] },
+    "caption": "Every line in the family L₁ + λL₂ = 0 passes through the same fixed intersection point of L₁ = 0 and L₂ = 0 — changing λ just rotates the line around that point."
+  },
+  "teachingGallery": [
+    {
+      "title": "Family and concurrency",
+      "note": "One family passes through a fixed point; concurrency checks three lines share one.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "line", "label": "L₁ + λL₂ = 0 rotates through the fixed intersection" }] }, "caption": "Changing λ sweeps the family line through every angle at the same fixed point." },
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "line", "label": "3 concurrent lines meet at one common point" }] }, "caption": "Concurrent lines all cross at a single shared point." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Write the family L₁ + λL₂ = 0. Substitute the extra given condition (usually a point the new line must pass through) to solve for λ. Substitute λ back into the family to get the final line — no need to find the L₁/L₂ intersection point directly.",
+    "steps": [
+      "Write both given lines in the form L₁ = 0 and L₂ = 0.",
+      "Write the family L₁ + λL₂ = 0.",
+      "Plug the extra condition (e.g. a point (x₀, y₀) the line must pass through) into the family equation.",
+      "Solve that equation for λ.",
+      "Substitute λ back into L₁ + λL₂ = 0 and simplify to get the final line's equation."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find the line through the intersection of x + y − 3 = 0 and x − y − 1 = 0 that also passes through (2, 5).",
+      "steps": [
+        "Family: (x + y − 3) + λ(x − y − 1) = 0.",
+        "Substitute (2, 5): (2 + 5 − 3) + λ(2 − 5 − 1) = 0.",
+        "4 + λ(−4) = 0, so 4 = 4λ, giving λ = 1.",
+        "Substitute back: (x+y−3) + 1(x−y−1) = 0 → 2x − 4 = 0."
+      ],
+      "answer": "x = 2"
+    },
+    {
+      "problem": "Find λ so that the family (2x + y − 5) + λ(x − y + 1) = 0 passes through the origin (0, 0).",
+      "steps": [
+        "Substitute (0, 0): (0 + 0 − 5) + λ(0 − 0 + 1) = 0.",
+        "−5 + λ = 0.",
+        "λ = 5."
+      ],
+      "answer": "5"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "family-solve-intersection-first", "mistake": "Solving the two original equations for their intersection point before using the family trick, which defeats the purpose.", "fix": "The whole point of L₁ + λL₂ = 0 is to SKIP finding the intersection point directly — substitute the extra condition straight into the family and solve for λ instead." },
+    { "mistakeTag": "family-forgot-substitute-back", "mistake": "Solving for λ but forgetting to substitute it back into L₁ + λL₂ = 0 to get the final line.", "fix": "Finding λ is only step 4 of 5 — you must substitute that λ back into the family equation and simplify to get the actual answer line." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "fol-e1", "type": "mcq", "q": "The family of lines through the intersection of L₁ = 0 and L₂ = 0 is written as…", "options": [{ "label": "L₁ + λL₂ = 0" }, { "label": "L₁ × L₂ = 0", "mistakeTag": "family-forgot-substitute-back" }], "answer": "L₁ + λL₂ = 0", "hintLadder": ["It's a sum with a parameter.", "λ scales the second line.", "L₁ + λL₂ = 0."] },
+      { "id": "fol-e2", "type": "mcq", "q": "Every line in the family L₁ + λL₂ = 0 passes through…", "options": [{ "label": "The same fixed intersection point of L₁ and L₂" }, { "label": "A different point each time", "mistakeTag": "family-solve-intersection-first" }], "answer": "The same fixed intersection point of L₁ and L₂", "hintLadder": ["Changing λ just rotates the line.", "Around one pivot point.", "The same fixed intersection point."] }
+    ],
+    "medium": [
+      { "id": "fol-m1", "type": "number", "q": "Find λ so that (x+y−3) + λ(x−y−1) = 0 passes through (2, 5). (2+5−3) + λ(2−5−1) = 0.", "answer": "1", "hintLadder": ["4 + λ(−4) = 0.", "4 = 4λ.", "λ = 1."] },
+      { "id": "fol-m2", "type": "number", "q": "Find λ so that (2x+y−5) + λ(x−y+1) = 0 passes through (0,0).", "answer": "5", "hintLadder": ["−5 + λ(1) = 0.", "λ = 5.", "5."] }
+    ],
+    "challenge": [
+      { "id": "fol-c1", "type": "text", "q": "Using λ = 1 in (x+y−3) + λ(x−y−1) = 0, simplify to find the final line.", "answer": "x = 2", "hintLadder": ["Substitute λ = 1 and expand.", "2x − 4 = 0.", "x = 2."] },
+      { "id": "fol-c2", "type": "mcq", "q": "Three lines are concurrent if they…", "options": [{ "label": "All pass through one common point" }, { "label": "Are all parallel", "mistakeTag": "family-solve-intersection-first" }], "answer": "All pass through one common point", "hintLadder": ["Think of three roads meeting.", "One shared junction.", "All pass through one common point."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "fol-x1", "type": "mcq", "q": "The family L₁ + λL₂ = 0 avoids having to first…", "options": [{ "label": "Solve for the intersection point of L₁ and L₂" }, { "label": "Draw the lines", "mistakeTag": "family-solve-intersection-first" }], "answer": "Solve for the intersection point of L₁ and L₂", "hintLadder": ["It's a shortcut around one step.", "The step of finding where L₁ and L₂ cross.", "Solve for the intersection point."] },
+      { "id": "fol-x2", "type": "number", "q": "Find λ so that (x+y−3) + λ(x−y−1) = 0 passes through (2, 5).", "answer": "1", "hintLadder": ["Plug (2,5) into the family.", "4 = 4λ.", "λ = 1."] },
+      { "id": "fol-x3", "type": "number", "q": "Find λ so that (2x+y−5) + λ(x−y+1) = 0 passes through (0,0).", "answer": "5", "hintLadder": ["Plug (0,0) into the family.", "−5 + λ = 0.", "λ = 5."] },
+      { "id": "fol-x4", "type": "mcq", "q": "After finding λ, the final step is to…", "options": [{ "label": "Substitute λ back into the family and simplify" }, { "label": "Stop — λ is the final answer", "mistakeTag": "family-forgot-substitute-back" }], "answer": "Substitute λ back into the family and simplify", "hintLadder": ["λ alone isn't the line's equation.", "Put it back into L₁ + λL₂ = 0.", "Substitute λ back and simplify."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Pick two simple line equations and a target point. Show a grown-up how you write L₁ + λL₂ = 0, plug the point in to solve for λ, then substitute λ back — all WITHOUT ever finding where L₁ and L₂ originally cross.",
+  "revisionCard": {
+    "summary": "Family of lines through the intersection of L₁ = 0, L₂ = 0: L₁ + λL₂ = 0. Use an extra condition (usually a point) to solve for λ, then substitute back to get the final line — skips finding the intersection point directly. Concurrent lines all pass through one common point.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 11 / JEE Advanced (Family of lines, concurrency, angle bisector)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "L₁ + λL₂ = 0 always passes through where L₁ and L₂ cross — no need to solve for that point", "unpack": "Plug in the extra condition to find λ, then substitute λ back to get the answer line." },
+  "studentQuestions": [
+    { "q": "Why does L₁ + λL₂ = 0 always pass through the intersection of L₁ and L₂?", "a": "At the intersection point, both L₁ = 0 AND L₂ = 0 are true simultaneously, so L₁ + λL₂ = 0 + λ(0) = 0 holds there no matter what λ is — every member of the family passes through that one point." },
+    { "q": "How do I check if three lines are concurrent without a family?", "a": "Find the intersection of any two, then check if the third line's equation is satisfied by that same point — or equivalently, check that the determinant of the three lines' coefficients equals zero." }
+  ],
+  "formulas": [
+    { "name": "Family of lines", "formula": "L₁ + λL₂ = 0", "remember": "always through the L₁∩L₂ point", "whenToUse": "Finding a line through an intersection plus one more condition." },
+    { "name": "Angle bisector", "formula": "(a₁x+b₁y+c₁)/√(a₁²+b₁²) = ±(a₂x+b₂y+c₂)/√(a₂²+b₂²)", "remember": "equal normalised distances", "whenToUse": "Finding the bisector of the angle between two lines." }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "id": "num-rolle-lagrange-mvt",
+  "name": "Rolle's Theorem & Lagrange's Mean Value Theorem",
+  "grade": 12,
+  "strand": "numbers",
+  "prerequisites": ["num-53-continuity-differentiability", "num-54-application-derivatives"],
+  "whatIsIt": "ROLLE'S THEOREM: if f is continuous on [a, b], differentiable on (a, b), and f(a) = f(b) (same height at both ends), then SOMEWHERE in between the tangent must be perfectly flat — there exists c in (a, b) with f′(c) = 0. LAGRANGE'S MEAN VALUE THEOREM (MVT) is the general version without the equal-heights rule: it guarantees a point c where the INSTANTANEOUS slope f′(c) exactly equals the AVERAGE slope over the whole interval, f′(c) = (f(b) − f(a))/(b − a).",
+  "whyNeeded": "These two theorems are the bridge between a curve's overall behaviour (its endpoints) and its local slope at one specific point — the mathematical backbone of almost every 'somewhere in between' argument in calculus, and a standard proof-based JEE Advanced topic. MVT is also literally how speeding tickets work: if your average speed over a stretch was 100 km/h, MVT guarantees your speedometer showed EXACTLY 100 km/h at some instant.",
+  "realLifeUses": [
+    "Speed cameras: if your average speed between two points was above the limit, MVT proves your instantaneous speed matched it at some moment",
+    "Proving a rocket's velocity must have equalled its average velocity at some instant during flight",
+    "Engineering: guaranteeing a beam's stress rate matches its average stress rate somewhere along its length",
+    "The theoretical foundation behind why derivatives can locate roots and turning points reliably"
+  ],
+  "vocabulary": [
+    { "term": "Rolle's Theorem", "meaning": "If f is continuous on [a,b], differentiable on (a,b), and f(a)=f(b), then f′(c)=0 for some c in (a,b)." },
+    { "term": "Lagrange's Mean Value Theorem (MVT)", "meaning": "If f is continuous on [a,b] and differentiable on (a,b), then f′(c) = (f(b)−f(a))/(b−a) for some c in (a,b)." },
+    { "term": "average (mean) slope", "meaning": "The overall rate of change across the interval: (f(b) − f(a)) / (b − a)." },
+    { "term": "instantaneous slope", "meaning": "The derivative f′(c) at one exact point c." }
+  ],
+  "story": {
+    "title": "The Speed Camera",
+    "characters": ["Kabir", "Traffic Officer"],
+    "text": "Kabir drives from the toll gate to the exit, 100 km, in exactly 1 hour — an average speed of 100 km/h. 'But I never once looked at 100 on my speedometer!' he protests. The officer smiles: 'Doesn't matter what you SAW. Your position is a continuous, differentiable function of time. By Lagrange's Mean Value Theorem, at SOME instant during that hour, your instantaneous speed must have equalled your average speed — exactly 100 km/h.' Kabir has no comeback; the theorem guarantees it, whether he noticed or not.",
+    "extractedProblem": "If a car's average speed over a 1-hour trip was 100 km/h, what does the Mean Value Theorem guarantee?",
+    "answerInStory": "That at some exact instant during the trip, the car's instantaneous speed was exactly 100 km/h."
+  },
+  "visual": {
+    "component": "FunctionPlot",
+    "props": {
+      "plots": [
+        { "poly": [3, -4, 1], "domain": [1, 3], "tangentAt": 2, "label": "f(x) = x² − 4x + 3 on [1, 3]", "color": "accent" }
+      ]
+    },
+    "caption": "f(x) = x² − 4x + 3 has f(1) = f(3) = 0 (equal heights), so Rolle's Theorem guarantees a flat tangent somewhere in between — right at x = 2, the bottom of the dip, where f′(2) = 0."
+  },
+  "teachingGallery": [
+    {
+      "title": "Rolle's vs Lagrange's",
+      "note": "Rolle's needs equal end-heights; Lagrange's works for any two endpoints.",
+      "examples": [
+        { "component": "FunctionPlot", "props": { "plots": [{ "poly": [3, -4, 1], "domain": [1, 3], "tangentAt": 2, "label": "f(a)=f(b) → flat tangent somewhere between", "color": "accent" }] }, "caption": "Rolle's Theorem: equal heights at a and b guarantee a flat (zero-slope) tangent in between." },
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "line", "label": "MVT: some tangent is parallel to the chord from (a,f(a)) to (b,f(b))" }] }, "caption": "Lagrange's MVT: somewhere in between, the tangent line is exactly parallel to the straight chord joining the two endpoints." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "For Rolle's Theorem: check f is continuous on [a,b] and differentiable on (a,b), verify f(a) = f(b), then solve f′(c) = 0 for c in (a,b). For Lagrange's MVT: check continuity/differentiability, compute the average slope (f(b)−f(a))/(b−a), then solve f′(c) equal to that average slope for c in (a,b).",
+    "steps": [
+      "Confirm f is continuous on [a, b] and differentiable on (a, b) — both theorems require this.",
+      "For Rolle's: check f(a) = f(b). If true, solve f′(c) = 0 for c strictly between a and b.",
+      "For Lagrange's MVT: compute the average slope (f(b) − f(a)) / (b − a).",
+      "Solve f′(c) = average slope for c, and confirm c lies strictly between a and b.",
+      "Rolle's Theorem is just Lagrange's MVT in the special case where the average slope happens to be 0."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Verify Rolle's Theorem for f(x) = x² − 4x + 3 on [1, 3] and find c.",
+      "steps": [
+        "f(1) = 1 − 4 + 3 = 0 and f(3) = 9 − 12 + 3 = 0, so f(1) = f(3). ✓",
+        "f is a polynomial, so continuous and differentiable everywhere. ✓",
+        "f′(x) = 2x − 4. Set f′(c) = 0: 2c − 4 = 0.",
+        "c = 2, which lies in (1, 3). ✓"
+      ],
+      "answer": "c = 2"
+    },
+    {
+      "problem": "Find c satisfying Lagrange's MVT for f(x) = x² on [1, 4].",
+      "steps": [
+        "Average slope = (f(4) − f(1)) / (4 − 1) = (16 − 1) / 3 = 5.",
+        "f′(x) = 2x. Set f′(c) = 5: 2c = 5.",
+        "c = 2.5, which lies in (1, 4). ✓"
+      ],
+      "answer": "c = 2.5"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "rolle-forgot-equal-heights", "mistake": "Applying Rolle's Theorem without first checking f(a) = f(b).", "fix": "Rolle's Theorem ONLY applies when f(a) = f(b). If the endpoints have different heights, you need Lagrange's MVT instead, not Rolle's." },
+    { "mistakeTag": "mvt-wrong-slope-formula", "mistake": "Computing the average slope as f(b) − f(a) alone, forgetting to divide by (b − a).", "fix": "The average (mean) slope is (f(b) − f(a)) / (b − a) — always divide by the width of the interval, not just the change in height." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "rlm-e1", "type": "mcq", "q": "Rolle's Theorem requires that f(a) and f(b) be…", "options": [{ "label": "Equal" }, { "label": "Any values", "mistakeTag": "rolle-forgot-equal-heights" }], "answer": "Equal", "hintLadder": ["Same height at both ends.", "f(a) = f(b).", "Equal."] },
+      { "id": "rlm-e2", "type": "mcq", "q": "The conclusion of Rolle's Theorem is that f′(c) equals…", "options": [{ "label": "0" }, { "label": "The average slope", "mistakeTag": "mvt-wrong-slope-formula" }], "answer": "0", "hintLadder": ["A flat tangent somewhere.", "Zero slope.", "0."] }
+    ],
+    "medium": [
+      { "id": "rlm-m1", "type": "text", "q": "For f(x) = x² − 4x + 3 on [1, 3], solve f′(c) = 0 where f′(x) = 2x − 4.", "answer": "c = 2", "hintLadder": ["2c − 4 = 0.", "2c = 4.", "c = 2."] },
+      { "id": "rlm-m2", "type": "text", "q": "Find the average slope of f(x) = x² on [1, 4].", "answer": "5", "hintLadder": ["(f(4) − f(1)) ÷ (4 − 1).", "(16 − 1) ÷ 3.", "5."] }
+    ],
+    "challenge": [
+      { "id": "rlm-c1", "type": "text", "q": "Find c satisfying Lagrange's MVT for f(x) = x² on [1, 4], given f′(x) = 2x and average slope 5.", "answer": "c = 2.5", "hintLadder": ["Set 2c = 5.", "c = 5/2.", "c = 2.5."] },
+      { "id": "rlm-c2", "type": "mcq", "q": "Rolle's Theorem is a special case of Lagrange's MVT where the average slope is…", "options": [{ "label": "0" }, { "label": "Equal to f(a)", "mistakeTag": "mvt-wrong-slope-formula" }], "answer": "0", "hintLadder": ["When f(a) = f(b), the numerator f(b)−f(a) is 0.", "Zero over anything is zero.", "0."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "rlm-x1", "type": "mcq", "q": "Rolle's Theorem needs f(a) = f(b); Lagrange's MVT needs…", "options": [{ "label": "No such restriction — it works for any f(a), f(b)" }, { "label": "f(a) = 0", "mistakeTag": "rolle-forgot-equal-heights" }], "answer": "No such restriction — it works for any f(a), f(b)", "hintLadder": ["Lagrange's is the general version.", "It works for any two endpoint heights.", "No such restriction."] },
+      { "id": "rlm-x2", "type": "text", "q": "For f(x) = x² − 4x + 3 on [1, 3], f(1) = ? and f(3) = ?", "answer": "0", "hintLadder": ["Plug in x=1: 1−4+3.", "Plug in x=3: 9−12+3.", "Both equal 0."] },
+      { "id": "rlm-x3", "type": "text", "q": "The average slope of f(x) = x² on [1, 4] is (f(4)−f(1))/(4−1) = ?", "answer": "5", "hintLadder": ["(16−1) ÷ 3.", "15 ÷ 3.", "5."] },
+      { "id": "rlm-x4", "type": "mcq", "q": "Lagrange's MVT says the instantaneous slope at c equals the…", "options": [{ "label": "Average slope over [a, b]" }, { "label": "Slope at a", "mistakeTag": "mvt-wrong-slope-formula" }], "answer": "Average slope over [a, b]", "hintLadder": ["It connects local to overall.", "(f(b)−f(a))/(b−a).", "Average slope over [a, b]."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Draw a bumpy curve from (1, 0) up and back down to (3, 0). Show a grown-up why Rolle's Theorem guarantees a flat tangent somewhere in between, then explain how Lagrange's MVT is the same idea but for a chord that isn't flat — the tangent matches the chord's slope somewhere, not necessarily zero.",
+  "revisionCard": {
+    "summary": "Rolle's Theorem: f continuous on [a,b], differentiable on (a,b), f(a)=f(b) ⇒ f′(c)=0 for some c in (a,b). Lagrange's MVT (the general version): f′(c) = (f(b)−f(a))/(b−a) for some c in (a,b) — instantaneous slope equals average slope somewhere. Rolle's is MVT when the average slope is 0.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 12 / JEE Advanced (Rolle's Theorem, Lagrange's Mean Value Theorem)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Rolle's: equal ends → flat tangent somewhere. Lagrange's: tangent matches the average slope somewhere", "unpack": "Both need continuous on [a,b] and differentiable on (a,b). Rolle's is Lagrange's MVT with average slope = 0." },
+  "studentQuestions": [
+    { "q": "Why does Rolle's Theorem need differentiability, not just continuity?", "a": "Continuity alone guarantees the curve has no breaks, but a sharp corner (like |x|) can be continuous yet have no well-defined tangent slope there — differentiability guarantees a genuine tangent exists at every interior point to search among." },
+    { "q": "Is MVT only about speed?", "a": "No — speed is just the easiest example. MVT applies to ANY continuous, differentiable function: temperature change, population growth rate, cost curves, anything with an average rate of change over an interval." }
+  ],
+  "formulas": [
+    { "name": "Rolle's Theorem condition", "formula": "f(a) = f(b)  ⇒  f′(c) = 0 for some c ∈ (a,b)", "remember": "equal ends → flat middle", "whenToUse": "When the function has the same value at both endpoints." },
+    { "name": "Lagrange's Mean Value Theorem", "formula": "f′(c) = (f(b) − f(a)) / (b − a)", "remember": "instant slope = average slope, somewhere", "whenToUse": "Connecting a function's overall change to its slope at one point." }
+  ]
+}

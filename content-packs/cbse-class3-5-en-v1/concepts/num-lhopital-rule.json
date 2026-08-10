@@ -1,0 +1,120 @@
+{
+  "id": "num-lhopital-rule",
+  "name": "L'Hôpital's Rule — Taming 0/0 and ∞/∞ Limits",
+  "grade": 12,
+  "strand": "numbers",
+  "prerequisites": ["num-48-limits-derivatives"],
+  "whatIsIt": "When a limit of f(x)/g(x) is plugged in directly and gives an INDETERMINATE FORM — exactly 0/0 or ∞/∞ — you cannot just read off the answer. L'HÔPITAL'S RULE says: in that situation (and ONLY that situation), take the DERIVATIVE of the top and the DERIVATIVE of the bottom SEPARATELY, then try the limit again: lim f(x)/g(x) = lim f′(x)/g′(x). If it's still indeterminate, differentiate again and repeat.",
+  "whyNeeded": "Many limits that look impossible by direct substitution or algebra — like sin(x)/x as x → 0 — become one-line answers with L'Hôpital's Rule. It's a fast, heavily-tested JEE Main shortcut for limit questions, and it's exactly how engineers evaluate 'what happens right at the edge' in signal processing and control systems where a formula would otherwise divide by zero.",
+  "realLifeUses": [
+    "Quickly evaluating limits like sin(x)/x or (eˣ−1)/x that show up constantly in physics and engineering",
+    "Signal processing formulas that hit 0/0 exactly at a critical frequency",
+    "Physics: finding the limiting behaviour of a formula as time or distance shrinks to zero",
+    "A fast JEE shortcut that replaces long algebraic manipulation with one derivative step"
+  ],
+  "vocabulary": [
+    { "term": "indeterminate form", "meaning": "A limit expression like 0/0 or ∞/∞ that doesn't have an obvious value from direct substitution." },
+    { "term": "L'Hôpital's Rule", "meaning": "For 0/0 or ∞/∞ forms, lim f(x)/g(x) = lim f′(x)/g′(x) — differentiate top and bottom separately, then re-try the limit." },
+    { "term": "differentiate separately", "meaning": "Take f′(x) and g′(x) on their own — this is NOT the quotient rule, which would combine them." }
+  ],
+  "story": {
+    "title": "The Stuck Fraction",
+    "characters": ["Sana", "Professor"],
+    "text": "Sana tries to find the limit of sin(x)/x as x → 0. Plugging in x = 0 gives sin(0)/0 = 0/0 — stuck! 'That's an indeterminate form,' says the Professor, 'not an answer.' 'Try this: differentiate the top and bottom SEPARATELY.' The derivative of sin(x) is cos(x); the derivative of x is 1. 'Now try the limit again: cos(0)/1 = 1/1 = 1.' Sana checks: the original stuck fraction has a real limit of 1, found instantly with one derivative step each.",
+    "extractedProblem": "Find lim(x→0) sin(x)/x using L'Hôpital's Rule.",
+    "answerInStory": "1 — because differentiating top and bottom gives cos(x)/1, and cos(0) = 1."
+  },
+  "visual": {
+    "component": "FunctionPlot",
+    "props": {
+      "plots": [
+        { "poly": [1], "domain": [-3, 3], "label": "sin(x)/x approaches 1 as x → 0", "color": "accent" }
+      ]
+    },
+    "caption": "sin(x)/x looks undefined right at x = 0 (0/0), but the curve smoothly approaches height 1 there — exactly what L'Hôpital's Rule confirms by differentiating top and bottom."
+  },
+  "teachingGallery": [
+    {
+      "title": "When to use it, and how",
+      "note": "Check the form is 0/0 or ∞/∞ FIRST, then differentiate top and bottom separately.",
+      "examples": [
+        { "component": "FunctionPlot", "props": { "plots": [{ "poly": [1], "domain": [-3, 3], "label": "sin(x)/x → 1 as x → 0", "color": "accent" }] }, "caption": "Direct substitution gives 0/0. Differentiating: cos(x)/1 → 1 as x → 0." },
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "line", "label": "top and bottom differentiated SEPARATELY — not the quotient rule" }] }, "caption": "L'Hôpital's Rule differentiates numerator and denominator independently — it is not the quotient rule, which combines them into one derivative." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Substitute the limit value directly. If the result is exactly 0/0 or ∞/∞, differentiate the numerator and denominator SEPARATELY and take the limit of that new fraction. If it's still 0/0 or ∞/∞, repeat. If substitution gives anything else, do NOT use L'Hôpital's Rule.",
+    "steps": [
+      "Substitute the limiting value directly into f(x)/g(x).",
+      "CHECK the form: only proceed if the result is exactly 0/0 or ∞/∞.",
+      "Differentiate the numerator f(x) to get f′(x), and the denominator g(x) to get g′(x) — separately, not with the quotient rule.",
+      "Take the limit of f′(x)/g′(x). If it now gives a definite number, that's the answer.",
+      "If f′(x)/g′(x) is STILL 0/0 or ∞/∞, apply L'Hôpital's Rule again."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find lim(x→0) sin(x)/x.",
+      "steps": [
+        "Direct substitution: sin(0)/0 = 0/0 — indeterminate, so L'Hôpital applies.",
+        "Differentiate top and bottom: f′(x) = cos(x), g′(x) = 1.",
+        "New limit: cos(0)/1.",
+        "= 1/1 = 1."
+      ],
+      "answer": "1"
+    },
+    {
+      "problem": "Find lim(x→0) (eˣ − 1)/x.",
+      "steps": [
+        "Direct substitution: (e⁰ − 1)/0 = (1−1)/0 = 0/0 — indeterminate.",
+        "Differentiate top and bottom: f′(x) = eˣ, g′(x) = 1.",
+        "New limit: e⁰/1.",
+        "= 1/1 = 1."
+      ],
+      "answer": "1"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "lhopital-wrong-form-check", "mistake": "Applying L'Hôpital's Rule even when direct substitution gives a defined, non-indeterminate value (like 3/5).", "fix": "L'Hôpital's Rule ONLY applies to exactly 0/0 or ∞/∞. If substitution gives any other number, that number IS the limit — using L'Hôpital there gives a WRONG answer." },
+    { "mistakeTag": "lhopital-used-quotient-rule", "mistake": "Using the quotient rule to differentiate f(x)/g(x) as one combined fraction instead of differentiating f and g separately.", "fix": "L'Hôpital's Rule means: find f′(x) and g′(x) as two SEPARATE derivatives, then form the new fraction f′(x)/g′(x). It is NOT the quotient rule applied to f/g as one function." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "lho-e1", "type": "mcq", "q": "L'Hôpital's Rule applies when direct substitution gives…", "options": [{ "label": "0/0 or ∞/∞" }, { "label": "Any defined number", "mistakeTag": "lhopital-wrong-form-check" }], "answer": "0/0 or ∞/∞", "hintLadder": ["Only for stuck, indeterminate fractions.", "The two special forms.", "0/0 or ∞/∞."] },
+      { "id": "lho-e2", "type": "mcq", "q": "To apply L'Hôpital's Rule, you differentiate the numerator and denominator…", "options": [{ "label": "Separately" }, { "label": "Using the quotient rule together", "mistakeTag": "lhopital-used-quotient-rule" }], "answer": "Separately", "hintLadder": ["Two independent derivatives.", "Not combined into one.", "Separately."] }
+    ],
+    "medium": [
+      { "id": "lho-m1", "type": "text", "q": "For lim(x→0) sin(x)/x, differentiate top and bottom to get cos(x)/1, then evaluate at x=0.", "answer": "1", "hintLadder": ["cos(0) = ?", "cos(0) = 1.", "1/1 = 1."] },
+      { "id": "lho-m2", "type": "text", "q": "For lim(x→0) (eˣ−1)/x, differentiate to get eˣ/1, then evaluate at x=0.", "answer": "1", "hintLadder": ["e⁰ = ?", "e⁰ = 1.", "1/1 = 1."] }
+    ],
+    "challenge": [
+      { "id": "lho-c1", "type": "mcq", "q": "Direct substitution into a limit gives 4/2 (a defined number). Should you apply L'Hôpital's Rule?", "options": [{ "label": "No — 4/2 is already the answer" }, { "label": "Yes, always differentiate first", "mistakeTag": "lhopital-wrong-form-check" }], "answer": "No — 4/2 is already the answer", "hintLadder": ["Is 4/2 indeterminate?", "No — it's just 2.", "No — 4/2 is already the answer."] },
+      { "id": "lho-c2", "type": "text", "q": "For f(x) = x² and g(x) = x, both derivatives separately are f′(x) = 2x and g′(x) = ?", "answer": "1", "hintLadder": ["Derivative of x.", "It's just 1.", "1."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "lho-x1", "type": "mcq", "q": "L'Hôpital's Rule is valid ONLY for which forms?", "options": [{ "label": "0/0 or ∞/∞" }, { "label": "Any fraction with a limit", "mistakeTag": "lhopital-wrong-form-check" }], "answer": "0/0 or ∞/∞", "hintLadder": ["The two indeterminate forms.", "Not defined numbers.", "0/0 or ∞/∞."] },
+      { "id": "lho-x2", "type": "text", "q": "lim(x→0) sin(x)/x = ?", "answer": "1", "hintLadder": ["Differentiate top and bottom.", "cos(0)/1.", "1."] },
+      { "id": "lho-x3", "type": "text", "q": "lim(x→0) (eˣ−1)/x = ?", "answer": "1", "hintLadder": ["Differentiate top and bottom.", "e⁰/1.", "1."] },
+      { "id": "lho-x4", "type": "mcq", "q": "L'Hôpital's Rule differentiates the top and bottom…", "options": [{ "label": "Separately, as two independent derivatives" }, { "label": "Together, with the quotient rule", "mistakeTag": "lhopital-used-quotient-rule" }], "answer": "Separately, as two independent derivatives", "hintLadder": ["f′(x) and g′(x) on their own.", "Not one combined derivative.", "Separately."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Show a grown-up why sin(x)/x looks 'broken' at x = 0 (you get 0/0), then walk them through differentiating the top and bottom separately to get cos(x)/1 = 1 — explaining clearly that this is NOT the same as using the quotient rule.",
+  "revisionCard": {
+    "summary": "L'Hôpital's Rule: if lim f(x)/g(x) gives exactly 0/0 or ∞/∞ on direct substitution, then lim f(x)/g(x) = lim f′(x)/g′(x) — differentiate top and bottom SEPARATELY and retry. Repeat if still indeterminate. Never use it when substitution already gives a defined number.",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 12 / JEE Main & Advanced (L'Hôpital's Rule for limits)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "0/0 or ∞/∞ only: differentiate top and bottom separately, then retry the limit", "unpack": "Check the form first. Differentiate f and g independently (not the quotient rule). Repeat if still indeterminate." },
+  "studentQuestions": [
+    { "q": "Why does differentiating top and bottom fix a 0/0 limit?", "a": "Near the point where both f and g hit zero, their derivatives capture how FAST each is approaching zero — and the ratio of those speeds is exactly the limit L'Hôpital's Rule reveals." },
+    { "q": "What if it's STILL 0/0 after one round of L'Hôpital?", "a": "Apply the rule again: differentiate the new numerator and denominator once more, and keep repeating until the form is no longer indeterminate." }
+  ],
+  "formulas": [
+    { "name": "L'Hôpital's Rule", "formula": "lim f(x)/g(x) = lim f′(x)/g′(x)  (only for 0/0 or ∞/∞)", "remember": "differentiate top and bottom separately, then retry", "whenToUse": "A limit gives exactly 0/0 or ∞/∞ on direct substitution." }
+  ]
+}

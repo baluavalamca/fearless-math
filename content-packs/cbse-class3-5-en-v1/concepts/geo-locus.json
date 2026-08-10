@@ -1,0 +1,116 @@
+{
+  "id": "geo-locus",
+  "name": "Locus — The Path Traced by a Moving Point",
+  "grade": 11,
+  "strand": "geometry",
+  "prerequisites": ["geo-24-straight-lines", "geo-19-circle-tangents"],
+  "whatIsIt": "A LOCUS is the set of ALL points that satisfy one geometric condition — the path a point traces as it moves while obeying a rule. To find it: let the moving point be P(x, y), WRITE the given condition using distances or slopes, and SIMPLIFY into an equation in x and y. That equation IS the locus. Example: every point equidistant from two fixed points traces a straight line (the perpendicular bisector); every point a fixed distance from one point traces a circle.",
+  "whyNeeded": "Locus is how geometry conditions become algebra equations — the exact skill behind deriving the equations of circles, parabolas, ellipses and hyperbolas in coordinate geometry. It is a direct JEE Advanced topic (\"locus problems\") and the reasoning behind GPS trilateration, radar range circles, and satellite-dish focus curves.",
+  "realLifeUses": [
+    "GPS: the set of points a fixed distance from a satellite is a circle (in 2D) or sphere (in 3D)",
+    "A goat tied to a peg by a rope traces a circle — its locus",
+    "The perpendicular bisector rule used to find a point equidistant from two towns",
+    "Satellite dishes and torches are shaped like a parabola — the locus of points equidistant from a fixed point and a fixed line"
+  ],
+  "vocabulary": [
+    { "term": "locus", "meaning": "The set of all points satisfying one given geometric condition." },
+    { "term": "perpendicular bisector", "meaning": "The locus of points equidistant from two fixed points — a straight line." },
+    { "term": "equidistant", "meaning": "The same distance from two or more things." },
+    { "term": "distance formula", "meaning": "Distance between (x₁,y₁) and (x₂,y₂) = √((x₂−x₁)² + (y₂−y₁)²) — the main tool for writing locus conditions." }
+  ],
+  "story": {
+    "title": "The Fair Meeting Point",
+    "characters": ["Aara", "Dev"],
+    "text": "Aara lives at A(0, 0) and Dev at B(4, 0). They want to pick a meeting spot P(x, y) that's exactly fair — the same distance from both. 'Let's write it as an equation,' says Aara. Distance PA = distance PB, so √(x² + y²) = √((x−4)² + y²). Squaring and simplifying, the x² and y² cancel, leaving 8x = 16, so x = 2. 'Any point with x = 2 works!' Dev realises — that's the whole locus: a straight vertical line exactly halfway between them.",
+    "extractedProblem": "Find the locus of a point P(x, y) equidistant from A(0, 0) and B(4, 0).",
+    "answerInStory": "x = 2 — the perpendicular bisector of AB, halfway between the two points."
+  },
+  "visual": {
+    "component": "GeometryCanvas",
+    "props": { "shapes": [{ "kind": "line", "label": "x = 2: every point here is equidistant from A(0,0) and B(4,0)" }] },
+    "caption": "The locus of points equidistant from A and B is the perpendicular bisector of segment AB — here the vertical line x = 2, exactly halfway between them."
+  },
+  "teachingGallery": [
+    {
+      "title": "Two classic loci",
+      "note": "Equidistant from two points → a line. Fixed distance from one point → a circle.",
+      "examples": [
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "line", "label": "equidistant from A and B → perpendicular bisector" }] }, "caption": "Condition: PA = PB. Locus: a straight line (the perpendicular bisector of AB)." },
+        { "component": "GeometryCanvas", "props": { "shapes": [{ "kind": "circle", "label": "fixed distance r from a centre → a circle" }] }, "caption": "Condition: distance from a fixed point = r (constant). Locus: a circle of radius r." }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Let the moving point be P(x, y). Translate the given geometric condition into a distance/slope equation using P and the fixed data. Square both sides where needed to clear square roots, then simplify. The resulting equation in x and y is the locus.",
+    "steps": [
+      "Name the moving point P(x, y).",
+      "Write the given condition as an equation using the DISTANCE FORMULA (or slope, if the condition is about direction).",
+      "If square roots appear on both sides, square both sides to remove them.",
+      "Expand and simplify — like terms (often x² and y²) cancel, leaving the locus equation.",
+      "Identify the shape: a linear equation is a line, x² + y² = r² is a circle, and so on."
+    ]
+  },
+  "workedExamples": [
+    {
+      "problem": "Find the locus of P(x, y) equidistant from A(0, 0) and B(4, 0).",
+      "steps": [
+        "PA = PB means √(x² + y²) = √((x−4)² + y²).",
+        "Square both sides: x² + y² = (x−4)² + y² = x² − 8x + 16 + y².",
+        "Cancel x² and y² from both sides: 0 = −8x + 16.",
+        "8x = 16, so x = 2."
+      ],
+      "answer": "x = 2"
+    },
+    {
+      "problem": "Find the locus of P(x, y) whose distance from the origin is always 5.",
+      "steps": [
+        "Distance from origin = √(x² + y²) = 5.",
+        "Square both sides: x² + y² = 25."
+      ],
+      "answer": "x² + y² = 25"
+    }
+  ],
+  "commonMistakes": [
+    { "mistakeTag": "locus-single-point", "mistake": "Treating the locus as one specific point instead of the whole set/equation.", "fix": "A locus is an EQUATION describing every point that fits — not a single answer. \"x = 2\" means every point on that line, not just one point." },
+    { "mistakeTag": "locus-forgot-square", "mistake": "Leaving square roots in the equation instead of squaring both sides to simplify.", "fix": "Square BOTH sides of a distance equation to clear the square roots before simplifying — that's what turns the condition into a clean algebraic locus." }
+  ],
+  "practice": {
+    "easy": [
+      { "id": "loc-e1", "type": "mcq", "q": "A locus is best described as…", "options": [{ "label": "The set of all points satisfying a condition" }, { "label": "A single fixed point", "mistakeTag": "locus-single-point" }], "answer": "The set of all points satisfying a condition", "hintLadder": ["It's a whole path, not one spot.", "Every point that fits the rule.", "The set of all points satisfying a condition."] },
+      { "id": "loc-e2", "type": "mcq", "q": "The locus of points a fixed distance r from a centre is a…", "options": [{ "label": "Circle" }, { "label": "Straight line", "mistakeTag": "locus-single-point" }], "answer": "Circle", "hintLadder": ["Think of a goat on a rope.", "It sweeps a round path.", "Circle."] }
+    ],
+    "medium": [
+      { "id": "loc-m1", "type": "text", "q": "Find the locus of P(x, y) whose distance from the origin is always 3 (write as an equation).", "answer": "x² + y² = 9", "hintLadder": ["√(x²+y²) = 3.", "Square both sides.", "x² + y² = 9."] },
+      { "id": "loc-m2", "type": "text", "q": "Find the locus of P(x, y) equidistant from A(0,0) and B(6,0).", "answer": "x = 3", "hintLadder": ["PA = PB, square both sides.", "The x² and y² cancel.", "x = 3."] }
+    ],
+    "challenge": [
+      { "id": "loc-c1", "type": "text", "q": "Find the locus of P(x, y) equidistant from A(0,0) and B(8,0).", "answer": "x = 4", "hintLadder": ["√(x²+y²) = √((x-8)²+y²).", "Square and cancel x², y².", "x = 4 (halfway)."] },
+      { "id": "loc-c2", "type": "mcq", "q": "Before simplifying a distance equation like √(x²+y²) = 5, what should you do first?", "options": [{ "label": "Square both sides" }, { "label": "Leave the square roots as they are", "mistakeTag": "locus-forgot-square" }], "answer": "Square both sides", "hintLadder": ["Square roots are awkward to simplify directly.", "Squaring clears them.", "Square both sides."] }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      { "id": "loc-x1", "type": "mcq", "q": "A locus describes…", "options": [{ "label": "Every point satisfying a given condition" }, { "label": "Just the starting point", "mistakeTag": "locus-single-point" }], "answer": "Every point satisfying a given condition", "hintLadder": ["The whole path a point can trace.", "All points that fit the rule.", "Every point satisfying a given condition."] },
+      { "id": "loc-x2", "type": "text", "q": "Find the locus of P(x, y) whose distance from the origin is always 10.", "answer": "x² + y² = 100", "hintLadder": ["√(x²+y²) = 10.", "Square both sides.", "x² + y² = 100."] },
+      { "id": "loc-x3", "type": "text", "q": "Find the locus of P(x, y) equidistant from A(0,0) and B(10,0).", "answer": "x = 5", "hintLadder": ["PA = PB.", "Square, cancel x² and y².", "x = 5."] },
+      { "id": "loc-x4", "type": "mcq", "q": "The locus of points equidistant from two fixed points is a…", "options": [{ "label": "Straight line (the perpendicular bisector)" }, { "label": "Circle", "mistakeTag": "locus-single-point" }], "answer": "Straight line (the perpendicular bisector)", "hintLadder": ["Think of two towns and a fair meeting spot.", "It's a line halfway between them.", "Straight line (perpendicular bisector)."] }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Pick two spots on a table (like two coins) and explain to a grown-up how you'd find every point that's exactly the same distance from both — describe writing PA = PB, squaring, and simplifying, and show that the answer is a whole line, not one point.",
+  "revisionCard": {
+    "summary": "Locus = the set of ALL points satisfying a condition. Method: let P(x, y) be the moving point, write the condition using the distance formula, square both sides to clear roots, simplify. Equidistant from two points → perpendicular bisector (a line). Fixed distance from one point → a circle (x² + y² = r²).",
+    "reviewAfterDays": [3, 7, 21]
+  },
+  "meta": { "version": "1.0.0", "curriculum": "CBSE Class 11 / JEE Advanced (Locus problems, Analytical Geometry)", "language": "en", "authoredBy": "FearlessMath authoring team", "reviewStatus": "draft", "reviewedBy": "" },
+  "rememberIt": { "hook": "Let P(x,y), write the condition, square to clear roots, simplify → that equation IS the locus", "unpack": "A locus is never a single point — it's the whole equation describing every point that obeys the rule." },
+  "studentQuestions": [
+    { "q": "Why do we square both sides when finding a locus?", "a": "Distance conditions naturally involve square roots (from the distance formula). Squaring both sides clears the roots so the equation simplifies into a clean algebraic locus." },
+    { "q": "How does locus connect to circles, parabolas and ellipses?", "a": "Every conic section IS a locus definition: a circle is the locus of points a fixed distance from a centre; a parabola is the locus of points equidistant from a fixed point (focus) and a fixed line (directrix)." }
+  ],
+  "formulas": [
+    { "name": "Distance formula", "formula": "d = √((x₂−x₁)² + (y₂−y₁)²)", "remember": "the tool for writing any locus condition", "whenToUse": "Whenever a locus condition mentions distance from a point." },
+    { "name": "Circle as a locus", "formula": "x² + y² = r²", "remember": "fixed distance r from the origin", "whenToUse": "Locus of points a constant distance from a centre." }
+  ]
+}

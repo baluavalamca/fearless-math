@@ -16,7 +16,8 @@
     { "term": "modulus |z|", "meaning": "The distance of z from the origin: √(a² + b²)." },
     { "term": "argument (arg z)", "meaning": "The angle z makes with the positive real axis." },
     { "term": "polar form", "meaning": "z = r(cosθ + i sinθ), with r = |z| and θ = arg z." },
-    { "term": "cube roots of unity", "meaning": "1, ω, ω² where ω³ = 1 and 1 + ω + ω² = 0." }
+    { "term": "cube roots of unity", "meaning": "1, ω, ω² where ω³ = 1 and 1 + ω + ω² = 0." },
+    { "term": "fundamental theorem of algebra", "meaning": "Every polynomial equation of degree n has exactly n roots, counted with multiplicity, once complex roots are allowed — the reason complex numbers were invented." }
   ],
   "story": {
     "title": "Turning by Multiplying",
@@ -98,7 +99,8 @@
   "rememberIt": { "hook": "|z| = √(a²+b²); De Moivre multiplies the angle by n; 1 + ω + ω² = 0", "unpack": "Modulus is a distance (take the root). Powers: modulus^n, angle×n. Roots of unity sum to 0." },
   "studentQuestions": [
     { "q": "Why is |z| like Pythagoras?", "a": "Because z = a + bi is the point (a, b), and its distance from the origin is the hypotenuse √(a²+b²)." },
-    { "q": "What's special about 1 + ω + ω² = 0?", "a": "The three cube roots of unity sit equally spaced on a circle, so as vectors they perfectly cancel to zero — a favourite JEE shortcut." }
+    { "q": "What's special about 1 + ω + ω² = 0?", "a": "The three cube roots of unity sit equally spaced on a circle, so as vectors they perfectly cancel to zero — a favourite JEE shortcut." },
+    { "q": "Why does a quadratic sometimes have 'no real roots' but always has roots overall?", "a": "The fundamental theorem of algebra guarantees a degree-n polynomial always has exactly n roots once complex numbers are allowed — a quadratic with a negative discriminant simply has two complex (not real) roots instead of zero roots." }
   ],
   "formulas": [
     { "name": "Modulus", "formula": "|z| = √(a² + b²)", "remember": "distance = Pythagoras", "whenToUse": "Size of a complex number." },
