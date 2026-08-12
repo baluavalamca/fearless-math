@@ -77,6 +77,9 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
   const [result, setResult] = useState<{ isMathHomework: boolean; problems: HomeworkProblem[] } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [followup, setFollowup] = useState<Record<number, { open: boolean; q: string; a?: string; busy?: boolean }>>({});
+  /** Which problem is showing right now — homework is solved one problem per
+   *  page, with Prev/Next + jump-to-number navigation between them. */
+  const [idx, setIdx] = useState(0);
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const fileRef = useRef<HTMLInputElement | null>(null);
@@ -134,6 +137,7 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
     setResult(null);
     setError(null);
     setFollowup({});
+    setIdx(0);
     setStage("capture");
   }
 
@@ -147,6 +151,7 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
       const r = await api.aiHomework({ imageBase64: base64, mime, mode });
       if (r.ok) {
         setResult({ isMathHomework: r.isMathHomework !== false, problems: r.problems || [] });
+        setIdx(0);
         setStage("results");
         if (r.isMathHomework === false) {
           autoSpeak("That doesn't look like a maths homework page. Try a clearer photo of your maths problems.");
@@ -247,79 +252,133 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
 
       {stage === "results" && (
         <div className="fm-hw-results">
-          {photo && <img src={photo} alt="Captured homework" className="fm-hw-thumb small" />}
-
           {error && <div className="fm-ar-bubble bot err">{error}</div>}
 
           {result && result.isMathHomework === false && (
             <div className="fm-ar-bubble bot err">That doesn't look like a maths homework page to Robo. Try a clearer photo showing just your maths problem(s).</div>
           )}
 
-          {result && result.isMathHomework && result.problems.map((p, i) => {
+          {result && result.isMathHomework && result.problems.length > 0 && (() => {
+            const problems = result.problems;
+            const total = problems.length;
+            const i = Math.min(idx, total - 1);
+            const p = problems[i];
             const lesson = matchLesson(p.problem, concepts);
             const visual = buildHomeworkVisual(p.problem);
             const tool = pickHomeworkTool(p.problem);
+            const isLast = i === total - 1;
             return (
-            <div key={i} className="fm-hw-card">
-              <div className="fm-hw-cardhead">
-                <span className="fm-ar-tag">Problem {i + 1}</span>
-                <button className="fm-hw-speak" title="Read aloud" onClick={() => speak([p.problem, p.answer, p.question, p.hint].filter(Boolean).join(". "))}>🔊</button>
-              </div>
-              <p className="fm-hw-problem">{p.problem}</p>
+              <div className="fm-hw-stage">
+                {/* Sidebar: photo, jump-to-problem nav, and the concept/tool mapped to THIS problem's type */}
+                <aside className="fm-hw-side">
+                  {photo && <img src={photo} alt="Captured homework" className="fm-hw-thumb small" />}
 
-              {visual && (
-                <div className="fm-hw-visual">
-                  <VisualRenderer visual={visual} />
-                </div>
-              )}
-
-              {mode === "solve" && p.steps && (
-                <ol className="fm-hw-steps">
-                  {p.steps.map((s, j) => <li key={j}>{s}</li>)}
-                </ol>
-              )}
-              {mode === "solve" && p.answer && (
-                <div className="fm-hw-answer"><span className="fm-ar-tag">Answer</span> {p.answer}</div>
-              )}
-
-              {mode === "coach" && p.question && (
-                <div className="fm-ar-try"><span className="fm-ar-tag">Think about this</span> {p.question}</div>
-              )}
-              {mode === "coach" && p.hint && (
-                <div className="fm-ar-example"><span className="fm-ar-tag">Hint</span> {p.hint}</div>
-              )}
-
-              {(lesson || tool) && (
-                <div className="fm-hw-aids">
-                  {lesson && (
-                    <button className="fm-ar-lesson" onClick={() => onOpenConcept(lesson.id)}>📚 Learn this: {lesson.name} →</button>
+                  {total > 1 && (
+                    <nav className="fm-hw-jump" aria-label="Jump to problem">
+                      {problems.map((_, j) => (
+                        <button key={j} className={j === i ? "active" : ""} onClick={() => setIdx(j)} title={`Problem ${j + 1}`}>
+                          {j + 1}
+                        </button>
+                      ))}
+                    </nav>
                   )}
-                  {tool && (
-                    <button className="fm-ar-lesson fm-hw-toolbtn" onClick={() => openTool(tool.id)}>{tool.icon} Try in {tool.label} →</button>
+
+                  <div className="fm-hw-related">
+                    <h2 className="fm-hw-relatedtitle">🧩 Related help for this problem</h2>
+                    {lesson ? (
+                      <button className="fm-hw-relatedcard concept" onClick={() => onOpenConcept(lesson.id)}>
+                        <span className="fm-hw-relatedicon">📚</span>
+                        <span className="fm-hw-relatedtext">
+                          <strong>Learn this concept</strong>
+                          <span className="fm-hw-relatedsub">{lesson.name} →</span>
+                        </span>
+                      </button>
+                    ) : (
+                      <p className="fm-hw-hint">Robo couldn't match a lesson to this one yet — ask below instead.</p>
+                    )}
+                    {tool && (
+                      <button className="fm-hw-relatedcard tool" onClick={() => openTool(tool.id)}>
+                        <span className="fm-hw-relatedicon">{tool.icon}</span>
+                        <span className="fm-hw-relatedtext">
+                          <strong>Practice with a tool</strong>
+                          <span className="fm-hw-relatedsub">{tool.label} →</span>
+                        </span>
+                      </button>
+                    )}
+                  </div>
+
+                  <button className="fm-secondary fm-hw-retakebtn" onClick={retake}>📷 Try another page</button>
+                </aside>
+
+                {/* Main: one problem, full width */}
+                <div className="fm-hw-main">
+                  <div className="fm-hw-card">
+                    <div className="fm-hw-cardhead">
+                      <span className="fm-ar-tag">Problem {i + 1}{total > 1 ? ` of ${total}` : ""}</span>
+                      <button className="fm-hw-speak" title="Read aloud" onClick={() => speak([p.problem, p.answer, p.question, p.hint].filter(Boolean).join(". "))}>🔊</button>
+                    </div>
+                    <p className="fm-hw-problem">{p.problem}</p>
+
+                    {visual && (
+                      <div className="fm-hw-visual">
+                        <VisualRenderer visual={visual} />
+                      </div>
+                    )}
+
+                    {mode === "solve" && p.steps && (
+                      <ol className="fm-hw-steps">
+                        {p.steps.map((s, j) => <li key={j}>{s}</li>)}
+                      </ol>
+                    )}
+                    {mode === "solve" && p.answer && (
+                      <div className="fm-hw-answer"><span className="fm-ar-tag">Answer</span> {p.answer}</div>
+                    )}
+
+                    {mode === "coach" && p.question && (
+                      <div className="fm-ar-try"><span className="fm-ar-tag">Think about this</span> {p.question}</div>
+                    )}
+                    {mode === "coach" && p.hint && (
+                      <div className="fm-ar-example"><span className="fm-ar-tag">Hint</span> {p.hint}</div>
+                    )}
+
+                    <div className="fm-hw-follow">
+                      {!followup[i]?.open ? (
+                        <button className="fm-hw-followbtn" disabled={!usable} onClick={() => setFollowup((prev) => ({ ...prev, [i]: { open: true, q: "" } }))}>🤖 Ask Robo a follow-up</button>
+                      ) : (
+                        <form className="fm-ar-inputbar small" onSubmit={(e) => { e.preventDefault(); askFollowup(i, p.problem); }}>
+                          <input className="fm-input" value={followup[i]?.q || ""} placeholder="Ask about this problem…"
+                            onChange={(e) => setFollowup((prev) => ({ ...prev, [i]: { ...prev[i], q: e.target.value } }))} />
+                          <button className="fm-primary" type="submit" disabled={followup[i]?.busy || !followup[i]?.q?.trim()}>Ask →</button>
+                        </form>
+                      )}
+                      {followup[i]?.busy && <p className="fm-hw-hint">Robo is thinking…</p>}
+                      {followup[i]?.a && <p className="fm-ar-answer">{followup[i].a}</p>}
+                    </div>
+                  </div>
+
+                  {total > 1 && (
+                    <div className="fm-hw-pagenav">
+                      <button className="fm-secondary" disabled={i === 0} onClick={() => setIdx(i - 1)}>← Previous</button>
+                      <span className="fm-hw-pageindicator">{isLast ? "🎉 " : ""}Problem {i + 1} of {total}</span>
+                      <button className="fm-primary" disabled={isLast} onClick={() => setIdx(i + 1)}>Next →</button>
+                    </div>
                   )}
                 </div>
-              )}
-
-              <div className="fm-hw-follow">
-                {!followup[i]?.open ? (
-                  <button className="fm-hw-followbtn" disabled={!usable} onClick={() => setFollowup((prev) => ({ ...prev, [i]: { open: true, q: "" } }))}>🤖 Ask Robo a follow-up</button>
-                ) : (
-                  <form className="fm-ar-inputbar small" onSubmit={(e) => { e.preventDefault(); askFollowup(i, p.problem); }}>
-                    <input className="fm-input" value={followup[i]?.q || ""} placeholder="Ask about this problem…"
-                      onChange={(e) => setFollowup((prev) => ({ ...prev, [i]: { ...prev[i], q: e.target.value } }))} />
-                    <button className="fm-primary" type="submit" disabled={followup[i]?.busy || !followup[i]?.q?.trim()}>Ask →</button>
-                  </form>
-                )}
-                {followup[i]?.busy && <p className="fm-hw-hint">Robo is thinking…</p>}
-                {followup[i]?.a && <p className="fm-ar-answer">{followup[i].a}</p>}
               </div>
-            </div>
             );
-          })}
+          })()}
 
-          <div className="fm-hw-buttons">
-            <button className="fm-secondary" onClick={retake}>📷 Try another page</button>
-          </div>
+          {result && result.isMathHomework && result.problems.length === 0 && (
+            <div className="fm-hw-buttons">
+              <button className="fm-secondary" onClick={retake}>📷 Try another page</button>
+            </div>
+          )}
+
+          {(error || (result && result.isMathHomework === false)) && (
+            <div className="fm-hw-buttons">
+              <button className="fm-secondary" onClick={retake}>📷 Try another page</button>
+            </div>
+          )}
         </div>
       )}
 
