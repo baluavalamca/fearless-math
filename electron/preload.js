@@ -24,6 +24,7 @@ contextBridge.exposeInMainWorld("fm", {
   clinicList: () => ipcRenderer.invoke("clinic:list"),
   getDashboard: () => ipcRenderer.invoke("dashboard:get"),
   getDashboardTrend: () => ipcRenderer.invoke("dashboard:trend"),
+  mistakePatterns: () => ipcRenderer.invoke("mistakes:patterns"),
   aiStatus: () => ipcRenderer.invoke("ai:status"),
   aiConfigure: (cfg) => ipcRenderer.invoke("ai:configure", cfg),
   aiProviders: () => ipcRenderer.invoke("ai:providers"),

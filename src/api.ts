@@ -128,6 +128,24 @@ export interface DashboardTrend {
   summaryOk: boolean;
 }
 
+/** One named cross-concept skill gap (#433) — a group of 2+ lessons where the child
+ *  has unresolved wrong answers that all draw on the same underlying skill. */
+export interface MistakePattern {
+  familyId: string;
+  label: string;
+  /** A built-in, always-available tip (used even when the AI insight isn't). */
+  tip: string;
+  concepts: { id: string; name: string }[];
+  totalWrongAttempts: number;
+}
+export interface MistakePatternsResult {
+  patterns: MistakePattern[];
+  /** A short note naming the biggest pattern — AI-written when available, otherwise a
+   *  plain-language fallback computed locally (insightOk tells you which). */
+  insight: string | null;
+  insightOk: boolean;
+}
+
 interface FmBridge {
   getProfile(): Promise<{ id: number; name: string; grade: number }>;
   listConcepts(): Promise<ConceptCard[]>;
@@ -153,6 +171,7 @@ interface FmBridge {
   clinicList(): Promise<ClinicItem[]>;
   getDashboard(): Promise<DashboardData>;
   getDashboardTrend(): Promise<DashboardTrend>;
+  mistakePatterns(): Promise<MistakePatternsResult>;
   aiStatus(): Promise<AiStatus>;
   aiConfigure(cfg: { enabled?: boolean; provider?: string; apiKey?: string; model?: string; baseUrl?: string }): Promise<AiStatus>;
   aiProviders(): Promise<ProviderInfo[]>;

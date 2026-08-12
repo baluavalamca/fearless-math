@@ -732,6 +732,46 @@ async function weeklySummary(stats) {
   }
 }
 
+/* ---------------- Parent Dashboard: cross-concept mistake-pattern insight ----------------
+ * A short, honest note naming the skill gap(s) showing up across MULTIPLE concepts, from
+ * AGGREGATE pattern data only (family labels + concept names + counts) -- never the child's
+ * name or any raw answer text. */
+function buildMistakePatternPrompt(patterns) {
+  return `You are Robo Reason, writing a short note for a parent about a repeating maths
+mistake PATTERN their child has shown across more than one lesson, inside a children's
+learning app.
+
+DETECTED PATTERNS (most significant first, aggregated numbers only, no personal data):
+${JSON.stringify(patterns.map((p) => ({ skill: p.label, lessonsAffected: p.concepts.map((c) => c.name), wrongAttempts: p.totalWrongAttempts })))}
+
+TASK: Write a warm, honest, encouraging note a busy parent can read in 10 seconds: name the
+main pattern in plain language, note it's showing up across more than one lesson (so it's
+worth a focused look), and give ONE small, specific, doable suggestion to help at home.
+
+STRICT RULES:
+- You do not know the child's name -- write "your child" or similar, never invent a name.
+- Be honest but never discouraging or alarmist. No shame language.
+- No links, no brand names, nothing outside maths learning.
+- 3-4 short sentences total.
+- Reply with ONLY this JSON, nothing else:
+{"insight": "<3-4 sentences>"}`;
+}
+
+async function mistakePatternInsight(patterns) {
+  const p = PROVIDERS[settings.provider] || PROVIDERS.anthropic;
+  const usable = settings.enabled && (p.local || !!settings.keyStored);
+  if (!usable) return { ok: false, reason: "disabled" };
+  try {
+    const text = await callProvider(buildMistakePatternPrompt(patterns));
+    const obj = extractJson(text);
+    const v = validateAiResponse(obj, [{ name: "insight", required: true, min: 20, max: 700 }]);
+    if (!v.ok) return { ok: false, reason: v.reason };
+    return { ok: true, insight: obj.insight.trim() };
+  } catch (e) {
+    return { ok: false, reason: String(e?.message || e) };
+  }
+}
+
 /* ================================================================
  * Concept generation — "Extend the syllabus" (parent/teacher only).
  * A topic (typed or spoken) becomes a FULL concept that follows the same
@@ -1091,10 +1131,10 @@ async function generateConcept({ topic, grade, language, ground = true, verify =
 }
 
 module.exports = {
-  init, configure, getStatus, providers, explain, whyWrong, coach, rephraseQuestion, askTutor, generateConcept, weeklySummary, solveHomework,
+  init, configure, getStatus, providers, explain, whyWrong, coach, rephraseQuestion, askTutor, generateConcept, weeklySummary, solveHomework, mistakePatternInsight,
   // pure functions exported for tests
   buildExplainPrompt, buildWhyWrongPrompt, buildCoachPrompt, buildRephrasePrompt, coachLeaksAnswer, extractJson, validateAiResponse, cacheKey,
   conceptJsonSchema, buildConceptPrompt, sanitizeConcept, validateGenerated, cleanVisual, GEN_COMPONENTS, VISUAL_COMPONENTS,
   fetchReference, verifyAnswerKeys, collectQuestions, buildWeeklySummaryPrompt,
-  buildHomeworkPrompt, validateHomeworkResponse,
+  buildHomeworkPrompt, validateHomeworkResponse, buildMistakePatternPrompt,
 };

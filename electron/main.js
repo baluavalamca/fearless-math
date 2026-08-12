@@ -6,6 +6,7 @@ const { loadPacks, conceptCard } = require("./contentLoader");
 const logic = require("./logic");
 const ai = require("./aiService");
 const media = require("./mediaService");
+const mistakeFamilies = require("./mistakeFamilies");
 
 // Some Windows GPU driver / virtual-display combinations leave the Chromium
 // compositor unable to flush a frame to the actual window surface — the DOM
@@ -64,6 +65,15 @@ function localWeeklySummary({ attempts, correct, accuracyPct, activeDays, concep
     parts.push("Keep the rhythm going with a few short sessions next week.");
   }
   return parts.join(" ");
+}
+
+/** Plain-language mistake-pattern note — used whenever the AI tutor isn't
+ * configured/online, so this section always shows something honest. */
+function localPatternInsight(patterns) {
+  if (!patterns.length) return null;
+  const top = patterns[0];
+  const names = top.concepts.map((c) => c.name).join(", ");
+  return `The pattern showing up most is "${top.label}" — it's come up across ${top.concepts.length} different lessons (${names}). ${top.tip}`;
 }
 
 function registerIpc() {
@@ -358,6 +368,26 @@ function registerIpc() {
     if (!summaryOk) summary = localWeeklySummary(week);
 
     return { days, week, summary, summaryOk };
+  });
+
+  /** Parent dashboard: cross-concept mistake-pattern detection (#433). Groups the
+   * child's still-unresolved wrong answers (store.wrongQuestions) into named skill-gap
+   * families that span 2+ different lessons, then adds a short AI note (or an honest
+   * local fallback) naming the biggest one. */
+  ipcMain.handle("mistakes:patterns", async () => {
+    if (!profile) return { patterns: [], insight: null, insightOk: false };
+    const wrong = store.wrongQuestions(profile.id);
+    const patterns = mistakeFamilies.detectPatterns(wrong, (id) => content.concepts.get(id)?.name || null);
+
+    let insight = null, insightOk = false;
+    if (patterns.length) {
+      try {
+        const r = await ai.mistakePatternInsight(patterns);
+        if (r.ok) { insight = r.insight; insightOk = true; }
+      } catch { /* fall through to the local note below */ }
+      if (!insightOk) insight = localPatternInsight(patterns);
+    }
+    return { patterns, insight, insightOk };
   });
 
   /* ---------- AI tutor (online, optional, grounded — §2b) ---------- */

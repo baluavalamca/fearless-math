@@ -696,6 +696,14 @@ body.skin-playful .fm-way-card { border-radius: 22px; }
 .fm-acc-bar div.hi { background: #2e7d32; }
 .fm-acc-bar div.lo { background: var(--accent); }
 .fm-dash-note { color: var(--muted); font-size: 15px; }
+.fm-pattern-list { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.fm-pattern-card { border: 2px solid var(--line); background: var(--card); border-radius: 14px; padding: 14px 16px; }
+.fm-pattern-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.fm-pattern-head strong { font-size: 17px; }
+.fm-pattern-count { font-size: 13px; color: var(--muted); background: var(--bg); border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+.fm-pattern-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.fm-pattern-chip { font-size: 13px; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; background: var(--bg); }
+.fm-pattern-tip { font-size: 14px; color: var(--muted); margin: 4px 0 0; }
 
 /* Parent dashboard: 14-day activity trend chart */
 .fm-trend-wrap { width: 100%; }

@@ -5,7 +5,7 @@
  */
 import { useEffect, useState, type ReactNode } from "react";
 import { Check } from "lucide-react";
-import { AiStatus, DashboardData, DashboardTrend, MediaStatus, MediaConfig, Profile, ProviderInfo, api } from "../api";
+import { AiStatus, DashboardData, DashboardTrend, MediaStatus, MediaConfig, MistakePatternsResult, Profile, ProviderInfo, api } from "../api";
 import { refreshVoiceStatus } from "../speech";
 import { CreateLesson } from "./CreateLesson";
 
@@ -144,6 +144,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
   const [tab, setTab] = useState<Tab>("overview");
   const [data, setData] = useState<DashboardData | null>(null);
   const [trend, setTrend] = useState<DashboardTrend | null>(null);
+  const [patterns, setPatterns] = useState<MistakePatternsResult | null>(null);
   const [newPin, setNewPin] = useState("");
   const [ai, setAi] = useState<AiStatus | null>(null);
   const [aiKey, setAiKey] = useState("");
@@ -170,6 +171,7 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
     if (unlocked) {
       api.getDashboard().then(setData);
       if (typeof api.getDashboardTrend === "function") api.getDashboardTrend().then(setTrend).catch(() => setTrend(null));
+      if (typeof api.mistakePatterns === "function") api.mistakePatterns().then(setPatterns).catch(() => setPatterns(null));
       api.aiStatus().then(setAi).catch(() => setAi(null));
       api.mediaStatus().then(setMedia).catch(() => setMedia(null));
       loadKids();
@@ -315,6 +317,30 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
                   {!trend.summaryOk && <span className="fm-dash-note" style={{ display: "block", marginTop: 4 }}>Turn on the AI Tutor (AI &amp; Media tab) for a personalised AI-written version of this note.</span>}
                 </p>
               )}
+            </Section>
+          )}
+          {patterns && patterns.patterns.length > 0 && (
+            <Section id="mistake-patterns" icon="🔍" title="Mistake patterns" sub="Skill gaps showing up across more than one lesson.">
+              {patterns.insight && (
+                <p className="fm-callout">
+                  {patterns.insightOk ? "🤖 " : "📝 "}{patterns.insight}
+                  {!patterns.insightOk && <span className="fm-dash-note" style={{ display: "block", marginTop: 4 }}>Turn on the AI Tutor (AI &amp; Media tab) for a personalised AI-written version of this note.</span>}
+                </p>
+              )}
+              <div className="fm-pattern-list">
+                {patterns.patterns.map((p) => (
+                  <div key={p.familyId} className="fm-pattern-card">
+                    <div className="fm-pattern-head">
+                      <strong>{p.label}</strong>
+                      <span className="fm-pattern-count">{p.totalWrongAttempts} wrong attempt{p.totalWrongAttempts === 1 ? "" : "s"}</span>
+                    </div>
+                    <div className="fm-pattern-chips">
+                      {p.concepts.map((c) => <span key={c.id} className="fm-pattern-chip">{c.name}</span>)}
+                    </div>
+                    <p className="fm-pattern-tip">💡 {p.tip}</p>
+                  </div>
+                ))}
+              </div>
             </Section>
           )}
           {data.tips.length > 0 && (
