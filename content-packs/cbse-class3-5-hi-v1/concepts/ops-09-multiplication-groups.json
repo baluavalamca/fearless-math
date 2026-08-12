@@ -731,12 +731,17 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "abaci": [
-          {
-            "value": 12,
-            "label": "3 × 4 = 12"
-          }
-        ]
+        "operation": {
+          "kind": "accumulate",
+          "start": 0,
+          "startLabel": "Start at 0 — nothing added yet.",
+          "parts": [4, 4, 4],
+          "partLabels": [
+            "Group 1: push 4 beads → 4.",
+            "Group 2: push 4 more → 8.",
+            "Group 3: push 4 more → 12. That's 3 × 4."
+          ]
+        }
       },
       "caption": "मनकों पर 4 को तीन बार जोड़ो।"
     }

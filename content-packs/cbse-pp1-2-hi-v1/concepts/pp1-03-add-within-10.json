@@ -849,12 +849,7 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "abaci": [
-          {
-            "value": 7,
-            "label": "3 + 4 = 7"
-          }
-        ]
+        "operation": { "kind": "addSubtract", "a": 3, "b": 4, "op": "add" }
       },
       "caption": "3 मनके लगाओ, 4 और छड़ की ओर धकेलो → 7।"
     }

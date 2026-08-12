@@ -160,6 +160,16 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
   const [kids, setKids] = useState<Profile[]>([]);
   const [kidPins, setKidPins] = useState<Record<number, string>>({});
   const [pinMsg, setPinMsg] = useState<string | null>(null);
+  // Forgot-PIN recovery: a parent-only math check, then a fresh PIN can be set
+  // without needing the old one. No accounts/email here (fully local app), so a
+  // quick multiplication challenge stands in for "prove you're the grown-up".
+  const [forgotStep, setForgotStep] = useState<"none" | "verify" | "reset">("none");
+  const [gate, setGate] = useState<{ a: number; b: number }>({ a: 6, b: 7 });
+  const [gateInput, setGateInput] = useState("");
+  const [gateError, setGateError] = useState(false);
+  const [resetPinA, setResetPinA] = useState("");
+  const [resetPinB, setResetPinB] = useState("");
+  const [resetError, setResetError] = useState(false);
   // Hindi/Telugu for the currently-open child. English is always on and isn't in this
   // list — undefined until the first fetch resolves.
   const [enabledLangs, setEnabledLangs] = useState<string[] | undefined>(undefined);
@@ -229,7 +239,22 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
     }
   }
 
-  async function saveKidPin(id: number, pin: string) {
+  function startForgotPin() {
+    setGate({ a: 4 + Math.floor(Math.random() * 5), b: 4 + Math.floor(Math.random() * 5) });
+    setGateInput(""); setGateError(false); setForgotStep("verify");
+  }
+  function checkForgotGate() {
+    if (parseInt(gateInput, 10) === gate.a * gate.b) {
+      setResetPinA(""); setResetPinB(""); setResetError(false); setForgotStep("reset");
+    } else { setGateError(true); setGateInput(""); }
+  }
+  function completePinReset() {
+    if (resetPinA.length < 4 || resetPinA !== resetPinB) { setResetError(true); return; }
+    localStorage.setItem(PIN_KEY, resetPinA);
+    setForgotStep("none"); setPinInput(""); setPinError(false);
+    setUnlocked(true);
+  }
+    async function saveKidPin(id: number, pin: string) {
     await api.setPin(id, pin);
     setKidPins((m) => ({ ...m, [id]: "" }));
     setPinMsg(pin ? "PIN set — this child will use it to log in." : "PIN removed — this child logs in without a PIN.");
@@ -241,17 +266,60 @@ export function ParentDashboard({ autoUnlock = false }: { autoUnlock?: boolean }
     return (
       <div className="fm-pin-gate">
         <div className="fm-pin-card">
-          <div className="fm-pin-ic">🔐</div>
-          <h1>Parents' Corner</h1>
-          <p className="fm-dash-sub">Enter the parent PIN to view progress and settings (default is 1234).</p>
-          <div className="fm-key-row" style={{ maxWidth: 320, margin: "10px auto 0" }}>
-            <input className="fm-input" type="password" value={pinInput} maxLength={6}
-              placeholder="PIN" autoFocus style={{ textAlign: "center", letterSpacing: "0.3em" }}
-              onChange={(e) => { setPinInput(e.target.value); setPinError(false); }}
-              onKeyDown={(e) => e.key === "Enter" && (pinInput === getPin() ? setUnlocked(true) : setPinError(true))} />
-            <button className="fm-primary" onClick={() => (pinInput === getPin() ? setUnlocked(true) : setPinError(true))}>Open</button>
-          </div>
-          {pinError && <p className="fm-pin-error">That's not it — try again.</p>}
+          {forgotStep === "none" && (
+            <>
+              <div className="fm-pin-ic">🔐</div>
+              <h1>Parents' Corner</h1>
+              <p className="fm-dash-sub">Enter the parent PIN to view progress and settings (default is 1234).</p>
+              <div className="fm-key-row" style={{ maxWidth: 320, margin: "10px auto 0" }}>
+                <input className="fm-input" type="password" value={pinInput} maxLength={6}
+                  placeholder="PIN" autoFocus style={{ textAlign: "center", letterSpacing: "0.3em" }}
+                  onChange={(e) => { setPinInput(e.target.value); setPinError(false); }}
+                  onKeyDown={(e) => e.key === "Enter" && (pinInput === getPin() ? setUnlocked(true) : setPinError(true))} />
+                <button className="fm-primary" onClick={() => (pinInput === getPin() ? setUnlocked(true) : setPinError(true))}>Open</button>
+              </div>
+              {pinError && <p className="fm-pin-error">That's not it — try again.</p>}
+              <button type="button" className="fm-pin-forgot" onClick={startForgotPin}>Forgot your PIN?</button>
+            </>
+          )}
+
+          {forgotStep === "verify" && (
+            <>
+              <div className="fm-pin-ic">🧮</div>
+              <h1>Quick parent check</h1>
+              <p className="fm-dash-sub">To reset the PIN, answer this so we know a grown-up is here:</p>
+              <p className="fm-pin-gate-sum">{gate.a} × {gate.b} = ?</p>
+              <div className="fm-key-row" style={{ maxWidth: 320, margin: "10px auto 0" }}>
+                <input className="fm-input" inputMode="numeric" value={gateInput}
+                  placeholder="Answer" autoFocus style={{ textAlign: "center" }}
+                  onChange={(e) => { setGateInput(e.target.value.replace(/\D/g, "")); setGateError(false); }}
+                  onKeyDown={(e) => e.key === "Enter" && checkForgotGate()} />
+                <button className="fm-primary" onClick={checkForgotGate}>Check</button>
+              </div>
+              {gateError && <p className="fm-pin-error">Not quite — here's another one to try.</p>}
+              <button type="button" className="fm-pin-forgot" onClick={() => setForgotStep("none")}>Back to PIN entry</button>
+            </>
+          )}
+
+          {forgotStep === "reset" && (
+            <>
+              <div className="fm-pin-ic">🔑</div>
+              <h1>Set a new parent PIN</h1>
+              <p className="fm-dash-sub">Choose a new 4–6 digit PIN for Parents' Corner.</p>
+              <div className="fm-field" style={{ maxWidth: 320, margin: "10px auto 0" }}>
+                <input className="fm-input" type="password" inputMode="numeric" maxLength={6}
+                  placeholder="New PIN" autoFocus style={{ textAlign: "center", letterSpacing: "0.3em" }}
+                  value={resetPinA} onChange={(e) => { setResetPinA(e.target.value.replace(/\D/g, "")); setResetError(false); }} />
+                <input className="fm-input" type="password" inputMode="numeric" maxLength={6}
+                  placeholder="Confirm new PIN" style={{ textAlign: "center", letterSpacing: "0.3em", marginTop: 8 }}
+                  value={resetPinB} onChange={(e) => { setResetPinB(e.target.value.replace(/\D/g, "")); setResetError(false); }}
+                  onKeyDown={(e) => e.key === "Enter" && completePinReset()} />
+                <button className="fm-primary" style={{ marginTop: 10, width: "100%" }}
+                  disabled={resetPinA.length < 4} onClick={completePinReset}>Save new PIN &amp; open</button>
+              </div>
+              {resetError && <p className="fm-pin-error">Those don't match — enter at least 4 digits, the same in both boxes.</p>}
+            </>
+          )}
         </div>
       </div>
     );

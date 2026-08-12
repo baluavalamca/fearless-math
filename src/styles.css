@@ -633,6 +633,18 @@ body.skin-playful .fm-way-card { border-radius: 22px; }
 }
 .fm-nav button:hover { border-color: var(--accent); }
 .fm-nav button.active { background: var(--accent); border-color: var(--accent-dark); color: var(--on-accent); font-weight: 700; }
+/* Compact EN / हिं / తె switcher, pinned to the right end of the top bar (all screens). */
+.fm-nav-lang { display: flex; gap: 5px; margin-left: auto; flex: none; }
+.fm-nav-lang button.fm-nav-lang-chip {
+  cursor: pointer; padding: 4px 11px; min-height: 30px; border-radius: 999px;
+  background: var(--card); border: 1.5px solid var(--line); color: var(--muted);
+  font-size: 12.5px; font-weight: 800; letter-spacing: .2px;
+  transition: transform .1s ease, border-color .12s ease, color .12s ease;
+}
+.fm-nav-lang button.fm-nav-lang-chip:hover { border-color: var(--accent); color: var(--ink); transform: translateY(-1px); }
+.fm-nav-lang button.fm-nav-lang-chip.on { border-color: var(--accent); color: var(--ink);
+  background: color-mix(in srgb, var(--accent) 16%, var(--card));
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 38%, transparent) inset; }
 /* Clickable logo — takes you home from anywhere. */
 .fm-brand-btn { display: inline-flex; align-items: center; gap: 7px; border: 0 !important;
   background: transparent !important; padding: 4px 10px 4px 4px !important; margin-right: 4px; cursor: pointer; }
@@ -679,6 +691,10 @@ body.skin-playful .fm-way-card { border-radius: 22px; }
 /* Parent dashboard */
 .fm-pin-gate { text-align: center; padding: 64px 24px; }
 .fm-pin-error { color: #b3261e; }
+.fm-pin-forgot { display: inline-block; margin-top: 16px; background: none; border: none; cursor: pointer;
+  color: var(--muted); font-size: 13.5px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.fm-pin-forgot:hover { color: var(--accent); }
+.fm-pin-gate-sum { font-size: 30px; font-weight: 900; letter-spacing: .02em; margin: 10px 0 2px; color: var(--ink); }
 .fm-dashboard { max-width: clamp(760px, 95vw, 1500px); margin: 0 auto; padding: 28px clamp(16px, 4vw, 40px) 64px; }
 .fm-dash-summary { display: flex; gap: 14px; flex-wrap: wrap; margin: 18px 0; }
 .fm-dash-stat {
@@ -803,6 +819,27 @@ body.skin-playful .fm-region-title { font-size: 1.6em; }
   display: inline-block; width: 14px; height: 14px; border-radius: 50%;
   background: var(--fm-shade, #ff9f43); border: 2px solid #8d6e3f; vertical-align: -2px;
 }
+
+/* Step-by-step abacus solving mode — shows the WORKING, not just the answer. */
+.fm-abacus-steps { text-align: center; }
+.fm-abacus-step-caption {
+  max-width: 560px; margin: 4px auto 0; font-size: 15px; line-height: 1.55; color: var(--ink);
+  background: color-mix(in srgb, var(--accent) 8%, var(--card)); border: 1px solid var(--line);
+  border-radius: 12px; padding: 10px 16px;
+}
+.fm-abacus-step-num {
+  display: inline-block; font-weight: 800; font-size: 12px; letter-spacing: .04em;
+  color: var(--accent); text-transform: uppercase; margin-right: 6px;
+}
+.fm-abacus-step-controls { display: flex; gap: 10px; justify-content: center; align-items: center; margin: 14px 0 8px; flex-wrap: wrap; }
+.fm-abacus-step-controls .fm-primary, .fm-abacus-step-controls .fm-secondary { min-width: 118px; }
+.fm-abacus-step-dots { display: flex; gap: 7px; justify-content: center; flex-wrap: wrap; margin-top: 4px; }
+.fm-abacus-dot {
+  width: 10px; height: 10px; padding: 0; border-radius: 50%; border: 1.5px solid var(--line);
+  background: var(--card); cursor: pointer; transition: transform .12s ease, background .12s ease;
+}
+.fm-abacus-dot:hover { transform: scale(1.25); }
+.fm-abacus-dot.on { background: var(--accent); border-color: var(--accent); transform: scale(1.3); }
 
 /* ============================================================
    Advanced Math popup (Class 6 → JEE) — separate blue dock.
@@ -953,18 +990,6 @@ input[type=range] { accent-color: #2f6bff; }
 .fm-stat b { display: block; font-size: 18px; }
 .fm-stat span { font-size: 11px; color: #8a765a; }
 
-/* Compact EN / हिं / తె switcher, top-right of the home banner. */
-.fm-hero-lang { display: flex; gap: 5px; }
-.fm-hero-lang-chip {
-  cursor: pointer; padding: 4px 11px; min-height: 26px; border-radius: 999px;
-  background: var(--card); border: 1.5px solid var(--line); color: var(--muted);
-  font-size: 12.5px; font-weight: 800; letter-spacing: .2px;
-  transition: transform .1s ease, border-color .12s ease, color .12s ease;
-}
-.fm-hero-lang-chip:hover { border-color: var(--accent); color: var(--ink); transform: translateY(-1px); }
-.fm-hero-lang-chip.on { border-color: var(--accent); color: var(--ink);
-  background: color-mix(in srgb, var(--accent) 16%, var(--card));
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 38%, transparent) inset; }
 
 /* ---- Continue / Up-next card (icon | body | Go) ---- */
 .fm-continue { display: flex; align-items: center; gap: 16px; width: 100%; text-align: left;

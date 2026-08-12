@@ -10,7 +10,7 @@ import { GeometryCanvas, ShapeSpec } from "./GeometryCanvas";
 import { ClockFace, ClockSpec } from "./ClockFace";
 import { BarChart, CategorySpec } from "./BarChart";
 import { PizzaSlices, PieSpec } from "./PizzaSlices";
-import { Abacus, AbacusSpec } from "./Abacus";
+import { Abacus, AbacusOperation, AbacusSpec } from "./Abacus";
 import { ObjectRow, SeqSpec } from "./ObjectRow";
 import { NumberTrack, TrackSpec } from "./NumberTrack";
 import { FunctionPlot, PlotSpec } from "./FunctionPlot";
@@ -53,7 +53,13 @@ function VisualSwitch({ visual, compact }: { visual: VisualSpec; compact?: boole
     case "ObjectRow":
       return <ObjectRow sequences={visual.props.sequences as SeqSpec[]} caption={visual.caption} />;
     case "Abacus":
-      return <Abacus abaci={visual.props.abaci as AbacusSpec[]} caption={visual.caption} />;
+      return (
+        <Abacus
+          abaci={visual.props.abaci as AbacusSpec[] | undefined}
+          operation={visual.props.operation as AbacusOperation | undefined}
+          caption={visual.caption}
+        />
+      );
     case "PizzaSlices":
       return (
         <PizzaSlices

@@ -5,30 +5,105 @@
  * A vertical divider splits every wire into a "heaven" zone (one bead worth 5,
  * left of the divider) and an "earth" zone (four beads worth 1 each, right of
  * the divider). Beads slid TOWARD the divider are counted.
+ *
+ * Two ways to use it:
+ *  - Static: pass `abaci` — one or more fixed snapshots (e.g. "just read this
+ *    number"), same as before. Used for place-value-only concepts.
+ *  - Step-solving: pass `operation` — the component works the problem out on
+ *    the beads itself, frame by frame (Play/Back/Next), narrating each bead
+ *    move in plain language instead of jumping straight to the answer.
  */
+import { useEffect, useMemo, useState } from "react";
+import { AbacusOperation, buildAbacusSteps } from "../abacusSteps";
+
 export interface AbacusSpec { value: number; label?: string }
+export type { AbacusOperation };
+
+const LEGEND = (
+  <p className="fm-abacus-legend">
+    🧮 <strong>How to read the abacus:</strong> each horizontal wire is one place-value
+    row — ones at the bottom, tens above it, then hundreds, and so on. The single{" "}
+    <span className="fm-abacus-swatch" aria-hidden="true" /> bead <strong>left</strong> of
+    the divider is worth <strong>5</strong> when slid <strong>right</strong> to touch it;
+    each of the four beads <strong>right</strong> of the divider is worth <strong>1</strong>{" "}
+    when slid <strong>left</strong> to touch it. Only beads touching the divider are counted
+    — add them up per row to get the digit.
+  </p>
+);
 
 export function Abacus({
   abaci,
+  operation,
   caption,
 }: {
-  abaci: AbacusSpec[];
+  abaci?: AbacusSpec[];
+  operation?: AbacusOperation;
   caption?: string;
 }) {
+  if (operation) return <StepAbacus operation={operation} caption={caption} />;
+
   return (
     <figure className="fm-visual fm-abacus-figure">
-      <p className="fm-abacus-legend">
-        🧮 <strong>How to read the abacus:</strong> each horizontal wire is one place-value
-        row — ones at the bottom, tens above it, then hundreds, and so on. The single{" "}
-        <span className="fm-abacus-swatch" aria-hidden="true" /> bead <strong>left</strong> of
-        the divider is worth <strong>5</strong> when slid <strong>right</strong> to touch it;
-        each of the four beads <strong>right</strong> of the divider is worth <strong>1</strong>{" "}
-        when slid <strong>left</strong> to touch it. Only beads touching the divider are counted
-        — add them up per row to get the digit.
-      </p>
+      {LEGEND}
       <div className="fm-abacus-row">
-        {abaci.map((a, i) => (
+        {(abaci ?? []).map((a, i) => (
           <Soroban key={i} spec={a} />
+        ))}
+      </div>
+      {caption && <figcaption>{caption}</figcaption>}
+    </figure>
+  );
+}
+
+/** Steps through buildAbacusSteps(operation) frame by frame — showing the
+ * WORKING, not just the result. Auto-play with 1.6s/frame, or step manually. */
+function StepAbacus({ operation, caption }: { operation: AbacusOperation; caption?: string }) {
+  const opKey = JSON.stringify(operation);
+  const frames = useMemo(() => buildAbacusSteps(operation), [opKey]);
+  const [i, setI] = useState(0);
+  const [playing, setPlaying] = useState(false);
+
+  useEffect(() => { setI(0); setPlaying(false); }, [opKey]);
+
+  useEffect(() => {
+    if (!playing) return;
+    if (i >= frames.length - 1) { setPlaying(false); return; }
+    const t = setTimeout(() => setI((x) => Math.min(x + 1, frames.length - 1)), 1600);
+    return () => clearTimeout(t);
+  }, [playing, i, frames.length]);
+
+  const frame = frames[Math.min(i, frames.length - 1)];
+  const atEnd = i >= frames.length - 1;
+
+  return (
+    <figure className="fm-visual fm-abacus-figure fm-abacus-steps">
+      {LEGEND}
+      <div className="fm-abacus-row">
+        <Soroban spec={{ value: frame.value }} />
+      </div>
+      <p className="fm-abacus-step-caption">
+        <span className="fm-abacus-step-num">Step {i + 1} of {frames.length}</span>{" "}
+        {frame.caption}
+      </p>
+      <div className="fm-abacus-step-controls">
+        <button type="button" className="fm-secondary" disabled={i === 0}
+          onClick={() => { setPlaying(false); setI((x) => Math.max(0, x - 1)); }}>
+          ◀ Back
+        </button>
+        <button type="button" className="fm-primary"
+          onClick={() => { if (atEnd) { setI(0); setPlaying(true); } else setPlaying((p) => !p); }}>
+          {playing ? "⏸ Pause" : atEnd ? "↻ Replay" : "▶ Play it out"}
+        </button>
+        <button type="button" className="fm-secondary" disabled={atEnd}
+          onClick={() => { setPlaying(false); setI((x) => Math.min(frames.length - 1, x + 1)); }}>
+          Next ▶
+        </button>
+      </div>
+      <div className="fm-abacus-step-dots">
+        {frames.map((_, k) => (
+          <button type="button" key={k} aria-label={`Step ${k + 1}`}
+            className={"fm-abacus-dot" + (k === i ? " on" : "")}
+            onClick={() => { setPlaying(false); setI(k); }} />
         ))}
       </div>
       {caption && <figcaption>{caption}</figcaption>}
@@ -58,6 +133,7 @@ function Soroban({ spec }: { spec: AbacusSpec }) {
   const resultX = rodEndX + 40;
   const W = resultX + 50;
   const H = topY + (rows - 1) * RH + 60;
+
   const barTopY = topY - 32, barBotY = topY + (rows - 1) * RH + 32;
 
   const bead = (cx: number, cy: number, active: boolean) => (

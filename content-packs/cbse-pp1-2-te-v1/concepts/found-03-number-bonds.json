@@ -689,12 +689,13 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "abaci": [
-          {
-            "value": 10,
-            "label": "10 = 6 మరియు 4"
-          }
-        ]
+        "operation": {
+          "kind": "accumulate",
+          "start": 10,
+          "startLabel": "Set the whole — 10 — in beads.",
+          "parts": [-6],
+          "partLabels": ["Slide 6 beads aside as one part. The 4 left behind are the other part: 10 = 6 and 4."]
+        }
       },
       "caption": "పది పూసలు రెండు భాగాలుగా విభజించబడ్డాయి."
     }

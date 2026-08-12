@@ -556,12 +556,7 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "abaci": [
-          {
-            "value": 45,
-            "label": "27 + 18 = 45"
-          }
-        ]
+        "operation": { "kind": "addSubtract", "a": 27, "b": 18, "op": "add" }
       },
       "caption": "ఒకట్లు నిండాయి → పదుల కడ్డీకి ఒక పూస కారీ చేయి."
     }

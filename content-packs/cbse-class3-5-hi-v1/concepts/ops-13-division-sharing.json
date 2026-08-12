@@ -561,12 +561,18 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "abaci": [
-          {
-            "value": 4,
-            "label": "12 ÷ 3 = 4"
-          }
-        ]
+        "operation": {
+          "kind": "accumulate",
+          "start": 12,
+          "startLabel": "Set the total — 12 — in beads.",
+          "parts": [-3, -3, -3, -3],
+          "partLabels": [
+            "Give 3 to group 1 → 9 left.",
+            "Give 3 to group 2 → 6 left.",
+            "Give 3 to group 3 → 3 left.",
+            "Give 3 to group 4 → 0 left. Each group got 4."
+          ]
+        }
       },
       "caption": "मनकों को बराबर बाँटो — हर समूह में 4।"
     }

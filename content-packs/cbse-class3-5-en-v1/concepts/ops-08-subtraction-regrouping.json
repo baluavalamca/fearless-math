@@ -557,12 +557,7 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "abaci": [
-          {
-            "value": 25,
-            "label": "52 − 27 = 25"
-          }
-        ]
+        "operation": { "kind": "addSubtract", "a": 52, "b": 27, "op": "subtract" }
       },
       "caption": "Unbundle one ten into ten ones, then take away."
     }

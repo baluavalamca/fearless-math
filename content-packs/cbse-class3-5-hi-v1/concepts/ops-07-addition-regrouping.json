@@ -556,12 +556,7 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "abaci": [
-          {
-            "value": 45,
-            "label": "27 + 18 = 45"
-          }
-        ]
+        "operation": { "kind": "addSubtract", "a": 27, "b": 18, "op": "add" }
       },
       "caption": "इकाइयाँ भर जाएँ → दहाई की छड़ पर एक मनका कैरी करो।"
     }

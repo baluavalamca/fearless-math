@@ -626,12 +626,7 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "abaci": [
-          {
-            "value": 13,
-            "label": "8 + 5 = 13"
-          }
-        ]
+        "operation": { "kind": "addSubtract", "a": 8, "b": 5, "op": "add" }
       },
       "caption": "Make a ten, then 3 ones → 13."
     }

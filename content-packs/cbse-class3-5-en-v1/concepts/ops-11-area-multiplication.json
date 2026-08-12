@@ -704,12 +704,16 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "abaci": [
-          {
-            "value": 161,
-            "label": "7 × 23 = 161"
-          }
-        ]
+        "operation": {
+          "kind": "accumulate",
+          "start": 0,
+          "startLabel": "Start at 0.",
+          "parts": [21, 140],
+          "partLabels": [
+            "Multiply the ones: 7 × 3 = 21. Set that on the rods.",
+            "Multiply the tens: 7 × 20 = 140. Add it in its place → 161."
+          ]
+        }
       },
       "caption": "Add the partial products in their place columns."
     }

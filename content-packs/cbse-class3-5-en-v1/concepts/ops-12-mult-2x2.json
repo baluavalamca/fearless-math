@@ -762,12 +762,17 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "abaci": [
-          {
-            "value": 483,
-            "label": "23 × 21 = 483"
-          }
-        ]
+        "operation": {
+          "kind": "accumulate",
+          "start": 0,
+          "startLabel": "Start at 0.",
+          "parts": [3, 80, 400],
+          "partLabels": [
+            "Ones × ones: 3 × 1 = 3. Set that.",
+            "Cross products (tens×ones both ways): 20×1 + 3×20 = 80. Add it in the tens place.",
+            "Tens × tens: 20 × 20 = 400. Add it in the hundreds place → 483."
+          ]
+        }
       },
       "caption": "The four partial products, added in their columns."
     }

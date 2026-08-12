@@ -641,12 +641,7 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "abaci": [
-          {
-            "value": 78,
-            "label": "42 + 36 = 78"
-          }
-        ]
+        "operation": { "kind": "addSubtract", "a": 42, "b": 36, "op": "add" }
       },
       "caption": "Add ones on one rod, tens on the next."
     }

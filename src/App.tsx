@@ -242,6 +242,13 @@ export default function App() {
             {n.icon} {n.label}
           </button>
         ))}
+        <div className="fm-nav-lang" role="radiogroup" aria-label="Choose a language">
+          {LANGS.filter((l) => l.id === "en" || enabledLangs?.includes(l.id)).map((l) => (
+            <button key={l.id} role="radio" aria-checked={lang === l.id} title={l.native}
+              className={"fm-nav-lang-chip" + (lang === l.id ? " on" : "")}
+              onClick={() => changeLanguage(l.id)}>{l.label}</button>
+          ))}
+        </div>
       </nav>
       <main className="fm-main">
       {screen === "map" && concepts && <WorldMap concepts={concepts} profile={profile} onOpen={openConcept} onDeepDive={deepDive} onFacts={() => setScreen("facts")} lang={lang} onChangeLanguage={changeLanguage} enabledLangs={enabledLangs} />}

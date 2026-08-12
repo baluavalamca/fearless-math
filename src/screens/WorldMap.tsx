@@ -18,13 +18,6 @@ import { LangKey } from "../data/mathFacts";
 /** Deep-dive label per language for the 🔬 icon. */
 const DEEP_LABEL: Record<LangKey, string> = { en: "Explore with Robo", hi: "रोबो के साथ खोजें", te: "రోబోతో అన్వేషించు" };
 
-/** Compact language switcher shown top-right of the home banner. */
-const HERO_LANGS: { id: LangKey; label: string; native: string }[] = [
-  { id: "en", label: "EN", native: "English" },
-  { id: "hi", label: "हिं", native: "हिंदी" },
-  { id: "te", label: "తె", native: "తెలుగు" },
-];
-
 // `name` = the real maths topic (shown as the primary label so it's clear, not generic).
 // `world` = the playful theme name, kept as a small subtitle for kid-friendly flavour.
 const STRAND_THEME: Record<string, { icon: string; name: string; world: string; cls: string }> = {
@@ -211,13 +204,6 @@ export function WorldMap({
           <div className="fm-hero-sub">Mistakes are welcome here — let's keep going.</div>
         </div>
         <div className="fm-hero-right">
-          <div className="fm-hero-lang" role="radiogroup" aria-label="Choose a language">
-            {HERO_LANGS.filter((l) => l.id === "en" || enabledLangs?.includes(l.id)).map((l) => (
-              <button key={l.id} role="radio" aria-checked={lang === l.id} title={l.native}
-                className={"fm-hero-lang-chip" + (lang === l.id ? " on" : "")}
-                onClick={() => onChangeLanguage?.(l.id)}>{l.label}</button>
-            ))}
-          </div>
           <div className="fm-hero-stats">
             <div className="fm-stat"><b>⭐ {mCount}</b><span>mastered</span></div>
             <div className="fm-stat"><b>🔥 {sCount}</b><span>day streak</span></div>

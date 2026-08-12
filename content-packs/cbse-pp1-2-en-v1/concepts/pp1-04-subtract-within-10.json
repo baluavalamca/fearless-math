@@ -733,12 +733,7 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "abaci": [
-          {
-            "value": 4,
-            "label": "7 − 3 = 4"
-          }
-        ]
+        "operation": { "kind": "addSubtract", "a": 7, "b": 3, "op": "subtract" }
       },
       "caption": "Set 7, push 3 beads away → 4 left."
     }
