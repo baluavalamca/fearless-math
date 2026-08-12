@@ -139,16 +139,15 @@ export function LessonPlayer({
     return t;
   }, [concept]);
 
-  // Practice questions: unlimited generated set (>=25/level available) when a
-  // generator exists, else the authored questions. Fresh each time the lesson opens.
-  const PRACTICE_PER_LEVEL = 10; // humane session size; the generator pool is unlimited
+  // Practice questions: when a generator exists, Practice.tsx runs in adaptive
+  // mode -- it grows its own queue live, picking easy/medium/challenge from the
+  // learner's streak, so we only need to seed a small warm-up batch here (fast
+  // first render). Concepts with only authored questions get the old fixed set.
+  const PRACTICE_SEED = 3; // warm-up questions before Practice starts adapting
+  const practiceIsAdaptive = hasPracticeGen(concept.id);
   const practiceQuestions = useMemo(() => {
-    if (hasPracticeGen(concept.id)) {
-      return [
-        ...generatePractice(concept.id, "easy", PRACTICE_PER_LEVEL),
-        ...generatePractice(concept.id, "medium", PRACTICE_PER_LEVEL),
-        ...generatePractice(concept.id, "challenge", PRACTICE_PER_LEVEL),
-      ];
+    if (practiceIsAdaptive) {
+      return generatePractice(concept.id, "easy", PRACTICE_SEED);
     }
     return [...concept.practice.easy, ...concept.practice.medium, ...concept.practice.challenge];
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -498,6 +497,7 @@ export function LessonPlayer({
           concept={concept}
           context="practice"
           questions={practiceQuestions}
+          adaptive={practiceIsAdaptive}
           onDone={() => setMode("mastery")}
           doneLabel="Take the Mastery Mission 🏆"
         />

@@ -474,3 +474,22 @@ export function generatePractice(conceptId: string, level: Level, n = 25): Quest
   }
   return out;
 }
+
+/** Generate ONE more question at the given level for an in-progress adaptive
+ *  session, avoiding text already seen this session where possible. Used by
+ *  Practice.tsx to grow its question queue live, choosing the next level from
+ *  the learner's recent streak instead of a fixed easy->medium->challenge ramp. */
+export function nextAdaptiveQuestion(
+  conceptId: string, level: Level, seen: Set<string>, ordinal: number
+): Question | null {
+  const gen = GENERATORS[conceptId];
+  if (!gen) return null;
+  let g: GenQuestion | null = null;
+  for (let tries = 0; tries < 20; tries++) {
+    const cand = gen(level);
+    if (!seen.has(cand.q)) { g = cand; break; }
+    g = cand;
+  }
+  if (!g) return null;
+  return { ...g, id: `${conceptId}-${level}-adapt-${ordinal}` };
+}

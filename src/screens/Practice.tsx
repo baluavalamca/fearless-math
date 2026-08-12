@@ -3,7 +3,7 @@
  * one question at a time, 3 hints before answer, warm feedback,
  * mistakes explained from authored content, never a red X.
  */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AiStatus, Concept, Question, Verdict, aiUsable, api } from "../api";
 import { VisualRenderer, VisualSpec } from "../components/VisualRenderer";
 import { SpeakButton } from "../components/SpeakButton";
@@ -11,6 +11,13 @@ import { Character } from "../components/Characters";
 import { ObjectIcon, hasObjectIcon } from "../components/ObjectIcon";
 import { autoSpeak, speak, isAutoRead, randomPraise } from "../speech";
 import { cheer, bigCheer } from "../celebrate";
+import { Level, nextAdaptiveQuestion } from "../practiceFactory";
+
+// How many questions an adaptive session runs for -- same "humane session size"
+// as the old fixed 10-easy + 10-medium + 10-challenge ramp (30 total), just
+// with the ORDER now driven by the learner's live streak instead of fixed blocks.
+const ADAPTIVE_TOTAL = 30;
+const LEVELS: Level[] = ["easy", "medium", "challenge"];
 
 export function Practice({
   concept,
@@ -18,12 +25,18 @@ export function Practice({
   context,
   onDone,
   doneLabel,
+  adaptive = false,
 }: {
   concept: Concept;
   questions: Question[];
   context: "practice" | "mastery";
   onDone: () => void;
   doneLabel: string;
+  /** When true, `questions` is just the warm-up seed batch -- Practice grows
+   *  its own queue live via practiceFactory, picking easy/medium/challenge
+   *  per-question from the learner's recent streak (2 strong -> harder,
+   *  2 weak -> easier), instead of a fixed easy->medium->challenge ramp. */
+  adaptive?: boolean;
 }) {
   const [idx, setIdx] = useState(0);
   const [hintsShown, setHintsShown] = useState(0);
@@ -39,6 +52,15 @@ export function Practice({
   // untouched (the original `q` object is still what gets submitted).
   const [rephrased, setRephrased] = useState<string | null>(null);
   const [rephraseBusy, setRephraseBusy] = useState(false);
+
+  // Adaptive difficulty: a growing question pool (seeded from `questions`),
+  // plus refs tracking the current level and a streak of strong/weak answers.
+  // Refs (not state) so bookkeeping doesn't force extra renders -- only the
+  // pool state update in next() actually needs to re-render the UI.
+  const [pool, setPool] = useState<Question[]>(questions);
+  const levelIdxRef = useRef(0); // 0=easy, 1=medium, 2=challenge
+  const streakRef = useRef(0); // positive = correct-streak, negative = struggle-streak
+  const seenRef = useRef<Set<string>>(new Set(questions.map((qq) => qq.q)));
 
   useEffect(() => { api.aiStatus().then(setAi).catch(() => setAi(null)); }, []);
 
@@ -81,7 +103,14 @@ export function Practice({
     }
   }
 
-  const q = questions[idx];
+  // In adaptive mode `questions` is only the warm-up seed batch -- the real,
+  // growing list is `pool` (grown in next()), and the session runs to a fixed
+  // total instead of the seed batch's length. `list[idx]` naturally becomes
+  // undefined once idx runs past whatever's been generated so far -- same
+  // "finished" signal the original `questions[idx]` relied on.
+  const list = adaptive ? pool : questions;
+  const total = adaptive ? ADAPTIVE_TOTAL : questions.length;
+  const q = list[idx];
 
   // Auto-read: question on arrival, each new hint, and feedback
   useEffect(() => {
@@ -135,9 +164,38 @@ export function Practice({
     setVerdict(v);
     setAiWhy(null);
     setCoach(null);
+
+    // Adaptive difficulty: track a streak of strong (no hints, correct) vs.
+    // weak (wrong, or needed 2+ hints) answers. Two in a row nudges the level
+    // up or down; a mixed result resets the streak without changing level.
+    if (adaptive) {
+      const strong = v.correct && hintsShown === 0;
+      const weak = !v.correct || hintsShown >= 2;
+      if (strong) streakRef.current = streakRef.current > 0 ? streakRef.current + 1 : 1;
+      else if (weak) streakRef.current = streakRef.current < 0 ? streakRef.current - 1 : -1;
+      else streakRef.current = 0;
+      if (streakRef.current >= 2 && levelIdxRef.current < LEVELS.length - 1) {
+        levelIdxRef.current += 1;
+        streakRef.current = 0;
+      } else if (streakRef.current <= -2 && levelIdxRef.current > 0) {
+        levelIdxRef.current -= 1;
+        streakRef.current = 0;
+      }
+    }
   }
 
   function next() {
+    // Grow the pool by one more question, at whatever level the streak has
+    // earned, right before advancing -- so `list[idx+1]` is ready the moment
+    // the next render reads it.
+    if (adaptive && idx + 1 >= pool.length && pool.length < ADAPTIVE_TOTAL) {
+      const lvl = LEVELS[levelIdxRef.current];
+      const nq = nextAdaptiveQuestion(concept.id, lvl, seenRef.current, pool.length + 1);
+      if (nq) {
+        seenRef.current.add(nq.q);
+        setPool((p) => [...p, nq]);
+      }
+    }
     setIdx(idx + 1);
     setHintsShown(0);
     setAnswer("");
@@ -161,7 +219,7 @@ export function Practice({
           {concept.visual?.component && <VisualRenderer visual={concept.visual as VisualSpec} />}
         </details>
       )}
-      <p className="fm-progress">Question {idx + 1} of {questions.length}</p>
+      <p className="fm-progress">Question {idx + 1} of {total}</p>
       <h2 className="fm-question">
         {rephrased ?? q.q}{" "}
         <SpeakButton
