@@ -22,7 +22,7 @@ import { autoSpeak, speak } from "../speech";
 import { RoboAvatar } from "../components/RoboAvatar";
 import { VisualRenderer } from "../components/VisualRenderer";
 import { matchLesson } from "../lessonMatch";
-import { buildHomeworkVisual, pickHomeworkTool } from "../homeworkAids";
+import { buildHomeworkVisual, homeworkLessonHints, pickHomeworkTool } from "../homeworkAids";
 import { openTool } from "../toolBus";
 
 type Mode = "coach" | "solve";
@@ -141,17 +141,22 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
     setStage("capture");
   }
 
-  async function analyze() {
+  /** useMode overrides the current `mode` state (used when the child flips
+   *  Coach/Solve on an already-read photo — see switchMode() below, which
+   *  needs to send the new mode before React has committed setMode()).
+   *  keepIndex leaves the page on the problem the child was already looking
+   *  at, instead of jumping back to problem 1, for that same case. */
+  async function analyze(useMode: Mode = mode, keepIndex = false) {
     if (!photo) return;
     setBusy(true);
     setError(null);
     setResult(null);
     try {
       const { mime, base64 } = dataUrlParts(photo);
-      const r = await api.aiHomework({ imageBase64: base64, mime, mode });
+      const r = await api.aiHomework({ imageBase64: base64, mime, mode: useMode });
       if (r.ok) {
         setResult({ isMathHomework: r.isMathHomework !== false, problems: r.problems || [] });
-        setIdx(0);
+        if (!keepIndex) setIdx(0);
         setStage("results");
         if (r.isMathHomework === false) {
           autoSpeak("That doesn't look like a maths homework page. Try a clearer photo of your maths problems.");
@@ -166,6 +171,20 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
     } finally {
       setBusy(false);
     }
+  }
+
+  /** Coach/Solve toggle handler. Switching style is a no-op while there's
+   *  nothing analyzed yet (capture/preview) — the primary button below
+   *  already reflects the chosen style. But once a photo has been read
+   *  (results stage), the previous code just flipped the active pill and did
+   *  nothing else: the coach-mode result has no `steps`/`answer` and the
+   *  solve-mode result has no `question`/`hint`, so tapping the other style
+   *  silently showed nothing. Re-reading the same photo in the new style
+   *  fixes that with one extra (cheap, cached-photo) AI call. */
+  function switchMode(m: Mode) {
+    const changed = m !== mode;
+    setMode(m);
+    if (changed && stage === "results" && photo && !busy) analyze(m, true);
   }
 
   async function askFollowup(i: number, problem: string) {
@@ -198,10 +217,10 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
       )}
 
       <div className="fm-hw-mode" role="radiogroup" aria-label="Help style">
-        <button className={mode === "coach" ? "active" : ""} onClick={() => setMode("coach")} disabled={!usable}>
+        <button className={mode === "coach" ? "active" : ""} onClick={() => switchMode("coach")} disabled={!usable || busy}>
           🧭 Coach me <span>Hints only — I'll work it out</span>
         </button>
-        <button className={mode === "solve" ? "active" : ""} onClick={() => setMode("solve")} disabled={!usable}>
+        <button className={mode === "solve" ? "active" : ""} onClick={() => switchMode("solve")} disabled={!usable || busy}>
           ✅ Show solution <span>Full steps + answer</span>
         </button>
       </div>
@@ -236,7 +255,7 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
         <div className="fm-hw-preview">
           <img src={photo} alt="Captured homework" className="fm-hw-thumb" />
           <div className="fm-hw-buttons">
-            <button className="fm-primary" disabled={busy || !usable} onClick={analyze}>
+            <button className="fm-primary" disabled={busy || !usable} onClick={() => analyze()}>
               {busy ? "Reading…" : mode === "coach" ? "🧭 Coach me on this" : "✅ Solve this"}
             </button>
             <button className="fm-secondary" disabled={busy} onClick={retake}>Retake</button>
@@ -263,9 +282,9 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
             const total = problems.length;
             const i = Math.min(idx, total - 1);
             const p = problems[i];
-            const lesson = matchLesson(p.problem, concepts);
             const visual = buildHomeworkVisual(p.problem);
             const tool = pickHomeworkTool(p.problem);
+            const lesson = matchLesson(p.problem, concepts, homeworkLessonHints(visual, tool, p.problem));
             const isLast = i === total - 1;
             return (
               <div className="fm-hw-stage">
@@ -315,7 +334,7 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
                   <div className="fm-hw-card">
                     <div className="fm-hw-cardhead">
                       <span className="fm-ar-tag">Problem {i + 1}{total > 1 ? ` of ${total}` : ""}</span>
-                      <button className="fm-hw-speak" title="Read aloud" onClick={() => speak([p.problem, p.answer, p.question, p.hint].filter(Boolean).join(". "))}>🔊</button>
+                      <button className="fm-hw-speak" title="Read aloud" onClick={() => speak([p.problem, ...(p.steps || []), p.answer, p.question, p.hint].filter(Boolean).join(". "))}>🔊</button>
                     </div>
                     <p className="fm-hw-problem">{p.problem}</p>
 
