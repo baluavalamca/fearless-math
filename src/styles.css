@@ -987,6 +987,11 @@ input[type=range] { accent-color: #2f6bff; }
 .fm-askrobo { max-width: 860px; margin: 0 auto; padding: 18px 20px 8px; display: flex; flex-direction: column; min-height: calc(100vh - 190px); }
 .fm-ar-head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
 .fm-ar-head h1 { margin: 0; font-size: 24px; }
+.fm-ar-voice-toggle {
+  margin-left: auto; flex-shrink: 0; border: 1px solid var(--border, #ddd); background: var(--card, #fff);
+  border-radius: 999px; padding: 8px 14px; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.fm-ar-voice-toggle.on { background: #e3fcec !important; border-color: #40c057 !important; color: #2b8a3e !important; }
 /* Robo Reason mascot logo (custom SVG). */
 .fm-robo { flex: none; display: block; border-radius: 16px; box-shadow: 0 8px 18px -8px rgba(79,123,255,0.55); }
 .fm-robo.big { margin: 0 auto 8px; }

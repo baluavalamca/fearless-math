@@ -12,10 +12,14 @@
  *  • If the AI Tutor is off, a friendly note points to Parents' Corner.
  */
 import { useEffect, useRef, useState } from "react";
-import { AiStatus, ConceptCard, Profile, aiUsable, api } from "../api";
-import { autoSpeak, speak, stopSpeaking } from "../speech";
+import { AiStatus, ConceptCard, MediaStatus, Profile, aiUsable, api, sarvamUsable } from "../api";
+import { autoSpeak, currentSpeechLang, speak, stopSpeaking } from "../speech";
 import { RoboAvatar } from "../components/RoboAvatar";
 import { matchLesson } from "../lessonMatch";
+import { Recorder, micSupported, startRecording } from "../voice";
+
+/** Voice mode is a per-device preference (like auto-read) -- remembered across sessions. */
+const VOICE_MODE_KEY = "fm_askrobo_voice";
 
 type Msg = {
   role: "user" | "bot";
@@ -44,18 +48,62 @@ export function AskRobo({ profile, concepts, onOpen, seed, onSeedConsumed }: {
   onSeedConsumed?: () => void;
 }) {
   const [ai, setAi] = useState<AiStatus | null>(null);
+  const [media, setMedia] = useState<MediaStatus | null>(null);
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [lastQ, setLastQ] = useState("");
+  // Voice mode: tap-to-talk instead of typing, and Robo always reads its answers
+  // aloud (regardless of the app's global auto-read setting) -- a hands-free
+  // back-and-forth, like talking with a real tutor.
+  const [voiceMode, setVoiceMode] = useState(() => typeof localStorage !== "undefined" && localStorage.getItem(VOICE_MODE_KEY) === "1");
+  const [rec, setRec] = useState<Recorder | null>(null);
+  const [transcribing, setTranscribing] = useState(false);
   const endRef = useRef<HTMLDivElement | null>(null);
   const seededRef = useRef<string | null>(null);
 
-  useEffect(() => { api.aiStatus().then(setAi).catch(() => setAi(null)); }, []);
+  useEffect(() => {
+    api.aiStatus().then(setAi).catch(() => setAi(null));
+    api.mediaStatus().then(setMedia).catch(() => setMedia(null));
+  }, []);
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [msgs, busy]);
   useEffect(() => () => stopSpeaking(), []);
 
   const usable = aiUsable(ai);
+  const micReady = micSupported() && sarvamUsable(media);
+
+  function toggleVoiceMode() {
+    setVoiceMode((v) => {
+      const next = !v;
+      try { localStorage.setItem(VOICE_MODE_KEY, next ? "1" : "0"); } catch { /* ignore */ }
+      if (!next) stopSpeaking();
+      return next;
+    });
+  }
+
+  /** Tap to start recording; tap again to stop, transcribe, and auto-ask --
+   *  no separate "send" step, so it feels like talking rather than typing. */
+  async function toggleMic() {
+    if (rec) {
+      setTranscribing(true);
+      try {
+        const { base64, mime } = await rec.stop();
+        setRec(null);
+        const r = await api.sarvamTranscribe({ audioBase64: base64, mime, language: currentSpeechLang() });
+        if (r.ok && r.transcript?.trim()) {
+          void ask(r.transcript);
+        } else {
+          setMsgs((prev) => [...prev, { role: "bot", text: "I couldn't hear that clearly — please try again or type your question.", error: true }]);
+        }
+      } catch {
+        setRec(null);
+        setMsgs((prev) => [...prev, { role: "bot", text: "The microphone couldn't be used. Please type your question instead.", error: true }]);
+      } finally { setTranscribing(false); }
+    } else {
+      try { setRec(await startRecording()); }
+      catch { setMsgs((prev) => [...prev, { role: "bot", text: "Microphone permission was blocked. Please type your question instead.", error: true }]); }
+    }
+  }
 
   // Deep-dive: a concept was handed in — auto-ask Robo to explore it (once AI status is known).
   // If the tutor is off, prefill the box so the question is ready when a grown-up enables it.
@@ -86,7 +134,8 @@ export function AskRobo({ profile, concepts, onOpen, seed, onSeedConsumed }: {
           role: "bot", text: r.answer!, example: r.example, tryYourself: r.tryYourself,
           onTopic: r.onTopic !== false, lesson,
         }]);
-        autoSpeak(r.answer + (r.tryYourself ? " Now you try: " + r.tryYourself : ""));
+        const spoken = r.answer + (r.tryYourself ? " Now you try: " + r.tryYourself : "");
+        if (voiceMode) speak(spoken); else autoSpeak(spoken);
       } else {
         const why =
           r.reason === "disabled" ? "The AI Tutor is switched off. A grown-up can turn it on in Parents' Corner → AI Tutor." :
@@ -110,6 +159,16 @@ export function AskRobo({ profile, concepts, onOpen, seed, onSeedConsumed }: {
           <h1>Ask Robo</h1>
           <p className="fm-dash-sub">Your maths helper. Ask any maths question — Robo explains it kindly, step by step.</p>
         </div>
+        {micReady && (
+          <button
+            type="button"
+            className={"fm-ar-voice-toggle" + (voiceMode ? " on" : "")}
+            onClick={toggleVoiceMode}
+            title={voiceMode ? "Voice mode is on — tap the mic below to talk, Robo will answer out loud" : "Turn on voice mode to talk with Robo instead of typing"}
+          >
+            🎙️ {voiceMode ? "Voice mode on" : "Voice mode"}
+          </button>
+        )}
       </header>
 
       {!usable && (
@@ -164,10 +223,22 @@ export function AskRobo({ profile, concepts, onOpen, seed, onSeedConsumed }: {
       </div>
 
       <form className="fm-ar-inputbar" onSubmit={(e) => { e.preventDefault(); ask(input); }}>
-        <input className="fm-input" value={input} disabled={!usable || busy}
-          placeholder={usable ? "Ask a maths question…" : "Turn on the AI Tutor to chat"}
+        <input className="fm-input" value={input} disabled={!usable || busy || !!rec || transcribing}
+          placeholder={
+            !usable ? "Turn on the AI Tutor to chat" :
+            rec ? "Listening… tap the mic to stop and send" :
+            transcribing ? "Robo's working out what you said…" :
+            voiceMode ? "Tap the mic and ask out loud, or type here…" : "Ask a maths question…"
+          }
           onChange={(e) => setInput(e.target.value)} aria-label="Ask a maths question" />
-        <button className="fm-primary" type="submit" disabled={!usable || busy || !input.trim()}>Ask →</button>
+        {micReady && (
+          <button type="button" className={"fm-secondary" + (rec ? " fm-mic-on" : "")}
+            disabled={!usable || busy || transcribing} onClick={toggleMic}
+            title={rec ? "Stop and send" : "Speak your question"}>
+            {transcribing ? "…" : rec ? "⏹" : "🎤"}
+          </button>
+        )}
+        <button className="fm-primary" type="submit" disabled={!usable || busy || !input.trim() || !!rec || transcribing}>Ask →</button>
       </form>
       <p className="fm-ar-foot">Robo only answers maths, keeps it kind, and never sees your name — just your question.</p>
     </div>
