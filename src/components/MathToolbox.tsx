@@ -9,6 +9,7 @@ import { ChevronDown, ChevronUp, X } from "lucide-react";
 import { VisualRenderer, VisualSpec } from "./VisualRenderer";
 import { SpeakButton } from "./SpeakButton";
 import { Emoji3D } from "./ObjectIcon";
+import { onOpenTool } from "../toolBus";
 
 type ToolId =
   | "calc" | "sci" | "abacus" | "counters" | "hundred" | "times" | "roman"
@@ -165,6 +166,13 @@ export function MathToolbox() {
     markSeen(id);
     setShowHelp(firstTime);
   };
+
+  // Let other screens (e.g. Homework Helper's "Try in Math Tools" button) open
+  // us pre-selected to a specific tool, without any prop-drilling — see toolBus.ts.
+  useEffect(() => onOpenTool((id) => {
+    if (TOOLS.some((t) => t.id === id)) pick(id as ToolId);
+    setOpen(true);
+  }), []);
 
   return (
     <>

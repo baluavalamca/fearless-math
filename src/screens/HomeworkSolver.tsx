@@ -17,9 +17,13 @@
  *  - Photos are downscaled client-side before sending and never stored on disk.
  */
 import { useEffect, useRef, useState } from "react";
-import { AiStatus, HomeworkProblem, Profile, aiUsable, api } from "../api";
+import { AiStatus, ConceptCard, HomeworkProblem, Profile, aiUsable, api } from "../api";
 import { autoSpeak, speak } from "../speech";
 import { RoboAvatar } from "../components/RoboAvatar";
+import { VisualRenderer } from "../components/VisualRenderer";
+import { matchLesson } from "../lessonMatch";
+import { buildHomeworkVisual, pickHomeworkTool } from "../homeworkAids";
+import { openTool } from "../toolBus";
 
 type Mode = "coach" | "solve";
 type Stage = "capture" | "preview" | "results";
@@ -57,7 +61,12 @@ function friendlyError(reason?: string): string {
   return "Robo couldn't read that photo clearly. Try a closer, well-lit photo showing just one or two problems, or check that your AI provider's model supports reading images (GPT-4o, Gemini, and Claude all do).";
 }
 
-export function HomeworkSolver({ profile }: { profile: Profile }) {
+export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
+  profile: Profile;
+  concepts: ConceptCard[];
+  /** Open a concept straight into its lesson (same function WorldMap/Ask Robo use). */
+  onOpenConcept: (id: string) => void;
+}) {
   const [ai, setAi] = useState<AiStatus | null>(null);
   const [stage, setStage] = useState<Stage>("capture");
   const [mode, setMode] = useState<Mode>("coach");
@@ -246,13 +255,23 @@ export function HomeworkSolver({ profile }: { profile: Profile }) {
             <div className="fm-ar-bubble bot err">That doesn't look like a maths homework page to Robo. Try a clearer photo showing just your maths problem(s).</div>
           )}
 
-          {result && result.isMathHomework && result.problems.map((p, i) => (
+          {result && result.isMathHomework && result.problems.map((p, i) => {
+            const lesson = matchLesson(p.problem, concepts);
+            const visual = buildHomeworkVisual(p.problem);
+            const tool = pickHomeworkTool(p.problem);
+            return (
             <div key={i} className="fm-hw-card">
               <div className="fm-hw-cardhead">
                 <span className="fm-ar-tag">Problem {i + 1}</span>
                 <button className="fm-hw-speak" title="Read aloud" onClick={() => speak([p.problem, p.answer, p.question, p.hint].filter(Boolean).join(". "))}>🔊</button>
               </div>
               <p className="fm-hw-problem">{p.problem}</p>
+
+              {visual && (
+                <div className="fm-hw-visual">
+                  <VisualRenderer visual={visual} />
+                </div>
+              )}
 
               {mode === "solve" && p.steps && (
                 <ol className="fm-hw-steps">
@@ -270,6 +289,17 @@ export function HomeworkSolver({ profile }: { profile: Profile }) {
                 <div className="fm-ar-example"><span className="fm-ar-tag">Hint</span> {p.hint}</div>
               )}
 
+              {(lesson || tool) && (
+                <div className="fm-hw-aids">
+                  {lesson && (
+                    <button className="fm-ar-lesson" onClick={() => onOpenConcept(lesson.id)}>📚 Learn this: {lesson.name} →</button>
+                  )}
+                  {tool && (
+                    <button className="fm-ar-lesson fm-hw-toolbtn" onClick={() => openTool(tool.id)}>{tool.icon} Try in {tool.label} →</button>
+                  )}
+                </div>
+              )}
+
               <div className="fm-hw-follow">
                 {!followup[i]?.open ? (
                   <button className="fm-hw-followbtn" disabled={!usable} onClick={() => setFollowup((prev) => ({ ...prev, [i]: { open: true, q: "" } }))}>🤖 Ask Robo a follow-up</button>
@@ -284,7 +314,8 @@ export function HomeworkSolver({ profile }: { profile: Profile }) {
                 {followup[i]?.a && <p className="fm-ar-answer">{followup[i].a}</p>}
               </div>
             </div>
-          ))}
+            );
+          })}
 
           <div className="fm-hw-buttons">
             <button className="fm-secondary" onClick={retake}>📷 Try another page</button>

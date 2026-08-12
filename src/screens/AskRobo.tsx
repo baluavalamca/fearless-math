@@ -15,6 +15,7 @@ import { useEffect, useRef, useState } from "react";
 import { AiStatus, ConceptCard, Profile, aiUsable, api } from "../api";
 import { autoSpeak, speak, stopSpeaking } from "../speech";
 import { RoboAvatar } from "../components/RoboAvatar";
+import { matchLesson } from "../lessonMatch";
 
 type Msg = {
   role: "user" | "bot";
@@ -32,22 +33,6 @@ function starters(grade: number): string[] {
   if (grade <= 5) return ["What is a fraction?", "How do I do long division?", "Why do we carry in addition?"];
   if (grade <= 8) return ["What is BODMAS?", "How do ratios work?", "What is a negative number?"];
   return ["What is the sine rule?", "Explain De Moivre's theorem", "What is a derivative, simply?"];
-}
-
-/** Tiny local matcher: find a lesson whose name shares meaningful words with the question. */
-const STOP = new Set(["what","is","a","an","the","how","do","i","we","of","to","in","and","for","why","does","it","my","me","can","you","explain","tell","about","with","are","this","that","which","bigger","smaller","mean","means"]);
-function matchLesson(q: string, concepts: ConceptCard[]): { id: string; name: string } | null {
-  const words = q.toLowerCase().replace(/[^a-z0-9 ]/g, " ").split(/\s+/).filter((w) => w.length > 2 && !STOP.has(w));
-  if (!words.length) return null;
-  let best: { id: string; name: string } | null = null;
-  let bestScore = 0;
-  for (const c of concepts) {
-    const name = c.name.toLowerCase();
-    let s = 0;
-    for (const w of words) if (name.includes(w)) s += 1;
-    if (s > bestScore) { bestScore = s; best = { id: c.id, name: c.name }; }
-  }
-  return bestScore >= 1 ? best : null;
 }
 
 export function AskRobo({ profile, concepts, onOpen, seed, onSeedConsumed }: {

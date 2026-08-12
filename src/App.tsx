@@ -248,7 +248,7 @@ export default function App() {
       {screen === "map" && !concepts && <div className="fm-loading">Loading…</div>}
       {screen === "clinic" && <MistakeClinic />}
       {screen === "ask" && <AskRobo profile={profile} concepts={concepts ?? []} onOpen={openConcept} seed={askSeed} onSeedConsumed={() => setAskSeed(null)} />}
-      {screen === "homework" && <HomeworkSolver profile={profile} />}
+      {screen === "homework" && <HomeworkSolver profile={profile} concepts={concepts ?? []} onOpenConcept={openConcept} />}
       {screen === "facts" && <FunFacts lang={lang} />}
       {screen === "tricks" && <TipsAndTricks />}
       {screen === "formulas" && <FormulaBook onOpen={openConcept} />}
