@@ -31,3 +31,9 @@ eb-*.txt
 tsc-out.txt
 test-out.txt
 
+
+# debug/log scratch files
+applog.txt
+appout.txt
+dist_log*.txt
+giterr.txt
