@@ -1,0 +1,657 @@
+{
+  "id": "found-18-before-after-between",
+  "name": "Before, After, and Between — Number Neighbours",
+  "grade": 1,
+  "strand": "numbers",
+  "prerequisites": [
+    "pp1-01-count-to-10"
+  ],
+  "whatIsIt": "Every number has neighbours! The number that comes BEFORE another number is one LESS — we call it the predecessor. The number that comes AFTER is one MORE — the successor. And the number BETWEEN two numbers sits exactly in the middle of them on the number line, with one number-step on either side.",
+  "whyNeeded": "Knowing a number's neighbours helps us read house numbers, find our seat, turn to the right page, or line up in the correct order. It also builds the number sense we need for adding and subtracting by 1 and for understanding how the number line works.",
+  "realLifeUses": [
+    "Finding the house number just before or after yours on a lane",
+    "Finding your seat number on a bus or train, next to a friend's seat",
+    "Turning to the page just before or after the one you are reading",
+    "Counting floors in a building or rungs on a ladder, one at a time"
+  ],
+  "vocabulary": [
+    {
+      "term": "before / predecessor",
+      "meaning": "The number that comes just before another — one less. The predecessor of 8 is 7."
+    },
+    {
+      "term": "after / successor",
+      "meaning": "The number that comes just after another — one more. The successor of 8 is 9."
+    },
+    {
+      "term": "between",
+      "meaning": "The number that sits in the middle of two other numbers, with one gap on each side."
+    },
+    {
+      "term": "number neighbours",
+      "meaning": "The numbers just before and just after a number — like neighbours living next door."
+    }
+  ],
+  "story": {
+    "title": "House Numbers on Gulmohar Lane",
+    "characters": [
+      "Priya",
+      "the postman uncle"
+    ],
+    "text": "Priya lives at house number 12 on Gulmohar Lane. The postman uncle is delivering letters and asks, 'Can you tell me which house comes BEFORE yours, and which comes AFTER?' Priya looks at the numbers painted on the gates: 10, 11, 12, 13, 14. 'Before my house is 11,' she says, 'and after my house is 13!' The postman uncle smiles. 'And what house sits BETWEEN number 10 and number 12?' Priya counts carefully. 'That's easy — 11 is right in the middle!'",
+    "extractedProblem": "Priya's house is number 12. Which house number comes before it, which comes after it, and which house is between number 10 and number 12?",
+    "answerInStory": "Before 12 is 11 (one less); after 12 is 13 (one more); and the house between 10 and 12 is 11."
+  },
+  "visual": {
+    "component": "NumberTrack",
+    "props": {
+      "tracks": [
+        {
+          "terms": [
+            11,
+            12,
+            13
+          ],
+          "jump": 1
+        }
+      ]
+    },
+    "caption": "12's neighbours: before is 11, after is 13."
+  },
+  "teachingGallery": [
+    {
+      "title": "Meet the number neighbours",
+      "note": "Before is one less, after is one more, between sits in the middle.",
+      "examples": [
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  6,
+                  7,
+                  "?"
+                ],
+                "jump": 1
+              }
+            ]
+          },
+          "caption": "After 7 comes 8 — the successor."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  "?",
+                  7,
+                  8
+                ],
+                "jump": 1
+              }
+            ]
+          },
+          "caption": "Before 7 is 6 — the predecessor."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  6,
+                  "?",
+                  8
+                ],
+                "jump": 1
+              }
+            ]
+          },
+          "caption": "Between 6 and 8 is 7."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 10,
+                "mark": 7,
+                "showLabels": true,
+                "label": "7"
+              }
+            ]
+          },
+          "caption": "7 sits between 6 and 8 on the number line."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  19,
+                  20,
+                  "?"
+                ],
+                "jump": 1
+              }
+            ]
+          },
+          "caption": "After 20 comes 21 — crossing into a new decade."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  "?",
+                  50,
+                  51
+                ],
+                "jump": 1
+              }
+            ]
+          },
+          "caption": "Before 50 is 49."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Find the number, then move ONE step: back for before, forward for after. For between, find the number exactly halfway between two numbers that are 2 apart.",
+    "steps": [
+      "Say the number you are asked about.",
+      "For BEFORE: count back ONE step (one less).",
+      "For AFTER: count forward ONE step (one more).",
+      "For BETWEEN: look at the two numbers given — the number between them is exactly one more than the smaller, and one less than the bigger."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Use your fingers",
+      "whenToUse": "For quick before/after with small numbers.",
+      "steps": [
+        "Hold up the number on your fingers.",
+        "Take away one finger for before, add one for after.",
+        "Count what's left — that's your answer."
+      ],
+      "example": "8 fingers up; take one away → 7 (before 8)."
+    },
+    {
+      "name": "Hop on the number line",
+      "whenToUse": "To see before, after and between clearly.",
+      "steps": [
+        "Find the number on the number line.",
+        "Hop one step left for before, one step right for after.",
+        "For between, look at the number that sits exactly in the gap between two given numbers."
+      ],
+      "example": "On the line, one hop left of 15 lands on 14."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "What number comes after 45?",
+      "steps": [
+        "After means one more.",
+        "Take 45 and add 1.",
+        "45 + 1.",
+        "The number after 45 is 46."
+      ],
+      "answer": "46",
+      "visual": {
+        "component": "NumberTrack",
+        "props": {
+          "tracks": [
+            {
+              "terms": [
+                45,
+                "?"
+              ],
+              "jump": 1
+            }
+          ]
+        },
+        "caption": "45 → 46"
+      }
+    },
+    {
+      "problem": "What number comes before 30?",
+      "steps": [
+        "Before means one less.",
+        "Take 30 and subtract 1.",
+        "30 − 1.",
+        "The number before 30 is 29."
+      ],
+      "answer": "29",
+      "visual": {
+        "component": "NumberTrack",
+        "props": {
+          "tracks": [
+            {
+              "terms": [
+                "?",
+                30
+              ],
+              "jump": 1
+            }
+          ]
+        },
+        "caption": "29 ← 30"
+      }
+    },
+    {
+      "problem": "What number is between 62 and 64?",
+      "steps": [
+        "The two numbers are 62 and 64.",
+        "Between means the number in the middle, with one gap on each side.",
+        "One more than 62 is 63; one less than 64 is also 63.",
+        "The number between 62 and 64 is 63."
+      ],
+      "answer": "63",
+      "visual": {
+        "component": "NumberTrack",
+        "props": {
+          "tracks": [
+            {
+              "terms": [
+                62,
+                "?",
+                64
+              ],
+              "jump": 1
+            }
+          ]
+        },
+        "caption": "62, 63, 64"
+      }
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "before-after-mixed",
+      "mistake": "Saying the AFTER number when asked for BEFORE, or the other way round (e.g. asked 'what comes before 8', answering 9).",
+      "fix": "BEFORE = one LESS, step backward on the number line. AFTER = one MORE, step forward. Say the direction out loud before answering: 'before goes back, after goes forward.'"
+    },
+    {
+      "mistakeTag": "off-by-one-neighbour",
+      "mistake": "Answering the same number, or a number more than one step away (e.g. saying 'before 10 is 8' instead of 9).",
+      "fix": "Before and after are always exactly ONE step away. Before 10 is 9 (10 − 1); after 10 is 11 (10 + 1) — never skip an extra step."
+    },
+    {
+      "mistakeTag": "between-inclusive-confusion",
+      "mistake": "Treating 'between 6 and 8' as including 6 and 8 themselves, or naming both endpoints instead of the number that sits strictly in the middle.",
+      "fix": "'Between' means the number STRICTLY in the middle, not the endpoints. Between 6 and 8 is only 7 — 6 and 8 are the numbers you are between, not part of the answer."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "found-18-e1",
+        "type": "number",
+        "q": "What number comes after 6?",
+        "answer": "7",
+        "hintLadder": [
+          "After means one more.",
+          "6 + 1.",
+          "Seven."
+        ],
+        "explain": "+1 → 7.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  6,
+                  "?"
+                ],
+                "jump": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-18-e2",
+        "type": "number",
+        "q": "What number comes before 9?",
+        "answer": "8",
+        "hintLadder": [
+          "Before means one less.",
+          "9 − 1.",
+          "Eight."
+        ],
+        "explain": "-1 → 8.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  "?",
+                  9
+                ],
+                "jump": 1
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "medium": [
+      {
+        "id": "found-18-m1",
+        "type": "number",
+        "q": "What number is between 14 and 16?",
+        "answer": "15",
+        "hintLadder": [
+          "Between sits in the middle.",
+          "One more than 14, one less than 16.",
+          "Fifteen."
+        ],
+        "explain": "14, 15, 16 — 15 is between.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  14,
+                  "?",
+                  16
+                ],
+                "jump": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-18-m2",
+        "type": "number",
+        "q": "What number comes after 29?",
+        "answer": "30",
+        "hintLadder": [
+          "After means one more.",
+          "29 + 1.",
+          "Thirty."
+        ],
+        "explain": "+1 → 30 (a new decade!).",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  29,
+                  "?"
+                ],
+                "jump": 1
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "found-18-c1",
+        "type": "number",
+        "q": "Priya's house is number 50. What is the house number just before hers on the lane?",
+        "answer": "49",
+        "hintLadder": [
+          "Before means one less.",
+          "50 − 1.",
+          "Forty-nine."
+        ],
+        "explain": "-1 → 49.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  "?",
+                  50
+                ],
+                "jump": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-18-c2",
+        "type": "number",
+        "q": "Two train seats are numbered 78 and 80. Which seat number is between them?",
+        "answer": "79",
+        "hintLadder": [
+          "Between sits in the middle.",
+          "One more than 78, one less than 80.",
+          "Seventy-nine."
+        ],
+        "explain": "78, 79, 80 — 79 is between.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  78,
+                  "?",
+                  80
+                ],
+                "jump": 1
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "found-18-x1",
+        "type": "number",
+        "q": "What number comes after 10?",
+        "answer": "11",
+        "hintLadder": [
+          "After means one more.",
+          "10 + 1.",
+          "Eleven."
+        ],
+        "explain": "+1 → 11.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  10,
+                  "?"
+                ],
+                "jump": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-18-x2",
+        "type": "number",
+        "q": "What number comes before 15?",
+        "answer": "14",
+        "hintLadder": [
+          "Before means one less.",
+          "15 − 1.",
+          "Fourteen."
+        ],
+        "explain": "-1 → 14.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  "?",
+                  15
+                ],
+                "jump": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-18-x3",
+        "type": "number",
+        "q": "What number is between 20 and 22?",
+        "answer": "21",
+        "hintLadder": [
+          "Between sits in the middle.",
+          "One more than 20, one less than 22.",
+          "Twenty-one."
+        ],
+        "explain": "20, 21, 22 — 21 is between.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  20,
+                  "?",
+                  22
+                ],
+                "jump": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-18-x4",
+        "type": "number",
+        "q": "What number comes after 39?",
+        "answer": "40",
+        "hintLadder": [
+          "After means one more.",
+          "39 + 1.",
+          "Forty."
+        ],
+        "explain": "+1 → 40 (a new decade!).",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  39,
+                  "?"
+                ],
+                "jump": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-18-x5",
+        "type": "number",
+        "q": "What number is between 59 and 61?",
+        "answer": "60",
+        "hintLadder": [
+          "Between sits in the middle.",
+          "One more than 59, one less than 61.",
+          "Sixty."
+        ],
+        "explain": "59, 60, 61 — 60 is between.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  59,
+                  "?",
+                  61
+                ],
+                "jump": 1
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "teachBackPrompt": "Pick any house number, page number, or seat number you can see today. Teach someone at home how to find the number that comes before it, the number that comes after it, and the number between it and a number two more than it.",
+  "revisionCard": {
+    "summary": "BEFORE = one less (predecessor). AFTER = one more (successor). BETWEEN = the number exactly in the middle of two numbers with one gap on each side. Use the number line to check!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Little Sprouts Meadow",
+    "title": "Neighbours on the Number Path",
+    "brief": "Help Captain Count find the house, seat and page numbers that come just before, just after, and between the given numbers.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Walk down your street or lane with a grown-up and read the house numbers. Pick one house and say the number that comes before it and after it. Then pick two houses two numbers apart and say which house number is between them.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  },
+  "rememberIt": {
+    "hook": "Before = one less. After = one more. Between = the middle one!",
+    "unpack": "Every number has two neighbours on the number line — the one just before (one less) and the one just after (one more). The number between two others sits exactly in the gap, one step from each."
+  },
+  "studentQuestions": [
+    {
+      "q": "How is 'before' different from 'after'?",
+      "a": "Before means one LESS — you step backward on the number line. After means one MORE — you step forward. Before 10 is 9; after 10 is 11."
+    },
+    {
+      "q": "Does 'between 6 and 8' include 6 and 8?",
+      "a": "No! Between means only the number in the middle — just 7. 6 and 8 are the numbers you are between, not part of the answer."
+    }
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Number Neighbours Match-Up",
+      "instructions": "Match each number-neighbour question to its answer.",
+      "pairs": [
+        {
+          "id": "before8",
+          "left": "Before 8",
+          "right": "7"
+        },
+        {
+          "id": "after8",
+          "left": "After 8",
+          "right": "9"
+        },
+        {
+          "id": "between46",
+          "left": "Between 4 and 6",
+          "right": "5"
+        },
+        {
+          "id": "before20",
+          "left": "Before 20",
+          "right": "19"
+        }
+      ]
+    }
+  }
+}

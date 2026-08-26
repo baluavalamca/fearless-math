@@ -483,5 +483,70 @@
       "q": "Is 0.25 a quarter?",
       "a": "Yes - 25 hundredths (25/100) simplifies to 1/4."
     }
-  ]
+  ],
+  "activityBook": {
+    "colorByAnswer": {
+      "title": "Hundredths & Color",
+      "instructions": "Turn each decimal into hundredths, then color it in!",
+      "viewBox": "0 0 200 200",
+      "legend": [
+        {
+          "key": "25",
+          "color": "#FF6B6B",
+          "matchAnswer": "25"
+        },
+        {
+          "key": "70",
+          "color": "#4ECDC4",
+          "matchAnswer": "70"
+        },
+        {
+          "key": "5",
+          "color": "#FFD93D",
+          "matchAnswer": "5"
+        }
+      ],
+      "regions": [
+        {
+          "id": "r1",
+          "d": "M10,10 L95,10 L95,190 L10,190 Z",
+          "q": {
+            "id": "h1",
+            "q": "0.25 = ?/100",
+            "answer": "25",
+            "hintLadder": [
+              "The second seat after the dot is hundredths.",
+              "0.25 means 25 out of 100."
+            ]
+          }
+        },
+        {
+          "id": "r2",
+          "d": "M100,10 L185,10 L185,95 L100,95 Z",
+          "q": {
+            "id": "h2",
+            "q": "0.7 = ?/100",
+            "answer": "70",
+            "hintLadder": [
+              "0.7 is the same as 0.70.",
+              "0.70 means 70 out of 100."
+            ]
+          }
+        },
+        {
+          "id": "r3",
+          "d": "M100,100 L185,100 L185,190 L100,190 Z",
+          "q": {
+            "id": "h3",
+            "q": "0.05 = ?/100",
+            "answer": "5",
+            "hintLadder": [
+              "0.05 has a 0 in the tenths seat.",
+              "0.05 means 5 out of 100."
+            ]
+          }
+        }
+      ]
+    }
+  }
 }

@@ -344,5 +344,33 @@
       "formula": "P(not A) = 1 - P(A)",
       "remember": "Great for 'at least one' problems"
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Likelihood Match-Up",
+      "instructions": "Match each event to how likely it is.",
+      "pairs": [
+        {
+          "id": "impossible",
+          "left": "Rolling a 7 on a normal dice",
+          "right": "Impossible"
+        },
+        {
+          "id": "certain",
+          "left": "The sun rising tomorrow",
+          "right": "Certain"
+        },
+        {
+          "id": "even",
+          "left": "Flipping heads on a coin",
+          "right": "Even chance (50-50)"
+        },
+        {
+          "id": "certain2",
+          "left": "Picking red from a bag of all red balls",
+          "right": "Certain"
+        }
+      ]
+    }
+  }
 }

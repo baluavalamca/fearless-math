@@ -766,7 +766,11 @@
           "kind": "accumulate",
           "start": 0,
           "startLabel": "Start at 0.",
-          "parts": [3, 80, 400],
+          "parts": [
+            3,
+            80,
+            400
+          ],
           "partLabels": [
             "Ones × ones: 3 × 1 = 3. Set that.",
             "Cross products (tens×ones both ways): 20×1 + 3×20 = 80. Add it in the tens place.",
@@ -800,5 +804,62 @@
       "q": "How do I do 23 x 14?",
       "a": "23x4 = 92, then 23x10 = 230, add: 322."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Four Patches Orchard Maze",
+      "instructions": "Use the four-patches method to multiply and find your way through the orchard.",
+      "forks": [
+        {
+          "q": {
+            "id": "fp1",
+            "q": "24 × 15 = (20×10)+(20×5)+(4×10)+(4×5) = ?",
+            "answer": "360",
+            "hintLadder": [
+              "200+100+40+20.",
+              "Add all four patches together."
+            ]
+          },
+          "branches": [
+            "360",
+            "340"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "fp2",
+            "q": "13 × 12 = ?",
+            "answer": "156",
+            "hintLadder": [
+              "Break apart: (10+3)×(10+2).",
+              "100+20+30+6 = ?"
+            ]
+          },
+          "branches": [
+            "156",
+            "146"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "fp3",
+            "q": "21 × 14 = ?",
+            "answer": "294",
+            "hintLadder": [
+              "Break apart: (20+1)×(10+4).",
+              "200+80+10+4 = ?"
+            ]
+          },
+          "branches": [
+            "294",
+            "284"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Four Patches Orchard 🍊"
+    }
+  }
 }

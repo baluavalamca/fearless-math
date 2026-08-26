@@ -1,0 +1,445 @@
+{
+  "id": "num-60-cubes-cube-roots",
+  "name": "Cubes and Cube Roots — Building with Volume Numbers",
+  "grade": 8,
+  "strand": "numbers",
+  "prerequisites": [
+    "num-27-squares-roots"
+  ],
+  "whatIsIt": "A CUBE of a number multiplies it by itself three times: n³ = n × n × n. For example, 4³ = 4 × 4 × 4 = 64. Numbers like 1, 8, 27, 64, 125… that come from cubing a whole number are called PERFECT CUBES. A CUBE ROOT (∛) undoes cubing — it asks 'what number, cubed, gives this?' So ∛64 = 4, because 4³ = 64. While squares fill a flat grid, cubes fill a 3D block — that's why n³ measures volume.",
+  "whyNeeded": "Cubes and cube roots show up wherever volume matters — water tanks, dice, packing boxes, Rubik's cubes, ice trays. Recognising perfect cubes (and their unique 'last digit' pattern) lets you find cube roots of big numbers in seconds — a favourite shortcut in competitive exams.",
+  "realLifeUses": [
+    "Volume of a cube-shaped water tank of side 5 m = 5³ = 125 m³",
+    "A Rubik's Cube has 3×3×3 = 27 small cubes",
+    "Packing 1 cm cubes into a box to find its volume",
+    "Cube-root shortcuts to instantly find the side of a cube box from its volume"
+  ],
+  "vocabulary": [
+    {
+      "term": "cube (n³)",
+      "meaning": "A number multiplied by itself three times: 4³ = 64."
+    },
+    {
+      "term": "perfect cube",
+      "meaning": "A number that is the cube of a whole number (1, 8, 27, 64, 125…)."
+    },
+    {
+      "term": "cube root (∛)",
+      "meaning": "The number that was cubed: ∛125 = 5."
+    }
+  ],
+  "story": {
+    "title": "The Gift Box Puzzle",
+    "characters": [
+      "Meera",
+      "Uncle Rohit"
+    ],
+    "text": "Uncle Rohit has a cube-shaped gift box with volume 216 cubic cm and asks Meera how long each side is. Meera thinks: what number, cubed, gives 216? She tries 6: 6 × 6 × 6 = 216. 'The side is 6 cm!' she says. Uncle Rohit smiles — 'That's the cube root of 216.'",
+    "extractedProblem": "A cube-shaped box has volume 216 cm³. What is the length of one side?",
+    "answerInStory": "6 cm — because ∛216 = 6 (6³ = 216)."
+  },
+  "visual": {
+    "component": "NumberTrack",
+    "props": {
+      "tracks": [
+        {
+          "terms": [
+            1,
+            8,
+            27,
+            64,
+            125
+          ],
+          "label": "perfect cubes"
+        }
+      ]
+    },
+    "caption": "The perfect cubes: 1, 8, 27, 64, 125… each is n × n × n."
+  },
+  "teachingGallery": [
+    {
+      "title": "Cubes grow fast",
+      "note": "A small change in the side makes a BIG change in volume.",
+      "examples": [
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  8,
+                  27
+                ],
+                "label": "1³, 2³, 3³"
+              }
+            ]
+          },
+          "caption": "1³=1, 2³=8, 3³=27 — tripling the side gives 27× the volume, not 3×."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  64,
+                  125,
+                  216
+                ],
+                "label": "4³, 5³, 6³"
+              }
+            ]
+          },
+          "caption": "4³=64, 5³=125, 6³=216."
+        },
+        {
+          "component": "ArrayGrid",
+          "props": {
+            "grids": [
+              {
+                "rows": 3,
+                "cols": 3,
+                "label": "one face of a 3×3×3 cube = 9 unit squares"
+              }
+            ]
+          },
+          "caption": "A cube's face is a square (3×3=9); stack 3 such layers to build the full cube — 27 unit cubes."
+        }
+      ]
+    }
+  ],
+  "liveSim": {
+    "title": "Grow the Cube — Volume Live",
+    "hook": "Drag the side length and watch the volume shoot up — see why cubing grows SO much faster than squaring!",
+    "kind": "solid3d",
+    "shape": "cube",
+    "sliders": [
+      { "key": "s", "label": "Side (s)", "min": 1, "max": 10, "step": 1, "default": 3, "unit": "units" }
+    ],
+    "formulas": [
+      { "name": "Volume (s³)", "expr": "s^3", "unit": "cubic units" }
+    ],
+    "color": "accent"
+  },
+  "standardMethod": {
+    "summary": "To cube, multiply a number by itself three times. To find a cube root, use prime factorization: break the number into primes, group them in THREES, and take one factor from each group.",
+    "steps": [
+      "Cube: n³ = n × n × n (e.g. 5³ = 125).",
+      "Cube root by prime factorization: write the number as a product of primes.",
+      "Group the identical primes into sets of THREE.",
+      "Take ONE factor from each group and multiply them — that's the cube root."
+    ]
+  },
+  "mentalMathMethod": {
+    "name": "Last-Digit + Bracket Trick",
+    "whenToUse": "Instantly finding the cube root of a KNOWN perfect cube (a common exam shortcut), without doing prime factorization.",
+    "steps": [
+      "Every digit 0-9 has ONE unique 'cube last-digit' partner: 1↔1, 2↔8, 3↔7, 4↔4, 5↔5, 6↔6, 7↔3, 8↔2, 9↔9, 0↔0. Learn this pairing.",
+      "Look at the LAST digit of the given cube, and use the pairing to get the LAST digit of the answer.",
+      "Chop off the last 3 digits of the given cube. Compare what's left to the cubes of 1-9 (1,8,27,64,125,216,343,512,729) and pick the cube that is just BELOW or EQUAL to it — its base is the FIRST digit(s) of the answer.",
+      "Combine the first digit(s) and the last digit — that's the cube root."
+    ],
+    "example": "∛13824: last digit 4 → answer ends in 4. Remove the last 3 digits → 13 is left; 13 is between 2³=8 and 3³=27, so the first digit is 2. Answer: 24 (check: 24³ = 13824)."
+  },
+  "alternateMethods": [
+    {
+      "name": "Estimating cube roots of non-perfect cubes",
+      "whenToUse": "When the number is NOT a perfect cube and you just need a close estimate.",
+      "steps": [
+        "Find the two consecutive perfect cubes the number sits between.",
+        "The cube root lies between those two whole numbers.",
+        "Judge how close the number is to each cube to guess a decimal estimate."
+      ],
+      "example": "∛100: 4³=64 and 5³=125, so ∛100 is between 4 and 5 — closer to 5 since 100 is nearer 125 than 64. (Actual ≈ 4.64.)"
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Find 6³.",
+      "steps": [
+        "Cube means multiply by itself three times.",
+        "6 × 6 = 36, then 36 × 6.",
+        "= 216."
+      ],
+      "answer": "216"
+    },
+    {
+      "problem": "Find ∛13824 using the last-digit + bracket trick.",
+      "steps": [
+        "Last digit of 13824 is 4 → the answer's last digit is 4 (4↔4 pairing).",
+        "Remove the last 3 digits (824), leaving 13. Compare to the cubes of 1-9: 13 is between 2³=8 and 3³=27, so the first digit is 2.",
+        "Combine: first digit 2, last digit 4 → 24. Check: 24³ = 13824. ✓"
+      ],
+      "answer": "24"
+    }
+  ],
+  "trickPractice": {
+    "trick": "Cube-root last-digit pairing",
+    "intro": "Perfect cubes have a secret: their LAST digit always tells you the LAST digit of the cube root. Match it up!",
+    "questions": [
+      {
+        "id": "n60-trick-1",
+        "type": "number",
+        "q": "∛1331: what LAST digit must the answer have? (1331 ends in 1)",
+        "answer": "1",
+        "hintLadder": [
+          "1 pairs with 1.",
+          "Check: 11³ = 1331.",
+          "1."
+        ]
+      },
+      {
+        "id": "n60-trick-2",
+        "type": "number",
+        "q": "What is ∛1331?",
+        "answer": "11",
+        "hintLadder": [
+          "Last digit 1 → root ends in 1.",
+          "Remove last 3 digits: 1 left, between 1³=1 and 2³=8 → first digit 1.",
+          "11."
+        ]
+      },
+      {
+        "id": "n60-trick-3",
+        "type": "number",
+        "q": "What is ∛2197?",
+        "answer": "13",
+        "hintLadder": [
+          "Last digit 7 → root ends in 3.",
+          "Remove last 3 digits: 2 left, between 1³=1 and 2³=8 → first digit 1.",
+          "13."
+        ]
+      },
+      {
+        "id": "n60-trick-4",
+        "type": "number",
+        "q": "What is ∛4096?",
+        "answer": "16",
+        "hintLadder": [
+          "Last digit 6 → root ends in 6.",
+          "Remove last 3 digits: 4 left, between 1³=1 and 2³=8 → first digit 1.",
+          "16."
+        ]
+      },
+      {
+        "id": "n60-trick-5",
+        "type": "number",
+        "q": "What is ∛9261?",
+        "answer": "21",
+        "hintLadder": [
+          "Last digit 1 → root ends in 1.",
+          "Remove last 3 digits: 9 left, between 2³=8 and 3³=27 → first digit 2.",
+          "21."
+        ]
+      }
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistakeTag": "cube-means-times-three",
+      "mistake": "Thinking n³ means n × 3 instead of n × n × n.",
+      "fix": "Cubing means multiplying by ITSELF three times, not by the number 3. 4³ = 4 × 4 × 4 = 64, not 12."
+    },
+    {
+      "mistakeTag": "cube-root-last-digit-only",
+      "mistake": "Guessing the cube root using ONLY the last-digit trick and ignoring the leading digits (e.g. saying ∛13824 = 4 because it ends in 4).",
+      "fix": "The last digit only gives the LAST digit of the answer. You still need the bracket step (comparing the remaining part to 1³-9³) to get the first digit(s)."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "n60-e1",
+        "type": "number",
+        "q": "What is 2³?",
+        "answer": "8",
+        "hintLadder": [
+          "2 × 2 × 2.",
+          "Multiply by itself three times.",
+          "8."
+        ]
+      },
+      {
+        "id": "n60-e2",
+        "type": "number",
+        "q": "What is ∛27?",
+        "answer": "3",
+        "hintLadder": [
+          "What number cubed gives 27?",
+          "3 × 3 × 3 = 27.",
+          "3."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "id": "n60-m1",
+        "type": "number",
+        "q": "What is 5³?",
+        "answer": "125",
+        "hintLadder": [
+          "5 × 5 = 25, then × 5.",
+          "Cube it.",
+          "125."
+        ]
+      },
+      {
+        "id": "n60-m2",
+        "type": "number",
+        "q": "Using the last-digit trick, what must the cube root of a number ending in 8 end in?",
+        "answer": "2",
+        "hintLadder": [
+          "Match the last-digit pairing: 8 pairs with which digit?",
+          "Check: 2³ = 8.",
+          "2."
+        ]
+      }
+    ],
+    "challenge": [
+      {
+        "id": "n60-c1",
+        "type": "number",
+        "q": "A cube-shaped tank holds 1000 cubic units of water. What is the side length?",
+        "answer": "10",
+        "hintLadder": [
+          "Find ∛1000.",
+          "10 × 10 × 10 = 1000.",
+          "10 units."
+        ]
+      },
+      {
+        "id": "n60-c2",
+        "type": "mcq",
+        "q": "Which of these is a perfect cube?",
+        "options": [
+          {
+            "label": "64"
+          },
+          {
+            "label": "48",
+            "mistakeTag": "cube-means-times-three"
+          }
+        ],
+        "answer": "64",
+        "hintLadder": [
+          "Is there a whole number whose cube gives this?",
+          "4³ = 64. Is there a whole number cubing to 48? No.",
+          "64."
+        ]
+      }
+    ]
+  },
+  "masteryCheck": {
+    "questions": [
+      {
+        "id": "n60-x1",
+        "type": "number",
+        "q": "What is 3³?",
+        "answer": "27",
+        "hintLadder": [
+          "3 × 3 × 3.",
+          "Cube it.",
+          "27."
+        ]
+      },
+      {
+        "id": "n60-x2",
+        "type": "number",
+        "q": "What is ∛125?",
+        "answer": "5",
+        "hintLadder": [
+          "What number cubed gives 125?",
+          "5 × 5 × 5 = 125.",
+          "5."
+        ]
+      },
+      {
+        "id": "n60-x3",
+        "type": "number",
+        "q": "What is 10³?",
+        "answer": "1000",
+        "hintLadder": [
+          "10 × 10 × 10.",
+          "Cube it.",
+          "1000."
+        ]
+      },
+      {
+        "id": "n60-x4",
+        "type": "mcq",
+        "q": "The cube root of a number…",
+        "options": [
+          {
+            "label": "Undoes cubing (∛64 = 4 because 4³=64)"
+          },
+          {
+            "label": "Divides the number by 3",
+            "mistakeTag": "cube-means-times-three"
+          }
+        ],
+        "answer": "Undoes cubing (∛64 = 4 because 4³=64)",
+        "hintLadder": [
+          "Root reverses cube.",
+          "∛64 = 4 because 4³ = 64.",
+          "Undoes cubing."
+        ]
+      }
+    ],
+    "passThreshold": 0.75,
+    "requireTeachBack": true
+  },
+  "teachBackPrompt": "Build a small cube from 8 unit cubes or blocks (2×2×2) and show a grown-up that this proves 2³ = 8. Then explain the last-digit trick: pick a perfect cube from the table (1,8,27,64,125,216,343,512,729) and show how its last digit tells you the cube root's last digit.",
+  "revisionCard": {
+    "summary": "Cube: n³ = n × n × n (5³ = 125). Cube root ∛ undoes cubing (∛125 = 5). Learn perfect cubes 1,8,27,64,125,216,343,512,729,1000. Last-digit pairing for quick cube roots: 1↔1, 2↔8, 3↔7, 4↔4, 5↔5, 6↔6, 7↔3, 8↔2, 9↔9, 0↔0.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "vedicMethod": {
+    "name": "Vedic: cubing a 2-digit number by splitting into tens and units (Anurupyena)",
+    "whenToUse": "To cube any two-digit number quickly, without long multiplication.",
+    "steps": [
+      "Split the number into tens (a) and units (b): for 12, a=1 (tens digit), b=2 (units digit).",
+      "Write four terms: a³, 3×a²×b, 3×a×b², b³. For 12: 1³=1, 3×1×2=6, 3×1×4=12, 2³=8.",
+      "Starting from the right, keep only the UNITS digit of each term and carry the rest leftward, like column addition: write 8 → 12+0=12 (write 2, carry 1) → 6+1=7 (write 7, carry 0) → 1+0=1 (write 1).",
+      "Read the digits left to right for the answer."
+    ],
+    "example": "12³ = 1728, from terms 1, 6, 12, 8 carried together as 1 | 7 | 2 | 8."
+  },
+  "meta": {
+    "version": "1.0.0",
+    "curriculum": "CBSE/NCERT Class 8 (cubes and cube roots)",
+    "language": "en",
+    "authoredBy": "FearlessMath authoring team",
+    "reviewStatus": "draft",
+    "reviewedBy": ""
+  },
+  "rememberIt": {
+    "hook": "Cube = number times itself three times. Cube root undoes it",
+    "unpack": "n^3 = n x n x n. Perfect cubes: 1,8,27,64,125,216,343,512,729,1000. Each last digit pairs uniquely to a cube-root last digit — learn the pairing and cube roots become instant."
+  },
+  "studentQuestions": [
+    {
+      "q": "What does 'cubed' mean?",
+      "a": "Multiply the number by itself three times. 4^3 = 4 x 4 x 4 = 64. It's called 'cube' because it's the volume of a cube of that side length."
+    },
+    {
+      "q": "How do I find a cube root fast?",
+      "a": "If you know it's a perfect cube, use the last-digit trick: match the last digit to its pair (1<->1, 2<->8, 3<->7, 4<->4, 5<->5, 6<->6, 7<->3, 8<->2, 9<->9, 0<->0), then bracket the remaining digits against 1^3 to 9^3 to get the first digit."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Cube",
+      "formula": "n^3 = n x n x n"
+    },
+    {
+      "name": "Cube root",
+      "formula": "cbrt(n^3) = n",
+      "remember": "Root undoes cube"
+    }
+  ]
+}

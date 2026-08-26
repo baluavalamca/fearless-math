@@ -316,5 +316,62 @@
       "q": "What do I do with a remainder?",
       "a": "Leave it as 'r', or continue with a decimal point and zeros for an exact answer."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Remainder Row Maze",
+      "instructions": "Divide and don't forget the remainder to find your way.",
+      "forks": [
+        {
+          "q": {
+            "id": "rem1",
+            "q": "17 ÷ 5 = ?",
+            "answer": "3 remainder 2",
+            "hintLadder": [
+              "5 goes into 17 three times (15).",
+              "17 - 15 = 2 left over."
+            ]
+          },
+          "branches": [
+            "3 remainder 2",
+            "4 remainder 1"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "rem2",
+            "q": "23 ÷ 4 = ?",
+            "answer": "5 remainder 3",
+            "hintLadder": [
+              "4 goes into 23 five times (20).",
+              "23 - 20 = 3 left over."
+            ]
+          },
+          "branches": [
+            "5 remainder 3",
+            "6 remainder 1"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "rem3",
+            "q": "29 ÷ 6 = ?",
+            "answer": "4 remainder 5",
+            "hintLadder": [
+              "6 goes into 29 four times (24).",
+              "29 - 24 = 5 left over."
+            ]
+          },
+          "branches": [
+            "4 remainder 5",
+            "5 remainder 1"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Remainder Row 🍬"
+    }
+  }
 }

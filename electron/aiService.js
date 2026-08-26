@@ -254,8 +254,11 @@ STRICT RULES:
 - Use ONLY facts, methods, and characters from the lesson JSON. Invent NO new methods.
 - Age: Class ${concept.grade} child. Warm, encouraging, simple English. No shame words.
 - Do NOT include links, brand names, or anything outside mathematics.
+- Break the explanation into 2-5 short SEPARATE steps/points (not one paragraph) — each item
+  in "steps" should be one short idea, 1-2 sentences, that stands on its own like a card.
+- You MAY use simple notation (1/2, x^2, sqrt(9), %, pi) — it will be shown nicely.
 - Reply with ONLY this JSON, nothing else:
-{"explanation": "<3-6 short sentences>", "example": "<one tiny example or empty string>"}`;
+{"steps": ["<short step 1>", "<short step 2>", "..."], "example": "<one tiny example or empty string>"}`;
 }
 
 function buildWhyWrongPrompt(concept, question, answerGiven, mistake) {
@@ -357,6 +360,21 @@ function validateAiResponse(obj, fields) {
   return { ok: true };
 }
 
+/** Validate a "steps" array response field: an array of short, non-empty strings
+ *  (no links), used by askTutor/explain so answers render as step-cards rather
+ *  than one flat paragraph. Trims/caps defensively — a model that ignores the
+ *  count/length instruction should still degrade gracefully, not fail outright. */
+function validateSteps(steps, { min = 1, max = 6, itemMax = 400 } = {}) {
+  if (!Array.isArray(steps)) return { ok: false, reason: "bad-steps" };
+  const cleaned = steps
+    .map((s) => (typeof s === "string" ? s.trim() : ""))
+    .filter((s) => s.length > 0 && !/https?:\/\//i.test(s))
+    .slice(0, max)
+    .map((s) => (s.length > itemMax ? s.slice(0, itemMax) : s));
+  if (cleaned.length < min) return { ok: false, reason: "bad-steps" };
+  return { ok: true, steps: cleaned };
+}
+
 function cacheKey(kind, conceptId, extra) {
   return crypto.createHash("sha256").update([kind, conceptId, extra].join("|")).digest("hex").slice(0, 32);
 }
@@ -393,7 +411,11 @@ async function callProvider(prompt, opts = {}) {
         messages: [{ role: "user", content }],
       }),
     });
-    if (!r.ok) throw new Error("provider-" + r.status);
+    if (!r.ok) {
+      let bodyText = "";
+      try { bodyText = await r.text(); } catch { /* ignore */ }
+      throw new Error("provider-" + r.status + (bodyText ? ": " + bodyText.slice(0, 300) : ""));
+    }
     const j = await r.json();
     return (j.content || []).map((b) => b.text || "").join("");
   }
@@ -420,7 +442,11 @@ async function callProvider(prompt, opts = {}) {
       messages: [{ role: "user", content }],
     }),
   });
-  if (!r.ok) throw new Error("provider-" + r.status);
+  if (!r.ok) {
+    let bodyText = "";
+    try { bodyText = await r.text(); } catch { /* ignore */ }
+    throw new Error("provider-" + r.status + (bodyText ? ": " + bodyText.slice(0, 300) : ""));
+  }
   const j = await r.json();
   return j.choices?.[0]?.message?.content ?? "";
 }
@@ -430,16 +456,22 @@ async function callProvider(prompt, opts = {}) {
 async function explain(concept, style) {
   if (!settings.enabled || !settings.keyStored) return { ok: false, reason: "disabled" };
   const ck = cacheKey("explain", concept.id, style);
-  if (cache[ck]) return { ok: true, ...cache[ck], cached: true };
+  // Only trust a cached entry if it matches the current steps[] response shape --
+  // entries cached under the old flat-string schema (pre-steps[] migration) would
+  // otherwise be spread into an ok:true response with no steps, which the UI then
+  // silently renders as a failure. Treat a shape mismatch as a cache miss so it
+  // gets a fresh call (and overwrites the stale entry below).
+  if (cache[ck] && Array.isArray(cache[ck].steps)) return { ok: true, ...cache[ck], cached: true };
   try {
     const text = await callProvider(buildExplainPrompt(concept, style));
     const obj = extractJson(text);
+    const sv = validateSteps(obj?.steps, { min: 1, max: 6, itemMax: 400 });
+    if (!sv.ok) return { ok: false, reason: sv.reason };
     const v = validateAiResponse(obj, [
-      { name: "explanation", required: true, min: 20, max: 1200 },
       { name: "example", required: false, max: 500 },
     ]);
     if (!v.ok) return { ok: false, reason: v.reason };
-    const out = { explanation: obj.explanation.trim(), example: (obj.example || "").trim() };
+    const out = { steps: sv.steps, example: (obj.example || "").trim() };
     cache[ck] = out; saveCache();
     return { ok: true, ...out };
   } catch (e) {
@@ -536,13 +568,15 @@ ${hist ? "CONVERSATION SO FAR:\n" + hist + "\n\n" : ""}CHILD'S QUESTION: ${quest
 
 STRICT RULES:
 - ONLY school MATHEMATICS. If the question is NOT about maths, or is personal, unsafe, or inappropriate for a child, set "onTopic" to false and gently steer them back to maths — do NOT answer the off-topic part.
-- Explain step by step in simple words suited to ${lvl}. Warm and encouraging, never shaming.
+- Break your explanation into 2-5 short SEPARATE steps (not one paragraph) — each item in
+  "steps" is one short idea, 1-2 sentences, that stands on its own like a card, in the order
+  the child should think through them. Simple words suited to ${lvl}. Warm, never shaming.
 - Use everyday Indian examples where they help (rupees, cricket, food, buses, festivals).
-- Keep it short: 3 to 7 sentences. You MAY use simple notation (1/2, x^2, sqrt(9), %, pi) — it will be shown nicely.
+- You MAY use simple notation (1/2, x^2, sqrt(9), %, pi) — it will be shown nicely.
 - Do NOT include links, web addresses, brand names, or anything outside mathematics. Never ask for or use the child's name or any personal detail.
 - Finish by inviting the child to try one tiny related step themselves.
 - Reply with ONLY this JSON, nothing else:
-{"onTopic": true or false, "answer": "<clear step-by-step explanation, 3-7 sentences>", "example": "<one tiny worked example, or empty string>", "tryYourself": "<one gentle 'now you try' question, or empty string>"}`;
+{"onTopic": true or false, "steps": ["<short step 1>", "<short step 2>", "..."], "example": "<one tiny worked example, or empty string>", "tryYourself": "<one gentle 'now you try' question, or empty string>"}`;
 }
 
 async function askTutor({ question, grade, history }) {
@@ -556,20 +590,28 @@ async function askTutor({ question, grade, history }) {
   const turns = Array.isArray(history) ? history : [];
   // Cache only single-turn questions (history-dependent answers vary).
   const ck = turns.length ? null : cacheKey("tutor", "g" + g, q.toLowerCase());
-  if (ck && cache[ck]) return { ok: true, ...cache[ck], cached: true };
+  // Same stale-shape guard as explain() -- old cached answers (pre-steps[] schema,
+  // e.g. a flat "answer" string) must not be trusted, or the UI silently shows the
+  // generic failure message for what looks to the cache like a successful answer.
+  if (ck && cache[ck] && Array.isArray(cache[ck].steps)) return { ok: true, ...cache[ck], cached: true };
+  const dbg = (label, data) => {
+    try { fs.appendFileSync(path.join(dir, "debug.log"), `[${new Date().toISOString()}] ${label}: ${typeof data === "string" ? data : JSON.stringify(data)}\n`); } catch {}
+  };
   try {
     const text = await callProvider(buildTutorPrompt(q, g, turns));
+    dbg("raw-text", text.slice(0, 1500));
     const obj = extractJson(text);
-    if (!obj || typeof obj !== "object") return { ok: false, reason: "bad-json" };
+    if (!obj || typeof obj !== "object") { dbg("bad-json", text.slice(0, 500)); return { ok: false, reason: "bad-json" }; }
+    const sv = validateSteps(obj.steps, { min: 1, max: 6, itemMax: 400 });
+    if (!sv.ok) { dbg("steps-invalid", { reason: sv.reason, obj }); return { ok: false, reason: sv.reason }; }
     const v = validateAiResponse(obj, [
-      { name: "answer", required: true, min: 8, max: 1400 },
       { name: "example", required: false, max: 600 },
       { name: "tryYourself", required: false, max: 300 },
     ]);
-    if (!v.ok) return { ok: false, reason: v.reason };
+    if (!v.ok) { dbg("response-invalid", { reason: v.reason, obj }); return { ok: false, reason: v.reason }; }
     const out = {
       onTopic: obj.onTopic !== false,
-      answer: String(obj.answer).trim(),
+      steps: sv.steps,
       example: (obj.example ? String(obj.example) : "").trim(),
       tryYourself: (obj.tryYourself ? String(obj.tryYourself) : "").trim(),
     };
@@ -577,6 +619,7 @@ async function askTutor({ question, grade, history }) {
     return { ok: true, ...out };
   } catch (e) {
     const msg = String(e?.message || e);
+    dbg("exception", msg);
     // A local model that isn't running is the most common failure — say so clearly.
     if (p.local && /fetch failed|ECONNREFUSED|network|Failed to fetch|socket|refused/i.test(msg)) {
       return { ok: false, reason: "local-unreachable" };
@@ -607,9 +650,9 @@ contain or imply the final answer. Also give one tiny, answer-free "hint" nudge.
 function buildHomeworkPrompt(mode, grade) {
   const lvl = tutorLevel(grade);
   const md = mode === "solve" ? "solve" : "coach";
-  const shape = md === "solve"
-    ? `"steps": ["<step 1>", "<step 2>", "..."], "answer": "<final answer>"`
-    : `"question": "<one guiding question ending in ?>", "hint": "<one small answer-free nudge>"`;
+  const exampleFields = md === "solve"
+    ? `"steps": ["Count the total parts in the shape: 4", "Count the shaded parts: 3", "Write shaded over total: 3/4"], "answer": "3/4"`
+    : `"question": "How many equal parts is the shape split into — can you count them?", "hint": "Count all the slices first, then count only the coloured ones."`;
   return `You are Robo Reason, a kind maths helper inside a children's learning app in India, looking
 at a PHOTO of a child's homework page. The child is about ${lvl}.
 
@@ -618,6 +661,17 @@ in plain text (notation like 1/2, x^2, sqrt(9), pi, % is fine — it will be typ
 handwriting/answers already scribbled by the child — transcribe the ORIGINAL PRINTED/WRITTEN QUESTION only.
 
 TASK 2 — RESPOND: ${HOMEWORK_MODE_INSTRUCTION[md]}
+
+CRITICAL — WORK IT OUT FOR REAL: You must actually READ THE NUMBERS in each problem from the photo and
+compute the real result yourself. Every field must contain the REAL, FILLED-IN content for THIS SPECIFIC
+problem — never a generic template, a placeholder word, or angle brackets like <...>. If you are unsure
+of a number in the photo, make your best careful reading of it and still give one concrete real answer —
+never leave a field empty or generic.
+
+Here is one WORKED EXAMPLE showing the field style for a problem like "What fraction of this circle,
+split into 4 equal parts, is shaded, if 3 parts are shaded?" (yours will use the actual numbers/problem
+from the photo, not this one):
+{"problem": "What fraction of the circle (4 equal parts) is shaded if 3 parts are coloured?", ${exampleFields}}
 
 STRICT SAFETY RULES:
 - If the photo does NOT show school mathematics homework (a different subject, a random object, a
@@ -628,8 +682,18 @@ STRICT SAFETY RULES:
 - ONLY school MATHEMATICS. Warm, encouraging, simple English suited to ${lvl}. Never shame any
   mistake already written on the page.
 - Do NOT include links, web addresses, or brand names anywhere in the reply.
-- Reply with ONLY this JSON, nothing else:
-{"isMathHomework": true or false, "problems": [{"problem": "<transcribed question>", ${shape}}]}`;
+- Reply with ONLY this JSON, nothing else, with every field filled in for real:
+{"isMathHomework": true or false, "problems": [{"problem": "<the real transcribed question>", ${exampleFields}}]}`;
+}
+
+/** True if a model-generated string looks like a leaked prompt placeholder
+ *  (e.g. "<final answer>", "...", "TBD") instead of real, filled-in content. */
+function looksLikePlaceholder(s) {
+  const t = String(s || "").trim();
+  if (!t) return true;
+  if (/[<>]/.test(t)) return true; // angle-bracket placeholders like <final answer>
+  if (/^(tbd|n\/a|na|todo|placeholder|answer here|your answer|xxx+|\.{2,})$/i.test(t)) return true;
+  return false;
 }
 
 /** Sanitize + validate the model's homework-photo response (pure, testable). */
@@ -646,16 +710,16 @@ function validateHomeworkResponse(obj, mode) {
     if (problem.length < 2 || problem.length > 400 || hasLink(problem)) continue;
     if (md === "solve") {
       const steps = Array.isArray(raw.steps)
-        ? raw.steps.map((x) => String(x).trim()).filter((x) => x && x.length <= 300 && !hasLink(x)).slice(0, 10)
+        ? raw.steps.map((x) => String(x).trim()).filter((x) => x && x.length <= 300 && !hasLink(x) && !looksLikePlaceholder(x)).slice(0, 10)
         : [];
       const answer = String(raw.answer || "").trim();
-      if (!steps.length || !answer || answer.length > 200 || hasLink(answer)) continue;
+      if (!steps.length || !answer || answer.length > 200 || hasLink(answer) || looksLikePlaceholder(answer)) continue;
       problems.push({ problem, steps, answer });
     } else {
       const question = String(raw.question || "").trim();
       const hint = String(raw.hint || "").trim();
-      if (question.length < 5 || question.length > 300 || !question.endsWith("?") || hasLink(question)) continue;
-      if (hint.length > 300 || hasLink(hint)) continue;
+      if (question.length < 5 || question.length > 300 || !question.endsWith("?") || hasLink(question) || looksLikePlaceholder(question)) continue;
+      if (hint.length > 300 || hasLink(hint) || looksLikePlaceholder(hint)) continue;
       problems.push({ problem, question, hint });
     }
   }
@@ -782,7 +846,7 @@ async function mistakePatternInsight(patterns) {
 
 const STRANDS = ["numbers", "operations", "fractions", "geometry", "measurement", "data"];
 // Components the offline renderer can draw (must match VisualRenderer + validator).
-const VISUAL_COMPONENTS = ["NumberLine", "BarModel", "ArrayGrid", "FractionStrip", "AreaModel", "PlaceValueBlocks", "GeometryCanvas", "ClockFace", "BarChart", "PizzaSlices", "Abacus", "ObjectRow", "NumberTrack", "FunctionPlot", "Solid3D", "Scene3D"];
+const VISUAL_COMPONENTS = ["NumberLine", "BarModel", "ArrayGrid", "FractionStrip", "AreaModel", "PlaceValueBlocks", "GeometryCanvas", "ClockFace", "BarChart", "PizzaSlices", "Abacus", "ObjectRow", "NumberTrack", "FunctionPlot", "Solid3D", "Scene3D", "ReasoningFigure", "DiceViews", "TallyMarks"];
 // A curated, easy-to-author subset the generator is allowed to emit.
 const GEN_COMPONENTS = ["NumberLine", "ArrayGrid", "BarModel", "FractionStrip", "PizzaSlices", "BarChart"];
 
@@ -1133,8 +1197,8 @@ async function generateConcept({ topic, grade, language, ground = true, verify =
 module.exports = {
   init, configure, getStatus, providers, explain, whyWrong, coach, rephraseQuestion, askTutor, generateConcept, weeklySummary, solveHomework, mistakePatternInsight,
   // pure functions exported for tests
-  buildExplainPrompt, buildWhyWrongPrompt, buildCoachPrompt, buildRephrasePrompt, coachLeaksAnswer, extractJson, validateAiResponse, cacheKey,
+  buildExplainPrompt, buildWhyWrongPrompt, buildCoachPrompt, buildRephrasePrompt, coachLeaksAnswer, extractJson, validateAiResponse, validateSteps, cacheKey,
   conceptJsonSchema, buildConceptPrompt, sanitizeConcept, validateGenerated, cleanVisual, GEN_COMPONENTS, VISUAL_COMPONENTS,
   fetchReference, verifyAnswerKeys, collectQuestions, buildWeeklySummaryPrompt,
-  buildHomeworkPrompt, validateHomeworkResponse, buildMistakePatternPrompt,
+  buildHomeworkPrompt, validateHomeworkResponse, buildMistakePatternPrompt, looksLikePlaceholder,
 };

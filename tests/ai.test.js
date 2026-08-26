@@ -1,7 +1,7 @@
 /** AI service tests — pure functions only (no network, no key needed). */
 const assert = require("assert");
 const {
-  buildExplainPrompt, buildWhyWrongPrompt, buildCoachPrompt, buildRephrasePrompt, coachLeaksAnswer, extractJson, validateAiResponse, cacheKey,
+  buildExplainPrompt, buildWhyWrongPrompt, buildCoachPrompt, buildRephrasePrompt, coachLeaksAnswer, extractJson, validateAiResponse, validateSteps, cacheKey,
   buildHomeworkPrompt, validateHomeworkResponse,
 } = require("../electron/aiService");
 
@@ -25,8 +25,8 @@ t("explain prompt embeds the verified lesson content", () => {
   assert.ok(p.includes("Equal Parts") && p.includes("LESSON JSON"));
   assert.ok(p.includes("ONLY facts, methods, and characters from the lesson"));
 });
-t("explain prompt demands strict JSON output", () =>
-  assert.ok(buildExplainPrompt(concept, "simpler").includes('{"explanation"')));
+t("explain prompt demands strict JSON output with a steps array", () =>
+  assert.ok(buildExplainPrompt(concept, "simpler").includes('{"steps"')));
 t("why-wrong prompt pins the verified answer and forbids changing it", () => {
   const p = buildWhyWrongPrompt(concept, question, "2/1", concept.commonMistakes[0]);
   assert.ok(p.includes('exactly "1/2"') && p.includes("never state a different one"));
@@ -90,6 +90,20 @@ t("accepts valid response", () => {
     { explanation: "Equal parts means every piece is exactly the same size, like fair shares of a roti." },
     [{ name: "explanation", required: true, min: 20 }]);
   assert.strictEqual(v.ok, true);
+});
+t("validateSteps accepts a clean steps array and trims/caps/drops junk", () => {
+  const v = validateSteps(["First, look at the parts.", "  ", "Then count them.  ", "see https://example.com"], { min: 1, max: 6, itemMax: 400 });
+  assert.strictEqual(v.ok, true);
+  assert.deepStrictEqual(v.steps, ["First, look at the parts.", "Then count them."]);
+});
+t("validateSteps rejects a non-array or an all-empty/link-only array", () => {
+  assert.strictEqual(validateSteps("not an array").ok, false);
+  assert.strictEqual(validateSteps([]).ok, false);
+  assert.strictEqual(validateSteps(["   ", "https://example.com"]).ok, false);
+});
+t("validateSteps caps the number of items to `max`", () => {
+  const v = validateSteps(["a", "b", "c", "d", "e", "f", "g"], { min: 1, max: 3, itemMax: 400 });
+  assert.strictEqual(v.steps.length, 3);
 });
 t("cache key is stable and distinct", () => {
   assert.strictEqual(cacheKey("explain", "c1", "story"), cacheKey("explain", "c1", "story"));

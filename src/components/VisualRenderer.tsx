@@ -16,6 +16,7 @@ import { NumberTrack, TrackSpec } from "./NumberTrack";
 import { FunctionPlot, PlotSpec } from "./FunctionPlot";
 import { ReasoningFigure, FigurePanelSpec } from "./ReasoningFigure";
 import { DiceViews, DiceSpec } from "./DiceViews";
+import { TallyMarks, TallySpec } from "./TallyMarks";
 import type { SolidSpec } from "./Solid3D";
 import type { Scene3DSpec } from "./Scene3D";
 // Three.js 3D visuals are code-split — only loaded when a 3D visual actually appears.
@@ -116,6 +117,8 @@ function VisualSwitch({ visual, compact }: { visual: VisualSpec; compact?: boole
       return <ReasoningFigure panels={visual.props.panels as FigurePanelSpec[]} caption={visual.caption} />;
     case "DiceViews":
       return <DiceViews dice={visual.props.dice as DiceSpec[]} caption={visual.caption} />;
+    case "TallyMarks":
+      return <TallyMarks tallies={visual.props.tallies as TallySpec[]} caption={visual.caption} />;
     default:
       // Unknown component: fail soft, never break a lesson
       return visual.caption ? <p className="fm-callout">{visual.caption}</p> : null;

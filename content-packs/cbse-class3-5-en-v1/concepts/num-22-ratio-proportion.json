@@ -148,6 +148,16 @@
       "Sharing in a : b: add the parts, find one part = total ÷ (a+b), then multiply."
     ]
   },
+  "mentalMathMethod": {
+    "name": "Halve-and-Compare Shortcut",
+    "whenToUse": "Quickly simplifying a ratio or checking if two ratios are equal, without full HCF work.",
+    "steps": [
+      "If both numbers are even, halve them together and repeat until one turns odd.",
+      "If both end in 0 or 5, divide both by 5 instead.",
+      "Keep shrinking both parts the same way until no obvious common factor is left — that's your simplest ratio."
+    ],
+    "example": "Simplify 84 : 36 — both even: halve to 42:18, halve again to 21:9. Both divisible by 3: 7:3. So 84:36 = 7:3."
+  },
   "workedExamples": [
     {
       "problem": "Share ₹500 between Riya and Sam in the ratio 2 : 3.",

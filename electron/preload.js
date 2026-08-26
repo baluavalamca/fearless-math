@@ -44,4 +44,12 @@ contextBridge.exposeInMainWorld("fm", {
   createConcept: (p) => ipcRenderer.invoke("concept:create", p),
   listUserConcepts: () => ipcRenderer.invoke("concept:listUser"),
   deleteConcept: (id) => ipcRenderer.invoke("concept:delete", id),
+  pickVideoFile: (conceptId) => ipcRenderer.invoke("video:pick", conceptId),
+  removeVideoLocalFile: (conceptId, localFile) => ipcRenderer.invoke("video:removeLocalFile", conceptId, localFile),
+  getVideoFileUrl: (localFile) => ipcRenderer.invoke("video:fileUrl", localFile),
+  getVideoOverride: (conceptId) => ipcRenderer.invoke("video:override", conceptId),
+  generateVeoPrompt: (conceptId) => ipcRenderer.invoke("video:veoPrompt", conceptId),
+  addVideoYoutubeUrl: (conceptId, url) => ipcRenderer.invoke("video:addYoutube", conceptId, url),
+  removeVideoYoutubeUrl: (conceptId, youtubeId) => ipcRenderer.invoke("video:removeYoutube", conceptId, youtubeId),
+  openExternalLink: (url) => ipcRenderer.invoke("link:openExternal", url),
 });

@@ -136,10 +136,22 @@
     "kind": "graph2d",
     "shape": "linear",
     "sliders": [
-      { "key": "m", "label": "Speed (km/h)", "min": 10, "max": 100, "step": 10, "default": 60, "unit": "km/h" }
+      {
+        "key": "m",
+        "label": "Speed (km/h)",
+        "min": 10,
+        "max": 100,
+        "step": 10,
+        "default": 60,
+        "unit": "km/h"
+      }
     ],
     "formulas": [
-      { "name": "Distance in 3 hours", "expr": "m*3", "unit": "km" }
+      {
+        "name": "Distance in 3 hours",
+        "expr": "m*3",
+        "unit": "km"
+      }
     ],
     "color": "accent"
   },
@@ -371,5 +383,62 @@
       "name": "Time",
       "formula": "T = D / S"
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Speed Street Maze",
+      "instructions": "Use Speed = Distance ÷ Time (and its flip sides) to find your way.",
+      "forks": [
+        {
+          "q": {
+            "id": "sp1",
+            "q": "A car travels 120 km in 2 hours. Speed = ?",
+            "answer": "60 km/h",
+            "hintLadder": [
+              "Speed = Distance ÷ Time.",
+              "120 ÷ 2 = ?"
+            ]
+          },
+          "branches": [
+            "60 km/h",
+            "240 km/h"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "sp2",
+            "q": "A car travels at 40 km/h for 3 hours. Distance = ?",
+            "answer": "120 km",
+            "hintLadder": [
+              "Distance = Speed × Time.",
+              "40 × 3 = ?"
+            ]
+          },
+          "branches": [
+            "120 km",
+            "43 km"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "sp3",
+            "q": "A car travels 100 km at 50 km/h. Time taken = ?",
+            "answer": "2 hours",
+            "hintLadder": [
+              "Time = Distance ÷ Speed.",
+              "100 ÷ 50 = ?"
+            ]
+          },
+          "branches": [
+            "2 hours",
+            "5 hours"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Speed Street 🏎️"
+    }
+  }
 }

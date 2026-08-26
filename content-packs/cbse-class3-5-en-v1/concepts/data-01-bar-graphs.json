@@ -582,5 +582,33 @@
       "q": "Bar graph or pictograph?",
       "a": "Bars show exact amounts on a scale; pictographs use pictures where each stands for a number."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Graph Terms Match-Up",
+      "instructions": "Match each graph term to what it means.",
+      "pairs": [
+        {
+          "id": "pict",
+          "left": "Pictograph",
+          "right": "Uses symbols/pictures to show data"
+        },
+        {
+          "id": "bar",
+          "left": "Bar graph",
+          "right": "Uses bars of different heights"
+        },
+        {
+          "id": "key",
+          "left": "Key",
+          "right": "Tells what each symbol stands for"
+        },
+        {
+          "id": "axis",
+          "left": "Axis",
+          "right": "The line labelled with categories or numbers"
+        }
+      ]
+    }
+  }
 }

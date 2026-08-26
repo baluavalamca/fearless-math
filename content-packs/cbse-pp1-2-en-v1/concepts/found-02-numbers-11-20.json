@@ -563,5 +563,33 @@
       "q": "What makes 11 and 12 tricky?",
       "a": "They do not say their parts clearly like the others - you just learn 'eleven' and 'twelve' by heart."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Teen Number Match-Up",
+      "instructions": "Match each teen number to how many tens and ones it has.",
+      "pairs": [
+        {
+          "id": "13",
+          "left": "13",
+          "right": "1 ten and 3 ones"
+        },
+        {
+          "id": "17",
+          "left": "17",
+          "right": "1 ten and 7 ones"
+        },
+        {
+          "id": "20",
+          "left": "20",
+          "right": "2 tens and 0 ones"
+        },
+        {
+          "id": "15",
+          "left": "15",
+          "right": "1 ten and 5 ones"
+        }
+      ]
+    }
+  }
 }

@@ -323,5 +323,62 @@
       "q": "Does 3 x 4 equal 4 x 3?",
       "a": "Yes! 3 groups of 4 and 4 groups of 3 both make 12. You can swap them."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Fair Share Farm Maze",
+      "instructions": "Solve each equal-groups problem to make your way through the farm.",
+      "forks": [
+        {
+          "q": {
+            "id": "g1",
+            "q": "3 baskets, 4 apples in each — how many apples altogether?",
+            "answer": "12",
+            "hintLadder": [
+              "Add 4 three times: 4 + 4 + 4.",
+              "Or count: 3 groups of 4."
+            ]
+          },
+          "branches": [
+            "12",
+            "7"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "g2",
+            "q": "12 sweets shared equally among 4 friends — how many does each friend get?",
+            "answer": "3",
+            "hintLadder": [
+              "Share one at a time into 4 piles.",
+              "4 x ? = 12"
+            ]
+          },
+          "branches": [
+            "3",
+            "4"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "g3",
+            "q": "4 plates, 2 cookies on each — how many cookies altogether?",
+            "answer": "8",
+            "hintLadder": [
+              "Add 2 four times.",
+              "4 groups of 2 = ?"
+            ]
+          },
+          "branches": [
+            "6",
+            "8"
+          ],
+          "correctBranch": 1
+        }
+      ],
+      "goalLabel": "Fair Share Farm 🐓"
+    }
+  }
 }

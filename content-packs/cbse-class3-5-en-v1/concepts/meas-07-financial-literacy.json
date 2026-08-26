@@ -340,5 +340,62 @@
       "q": "Need or want?",
       "a": "A need is essential (food, school); a want is nice-to-have (a toy). Budget needs first."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Budget Bazaar Maze",
+      "instructions": "Work out profit, loss, or savings to find your way through the bazaar.",
+      "forks": [
+        {
+          "q": {
+            "id": "fl1",
+            "q": "Bought for ₹120, sold for ₹150. Profit or loss, and how much?",
+            "answer": "Profit ₹30",
+            "hintLadder": [
+              "Compare selling price to cost price.",
+              "150 - 120 = 30, and selling for more means a profit."
+            ]
+          },
+          "branches": [
+            "Profit ₹30",
+            "Loss ₹30"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "fl2",
+            "q": "Bought for ₹100, sold for ₹80. Profit or loss, and how much?",
+            "answer": "Loss ₹20",
+            "hintLadder": [
+              "Compare selling price to cost price.",
+              "100 - 80 = 20, and selling for less means a loss."
+            ]
+          },
+          "branches": [
+            "Profit ₹20",
+            "Loss ₹20"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "fl3",
+            "q": "Income ₹500, expenses ₹350. Savings = ?",
+            "answer": "₹150",
+            "hintLadder": [
+              "Savings = income minus expenses.",
+              "500 - 350 = ?"
+            ]
+          },
+          "branches": [
+            "₹150",
+            "₹850"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Budget Bazaar 🏪"
+    }
+  }
 }

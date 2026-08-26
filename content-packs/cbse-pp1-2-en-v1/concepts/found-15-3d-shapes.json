@@ -355,5 +355,33 @@
       "q": "Which 3D shapes roll?",
       "a": "Sphere, cylinder, and cone - they have curved surfaces. A cube will not roll."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Solid Shapes Match-Up",
+      "instructions": "Match each solid shape to what makes it special.",
+      "pairs": [
+        {
+          "id": "sphere",
+          "left": "Sphere",
+          "right": "Rolls everywhere, no flat faces"
+        },
+        {
+          "id": "cube",
+          "left": "Cube",
+          "right": "6 flat square faces, like a dice"
+        },
+        {
+          "id": "cylinder",
+          "left": "Cylinder",
+          "right": "Can roll or stand, 2 flat circle ends"
+        },
+        {
+          "id": "cone",
+          "left": "Cone",
+          "right": "Pointed top, flat circle base"
+        }
+      ]
+    }
+  }
 }

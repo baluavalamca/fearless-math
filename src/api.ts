@@ -66,6 +66,69 @@ export interface Concept {
   formulas?: { name: string; formula: string; remember?: string; whenToUse?: string }[];
   gameMission?: { world: string; title: string; brief: string; character?: string };
   realLifeProject?: string;
+  /** Optional video resource for this concept: a locally-attached MP3/MP4 file (copied into
+   *  the app's own storage), a YouTube link (played in-app via a privacy-enhanced embedded
+   *  player, with a "watch on YouTube" fallback), and/or an auto-generated Google Veo prompt
+   *  a parent can use to create a short explainer clip. A parent can attach a YouTube link to
+   *  ANY concept at runtime (via video:setYoutube) even if the content pack authored none here. */
+  video?: {
+    /** Approximate duration of the attached/linked video, in seconds. */
+    time?: number;
+    /** Relative path (within the app's userData/videos folder) to a locally-attached MP3/MP4 file. */
+    localFile?: string;
+    /** A YouTube video URL for this concept, played in-app via an embedded player. */
+    youtubeUrl?: string;
+    /** Auto-generated (or hand-tuned) prompt for Google Veo to create a short (<=8s) explainer clip. */
+    veoPrompt?: string;
+  };
+  /** Activity-book style practice — the playful formats real math activity books use
+   *  (dot-to-dot, tracing, mazes, color-by-answer, match-up), reimagined as click-based
+   *  interactions. Optional and independent: a concept can offer any subset. Each format
+   *  is graded (right/wrong), not just decorative, so it still counts as real practice. */
+  activityBook?: {
+    /** Click the dots in the correct order (usually a skip-count sequence) to reveal a picture. */
+    dotToDot?: {
+      title: string;
+      instructions: string;
+      /** Dots IN SOLVE ORDER. x/y are percent coordinates (0-100) within a 100x100 board. */
+      dots: { x: number; y: number; label: string }[];
+      /** Shown after completion, e.g. "You revealed a Star!". */
+      revealName?: string;
+    };
+    /** Click the stroke-order dots along a numeral/shape outline to "trace" it. */
+    traceIt?: {
+      title: string;
+      instructions: string;
+      /** What's being traced, shown big and faint behind the dots (e.g. "5", "△"). */
+      glyph: string;
+      /** Points IN STROKE ORDER, percent coordinates (0-100) within a 100x100 board. */
+      points: { x: number; y: number }[];
+    };
+    /** A short branching path: solve the question at each fork to head toward the goal. */
+    maze?: {
+      title: string;
+      instructions: string;
+      goalLabel: string;
+      forks: { q: Question; branches: [string, string]; correctBranch: 0 | 1 }[];
+    };
+    /** Solve each region's question, match the answer to a legend color, then click to fill it. */
+    colorByAnswer?: {
+      title: string;
+      instructions: string;
+      /** viewBox for the SVG picture, default "0 0 200 200" if omitted. */
+      viewBox?: string;
+      /** key -> swatch color + which answer value maps to that key. */
+      legend: { key: string; color: string; matchAnswer: string }[];
+      /** Each region is one SVG <path> `d` string gated by its own question. */
+      regions: { id: string; d: string; q: Question }[];
+    };
+    /** Click a left card then its matching right card to connect equivalent pairs. */
+    matchUp?: {
+      title: string;
+      instructions: string;
+      pairs: { id: string; left: string; right: string }[];
+    };
+  };
 }
 
 export interface Verdict {
@@ -191,8 +254,38 @@ interface FmBridge {
   createConcept(p: { topic: string; grade?: number; language?: string; ground?: boolean; verify?: boolean }): Promise<CreateConceptResult>;
   listUserConcepts(): Promise<(ConceptCard & { whatIsIt?: string })[]>;
   deleteConcept(id: string): Promise<{ ok: boolean; reason?: string }>;
+  pickVideoFile(conceptId: string): Promise<PickVideoResult>;
+  removeVideoLocalFile(conceptId: string, localFile: string): Promise<RemoveLocalFileResult>;
+  getVideoFileUrl(localFile: string): Promise<string | null>;
+  getVideoOverride(conceptId: string): Promise<VideoOverride>;
+  generateVeoPrompt(conceptId: string): Promise<GenerateVeoPromptResult>;
+  addVideoYoutubeUrl(conceptId: string, url: string): Promise<AddYoutubeResult>;
+  removeVideoYoutubeUrl(conceptId: string, youtubeId: string): Promise<RemoveYoutubeResult>;
+  openExternalLink(url: string): Promise<{ ok: boolean }>;
 }
 
+export interface VideoLocalFile { file: string; name: string }
+export interface VideoYoutubeEntry { id: string; url: string }
+export interface VideoOverride { localFiles: VideoLocalFile[]; youtubeVideos: VideoYoutubeEntry[] }
+export interface PickVideoResult { ok: boolean; localFile?: string; localFiles?: VideoLocalFile[]; reason?: string }
+export interface RemoveLocalFileResult { ok: boolean; localFiles?: VideoLocalFile[]; reason?: string }
+/** One 5s scene in a Veo prompt pack: a visual PROMPT line and a spoken
+ *  VOICE-OVER line, shown to the parent as its own collapsible panel. */
+export interface VeoClip { label: string; prompt: string; voiceOver: string }
+export interface GenerateVeoPromptResult {
+  ok: boolean;
+  /** Flattened plain-text version of the whole pack (header + all clips + footer) — used for "Copy all" and stored as the static concept.video.veoPrompt field. */
+  prompt?: string;
+  /** Intro/how-to-use text shown above the clip list. */
+  header?: string;
+  /** The 6 scenes, each rendered as its own collapsible panel with its own copy button. */
+  clips?: VeoClip[];
+  /** "Tips for the most accurate result" text shown below the clip list. */
+  footer?: string;
+  reason?: string;
+}
+export interface AddYoutubeResult { ok: boolean; youtubeId?: string; youtubeVideos?: VideoYoutubeEntry[]; duplicate?: boolean; reason?: string }
+export interface RemoveYoutubeResult { ok: boolean; youtubeVideos?: VideoYoutubeEntry[]; reason?: string }
 export interface SttResult { ok: boolean; transcript?: string; language?: string | null; error?: string }
 export interface CreateConceptResult { ok: boolean; card?: ConceptCard; reason?: string; grounded?: string | null; verifiedFixed?: number }
 
@@ -214,11 +307,11 @@ export const sarvamUsable = (s: MediaStatus | null) => !!s && s.voice.provider =
 
 export interface AiStatus { enabled: boolean; provider: string; model?: string; effectiveModel?: string; hasKey: boolean; online: boolean; local?: boolean; ready?: boolean; baseUrl?: string; defaultUrl?: string }
 export interface ProviderInfo { id: string; label: string; kind: string; keyHint?: string; defaultModel: string; models: string[]; local?: boolean; defaultUrl?: string }
-export interface AiExplain { ok: boolean; reason?: string; explanation?: string; example?: string }
+export interface AiExplain { ok: boolean; reason?: string; steps?: string[]; example?: string }
 export interface AiWhyWrong { ok: boolean; reason?: string; explanation?: string; encouragement?: string }
 export interface AiCoach { ok: boolean; reason?: string; question?: string; diagnosis?: string; encouragement?: string }
 export interface AiRephrase { ok: boolean; reason?: string; question?: string }
-export interface AiAsk { ok: boolean; reason?: string; onTopic?: boolean; answer?: string; example?: string; tryYourself?: string; cached?: boolean }
+export interface AiAsk { ok: boolean; reason?: string; onTopic?: boolean; steps?: string[]; example?: string; tryYourself?: string; cached?: boolean }
 export interface HomeworkProblem {
   problem: string;
   /** Present in "solve" mode. */

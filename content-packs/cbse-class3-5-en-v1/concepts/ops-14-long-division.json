@@ -540,5 +540,62 @@
       "q": "What if a digit is too small to divide?",
       "a": "Put a 0 in the answer for that place and bring down the next digit to make a bigger number."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Long Division Lane Maze",
+      "instructions": "Share the tens, then the ones, to solve each and find your way.",
+      "forks": [
+        {
+          "q": {
+            "id": "ld1",
+            "q": "84 ÷ 4 = ?",
+            "answer": "21",
+            "hintLadder": [
+              "Share the 8 tens: 8÷4=2 tens.",
+              "Share the 4 ones: 4÷4=1 one. Answer: 21."
+            ]
+          },
+          "branches": [
+            "21",
+            "24"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "ld2",
+            "q": "96 ÷ 3 = ?",
+            "answer": "32",
+            "hintLadder": [
+              "Share the 9 tens: 9÷3=3 tens.",
+              "Share the 6 ones: 6÷3=2 ones. Answer: 32."
+            ]
+          },
+          "branches": [
+            "32",
+            "23"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "ld3",
+            "q": "78 ÷ 6 = ?",
+            "answer": "13",
+            "hintLadder": [
+              "Share the 7 tens: 6 goes in once, 1 ten left over.",
+              "Trade the leftover ten for 10 ones: 18÷6=3. Answer: 13."
+            ]
+          },
+          "branches": [
+            "13",
+            "14"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Long Division Lane 🛤️"
+    }
+  }
 }

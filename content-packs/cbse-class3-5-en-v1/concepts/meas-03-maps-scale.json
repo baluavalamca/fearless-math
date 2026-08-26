@@ -171,10 +171,22 @@
     "kind": "graph2d",
     "shape": "linear",
     "sliders": [
-      { "key": "m", "label": "Scale (km per cm)", "min": 1, "max": 25, "step": 1, "default": 5, "unit": "km/cm" }
+      {
+        "key": "m",
+        "label": "Scale (km per cm)",
+        "min": 1,
+        "max": 25,
+        "step": 1,
+        "default": 5,
+        "unit": "km/cm"
+      }
     ],
     "formulas": [
-      { "name": "Real distance for 4 cm", "expr": "m*4", "unit": "km" }
+      {
+        "name": "Real distance for 4 cm",
+        "expr": "m*4",
+        "unit": "km"
+      }
     ],
     "color": "cool"
   },
@@ -547,5 +559,62 @@
       "q": "How do I find real distance?",
       "a": "Measure on the map, then multiply by the scale number."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Map Quest Maze",
+      "instructions": "Use the scale to find the real distance and find your way.",
+      "forks": [
+        {
+          "q": {
+            "id": "ms1",
+            "q": "Scale is 1 cm = 5 km. Map distance is 3 cm. Real distance = ?",
+            "answer": "15 km",
+            "hintLadder": [
+              "Multiply the map distance by what 1 cm stands for.",
+              "3 × 5 = ?"
+            ]
+          },
+          "branches": [
+            "15 km",
+            "8 km"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "ms2",
+            "q": "Scale is 1 cm = 10 km. Map distance is 4 cm. Real distance = ?",
+            "answer": "40 km",
+            "hintLadder": [
+              "Multiply the map distance by what 1 cm stands for.",
+              "4 × 10 = ?"
+            ]
+          },
+          "branches": [
+            "14 km",
+            "40 km"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "ms3",
+            "q": "Scale is 1 cm = 2 km. Map distance is 6 cm. Real distance = ?",
+            "answer": "12 km",
+            "hintLadder": [
+              "Multiply the map distance by what 1 cm stands for.",
+              "6 × 2 = ?"
+            ]
+          },
+          "branches": [
+            "12 km",
+            "8 km"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Map Quest 🗺️"
+    }
+  }
 }

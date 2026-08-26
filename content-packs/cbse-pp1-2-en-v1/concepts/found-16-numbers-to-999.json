@@ -320,5 +320,62 @@
       "q": "What is the biggest 3-digit number?",
       "a": "999 - nine hundreds, nine tens, nine ones. Add one more and you get 1000."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Number City Maze",
+      "instructions": "Use place value to solve each question and find your way.",
+      "forks": [
+        {
+          "q": {
+            "id": "pv1",
+            "q": "Which number has 3 hundreds?",
+            "answer": "345",
+            "hintLadder": [
+              "Look at the digit in the hundreds place.",
+              "345 has a 3 in the hundreds spot."
+            ]
+          },
+          "branches": [
+            "345",
+            "543"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "pv2",
+            "q": "What is the value of the 6 in 462?",
+            "answer": "60",
+            "hintLadder": [
+              "Find the place the 6 sits in.",
+              "6 is in the tens place, so it's worth 6 tens."
+            ]
+          },
+          "branches": [
+            "6",
+            "60"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "pv3",
+            "q": "Which is bigger: 289 or 298?",
+            "answer": "298",
+            "hintLadder": [
+              "Compare the tens digit first — they match here.",
+              "Compare the ones digit: 8 or 9?"
+            ]
+          },
+          "branches": [
+            "289",
+            "298"
+          ],
+          "correctBranch": 1
+        }
+      ],
+      "goalLabel": "Number City 🏙️"
+    }
+  }
 }

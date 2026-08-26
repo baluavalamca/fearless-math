@@ -348,5 +348,62 @@
       "formula": "middle value when sorted",
       "remember": "Even count -> average the two middles"
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Statistics Square Maze",
+      "instructions": "Find the median, mode, or range to find your way.",
+      "forks": [
+        {
+          "q": {
+            "id": "st1",
+            "q": "Find the median of 3, 7, 9, 12, 15 (already in order).",
+            "answer": "9",
+            "hintLadder": [
+              "The median is the middle value.",
+              "With 5 numbers, the middle one is the 3rd."
+            ]
+          },
+          "branches": [
+            "9",
+            "7"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "st2",
+            "q": "Find the mode of 2, 4, 4, 6, 8.",
+            "answer": "4",
+            "hintLadder": [
+              "The mode is the number that appears most often.",
+              "4 appears twice — more than any other."
+            ]
+          },
+          "branches": [
+            "4",
+            "6"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "st3",
+            "q": "Find the range of 5, 12, 8, 20, 3.",
+            "answer": "17",
+            "hintLadder": [
+              "Range = biggest minus smallest.",
+              "20 - 3 = ?"
+            ]
+          },
+          "branches": [
+            "17",
+            "15"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Statistics Square 📐"
+    }
+  }
 }

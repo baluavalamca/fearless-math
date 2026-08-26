@@ -556,7 +556,12 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "operation": { "kind": "addSubtract", "a": 27, "b": 18, "op": "add" }
+        "operation": {
+          "kind": "addSubtract",
+          "a": 27,
+          "b": 18,
+          "op": "add"
+        }
       },
       "caption": "Ones overflow → carry one bead to the tens rod."
     }
@@ -584,5 +589,62 @@
       "q": "Which column do I start with?",
       "a": "The ones (rightmost), then move left, so carries land in a column you have not added yet."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Carry Castle Maze",
+      "instructions": "Solve each regrouping addition and pick the path that carries you forward.",
+      "forks": [
+        {
+          "q": {
+            "id": "ar1",
+            "q": "27 + 15 = ?",
+            "answer": "42",
+            "hintLadder": [
+              "Add ones: 7+5=12, carry 1 ten.",
+              "Add tens: 2+1+1(carried)=4. Answer: 42."
+            ]
+          },
+          "branches": [
+            "42",
+            "32"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "ar2",
+            "q": "48 + 36 = ?",
+            "answer": "84",
+            "hintLadder": [
+              "Add ones: 8+6=14, carry 1 ten.",
+              "Add tens: 4+3+1(carried)=8. Answer: 84."
+            ]
+          },
+          "branches": [
+            "74",
+            "84"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "ar3",
+            "q": "59 + 24 = ?",
+            "answer": "83",
+            "hintLadder": [
+              "Add ones: 9+4=13, carry 1 ten.",
+              "Add tens: 5+2+1(carried)=8. Answer: 83."
+            ]
+          },
+          "branches": [
+            "83",
+            "73"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Carry Castle 🏰"
+    }
+  }
 }

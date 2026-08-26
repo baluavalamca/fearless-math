@@ -313,5 +313,62 @@
       "q": "Do I need a common denominator to multiply?",
       "a": "No - only for adding and subtracting. To multiply, go straight across: top x top and bottom x bottom."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Fraction Factory Maze",
+      "instructions": "Multiply or divide the fractions to find your way through the factory.",
+      "forks": [
+        {
+          "q": {
+            "id": "md1",
+            "q": "2/3 × 4/5 = ?",
+            "answer": "8/15",
+            "hintLadder": [
+              "Multiply the tops: 2×4=8.",
+              "Multiply the bottoms: 3×5=15."
+            ]
+          },
+          "branches": [
+            "8/15",
+            "6/8"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "md2",
+            "q": "1/2 × 1/4 = ?",
+            "answer": "1/8",
+            "hintLadder": [
+              "Multiply the tops: 1×1=1.",
+              "Multiply the bottoms: 2×4=8."
+            ]
+          },
+          "branches": [
+            "1/8",
+            "2/6"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "md3",
+            "q": "3/4 ÷ 1/2 = ?",
+            "answer": "3/2",
+            "hintLadder": [
+              "Dividing by a fraction: flip and multiply.",
+              "3/4 × 2/1 = 6/4 = 3/2."
+            ]
+          },
+          "branches": [
+            "3/2",
+            "3/8"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Fraction Factory 🏭"
+    }
+  }
 }

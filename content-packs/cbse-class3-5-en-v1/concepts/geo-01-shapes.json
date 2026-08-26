@@ -559,5 +559,121 @@
       "q": "Is a circle a polygon?",
       "a": "No - polygons have straight sides. A circle is one smooth curve."
     }
-  ]
+  ],
+  "video": {
+    "time": 24,
+    "veoPrompt": "Google Veo prompt pack — 6 clips x 5s each (30s total), with voice-over scripts. Generate each clip in order (Clip 1 first, then use Veo's \"Extend\" on each result for Clips 2-6) so Robo and the classroom stay consistent throughout:\n  1. Paste \"Clip 1\" into veo.google or the Gemini app and generate it.\n  2. On that result, tap \"Extend\" and paste \"Clip 2\" — do NOT start a new generation.\n  3. Keep tapping \"Extend\" and pasting the next clip (3, 4, 5, then 6) in order.\n  4. Clip 6 is what gives the video its goodbye/ending — don't stop before it.\nGlobal rules baked into every clip below: Robo is the ONLY character and the only voice — one speaker, no narrator, no background music, no extra sound effects competing with the dialogue. Numbers in the voice-over are spelled out as words (e.g. \"fifty\", not \"50\") so they're read correctly; numbers shown on screen stay as short printed digits on simple props only — never as sentences or captions.\n\nEach clip below has a PROMPT (what to paste as the visual direction) and a VOICE-OVER (the narration script to speak slowly and warmly, like reading to a young child).\n\nClip 1 (0-5s): The Welcome\nPrompt: 3D Pixar-style animation. a friendly, cute robot named Robo stands in a bright, futuristic classroom with a large glowing screen behind it. Robo waves happily at the camera, big friendly eyes, warm expressive animation. Continuous smooth camera pan. No on-screen text anywhere.\nVoice-over: Robo says (single speaker, warm and slow): \"Hi friends! I'm Robo! Today we're going to learn about 2D Shapes and Their Properties. Name 2D shapes by their sides and corners\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 2 (5-10s): The First Idea\nPrompt: Continuous shot in the same bright classroom. Robo points at the glowing screen, where a simple, easy-to-follow picture or diagram lights up in sync with what Robo is saying — one clear visual only, no sentences or words rendered on screen.\nVoice-over: Robo says (single speaker, warm and slow): \"Let's start simple. Count the SIDES (straight edges).\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 3 (10-15s): The Next Idea\nPrompt: Continuous shot. Robo watches excitedly and gestures as the screen updates with a second, slightly bigger or contrasting picture that builds on the first one, still one clear visual at a time, no on-screen text.\nVoice-over: Robo says (single speaker, warm and slow): \"Now here's the next part. Count the CORNERS (where sides meet).\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 4 (15-20s): Practice Time\nPrompt: Continuous shot. Robo points at the glowing screen, where a single large, simple printed number (like a signboard or scoreboard digit — not a sentence) appears. Robo tilts its head as if thinking, then nods and smiles as a green checkmark and a little sparkle effect appear next to it.\nVoice-over: Robo says (single speaker, warm and slow): \"Let's try one together. Which shape has exactly three sides and three corners? ... That's it — Triangle!\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 5 (20-25s): One More Practice\nPrompt: Continuous shot. A new single large printed number appears on the glowing screen the same way as before. Robo cheers and jumps slightly with excitement as the checkmark and sparkle effect appear.\nVoice-over: Robo says (single speaker, warm and slow): \"You're doing great! One more: All four sides of a shape are equal, and its corners are square. What is it? ... Yes! A square (and it's also a special rectangle!)! Well done!\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 6 (25-30s): The Goodbye\nPrompt: Continuous shot in the same classroom, the glowing screen visible in the background. Robo turns back to face the camera, clapping its metal hands happily, and waves goodbye. Smooth fade out. No on-screen text.\nVoice-over: Robo says (single speaker, warm and slow): \"Great job today! Remember: Name shapes by properties: triangle three sides/corners; rectangle four sides, opposite equal; square equals special rectangle, ALL sides equal; circle equals no corners, one curve. Tilting never changes a shape's name!. See you next time — bye bye!\" (no subtitles, no on-screen captions of the spoken words)\n\nTips for the most accurate result (Veo is a generative model — no prompt guarantees a perfect take every single time):\n  - Generate each clip 2-3 times and keep the best take; accuracy varies generation to generation.\n  - If a word still comes out wrong, try spelling it phonetically in the Voice-over line and regenerate.\n  - For lessons where every word must be exact, you can mute Veo's built-in audio on export and record your own narration over it instead — reading the Voice-over lines aloud, or using this app's own \"Speak\" voice."
+  },
+  "activityBook": {
+    "matchUp": {
+      "title": "Match the Shape",
+      "instructions": "Match each shape to what makes it special.",
+      "pairs": [
+        {
+          "id": "triangle",
+          "left": "Triangle △",
+          "right": "3 sides, 3 corners"
+        },
+        {
+          "id": "square",
+          "left": "Square ▢",
+          "right": "4 equal sides, 4 corners"
+        },
+        {
+          "id": "rectangle",
+          "left": "Rectangle ▭",
+          "right": "4 sides, opposite sides equal"
+        },
+        {
+          "id": "circle",
+          "left": "Circle ◯",
+          "right": "No corners — one curved edge"
+        }
+      ]
+    },
+    "colorByAnswer": {
+      "title": "Color by Corners",
+      "instructions": "Count the corners of each shape, then color it by the answer!",
+      "viewBox": "0 0 200 200",
+      "legend": [
+        {
+          "key": "A",
+          "color": "#F06292",
+          "matchAnswer": "3"
+        },
+        {
+          "key": "B",
+          "color": "#FFD54F",
+          "matchAnswer": "4"
+        },
+        {
+          "key": "C",
+          "color": "#4DD0E1",
+          "matchAnswer": "0"
+        }
+      ],
+      "regions": [
+        {
+          "id": "tri",
+          "d": "M 50 15 L 85 85 L 15 85 Z",
+          "q": {
+            "id": "ab-cba-shape-1",
+            "type": "number",
+            "q": "How many corners does a triangle have?",
+            "answer": "3",
+            "hintLadder": [
+              "Count the pointy corners.",
+              "Tri- means three.",
+              "3 corners."
+            ]
+          }
+        },
+        {
+          "id": "sq",
+          "d": "M 120 20 L 180 20 L 180 80 L 120 80 Z",
+          "q": {
+            "id": "ab-cba-shape-2",
+            "type": "number",
+            "q": "How many corners does a square have?",
+            "answer": "4",
+            "hintLadder": [
+              "Count each corner.",
+              "A square has 4 equal sides.",
+              "4 corners."
+            ]
+          }
+        },
+        {
+          "id": "rect",
+          "d": "M 15 115 L 185 115 L 185 155 L 15 155 Z",
+          "q": {
+            "id": "ab-cba-shape-3",
+            "type": "number",
+            "q": "How many corners does a rectangle have?",
+            "answer": "4",
+            "hintLadder": [
+              "Count each corner.",
+              "Like a square, but sides aren't all equal.",
+              "4 corners."
+            ]
+          }
+        },
+        {
+          "id": "circ",
+          "d": "M 82 180 A 18 18 0 1 0 118 180 A 18 18 0 1 0 82 180",
+          "q": {
+            "id": "ab-cba-shape-4",
+            "type": "number",
+            "q": "How many corners does a circle have?",
+            "answer": "0",
+            "hintLadder": [
+              "Trace the edge with your finger — any sharp corners?",
+              "It's one smooth curve.",
+              "0 corners."
+            ]
+          }
+        }
+      ]
+    }
+  }
 }

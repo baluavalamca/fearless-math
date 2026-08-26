@@ -483,5 +483,33 @@
       "q": "Why is February short?",
       "a": "It is the leftover month - 28 days, or 29 in a leap year (every 4 years)."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Calendar Match-Up",
+      "instructions": "Match each calendar fact to the correct answer.",
+      "pairs": [
+        {
+          "id": "week",
+          "left": "Days in a week",
+          "right": "7"
+        },
+        {
+          "id": "year",
+          "left": "Months in a year",
+          "right": "12"
+        },
+        {
+          "id": "monday",
+          "left": "Monday",
+          "right": "1st day of the school week"
+        },
+        {
+          "id": "weekend",
+          "left": "Saturday & Sunday",
+          "right": "The weekend"
+        }
+      ]
+    }
+  }
 }

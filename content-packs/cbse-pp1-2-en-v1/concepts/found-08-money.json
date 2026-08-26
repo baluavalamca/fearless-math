@@ -462,5 +462,33 @@
       "q": "Which coins do I count first?",
       "a": "Biggest first (notes, then big coins), then the small ones - faster, and you will not lose track."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Money Match-Up",
+      "instructions": "Match each amount to one way of making it with coins and notes.",
+      "pairs": [
+        {
+          "id": "5",
+          "left": "₹5",
+          "right": "five ₹1 coins"
+        },
+        {
+          "id": "10",
+          "left": "₹10",
+          "right": "two ₹5 coins"
+        },
+        {
+          "id": "15",
+          "left": "₹15",
+          "right": "a ₹10 note and a ₹5 coin"
+        },
+        {
+          "id": "20",
+          "left": "₹20",
+          "right": "two ₹10 notes"
+        }
+      ]
+    }
+  }
 }

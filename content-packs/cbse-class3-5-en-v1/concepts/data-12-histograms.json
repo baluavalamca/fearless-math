@@ -380,5 +380,33 @@
       "q": "What happens if I use different class-interval widths in one histogram?",
       "a": "The bar heights become misleading — a wider band naturally catches more values even if the data isn't actually denser there. Keep every interval the same width for a fair comparison."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Histogram Terms Match-Up",
+      "instructions": "Match each term to what it means.",
+      "pairs": [
+        {
+          "id": "hist",
+          "left": "Histogram",
+          "right": "Bars for continuous/measured data with no gaps"
+        },
+        {
+          "id": "ci",
+          "left": "Class interval",
+          "right": "A range of values grouped together, like 140-145cm"
+        },
+        {
+          "id": "freq",
+          "left": "Frequency",
+          "right": "How many values fall in a class interval"
+        },
+        {
+          "id": "bar",
+          "left": "Bar graph",
+          "right": "Bars for separate categories, with gaps between bars"
+        }
+      ]
+    }
+  }
 }

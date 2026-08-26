@@ -331,5 +331,62 @@
       "q": "How do I read the minutes?",
       "a": "Count in 5s from the 12: the 1 is 5 minutes, the 2 is 10, the 3 is 15 (quarter past)..."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Clock Tower Maze",
+      "instructions": "Read each clock question and pick the right time to move ahead.",
+      "forks": [
+        {
+          "q": {
+            "id": "tt1",
+            "q": "Long hand on 12, short hand on 3 — what time is it?",
+            "answer": "3 o'clock",
+            "hintLadder": [
+              "The long hand on 12 means it's an exact hour.",
+              "The short hand points to the hour."
+            ]
+          },
+          "branches": [
+            "3 o'clock",
+            "3:30"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "tt2",
+            "q": "Long hand on 6, short hand between 4 and 5 — what time is it?",
+            "answer": "4:30",
+            "hintLadder": [
+              "The long hand on 6 means half past the hour.",
+              "The short hand is between 4 and 5, so it's 4-something."
+            ]
+          },
+          "branches": [
+            "4:30",
+            "4 o'clock"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "tt3",
+            "q": "Which time is LATER: 2 o'clock or 2:30?",
+            "answer": "2:30",
+            "hintLadder": [
+              "Half past is 30 minutes after the hour.",
+              "2:30 comes after 2 o'clock."
+            ]
+          },
+          "branches": [
+            "2 o'clock",
+            "2:30"
+          ],
+          "correctBranch": 1
+        }
+      ],
+      "goalLabel": "Clock Tower 🕰️"
+    }
+  }
 }

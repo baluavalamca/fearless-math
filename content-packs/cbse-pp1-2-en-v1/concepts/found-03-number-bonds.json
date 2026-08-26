@@ -693,8 +693,12 @@
           "kind": "accumulate",
           "start": 10,
           "startLabel": "Set the whole — 10 — in beads.",
-          "parts": [-6],
-          "partLabels": ["Slide 6 beads aside as one part. The 4 left behind are the other part: 10 = 6 and 4."]
+          "parts": [
+            -6
+          ],
+          "partLabels": [
+            "Slide 6 beads aside as one part. The 4 left behind are the other part: 10 = 6 and 4."
+          ]
         }
       },
       "caption": "Ten beads split into two parts."
@@ -713,5 +717,62 @@
       "q": "Is 3+7 the same as 7+3?",
       "a": "Yes! You can add in any order - both make 10. A lovely little shortcut."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Bond Castle Maze",
+      "instructions": "Solve each bond of 10 and pick the path that leads out of the castle.",
+      "forks": [
+        {
+          "q": {
+            "id": "nb1",
+            "q": "6 and ? make a bond of 10",
+            "answer": "4",
+            "hintLadder": [
+              "Think: 6 + ? = 10",
+              "Count up from 6 to 10."
+            ]
+          },
+          "branches": [
+            "4",
+            "5"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "nb2",
+            "q": "7 and ? make a bond of 10",
+            "answer": "3",
+            "hintLadder": [
+              "Think: 7 + ? = 10",
+              "Count up from 7 to 10."
+            ]
+          },
+          "branches": [
+            "2",
+            "3"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "nb3",
+            "q": "10 is made of 8 and ?",
+            "answer": "2",
+            "hintLadder": [
+              "Think: 8 + ? = 10",
+              "Count up from 8 to 10."
+            ]
+          },
+          "branches": [
+            "3",
+            "2"
+          ],
+          "correctBranch": 1
+        }
+      ],
+      "goalLabel": "Bond Castle 🏰"
+    }
+  }
 }

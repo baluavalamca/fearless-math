@@ -557,7 +557,12 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "operation": { "kind": "addSubtract", "a": 52, "b": 27, "op": "subtract" }
+        "operation": {
+          "kind": "addSubtract",
+          "a": 52,
+          "b": 27,
+          "op": "subtract"
+        }
       },
       "caption": "Unbundle one ten into ten ones, then take away."
     }
@@ -585,5 +590,62 @@
       "q": "42 - 17, how?",
       "a": "Ones: 2-7 can't, borrow -> 12-7=5; tens: 3-1=2. Answer 25."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Borrow Bridge Maze",
+      "instructions": "Solve each regrouping subtraction and pick the path that carries you across.",
+      "forks": [
+        {
+          "q": {
+            "id": "sr1",
+            "q": "52 - 27 = ?",
+            "answer": "25",
+            "hintLadder": [
+              "Ones: can't take 7 from 2, borrow a ten.",
+              "12-7=5, then tens: 4-2=2. Answer: 25."
+            ]
+          },
+          "branches": [
+            "25",
+            "35"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "sr2",
+            "q": "81 - 46 = ?",
+            "answer": "35",
+            "hintLadder": [
+              "Ones: can't take 6 from 1, borrow a ten.",
+              "11-6=5, then tens: 7-4=3. Answer: 35."
+            ]
+          },
+          "branches": [
+            "45",
+            "35"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "sr3",
+            "q": "63 - 38 = ?",
+            "answer": "25",
+            "hintLadder": [
+              "Ones: can't take 8 from 3, borrow a ten.",
+              "13-8=5, then tens: 5-3=2. Answer: 25."
+            ]
+          },
+          "branches": [
+            "35",
+            "25"
+          ],
+          "correctBranch": 1
+        }
+      ],
+      "goalLabel": "Borrow Bridge 🌉"
+    }
+  }
 }

@@ -575,5 +575,62 @@
       "q": "What if the bottoms are different?",
       "a": "Make them the same first using equivalent fractions, THEN add the tops."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Pizza Party Maze",
+      "instructions": "Add or subtract the like fractions — just count the pieces! — to find your way.",
+      "forks": [
+        {
+          "q": {
+            "id": "al1",
+            "q": "2/8 + 3/8 = ?",
+            "answer": "5/8",
+            "hintLadder": [
+              "The bottom number stays the same.",
+              "Add the tops: 2 + 3 = 5."
+            ]
+          },
+          "branches": [
+            "5/8",
+            "5/16"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "al2",
+            "q": "4/6 + 1/6 = ?",
+            "answer": "5/6",
+            "hintLadder": [
+              "The bottom number stays the same.",
+              "Add the tops: 4 + 1 = 5."
+            ]
+          },
+          "branches": [
+            "5/12",
+            "5/6"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "al3",
+            "q": "7/10 - 3/10 = ?",
+            "answer": "4/10",
+            "hintLadder": [
+              "The bottom number stays the same.",
+              "Subtract the tops: 7 - 3 = 4."
+            ]
+          },
+          "branches": [
+            "4/10",
+            "4/20"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Pizza Party 🍕"
+    }
+  }
 }

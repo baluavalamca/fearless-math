@@ -327,5 +327,62 @@
       "q": "Fastest way to simplify?",
       "a": "Divide both by their HCF in one go. For 12/18, the HCF is 6 -> 2/3."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Lowest Terms Lane Maze",
+      "instructions": "Divide top and bottom by a common factor to simplify each fraction.",
+      "forks": [
+        {
+          "q": {
+            "id": "sf1",
+            "q": "Simplify 4/8 to lowest terms.",
+            "answer": "1/2",
+            "hintLadder": [
+              "Divide both numbers by 4.",
+              "4÷4=1 and 8÷4=2."
+            ]
+          },
+          "branches": [
+            "1/2",
+            "2/4"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "sf2",
+            "q": "Simplify 6/9 to lowest terms.",
+            "answer": "2/3",
+            "hintLadder": [
+              "Divide both numbers by 3.",
+              "6÷3=2 and 9÷3=3."
+            ]
+          },
+          "branches": [
+            "2/3",
+            "3/6"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "sf3",
+            "q": "Simplify 10/15 to lowest terms.",
+            "answer": "2/3",
+            "hintLadder": [
+              "Divide both numbers by 5.",
+              "10÷5=2 and 15÷5=3."
+            ]
+          },
+          "branches": [
+            "2/3",
+            "5/10"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Lowest Terms Lane 🛣️"
+    }
+  }
 }

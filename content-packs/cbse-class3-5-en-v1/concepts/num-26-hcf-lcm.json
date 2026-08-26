@@ -134,6 +134,16 @@
       "Check: the HCF divides both; both divide the LCM."
     ]
   },
+  "mentalMathMethod": {
+    "name": "The Product Shortcut",
+    "whenToUse": "Once you already know the HCF (or LCM) of two numbers and want the other one instantly.",
+    "steps": [
+      "Remember: HCF × LCM = the product of the two original numbers.",
+      "Multiply the two numbers together.",
+      "Divide that product by whichever one (HCF or LCM) you already know — the answer is the other one."
+    ],
+    "example": "12 and 18: product = 216. You know HCF = 6, so LCM = 216 ÷ 6 = 36."
+  },
   "workedExamples": [
     {
       "problem": "Find the HCF of 12 and 18.",

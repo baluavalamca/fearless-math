@@ -362,5 +362,70 @@
       "q": "Can numbers make patterns too?",
       "a": "Yes! 2,4,6,8 (adding 2) or 1,2,4,8 (doubling). Patterns are everywhere."
     }
-  ]
+  ],
+  "activityBook": {
+    "colorByAnswer": {
+      "title": "Pattern & Color",
+      "instructions": "Figure out what comes next in each pattern, then color it in!",
+      "viewBox": "0 0 200 200",
+      "legend": [
+        {
+          "key": "🔵",
+          "color": "#A78BFA",
+          "matchAnswer": "🔵"
+        },
+        {
+          "key": "10",
+          "color": "#95E1D3",
+          "matchAnswer": "10"
+        },
+        {
+          "key": "stomp",
+          "color": "#FFD93D",
+          "matchAnswer": "stomp"
+        }
+      ],
+      "regions": [
+        {
+          "id": "r1",
+          "d": "M10,10 L95,10 L95,190 L10,190 Z",
+          "q": {
+            "id": "p1",
+            "q": "🔴🔵🔴🔵🔴? What comes next?",
+            "answer": "🔵",
+            "hintLadder": [
+              "The pattern swaps between two colors.",
+              "After 🔴 comes 🔵."
+            ]
+          }
+        },
+        {
+          "id": "r2",
+          "d": "M100,10 L185,10 L185,95 L100,95 Z",
+          "q": {
+            "id": "p2",
+            "q": "2, 4, 6, 8, ? What comes next?",
+            "answer": "10",
+            "hintLadder": [
+              "Each number is 2 more than the last.",
+              "8 + 2 = ?"
+            ]
+          }
+        },
+        {
+          "id": "r3",
+          "d": "M100,100 L185,100 L185,190 L100,190 Z",
+          "q": {
+            "id": "p3",
+            "q": "clap, stomp, clap, stomp, clap, ? What comes next?",
+            "answer": "stomp",
+            "hintLadder": [
+              "The pattern swaps between two actions.",
+              "After clap comes stomp."
+            ]
+          }
+        }
+      ]
+    }
+  }
 }

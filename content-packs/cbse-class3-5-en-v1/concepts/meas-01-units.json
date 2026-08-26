@@ -522,5 +522,33 @@
       "q": "How are metric units linked?",
       "a": "By 10s and 1000s: 10 mm = 1 cm, 100 cm = 1 m, 1000 m = 1 km."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Units Match-Up",
+      "instructions": "Match each unit to what it measures.",
+      "pairs": [
+        {
+          "id": "metres",
+          "left": "Metres",
+          "right": "Length"
+        },
+        {
+          "id": "kilograms",
+          "left": "Kilograms",
+          "right": "Weight"
+        },
+        {
+          "id": "litres",
+          "left": "Litres",
+          "right": "How much liquid (capacity)"
+        },
+        {
+          "id": "centimetres",
+          "left": "Centimetres",
+          "right": "Short lengths"
+        }
+      ]
+    }
+  }
 }

@@ -476,5 +476,33 @@
       "q": "Is 0.5 the same as 1/2?",
       "a": "Yes - two ways of writing 'one half'. Fractions and decimals are the same thing dressed differently."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Fraction ↔ Decimal Match-Up",
+      "instructions": "Match each fraction to its decimal name.",
+      "pairs": [
+        {
+          "id": "12",
+          "left": "1/2",
+          "right": "0.5"
+        },
+        {
+          "id": "14",
+          "left": "1/4",
+          "right": "0.25"
+        },
+        {
+          "id": "310",
+          "left": "3/10",
+          "right": "0.3"
+        },
+        {
+          "id": "34",
+          "left": "3/4",
+          "right": "0.75"
+        }
+      ]
+    }
+  }
 }

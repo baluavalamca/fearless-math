@@ -1,0 +1,736 @@
+{
+  "id": "found-21-tally-marks",
+  "name": "Tally Marks — Counting in Groups of Five",
+  "grade": 2,
+  "strand": "data",
+  "prerequisites": [
+    "found-05-skip-counting"
+  ],
+  "whatIsIt": "A tally mark is one stroke ( | ) drawn for every item you count. To make big piles easy to read, we bundle strokes into groups of 5 — the 5th stroke is drawn crossing the first four diagonally, like a little gate. This makes a bundle of 5 easy to spot at a glance, so we can count fast by 5s instead of counting every single stroke by 1s.",
+  "whyNeeded": "When you're counting things quickly — votes, hands raised, cars passing by — writing a number is slow and easy to lose track of. Tally marks let you add one stroke each time something happens, and grouping them in 5s means you can total a big pile in seconds by skip counting the bundles and adding any leftovers.",
+  "realLifeUses": [
+    "Counting votes for a favourite fruit or game in class",
+    "Counting how many students chose each tiffin item",
+    "Counting cars or rickshaws passing the school gate",
+    "Counting runs scored in each over of a cricket match"
+  ],
+  "vocabulary": [
+    {
+      "term": "tally mark",
+      "meaning": "One stroke ( | ) drawn for each item counted."
+    },
+    {
+      "term": "bundle / group of 5",
+      "meaning": "Four upright strokes with the 5th stroke crossing them diagonally, like a gate."
+    },
+    {
+      "term": "tally chart",
+      "meaning": "A table that shows tally marks for two or more groups side by side, so their totals can be compared."
+    },
+    {
+      "term": "leftover strokes",
+      "meaning": "Single strokes left after counting all the full bundles of 5."
+    }
+  ],
+  "story": {
+    "title": "The Class Fruit Vote",
+    "characters": [
+      "Riya",
+      "Class Teacher Meera Ma'am"
+    ],
+    "text": "Meera Ma'am asks the class to vote for their favourite fruit — mango, apple or guava. As each hand goes up, Riya is in charge of counting. Instead of writing '1, 2, 3...' slowly, she draws one stroke for every vote. When she reaches the 5th vote for mango, she draws it crossing the first four strokes — a neat little gate! 'Now I can just count the gates by 5s and add any leftover strokes,' Riya says. By the end, mango has one full gate and two extra strokes.",
+    "extractedProblem": "Riya's tally for mango shows one full bundle of 5 strokes, plus 2 more single strokes. How many students voted for mango?",
+    "answerInStory": "7 students — one bundle of 5 plus 2 leftover strokes: 5 + 2 = 7."
+  },
+  "visual": {
+    "component": "TallyMarks",
+    "props": {
+      "tallies": [
+        {
+          "groups": [
+            {
+              "count": 7,
+              "label": "Mango"
+            },
+            {
+              "count": 4,
+              "label": "Apple"
+            },
+            {
+              "count": 3,
+              "label": "Guava"
+            }
+          ]
+        }
+      ]
+    },
+    "caption": "The class fruit vote: mango 7, apple 4, guava 3 — count each bundle of 5, then add the leftovers."
+  },
+  "teachingGallery": [
+    {
+      "title": "Tally marks — one stroke per item, grouped in 5s",
+      "note": "Every 5th stroke crosses the first four to make a bundle. Count the bundles by 5s, then add any leftovers.",
+      "examples": [
+        {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 3,
+                    "label": "Pencils"
+                  }
+                ]
+              }
+            ]
+          },
+          "caption": "3 strokes, no bundle yet — fewer than 5, so just count each stroke: 3."
+        },
+        {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 5,
+                    "label": "Runs in Over 1"
+                  }
+                ]
+              }
+            ]
+          },
+          "caption": "Exactly one full bundle — 4 strokes plus the 5th crossing them: that whole gate = 5."
+        },
+        {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 8,
+                    "label": "Cars"
+                  }
+                ]
+              }
+            ]
+          },
+          "caption": "One bundle of 5 plus 3 leftover strokes: 5 + 3 = 8."
+        },
+        {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 10,
+                    "label": "Rickshaws"
+                  }
+                ]
+              }
+            ]
+          },
+          "caption": "Two full bundles, no leftovers: 5 + 5 = 10."
+        },
+        {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 13,
+                    "label": "Students who chose puri"
+                  }
+                ]
+              }
+            ]
+          },
+          "caption": "Two full bundles plus 3 leftover strokes: 5 + 5 + 3 = 13."
+        },
+        {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 6,
+                    "label": "Cricket"
+                  },
+                  {
+                    "count": 9,
+                    "label": "Football"
+                  },
+                  {
+                    "count": 4,
+                    "label": "Badminton"
+                  }
+                ]
+              }
+            ]
+          },
+          "caption": "A tally chart of favourite games: cricket 6, football 9, badminton 4 — read each row's bundles and leftovers to compare."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Draw one stroke per item; every 5th stroke crosses the last four to make a bundle. To read a tally, count the full bundles by 5s, then add the leftover single strokes.",
+    "steps": [
+      "For each item counted, draw one upright stroke ( | ).",
+      "When you reach the 5th stroke in a group, draw it crossing the first four diagonally — that closes a bundle of 5.",
+      "Start a new bundle for the 6th item onward.",
+      "To read the total: count the full bundles by 5s (5, 10, 15...), then add any leftover single strokes at the end."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Skip count the gates",
+      "whenToUse": "When there are several full bundles and you want the fastest total.",
+      "steps": [
+        "Count only the crossed bundles: 5, 10, 15...",
+        "Add the leftover strokes, if any, to the last number.",
+        "That sum is the total."
+      ],
+      "example": "3 bundles + 2 leftover strokes: 5, 10, 15, then +2 = 17."
+    },
+    {
+      "name": "Count every stroke",
+      "whenToUse": "For very small tallies (under 5) where there is no full bundle yet.",
+      "steps": [
+        "Count each single stroke one by one.",
+        "That count is the total — no bundle needed."
+      ],
+      "example": "4 strokes = 4."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A tally chart shows apples with one bundle of 5 and 2 leftover strokes. How many apples in total?",
+      "steps": [
+        "Count the full bundles first: one bundle = 5.",
+        "Count the leftover single strokes: 2 more.",
+        "Add them together: 5 + 2.",
+        "Total = 7 apples."
+      ],
+      "answer": "7",
+      "visual": {
+        "component": "TallyMarks",
+        "props": {
+          "tallies": [
+            {
+              "groups": [
+                {
+                  "count": 7,
+                  "label": "Apples"
+                }
+              ]
+            }
+          ]
+        },
+        "caption": "One bundle of 5 plus 2 leftover strokes = 7 apples."
+      }
+    },
+    {
+      "problem": "In the class tiffin tally, chapati has 2 full bundles and no leftovers. How many students chose chapati?",
+      "steps": [
+        "Count only the full bundles: 2 bundles.",
+        "Skip count by 5s: 5, 10.",
+        "There are no leftover strokes to add.",
+        "Total = 10 students."
+      ],
+      "answer": "10",
+      "visual": {
+        "component": "TallyMarks",
+        "props": {
+          "tallies": [
+            {
+              "groups": [
+                {
+                  "count": 10,
+                  "label": "Chapati"
+                }
+              ]
+            }
+          ]
+        },
+        "caption": "Two full bundles of 5, no leftovers: 5 + 5 = 10."
+      }
+    },
+    {
+      "problem": "A tally chart shows cricket 6, football 9, badminton 4 votes for favourite game. Which game got the most votes, and how many more than badminton?",
+      "steps": [
+        "Read each tally's total: cricket 6, football 9, badminton 4.",
+        "The biggest number is football's 9 — football got the most votes.",
+        "'How many more' means subtract: 9 − 4.",
+        "Football got 5 more votes than badminton."
+      ],
+      "answer": "Football, 5 more than badminton",
+      "visual": {
+        "component": "TallyMarks",
+        "props": {
+          "tallies": [
+            {
+              "groups": [
+                {
+                  "count": 6,
+                  "label": "Cricket"
+                },
+                {
+                  "count": 9,
+                  "label": "Football"
+                },
+                {
+                  "count": 4,
+                  "label": "Badminton"
+                }
+              ]
+            }
+          ]
+        },
+        "caption": "Favourite game tally: cricket 6, football 9, badminton 4."
+      }
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "no-cross-on-fifth",
+      "mistake": "Drawing 5 (or more) plain upright strokes without crossing the 5th one diagonally, so bundles of 5 are hard to spot.",
+      "fix": "Every 5th stroke in a group must cross the previous four diagonally to close the gate. That crossed stroke is your signal to start a brand-new bundle next."
+    },
+    {
+      "mistakeTag": "uneven-strokes",
+      "mistake": "Drawing strokes too close together, touching, or unevenly spaced, which makes them hard to tell apart and count.",
+      "fix": "Space each stroke evenly with a small gap, so every stroke — and every group of 5 — is easy to count at a glance."
+    },
+    {
+      "mistakeTag": "miscount-leftovers",
+      "mistake": "Forgetting to add the leftover single strokes after counting the full bundles (e.g. saying '10' for two bundles plus 3 leftovers instead of 13).",
+      "fix": "After skip counting the full bundles by 5s, always look for extra single strokes at the end and add them on top of the bundle total."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "found-21-e1",
+        "type": "number",
+        "q": "How many strokes are shown here?",
+        "answer": "4",
+        "hintLadder": [
+          "There is no full bundle yet — fewer than 5 strokes.",
+          "Count each single stroke: 1, 2, 3, 4.",
+          "Four."
+        ],
+        "explain": "4 single strokes, no bundle needed: 4.",
+        "visual": {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 4,
+                    "label": "Pencils"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-21-e2",
+        "type": "number",
+        "q": "This tally shows one full bundle of 5 with the 5th stroke crossing the others. How many is that?",
+        "answer": "5",
+        "hintLadder": [
+          "Four upright strokes plus one crossing them make a full bundle.",
+          "A full bundle always equals 5.",
+          "Five."
+        ],
+        "explain": "One crossed bundle = 5.",
+        "visual": {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 5,
+                    "label": "Votes"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "medium": [
+      {
+        "id": "found-21-m1",
+        "type": "number",
+        "q": "This tally shows one full bundle of 5 plus 3 leftover strokes. What is the total?",
+        "answer": "8",
+        "hintLadder": [
+          "Count the full bundle first: 5.",
+          "Now add the leftover strokes: 5 + 3.",
+          "Eight."
+        ],
+        "explain": "5 (bundle) + 3 (leftovers) = 8.",
+        "visual": {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 8,
+                    "label": "Cars"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-21-m2",
+        "type": "number",
+        "q": "This tally shows two full bundles of 5 with no leftovers. What is the total?",
+        "answer": "10",
+        "hintLadder": [
+          "Skip count the bundles by 5s: 5, 10.",
+          "There are no extra single strokes.",
+          "Ten."
+        ],
+        "explain": "5 + 5 = 10.",
+        "visual": {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 10,
+                    "label": "Rickshaws"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "found-21-c1",
+        "type": "number",
+        "q": "This tally shows two full bundles of 5 plus 4 leftover strokes. What is the total?",
+        "answer": "14",
+        "hintLadder": [
+          "Skip count the bundles first: 5, 10.",
+          "Now add the leftovers: 10 + 4.",
+          "Fourteen."
+        ],
+        "explain": "5 + 5 + 4 = 14.",
+        "visual": {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 14,
+                    "label": "Runs in the Over"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-21-c2",
+        "type": "number",
+        "q": "In the tiffin tally, puri has 13 tallies and roti has 9 tallies. How many MORE students chose puri than roti?",
+        "answer": "4",
+        "hintLadder": [
+          "First read each total: puri 13, roti 9.",
+          "'How many more' means subtract: 13 − 9.",
+          "Four."
+        ],
+        "explain": "13 − 9 = 4 more students chose puri.",
+        "visual": {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 13,
+                    "label": "Puri"
+                  },
+                  {
+                    "count": 9,
+                    "label": "Roti"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "found-21-x1",
+        "type": "number",
+        "q": "This tally shows 3 single strokes with no full bundle. How many is that?",
+        "answer": "3",
+        "hintLadder": [
+          "Fewer than 5, so no crossed bundle yet.",
+          "Count each stroke: 1, 2, 3.",
+          "Three."
+        ],
+        "explain": "3 single strokes = 3.",
+        "visual": {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 3,
+                    "label": "Mangoes"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-21-x2",
+        "type": "number",
+        "q": "This tally shows one full bundle of 5 plus 1 leftover stroke. What is the total?",
+        "answer": "6",
+        "hintLadder": [
+          "One full bundle = 5.",
+          "Add the 1 leftover stroke: 5 + 1.",
+          "Six."
+        ],
+        "explain": "5 + 1 = 6.",
+        "visual": {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 6,
+                    "label": "Guavas"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-21-x3",
+        "type": "number",
+        "q": "This tally shows two full bundles of 5 plus 2 leftover strokes. What is the total?",
+        "answer": "12",
+        "hintLadder": [
+          "Skip count the bundles: 5, 10.",
+          "Add the leftovers: 10 + 2.",
+          "Twelve."
+        ],
+        "explain": "5 + 5 + 2 = 12.",
+        "visual": {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 12,
+                    "label": "Buses"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-21-x4",
+        "type": "number",
+        "q": "Cricket has 7 tallies and football has 5 tallies. How many MORE chose cricket than football?",
+        "answer": "2",
+        "hintLadder": [
+          "Read each total: cricket 7, football 5.",
+          "'How many more' means subtract: 7 − 5.",
+          "Two."
+        ],
+        "explain": "7 − 5 = 2 more chose cricket.",
+        "visual": {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 7,
+                    "label": "Cricket"
+                  },
+                  {
+                    "count": 5,
+                    "label": "Football"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-21-x5",
+        "type": "number",
+        "q": "This tally shows three full bundles of 5 with no leftovers. What is the total?",
+        "answer": "15",
+        "hintLadder": [
+          "Skip count the bundles by 5s: 5, 10, 15.",
+          "No extra single strokes to add.",
+          "Fifteen."
+        ],
+        "explain": "5 + 5 + 5 = 15.",
+        "visual": {
+          "component": "TallyMarks",
+          "props": {
+            "tallies": [
+              {
+                "groups": [
+                  {
+                    "count": 15,
+                    "label": "Students"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "teachBackPrompt": "Ask everyone at home their favourite fruit, game or colour. Draw a real tally mark for each answer, remembering to cross every 5th stroke. Then teach someone how you read the bundles by 5s and add the leftovers to find the total.",
+  "revisionCard": {
+    "summary": "A tally mark is one stroke per item. Every 5th stroke crosses the first four to close a bundle of 5. To read a tally: skip count the full bundles by 5s (5, 10, 15...), then add any leftover single strokes. A tally chart lines up several tallies with labels so you can compare totals.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Little Sprouts Meadow",
+    "title": "Counting the Class Vote",
+    "brief": "Draw tally marks for each vote, bundle every 5th stroke into a gate, and read the totals to find the class favourite.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Make a real tally chart of something at home — like how many red, blue and yellow things you can find, or how many family members like tea versus juice. Draw one stroke per item, cross every 5th stroke, then read your chart to a grown-up.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  },
+  "rememberIt": {
+    "hook": "One stroke per item; the 5th stroke crosses the gate shut.",
+    "unpack": "Tally marks are strokes bundled in 5s for fast counting — skip count the bundles by 5s, then add any leftover strokes to get the total."
+  },
+  "studentQuestions": [
+    {
+      "q": "Why does the 5th stroke cross the others?",
+      "a": "It closes a bundle of 5, so you can spot groups of 5 at a glance and count fast by skip counting instead of counting one by one."
+    },
+    {
+      "q": "How do I read a big tally quickly?",
+      "a": "Skip count all the full crossed bundles by 5s (5, 10, 15...), then add any leftover single strokes at the end."
+    }
+  ],
+  "activityBook": {
+    "colorByAnswer": {
+      "title": "Tally Marks & Color",
+      "instructions": "Count each set of tally marks, then color it in!",
+      "viewBox": "0 0 200 200",
+      "legend": [
+        {
+          "key": "8",
+          "color": "#FF6B6B",
+          "matchAnswer": "8"
+        },
+        {
+          "key": "10",
+          "color": "#95E1D3",
+          "matchAnswer": "10"
+        },
+        {
+          "key": "2",
+          "color": "#FFD93D",
+          "matchAnswer": "2"
+        }
+      ],
+      "regions": [
+        {
+          "id": "r1",
+          "d": "M10,10 L95,10 L95,190 L10,190 Z",
+          "q": {
+            "id": "tm1",
+            "q": "Count the tally marks: ┃┃┃┃ ┃┃┃ (a bundle of 5 plus 3 more)",
+            "answer": "8",
+            "hintLadder": [
+              "A full bundle of 5 tally marks counts as 5.",
+              "5 + 3 = ?"
+            ]
+          }
+        },
+        {
+          "id": "r2",
+          "d": "M100,10 L185,10 L185,95 L100,95 Z",
+          "q": {
+            "id": "tm2",
+            "q": "Count the tally marks: ┃┃┃┃ ┃┃┃┃ (two bundles of 5)",
+            "answer": "10",
+            "hintLadder": [
+              "Each bundle of 5 tally marks counts as 5.",
+              "5 + 5 = ?"
+            ]
+          }
+        },
+        {
+          "id": "r3",
+          "d": "M100,100 L185,100 L185,190 L100,190 Z",
+          "q": {
+            "id": "tm3",
+            "q": "Count the tally marks: ┃┃",
+            "answer": "2",
+            "hintLadder": [
+              "Count each single mark.",
+              "There are two marks."
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

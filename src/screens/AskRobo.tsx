@@ -15,6 +15,10 @@ import { useEffect, useRef, useState } from "react";
 import { AiStatus, ConceptCard, MediaStatus, Profile, aiUsable, api, sarvamUsable } from "../api";
 import { autoSpeak, currentSpeechLang, speak, stopSpeaking } from "../speech";
 import { RoboAvatar } from "../components/RoboAvatar";
+import { TutorText } from "../components/Math";
+import { StepCards } from "../components/ResponseWidgets";
+import { VisualRenderer, VisualSpec } from "../components/VisualRenderer";
+import { buildHomeworkVisual } from "../homeworkAids";
 import { matchLesson } from "../lessonMatch";
 import { Recorder, micSupported, startRecording } from "../voice";
 
@@ -23,13 +27,21 @@ const VOICE_MODE_KEY = "fm_askrobo_voice";
 
 type Msg = {
   role: "user" | "bot";
-  text: string;                // for user: the question; for bot: the answer
+  text: string;                // for user: the question; for bot: fallback/error text
+  steps?: string[];            // for bot: the structured step-by-step answer
   example?: string;
   tryYourself?: string;
   onTopic?: boolean;
   lesson?: { id: string; name: string } | null;
+  visual?: VisualSpec | null;  // best-effort offline visual matched to the question, if any
   error?: boolean;
 };
+
+/** Text of a bot message, flattened for read-aloud / "Read" button. */
+function botSpokenText(m: Msg): string {
+  const body = m.steps && m.steps.length ? m.steps.join(". ") : m.text;
+  return body + (m.tryYourself ? ". Now you try: " + m.tryYourself : "");
+}
 
 /** Grade-appropriate starter prompts so kids aren't staring at a blank box. */
 function starters(grade: number): string[] {
@@ -128,14 +140,19 @@ export function AskRobo({ profile, concepts, onOpen, seed, onSeedConsumed }: {
     stopSpeaking();
     try {
       const r = await api.aiAsk({ question: q, history });
-      if (r.ok && r.answer) {
-        const lesson = r.onTopic === false ? null : matchLesson(q, concepts);
-        setMsgs((prev) => [...prev, {
-          role: "bot", text: r.answer!, example: r.example, tryYourself: r.tryYourself,
-          onTopic: r.onTopic !== false, lesson,
-        }]);
-        const spoken = r.answer + (r.tryYourself ? " Now you try: " + r.tryYourself : "");
-        if (voiceMode) speak(spoken); else autoSpeak(spoken);
+      if (r.ok && r.steps && r.steps.length > 0) {
+        const onTopic = r.onTopic !== false;
+        const lesson = onTopic ? matchLesson(q, concepts) : null;
+        // Best-effort, zero-extra-cost visual: the same offline heuristic Homework
+        // Helper uses, run against the child's own question text. Fails soft to
+        // null (no visual) when nothing matches confidently.
+        const visual = onTopic ? buildHomeworkVisual(q) : null;
+        const msg: Msg = {
+          role: "bot", text: r.steps.join(" "), steps: r.steps, example: r.example, tryYourself: r.tryYourself,
+          onTopic, lesson, visual,
+        };
+        setMsgs((prev) => [...prev, msg]);
+        if (voiceMode) speak(botSpokenText(msg)); else autoSpeak(botSpokenText(msg));
       } else {
         const why =
           r.reason === "disabled" ? "The AI Tutor is switched off. A grown-up can turn it on in Parents' Corner → AI Tutor." :
@@ -195,15 +212,20 @@ export function AskRobo({ profile, concepts, onOpen, seed, onSeedConsumed }: {
             <div key={i} className="fm-ar-row bot">
               <RoboAvatar size={34} />
               <div className={`fm-ar-bubble bot ${m.error ? "err" : ""}`}>
-                <p className="fm-ar-answer">{m.text}</p>
-                {m.example && <div className="fm-ar-example"><span className="fm-ar-tag">Example</span> {m.example}</div>}
-                {m.tryYourself && <div className="fm-ar-try"><span className="fm-ar-tag">Now you try</span> {m.tryYourself}</div>}
+                {m.steps && m.steps.length > 0 ? (
+                  <StepCards steps={m.steps} />
+                ) : (
+                  <p className="fm-ar-answer"><TutorText>{m.text}</TutorText></p>
+                )}
+                {m.visual && <div className="fm-ar-visual"><VisualRenderer visual={m.visual} compact /></div>}
+                {m.example && <div className="fm-ar-example"><span className="fm-ar-tag">Example</span> <TutorText>{m.example}</TutorText></div>}
+                {m.tryYourself && <div className="fm-ar-try"><span className="fm-ar-tag">Now you try</span> <TutorText>{m.tryYourself}</TutorText></div>}
                 {m.lesson && (
                   <button className="fm-ar-lesson" onClick={() => onOpen(m.lesson!.id)}>📚 Open the lesson: {m.lesson.name} →</button>
                 )}
                 {!m.error && (
                   <div className="fm-ar-actions">
-                    <button onClick={() => speak(m.text + (m.tryYourself ? ". Now you try: " + m.tryYourself : ""))} title="Read aloud">🔊 Read</button>
+                    <button onClick={() => speak(botSpokenText(m))} title="Read aloud">🔊 Read</button>
                     <button disabled={!usable || busy} onClick={() => ask(lastQ + " — explain even more simply")}>🧸 Simpler</button>
                     <button disabled={!usable || busy} onClick={() => ask(lastQ + " — give me another example")}>➕ Another example</button>
                   </div>

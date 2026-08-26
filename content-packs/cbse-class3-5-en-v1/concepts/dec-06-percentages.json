@@ -107,6 +107,16 @@
       "For a discount: find the % off, then subtract it from the price."
     ]
   },
+  "mentalMathMethod": {
+    "name": "Build It From 10%",
+    "whenToUse": "Finding any percent mentally by combining 10%, 5% and 1% chunks — faster than multiplying decimals.",
+    "steps": [
+      "Find 10% first: just move the decimal point (divide by 10).",
+      "Multiply that 10%-chunk to build up bigger multiples of ten (20%, 30%…).",
+      "For the last 5%, halve the 10%-chunk and add it on; for a stray 1%, divide the 10%-chunk by 10."
+    ],
+    "example": "35% of 240: 10% = 24. 30% = 3×24 = 72. 5% = half of 24 = 12. 35% = 72+12 = 84."
+  },
   "workedExamples": [
     {
       "problem": "Find 20% of ₹150.",
@@ -331,5 +341,62 @@
       "formula": "(a / b) x 100",
       "remember": "Part over whole, times 100"
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Percentage Plaza Maze",
+      "instructions": "Find the percentage of each number to find your way through the plaza.",
+      "forks": [
+        {
+          "q": {
+            "id": "pc1",
+            "q": "25% of 200 = ?",
+            "answer": "50",
+            "hintLadder": [
+              "25% is the same as 1/4.",
+              "200 ÷ 4 = ?"
+            ]
+          },
+          "branches": [
+            "50",
+            "25"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "pc2",
+            "q": "50% of 80 = ?",
+            "answer": "40",
+            "hintLadder": [
+              "50% is the same as 1/2.",
+              "80 ÷ 2 = ?"
+            ]
+          },
+          "branches": [
+            "40",
+            "30"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "pc3",
+            "q": "10% of 90 = ?",
+            "answer": "9",
+            "hintLadder": [
+              "10% is the same as 1/10.",
+              "90 ÷ 10 = ?"
+            ]
+          },
+          "branches": [
+            "9",
+            "19"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Percentage Plaza 🏛️"
+    }
+  }
 }

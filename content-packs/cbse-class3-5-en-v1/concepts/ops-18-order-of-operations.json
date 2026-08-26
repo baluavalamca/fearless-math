@@ -345,5 +345,62 @@
       "q": "Are x and / done in a fixed order?",
       "a": "No - do whichever comes FIRST from left to right. Same for + and -. BODMAS pairs them, it does not rank x above /."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "BODMAS Bridge Maze",
+      "instructions": "Follow the BODMAS order to solve each and find your way across.",
+      "forks": [
+        {
+          "q": {
+            "id": "bo1",
+            "q": "2 + 3 × 4 = ?",
+            "answer": "14",
+            "hintLadder": [
+              "Multiply first: 3 × 4 = 12.",
+              "Then add: 2 + 12 = ?"
+            ]
+          },
+          "branches": [
+            "14",
+            "20"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "bo2",
+            "q": "(2 + 3) × 4 = ?",
+            "answer": "20",
+            "hintLadder": [
+              "Brackets first: 2 + 3 = 5.",
+              "Then multiply: 5 × 4 = ?"
+            ]
+          },
+          "branches": [
+            "14",
+            "20"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "bo3",
+            "q": "10 - 2 × 3 = ?",
+            "answer": "4",
+            "hintLadder": [
+              "Multiply first: 2 × 3 = 6.",
+              "Then subtract: 10 - 6 = ?"
+            ]
+          },
+          "branches": [
+            "4",
+            "24"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "BODMAS Bridge 🌉"
+    }
+  }
 }

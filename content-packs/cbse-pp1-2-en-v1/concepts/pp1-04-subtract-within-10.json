@@ -733,7 +733,12 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "operation": { "kind": "addSubtract", "a": 7, "b": 3, "op": "subtract" }
+        "operation": {
+          "kind": "addSubtract",
+          "a": 7,
+          "b": 3,
+          "op": "subtract"
+        }
       },
       "caption": "Set 7, push 3 beads away → 4 left."
     }
@@ -751,5 +756,62 @@
       "q": "Is subtraction the opposite of adding?",
       "a": "Yes - if 5 + 3 = 8, then 8 - 3 = 5. They undo each other."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Snack Time Maze",
+      "instructions": "Take away to solve each fact and find your way to the snack!",
+      "forks": [
+        {
+          "q": {
+            "id": "sb1",
+            "q": "9 - 3 = ?",
+            "answer": "6",
+            "hintLadder": [
+              "Count back from 9: 8, 7, 6.",
+              "Take away 3 fingers."
+            ]
+          },
+          "branches": [
+            "6",
+            "5"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "sb2",
+            "q": "8 - 5 = ?",
+            "answer": "3",
+            "hintLadder": [
+              "Count back from 8: 7, 6, 5, 4, 3.",
+              "Take away 5 fingers."
+            ]
+          },
+          "branches": [
+            "3",
+            "4"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "sb3",
+            "q": "7 - 2 = ?",
+            "answer": "5",
+            "hintLadder": [
+              "Count back from 7: 6, 5.",
+              "Take away 2 fingers."
+            ]
+          },
+          "branches": [
+            "6",
+            "5"
+          ],
+          "correctBranch": 1
+        }
+      ],
+      "goalLabel": "Snack Time 🍎"
+    }
+  }
 }

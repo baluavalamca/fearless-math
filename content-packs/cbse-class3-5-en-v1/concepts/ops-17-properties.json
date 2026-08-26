@@ -340,5 +340,33 @@
       "q": "What is the distributive property?",
       "a": "Multiplying over a bracket: a(b+c) = ab + ac. 6x13 = 6x10 + 6x3 = 78 - a great mental trick."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Properties Match-Up",
+      "instructions": "Match each property name to its example.",
+      "pairs": [
+        {
+          "id": "comm",
+          "left": "Commutative Property",
+          "right": "3 + 5 = 5 + 3"
+        },
+        {
+          "id": "assoc",
+          "left": "Associative Property",
+          "right": "(2+3)+4 = 2+(3+4)"
+        },
+        {
+          "id": "distrib",
+          "left": "Distributive Property",
+          "right": "3×(4+2) = (3×4)+(3×2)"
+        },
+        {
+          "id": "ident",
+          "left": "Identity Property",
+          "right": "7 + 0 = 7"
+        }
+      ]
+    }
+  }
 }

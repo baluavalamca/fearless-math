@@ -58,6 +58,17 @@
       "For average speed over equal distances at speeds x and y: use 2xy/(x+y), never (x+y)/2."
     ]
   },
+  "mentalMathMethod": {
+    "name": "Guess-and-Adjust (Assumed Average)",
+    "whenToUse": "Averaging a set of numbers quickly in your head by picking a nearby round guess instead of adding everything up.",
+    "steps": [
+      "Pick a round 'guess' average close to the numbers (e.g. a number in the middle).",
+      "For each number, find how far above (+) or below (−) it is from your guess.",
+      "Add up all those +/- differences and divide by how many numbers there are.",
+      "Add that result to your guess — that's the real average."
+    ],
+    "example": "Average of 51, 54, 58, 49: guess 50. Differences: +1, +4, +8, −1 → sum = 12 → 12÷4 = 3. Average = 50 + 3 = 53."
+  },
   "alternateMethods": [
     {
       "name": "Deviation (shortcut) method",

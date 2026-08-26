@@ -497,5 +497,62 @@
       "q": "How do I find elapsed time?",
       "a": "Count on from start to end, hours then minutes - 3:40 to 5:10 is 1 hour 30 minutes."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Time Trail Maze",
+      "instructions": "Read each clock question and pick the right answer to move ahead.",
+      "forks": [
+        {
+          "q": {
+            "id": "tm1",
+            "q": "Long hand on 12, short hand on 7 — what time is it?",
+            "answer": "7 o'clock",
+            "hintLadder": [
+              "The long hand on 12 means it's an exact hour.",
+              "The short hand points to the hour: 7."
+            ]
+          },
+          "branches": [
+            "7 o'clock",
+            "7:30"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "tm2",
+            "q": "Long hand on 6, short hand between 9 and 10 — what time is it?",
+            "answer": "9:30",
+            "hintLadder": [
+              "The long hand on 6 means half past the hour.",
+              "The short hand between 9 and 10 means it's 9-something."
+            ]
+          },
+          "branches": [
+            "9:30",
+            "10 o'clock"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "tm3",
+            "q": "How many minutes does the long hand count for each number it passes?",
+            "answer": "5",
+            "hintLadder": [
+              "Count the small ticks between two numbers.",
+              "There are 5 small ticks between each number."
+            ]
+          },
+          "branches": [
+            "5",
+            "1"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Time Trail 🕒"
+    }
+  }
 }

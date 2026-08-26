@@ -641,7 +641,12 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "operation": { "kind": "addSubtract", "a": 42, "b": 36, "op": "add" }
+        "operation": {
+          "kind": "addSubtract",
+          "a": 42,
+          "b": 36,
+          "op": "add"
+        }
       },
       "caption": "Add ones on one rod, tens on the next."
     }
@@ -659,5 +664,62 @@
       "q": "What is 'carrying'?",
       "a": "When the ones add to 10 or more, one ten moves to the tens column. 8+5=13: write 3, carry the 1 ten."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Hundred Hill Maze",
+      "instructions": "Add and subtract tens and ones to find your way.",
+      "forks": [
+        {
+          "q": {
+            "id": "hb1",
+            "q": "34 + 25 = ?",
+            "answer": "59",
+            "hintLadder": [
+              "Add tens: 30 + 20 = 50.",
+              "Add ones: 4 + 5 = 9. 50 + 9 = ?"
+            ]
+          },
+          "branches": [
+            "59",
+            "58"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "hb2",
+            "q": "48 - 23 = ?",
+            "answer": "25",
+            "hintLadder": [
+              "Subtract tens: 40 - 20 = 20.",
+              "Subtract ones: 8 - 3 = 5. 20 + 5 = ?"
+            ]
+          },
+          "branches": [
+            "25",
+            "35"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "hb3",
+            "q": "56 + 13 = ?",
+            "answer": "69",
+            "hintLadder": [
+              "Add tens: 50 + 10 = 60.",
+              "Add ones: 6 + 3 = 9. 60 + 9 = ?"
+            ]
+          },
+          "branches": [
+            "69",
+            "79"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Hundred Hill ⛰️"
+    }
+  }
 }

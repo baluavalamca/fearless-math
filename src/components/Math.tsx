@@ -43,3 +43,59 @@ export function MathTex({ children, block = false }: { children: string; block?:
     return <span className="fm-math-fallback">{raw}</span>;
   }
 }
+
+const PUNCT_LEAD = /^["'(]+/;
+const PUNCT_TRAIL = /["').,;:!?]+$/;
+
+/** Loose heuristic for "this whitespace-delimited token is actual math
+ *  notation" vs. an ordinary English word. Deliberately conservative --
+ *  false negatives just mean a token stays plain text (harmless); false
+ *  positives are rare because it requires a digit next to an operator, or
+ *  one of a small set of unambiguous math markers. */
+function looksMathy(core: string): boolean {
+  if (!core) return false;
+  if (/\^\(|\^[\d(a-zA-Z]/.test(core)) return true;      // exponent: x^2, ^(n+1)
+  if (/sqrt\(/.test(core)) return true;                    // sqrt(x)
+  if (/\+\/-/.test(core)) return true;                     // +/-
+  if (/<=|>=|!=|->/.test(core)) return true;                // comparisons / arrow
+  if (/\b(pi|theta|alpha|beta|xbar)\b/.test(core)) return true;
+  if (/\d/.test(core) && /[+\-*/=]/.test(core)) return true; // e.g. 12+7=19, 1/2, 3*4
+  return false;
+}
+
+/** Render text that mixes ordinary English prose with occasional inline
+ *  math tokens -- e.g. AI tutor answers like "First, add the ones: 2+7=9."
+ *  Unlike MathTex (which treats its whole input as one math expression, so
+ *  plain sentences lose their spacing in KaTeX's math mode), this splits on
+ *  whitespace and only sends tokens that look like real math through KaTeX;
+ *  everything else -- words, punctuation, and all spacing -- stays literal
+ *  text. Safe to use on any AI-generated string, math-heavy or not. */
+export function TutorText({ children }: { children: string }) {
+  const raw = String(children ?? "");
+  const parts = raw.split(/(\s+)/);
+  return (
+    <>
+      {parts.map((part, i) => {
+        if (part === "") return null;
+        if (/^\s+$/.test(part)) return part;
+        const lead = part.match(PUNCT_LEAD)?.[0] ?? "";
+        const rest = part.slice(lead.length);
+        const trail = rest.match(PUNCT_TRAIL)?.[0] ?? "";
+        const core = trail ? rest.slice(0, rest.length - trail.length) : rest;
+        if (core && looksMathy(core)) {
+          try {
+            const html = katex.renderToString(toLatex(core), { throwOnError: false, displayMode: false, output: "html" });
+            return (
+              <span key={i}>
+                {lead}
+                <span className="fm-math" dangerouslySetInnerHTML={{ __html: html }} />
+                {trail}
+              </span>
+            );
+          } catch { /* fall through to plain text below */ }
+        }
+        return part;
+      })}
+    </>
+  );
+}

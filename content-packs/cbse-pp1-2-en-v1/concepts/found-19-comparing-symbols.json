@@ -1,0 +1,834 @@
+{
+  "id": "found-19-comparing-symbols",
+  "name": "Greater Than, Less Than, Equal To — Comparing with Symbols",
+  "grade": 1,
+  "strand": "numbers",
+  "prerequisites": [
+    "pp1-02-more-fewer"
+  ],
+  "whatIsIt": "We already know how to tell which group has MORE, FEWER, or the SAME. Now we learn to WRITE that comparison using three special symbols: > means 'greater than' (bigger), < means 'less than' (smaller), and = means 'equal to' (same). Think of the symbol as a hungry little alligator mouth — it always opens wide toward the bigger number because it wants to eat more, and its pointy tail always touches the smaller number.",
+  "whyNeeded": "Numbers get compared everywhere — scores, prices, heights, savings. Symbols let us write 'is bigger than' or 'is smaller than' quickly, without writing the words out every time. This is the exact maths language used from here on, so learning it now makes every comparison later much easier.",
+  "realLifeUses": [
+    "Comparing cricket scores to see which team scored more",
+    "Comparing prices at a shop to find the cheaper toy",
+    "Comparing money saved in two piggy banks",
+    "Comparing heights marked on a growth chart"
+  ],
+  "vocabulary": [
+    {
+      "term": "greater than (>)",
+      "meaning": "The wide mouth of the symbol opens toward the bigger number: 9 > 6."
+    },
+    {
+      "term": "less than (<)",
+      "meaning": "The pointy tip of the symbol points at the smaller number: 6 < 9."
+    },
+    {
+      "term": "equal to (=)",
+      "meaning": "Two straight lines mean both numbers are exactly the same: 7 = 7."
+    },
+    {
+      "term": "compare",
+      "meaning": "To look at two numbers and decide which is bigger, smaller, or the same."
+    },
+    {
+      "term": "symbol",
+      "meaning": "A small sign that stands for words — >, <, and = are comparing symbols."
+    }
+  ],
+  "story": {
+    "title": "Priya and Rohan's Laddu Match",
+    "characters": [
+      "Priya",
+      "Rohan"
+    ],
+    "text": "Priya counted her plate — 6 laddus. Rohan counted his — 9 laddus. 'Let's use a symbol instead of just saying who has more,' said Priya, and drew a little alligator mouth between the two numbers. 'The alligator is always hungry — its mouth opens wide toward the bigger number because it wants to eat MORE!' The wide mouth faced Rohan's 9. 'So we write 6 < 9,' said Priya. 'The pointy tail touches the smaller number, 6.'",
+    "extractedProblem": "Priya has 6 laddus and Rohan has 9 laddus. Which symbol goes between them: 6 ___ 9?",
+    "answerInStory": "6 < 9 — the alligator's wide mouth opens toward 9, the bigger number, and the pointy tail touches 6."
+  },
+  "visual": {
+    "component": "ObjectRow",
+    "props": {
+      "sequences": [
+        {
+          "items": [
+            "laddu",
+            "laddu",
+            "laddu",
+            "laddu",
+            "laddu",
+            "laddu"
+          ],
+          "label": "6"
+        },
+        {
+          "items": [
+            "laddu",
+            "laddu",
+            "laddu",
+            "laddu",
+            "laddu",
+            "laddu",
+            "laddu",
+            "laddu",
+            "laddu"
+          ],
+          "label": "9"
+        }
+      ]
+    },
+    "caption": "6 < 9 — the alligator's wide mouth opens toward 9, the bigger number."
+  },
+  "teachingGallery": [
+    {
+      "title": "Reading the comparing symbols",
+      "note": "Count each group, then pick the symbol whose wide mouth faces the bigger number.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "laddu",
+                  "laddu",
+                  "laddu",
+                  "laddu"
+                ],
+                "label": "4"
+              },
+              {
+                "items": [
+                  "laddu",
+                  "laddu",
+                  "laddu",
+                  "laddu",
+                  "laddu",
+                  "laddu",
+                  "laddu"
+                ],
+                "label": "7"
+              }
+            ]
+          },
+          "caption": "4 < 7 — the alligator's wide mouth opens toward 7, the bigger number."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin"
+                ],
+                "label": "6"
+              },
+              {
+                "items": [
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin"
+                ],
+                "label": "6"
+              }
+            ]
+          },
+          "caption": "6 = 6 — both piggy banks have saved the same number of coins."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "8"
+              },
+              {
+                "items": [
+                  "star",
+                  "star"
+                ],
+                "label": "2"
+              }
+            ]
+          },
+          "caption": "8 > 2 — eight stickers is greater than two stickers."
+        },
+        {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 20,
+                "mark": 7,
+                "showLabels": true,
+                "label": "7"
+              },
+              {
+                "parts": 20,
+                "mark": 13,
+                "showLabels": true,
+                "label": "13"
+              }
+            ]
+          },
+          "caption": "13 sits further right than 7 on the number line, so 13 > 7."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball"
+                ],
+                "label": "5"
+              },
+              {
+                "items": [
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball"
+                ],
+                "label": "9"
+              }
+            ]
+          },
+          "caption": "5 < 9 — five toy balls is fewer than nine toy balls."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Count both groups, compare the two numbers, then pick the symbol whose wide mouth faces the bigger number.",
+    "steps": [
+      "Count (or read) both numbers carefully.",
+      "Decide which number is bigger, which is smaller, or if they are the same.",
+      "If they are different, draw the symbol with its wide mouth open toward the bigger number and its point toward the smaller number.",
+      "If both numbers are exactly the same, use = instead."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Number line check",
+      "whenToUse": "When it helps to SEE the two numbers.",
+      "steps": [
+        "Picture both numbers on the number line.",
+        "Whichever number sits further RIGHT is the bigger one.",
+        "Point the symbol's wide mouth toward it."
+      ],
+      "example": "7 and 13: 13 is further right, so 7 < 13."
+    },
+    {
+      "name": "Match one-to-one",
+      "whenToUse": "When comparing two small groups of real things.",
+      "steps": [
+        "Pair up the items from each group one-to-one.",
+        "Whichever group has leftovers is bigger.",
+        "Use that to pick >, <, or =."
+      ],
+      "example": "6 laddus paired with 9 laddus: 3 laddus left over on Rohan's side, so 6 < 9."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Priya has 8 laddus, Rohan has 3 laddus. Which symbol makes this true? 8 __ 3",
+      "steps": [
+        "Count both groups: 8 and 3.",
+        "8 is bigger than 3.",
+        "The wide mouth of the symbol must face the bigger number, 8.",
+        "So the symbol is >: 8 > 3."
+      ],
+      "answer": ">",
+      "visual": {
+        "component": "ObjectRow",
+        "props": {
+          "sequences": [
+            {
+              "items": [
+                "laddu",
+                "laddu",
+                "laddu",
+                "laddu",
+                "laddu",
+                "laddu",
+                "laddu",
+                "laddu"
+              ],
+              "label": "8"
+            },
+            {
+              "items": [
+                "laddu",
+                "laddu",
+                "laddu"
+              ],
+              "label": "3"
+            }
+          ]
+        },
+        "caption": "8 > 3 — the wide mouth faces 8."
+      }
+    },
+    {
+      "problem": "Priya saved 5 rupee coins, Rohan also saved 5 rupee coins. Which symbol? 5 __ 5",
+      "steps": [
+        "Count both piggy banks: 5 and 5.",
+        "Match them one-to-one — nothing is left over.",
+        "The two numbers are exactly the same.",
+        "So the symbol is =: 5 = 5."
+      ],
+      "answer": "="
+    },
+    {
+      "problem": "Compare 12 and 19. Which symbol? 12 __ 19",
+      "steps": [
+        "Picture both numbers on the number line.",
+        "19 sits further to the right than 12.",
+        "So 19 is bigger, and the wide mouth must face 19.",
+        "The symbol is <: 12 < 19."
+      ],
+      "answer": "<",
+      "visual": {
+        "component": "NumberLine",
+        "props": {
+          "lines": [
+            {
+              "parts": 20,
+              "mark": 12,
+              "showLabels": true,
+              "label": "12"
+            },
+            {
+              "parts": 20,
+              "mark": 19,
+              "showLabels": true,
+              "label": "19"
+            }
+          ]
+        },
+        "caption": "19 sits further right than 12, so 12 < 19."
+      }
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "backwards-symbol",
+      "mistake": "Writing the symbol backwards — picking < when the first number is actually bigger, or > when it is smaller.",
+      "fix": "Trace the symbol slowly: the WIDE opening always touches the BIGGER number, no matter which side it is on. The narrow point always touches the smaller number."
+    },
+    {
+      "mistakeTag": "same-shape-mixup",
+      "mistake": "Thinking > and < look the same and just guessing which one to use.",
+      "fix": "Turn your hand into the alligator's mouth: fingers wide open reach for the bigger number. If the wide part is on the left, it's >; if the wide part is on the right, it's <."
+    },
+    {
+      "mistakeTag": "skipped-counting",
+      "mistake": "Guessing '=' or a direction without actually counting both groups first.",
+      "fix": "Always count both groups carefully first, then compare the two numbers. Only write '=' when both counts match exactly."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "found-19-e1",
+        "type": "mcq",
+        "q": "Priya has 4 laddus, Rohan has 7 laddus. Which symbol makes this true? 4 __ 7",
+        "answer": "<",
+        "options": [
+          {
+            "label": "<"
+          },
+          {
+            "label": ">",
+            "mistakeTag": "backwards-symbol"
+          },
+          {
+            "label": "=",
+            "mistakeTag": "skipped-counting"
+          }
+        ],
+        "hintLadder": [
+          "Count each group first.",
+          "4 and 7 — which one is smaller?",
+          "The wide mouth faces the bigger number, 7, so the point touches 4."
+        ],
+        "explain": "4 < 7 — 4 is less than 7.",
+        "visual": {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "laddu",
+                  "laddu",
+                  "laddu",
+                  "laddu"
+                ],
+                "label": "4"
+              },
+              {
+                "items": [
+                  "laddu",
+                  "laddu",
+                  "laddu",
+                  "laddu",
+                  "laddu",
+                  "laddu",
+                  "laddu"
+                ],
+                "label": "7"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-19-e2",
+        "type": "mcq",
+        "q": "Which symbol compares 9 and 9? 9 __ 9",
+        "answer": "=",
+        "options": [
+          {
+            "label": "="
+          },
+          {
+            "label": ">",
+            "mistakeTag": "skipped-counting"
+          },
+          {
+            "label": "<",
+            "mistakeTag": "skipped-counting"
+          }
+        ],
+        "hintLadder": [
+          "Count both groups.",
+          "9 and 9 — are they the same?",
+          "No leftovers on either side means equal."
+        ],
+        "explain": "9 = 9 — both groups have the same amount.",
+        "visual": {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "9"
+              },
+              {
+                "items": [
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star",
+                  "star"
+                ],
+                "label": "9"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "medium": [
+      {
+        "id": "found-19-m1",
+        "type": "mcq",
+        "q": "Compare 12 and 15: 12 __ 15",
+        "answer": "<",
+        "options": [
+          {
+            "label": "<"
+          },
+          {
+            "label": ">",
+            "mistakeTag": "backwards-symbol"
+          },
+          {
+            "label": "=",
+            "mistakeTag": "skipped-counting"
+          }
+        ],
+        "hintLadder": [
+          "Think of the number line — which number is further right?",
+          "12 or 15 — which is bigger?",
+          "The wide mouth faces the bigger number, 15."
+        ],
+        "explain": "12 < 15.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 20,
+                "mark": 12,
+                "showLabels": true,
+                "label": "12"
+              },
+              {
+                "parts": 20,
+                "mark": 15,
+                "showLabels": true,
+                "label": "15"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-19-m2",
+        "type": "mcq",
+        "q": "Compare 18 and 6: 18 __ 6",
+        "answer": ">",
+        "options": [
+          {
+            "label": ">"
+          },
+          {
+            "label": "<",
+            "mistakeTag": "same-shape-mixup"
+          },
+          {
+            "label": "=",
+            "mistakeTag": "skipped-counting"
+          }
+        ],
+        "hintLadder": [
+          "Count both numbers.",
+          "18 or 6 — which is bigger?",
+          "The wide mouth faces the bigger number, 18."
+        ],
+        "explain": "18 > 6."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "found-19-c1",
+        "type": "mcq",
+        "q": "Compare 34 and 29: 34 __ 29",
+        "answer": ">",
+        "options": [
+          {
+            "label": ">"
+          },
+          {
+            "label": "<",
+            "mistakeTag": "same-shape-mixup"
+          },
+          {
+            "label": "=",
+            "mistakeTag": "skipped-counting"
+          }
+        ],
+        "hintLadder": [
+          "Which number is bigger, 34 or 29?",
+          "Look at the tens: 3 tens vs 2 tens.",
+          "3 tens is more than 2 tens, so 34 is bigger."
+        ],
+        "explain": "34 > 29 — 3 tens beats 2 tens."
+      },
+      {
+        "id": "found-19-c2",
+        "type": "number",
+        "q": "Which is greater: 47 or 38? Type the greater number.",
+        "answer": "47",
+        "hintLadder": [
+          "Compare the tens first.",
+          "4 tens vs 3 tens — which is more?",
+          "47 has more tens, so it is bigger."
+        ],
+        "explain": "47 is greater than 38."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "found-19-x1",
+        "type": "mcq",
+        "q": "Compare 6 and 10: 6 __ 10",
+        "answer": "<",
+        "options": [
+          {
+            "label": "<"
+          },
+          {
+            "label": ">",
+            "mistakeTag": "backwards-symbol"
+          },
+          {
+            "label": "=",
+            "mistakeTag": "skipped-counting"
+          }
+        ],
+        "hintLadder": [
+          "Count both numbers.",
+          "6 or 10 — which is smaller?",
+          "The point touches the smaller number, 6."
+        ],
+        "explain": "6 < 10."
+      },
+      {
+        "id": "found-19-x2",
+        "type": "mcq",
+        "q": "Compare 8 and 8: 8 __ 8",
+        "answer": "=",
+        "options": [
+          {
+            "label": "="
+          },
+          {
+            "label": ">",
+            "mistakeTag": "skipped-counting"
+          },
+          {
+            "label": "<",
+            "mistakeTag": "skipped-counting"
+          }
+        ],
+        "hintLadder": [
+          "Count both groups.",
+          "8 and 8 — the same?",
+          "No leftovers means equal."
+        ],
+        "explain": "8 = 8."
+      },
+      {
+        "id": "found-19-x3",
+        "type": "mcq",
+        "q": "Compare 15 and 9: 15 __ 9",
+        "answer": ">",
+        "options": [
+          {
+            "label": ">"
+          },
+          {
+            "label": "<",
+            "mistakeTag": "same-shape-mixup"
+          },
+          {
+            "label": "=",
+            "mistakeTag": "skipped-counting"
+          }
+        ],
+        "hintLadder": [
+          "Count both numbers.",
+          "15 or 9 — which is bigger?",
+          "The wide mouth faces the bigger number, 15."
+        ],
+        "explain": "15 > 9.",
+        "visual": {
+          "component": "NumberLine",
+          "props": {
+            "lines": [
+              {
+                "parts": 20,
+                "mark": 9,
+                "showLabels": true,
+                "label": "9"
+              },
+              {
+                "parts": 20,
+                "mark": 15,
+                "showLabels": true,
+                "label": "15"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-19-x4",
+        "type": "mcq",
+        "q": "Priya has 11 stickers, Dev has 11 stickers. Which symbol compares them? 11 __ 11",
+        "answer": "=",
+        "options": [
+          {
+            "label": "="
+          },
+          {
+            "label": ">",
+            "mistakeTag": "skipped-counting"
+          },
+          {
+            "label": "<",
+            "mistakeTag": "skipped-counting"
+          }
+        ],
+        "hintLadder": [
+          "Count both groups.",
+          "11 and 11 — the same?",
+          "No leftovers on either side means equal."
+        ],
+        "explain": "11 = 11."
+      },
+      {
+        "id": "found-19-x5",
+        "type": "number",
+        "q": "Which is greater: 42 or 24? Type the greater number.",
+        "answer": "42",
+        "hintLadder": [
+          "Compare the tens first.",
+          "4 tens vs 2 tens — which is more?",
+          "42 has more tens."
+        ],
+        "explain": "42 is greater than 24."
+      }
+    ]
+  },
+  "teachBackPrompt": "Be the symbol detective! Show someone at home two small groups of things (spoons, buttons, toys), count them together, and teach them how to pick >, <, or = — and why the alligator's wide mouth always faces the bigger number.",
+  "revisionCard": {
+    "summary": "> means greater than (bigger), < means less than (smaller), = means equal to (same). Count both numbers first, then let the symbol's wide mouth face the bigger one. The alligator's wide mouth always eats the bigger number!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Little Sprouts Meadow",
+    "title": "The Hungry Alligator's Match",
+    "brief": "Help the hungry alligator open its mouth toward the bigger number every time, and learn when to use =, >, and < to settle friendly number matches.",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Collect small groups of things from home — spoons, buttons, toy cars. Pick two groups, count them, and write down which symbol (>, <, or =) compares them. Do this for three different pairs and check each one with a grown-up.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  },
+  "rememberIt": {
+    "hook": "> < = compare numbers: the wide mouth always faces the bigger number.",
+    "unpack": "Count both groups first. > means greater than (bigger), < means less than (smaller), = means equal to (same). The alligator's wide mouth always eats the bigger number!"
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I remember which way > and < point?",
+      "a": "Picture a hungry alligator mouth — it always opens wide toward the BIGGER number because it wants to eat more!"
+    },
+    {
+      "q": "When do I use the = sign?",
+      "a": "Only when you count both groups and they have the exact same number — no leftovers on either side."
+    }
+  ],
+  "activityBook": {
+    "traceIt": {
+      "title": "Trace Greater-Than",
+      "instructions": "Trace the greater-than symbol by clicking the glowing dots in order.",
+      "glyph": ">",
+      "points": [
+        {
+          "x": 30,
+          "y": 25
+        },
+        {
+          "x": 70,
+          "y": 50
+        },
+        {
+          "x": 30,
+          "y": 75
+        }
+      ]
+    },
+    "maze": {
+      "title": "Symbol Bridge Maze",
+      "instructions": "Pick the correct symbol to compare each pair of numbers.",
+      "forks": [
+        {
+          "q": {
+            "id": "cs1",
+            "q": "7 ? 3 — which symbol goes in the middle?",
+            "answer": ">",
+            "hintLadder": [
+              "7 is bigger than 3.",
+              "The open side of the symbol faces the bigger number."
+            ]
+          },
+          "branches": [
+            ">",
+            "<"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "cs2",
+            "q": "4 ? 9 — which symbol goes in the middle?",
+            "answer": "<",
+            "hintLadder": [
+              "4 is smaller than 9.",
+              "The point of the symbol faces the smaller number."
+            ]
+          },
+          "branches": [
+            ">",
+            "<"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "cs3",
+            "q": "5 ? 5 — which symbol goes in the middle?",
+            "answer": "=",
+            "hintLadder": [
+              "Both numbers are the same.",
+              "Equal numbers use the equals symbol."
+            ]
+          },
+          "branches": [
+            "=",
+            ">"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Symbol Bridge 🌉"
+    }
+  }
+}

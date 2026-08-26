@@ -1,0 +1,60 @@
+[40280:0709/223432.228:VERBOSE1:device_event_log_impl.cc(198)] [22:34:32.221] Display: EVENT: screen_win.cc:836 Displays updated, count: 1
+[40280:0709/223432.230:VERBOSE1:device_event_log_impl.cc(198)] [22:34:32.228] Display: EVENT: screen_win.cc:838 Display[608213204] bounds=[0,0 1920x1080], workarea=[0,0 1920x1032], scale=1, rotation=0, panel_rotation=0 external detected
+[40280:0709/223432.232:VERBOSE1:pref_proxy_config_tracker_impl.cc(191)] 000030480006C580: set chrome proxy config service to 000030480010D860
+[40280:0709/223432.246:VERBOSE1:media_stream_manager.cc(1527)] MSM::InitializeMaybeAsync([this=00003048000CEE00])
+[40280:0709/223432.248:VERBOSE1:media_stream_manager.cc(1527)] MDM::MediaDevicesManager()
+[40280:0709/223432.250:VERBOSE1:media_stream_manager.cc(1527)] MSM::MediaStreamManager([this=00003048000CEE00]))
+[db] better-sqlite3 unavailable — using JSON fallback store
+[40280:0709/223432.375:WARNING:electron_api_native_image.cc(194)] Failed to load image from path 'C:\Users\eswar\AppData\Local\Programs\fearlessmath\resources\app.asar\build\icon.ico'
+[40280:0709/223432.375:VERBOSE1:pref_proxy_config_tracker_impl.cc(191)] 000030480006E680: set chrome proxy config service to 000030480010EF20
+[40280:0709/223432.383:VERBOSE1:device_event_log_impl.cc(198)] [22:34:32.382] Bluetooth: EVENT: bluetooth_api.cc:82 BluetoothAPI: 00003048000B9600
+[40280:0709/223432.415:VERBOSE1:device_event_log_impl.cc(198)] [22:34:32.413] Display: EVENT: screen_win.cc:836 Displays updated, count: 1
+[40280:0709/223432.416:VERBOSE1:device_event_log_impl.cc(198)] [22:34:32.414] Display: EVENT: screen_win.cc:838 Display[608213204] bounds=[0,0 1920x1080], workarea=[0,0 1920x1032], scale=1, rotation=0, panel_rotation=0 external detected
+[40280:0709/223432.499:VERBOSE1:first_party_sets_handler_impl_instance.cc(277)] Empty path. Failed initializing First-Party Sets database.
+[40280:0709/223432.578:VERBOSE1:device_event_log_impl.cc(198)] [22:34:32.577] Display: EVENT: screen_win.cc:836 Displays updated, count: 1
+[40280:0709/223432.580:VERBOSE1:device_event_log_impl.cc(198)] [22:34:32.578] Display: EVENT: screen_win.cc:838 Display[608213204] bounds=[0,0 1920x1080], workarea=[0,0 1920x1032], scale=1, rotation=0, panel_rotation=0 external detected
+[40280:0709/223442.087:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=25})
+[40280:0709/223446.115:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223448.124:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=23})
+[40280:0709/223458.193:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223500.200:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=23})
+[40280:0709/223500.802:VERBOSE1:device_event_log_impl.cc(198)] [22:35:00.802] Display: EVENT: screen_win.cc:836 Displays updated, count: 1
+[40280:0709/223500.802:VERBOSE1:device_event_log_impl.cc(198)] [22:35:00.803] Display: EVENT: screen_win.cc:838 Display[608213204] bounds=[0,0 1920x1080], workarea=[0,0 1920x1032], scale=1, rotation=0, panel_rotation=0 external detected
+[40280:0709/223502.224:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=22})
+[40280:0709/223506.258:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=23})
+[40280:0709/223510.299:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223511.300:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=25})
+[40280:0709/223519.368:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223540.567:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=25})
+[40280:0709/223541.568:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223549.617:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=23})
+[40280:0709/223552.639:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=22})
+[40280:0709/223557.690:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=21})
+[40280:0709/223558.698:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=22})
+[40280:0709/223601.701:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=23})
+[40280:0709/223603.714:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223631.923:VERBOSE1:device_event_log_impl.cc(198)] [22:36:31.923] Display: EVENT: screen_win.cc:836 Displays updated, count: 1
+[40280:0709/223631.923:VERBOSE1:device_event_log_impl.cc(198)] [22:36:31.924] Display: EVENT: screen_win.cc:838 Display[608213204] bounds=[0,0 1920x1080], workarea=[0,0 1920x1032], scale=1, rotation=0, panel_rotation=0 external detected
+[40280:0709/223635.980:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=23})
+[40280:0709/223636.983:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=22})
+[40280:0709/223640.009:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=23})
+[40280:0709/223646.034:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223647.049:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=25})
+[40280:0709/223657.112:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223659.130:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=23})
+[40280:0709/223707.201:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223711.234:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=25})
+[40280:0709/223712.246:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223713.252:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=25})
+[40280:0709/223730.379:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223734.400:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=23})
+[40280:0709/223736.417:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223741.442:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=25})
+[40280:0709/223746.484:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223807.651:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=23})
+[40280:0709/223811.677:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223813.696:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=23})
+[40280:0709/223817.742:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223823.795:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=25})
+[40280:0709/223826.818:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=24})
+[40280:0709/223830.852:VERBOSE1:media_stream_manager.cc(1527)] MSPL::OnSpeedLimitChange({this=00003048000CEF40}, {new_limit=23})

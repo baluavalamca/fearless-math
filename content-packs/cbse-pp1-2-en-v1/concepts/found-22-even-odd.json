@@ -1,0 +1,789 @@
+{
+  "id": "found-22-even-odd",
+  "name": "Even and Odd Numbers — The Pairing Game",
+  "grade": 2,
+  "strand": "numbers",
+  "prerequisites": [
+    "found-19-comparing-symbols"
+  ],
+  "whatIsIt": "Some numbers of things can be shared out into PAIRS (twos) with nobody left standing alone — we call these EVEN numbers. Other numbers always leave exactly ONE thing without a partner after pairing — we call these ODD numbers. The way to tell is simple: line the things up two at a time and look!",
+  "whyNeeded": "Pairing is something we do every day without even thinking about it — matching shoes, sharing chapatis, holding hands two-by-two in a line. Knowing even and odd helps decide instantly whether a group of things can be shared perfectly between two people or two hands.",
+  "realLifeUses": [
+    "Pairing up shoes or socks before putting them away",
+    "Sharing chapatis or laddus evenly between two people",
+    "Lining up two-by-two to hold hands for a school walk",
+    "Sharing a box of bangles or pencils between two friends"
+  ],
+  "vocabulary": [
+    {
+      "term": "even number",
+      "meaning": "A number of things that can be shared into pairs of two with nobody left over."
+    },
+    {
+      "term": "odd number",
+      "meaning": "A number of things that always has one left all alone after everything else has paired up."
+    },
+    {
+      "term": "pair",
+      "meaning": "Two things put together — like two hands or two shoes."
+    },
+    {
+      "term": "alone / leftover",
+      "meaning": "The one thing with no partner when everyone else has already paired up."
+    }
+  ],
+  "story": {
+    "title": "Chapatis for Two Hungry Tummies",
+    "characters": [
+      "Meena",
+      "Amma"
+    ],
+    "text": "Every evening Amma serves chapatis two at a time — one for Meena's plate, one for her brother Arjun's plate, round and round the basket. Tonight there are 7 chapatis. Meena lines them up two at a time to check the sharing: pair one, pair two, pair three... and ONE chapati is left sitting all alone in the basket! 'Someone will have to share that last one,' laughs Amma. 'Whenever pairing leaves someone alone, the number is ODD.'",
+    "extractedProblem": "There are 7 chapatis in the basket. Can Meena pair them up two at a time with none left over?",
+    "answerInStory": "No — 7 chapatis make 3 pairs (6 chapatis) with 1 chapati left alone. 7 is an ODD number."
+  },
+  "visual": {
+    "component": "ObjectRow",
+    "props": {
+      "sequences": [
+        {
+          "items": [
+            "roti",
+            "roti"
+          ],
+          "label": "pair 1"
+        },
+        {
+          "items": [
+            "roti",
+            "roti"
+          ],
+          "label": "pair 2"
+        },
+        {
+          "items": [
+            "roti",
+            "roti"
+          ],
+          "label": "pair 3"
+        },
+        {
+          "items": [
+            "roti"
+          ],
+          "label": "alone!",
+          "markIndex": 0,
+          "sizes": [
+            60
+          ]
+        }
+      ]
+    },
+    "caption": "7 chapatis make 3 pairs with 1 left alone — 7 is ODD."
+  },
+  "teachingGallery": [
+    {
+      "title": "Pair them up — even or odd?",
+      "note": "Line the objects up two at a time. No one alone = EVEN. One left standing alone = ODD.",
+      "examples": [
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "star",
+                  "star"
+                ],
+                "label": "pair 1"
+              },
+              {
+                "items": [
+                  "star",
+                  "star"
+                ],
+                "label": "pair 2"
+              }
+            ]
+          },
+          "caption": "4 stickers make 2 full pairs, nobody left out — EVEN."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "coin",
+                  "coin"
+                ],
+                "label": "pair 1"
+              },
+              {
+                "items": [
+                  "coin",
+                  "coin"
+                ],
+                "label": "pair 2"
+              },
+              {
+                "items": [
+                  "coin"
+                ],
+                "label": "alone!",
+                "markIndex": 0,
+                "sizes": [
+                  60
+                ]
+              }
+            ]
+          },
+          "caption": "5 rupee coins make 2 pairs with 1 left alone — ODD."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "book",
+                  "book"
+                ],
+                "label": "pair 1"
+              },
+              {
+                "items": [
+                  "book",
+                  "book"
+                ],
+                "label": "pair 2"
+              },
+              {
+                "items": [
+                  "book",
+                  "book"
+                ],
+                "label": "pair 3"
+              }
+            ]
+          },
+          "caption": "6 books split into 3 pairs perfectly, nobody left out — EVEN."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "kite",
+                  "kite"
+                ],
+                "label": "pair 1"
+              },
+              {
+                "items": [
+                  "kite",
+                  "kite"
+                ],
+                "label": "pair 2"
+              },
+              {
+                "items": [
+                  "kite",
+                  "kite"
+                ],
+                "label": "pair 3"
+              },
+              {
+                "items": [
+                  "kite"
+                ],
+                "label": "alone!",
+                "markIndex": 0,
+                "sizes": [
+                  60
+                ]
+              }
+            ]
+          },
+          "caption": "7 kites at the kite festival make 3 pairs with 1 left alone — ODD."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "laddu",
+                  "laddu"
+                ],
+                "label": "pair 1"
+              },
+              {
+                "items": [
+                  "laddu",
+                  "laddu"
+                ],
+                "label": "pair 2"
+              },
+              {
+                "items": [
+                  "laddu",
+                  "laddu"
+                ],
+                "label": "pair 3"
+              },
+              {
+                "items": [
+                  "laddu",
+                  "laddu"
+                ],
+                "label": "pair 4"
+              }
+            ]
+          },
+          "caption": "8 laddus pack into 4 neat pairs for the festival box — EVEN."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Line the objects up two at a time. If everyone finds a partner, the number is EVEN. If one is left alone, the number is ODD.",
+    "steps": [
+      "Take the objects (or picture them) and start pairing — two together at a time.",
+      "Keep pairing until you run out of objects.",
+      "Look carefully: is there ONE object left with no partner?",
+      "If nobody is left alone, the number is EVEN. If one is left alone, the number is ODD."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Match with a partner",
+      "whenToUse": "For a small, real pile of things.",
+      "steps": [
+        "Push the objects into the middle two at a time, side by side.",
+        "Stop when you can't find a second object to match.",
+        "If exactly one object sits without a match, the number is odd."
+      ],
+      "example": "9 mangoes: 4 pairs formed, 1 mango sits alone — 9 is odd."
+    },
+    {
+      "name": "Two lines check",
+      "whenToUse": "When you want to SEE the pairs at once.",
+      "steps": [
+        "Share the objects into two rows, going one-by-one, left row then right row.",
+        "If both rows end up exactly the same length, the number is even.",
+        "If one row has one extra at the end, the number is odd."
+      ],
+      "example": "10 balloons: 5 in each row, rows match exactly — 10 is even."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Are 9 balls even or odd?",
+      "steps": [
+        "Pair the balls two at a time: pair 1, pair 2, pair 3, pair 4.",
+        "That uses up 8 balls in 4 pairs.",
+        "1 ball is left with no partner.",
+        "One is left alone, so 9 is ODD."
+      ],
+      "answer": "Odd",
+      "visual": {
+        "component": "ObjectRow",
+        "props": {
+          "sequences": [
+            {
+              "items": [
+                "ball",
+                "ball"
+              ],
+              "label": "pair 1"
+            },
+            {
+              "items": [
+                "ball",
+                "ball"
+              ],
+              "label": "pair 2"
+            },
+            {
+              "items": [
+                "ball",
+                "ball"
+              ],
+              "label": "pair 3"
+            },
+            {
+              "items": [
+                "ball",
+                "ball"
+              ],
+              "label": "pair 4"
+            },
+            {
+              "items": [
+                "ball"
+              ],
+              "label": "alone!",
+              "markIndex": 0,
+              "sizes": [
+                60
+              ]
+            }
+          ]
+        },
+        "caption": "9 balls = 4 pairs + 1 alone — ODD."
+      }
+    },
+    {
+      "problem": "Are 10 balloons even or odd?",
+      "steps": [
+        "Pair the balloons two at a time: pair 1, pair 2, pair 3, pair 4, pair 5.",
+        "That uses up all 10 balloons in 5 pairs.",
+        "Nobody is left without a partner.",
+        "Nobody alone, so 10 is EVEN."
+      ],
+      "answer": "Even"
+    },
+    {
+      "problem": "Priya has 13 rupee coins. She wants to stack them in pairs. Even or odd?",
+      "steps": [
+        "Pair the coins two at a time: that makes 6 pairs, using 12 coins.",
+        "13 - 12 = 1 coin left.",
+        "That 1 coin has no partner.",
+        "One is left alone, so 13 is ODD."
+      ],
+      "answer": "Odd"
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "lost-count-pairing",
+      "mistake": "Losing count partway through pairing up the objects, so the pairs come out wrong.",
+      "fix": "Move each pair aside as soon as you make it, and say 'pair 1, pair 2...' out loud. Pair slowly, one at a time, so nothing gets counted twice or missed."
+    },
+    {
+      "mistakeTag": "stopped-checking-leftover",
+      "mistake": "Stopping right after making the pairs and forgetting to check whether one object is left standing alone.",
+      "fix": "After every pair is made, always look back at the pile — is anything left over with no partner? That single leftover is exactly what makes a number ODD."
+    },
+    {
+      "mistakeTag": "guessed-without-pairing",
+      "mistake": "Guessing 'even' or 'odd' from memory, or because a number 'feels big', instead of actually pairing the objects.",
+      "fix": "Don't guess — pair it up! Line the objects two at a time and see with your own eyes whether everyone finds a partner or someone is left alone."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "found-22-e1",
+        "type": "mcq",
+        "q": "Meena has 4 balloons. She pairs them up two at a time. Even or Odd?",
+        "answer": "Even",
+        "options": [
+          {
+            "label": "Even"
+          },
+          {
+            "label": "Odd",
+            "mistakeTag": "guessed-without-pairing"
+          }
+        ],
+        "hintLadder": [
+          "Pair the balloons two at a time.",
+          "4 balloons make 2 pairs.",
+          "Is anyone left without a partner? No!"
+        ],
+        "explain": "4 balloons make exactly 2 pairs, nobody alone — Even.",
+        "visual": {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "balloon",
+                  "balloon"
+                ],
+                "label": "pair 1"
+              },
+              {
+                "items": [
+                  "balloon",
+                  "balloon"
+                ],
+                "label": "pair 2"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-22-e2",
+        "type": "mcq",
+        "q": "Arjun has 5 books. He pairs them up two at a time. Even or Odd?",
+        "answer": "Odd",
+        "options": [
+          {
+            "label": "Odd"
+          },
+          {
+            "label": "Even",
+            "mistakeTag": "stopped-checking-leftover"
+          }
+        ],
+        "hintLadder": [
+          "Pair the books two at a time.",
+          "5 books make 2 pairs, using 4 books.",
+          "1 book is left with no partner — that means odd."
+        ],
+        "explain": "5 books make 2 pairs with 1 book left alone — Odd.",
+        "visual": {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "book",
+                  "book"
+                ],
+                "label": "pair 1"
+              },
+              {
+                "items": [
+                  "book",
+                  "book"
+                ],
+                "label": "pair 2"
+              },
+              {
+                "items": [
+                  "book"
+                ],
+                "label": "alone!",
+                "markIndex": 0,
+                "sizes": [
+                  60
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "medium": [
+      {
+        "id": "found-22-m1",
+        "type": "mcq",
+        "q": "8 rupee coins are paired up two at a time. Even or Odd?",
+        "answer": "Even",
+        "options": [
+          {
+            "label": "Even"
+          },
+          {
+            "label": "Odd",
+            "mistakeTag": "guessed-without-pairing"
+          }
+        ],
+        "hintLadder": [
+          "Pair the coins two at a time.",
+          "8 coins make 4 pairs.",
+          "Nobody is left alone."
+        ],
+        "explain": "8 coins make 4 full pairs, nobody alone — Even."
+      },
+      {
+        "id": "found-22-m2",
+        "type": "number",
+        "q": "12 stars are paired up two at a time, with none left over. How many pairs are made?",
+        "answer": "6",
+        "hintLadder": [
+          "Count out pairs of two: 2, 4, 6, 8, 10, 12.",
+          "How many pairs did you make to reach 12?",
+          "Six pairs use up all 12 stars."
+        ],
+        "explain": "12 stars make exactly 6 pairs, nobody left alone — 12 is even."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "found-22-c1",
+        "type": "mcq",
+        "q": "17 kites are lined up in pairs for the kite festival. Even or Odd?",
+        "answer": "Odd",
+        "options": [
+          {
+            "label": "Odd"
+          },
+          {
+            "label": "Even",
+            "mistakeTag": "lost-count-pairing"
+          }
+        ],
+        "hintLadder": [
+          "Pair the kites two at a time and keep going.",
+          "17 kites make 8 pairs, using 16 kites.",
+          "1 kite is left with no partner — that means odd."
+        ],
+        "explain": "17 kites make 8 pairs with 1 kite left alone — Odd."
+      },
+      {
+        "id": "found-22-c2",
+        "type": "number",
+        "q": "Arjun has 15 laddus. After pairing them up two at a time, how many laddus are left alone?",
+        "answer": "1",
+        "hintLadder": [
+          "Pair the laddus two at a time: how many full pairs can you make?",
+          "15 laddus make 7 pairs, using 14 laddus.",
+          "15 - 14 = how many are left over?"
+        ],
+        "explain": "15 laddus make 7 pairs (14 laddus) with 1 laddu left alone — 15 is odd."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "found-22-x1",
+        "type": "mcq",
+        "q": "6 rupee coins are paired up two at a time. Even or Odd?",
+        "answer": "Even",
+        "options": [
+          {
+            "label": "Even"
+          },
+          {
+            "label": "Odd",
+            "mistakeTag": "guessed-without-pairing"
+          }
+        ],
+        "hintLadder": [
+          "Pair the coins two at a time.",
+          "6 coins make 3 pairs.",
+          "Nobody is left alone."
+        ],
+        "explain": "6 coins make 3 full pairs, nobody alone — Even."
+      },
+      {
+        "id": "found-22-x2",
+        "type": "mcq",
+        "q": "9 stars are paired up two at a time. Even or Odd?",
+        "answer": "Odd",
+        "options": [
+          {
+            "label": "Odd"
+          },
+          {
+            "label": "Even",
+            "mistakeTag": "stopped-checking-leftover"
+          }
+        ],
+        "hintLadder": [
+          "Pair the stars two at a time.",
+          "9 stars make 4 pairs, using 8 stars.",
+          "1 star is left with no partner — that means odd."
+        ],
+        "explain": "9 stars make 4 pairs with 1 star left alone — Odd."
+      },
+      {
+        "id": "found-22-x3",
+        "type": "number",
+        "q": "14 books are paired up two at a time, with none left over. How many pairs are made?",
+        "answer": "7",
+        "hintLadder": [
+          "Count in twos: 2, 4, 6, 8, 10, 12, 14.",
+          "How many pairs did you make to reach 14?",
+          "Seven pairs use up all 14 books."
+        ],
+        "explain": "14 books make exactly 7 pairs, nobody left alone — 14 is even."
+      },
+      {
+        "id": "found-22-x4",
+        "type": "mcq",
+        "q": "11 laddus are shared out in pairs. Even or Odd?",
+        "answer": "Odd",
+        "options": [
+          {
+            "label": "Odd"
+          },
+          {
+            "label": "Even",
+            "mistakeTag": "lost-count-pairing"
+          }
+        ],
+        "hintLadder": [
+          "Pair the laddus two at a time.",
+          "11 laddus make 5 pairs, using 10 laddus.",
+          "1 laddu is left with no partner — that means odd."
+        ],
+        "explain": "11 laddus make 5 pairs with 1 laddu left alone — Odd."
+      },
+      {
+        "id": "found-22-x5",
+        "type": "mcq",
+        "q": "10 kites are lined up in pairs for the festival. Even or Odd?",
+        "answer": "Even",
+        "options": [
+          {
+            "label": "Even"
+          },
+          {
+            "label": "Odd",
+            "mistakeTag": "guessed-without-pairing"
+          }
+        ],
+        "hintLadder": [
+          "Pair the kites two at a time.",
+          "10 kites make 5 pairs.",
+          "Nobody is left alone."
+        ],
+        "explain": "10 kites make 5 full pairs, nobody alone — Even.",
+        "visual": {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "kite",
+                  "kite"
+                ],
+                "label": "pair 1"
+              },
+              {
+                "items": [
+                  "kite",
+                  "kite"
+                ],
+                "label": "pair 2"
+              },
+              {
+                "items": [
+                  "kite",
+                  "kite"
+                ],
+                "label": "pair 3"
+              },
+              {
+                "items": [
+                  "kite",
+                  "kite"
+                ],
+                "label": "pair 4"
+              },
+              {
+                "items": [
+                  "kite",
+                  "kite"
+                ],
+                "label": "pair 5"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "teachBackPrompt": "Grab a small pile of coins, buttons, or toys at home. Teach someone how to line them up two at a time to check even or odd — and show them what it looks like when one is left all alone.",
+  "revisionCard": {
+    "summary": "Pair objects two at a time. Nobody left alone = EVEN. One left alone = ODD. Always pair to check — don't just guess!",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Little Sprouts Meadow",
+    "title": "Pairing Up with Captain Count",
+    "brief": "Help Captain Count line up piles of stars, coins, and laddus two at a time — nobody left alone means even, one left alone means odd!",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "Collect the shoes or socks from your family at home. Pair them up two at a time and count how many pairs you make. Was there a shoe or sock left alone? Try it again with spoons or pencils, and decide even or odd each time.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  },
+  "rememberIt": {
+    "hook": "Pair them up! Nobody alone = EVEN. One alone = ODD.",
+    "unpack": "Line the objects up two at a time. If every single one finds a partner, the number is even. If exactly one is left standing alone, the number is odd."
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I know if a number is even or odd?",
+      "a": "Pair up the objects two at a time! If nobody is left alone, it's even. If one is left alone with no partner, it's odd."
+    },
+    {
+      "q": "What if I'm not sure and want to check quickly?",
+      "a": "Line the things up in twos, or share them into two equal rows. If both rows match exactly, it's even. If one row has an extra, it's odd."
+    }
+  ],
+  "activityBook": {
+    "colorByAnswer": {
+      "title": "Even or Odd & Color",
+      "instructions": "Decide if each number is even or odd, then color it in!",
+      "viewBox": "0 0 200 200",
+      "legend": [
+        {
+          "key": "odd",
+          "color": "#FF6B6B",
+          "matchAnswer": "odd"
+        },
+        {
+          "key": "even",
+          "color": "#4ECDC4",
+          "matchAnswer": "even"
+        },
+        {
+          "key": "odd",
+          "color": "#FF6B6B",
+          "matchAnswer": "odd"
+        }
+      ],
+      "regions": [
+        {
+          "id": "r1",
+          "d": "M10,10 L95,10 L95,190 L10,190 Z",
+          "q": {
+            "id": "eo1",
+            "q": "Is 7 even or odd?",
+            "answer": "odd",
+            "hintLadder": [
+              "Try to pair up 7 things — is one left over?",
+              "Odd numbers end in 1, 3, 5, 7, or 9."
+            ]
+          }
+        },
+        {
+          "id": "r2",
+          "d": "M100,10 L185,10 L185,95 L100,95 Z",
+          "q": {
+            "id": "eo2",
+            "q": "Is 12 even or odd?",
+            "answer": "even",
+            "hintLadder": [
+              "Try to pair up 12 things — is any left over?",
+              "Even numbers end in 0, 2, 4, 6, or 8."
+            ]
+          }
+        },
+        {
+          "id": "r3",
+          "d": "M100,100 L185,100 L185,190 L100,190 Z",
+          "q": {
+            "id": "eo3",
+            "q": "Is 9 even or odd?",
+            "answer": "odd",
+            "hintLadder": [
+              "Try to pair up 9 things — is one left over?",
+              "Odd numbers end in 1, 3, 5, 7, or 9."
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

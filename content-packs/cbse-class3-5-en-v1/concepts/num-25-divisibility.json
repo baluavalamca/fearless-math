@@ -137,6 +137,16 @@
       "By 11: from the right, add and subtract digits by turns; if that total is 0 or a multiple of 11, so is the number."
     ]
   },
+  "mentalMathMethod": {
+    "name": "Cast Out Nines While You Scan",
+    "whenToUse": "Checking divisibility by 3 or 9 on a big number, without writing anything down.",
+    "steps": [
+      "Read the digits left to right, adding them in your head as you go.",
+      "Any time your running total reaches 9 or more, mentally drop 9 from it and carry on.",
+      "At the last digit, look at what's left: 0 means divisible by 9; 0, 3 or 6 means divisible by 3."
+    ],
+    "example": "5742: 5, +7=12 -> drop 9 -> 3, +4=7, +2=9 -> drop 9 -> 0. Ends at 0, so 5742 is divisible by both 3 and 9."
+  },
   "workedExamples": [
     {
       "problem": "Is 435 divisible by 5? By 3?",

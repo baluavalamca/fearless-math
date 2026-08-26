@@ -1,0 +1,706 @@
+{
+  "id": "found-20-ordering-sorting",
+  "name": "Arrange in Order — Ascending, Descending, and Sorting",
+  "grade": 2,
+  "strand": "numbers",
+  "prerequisites": [
+    "found-19-comparing-symbols"
+  ],
+  "whatIsIt": "ARRANGING numbers means putting them in a neat line, following a rule. ASCENDING order lines numbers up from smallest to biggest — like climbing UP a staircase, one step bigger each time. DESCENDING order lines numbers up from biggest to smallest — like coming DOWN a staircase, one step smaller each time. SORTING means taking a jumbled, mixed-up group of numbers (or objects, like friends by height or coins by size) and putting them neatly in order.",
+  "whyNeeded": "Things need to be in order all the time — friends lining up by height for a photo, jersey numbers on a scoreboard, prices from cheapest to costliest. Arranging numbers the right way is the first step toward comparing, ranking, and keeping anything neat and easy to find.",
+  "realLifeUses": [
+    "Lining up friends by height for a school photo",
+    "Arranging cricket jersey numbers on a team sheet",
+    "Sorting coins from smallest value to biggest",
+    "Lining up for the school bus by roll number",
+    "Arranging birthday candles or gifts from smallest to biggest"
+  ],
+  "vocabulary": [
+    {
+      "term": "ascending order",
+      "meaning": "Lining numbers up from the smallest all the way to the biggest — like climbing UP a staircase, one step bigger each time."
+    },
+    {
+      "term": "descending order",
+      "meaning": "Lining numbers up from the biggest all the way down to the smallest — like walking DOWN a staircase, one step smaller each time."
+    },
+    {
+      "term": "sort / sorting",
+      "meaning": "Putting a jumbled group of numbers or objects into a neat order, using one rule (like size or value) to decide the order."
+    },
+    {
+      "term": "jumbled",
+      "meaning": "Numbers or objects mixed up with no order yet — not arranged smallest-to-biggest or biggest-to-smallest."
+    },
+    {
+      "term": "arrange",
+      "meaning": "To place numbers or objects one after another in a chosen order."
+    }
+  ],
+  "story": {
+    "title": "Lining Up for the School Photo",
+    "characters": [
+      "Dev",
+      "Teacher Anita"
+    ],
+    "text": "On Photo Day, Teacher Anita calls out roll numbers in a jumbled order — 18, 5, 12, 9 — and asks the class to line up for the front row. Dev is confused: how do they know where to stand? 'Line up from your SMALLEST roll number to your BIGGEST,' says Teacher Anita. 'That's called ascending order — like climbing up stairs!' Dev finds 5 is smallest, so he stands first, then 9, then 12, then 18. For the fun back-step photo, Teacher Anita flips it: 'Now biggest to smallest — descending order, like coming back down!'",
+    "extractedProblem": "Arrange the roll numbers 18, 5, 12, 9 from smallest to biggest for the line-up.",
+    "answerInStory": "5, 9, 12, 18 — ascending order, smallest to biggest."
+  },
+  "visual": {
+    "component": "NumberTrack",
+    "props": {
+      "tracks": [
+        {
+          "terms": [
+            18,
+            5,
+            12,
+            9
+          ],
+          "label": "jumbled roll numbers"
+        },
+        {
+          "terms": [
+            5,
+            9,
+            12,
+            18
+          ],
+          "label": "ascending order"
+        }
+      ]
+    },
+    "caption": "Arrange the roll numbers from smallest to biggest — ascending order."
+  },
+  "teachingGallery": [
+    {
+      "title": "Arranging jumbled numbers and objects into order",
+      "note": "Compare every number or object, then place them one by one — smallest first for ascending, biggest first for descending.",
+      "examples": [
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  20,
+                  6,
+                  14
+                ],
+                "label": "jumbled"
+              },
+              {
+                "terms": [
+                  6,
+                  14,
+                  20
+                ],
+                "label": "ascending order"
+              }
+            ]
+          },
+          "caption": "6, 14, 20 — arranged from smallest to biggest."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  35,
+                  60,
+                  12,
+                  48
+                ],
+                "label": "jumbled"
+              },
+              {
+                "terms": [
+                  60,
+                  48,
+                  35,
+                  12
+                ],
+                "label": "descending order"
+              }
+            ]
+          },
+          "caption": "60, 48, 35, 12 — arranged from biggest to smallest."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "ball",
+                  "ball",
+                  "ball",
+                  "ball"
+                ],
+                "sizes": [
+                  16,
+                  26,
+                  36,
+                  46
+                ],
+                "label": "smallest to biggest"
+              }
+            ]
+          },
+          "caption": "Balls sorted by size — smallest to biggest is ascending order."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "boy",
+                  "boy",
+                  "boy"
+                ],
+                "sizes": [
+                  46,
+                  34,
+                  22
+                ],
+                "label": "tallest to shortest"
+              }
+            ]
+          },
+          "caption": "Friends lined up tallest to shortest — descending order by height."
+        },
+        {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  23,
+                  4,
+                  15,
+                  7
+                ],
+                "label": "jumbled jersey numbers"
+              },
+              {
+                "terms": [
+                  4,
+                  7,
+                  15,
+                  23
+                ],
+                "label": "ascending order"
+              }
+            ]
+          },
+          "caption": "Cricket jersey numbers sorted from smallest to biggest."
+        },
+        {
+          "component": "ObjectRow",
+          "props": {
+            "sequences": [
+              {
+                "items": [
+                  "coin",
+                  "coin",
+                  "coin",
+                  "coin"
+                ],
+                "sizes": [
+                  18,
+                  26,
+                  34,
+                  42
+                ],
+                "label": "smallest to biggest"
+              }
+            ]
+          },
+          "caption": "Coins arranged smallest to biggest — sorting by size."
+        }
+      ]
+    }
+  ],
+  "standardMethod": {
+    "summary": "Compare all the numbers first, then place them one by one from smallest (ascending) or biggest (descending) until every number has a spot.",
+    "steps": [
+      "Look at every number in the jumbled group — don't skip any.",
+      "For ASCENDING order: find the smallest number and write it first.",
+      "Keep finding the next smallest number each time, until all numbers are placed.",
+      "For DESCENDING order, do the same but start with the BIGGEST number first."
+    ]
+  },
+  "alternateMethods": [
+    {
+      "name": "Number line check",
+      "whenToUse": "To see where each number sits.",
+      "steps": [
+        "Picture all the numbers on a number line.",
+        "Numbers further RIGHT are bigger.",
+        "Read left to right for ascending order, or right to left for descending order."
+      ],
+      "example": "9, 14, 20 sit left to right on the line — reading them that way gives ascending order."
+    },
+    {
+      "name": "Cross-off method",
+      "whenToUse": "When arranging a small jumbled list on paper.",
+      "steps": [
+        "Circle the smallest (or biggest, for descending) number in the jumbled list.",
+        "Write it down and cross it off the list.",
+        "Repeat with what's left until every number is crossed off and written in order."
+      ],
+      "example": "From 12, 3, 8: circle 3 first, then 8, then 12 → ascending order: 3, 8, 12."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "Arrange 22, 8, 15 from smallest to biggest (ascending order).",
+      "steps": [
+        "Look at all three numbers: 22, 8, 15.",
+        "Find the smallest: 8. Write it first.",
+        "From what's left (22, 15), the smaller one is 15. Write it next.",
+        "Only 22 is left — write it last.",
+        "Ascending order: 8, 15, 22."
+      ],
+      "answer": "8, 15, 22",
+      "visual": {
+        "component": "NumberTrack",
+        "props": {
+          "tracks": [
+            {
+              "terms": [
+                22,
+                8,
+                15
+              ],
+              "label": "jumbled"
+            }
+          ]
+        },
+        "caption": "Which of these is smallest?"
+      }
+    },
+    {
+      "problem": "Arrange 45, 12, 78, 33 from biggest to smallest (descending order).",
+      "steps": [
+        "Look at all four numbers: 45, 12, 78, 33.",
+        "Find the biggest: 78. Write it first.",
+        "From what's left (45, 12, 33), the biggest is 45. Write it next.",
+        "From what's left (12, 33), the biggest is 33. Write it next.",
+        "Only 12 is left — write it last.",
+        "Descending order: 78, 45, 33, 12."
+      ],
+      "answer": "78, 45, 33, 12"
+    },
+    {
+      "problem": "Three friends' heights are 95 cm, 130 cm, and 110 cm. Line them up from shortest to tallest (ascending).",
+      "steps": [
+        "Compare all three heights: 95 cm, 130 cm, 110 cm.",
+        "Find the shortest: 95 cm.",
+        "From what's left (130 cm, 110 cm), the shorter one is 110 cm.",
+        "Only 130 cm is left — the tallest.",
+        "Ascending order by height: 95 cm, 110 cm, 130 cm."
+      ],
+      "answer": "95 cm, 110 cm, 130 cm",
+      "visual": {
+        "component": "ObjectRow",
+        "props": {
+          "sequences": [
+            {
+              "items": [
+                "girl",
+                "girl",
+                "girl"
+              ],
+              "sizes": [
+                22,
+                34,
+                44
+              ],
+              "label": "shortest to tallest"
+            }
+          ]
+        },
+        "caption": "Friends lined up shortest to tallest — ascending order."
+      }
+    }
+  ],
+  "commonMistakes": [
+    {
+      "mistakeTag": "direction-mixup",
+      "mistake": "Mixing up ascending and descending — writing biggest to smallest when asked for ascending order, or the other way round.",
+      "fix": "Remember: ascending CLIMBS UP (small to big, like a staircase going up). Descending comes DOWN (big to small). Check the word before you start writing."
+    },
+    {
+      "mistakeTag": "missed-number",
+      "mistake": "Missing a number when reordering the group, or writing one number twice by mistake.",
+      "fix": "Cross off each number from the jumbled list as soon as you place it in order, and count that the ordered list has the SAME amount of numbers you started with."
+    },
+    {
+      "mistakeTag": "wrong-attribute-sorted",
+      "mistake": "Sorting objects by the wrong thing — for example, sorting toys by colour when asked to arrange them by size.",
+      "fix": "Always check what you are told to sort by (size, height, or value) — compare only that one thing, and ignore colour, pattern, or anything else."
+    }
+  ],
+  "practice": {
+    "easy": [
+      {
+        "id": "found-20-e1",
+        "type": "number",
+        "q": "Arrange 6, 2, 9 from smallest to biggest. Which number comes FIRST?",
+        "answer": "2",
+        "hintLadder": [
+          "Compare all three numbers.",
+          "Which one is the smallest?",
+          "The smallest number goes first in ascending order."
+        ],
+        "explain": "Ascending order: 2, 6, 9 — 2 is smallest, so it comes first.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  6,
+                  2,
+                  9
+                ],
+                "label": "jumbled"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-20-e2",
+        "type": "mcq",
+        "q": "Which list shows 3, 7, 11 arranged in ASCENDING order (smallest to biggest)?",
+        "answer": "3, 7, 11",
+        "options": [
+          {
+            "label": "3, 7, 11"
+          },
+          {
+            "label": "11, 7, 3",
+            "mistakeTag": "direction-mixup"
+          },
+          {
+            "label": "3, 11",
+            "mistakeTag": "missed-number"
+          }
+        ],
+        "hintLadder": [
+          "Ascending means smallest to biggest.",
+          "Start with the smallest number: 3.",
+          "Then keep going up: 3, 7, 11."
+        ],
+        "explain": "Ascending order climbs up from smallest to biggest: 3, 7, 11."
+      }
+    ],
+    "medium": [
+      {
+        "id": "found-20-m1",
+        "type": "number",
+        "q": "Arrange 34, 12, 27 in DESCENDING order (biggest to smallest). Which number comes FIRST?",
+        "answer": "34",
+        "hintLadder": [
+          "Descending means biggest to smallest.",
+          "Which of these three numbers is the biggest?",
+          "The biggest number goes first in descending order."
+        ],
+        "explain": "Descending order: 34, 27, 12 — 34 is biggest, so it comes first.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  34,
+                  12,
+                  27
+                ],
+                "label": "jumbled"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-20-m2",
+        "type": "mcq",
+        "q": "Which list shows 18, 45, 9 arranged in DESCENDING order (biggest to smallest)?",
+        "answer": "45, 18, 9",
+        "options": [
+          {
+            "label": "45, 18, 9"
+          },
+          {
+            "label": "9, 18, 45",
+            "mistakeTag": "direction-mixup"
+          },
+          {
+            "label": "45, 9",
+            "mistakeTag": "missed-number"
+          }
+        ],
+        "hintLadder": [
+          "Descending means biggest to smallest.",
+          "Which of the three numbers is the biggest? That goes first.",
+          "Keep going down to the smallest: 45, 18, 9."
+        ],
+        "explain": "Descending order comes down from biggest to smallest: 45, 18, 9."
+      }
+    ],
+    "challenge": [
+      {
+        "id": "found-20-c1",
+        "type": "number",
+        "q": "Arrange these roll numbers from smallest to biggest: 52, 8, 29, 15. Which number comes SECOND?",
+        "answer": "15",
+        "hintLadder": [
+          "List all four numbers out and find the smallest first.",
+          "Ascending order: 8, 15, 29, 52.",
+          "The second number in that ascending list is 15."
+        ],
+        "explain": "Ascending order: 8, 15, 29, 52 — second is 15.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  52,
+                  8,
+                  29,
+                  15
+                ],
+                "label": "jumbled"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-20-c2",
+        "type": "mcq",
+        "q": "Which list shows 63, 40, 78, 21 arranged in ASCENDING order?",
+        "answer": "21, 40, 63, 78",
+        "options": [
+          {
+            "label": "21, 40, 63, 78"
+          },
+          {
+            "label": "78, 63, 40, 21",
+            "mistakeTag": "direction-mixup"
+          },
+          {
+            "label": "21, 40, 78",
+            "mistakeTag": "missed-number"
+          }
+        ],
+        "hintLadder": [
+          "Ascending means smallest to biggest.",
+          "Find the smallest of all four numbers first.",
+          "Keep going up: 21, 40, 63, 78."
+        ],
+        "explain": "Ascending order: 21, 40, 63, 78 — smallest to biggest, all four numbers included."
+      }
+    ]
+  },
+  "masteryCheck": {
+    "passThreshold": 0.8,
+    "requireTeachBack": true,
+    "questions": [
+      {
+        "id": "found-20-x1",
+        "type": "number",
+        "q": "Arrange 5, 1, 8 from smallest to biggest. Which number comes FIRST?",
+        "answer": "1",
+        "hintLadder": [
+          "Compare all three numbers.",
+          "Which is the smallest?",
+          "The smallest goes first in ascending order."
+        ],
+        "explain": "Ascending order: 1, 5, 8 — 1 comes first.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  5,
+                  1,
+                  8
+                ],
+                "label": "jumbled"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-20-x2",
+        "type": "mcq",
+        "q": "Which list is in DESCENDING order (biggest to smallest)?",
+        "answer": "20, 10, 4",
+        "options": [
+          {
+            "label": "20, 10, 4"
+          },
+          {
+            "label": "4, 10, 20",
+            "mistakeTag": "direction-mixup"
+          },
+          {
+            "label": "20, 4",
+            "mistakeTag": "missed-number"
+          }
+        ],
+        "hintLadder": [
+          "Descending means biggest to smallest.",
+          "Which number should come first — the biggest or the smallest?",
+          "Start with the biggest: 20, then 10, then 4."
+        ],
+        "explain": "Descending order: 20, 10, 4 — comes down from biggest to smallest."
+      },
+      {
+        "id": "found-20-x3",
+        "type": "number",
+        "q": "Arrange 33, 7, 21 in ascending order. Which number comes LAST?",
+        "answer": "33",
+        "hintLadder": [
+          "Ascending means smallest to biggest.",
+          "Order them: 7, 21, 33.",
+          "The last number in ascending order is the biggest one."
+        ],
+        "explain": "Ascending order: 7, 21, 33 — 33 comes last because it is biggest."
+      },
+      {
+        "id": "found-20-x4",
+        "type": "mcq",
+        "q": "Which list shows 16, 42, 9, 30 arranged in ascending order?",
+        "answer": "9, 16, 30, 42",
+        "options": [
+          {
+            "label": "9, 16, 30, 42"
+          },
+          {
+            "label": "42, 30, 16, 9",
+            "mistakeTag": "direction-mixup"
+          },
+          {
+            "label": "9, 16, 42",
+            "mistakeTag": "missed-number"
+          }
+        ],
+        "hintLadder": [
+          "Ascending means smallest to biggest.",
+          "Find the smallest of all four numbers first: 9.",
+          "Keep going up, using all four numbers: 9, 16, 30, 42."
+        ],
+        "explain": "Ascending order: 9, 16, 30, 42 — all four numbers, smallest to biggest.",
+        "visual": {
+          "component": "NumberTrack",
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  16,
+                  42,
+                  9,
+                  30
+                ],
+                "label": "jumbled"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "found-20-x5",
+        "type": "number",
+        "q": "Meena has beads numbered 11, 4, 18, 2. Arrange them smallest to biggest. Which number comes SECOND?",
+        "answer": "4",
+        "hintLadder": [
+          "Find the smallest number first — that comes first.",
+          "Ascending order: 2, 4, 11, 18.",
+          "The second number in that list is 4."
+        ],
+        "explain": "Ascending order: 2, 4, 11, 18 — second is 4."
+      }
+    ]
+  },
+  "teachBackPrompt": "Gather 4-5 jumbled numbers (or objects like spoons or toy cars) and teach someone at home how to arrange them in ascending order (smallest to biggest) and then flip them into descending order (biggest to smallest).",
+  "revisionCard": {
+    "summary": "ASCENDING order = smallest to biggest, like climbing UP stairs. DESCENDING order = biggest to smallest, like walking DOWN stairs. SORTING means putting a jumbled group in order using one rule, like size or value. Always compare every number first, then place them one by one.",
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
+  },
+  "gameMission": {
+    "world": "Little Sprouts Meadow",
+    "title": "The Line-Up Parade",
+    "brief": "Help Captain Count arrange jumbled numbers and lined-up friends into perfect ascending and descending order for the big meadow parade!",
+    "character": "Captain Count"
+  },
+  "realLifeProject": "At home, collect 4-5 things that have numbers or sizes — family members' ages, shoe sizes, or coins. Arrange them from smallest to biggest (ascending order), then flip them around to biggest to smallest (descending order). Ask a grown-up to check your order.",
+  "meta": {
+    "version": "0.1.0",
+    "curriculum": "CBSE/NCERT",
+    "language": "en",
+    "reviewStatus": "draft"
+  },
+  "rememberIt": {
+    "hook": "Ascending climbs UP (small to big); descending comes DOWN (big to small).",
+    "unpack": "To arrange or sort, compare every number first. Ascending order goes smallest to biggest, like climbing a staircase. Descending order goes biggest to smallest, like coming back down. Always check every number is placed exactly once!"
+  },
+  "studentQuestions": [
+    {
+      "q": "How do I remember ascending vs descending?",
+      "a": "Ascending sounds like 'a-SCEND' — climbing UP, so smallest to biggest. Descending is coming DOWN, so biggest to smallest."
+    },
+    {
+      "q": "What if two numbers in the group are exactly the same?",
+      "a": "If two numbers are equal, they can sit next to each other in either order — only the smallest-to-biggest (or biggest-to-smallest) direction of the whole group matters."
+    }
+  ],
+  "activityBook": {
+    "dotToDot": {
+      "title": "Ordering Kite",
+      "instructions": "Click the numbers from smallest to largest to reveal the picture!",
+      "dots": [
+        {
+          "x": 50,
+          "y": 8,
+          "label": "12"
+        },
+        {
+          "x": 85,
+          "y": 40,
+          "label": "18"
+        },
+        {
+          "x": 65,
+          "y": 90,
+          "label": "25"
+        },
+        {
+          "x": 20,
+          "y": 45,
+          "label": "31"
+        },
+        {
+          "x": 45,
+          "y": 20,
+          "label": "40"
+        }
+      ],
+      "revealName": "Kite"
+    }
+  }
+}

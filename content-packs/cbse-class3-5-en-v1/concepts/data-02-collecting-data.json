@@ -481,5 +481,33 @@
       "q": "What's the first step with data?",
       "a": "Collect it, then organise into a tally table before drawing any graph."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Collecting Data Match-Up",
+      "instructions": "Match each step to what it means.",
+      "pairs": [
+        {
+          "id": "ask",
+          "left": "Ask",
+          "right": "Ask everyone the same clear question"
+        },
+        {
+          "id": "tally",
+          "left": "Tally",
+          "right": "Record answers with tally marks"
+        },
+        {
+          "id": "count",
+          "left": "Count",
+          "right": "Add up each group of tally marks"
+        },
+        {
+          "id": "chart",
+          "left": "Chart",
+          "right": "Turn the tallies into a bar graph or table"
+        }
+      ]
+    }
+  }
 }

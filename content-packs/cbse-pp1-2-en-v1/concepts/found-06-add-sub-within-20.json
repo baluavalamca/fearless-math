@@ -626,7 +626,12 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "operation": { "kind": "addSubtract", "a": 8, "b": 5, "op": "add" }
+        "operation": {
+          "kind": "addSubtract",
+          "a": 8,
+          "b": 5,
+          "op": "add"
+        }
       },
       "caption": "Make a ten, then 3 ones → 13."
     }
@@ -654,5 +659,62 @@
       "q": "Is subtraction just adding backwards?",
       "a": "Yes! 13 - 5 asks 'what adds to 5 to make 13?' - so 8. Add and subtract are a team."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Number Bridge Maze",
+      "instructions": "Use the make-ten trick to solve each fact and find the path.",
+      "forks": [
+        {
+          "q": {
+            "id": "as1",
+            "q": "8 + 5 = ?",
+            "answer": "13",
+            "hintLadder": [
+              "Make ten first: 8 + 2 = 10.",
+              "10 + 3 left over = ?"
+            ]
+          },
+          "branches": [
+            "13",
+            "12"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "as2",
+            "q": "9 + 4 = ?",
+            "answer": "13",
+            "hintLadder": [
+              "Make ten first: 9 + 1 = 10.",
+              "10 + 3 left over = ?"
+            ]
+          },
+          "branches": [
+            "14",
+            "13"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "as3",
+            "q": "15 - 7 = ?",
+            "answer": "8",
+            "hintLadder": [
+              "Think: 7 + ? = 15.",
+              "15 - 5 = 10, then 10 - 2 = ?"
+            ]
+          },
+          "branches": [
+            "8",
+            "9"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Number Bridge 🌉"
+    }
+  }
 }

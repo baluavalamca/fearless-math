@@ -849,7 +849,12 @@
     "visual": {
       "component": "Abacus",
       "props": {
-        "operation": { "kind": "addSubtract", "a": 3, "b": 4, "op": "add" }
+        "operation": {
+          "kind": "addSubtract",
+          "a": 3,
+          "b": 4,
+          "op": "add"
+        }
       },
       "caption": "Set 3 beads, push 4 more to the bar → 7."
     }
@@ -867,5 +872,62 @@
       "q": "Does 3+5 equal 5+3?",
       "a": "Yes - adding in any order gives the same total. So start from the bigger one."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Toy Box Maze",
+      "instructions": "Put the groups together to solve each fact and find the path.",
+      "forks": [
+        {
+          "q": {
+            "id": "ad1",
+            "q": "2 + 5 = ?",
+            "answer": "7",
+            "hintLadder": [
+              "Count on from 5: 6, 7.",
+              "Count all the fingers."
+            ]
+          },
+          "branches": [
+            "6",
+            "7"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "ad2",
+            "q": "4 + 4 = ?",
+            "answer": "8",
+            "hintLadder": [
+              "Count on from 4: 5, 6, 7, 8.",
+              "Count all the fingers."
+            ]
+          },
+          "branches": [
+            "8",
+            "9"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "ad3",
+            "q": "1 + 6 = ?",
+            "answer": "7",
+            "hintLadder": [
+              "Count on from 6: 7.",
+              "Count all the fingers."
+            ]
+          },
+          "branches": [
+            "8",
+            "7"
+          ],
+          "correctBranch": 1
+        }
+      ],
+      "goalLabel": "Toy Box 🧸"
+    }
+  }
 }

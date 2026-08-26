@@ -537,5 +537,64 @@
       "q": "What is the fastest 9x trick?",
       "a": "Hold up 10 fingers. For 9 x 3, fold down finger number 3. Fingers to the LEFT of the fold = tens (2), fingers to the RIGHT = ones (7). Answer 27."
     }
-  ]
+  ],
+  "activityBook": {
+    "dotToDot": {
+      "title": "Skip-Count-by-3 Butterfly",
+      "instructions": "Skip count by 3s and click each dot in order to reveal the picture!",
+      "dots": [
+        {
+          "x": 50,
+          "y": 10,
+          "label": "3"
+        },
+        {
+          "x": 59,
+          "y": 37,
+          "label": "6"
+        },
+        {
+          "x": 88,
+          "y": 38,
+          "label": "9"
+        },
+        {
+          "x": 65,
+          "y": 55,
+          "label": "12"
+        },
+        {
+          "x": 74,
+          "y": 82,
+          "label": "15"
+        },
+        {
+          "x": 50,
+          "y": 66,
+          "label": "18"
+        },
+        {
+          "x": 26,
+          "y": 82,
+          "label": "21"
+        },
+        {
+          "x": 35,
+          "y": 55,
+          "label": "24"
+        },
+        {
+          "x": 12,
+          "y": 38,
+          "label": "27"
+        },
+        {
+          "x": 41,
+          "y": 37,
+          "label": "30"
+        }
+      ],
+      "revealName": "Butterfly"
+    }
+  }
 }

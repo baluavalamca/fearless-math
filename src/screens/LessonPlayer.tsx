@@ -5,7 +5,7 @@
  */
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { ArrowLeft, ArrowRight, Check, ChevronDown } from "lucide-react";
-import { AiStatus, Concept, aiUsable, api } from "../api";
+import { AiStatus, Concept, VeoClip, VideoLocalFile, VideoYoutubeEntry, aiUsable, api } from "../api";
 import { VisualRenderer, VisualSpec } from "../components/VisualRenderer";
 import { SpeakButton } from "../components/SpeakButton";
 import { GeneratedExample, generateExample, hasGenerator } from "../exampleFactory";
@@ -15,15 +15,31 @@ import { Character } from "../components/Characters";
 import { ConceptImageModal } from "../components/ConceptImageModal";
 import { Flashcards } from "../components/Flashcards";
 import { ConceptInfographic } from "../components/ConceptInfographic";
-import { MathTex } from "../components/Math";
+import { YouTubePlayer, extractYoutubeId } from "../components/YouTubePlayer";
+import { DotToDot } from "../components/DotToDot";
+import { TraceIt } from "../components/TraceIt";
+import { MathMaze } from "../components/MathMaze";
+import { ColorByAnswer } from "../components/ColorByAnswer";
+import { MatchUp } from "../components/MatchUp";
+import { MathTex, TutorText } from "../components/Math";
+import { StepCards } from "../components/ResponseWidgets";
+import { buildHomeworkVisual } from "../homeworkAids";
 import { TextbookMode } from "../components/TextbookMode";
 import { DictLang } from "../data/mathDictionary";
 import { LiveSimPanel } from "../components/LiveSim";
 import { Practice } from "./Practice";
 
-type Tab = "story" | "picture" | "gallery" | "live" | "meaning" | "steps" | "anotherWay" | "examples" | "flashcards" | "infographic";
+type Tab = "story" | "picture" | "gallery" | "live" | "meaning" | "steps" | "anotherWay" | "examples" | "flashcards" | "infographic" | "video" | "activity";
 
-const STEP_NAME: Record<string, string> = { story: "Story", picture: "Picture", gallery: "See it", live: "Try it live", meaning: "Meaning", steps: "Steps", anotherWay: "Another way", examples: "Examples", flashcards: "Cards", infographic: "Recap" };
+const STEP_NAME: Record<string, string> = { story: "Story", picture: "Picture", gallery: "See it", live: "Try it live", meaning: "Meaning", steps: "Steps", anotherWay: "Another way", examples: "Examples", flashcards: "Cards", infographic: "Recap", video: "Video", activity: "Activities" };
+type ActivityGame = "dotToDot" | "traceIt" | "maze" | "colorByAnswer" | "matchUp";
+const ACTIVITY_META: Record<ActivityGame, { icon: string; label: string }> = {
+  dotToDot: { icon: "⚫", label: "Dot-to-dot" },
+  traceIt: { icon: "✏️", label: "Trace it" },
+  maze: { icon: "🧭", label: "Maze" },
+  colorByAnswer: { icon: "🎨", label: "Color-by-answer" },
+  matchUp: { icon: "🔗", label: "Match-up" },
+};
 type UIMethod = { kind: string; name: string; whenToUse: string; steps: string[]; example: string; visual?: unknown };
 /** Gather every taught method into one ordered, labeled list — the Methodology Engine. */
 function collectMethods(c: Concept): UIMethod[] {
@@ -52,26 +68,202 @@ export function LessonPlayer({
   const [masteryMsg, setMasteryMsg] = useState<string | null>(null);
   const [gen, setGen] = useState<GeneratedExample | null>(null);
   const [ai, setAi] = useState<AiStatus | null>(null);
-  const [aiText, setAiText] = useState<{ explanation: string; example: string } | null>(null);
+  const [aiText, setAiText] = useState<{ steps: string[]; example: string } | null>(null);
   const [aiBusy, setAiBusy] = useState(false);
   const [maxStep, setMaxStep] = useState(0);
   const [gateMsg, setGateMsg] = useState<string | null>(null);
   const [imgStyle, setImgStyle] = useState<"story" | "poster" | "board" | null>(null);
+  // Each concept can have an authored (content-pack) video PLUS any number of
+  // parent-added YouTube links and local MP4/audio files. Authored entries are
+  // always first in the list and can't be removed; override entries can.
+  const [youtubeList, setYoutubeList] = useState<VideoYoutubeEntry[]>(() => {
+    const authoredId = concept.video?.youtubeUrl ? extractYoutubeId(concept.video.youtubeUrl) : null;
+    return authoredId ? [{ id: authoredId, url: concept.video!.youtubeUrl! }] : [];
+  });
+  const [activeYoutubeIdx, setActiveYoutubeIdx] = useState(0);
+  const [youtubeInput, setYoutubeInput] = useState("");
+  const [youtubeBusy, setYoutubeBusy] = useState(false);
+  const [youtubeMsg, setYoutubeMsg] = useState<string | null>(null);
+
+  const [mp4List, setMp4List] = useState<(VideoLocalFile & { url: string | null })[]>([]);
+  const [activeMp4Idx, setActiveMp4Idx] = useState(0);
+  const [videoBusy, setVideoBusy] = useState(false);
+  const [videoMsg, setVideoMsg] = useState<string | null>(null);
+
+  const [veoPrompt, setVeoPrompt] = useState<string | null>(concept.video?.veoPrompt ?? null);
+  const [veoHeader, setVeoHeader] = useState<string | null>(null);
+  const [veoFooter, setVeoFooter] = useState<string | null>(null);
+  const [veoClips, setVeoClips] = useState<VeoClip[] | null>(null);
+  const [openClips, setOpenClips] = useState<Set<number>>(new Set([0]));
+  const [copiedClip, setCopiedClip] = useState<number | "all" | null>(null);
+  const [veoBusy, setVeoBusy] = useState(false);
+  const [videoSubTab, setVideoSubTab] = useState<"youtube" | "mp4" | "prompt">("youtube");
+  const [activeGame, setActiveGame] = useState<ActivityGame | null>(null);
   const methods = collectMethods(concept);
+  const authoredLocalFile = concept.video?.localFile ?? null;
 
   useEffect(() => { api.aiStatus().then(setAi).catch(() => setAi(null)); }, []);
+
+  // Resolve every video/file that applies to this concept (authored content-pack
+  // entry, if any, plus any parent-added overrides) once the Video tab opens.
+  useEffect(() => {
+    if (tab !== "video") return;
+    let cancelled = false;
+    (async () => {
+      const ov = await api.getVideoOverride(concept.id).catch(() => null);
+      if (cancelled) return;
+
+      const authoredId = concept.video?.youtubeUrl ? extractYoutubeId(concept.video.youtubeUrl) : null;
+      const ytEntries: VideoYoutubeEntry[] = authoredId
+        ? [{ id: authoredId, url: concept.video!.youtubeUrl! }, ...(ov?.youtubeVideos ?? [])]
+        : (ov?.youtubeVideos ?? []);
+      setYoutubeList(ytEntries);
+      setActiveYoutubeIdx(0);
+
+      const localEntries: VideoLocalFile[] = [
+        ...(authoredLocalFile ? [{ file: authoredLocalFile, name: authoredLocalFile.split(/[\\/]/).pop() || "Video" }] : []),
+        ...(ov?.localFiles ?? []),
+      ];
+      const resolved = await Promise.all(
+        localEntries.map(async (lf) => ({ ...lf, url: await api.getVideoFileUrl(lf.file).catch(() => null) }))
+      );
+      if (!cancelled) {
+        setMp4List(resolved);
+        setActiveMp4Idx(0);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [tab, concept.id, authoredLocalFile]);
+
+  async function handlePickVideo() {
+    setVideoBusy(true);
+    setVideoMsg(null);
+    const r = await api.pickVideoFile(concept.id);
+    setVideoBusy(false);
+    if (r.ok && r.localFiles) {
+      const resolved = await Promise.all(
+        r.localFiles.map(async (lf) => ({ ...lf, url: await api.getVideoFileUrl(lf.file).catch(() => null) }))
+      );
+      const withAuthored = authoredLocalFile
+        ? [{ file: authoredLocalFile, name: authoredLocalFile.split(/[\\/]/).pop() || "Video", url: await api.getVideoFileUrl(authoredLocalFile).catch(() => null) }, ...resolved]
+        : resolved;
+      setMp4List(withAuthored);
+      setActiveMp4Idx(withAuthored.length - 1);
+      setVideoMsg("Added! 🎉");
+    } else if (r.reason !== "canceled") {
+      setVideoMsg("Couldn't add that file — try an MP3 or MP4.");
+    }
+  }
+
+  async function handleRemoveMp4(file: string) {
+    setVideoBusy(true);
+    const r = await api.removeVideoLocalFile(concept.id, file);
+    setVideoBusy(false);
+    if (r.ok && r.localFiles) {
+      const resolved = await Promise.all(
+        r.localFiles.map(async (lf) => ({ ...lf, url: await api.getVideoFileUrl(lf.file).catch(() => null) }))
+      );
+      const withAuthored = authoredLocalFile
+        ? [{ file: authoredLocalFile, name: authoredLocalFile.split(/[\\/]/).pop() || "Video", url: await api.getVideoFileUrl(authoredLocalFile).catch(() => null) }, ...resolved]
+        : resolved;
+      setMp4List(withAuthored);
+      setActiveMp4Idx(0);
+    }
+  }
+
+  async function handleAttachYoutube() {
+    if (!youtubeInput.trim()) return;
+    setYoutubeBusy(true);
+    setYoutubeMsg(null);
+    const r = await api.addVideoYoutubeUrl(concept.id, youtubeInput.trim());
+    setYoutubeBusy(false);
+    if (r.ok && r.youtubeVideos) {
+      const authoredId = concept.video?.youtubeUrl ? extractYoutubeId(concept.video.youtubeUrl) : null;
+      const withAuthored = authoredId
+        ? [{ id: authoredId, url: concept.video!.youtubeUrl! }, ...r.youtubeVideos]
+        : r.youtubeVideos;
+      setYoutubeList(withAuthored);
+      setActiveYoutubeIdx(r.duplicate ? withAuthored.findIndex((y) => y.id === r.youtubeId) : withAuthored.length - 1);
+      setYoutubeInput("");
+      setYoutubeMsg(r.duplicate ? "That one's already added." : "Added! 🎉");
+    } else {
+      setYoutubeMsg("That doesn't look like a YouTube link — try pasting the full video URL.");
+    }
+  }
+
+  async function handleRemoveYoutube(id: string) {
+    setYoutubeBusy(true);
+    const r = await api.removeVideoYoutubeUrl(concept.id, id);
+    setYoutubeBusy(false);
+    if (r.ok && r.youtubeVideos) {
+      const authoredId = concept.video?.youtubeUrl ? extractYoutubeId(concept.video.youtubeUrl) : null;
+      const withAuthored = authoredId
+        ? [{ id: authoredId, url: concept.video!.youtubeUrl! }, ...r.youtubeVideos]
+        : r.youtubeVideos;
+      setYoutubeList(withAuthored);
+      setActiveYoutubeIdx(0);
+    }
+    setYoutubeMsg(null);
+  }
+
+  async function handleGenerateVeo() {
+    setVeoBusy(true);
+    const r = await api.generateVeoPrompt(concept.id);
+    setVeoBusy(false);
+    if (r.ok) {
+      if (r.prompt) setVeoPrompt(r.prompt);
+      setVeoHeader(r.header ?? null);
+      setVeoFooter(r.footer ?? null);
+      setVeoClips(r.clips ?? null);
+      setOpenClips(new Set([0]));
+    }
+  }
+
+  // The static concept.video.veoPrompt (if authored) is a flat string —
+  // fetch the structured {header, clips, footer} shape once so the Prompt
+  // sub-tab can show one collapsible panel per scene instead of one giant
+  // block of text. buildVeoPrompt is a pure function of the concept's own
+  // data, so this live call always matches what's stored.
+  useEffect(() => {
+    if (videoSubTab === "prompt" && !veoClips && !veoBusy && veoPrompt) {
+      handleGenerateVeo();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [videoSubTab]);
+
+  function toggleClip(idx: number) {
+    setOpenClips((prev) => {
+      const next = new Set(prev);
+      if (next.has(idx)) next.delete(idx); else next.add(idx);
+      return next;
+    });
+  }
+
+  function flashCopied(id: number | "all") {
+    setCopiedClip(id);
+    setTimeout(() => setCopiedClip((cur) => (cur === id ? null : cur)), 1500);
+  }
+
+  function copyClip(idx: number, clip: VeoClip) {
+    const text = `${clip.label}\nPrompt: ${clip.prompt}\nVoice-over: ${clip.voiceOver}`;
+    navigator.clipboard?.writeText(text).then(() => flashCopied(idx)).catch(() => {});
+  }
+
+  function copyVeoPrompt() {
+    if (veoPrompt) navigator.clipboard?.writeText(veoPrompt).then(() => flashCopied("all")).catch(() => {});
+  }
 
   async function askAi(style: "simpler" | "story" | "real-life" | "more-examples" | "fun-fact") {
     setAiBusy(true);
     setAiText(null);
     const r = await api.aiExplain({ conceptId: concept.id, style });
     setAiBusy(false);
-    if (r.ok && r.explanation) {
-      setAiText({ explanation: r.explanation, example: r.example ?? "" });
-      autoSpeak(r.explanation + (r.example ? " For example: " + r.example : ""));
+    if (r.ok && r.steps && r.steps.length > 0) {
+      setAiText({ steps: r.steps, example: r.example ?? "" });
+      autoSpeak(r.steps.join(". ") + (r.example ? " For example: " + r.example : ""));
     } else {
       // Silent fallback to authored content — never an error for the child
-      setAiText({ explanation: concept.whatIsIt + " " + concept.whyNeeded, example: "" });
+      setAiText({ steps: [concept.whatIsIt, concept.whyNeeded].filter(Boolean), example: "" });
     }
   }
 
@@ -118,6 +310,21 @@ export function LessonPlayer({
         return "Flashcards. Flip each card, then rate yourself: got it, or review.";
       case "infographic":
         return `${concept.name} — one-page summary. ${concept.revisionCard.summary}`;
+      case "video": {
+        const v = concept.video;
+        const bits = [
+          v?.time != null ? `About ${Math.round(v.time)} seconds long.` : "",
+          youtubeList.length ? "There's a YouTube video for this you can watch right here." : "",
+          mp4List.length ? "There's a video or audio file you can play here." : "",
+        ].filter(Boolean);
+        return bits.join(" ") || "Add a video or audio file, or paste a YouTube link.";
+      }
+      case "activity": {
+        const ab = concept.activityBook;
+        if (!ab) return "";
+        const names = (Object.keys(ab) as ActivityGame[]).filter((k) => ab[k]).map((k) => ACTIVITY_META[k].label);
+        return `Activities. ${names.join(", ")}. Pick one to play!`;
+      }
     }
   }
 
@@ -136,6 +343,10 @@ export function LessonPlayer({
     // Optional review tabs (do not gate practice) — study cards + a one-page recap.
     t.push({ id: "flashcards", label: "🃏 Cards" });
     t.push({ id: "infographic", label: "📊 Recap" });
+    // Always offered — a parent can attach a YouTube link (or local file) to
+    // ANY concept at runtime, not just the ones the content pack pre-authored.
+    t.push({ id: "video", label: "🎬 Video" });
+    if (concept.activityBook) t.push({ id: "activity", label: "🧩 Activities" });
     return t;
   }, [concept]);
 
@@ -438,6 +649,236 @@ export function LessonPlayer({
                 <ConceptInfographic concept={concept} />
               </article>
             )}
+            {tab === "video" && (
+              <article>
+                <p className="fm-tab-intro">🎬 Watch or listen to this idea explained.</p>
+                {concept.video?.time != null && (
+                  <p className="fm-video-time">⏱️ About {Math.round(concept.video.time)}s</p>
+                )}
+                <div className="fm-video-subtabs" role="tablist" aria-label="Video source">
+                  <button
+                    role="tab"
+                    aria-selected={videoSubTab === "youtube"}
+                    className={`fm-video-subtab ${videoSubTab === "youtube" ? "active" : ""}`}
+                    onClick={() => setVideoSubTab("youtube")}
+                  >
+                    ▶️ YouTube
+                  </button>
+                  <button
+                    role="tab"
+                    aria-selected={videoSubTab === "mp4"}
+                    className={`fm-video-subtab ${videoSubTab === "mp4" ? "active" : ""}`}
+                    onClick={() => setVideoSubTab("mp4")}
+                  >
+                    📁 MP4 / Audio
+                  </button>
+                  <button
+                    role="tab"
+                    aria-selected={videoSubTab === "prompt"}
+                    className={`fm-video-subtab ${videoSubTab === "prompt" ? "active" : ""}`}
+                    onClick={() => setVideoSubTab("prompt")}
+                  >
+                    🪄 Prompt
+                  </button>
+                </div>
+
+                <div className="fm-video-panel">
+                  {videoSubTab === "youtube" && (
+                    <>
+                      {youtubeList.length > 0 && (
+                        <>
+                          {youtubeList.length > 1 && (
+                            <div className="fm-video-chip-row">
+                              {youtubeList.map((y, i) => (
+                                <span key={y.id} className={`fm-video-chip ${i === activeYoutubeIdx ? "active" : ""}`}>
+                                  <button onClick={() => setActiveYoutubeIdx(i)}>
+                                    {i === 0 && concept.video?.youtubeUrl && extractYoutubeId(concept.video.youtubeUrl) === y.id ? "📺 Video 1" : `📺 Video ${i + 1}`}
+                                  </button>
+                                  {!(i === 0 && concept.video?.youtubeUrl && extractYoutubeId(concept.video.youtubeUrl) === y.id) && (
+                                    <button
+                                      className="fm-video-chip-remove"
+                                      disabled={youtubeBusy}
+                                      aria-label="Remove this YouTube video"
+                                      onClick={() => handleRemoveYoutube(y.id)}
+                                    >
+                                      ✖️
+                                    </button>
+                                  )}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                          <YouTubePlayer videoId={youtubeList[activeYoutubeIdx].id} title={concept.name} />
+                          <div className="fm-video-actions">
+                            <button
+                              className="fm-secondary"
+                              onClick={() => api.openExternalLink(`https://www.youtube.com/watch?v=${youtubeList[activeYoutubeIdx].id}`)}
+                            >
+                              ↗️ Open on YouTube
+                            </button>
+                            {!(activeYoutubeIdx === 0 && concept.video?.youtubeUrl && extractYoutubeId(concept.video.youtubeUrl) === youtubeList[0].id) && (
+                              <button className="fm-secondary" disabled={youtubeBusy} onClick={() => handleRemoveYoutube(youtubeList[activeYoutubeIdx].id)}>
+                                ✖️ Remove this video
+                              </button>
+                            )}
+                          </div>
+                        </>
+                      )}
+                      <div className="fm-yt-attach">
+                        <p className="fm-veo-label">▶️ {youtubeList.length ? "Paste another YouTube link to add it here:" : "Paste a YouTube link to play it here for this lesson:"}</p>
+                        <div className="fm-yt-attach-row">
+                          <input
+                            type="text"
+                            className="fm-yt-input"
+                            placeholder="https://www.youtube.com/watch?v=…"
+                            value={youtubeInput}
+                            onChange={(e) => setYoutubeInput(e.target.value)}
+                            onKeyDown={(e) => { if (e.key === "Enter") handleAttachYoutube(); }}
+                          />
+                          <button className="fm-secondary" disabled={youtubeBusy || !youtubeInput.trim()} onClick={handleAttachYoutube}>
+                            {youtubeBusy ? "Adding…" : "➕ Add"}
+                          </button>
+                        </div>
+                      </div>
+                      {youtubeMsg && <p className="fm-video-msg">{youtubeMsg}</p>}
+                    </>
+                  )}
+
+                  {videoSubTab === "mp4" && (
+                    <>
+                      {mp4List.length > 0 && (
+                        <>
+                          {mp4List.length > 1 && (
+                            <div className="fm-video-chip-row">
+                              {mp4List.map((f, i) => (
+                                <span key={f.file} className={`fm-video-chip ${i === activeMp4Idx ? "active" : ""}`}>
+                                  <button onClick={() => setActiveMp4Idx(i)}>📁 {f.name}</button>
+                                  {f.file !== authoredLocalFile && (
+                                    <button
+                                      className="fm-video-chip-remove"
+                                      disabled={videoBusy}
+                                      aria-label="Remove this file"
+                                      onClick={() => handleRemoveMp4(f.file)}
+                                    >
+                                      ✖️
+                                    </button>
+                                  )}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                          {mp4List[activeMp4Idx].url && (
+                            /\.(mp3|wav|m4a)$/i.test(mp4List[activeMp4Idx].file)
+                              ? <audio controls src={mp4List[activeMp4Idx].url!} className="fm-video-player" />
+                              : <video controls src={mp4List[activeMp4Idx].url!} className="fm-video-player" />
+                          )}
+                          {mp4List[activeMp4Idx].file !== authoredLocalFile && (
+                            <div className="fm-video-actions">
+                              <button className="fm-secondary" disabled={videoBusy} onClick={() => handleRemoveMp4(mp4List[activeMp4Idx].file)}>
+                                ✖️ Remove this file
+                              </button>
+                            </div>
+                          )}
+                        </>
+                      )}
+                      <div className="fm-video-actions">
+                        <button className="fm-secondary" disabled={videoBusy} onClick={handlePickVideo}>
+                          📁 {mp4List.length ? "Add another video/audio file" : "Add a video/audio file"}
+                        </button>
+                      </div>
+                      {videoMsg && <p className="fm-video-msg">{videoMsg}</p>}
+                    </>
+                  )}
+
+                  {videoSubTab === "prompt" && (
+                    <div className="fm-veo-box">
+                      <p className="fm-veo-label">🪄 Google Veo prompt — 6 scenes x 5s with voice-over, paste into veo.google or the Gemini app to create a short explainer video:</p>
+                      {veoClips ? (
+                        <>
+                          {veoHeader && <p className="fm-veo-header">{veoHeader}</p>}
+                          <div className="fm-veo-clip-list">
+                            {veoClips.map((clip, idx) => {
+                              const isOpen = openClips.has(idx);
+                              return (
+                                <div key={idx} className={`fm-veo-clip ${isOpen ? "open" : ""}`}>
+                                  <button
+                                    type="button"
+                                    className="fm-veo-clip-head"
+                                    aria-expanded={isOpen}
+                                    onClick={() => toggleClip(idx)}
+                                  >
+                                    <span className="fm-veo-clip-chevron">
+                                      <ChevronDown size={16} />
+                                    </span>
+                                    <span className="fm-veo-clip-title">{clip.label}</span>
+                                    <span
+                                      className="fm-veo-clip-copy"
+                                      role="button"
+                                      tabIndex={0}
+                                      onClick={(e) => { e.stopPropagation(); copyClip(idx, clip); }}
+                                      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.stopPropagation(); copyClip(idx, clip); } }}
+                                    >
+                                      {copiedClip === idx ? "✓ Copied" : "📋 Copy"}
+                                    </span>
+                                  </button>
+                                  {isOpen && (
+                                    <div className="fm-veo-clip-body">
+                                      <p><strong>Prompt:</strong> {clip.prompt}</p>
+                                      <p><strong>Voice-over:</strong> {clip.voiceOver}</p>
+                                    </div>
+                                  )}
+                                </div>
+                              );
+                            })}
+                          </div>
+                          {veoFooter && <p className="fm-veo-footer">{veoFooter}</p>}
+                          <div className="fm-video-actions">
+                            <button className="fm-secondary" onClick={copyVeoPrompt}>
+                              {copiedClip === "all" ? "✓ Copied all" : "📋 Copy all scenes"}
+                            </button>
+                            <button className="fm-secondary" disabled={veoBusy} onClick={handleGenerateVeo}>
+                              {veoBusy ? "Thinking…" : "🔄 Regenerate prompt"}
+                            </button>
+                          </div>
+                        </>
+                      ) : veoPrompt ? (
+                        <p className="fm-veo-prompt">{veoBusy ? "Loading scenes…" : veoPrompt}</p>
+                      ) : (
+                        <button className="fm-secondary" disabled={veoBusy} onClick={handleGenerateVeo}>
+                          {veoBusy ? "Thinking…" : "✨ Generate a Veo prompt"}
+                        </button>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </article>
+            )}
+            {tab === "activity" && concept.activityBook && (
+              <article>
+                <p className="fm-tab-intro">🧩 Playful practice, activity-book style. Pick one to try!</p>
+                {activeGame ? (
+                  <div className="fm-activity-active">
+                    <button className="fm-secondary fm-activity-back" onClick={() => setActiveGame(null)}>← All activities</button>
+                    {activeGame === "dotToDot" && concept.activityBook.dotToDot && <DotToDot spec={concept.activityBook.dotToDot} />}
+                    {activeGame === "traceIt" && concept.activityBook.traceIt && <TraceIt spec={concept.activityBook.traceIt} />}
+                    {activeGame === "maze" && concept.activityBook.maze && <MathMaze spec={concept.activityBook.maze} />}
+                    {activeGame === "colorByAnswer" && concept.activityBook.colorByAnswer && <ColorByAnswer spec={concept.activityBook.colorByAnswer} />}
+                    {activeGame === "matchUp" && concept.activityBook.matchUp && <MatchUp spec={concept.activityBook.matchUp} />}
+                  </div>
+                ) : (
+                  <div className="fm-activity-menu">
+                    {(Object.keys(ACTIVITY_META) as ActivityGame[])
+                      .filter((k) => concept.activityBook?.[k])
+                      .map((k) => (
+                        <button key={k} className="fm-activity-card" onClick={() => setActiveGame(k)}>
+                          <span className="fm-activity-icon">{ACTIVITY_META[k].icon}</span>
+                          <span className="fm-activity-label">{concept.activityBook![k]!.title}</span>
+                        </button>
+                      ))}
+                  </div>
+                )}
+              </article>
+            )}
           </main>
 
           {/* Robo's help belongs on the explanation tab — these buttons re-word,
@@ -454,12 +895,23 @@ export function LessonPlayer({
             </div>
           )}
           {tab === "meaning" && aiBusy && <p className="fm-ai-busy">🤖 Robo Reason is thinking…</p>}
-          {tab === "meaning" && aiText && (
-            <div className="fm-ai-panel">
-              <p>{aiText.explanation}</p>
-              {aiText.example && <p className="fm-callout">{aiText.example}</p>}
-            </div>
-          )}
+          {tab === "meaning" && aiText && (() => {
+            // Best-effort, zero-extra-cost visual: the same offline heuristic Homework
+            // Helper uses, run against Robo's own tiny example (or the concept's
+            // story problem as a fallback). Fails soft to null when nothing matches.
+            const visual = buildHomeworkVisual(aiText.example || concept.story?.extractedProblem || "");
+            return (
+              <div className="fm-ai-panel">
+                <StepCards steps={aiText.steps} />
+                {visual && (
+                  <div className="fm-ar-visual">
+                    <VisualRenderer visual={visual} compact />
+                  </div>
+                )}
+                {aiText.example && <p className="fm-callout"><TutorText>{aiText.example}</TutorText></p>}
+              </div>
+            );
+          })()}
 
           <footer className="fm-lesson-foot">
             {(() => {

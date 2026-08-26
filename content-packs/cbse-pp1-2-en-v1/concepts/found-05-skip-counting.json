@@ -469,5 +469,103 @@
       "q": "Which is easiest to skip-count in?",
       "a": "10s (10,20,30) and 5s (5,10,15). Your fingers and toes help!"
     }
-  ]
+  ],
+  "activityBook": {
+    "dotToDot": {
+      "title": "Skip-Count Sun",
+      "instructions": "Count by 5s and click each dot in order to reveal the picture!",
+      "dots": [
+        {
+          "x": 50,
+          "y": 10,
+          "label": "5"
+        },
+        {
+          "x": 59,
+          "y": 37,
+          "label": "10"
+        },
+        {
+          "x": 88,
+          "y": 38,
+          "label": "15"
+        },
+        {
+          "x": 65,
+          "y": 55,
+          "label": "20"
+        },
+        {
+          "x": 74,
+          "y": 82,
+          "label": "25"
+        },
+        {
+          "x": 50,
+          "y": 66,
+          "label": "30"
+        },
+        {
+          "x": 26,
+          "y": 82,
+          "label": "35"
+        },
+        {
+          "x": 35,
+          "y": 55,
+          "label": "40"
+        },
+        {
+          "x": 12,
+          "y": 38,
+          "label": "45"
+        },
+        {
+          "x": 41,
+          "y": 37,
+          "label": "50"
+        }
+      ],
+      "revealName": "Sun"
+    },
+    "maze": {
+      "title": "Counting Trail Maze",
+      "instructions": "Keep the skip-counting pattern going to find your way through!",
+      "forks": [
+        {
+          "q": {
+            "id": "sk1",
+            "q": "Skip counting by 2s: 2, 4, 6, 8, ?",
+            "answer": "10",
+            "hintLadder": [
+              "Add 2 each time.",
+              "8 + 2 = ?"
+            ]
+          },
+          "branches": [
+            "9",
+            "10"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "sk2",
+            "q": "Skip counting by 10s: 10, 20, 30, ?",
+            "answer": "40",
+            "hintLadder": [
+              "Add 10 each time.",
+              "30 + 10 = ?"
+            ]
+          },
+          "branches": [
+            "31",
+            "40"
+          ],
+          "correctBranch": 1
+        }
+      ],
+      "goalLabel": "Counting Trail 🧵"
+    }
+  }
 }

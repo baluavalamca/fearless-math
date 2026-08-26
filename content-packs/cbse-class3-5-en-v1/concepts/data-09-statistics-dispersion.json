@@ -145,15 +145,59 @@
     "kind": "shape2d",
     "shape": "dot-plot",
     "sliders": [
-      { "key": "a", "label": "Value 1", "min": 0, "max": 15, "step": 1, "default": 1, "unit": "" },
-      { "key": "b", "label": "Value 2", "min": 0, "max": 15, "step": 1, "default": 3, "unit": "" },
-      { "key": "c", "label": "Value 3", "min": 0, "max": 15, "step": 1, "default": 5, "unit": "" },
-      { "key": "d", "label": "Value 4", "min": 0, "max": 15, "step": 1, "default": 7, "unit": "" }
+      {
+        "key": "a",
+        "label": "Value 1",
+        "min": 0,
+        "max": 15,
+        "step": 1,
+        "default": 1,
+        "unit": ""
+      },
+      {
+        "key": "b",
+        "label": "Value 2",
+        "min": 0,
+        "max": 15,
+        "step": 1,
+        "default": 3,
+        "unit": ""
+      },
+      {
+        "key": "c",
+        "label": "Value 3",
+        "min": 0,
+        "max": 15,
+        "step": 1,
+        "default": 5,
+        "unit": ""
+      },
+      {
+        "key": "d",
+        "label": "Value 4",
+        "min": 0,
+        "max": 15,
+        "step": 1,
+        "default": 7,
+        "unit": ""
+      }
     ],
     "formulas": [
-      { "name": "Range", "expr": "max(a,b,c,d)-min(a,b,c,d)", "unit": "" },
-      { "name": "Variance", "expr": "((a-(a+b+c+d)/4)^2+(b-(a+b+c+d)/4)^2+(c-(a+b+c+d)/4)^2+(d-(a+b+c+d)/4)^2)/4", "unit": "" },
-      { "name": "Standard deviation", "expr": "sqrt(((a-(a+b+c+d)/4)^2+(b-(a+b+c+d)/4)^2+(c-(a+b+c+d)/4)^2+(d-(a+b+c+d)/4)^2)/4)", "unit": "" }
+      {
+        "name": "Range",
+        "expr": "max(a,b,c,d)-min(a,b,c,d)",
+        "unit": ""
+      },
+      {
+        "name": "Variance",
+        "expr": "((a-(a+b+c+d)/4)^2+(b-(a+b+c+d)/4)^2+(c-(a+b+c+d)/4)^2+(d-(a+b+c+d)/4)^2)/4",
+        "unit": ""
+      },
+      {
+        "name": "Standard deviation",
+        "expr": "sqrt(((a-(a+b+c+d)/4)^2+(b-(a+b+c+d)/4)^2+(c-(a+b+c+d)/4)^2+(d-(a+b+c+d)/4)^2)/4)",
+        "unit": ""
+      }
     ],
     "color": "good"
   },
@@ -382,5 +426,33 @@
       "formula": "SD = sqrt(variance)",
       "remember": "Square-root brings the units back to normal"
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Dispersion Match-Up",
+      "instructions": "Match each spread-of-data term to what it means.",
+      "pairs": [
+        {
+          "id": "range",
+          "left": "Range",
+          "right": "Highest minus lowest"
+        },
+        {
+          "id": "variance",
+          "left": "Variance",
+          "right": "Average of squared deviations from the mean"
+        },
+        {
+          "id": "sd",
+          "left": "Standard Deviation",
+          "right": "Square root of variance"
+        },
+        {
+          "id": "disp",
+          "left": "Dispersion",
+          "right": "How spread out the data is"
+        }
+      ]
+    }
+  }
 }

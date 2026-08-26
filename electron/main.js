@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, net, shell } = require("electron");
+const { app, BrowserWindow, ipcMain, net, shell, dialog } = require("electron");
 const path = require("path");
 const fs = require("fs");
 const { createStore } = require("./db");
@@ -6,6 +6,7 @@ const { loadPacks, conceptCard } = require("./contentLoader");
 const logic = require("./logic");
 const ai = require("./aiService");
 const media = require("./mediaService");
+const video = require("./videoService");
 const mistakeFamilies = require("./mistakeFamilies");
 
 // Some Windows GPU driver / virtual-display combinations leave the Chromium
@@ -468,6 +469,23 @@ function registerIpc() {
   ipcMain.handle("tts:sarvam", async (_e, p) => media.sarvamTTS(p));
   ipcMain.handle("media:clearCache", (_e, what) => media.clearCache(what));
 
+  /* ---------- Video (local files + YouTube links + Veo prompt, optional) ---------- */
+  ipcMain.handle("video:pick", async (_e, conceptId) => video.pickAndCopyFile(conceptId));
+  ipcMain.handle("video:removeLocalFile", (_e, conceptId, localFile) => video.removeLocalFile(conceptId, localFile));
+  ipcMain.handle("video:fileUrl", (_e, localFile) => video.getFileUrl(localFile));
+  ipcMain.handle("video:override", (_e, conceptId) => video.getOverride(conceptId));
+  ipcMain.handle("video:veoPrompt", async (_e, conceptId) => {
+    const c = content.concepts.get(conceptId);
+    if (!c) return { ok: false, reason: "unknown-concept" };
+    return video.generateVeoPrompt(c);
+  });
+  ipcMain.handle("video:addYoutube", (_e, conceptId, url) => video.addYoutubeUrl(conceptId, url));
+  ipcMain.handle("video:removeYoutube", (_e, conceptId, youtubeId) => video.removeYoutubeUrl(conceptId, youtubeId));
+  ipcMain.handle("link:openExternal", (_e, url) => {
+    if (typeof url === "string" && /^https?:\/\//i.test(url)) { shell.openExternal(url).catch(() => {}); return { ok: true }; }
+    return { ok: false };
+  });
+
   // ---- Extend the syllabus: create a concept from a topic (parent/teacher) ----
   ipcMain.handle("stt:sarvam", async (_e, p) => media.sarvamTranscribe(p));
 
@@ -538,6 +556,7 @@ app.whenReady().then(() => {
   loadUserConcepts();
   ai.init(path.join(app.getPath("userData"), "ai"));
   media.init(path.join(app.getPath("userData"), "media"));
+  video.init(path.join(app.getPath("userData"), "media"));
   registerIpc();
   createWindow();
   app.on("activate", () => BrowserWindow.getAllWindows().length === 0 && createWindow());

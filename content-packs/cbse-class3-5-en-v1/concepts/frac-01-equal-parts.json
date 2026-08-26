@@ -661,5 +661,106 @@
       "q": "What do the top and bottom mean?",
       "a": "Bottom (denominator) = how many equal pieces in all. Top (numerator) = how many of them you are talking about."
     }
-  ]
+  ],
+  "video": {
+    "time": 24,
+    "veoPrompt": "Google Veo prompt pack — 6 clips x 5s each (30s total), with voice-over scripts. Generate each clip in order (Clip 1 first, then use Veo's \"Extend\" on each result for Clips 2-6) so Robo and the classroom stay consistent throughout:\n  1. Paste \"Clip 1\" into veo.google or the Gemini app and generate it.\n  2. On that result, tap \"Extend\" and paste \"Clip 2\" — do NOT start a new generation.\n  3. Keep tapping \"Extend\" and pasting the next clip (3, 4, 5, then 6) in order.\n  4. Clip 6 is what gives the video its goodbye/ending — don't stop before it.\nGlobal rules baked into every clip below: Robo is the ONLY character and the only voice — one speaker, no narrator, no background music, no extra sound effects competing with the dialogue. Numbers in the voice-over are spelled out as words (e.g. \"fifty\", not \"50\") so they're read correctly; numbers shown on screen stay as short printed digits on simple props only — never as sentences or captions.\n\nEach clip below has a PROMPT (what to paste as the visual direction) and a VOICE-OVER (the narration script to speak slowly and warmly, like reading to a young child).\n\nClip 1 (0-5s): The Welcome\nPrompt: 3D Pixar-style animation. a friendly, cute robot named Robo stands in a bright, futuristic classroom with a large glowing screen behind it. Robo waves happily at the camera, big friendly eyes, warm expressive animation. Continuous smooth camera pan. No on-screen text anywhere.\nVoice-over: Robo says (single speaker, warm and slow): \"Hi friends! I'm Robo! Today we're going to learn about Equal Parts and the Meaning of a Fraction. A fraction equals EQUAL parts of a whole. Bottom equals pieces, top equals how many you take\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 2 (5-10s): The First Idea\nPrompt: Continuous shot in the same bright classroom. Robo points at the glowing screen, where a simple, easy-to-follow picture or diagram lights up in sync with what Robo is saying — one clear visual only, no sentences or words rendered on screen.\nVoice-over: Robo says (single speaker, warm and slow): \"Let's start simple. Check: are ALL the parts equal? If not, it is not a fraction yet.\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 3 (10-15s): The Next Idea\nPrompt: Continuous shot. Robo watches excitedly and gestures as the screen updates with a second, slightly bigger or contrasting picture that builds on the first one, still one clear visual at a time, no on-screen text.\nVoice-over: Robo says (single speaker, warm and slow): \"Now here's the next part. Count the total number of equal parts. Write it as the BOTTOM number (denominator).\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 4 (15-20s): Practice Time\nPrompt: Continuous shot. Robo points at the glowing screen, where a single large, simple printed number (like a signboard or scoreboard digit — not a sentence) appears. Robo tilts its head as if thinking, then nods and smiles as a green checkmark and a little sparkle effect appear next to it.\nVoice-over: Robo says (single speaker, warm and slow): \"Let's try one together. A roti is cut into two equal parts. You eat one part. What fraction did you eat? ... That's it — one half!\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 5 (20-25s): One More Practice\nPrompt: Continuous shot. A new single large printed number appears on the glowing screen the same way as before. Robo cheers and jumps slightly with excitement as the checkmark and sparkle effect appear.\nVoice-over: Robo says (single speaker, warm and slow): \"You're doing great! One more: A chocolate bar has eight equal pieces. Ravi eats three pieces. What fraction of the bar did Ravi eat? ... Yes! three eighths! Well done!\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 6 (25-30s): The Goodbye\nPrompt: Continuous shot in the same classroom, the glowing screen visible in the background. Robo turns back to face the camera, clapping its metal hands happily, and waves goodbye. Smooth fade out. No on-screen text.\nVoice-over: Robo says (single speaker, warm and slow): \"Great job today! Remember: A fraction names EQUAL parts of a whole. Bottom number (denominator) equals total equal parts (D for Down/Divided). Top number (numerator) equals parts we talk about. three quarters equals three parts out of four equal parts. No equal parts, no fraction!. See you next time — bye bye!\" (no subtitles, no on-screen captions of the spoken words)\n\nTips for the most accurate result (Veo is a generative model — no prompt guarantees a perfect take every single time):\n  - Generate each clip 2-3 times and keep the best take; accuracy varies generation to generation.\n  - If a word still comes out wrong, try spelling it phonetically in the Voice-over line and regenerate.\n  - For lessons where every word must be exact, you can mute Veo's built-in audio on export and record your own narration over it instead — reading the Voice-over lines aloud, or using this app's own \"Speak\" voice."
+  },
+  "activityBook": {
+    "colorByAnswer": {
+      "title": "Color the Fractions",
+      "instructions": "Solve each fraction riddle, then color it in!",
+      "viewBox": "0 0 200 200",
+      "legend": [
+        {
+          "key": "A",
+          "color": "#FFB74D",
+          "matchAnswer": "1/2"
+        },
+        {
+          "key": "B",
+          "color": "#4FC3F7",
+          "matchAnswer": "1/4"
+        },
+        {
+          "key": "C",
+          "color": "#81C784",
+          "matchAnswer": "3/4"
+        }
+      ],
+      "regions": [
+        {
+          "id": "r1",
+          "d": "M 20 10 L 180 10 L 180 65 L 20 65 Z",
+          "q": {
+            "id": "ab-cba-frac-1",
+            "type": "fraction",
+            "q": "A roti is cut into 2 equal parts. You eat 1 part. What fraction did you eat?",
+            "answer": "1/2",
+            "hintLadder": [
+              "How many equal parts is the roti cut into? That number goes on the bottom.",
+              "You ate 1 part — where does the 1 go, top or bottom?",
+              "1 part out of 2 equal parts."
+            ]
+          }
+        },
+        {
+          "id": "r2",
+          "d": "M 20 75 L 180 75 L 180 130 L 20 130 Z",
+          "q": {
+            "id": "ab-cba-frac-2",
+            "type": "fraction",
+            "q": "A chapati is cut into 4 equal parts. You eat 1 part. What fraction did you eat?",
+            "answer": "1/4",
+            "hintLadder": [
+              "How many equal parts in total? That's the bottom number.",
+              "You ate just 1 part.",
+              "1 part out of 4 equal parts."
+            ]
+          }
+        },
+        {
+          "id": "r3",
+          "d": "M 20 140 L 180 140 L 180 195 L 20 195 Z",
+          "q": {
+            "id": "ab-cba-frac-3",
+            "type": "fraction",
+            "q": "A cake is cut into 4 equal parts. You eat 3 parts. What fraction did you eat?",
+            "answer": "3/4",
+            "hintLadder": [
+              "The whole is cut into 4 equal parts — that's the bottom number.",
+              "You ate 3 of those parts — that's the top number.",
+              "3 parts out of 4 equal parts."
+            ]
+          }
+        }
+      ]
+    },
+    "matchUp": {
+      "title": "Match the Fraction",
+      "instructions": "Match each fraction to what it means.",
+      "pairs": [
+        {
+          "id": "half",
+          "left": "1/2",
+          "right": "1 part out of 2 equal parts"
+        },
+        {
+          "id": "quarter",
+          "left": "1/4",
+          "right": "1 part out of 4 equal parts"
+        },
+        {
+          "id": "threequarters",
+          "left": "3/4",
+          "right": "3 parts out of 4 equal parts"
+        },
+        {
+          "id": "whole",
+          "left": "4/4",
+          "right": "All 4 equal parts — the whole thing"
+        }
+      ]
+    }
+  }
 }

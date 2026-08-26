@@ -358,5 +358,30 @@
       "q": "How many sides does a circle have?",
       "a": "None straight - it is one smooth curved line all the way round."
     }
-  ]
+  ],
+  "activityBook": {
+    "traceIt": {
+      "title": "Trace the Triangle",
+      "instructions": "Trace the triangle by clicking each glowing corner in order.",
+      "glyph": "△",
+      "points": [
+        {
+          "x": 50,
+          "y": 15
+        },
+        {
+          "x": 85,
+          "y": 85
+        },
+        {
+          "x": 15,
+          "y": 85
+        },
+        {
+          "x": 50,
+          "y": 15
+        }
+      ]
+    }
+  }
 }

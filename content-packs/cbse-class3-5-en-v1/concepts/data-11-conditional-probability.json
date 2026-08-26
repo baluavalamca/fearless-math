@@ -323,5 +323,33 @@
       "q": "Why divide by P(B)?",
       "a": "Because B is now our whole world; we rescale so the probabilities inside B add to 1."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Conditional Probability Match-Up",
+      "instructions": "Match each term to what it means.",
+      "pairs": [
+        {
+          "id": "cond",
+          "left": "P(A | B)",
+          "right": "Chance of A given B has happened"
+        },
+        {
+          "id": "indep",
+          "left": "Independent events",
+          "right": "One event doesn't affect the other's chance"
+        },
+        {
+          "id": "mult",
+          "left": "Multiplication rule",
+          "right": "P(A∩B) = P(A) × P(B|A)"
+        },
+        {
+          "id": "bayes",
+          "left": "Bayes' theorem",
+          "right": "Updates probability using new evidence"
+        }
+      ]
+    }
+  }
 }

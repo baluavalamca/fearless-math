@@ -96,9 +96,9 @@ function validateConcept(file) {
     err("story needs text(>=50 chars), extractedProblem, answerInStory (story->math->story rule)");
   if (!c.visual || !c.visual.component)
     err("visual explanation required (never formula-first rule)");
-  else if (!["NumberLine","BarModel","ArrayGrid","FractionStrip","AreaModel","PlaceValueBlocks","GeometryCanvas","ClockFace","BarChart","PizzaSlices","Abacus","ObjectRow","NumberTrack","FunctionPlot","Solid3D","Scene3D","ReasoningFigure","DiceViews"].includes(c.visual.component))
+  else if (!["NumberLine","BarModel","ArrayGrid","FractionStrip","AreaModel","PlaceValueBlocks","GeometryCanvas","ClockFace","BarChart","PizzaSlices","Abacus","ObjectRow","NumberTrack","FunctionPlot","Solid3D","Scene3D","ReasoningFigure","DiceViews","TallyMarks"].includes(c.visual.component))
     err(`visual.component "${c.visual.component}" is not a built component`);
-  const COMP = ["NumberLine","BarModel","ArrayGrid","FractionStrip","AreaModel","PlaceValueBlocks","GeometryCanvas","ClockFace","BarChart","PizzaSlices","Abacus","ObjectRow","NumberTrack","FunctionPlot","Solid3D","Scene3D","ReasoningFigure","DiceViews"];
+  const COMP = ["NumberLine","BarModel","ArrayGrid","FractionStrip","AreaModel","PlaceValueBlocks","GeometryCanvas","ClockFace","BarChart","PizzaSlices","Abacus","ObjectRow","NumberTrack","FunctionPlot","Solid3D","Scene3D","ReasoningFigure","DiceViews","TallyMarks"];
   if (c.teachingGallery !== undefined) {
     if (!Array.isArray(c.teachingGallery)) err("teachingGallery must be an array of {title, examples[]}");
     else c.teachingGallery.forEach((g, gi) => {
@@ -189,6 +189,102 @@ function validateConcept(file) {
   if (c.formulas !== undefined) {
     if (!Array.isArray(c.formulas) || !c.formulas.every((f) => f && isStr(f.name) && isStr(f.formula)))
       err("formulas must be an array of { name, formula } (remember?, whenToUse? optional)");
+  }
+  // Optional per-concept video resource (local file / YouTube link / Veo prompt).
+  if (c.video !== undefined) {
+    const v = c.video;
+    if (!v || typeof v !== "object") {
+      err("video must be an object");
+    } else {
+      if (v.time !== undefined && (typeof v.time !== "number" || v.time < 0)) err("video.time must be a non-negative number (seconds)");
+      if (v.localFile !== undefined && !isStr(v.localFile)) err("video.localFile must be a string");
+      if (v.youtubeUrl !== undefined && (!isStr(v.youtubeUrl) || !/^https?:\/\//i.test(v.youtubeUrl))) err("video.youtubeUrl must be a valid http(s) URL");
+      if (v.veoPrompt !== undefined && !isStr(v.veoPrompt, 10)) err("video.veoPrompt must be a non-empty string");
+    }
+  }
+
+  // Optional activity-book style practice (dot-to-dot, tracing, maze, color-by-answer, match-up).
+  if (c.activityBook !== undefined) {
+    const ab = c.activityBook;
+    if (!ab || typeof ab !== "object") {
+      err("activityBook must be an object");
+    } else {
+      // Light question check reused across sub-types (relaxed vs. main practice pool,
+      // same spirit as trickPractice — the visual/game itself carries the fear-free loop).
+      const checkGameQ = (q, where) => {
+        if (!q || typeof q !== "object") { err(`${where}: question required`); return; }
+        if (!isStr(q.id)) err(`${where}.id required`);
+        if (!isStr(q.q, 3)) err(`${where}.q required`);
+        if (q.answer === undefined || q.answer === null || String(q.answer) === "") err(`${where}.answer required`);
+        if (!isArr(q.hintLadder, 1)) err(`${where}.hintLadder needs >= 1 hint`);
+      };
+      const pctPt = (p, where) => {
+        if (!p || typeof p.x !== "number" || typeof p.y !== "number" || p.x < 0 || p.x > 100 || p.y < 0 || p.y > 100)
+          err(`${where}: x/y must be numbers 0-100 (percent coords)`);
+      };
+
+      if (ab.dotToDot !== undefined) {
+        const d = ab.dotToDot;
+        if (!isStr(d.title)) err("activityBook.dotToDot.title required");
+        if (!isStr(d.instructions)) err("activityBook.dotToDot.instructions required");
+        if (!isArr(d.dots, 4)) err("activityBook.dotToDot.dots needs >= 4 dots to be worth revealing a picture");
+        else d.dots.forEach((dot, i) => { pctPt(dot, `activityBook.dotToDot.dots[${i}]`); if (!isStr(dot.label)) err(`activityBook.dotToDot.dots[${i}].label required`); });
+      }
+      if (ab.traceIt !== undefined) {
+        const t = ab.traceIt;
+        if (!isStr(t.title)) err("activityBook.traceIt.title required");
+        if (!isStr(t.instructions)) err("activityBook.traceIt.instructions required");
+        if (!isStr(t.glyph)) err("activityBook.traceIt.glyph required");
+        if (!isArr(t.points, 3)) err("activityBook.traceIt.points needs >= 3 points to trace a stroke");
+        else t.points.forEach((p, i) => pctPt(p, `activityBook.traceIt.points[${i}]`));
+      }
+      if (ab.maze !== undefined) {
+        const m = ab.maze;
+        if (!isStr(m.title)) err("activityBook.maze.title required");
+        if (!isStr(m.instructions)) err("activityBook.maze.instructions required");
+        if (!isStr(m.goalLabel)) err("activityBook.maze.goalLabel required");
+        if (!isArr(m.forks, 2)) err("activityBook.maze.forks needs >= 2 forks to feel like a maze");
+        else m.forks.forEach((f, i) => {
+          checkGameQ(f.q, `activityBook.maze.forks[${i}].q`);
+          if (!Array.isArray(f.branches) || f.branches.length !== 2 || !f.branches.every((b) => isStr(b)))
+            err(`activityBook.maze.forks[${i}].branches must be exactly [label, label]`);
+          if (f.correctBranch !== 0 && f.correctBranch !== 1) err(`activityBook.maze.forks[${i}].correctBranch must be 0 or 1`);
+        });
+      }
+      if (ab.colorByAnswer !== undefined) {
+        const cb = ab.colorByAnswer;
+        if (!isStr(cb.title)) err("activityBook.colorByAnswer.title required");
+        if (!isStr(cb.instructions)) err("activityBook.colorByAnswer.instructions required");
+        if (!isArr(cb.legend, 2)) err("activityBook.colorByAnswer.legend needs >= 2 colors");
+        else cb.legend.forEach((l, i) => {
+          if (!isStr(l.key)) err(`activityBook.colorByAnswer.legend[${i}].key required`);
+          if (!isStr(l.color)) err(`activityBook.colorByAnswer.legend[${i}].color required`);
+          if (!isStr(l.matchAnswer)) err(`activityBook.colorByAnswer.legend[${i}].matchAnswer required`);
+        });
+        const legendAnswers = new Set((cb.legend || []).map((l) => String(l.matchAnswer)));
+        if (!isArr(cb.regions, 2)) err("activityBook.colorByAnswer.regions needs >= 2 regions");
+        else cb.regions.forEach((r, i) => {
+          if (!isStr(r.id)) err(`activityBook.colorByAnswer.regions[${i}].id required`);
+          if (!isStr(r.d)) err(`activityBook.colorByAnswer.regions[${i}].d (SVG path) required`);
+          checkGameQ(r.q, `activityBook.colorByAnswer.regions[${i}].q`);
+          if (r.q && r.q.answer !== undefined && legendAnswers.size && !legendAnswers.has(String(r.q.answer)))
+            err(`activityBook.colorByAnswer.regions[${i}]: answer "${r.q.answer}" doesn't match any legend.matchAnswer`);
+        });
+      }
+      if (ab.matchUp !== undefined) {
+        const mu = ab.matchUp;
+        if (!isStr(mu.title)) err("activityBook.matchUp.title required");
+        if (!isStr(mu.instructions)) err("activityBook.matchUp.instructions required");
+        if (!isArr(mu.pairs, 3)) err("activityBook.matchUp.pairs needs >= 3 pairs");
+        else mu.pairs.forEach((p, i) => {
+          if (!isStr(p.id)) err(`activityBook.matchUp.pairs[${i}].id required`);
+          if (!isStr(p.left)) err(`activityBook.matchUp.pairs[${i}].left required`);
+          if (!isStr(p.right)) err(`activityBook.matchUp.pairs[${i}].right required`);
+        });
+      }
+      if (!ab.dotToDot && !ab.traceIt && !ab.maze && !ab.colorByAnswer && !ab.matchUp)
+        err("activityBook present but empty — include at least one of dotToDot/traceIt/maze/colorByAnswer/matchUp");
+    }
   }
 
   checkMethod(c.mentalMathMethod, "mentalMathMethod");

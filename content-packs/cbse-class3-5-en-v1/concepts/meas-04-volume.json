@@ -279,13 +279,45 @@
     "kind": "solid3d",
     "shape": "cuboid",
     "sliders": [
-      { "key": "l", "label": "Length (l)", "min": 1, "max": 6, "step": 1, "default": 3, "unit": "units" },
-      { "key": "w", "label": "Width (w)", "min": 1, "max": 6, "step": 1, "default": 2, "unit": "units" },
-      { "key": "h", "label": "Height (h)", "min": 1, "max": 6, "step": 1, "default": 2, "unit": "units" }
+      {
+        "key": "l",
+        "label": "Length (l)",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 3,
+        "unit": "units"
+      },
+      {
+        "key": "w",
+        "label": "Width (w)",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 2,
+        "unit": "units"
+      },
+      {
+        "key": "h",
+        "label": "Height (h)",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 2,
+        "unit": "units"
+      }
     ],
     "formulas": [
-      { "name": "Volume (V = l x w x h)", "expr": "l*w*h", "unit": "cubic units" },
-      { "name": "Surface area", "expr": "2*(l*w+w*h+h*l)", "unit": "sq units" }
+      {
+        "name": "Volume (V = l x w x h)",
+        "expr": "l*w*h",
+        "unit": "cubic units"
+      },
+      {
+        "name": "Surface area",
+        "expr": "2*(l*w+w*h+h*l)",
+        "unit": "sq units"
+      }
     ],
     "color": "accent"
   },
@@ -529,5 +561,62 @@
       "name": "Box volume",
       "formula": "V = l x b x h"
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Cube Castle Maze",
+      "instructions": "Count the unit cubes layer by layer to find the volume.",
+      "forks": [
+        {
+          "q": {
+            "id": "vol1",
+            "q": "A box has a layer of 3×4=12 unit cubes, and there are 2 layers. Volume = ?",
+            "answer": "24",
+            "hintLadder": [
+              "Find the cubes in one layer first.",
+              "Multiply by the number of layers: 12 × 2."
+            ]
+          },
+          "branches": [
+            "24",
+            "14"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "vol2",
+            "q": "A box is 2 cubes long, 2 wide, and 2 tall. Volume = ?",
+            "answer": "8",
+            "hintLadder": [
+              "Multiply length × width × height.",
+              "2 × 2 × 2 = ?"
+            ]
+          },
+          "branches": [
+            "6",
+            "8"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "vol3",
+            "q": "A box is 5 cubes long, 2 wide, and 1 tall. Volume = ?",
+            "answer": "10",
+            "hintLadder": [
+              "Multiply length × width × height.",
+              "5 × 2 × 1 = ?"
+            ]
+          },
+          "branches": [
+            "10",
+            "8"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Cube Castle 🧊"
+    }
+  }
 }

@@ -565,7 +565,12 @@
           "kind": "accumulate",
           "start": 12,
           "startLabel": "Set the total — 12 — in beads.",
-          "parts": [-3, -3, -3, -3],
+          "parts": [
+            -3,
+            -3,
+            -3,
+            -3
+          ],
           "partLabels": [
             "Give 3 to group 1 → 9 left.",
             "Give 3 to group 2 → 6 left.",
@@ -590,5 +595,62 @@
       "q": "What is a remainder?",
       "a": "What is left over when it does not divide evenly. 13 / 4 = 3 remainder 1."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Sharing Circle Maze",
+      "instructions": "Solve each sharing or grouping problem to find your way.",
+      "forks": [
+        {
+          "q": {
+            "id": "ds1",
+            "q": "12 laddus shared equally by 3 friends — how many each?",
+            "answer": "4",
+            "hintLadder": [
+              "Share one at a time into 3 piles.",
+              "3 × ? = 12"
+            ]
+          },
+          "branches": [
+            "4",
+            "3"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "ds2",
+            "q": "20 pencils grouped into sets of 5 — how many groups?",
+            "answer": "4",
+            "hintLadder": [
+              "Count how many 5s fit into 20.",
+              "5 × ? = 20"
+            ]
+          },
+          "branches": [
+            "5",
+            "4"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "ds3",
+            "q": "18 marbles shared by 6 children — how many each?",
+            "answer": "3",
+            "hintLadder": [
+              "Share one at a time into 6 piles.",
+              "6 × ? = 18"
+            ]
+          },
+          "branches": [
+            "3",
+            "2"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Sharing Circle 🧺"
+    }
+  }
 }

@@ -349,5 +349,62 @@
       "q": "How do I add amounts of money?",
       "a": "Line up the decimal points and add like decimals - paise under paise, rupees under rupees."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Coin Corner Maze",
+      "instructions": "Add up coins and notes, or find the change, to find your way.",
+      "forks": [
+        {
+          "q": {
+            "id": "mn1",
+            "q": "You have a ₹10 note, a ₹5 coin, and two ₹1 coins. Total?",
+            "answer": "17",
+            "hintLadder": [
+              "Add them one at a time.",
+              "10 + 5 + 1 + 1 = ?"
+            ]
+          },
+          "branches": [
+            "17",
+            "16"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "mn2",
+            "q": "You pay with a ₹50 note for a ₹32 item. Change = ?",
+            "answer": "18",
+            "hintLadder": [
+              "Change = amount paid minus the price.",
+              "50 - 32 = ?"
+            ]
+          },
+          "branches": [
+            "18",
+            "22"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "mn3",
+            "q": "Make ₹8 using a ₹5 coin and some ₹1 coins. How many ₹1 coins?",
+            "answer": "3",
+            "hintLadder": [
+              "₹8 minus the ₹5 coin leaves how much?",
+              "8 - 5 = ?"
+            ]
+          },
+          "branches": [
+            "3",
+            "2"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Coin Corner 🪙"
+    }
+  }
 }

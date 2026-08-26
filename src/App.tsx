@@ -257,7 +257,7 @@ export default function App() {
       {screen === "ask" && <AskRobo profile={profile} concepts={concepts ?? []} onOpen={openConcept} seed={askSeed} onSeedConsumed={() => setAskSeed(null)} />}
       {screen === "homework" && <HomeworkSolver profile={profile} concepts={concepts ?? []} onOpenConcept={openConcept} />}
       {screen === "facts" && <FunFacts lang={lang} />}
-      {screen === "tricks" && <TipsAndTricks />}
+      {screen === "tricks" && <TipsAndTricks lang={lang} />}
       {screen === "formulas" && <FormulaBook onOpen={openConcept} />}
       {screen === "algos" && <Algorithms />}
       {screen === "dict" && <Dictionary lang={lang} />}

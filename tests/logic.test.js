@@ -120,7 +120,7 @@ t("ease factor never drops below the SM-2 floor of 1.3", () => {
 console.log("\ncontentLoader");
 const { packs, concepts } = loadPacks(path.join(__dirname, "..", "content-packs"));
 t("packs load (Class 3-5 + PP1-2 + hi/te translation packs)", () => assert.strictEqual(packs.length, 6));
-t("all 226 concepts present across 2 packs", () => assert.strictEqual(concepts.size, 226));
+t("all 233 concepts present across 2 packs", () => assert.strictEqual(concepts.size, 233));
 t("every answer key in every concept verifies against itself", () => {
   for (const c of concepts.values()) {
     const all = [...c.practice.easy, ...c.practice.medium, ...c.practice.challenge, ...c.masteryCheck.questions];

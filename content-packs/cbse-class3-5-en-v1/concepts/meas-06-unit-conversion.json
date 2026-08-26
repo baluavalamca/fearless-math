@@ -339,5 +339,33 @@
       "q": "How many cm in a metre?",
       "a": "100. And 1000 m in a km, 1000 g in a kg - metric loves powers of 10."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Unit Conversion Match-Up",
+      "instructions": "Match each unit to its conversion fact.",
+      "pairs": [
+        {
+          "id": "m",
+          "left": "1 metre",
+          "right": "100 centimetres"
+        },
+        {
+          "id": "km",
+          "left": "1 kilometre",
+          "right": "1000 metres"
+        },
+        {
+          "id": "kg",
+          "left": "1 kilogram",
+          "right": "1000 grams"
+        },
+        {
+          "id": "l",
+          "left": "1 litre",
+          "right": "1000 millilitres"
+        }
+      ]
+    }
+  }
 }

@@ -880,5 +880,64 @@
       "q": "What comes after 29?",
       "a": "30 - when the ones reach 9, the next number rolls into a new ten (29 -> 30, 39 -> 40)."
     }
-  ]
+  ],
+  "activityBook": {
+    "dotToDot": {
+      "title": "Count-by-10s Rocket",
+      "instructions": "Count by 10s and click each dot in order to reveal the picture!",
+      "dots": [
+        {
+          "x": 50,
+          "y": 5,
+          "label": "10"
+        },
+        {
+          "x": 65,
+          "y": 25,
+          "label": "20"
+        },
+        {
+          "x": 65,
+          "y": 55,
+          "label": "30"
+        },
+        {
+          "x": 80,
+          "y": 85,
+          "label": "40"
+        },
+        {
+          "x": 60,
+          "y": 90,
+          "label": "50"
+        },
+        {
+          "x": 50,
+          "y": 80,
+          "label": "60"
+        },
+        {
+          "x": 40,
+          "y": 90,
+          "label": "70"
+        },
+        {
+          "x": 20,
+          "y": 85,
+          "label": "80"
+        },
+        {
+          "x": 35,
+          "y": 55,
+          "label": "90"
+        },
+        {
+          "x": 35,
+          "y": 25,
+          "label": "100"
+        }
+      ],
+      "revealName": "Rocket"
+    }
+  }
 }

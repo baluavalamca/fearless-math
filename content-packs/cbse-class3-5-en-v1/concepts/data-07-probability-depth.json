@@ -322,5 +322,33 @@
       "q": "What are independent events?",
       "a": "Events where one does not affect the other, like two coin flips. Just multiply their probabilities."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Sample Space Match-Up",
+      "instructions": "Match each experiment to its sample space (all possible outcomes).",
+      "pairs": [
+        {
+          "id": "coin",
+          "left": "Tossing a coin",
+          "right": "{Heads, Tails}"
+        },
+        {
+          "id": "dice",
+          "left": "Rolling a dice",
+          "right": "{1, 2, 3, 4, 5, 6}"
+        },
+        {
+          "id": "days",
+          "left": "Days of the week",
+          "right": "{Mon, Tue, Wed, Thu, Fri, Sat, Sun}"
+        },
+        {
+          "id": "suits",
+          "left": "Picking a card suit",
+          "right": "{Hearts, Diamonds, Clubs, Spades}"
+        }
+      ]
+    }
+  }
 }

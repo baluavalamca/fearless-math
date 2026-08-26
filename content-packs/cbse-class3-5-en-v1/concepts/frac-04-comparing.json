@@ -691,5 +691,62 @@
       "q": "Same bottom - which is bigger?",
       "a": "The one with the bigger top. More pieces of the same size = more."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Fraction Fair Maze",
+      "instructions": "Remember: bigger bottom number means smaller pieces! Pick the bigger fraction each time.",
+      "forks": [
+        {
+          "q": {
+            "id": "cf1",
+            "q": "Which is bigger: 1/2 or 1/8?",
+            "answer": "1/2",
+            "hintLadder": [
+              "A bigger bottom number means smaller pieces.",
+              "Eighths are tinier pieces than halves."
+            ]
+          },
+          "branches": [
+            "1/2",
+            "1/8"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "cf2",
+            "q": "Which is bigger: 3/8 or 3/4?",
+            "answer": "3/4",
+            "hintLadder": [
+              "Same number of pieces (3), compare piece size.",
+              "Quarters are bigger pieces than eighths."
+            ]
+          },
+          "branches": [
+            "3/8",
+            "3/4"
+          ],
+          "correctBranch": 1
+        },
+        {
+          "q": {
+            "id": "cf3",
+            "q": "Which is bigger: 2/3 or 2/5?",
+            "answer": "2/3",
+            "hintLadder": [
+              "Same number of pieces (2), compare piece size.",
+              "Thirds are bigger pieces than fifths."
+            ]
+          },
+          "branches": [
+            "2/3",
+            "2/5"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Fraction Fair 🎡"
+    }
+  }
 }

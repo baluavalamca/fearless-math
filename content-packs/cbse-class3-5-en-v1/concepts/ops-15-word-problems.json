@@ -666,5 +666,33 @@
       "q": "What if I am stuck?",
       "a": "Draw a picture or use small numbers first. Modelling the story makes the operation obvious."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Word-Problem Clue Match-Up",
+      "instructions": "Match each clue phrase to the operation it usually means.",
+      "pairs": [
+        {
+          "id": "share",
+          "left": "shared equally",
+          "right": "Division ÷"
+        },
+        {
+          "id": "altogether",
+          "left": "altogether / in all",
+          "right": "Addition +"
+        },
+        {
+          "id": "howmanymore",
+          "left": "how many more / left",
+          "right": "Subtraction −"
+        },
+        {
+          "id": "groupsof",
+          "left": "groups of / times",
+          "right": "Multiplication ×"
+        }
+      ]
+    }
+  }
 }

@@ -357,5 +357,62 @@
       "formula": "A = P(1 + R/100)^T",
       "remember": "Interest on interest"
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Finance Forum Maze",
+      "instructions": "Add tax or interest to find your way through the forum.",
+      "forks": [
+        {
+          "q": {
+            "id": "af1",
+            "q": "Price ₹100 plus 18% GST = ?",
+            "answer": "₹118",
+            "hintLadder": [
+              "18% of 100 = 18.",
+              "Add the tax to the price: 100 + 18 = ?"
+            ]
+          },
+          "branches": [
+            "₹118",
+            "₹18"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "af2",
+            "q": "Price ₹200 plus 10% GST = ?",
+            "answer": "₹220",
+            "hintLadder": [
+              "10% of 200 = 20.",
+              "Add the tax to the price: 200 + 20 = ?"
+            ]
+          },
+          "branches": [
+            "₹220",
+            "₹20"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "af3",
+            "q": "₹1000 at 10% simple interest for 1 year earns how much interest?",
+            "answer": "₹100",
+            "hintLadder": [
+              "Simple interest = Principal × Rate ÷ 100.",
+              "1000 × 10 ÷ 100 = ?"
+            ]
+          },
+          "branches": [
+            "₹100",
+            "₹1100"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Finance Forum 🏦"
+    }
+  }
 }

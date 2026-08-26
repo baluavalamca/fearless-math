@@ -515,5 +515,33 @@
       "q": "How do I add money?",
       "a": "Line up the decimal points, then add like normal decimals - paise under paise."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Rupees & Paise Match-Up",
+      "instructions": "Match each amount to how it's written in words.",
+      "pairs": [
+        {
+          "id": "250",
+          "left": "₹2.50",
+          "right": "2 rupees 50 paise"
+        },
+        {
+          "id": "075",
+          "left": "₹0.75",
+          "right": "75 paise"
+        },
+        {
+          "id": "505",
+          "left": "₹5.05",
+          "right": "5 rupees 5 paise"
+        },
+        {
+          "id": "1000",
+          "left": "₹10.00",
+          "right": "10 rupees exactly"
+        }
+      ]
+    }
+  }
 }

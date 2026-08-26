@@ -20,6 +20,8 @@ import { useEffect, useRef, useState } from "react";
 import { AiStatus, ConceptCard, HomeworkProblem, Profile, aiUsable, api } from "../api";
 import { autoSpeak, speak } from "../speech";
 import { RoboAvatar } from "../components/RoboAvatar";
+import { TutorText } from "../components/Math";
+import { StepCards } from "../components/ResponseWidgets";
 import { VisualRenderer } from "../components/VisualRenderer";
 import { matchLesson } from "../lessonMatch";
 import { buildHomeworkVisual, homeworkLessonHints, pickHomeworkTool } from "../homeworkAids";
@@ -76,7 +78,7 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<{ isMathHomework: boolean; problems: HomeworkProblem[] } | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [followup, setFollowup] = useState<Record<number, { open: boolean; q: string; a?: string; busy?: boolean }>>({});
+  const [followup, setFollowup] = useState<Record<number, { open: boolean; q: string; steps?: string[]; busy?: boolean }>>({});
   /** Which problem is showing right now — homework is solved one problem per
    *  page, with Prev/Next + jump-to-number navigation between them. */
   const [idx, setIdx] = useState(0);
@@ -194,11 +196,11 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
     setFollowup((prev) => ({ ...prev, [i]: { ...prev[i], open: true, busy: true } }));
     try {
       const r = await api.aiAsk({ question: `About this homework problem: "${problem}". ${q}` });
-      const a = r.ok && r.answer ? r.answer : friendlyError(r.reason);
-      setFollowup((prev) => ({ ...prev, [i]: { ...prev[i], busy: false, a } }));
-      if (r.ok && r.answer) autoSpeak(r.answer);
+      const steps = r.ok && r.steps && r.steps.length ? r.steps : [friendlyError(r.reason)];
+      setFollowup((prev) => ({ ...prev, [i]: { ...prev[i], busy: false, steps } }));
+      if (r.ok && r.steps && r.steps.length) autoSpeak(r.steps.join(". "));
     } catch {
-      setFollowup((prev) => ({ ...prev, [i]: { ...prev[i], busy: false, a: "Something went wrong. Please try again." } }));
+      setFollowup((prev) => ({ ...prev, [i]: { ...prev[i], busy: false, steps: ["Something went wrong. Please try again."] } }));
     }
   }
 
@@ -336,7 +338,7 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
                       <span className="fm-ar-tag">Problem {i + 1}{total > 1 ? ` of ${total}` : ""}</span>
                       <button className="fm-hw-speak" title="Read aloud" onClick={() => speak([p.problem, ...(p.steps || []), p.answer, p.question, p.hint].filter(Boolean).join(". "))}>🔊</button>
                     </div>
-                    <p className="fm-hw-problem">{p.problem}</p>
+                    <p className="fm-hw-problem"><TutorText>{p.problem}</TutorText></p>
 
                     {visual && (
                       <div className="fm-hw-visual">
@@ -344,20 +346,16 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
                       </div>
                     )}
 
-                    {mode === "solve" && p.steps && (
-                      <ol className="fm-hw-steps">
-                        {p.steps.map((s, j) => <li key={j}>{s}</li>)}
-                      </ol>
-                    )}
+                    {mode === "solve" && p.steps && <StepCards steps={p.steps} />}
                     {mode === "solve" && p.answer && (
-                      <div className="fm-hw-answer"><span className="fm-ar-tag">Answer</span> {p.answer}</div>
+                      <div className="fm-hw-answer"><span className="fm-ar-tag">Answer</span> <TutorText>{p.answer}</TutorText></div>
                     )}
 
                     {mode === "coach" && p.question && (
-                      <div className="fm-ar-try"><span className="fm-ar-tag">Think about this</span> {p.question}</div>
+                      <div className="fm-ar-try"><span className="fm-ar-tag">Think about this</span> <TutorText>{p.question}</TutorText></div>
                     )}
                     {mode === "coach" && p.hint && (
-                      <div className="fm-ar-example"><span className="fm-ar-tag">Hint</span> {p.hint}</div>
+                      <div className="fm-ar-example"><span className="fm-ar-tag">Hint</span> <TutorText>{p.hint}</TutorText></div>
                     )}
 
                     <div className="fm-hw-follow">
@@ -371,7 +369,7 @@ export function HomeworkSolver({ profile, concepts, onOpenConcept }: {
                         </form>
                       )}
                       {followup[i]?.busy && <p className="fm-hw-hint">Robo is thinking…</p>}
-                      {followup[i]?.a && <p className="fm-ar-answer">{followup[i].a}</p>}
+                      {followup[i]?.steps && <StepCards steps={followup[i]!.steps} />}
                     </div>
                   </div>
 

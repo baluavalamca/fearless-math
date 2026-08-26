@@ -559,5 +559,33 @@
       "q": "Why is it 1st, 2nd, 3rd but then 4th?",
       "a": "The first three have special endings (st, nd, rd); from fourth on we mostly add 'th'."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Ordinal Match-Up",
+      "instructions": "Match each position word to the correct answer.",
+      "pairs": [
+        {
+          "id": "1st",
+          "left": "1st",
+          "right": "First in line 🥇"
+        },
+        {
+          "id": "2nd",
+          "left": "2nd",
+          "right": "Second in line 🥈"
+        },
+        {
+          "id": "3rd",
+          "left": "3rd",
+          "right": "Third in line 🥉"
+        },
+        {
+          "id": "5th",
+          "left": "5th",
+          "right": "Fifth in line"
+        }
+      ]
+    }
+  }
 }

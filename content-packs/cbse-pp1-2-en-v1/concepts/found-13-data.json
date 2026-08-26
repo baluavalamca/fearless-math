@@ -360,5 +360,33 @@
       "q": "How can I show my counts?",
       "a": "Line the groups up, or draw one picture per item - a simple pictograph."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Sorting Match-Up",
+      "instructions": "Match each sorting idea to the correct example.",
+      "pairs": [
+        {
+          "id": "colour",
+          "left": "Sort by COLOUR",
+          "right": "Red apples in one group, green in another"
+        },
+        {
+          "id": "type",
+          "left": "Sort by TYPE",
+          "right": "All pencils together, all erasers together"
+        },
+        {
+          "id": "count",
+          "left": "COUNT each group",
+          "right": "How many are in each pile"
+        },
+        {
+          "id": "chart",
+          "left": "Picture chart",
+          "right": "One picture stands for one item counted"
+        }
+      ]
+    }
+  }
 }

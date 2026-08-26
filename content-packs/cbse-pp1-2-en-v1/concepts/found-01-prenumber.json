@@ -1038,5 +1038,94 @@
       "q": "What is one-to-one matching?",
       "a": "Pairing each item with one other (a cup for each saucer) - it shows equal, more, or fewer without counting."
     }
-  ]
+  ],
+  "video": {
+    "time": 24,
+    "veoPrompt": "Google Veo prompt pack — 6 clips x 5s each (30s total), with voice-over scripts. Generate each clip in order (Clip 1 first, then use Veo's \"Extend\" on each result for Clips 2-6) so Robo and the classroom stay consistent throughout:\n  1. Paste \"Clip 1\" into veo.google or the Gemini app and generate it.\n  2. On that result, tap \"Extend\" and paste \"Clip 2\" — do NOT start a new generation.\n  3. Keep tapping \"Extend\" and pasting the next clip (3, 4, 5, then 6) in order.\n  4. Clip 6 is what gives the video its goodbye/ending — don't stop before it.\nGlobal rules baked into every clip below: Robo is the ONLY character and the only voice — one speaker, no narrator, no background music, no extra sound effects competing with the dialogue. Numbers in the voice-over are spelled out as words (e.g. \"fifty\", not \"50\") so they're read correctly; numbers shown on screen stay as short printed digits on simple props only — never as sentences or captions.\n\nEach clip below has a PROMPT (what to paste as the visual direction) and a VOICE-OVER (the narration script to speak slowly and warmly, like reading to a young child).\n\nClip 1 (0-5s): The Welcome\nPrompt: 3D Pixar-style animation. a friendly, cute robot named Robo stands in a bright, futuristic classroom with a large glowing screen behind it. Robo waves happily at the camera, big friendly eyes, warm expressive animation. Continuous smooth camera pan. No on-screen text anywhere.\nVoice-over: Robo says (single speaker, warm and slow): \"Hi friends! I'm Robo! Today we're going to learn about Getting Ready to Count — Big, Small, First, Last. Before numbers: big/small, more/less, sort and match\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 2 (5-10s): The First Idea\nPrompt: Continuous shot in the same bright classroom. Robo points at the glowing screen, where a simple, easy-to-follow picture or diagram lights up in sync with what Robo is saying — one clear visual only, no sentences or words rendered on screen.\nVoice-over: Robo says (single speaker, warm and slow): \"Let's start simple. To compare SIZE: look at which takes more space — that is bigger.\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 3 (10-15s): The Next Idea\nPrompt: Continuous shot. Robo watches excitedly and gestures as the screen updates with a second, slightly bigger or contrasting picture that builds on the first one, still one clear visual at a time, no on-screen text.\nVoice-over: Robo says (single speaker, warm and slow): \"Now here's the next part. To find FIRST and LAST: look at the two ends of the line.\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 4 (15-20s): Practice Time\nPrompt: Continuous shot. Robo points at the glowing screen, where a single large, simple printed number (like a signboard or scoreboard digit — not a sentence) appears. Robo tilts its head as if thinking, then nods and smiles as a green checkmark and a little sparkle effect appear next to it.\nVoice-over: Robo says (single speaker, warm and slow): \"Let's try one together. Which is BIGGER: an elephant or a mouse? ... That's it — elephant!\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 5 (20-25s): One More Practice\nPrompt: Continuous shot. A new single large printed number appears on the glowing screen the same way as before. Robo cheers and jumps slightly with excitement as the checkmark and sparkle effect appear.\nVoice-over: Robo says (single speaker, warm and slow): \"You're doing great! One more: Which is TALLER: a tree or a flower? ... Yes! tree! Well done!\" (no subtitles, no on-screen captions of the spoken words)\n\nClip 6 (25-30s): The Goodbye\nPrompt: Continuous shot in the same classroom, the glowing screen visible in the background. Robo turns back to face the camera, clapping its metal hands happily, and waves goodbye. Smooth fade out. No on-screen text.\nVoice-over: Robo says (single speaker, warm and slow): \"Great job today! Remember: Before numbers: compare SIZE (big/small, tall/short), find FIRST and LAST at the ends of a line, use POSITION words (on/under/inside), and SORT alike things together.. See you next time — bye bye!\" (no subtitles, no on-screen captions of the spoken words)\n\nTips for the most accurate result (Veo is a generative model — no prompt guarantees a perfect take every single time):\n  - Generate each clip 2-3 times and keep the best take; accuracy varies generation to generation.\n  - If a word still comes out wrong, try spelling it phonetically in the Voice-over line and regenerate.\n  - For lessons where every word must be exact, you can mute Veo's built-in audio on export and record your own narration over it instead — reading the Voice-over lines aloud, or using this app's own \"Speak\" voice."
+  },
+  "activityBook": {
+    "dotToDot": {
+      "title": "Count 1 to 10",
+      "instructions": "Click 1, then 2, then 3... all the way to 10 to reveal a surprise!",
+      "dots": [
+        {
+          "x": 50,
+          "y": 10,
+          "label": "1"
+        },
+        {
+          "x": 59,
+          "y": 37,
+          "label": "2"
+        },
+        {
+          "x": 88,
+          "y": 38,
+          "label": "3"
+        },
+        {
+          "x": 65,
+          "y": 55,
+          "label": "4"
+        },
+        {
+          "x": 74,
+          "y": 82,
+          "label": "5"
+        },
+        {
+          "x": 50,
+          "y": 66,
+          "label": "6"
+        },
+        {
+          "x": 26,
+          "y": 82,
+          "label": "7"
+        },
+        {
+          "x": 35,
+          "y": 55,
+          "label": "8"
+        },
+        {
+          "x": 12,
+          "y": 38,
+          "label": "9"
+        },
+        {
+          "x": 41,
+          "y": 37,
+          "label": "10"
+        }
+      ],
+      "revealName": "Star"
+    },
+    "matchUp": {
+      "title": "Big, Small, First, Last",
+      "instructions": "Match each word to the picture that shows it.",
+      "pairs": [
+        {
+          "id": "big",
+          "left": "BIG 🐘",
+          "right": "The elephant"
+        },
+        {
+          "id": "small",
+          "left": "SMALL 🐭",
+          "right": "The mouse"
+        },
+        {
+          "id": "first",
+          "left": "FIRST 🥇",
+          "right": "The one at the front of the line"
+        },
+        {
+          "id": "last",
+          "left": "LAST 🏁",
+          "right": "The one at the back of the line"
+        }
+      ]
+    }
+  }
 }

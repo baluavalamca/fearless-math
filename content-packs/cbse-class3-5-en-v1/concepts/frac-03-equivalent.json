@@ -567,5 +567,33 @@
       "q": "How do I make an equivalent fraction?",
       "a": "Multiply (or divide) BOTH top and bottom by the same number. 2/3 times 3 -> 6/9."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Equivalent Fractions Match-Up",
+      "instructions": "Match each fraction to an equivalent fraction — same amount, different name.",
+      "pairs": [
+        {
+          "id": "12",
+          "left": "1/2",
+          "right": "2/4"
+        },
+        {
+          "id": "13",
+          "left": "1/3",
+          "right": "2/6"
+        },
+        {
+          "id": "24",
+          "left": "2/4",
+          "right": "4/8"
+        },
+        {
+          "id": "14",
+          "left": "1/4",
+          "right": "2/8"
+        }
+      ]
+    }
+  }
 }

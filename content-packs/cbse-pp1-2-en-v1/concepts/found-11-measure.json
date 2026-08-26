@@ -50,7 +50,7 @@
           "label": "Which is longer?",
           "sizes": [
             1.6,
-            1.0
+            1
           ]
         }
       ]
@@ -112,7 +112,7 @@
                 "label": "Line up the ends first",
                 "sizes": [
                   1.4,
-                  1.0
+                  1
                 ]
               }
             ]
@@ -361,5 +361,70 @@
       "q": "cm or m - which do I use?",
       "a": "Small things in centimetres (a pencil), big things in metres (a room). 100 cm = 1 m."
     }
-  ]
+  ],
+  "activityBook": {
+    "colorByAnswer": {
+      "title": "Measure & Color",
+      "instructions": "Answer each question, then color it with the matching color!",
+      "viewBox": "0 0 200 200",
+      "legend": [
+        {
+          "key": "bus",
+          "color": "#FF6B6B",
+          "matchAnswer": "bus"
+        },
+        {
+          "key": "rock",
+          "color": "#4ECDC4",
+          "matchAnswer": "rock"
+        },
+        {
+          "key": "ant",
+          "color": "#FFD93D",
+          "matchAnswer": "ant"
+        }
+      ],
+      "regions": [
+        {
+          "id": "r1",
+          "d": "M10,10 L95,10 L95,190 L10,190 Z",
+          "q": {
+            "id": "m1",
+            "q": "Which is LONGER — a pencil or a bus?",
+            "answer": "bus",
+            "hintLadder": [
+              "Think about which one stretches out further.",
+              "A bus is much bigger than a pencil."
+            ]
+          }
+        },
+        {
+          "id": "r2",
+          "d": "M100,10 L185,10 L185,95 L100,95 Z",
+          "q": {
+            "id": "m2",
+            "q": "Which is HEAVIER — a feather or a rock?",
+            "answer": "rock",
+            "hintLadder": [
+              "Think about which one is harder to lift.",
+              "A feather floats; a rock does not."
+            ]
+          }
+        },
+        {
+          "id": "r3",
+          "d": "M100,100 L185,100 L185,190 L100,190 Z",
+          "q": {
+            "id": "m3",
+            "q": "Which is SHORTER — an ant or an elephant?",
+            "answer": "ant",
+            "hintLadder": [
+              "Think about which one is tiny.",
+              "An ant is much smaller than an elephant."
+            ]
+          }
+        }
+      ]
+    }
+  }
 }

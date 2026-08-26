@@ -353,5 +353,62 @@
       "q": "What makes a chart 'smart'?",
       "a": "It matches the data to the right picture so the message is instantly clear."
     }
-  ]
+  ],
+  "activityBook": {
+    "maze": {
+      "title": "Chart Challenge Maze",
+      "instructions": "Read the chart facts to solve each and find your way.",
+      "forks": [
+        {
+          "q": {
+            "id": "sc1",
+            "q": "Apples=8, bananas=5, mangoes=8. Which value is the MOST COMMON (mode)?",
+            "answer": "8",
+            "hintLadder": [
+              "The mode is the value that appears most often.",
+              "Both apples and mangoes show 8."
+            ]
+          },
+          "branches": [
+            "8",
+            "5"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "sc2",
+            "q": "Class sizes are 30, 25, 35. What is the DIFFERENCE between the biggest and smallest?",
+            "answer": "10",
+            "hintLadder": [
+              "Find the biggest and smallest values.",
+              "35 - 25 = ?"
+            ]
+          },
+          "branches": [
+            "10",
+            "5"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "sc3",
+            "q": "Sales were 20, 30, 40, 10. What is the TOTAL?",
+            "answer": "100",
+            "hintLadder": [
+              "Add all the values together.",
+              "20 + 30 + 40 + 10 = ?"
+            ]
+          },
+          "branches": [
+            "100",
+            "90"
+          ],
+          "correctBranch": 0
+        }
+      ],
+      "goalLabel": "Chart Challenge 📊"
+    }
+  }
 }
