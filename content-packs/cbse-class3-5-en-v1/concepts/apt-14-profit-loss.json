@@ -13,15 +13,33 @@
     "Working out real returns after buying and reselling anything — a phone, a cycle, shares"
   ],
   "vocabulary": [
-    { "term": "Cost Price (CP)", "meaning": "What the seller paid to get the item." },
-    { "term": "Selling Price (SP)", "meaning": "What the item was actually sold for." },
-    { "term": "Profit", "meaning": "SP − CP, when SP is bigger." },
-    { "term": "Loss", "meaning": "CP − SP, when CP is bigger." },
-    { "term": "Profit % / Loss %", "meaning": "The profit or loss written as a percentage of the Cost Price — always CP, never SP." }
+    {
+      "term": "Cost Price (CP)",
+      "meaning": "What the seller paid to get the item."
+    },
+    {
+      "term": "Selling Price (SP)",
+      "meaning": "What the item was actually sold for."
+    },
+    {
+      "term": "Profit",
+      "meaning": "SP − CP, when SP is bigger."
+    },
+    {
+      "term": "Loss",
+      "meaning": "CP − SP, when CP is bigger."
+    },
+    {
+      "term": "Profit % / Loss %",
+      "meaning": "The profit or loss written as a percentage of the Cost Price — always CP, never SP."
+    }
   ],
   "story": {
     "title": "Ramu's Mango Cart",
-    "characters": ["Ramu", "his sister Divya"],
+    "characters": [
+      "Ramu",
+      "his sister Divya"
+    ],
     "text": "Ramu buys a crate of mangoes for ₹800 and sells the whole crate for ₹1000. 'I made ₹200,' he tells Divya proudly. She asks, 'Yes, but what's your profit PERCENT?' Ramu pauses — is it 200 out of 1000, or 200 out of 800? Divya explains: percent is always out of what you SPENT, the ₹800. So profit% = 200/800 × 100 = 25%. 'If you'd said 20% using the ₹1000, you'd have undersold your own hard work,' she laughs.",
     "extractedProblem": "CP = ₹800, SP = ₹1000. Find the profit percent.",
     "answerInStory": "25% — profit ₹200 is calculated on the ₹800 cost price, not the ₹1000 selling price."
@@ -30,8 +48,29 @@
     "component": "BarModel",
     "props": {
       "bars": [
-        { "label": "Cost Price", "parts": [{ "value": 800, "label": "₹800" }] },
-        { "label": "Selling Price", "parts": [{ "value": 800, "label": "₹800" }, { "value": 200, "label": "₹200 profit", "shaded": true }] }
+        {
+          "label": "Cost Price",
+          "parts": [
+            {
+              "value": 800,
+              "label": "₹800"
+            }
+          ]
+        },
+        {
+          "label": "Selling Price",
+          "parts": [
+            {
+              "value": 800,
+              "label": "₹800"
+            },
+            {
+              "value": 200,
+              "label": "₹200 profit",
+              "shaded": true
+            }
+          ]
+        }
       ]
     },
     "caption": "SP is the CP bar plus a profit slice on top — the slice, out of the CP bar, is the profit percent."
@@ -43,18 +82,59 @@
       "examples": [
         {
           "component": "BarModel",
-          "props": { "bars": [
-            { "label": "CP", "parts": [{ "value": 500, "label": "₹500" }] },
-            { "label": "SP", "parts": [{ "value": 500, "label": "₹500" }, { "value": 100, "label": "₹100 profit", "shaded": true }] }
-          ] },
+          "props": {
+            "bars": [
+              {
+                "label": "CP",
+                "parts": [
+                  {
+                    "value": 500,
+                    "label": "₹500"
+                  }
+                ]
+              },
+              {
+                "label": "SP",
+                "parts": [
+                  {
+                    "value": 500,
+                    "label": "₹500"
+                  },
+                  {
+                    "value": 100,
+                    "label": "₹100 profit",
+                    "shaded": true
+                  }
+                ]
+              }
+            ]
+          },
           "caption": "CP ₹500, profit ₹100 → profit% = 100/500 × 100 = 20%."
         },
         {
           "component": "BarModel",
-          "props": { "bars": [
-            { "label": "CP", "parts": [{ "value": 600, "label": "₹600" }] },
-            { "label": "SP", "parts": [{ "value": 450, "label": "₹450" }] }
-          ] },
+          "props": {
+            "bars": [
+              {
+                "label": "CP",
+                "parts": [
+                  {
+                    "value": 600,
+                    "label": "₹600"
+                  }
+                ]
+              },
+              {
+                "label": "SP",
+                "parts": [
+                  {
+                    "value": 450,
+                    "label": "₹450"
+                  }
+                ]
+              }
+            ]
+          },
           "caption": "CP ₹600, SP ₹450 → loss ₹150 → loss% = 150/600 × 100 = 25%."
         }
       ]
@@ -134,10 +214,54 @@
     "trick": "Percent is always on CP",
     "intro": "Every profit% or loss% question is (difference ÷ CP) × 100 — CP is the base, always.",
     "questions": [
-      { "id": "apt14-trick-1", "type": "number", "q": "CP ₹300, SP ₹360. Profit%?", "answer": "20", "hintLadder": ["Profit = 60.", "60 ÷ CP(300).", "× 100 = 20."], "explain": "60/300 × 100 = 20%." },
-      { "id": "apt14-trick-2", "type": "number", "q": "CP ₹500, SP ₹400. Loss%?", "answer": "20", "hintLadder": ["Loss = 100.", "100 ÷ CP(500).", "× 100 = 20."], "explain": "100/500 × 100 = 20%." },
-      { "id": "apt14-trick-3", "type": "number", "q": "CP ₹200, profit 10%. Find SP.", "answer": "220", "hintLadder": ["SP = CP × 110/100.", "200 × 1.1.", "= 220."], "explain": "200 × 110/100 = 220." },
-      { "id": "apt14-trick-4", "type": "number", "q": "SP ₹690 at 15% profit. Find CP.", "answer": "600", "hintLadder": ["CP = SP × 100/115.", "690 × 100 ÷ 115.", "= 600."], "explain": "690 × 100/115 = 600." }
+      {
+        "id": "apt14-trick-1",
+        "type": "number",
+        "q": "CP ₹300, SP ₹360. Profit%?",
+        "answer": "20",
+        "hintLadder": [
+          "Profit = 60.",
+          "60 ÷ CP(300).",
+          "× 100 = 20."
+        ],
+        "explain": "60/300 × 100 = 20%."
+      },
+      {
+        "id": "apt14-trick-2",
+        "type": "number",
+        "q": "CP ₹500, SP ₹400. Loss%?",
+        "answer": "20",
+        "hintLadder": [
+          "Loss = 100.",
+          "100 ÷ CP(500).",
+          "× 100 = 20."
+        ],
+        "explain": "100/500 × 100 = 20%."
+      },
+      {
+        "id": "apt14-trick-3",
+        "type": "number",
+        "q": "CP ₹200, profit 10%. Find SP.",
+        "answer": "220",
+        "hintLadder": [
+          "SP = CP × 110/100.",
+          "200 × 1.1.",
+          "= 220."
+        ],
+        "explain": "200 × 110/100 = 220."
+      },
+      {
+        "id": "apt14-trick-4",
+        "type": "number",
+        "q": "SP ₹690 at 15% profit. Find CP.",
+        "answer": "600",
+        "hintLadder": [
+          "CP = SP × 100/115.",
+          "690 × 100 ÷ 115.",
+          "= 600."
+        ],
+        "explain": "690 × 100/115 = 600."
+      }
     ]
   },
   "commonMistakes": [
@@ -159,28 +283,195 @@
   ],
   "practice": {
     "easy": [
-      { "id": "e1", "type": "number", "q": "CP ₹100, SP ₹120. Profit%?", "answer": "20", "hintLadder": ["Profit = 20.", "20 ÷ 100.", "× 100 = 20."] },
-      { "id": "e2", "type": "number", "q": "CP ₹150, SP ₹120. Loss%?", "answer": "20", "hintLadder": ["Loss = 30.", "30 ÷ 150.", "× 100 = 20."] },
-      { "id": "e3", "type": "mcq", "q": "Profit% is always calculated on…", "options": [ { "label": "Cost Price" }, { "label": "Selling Price", "mistakeTag": "percent-on-sp" } ], "answer": "Cost Price", "hintLadder": ["The money risked.", "That's what was spent.", "Cost Price."] }
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "CP ₹100, SP ₹120. Profit%?",
+        "answer": "20",
+        "hintLadder": [
+          "Profit = 20.",
+          "20 ÷ 100.",
+          "× 100 = 20."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "number",
+        "q": "CP ₹150, SP ₹120. Loss%?",
+        "answer": "20",
+        "hintLadder": [
+          "Loss = 30.",
+          "30 ÷ 150.",
+          "× 100 = 20."
+        ]
+      },
+      {
+        "id": "e3",
+        "type": "mcq",
+        "q": "Profit% is always calculated on…",
+        "options": [
+          {
+            "label": "Cost Price"
+          },
+          {
+            "label": "Selling Price",
+            "mistakeTag": "percent-on-sp"
+          }
+        ],
+        "answer": "Cost Price",
+        "hintLadder": [
+          "The money risked.",
+          "That's what was spent.",
+          "Cost Price."
+        ]
+      }
     ],
     "medium": [
-      { "id": "m1", "type": "number", "q": "CP ₹800, profit 25%. Find SP.", "answer": "1000", "hintLadder": ["SP = CP × 125/100.", "800 × 1.25.", "= 1000."] },
-      { "id": "m2", "type": "number", "q": "SP ₹460 at a loss of 8%. Find CP.", "answer": "500", "hintLadder": ["CP = SP × 100/(100−8).", "460 × 100 ÷ 92.", "= 500."] },
-      { "id": "m3", "type": "number", "q": "A pen bought at ₹40 is sold at ₹34. Find loss%.", "answer": "15", "hintLadder": ["Loss = 6.", "6 ÷ 40.", "× 100 = 15."] }
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "CP ₹800, profit 25%. Find SP.",
+        "answer": "1000",
+        "hintLadder": [
+          "SP = CP × 125/100.",
+          "800 × 1.25.",
+          "= 1000."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "SP ₹460 at a loss of 8%. Find CP.",
+        "answer": "500",
+        "hintLadder": [
+          "CP = SP × 100/(100−8).",
+          "460 × 100 ÷ 92.",
+          "= 500."
+        ]
+      },
+      {
+        "id": "m3",
+        "type": "number",
+        "q": "A pen bought at ₹40 is sold at ₹34. Find loss%.",
+        "answer": "15",
+        "hintLadder": [
+          "Loss = 6.",
+          "6 ÷ 40.",
+          "× 100 = 15."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "c1", "type": "number", "q": "A shopkeeper claims to sell at cost price but uses a weight of 900 g for every 1000 g billed. Find his profit%.", "answer": "11.11", "hintLadder": ["Profit% = (1000−900)/900 × 100.", "100 ÷ 900.", "≈ 11.11%."] },
-      { "id": "c2", "type": "number", "q": "An item is sold at 20% profit; had it been sold for ₹40 more, the profit would have been 30%. Find the CP.", "answer": "400", "hintLadder": ["30% CP − 20% CP = ₹40.", "10% of CP = 40.", "CP = 400."] },
-      { "id": "c3", "type": "mcq", "q": "Goods sold at 10% loss instead of 10% profit fetch ₹40 less. Find CP.", "options": [ { "label": "₹200" }, { "label": "₹400", "mistakeTag": "sign-confusion" } ], "answer": "₹200", "hintLadder": ["Difference = 20% of CP.", "20% of CP = 40.", "CP = 200."] }
+      {
+        "id": "c1",
+        "type": "number",
+        "q": "A shopkeeper claims to sell at cost price but uses a weight of 900 g for every 1000 g billed. Find his profit%.",
+        "answer": "11.11",
+        "hintLadder": [
+          "Profit% = (1000−900)/900 × 100.",
+          "100 ÷ 900.",
+          "≈ 11.11%."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "An item is sold at 20% profit; had it been sold for ₹40 more, the profit would have been 30%. Find the CP.",
+        "answer": "400",
+        "hintLadder": [
+          "30% CP − 20% CP = ₹40.",
+          "10% of CP = 40.",
+          "CP = 400."
+        ]
+      },
+      {
+        "id": "c3",
+        "type": "mcq",
+        "q": "Goods sold at 10% loss instead of 10% profit fetch ₹40 less. Find CP.",
+        "options": [
+          {
+            "label": "₹200"
+          },
+          {
+            "label": "₹400",
+            "mistakeTag": "sign-confusion"
+          }
+        ],
+        "answer": "₹200",
+        "hintLadder": [
+          "Difference = 20% of CP.",
+          "20% of CP = 40.",
+          "CP = 200."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "mc1", "type": "number", "q": "CP ₹250, SP ₹300. Profit%?", "answer": "20", "hintLadder": ["Profit = 50.", "50 ÷ 250.", "× 100 = 20."] },
-      { "id": "mc2", "type": "number", "q": "CP ₹900, loss 10%. Find SP.", "answer": "810", "hintLadder": ["SP = CP × 90/100.", "900 × 0.9.", "= 810."] },
-      { "id": "mc3", "type": "number", "q": "SP ₹276 at 15% profit. Find CP.", "answer": "240", "hintLadder": ["CP = SP × 100/115.", "276 × 100 ÷ 115.", "= 240."] },
-      { "id": "mc4", "type": "mcq", "q": "SP is less than CP — this is called a…", "options": [ { "label": "Loss" }, { "label": "Profit", "mistakeTag": "sign-confusion" } ], "answer": "Loss", "hintLadder": ["Spent more than earned.", "That's a loss.", "Loss."] },
-      { "id": "mc5", "type": "number", "q": "A radio bought for ₹1200 is sold for ₹1500. Profit%?", "answer": "25", "hintLadder": ["Profit = 300.", "300 ÷ 1200.", "× 100 = 25."] }
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "CP ₹250, SP ₹300. Profit%?",
+        "answer": "20",
+        "hintLadder": [
+          "Profit = 50.",
+          "50 ÷ 250.",
+          "× 100 = 20."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "CP ₹900, loss 10%. Find SP.",
+        "answer": "810",
+        "hintLadder": [
+          "SP = CP × 90/100.",
+          "900 × 0.9.",
+          "= 810."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "number",
+        "q": "SP ₹276 at 15% profit. Find CP.",
+        "answer": "240",
+        "hintLadder": [
+          "CP = SP × 100/115.",
+          "276 × 100 ÷ 115.",
+          "= 240."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "SP is less than CP — this is called a…",
+        "options": [
+          {
+            "label": "Loss"
+          },
+          {
+            "label": "Profit",
+            "mistakeTag": "sign-confusion"
+          }
+        ],
+        "answer": "Loss",
+        "hintLadder": [
+          "Spent more than earned.",
+          "That's a loss.",
+          "Loss."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "number",
+        "q": "A radio bought for ₹1200 is sold for ₹1500. Profit%?",
+        "answer": "25",
+        "hintLadder": [
+          "Profit = 300.",
+          "300 ÷ 1200.",
+          "× 100 = 25."
+        ]
+      }
     ],
     "passThreshold": 0.8,
     "requireTeachBack": true
@@ -188,7 +479,11 @@
   "teachBackPrompt": "Teach a friend why profit% is always calculated on the Cost Price and never the Selling Price, using the ₹800-mango-crate story where profit is ₹200 but the percent is 25%, not 20%.",
   "revisionCard": {
     "summary": "Profit/Loss = SP − CP (positive = profit, negative = loss). Percent is ALWAYS (Profit or Loss ÷ CP) × 100 — CP is the base. Forward: SP = CP(100±%)/100. Backward: CP = SP × 100/(100±%). False-weight trick: profit% = (true weight − false weight)/false weight × 100.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "gameMission": {
     "world": "Number Jungle (Ganita Grove)",
@@ -210,7 +505,82 @@
     "unpack": "Profit or Loss ÷ CP × 100 — never divide by SP."
   },
   "studentQuestions": [
-    { "q": "Why isn't the percent calculated on the Selling Price?", "a": "Because CP is what was actually invested — the percent measures the RETURN on that investment. Using SP would understate every profit and overstate every loss." },
-    { "q": "What's the fastest way to find SP from CP and a profit percent?", "a": "SP = CP × (100 + profit%)/100. Treat CP as 100 parts and scale up (or down for a loss) in one multiplication." }
-  ]
+    {
+      "q": "Why isn't the percent calculated on the Selling Price?",
+      "a": "Because CP is what was actually invested — the percent measures the RETURN on that investment. Using SP would understate every profit and overstate every loss."
+    },
+    {
+      "q": "What's the fastest way to find SP from CP and a profit percent?",
+      "a": "SP = CP × (100 + profit%)/100. Treat CP as 100 parts and scale up (or down for a loss) in one multiplication."
+    }
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Profit & Loss",
+      "instructions": "Match each trading term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "Cost Price (CP)",
+          "right": "What the seller paid to get the item"
+        },
+        {
+          "id": "p2",
+          "left": "Selling Price (SP)",
+          "right": "What the item was actually sold for"
+        },
+        {
+          "id": "p3",
+          "left": "Profit",
+          "right": "SP − CP, when SP is bigger"
+        },
+        {
+          "id": "p4",
+          "left": "Profit % is always on...",
+          "right": "Cost Price, never Selling Price"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Buying & Selling Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "Profit and loss — sorted!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Cost Price ₹200, Selling Price ₹250. Find the profit.",
+            "answer": "₹50 profit",
+            "hintLadder": [
+              "Profit = SP − CP when SP is bigger.",
+              "250 − 200."
+            ]
+          },
+          "branches": [
+            "₹50 profit",
+            "₹50 loss"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "Cost Price ₹200, profit ₹50. Find the profit %.",
+            "answer": "25%",
+            "hintLadder": [
+              "Profit % is always calculated on the Cost Price.",
+              "50 ÷ 200 × 100."
+            ]
+          },
+          "branches": [
+            "25%",
+            "20%"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

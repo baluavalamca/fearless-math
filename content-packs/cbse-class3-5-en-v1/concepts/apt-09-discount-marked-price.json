@@ -14,14 +14,29 @@
     "SSC / Bank / Railway quantitative aptitude questions"
   ],
   "vocabulary": [
-    { "term": "marked price (MP)", "meaning": "The printed / tag price before any discount." },
-    { "term": "discount", "meaning": "A percentage taken OFF the marked price (discount = MP × d/100)." },
-    { "term": "selling price (SP)", "meaning": "What the customer actually pays: SP = MP × (1 − d/100)." },
-    { "term": "successive discounts", "meaning": "Two discounts applied one after the other; they do not add — the second is on the reduced price." }
+    {
+      "term": "marked price (MP)",
+      "meaning": "The printed / tag price before any discount."
+    },
+    {
+      "term": "discount",
+      "meaning": "A percentage taken OFF the marked price (discount = MP × d/100)."
+    },
+    {
+      "term": "selling price (SP)",
+      "meaning": "What the customer actually pays: SP = MP × (1 − d/100)."
+    },
+    {
+      "term": "successive discounts",
+      "meaning": "Two discounts applied one after the other; they do not add — the second is on the reduced price."
+    }
   ],
   "story": {
     "title": "The Real Price of the Shirt",
-    "characters": ["Farhan", "the shopkeeper"],
+    "characters": [
+      "Farhan",
+      "the shopkeeper"
+    ],
     "text": "A shirt is marked ₹800 with '25% off'. 'So I pay ₹775?' guesses Farhan. The shopkeeper laughs: 'The percent comes off, not the rupees. 25% of ₹800 is ₹200, so you pay 800 − 200 = ₹600.' Then a second tag: 'Extra 10% off at the counter.' 'That's 35% total, so ₹520?' 'No — the 10% is on the already-reduced ₹600. 10% of 600 is ₹60, so ₹540. Two discounts never simply add up.'",
     "extractedProblem": "A shirt marked ₹800 gets 25% off, then a further 10% off at the counter. What is the final price?",
     "answerInStory": "₹540 — first ₹600 (25% off ₹800), then 10% off ₹600 = ₹540 (not 35% off)."
@@ -30,10 +45,54 @@
     "component": "BarModel",
     "props": {
       "bars": [
-        { "label": "Marked price ₹800", "parts": [ { "value": 800, "label": "MP" } ], "showTotal": false },
-        { "label": "25% off = ₹200 → pay ₹600", "parts": [ { "value": 600, "label": "you pay" }, { "value": 200, "label": "off" } ], "showTotal": false },
-        { "label": "Then 10% off ₹600 = ₹60 → ₹540", "parts": [ { "value": 540, "label": "final" }, { "value": 60, "label": "off" } ], "showTotal": false },
-        { "label": "NOT 35% off ₹800 (₹520) — discounts don't add", "parts": [ { "value": 540, "label": "true SP" } ], "showTotal": false }
+        {
+          "label": "Marked price ₹800",
+          "parts": [
+            {
+              "value": 800,
+              "label": "MP"
+            }
+          ],
+          "showTotal": false
+        },
+        {
+          "label": "25% off = ₹200 → pay ₹600",
+          "parts": [
+            {
+              "value": 600,
+              "label": "you pay"
+            },
+            {
+              "value": 200,
+              "label": "off"
+            }
+          ],
+          "showTotal": false
+        },
+        {
+          "label": "Then 10% off ₹600 = ₹60 → ₹540",
+          "parts": [
+            {
+              "value": 540,
+              "label": "final"
+            },
+            {
+              "value": 60,
+              "label": "off"
+            }
+          ],
+          "showTotal": false
+        },
+        {
+          "label": "NOT 35% off ₹800 (₹520) — discounts don't add",
+          "parts": [
+            {
+              "value": 540,
+              "label": "true SP"
+            }
+          ],
+          "showTotal": false
+        }
       ]
     },
     "caption": "Discount is a percent of the marked price. Selling price = MP × (1 − d/100). A second discount applies to the already-reduced price, so successive discounts never simply add."
@@ -43,8 +102,50 @@
       "title": "SP = MP × (1 − d/100)",
       "note": "Take the percent off the marked price. Successive discounts multiply the leftover fractions.",
       "examples": [
-        { "component": "BarModel", "props": { "bars": [ { "label": "₹1000, 20% off", "parts": [ { "value": 800, "label": "pay" }, { "value": 200, "label": "off" } ], "showTotal": false } ] }, "caption": "SP = 1000 × 0.8 = ₹800." },
-        { "component": "BarModel", "props": { "bars": [ { "label": "10% then 10%: ×0.9×0.9 = 0.81", "parts": [ { "value": 81, "label": "pay 81%" }, { "value": 19, "label": "off 19%" } ], "showTotal": false } ] }, "caption": "10% + 10% = 19% off, not 20%." }
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "₹1000, 20% off",
+                "parts": [
+                  {
+                    "value": 800,
+                    "label": "pay"
+                  },
+                  {
+                    "value": 200,
+                    "label": "off"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "SP = 1000 × 0.8 = ₹800."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "10% then 10%: ×0.9×0.9 = 0.81",
+                "parts": [
+                  {
+                    "value": 81,
+                    "label": "pay 81%"
+                  },
+                  {
+                    "value": 19,
+                    "label": "off 19%"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "10% + 10% = 19% off, not 20%."
+        }
       ]
     }
   ],
@@ -105,10 +206,54 @@
     "trick": "You pay (100 − d)% of the marked price",
     "intro": "Turn the discount into the leftover you pay, then multiply.",
     "questions": [
-      { "id": "apt09-trick-1", "type": "number", "q": "₹500 with 10% off — pay (₹)?", "answer": "450", "hintLadder": ["Pay 90%.", "500 × 0.9.", "= 450."], "explain": "₹450." },
-      { "id": "apt09-trick-2", "type": "number", "q": "₹2000 with 25% off — pay (₹)?", "answer": "1500", "hintLadder": ["Pay 75%.", "2000 × 0.75.", "= 1500."], "explain": "₹1500." },
-      { "id": "apt09-trick-3", "type": "number", "q": "Discount amount on ₹800 at 15% (₹)?", "answer": "120", "hintLadder": ["15% of 800.", "800 × 15 ÷ 100.", "= 120."], "explain": "₹120 off." },
-      { "id": "apt09-trick-4", "type": "number", "q": "₹1000 with 10% then 10% off — pay (₹)?", "answer": "810", "hintLadder": ["×0.9×0.9 = 0.81.", "1000 × 0.81.", "= 810."], "explain": "₹810 (19% off, not 20%)." }
+      {
+        "id": "apt09-trick-1",
+        "type": "number",
+        "q": "₹500 with 10% off — pay (₹)?",
+        "answer": "450",
+        "hintLadder": [
+          "Pay 90%.",
+          "500 × 0.9.",
+          "= 450."
+        ],
+        "explain": "₹450."
+      },
+      {
+        "id": "apt09-trick-2",
+        "type": "number",
+        "q": "₹2000 with 25% off — pay (₹)?",
+        "answer": "1500",
+        "hintLadder": [
+          "Pay 75%.",
+          "2000 × 0.75.",
+          "= 1500."
+        ],
+        "explain": "₹1500."
+      },
+      {
+        "id": "apt09-trick-3",
+        "type": "number",
+        "q": "Discount amount on ₹800 at 15% (₹)?",
+        "answer": "120",
+        "hintLadder": [
+          "15% of 800.",
+          "800 × 15 ÷ 100.",
+          "= 120."
+        ],
+        "explain": "₹120 off."
+      },
+      {
+        "id": "apt09-trick-4",
+        "type": "number",
+        "q": "₹1000 with 10% then 10% off — pay (₹)?",
+        "answer": "810",
+        "hintLadder": [
+          "×0.9×0.9 = 0.81.",
+          "1000 × 0.81.",
+          "= 810."
+        ],
+        "explain": "₹810 (19% off, not 20%)."
+      }
     ]
   },
   "commonMistakes": [
@@ -125,25 +270,162 @@
   ],
   "practice": {
     "easy": [
-      { "id": "e1", "type": "number", "q": "₹400 with 25% off — pay (₹)?", "answer": "300", "hintLadder": ["Pay 75%.", "400 × 0.75.", "= 300."] },
-      { "id": "e2", "type": "mcq", "q": "A ₹1000 item at 20% off costs…", "options": [ { "label": "₹800" }, { "label": "₹980 (1000 − 20)", "mistakeTag": "off-vs-pay" } ], "answer": "₹800", "hintLadder": ["20% of 1000 = 200.", "1000 − 200.", "= 800."] }
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "₹400 with 25% off — pay (₹)?",
+        "answer": "300",
+        "hintLadder": [
+          "Pay 75%.",
+          "400 × 0.75.",
+          "= 300."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "A ₹1000 item at 20% off costs…",
+        "options": [
+          {
+            "label": "₹800"
+          },
+          {
+            "label": "₹980 (1000 − 20)",
+            "mistakeTag": "off-vs-pay"
+          }
+        ],
+        "answer": "₹800",
+        "hintLadder": [
+          "20% of 1000 = 200.",
+          "1000 − 200.",
+          "= 800."
+        ]
+      }
     ],
     "medium": [
-      { "id": "m1", "type": "number", "q": "₹1500 with 40% off — pay (₹)?", "answer": "900", "hintLadder": ["Pay 60%.", "1500 × 0.6.", "= 900."] },
-      { "id": "m2", "type": "number", "q": "₹2000 with 10% then 20% off — pay (₹)?", "answer": "1440", "hintLadder": ["×0.9 = 1800.", "×0.8 = 1440.", "Final ₹1440."] }
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "₹1500 with 40% off — pay (₹)?",
+        "answer": "900",
+        "hintLadder": [
+          "Pay 60%.",
+          "1500 × 0.6.",
+          "= 900."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "₹2000 with 10% then 20% off — pay (₹)?",
+        "answer": "1440",
+        "hintLadder": [
+          "×0.9 = 1800.",
+          "×0.8 = 1440.",
+          "Final ₹1440."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "c1", "type": "number", "q": "Two successive discounts of 20% and 25% on ₹1000 — pay (₹)?", "answer": "600", "hintLadder": ["0.8 × 0.75 = 0.6.", "1000 × 0.6.", "= 600."] },
-      { "id": "c2", "type": "mcq", "q": "Successive discounts of 10% and 10% equal a single discount of…", "options": [ { "label": "19%" }, { "label": "20%", "mistakeTag": "discounts-added" } ], "answer": "19%", "hintLadder": ["Pay 0.9 × 0.9 = 0.81.", "So 19% off.", "Not 20%."] }
+      {
+        "id": "c1",
+        "type": "number",
+        "q": "Two successive discounts of 20% and 25% on ₹1000 — pay (₹)?",
+        "answer": "600",
+        "hintLadder": [
+          "0.8 × 0.75 = 0.6.",
+          "1000 × 0.6.",
+          "= 600."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "Successive discounts of 10% and 10% equal a single discount of…",
+        "options": [
+          {
+            "label": "19%"
+          },
+          {
+            "label": "20%",
+            "mistakeTag": "discounts-added"
+          }
+        ],
+        "answer": "19%",
+        "hintLadder": [
+          "Pay 0.9 × 0.9 = 0.81.",
+          "So 19% off.",
+          "Not 20%."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "mc1", "type": "number", "q": "₹600 with 10% off — pay (₹)?", "answer": "540", "hintLadder": ["Pay 90%.", "600 × 0.9.", "= 540."] },
-      { "id": "mc2", "type": "number", "q": "Discount amount on ₹1200 at 25% (₹)?", "answer": "300", "hintLadder": ["25% of 1200.", "1200 × 25 ÷ 100.", "= 300."] },
-      { "id": "mc3", "type": "mcq", "q": "Successive discounts should be…", "options": [ { "label": "Multiplied as leftover fractions" }, { "label": "Added together", "mistakeTag": "discounts-added" } ], "answer": "Multiplied as leftover fractions", "hintLadder": ["Second is on reduced price.", "Multiply what you pay.", "Never add the percents."] },
-      { "id": "mc4", "type": "number", "q": "₹5000 with 50% off — pay (₹)?", "answer": "2500", "hintLadder": ["Pay 50%.", "5000 × 0.5.", "= 2500."] },
-      { "id": "mc5", "type": "number", "q": "₹1000 with 20% then 10% off — pay (₹)?", "answer": "720", "hintLadder": ["×0.8 = 800.", "×0.9 = 720.", "₹720."] }
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "₹600 with 10% off — pay (₹)?",
+        "answer": "540",
+        "hintLadder": [
+          "Pay 90%.",
+          "600 × 0.9.",
+          "= 540."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "Discount amount on ₹1200 at 25% (₹)?",
+        "answer": "300",
+        "hintLadder": [
+          "25% of 1200.",
+          "1200 × 25 ÷ 100.",
+          "= 300."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "Successive discounts should be…",
+        "options": [
+          {
+            "label": "Multiplied as leftover fractions"
+          },
+          {
+            "label": "Added together",
+            "mistakeTag": "discounts-added"
+          }
+        ],
+        "answer": "Multiplied as leftover fractions",
+        "hintLadder": [
+          "Second is on reduced price.",
+          "Multiply what you pay.",
+          "Never add the percents."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "number",
+        "q": "₹5000 with 50% off — pay (₹)?",
+        "answer": "2500",
+        "hintLadder": [
+          "Pay 50%.",
+          "5000 × 0.5.",
+          "= 2500."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "number",
+        "q": "₹1000 with 20% then 10% off — pay (₹)?",
+        "answer": "720",
+        "hintLadder": [
+          "×0.8 = 800.",
+          "×0.9 = 720.",
+          "₹720."
+        ]
+      }
     ],
     "passThreshold": 0.8,
     "requireTeachBack": true
@@ -151,7 +433,11 @@
   "teachBackPrompt": "Teach a friend why '10% + 20% off' is not 30% off. Use a ₹1000 item, apply 10% then 20% step by step to reach ₹720, and show that the single equivalent discount is 28%.",
   "revisionCard": {
     "summary": "Discount is a % of the MARKED price. SP = MP × (1 − d/100); you pay (100 − d)%. Successive discounts multiply the leftover fractions (0.9 × 0.8 = 0.72 = 28% off, not 30%). Profit/loss is judged against COST price, not marked price.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "gameMission": {
     "world": "Measurement Island (Ganita Grove)",
@@ -173,11 +459,96 @@
     "unpack": "SP = MP × (1 − d/100). Successive discounts multiply, never add. Profit is vs cost price."
   },
   "formulas": [
-    { "name": "Selling price", "formula": "SP = MP × (1 − d/100)", "remember": "pay the leftover percent", "whenToUse": "One discount off the tag price." },
-    { "name": "Successive discounts", "formula": "SP = MP × (1 − d₁/100)(1 − d₂/100)", "remember": "multiply leftovers", "whenToUse": "Two discounts one after another." }
+    {
+      "name": "Selling price",
+      "formula": "SP = MP × (1 − d/100)",
+      "remember": "pay the leftover percent",
+      "whenToUse": "One discount off the tag price."
+    },
+    {
+      "name": "Successive discounts",
+      "formula": "SP = MP × (1 − d₁/100)(1 − d₂/100)",
+      "remember": "multiply leftovers",
+      "whenToUse": "Two discounts one after another."
+    }
   ],
   "studentQuestions": [
-    { "q": "Why don't two discounts add up?", "a": "The second discount is taken on the already-reduced price, so it removes less money than if it were applied to the full marked price." },
-    { "q": "Is a big marked price a good deal?", "a": "Not by itself — shops often mark up first, then 'discount'. What matters is the final selling price versus the true value." }
-  ]
+    {
+      "q": "Why don't two discounts add up?",
+      "a": "The second discount is taken on the already-reduced price, so it removes less money than if it were applied to the full marked price."
+    },
+    {
+      "q": "Is a big marked price a good deal?",
+      "a": "Not by itself — shops often mark up first, then 'discount'. What matters is the final selling price versus the true value."
+    }
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Discount",
+      "instructions": "Match each pricing term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "marked price (MP)",
+          "right": "The printed tag price"
+        },
+        {
+          "id": "p2",
+          "left": "discount",
+          "right": "A percentage OFF the marked price"
+        },
+        {
+          "id": "p3",
+          "left": "SP = MP × (1 − d/100)",
+          "right": "What the customer actually pays"
+        },
+        {
+          "id": "p4",
+          "left": "successive discounts",
+          "right": "The second discount applies to the ALREADY-reduced price"
+        }
+      ]
+    },
+    "maze": {
+      "title": "What You Really Pay Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You really know what you pay now!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Marked price ₹500, discount 20%. Find the selling price.",
+            "answer": "₹400",
+            "hintLadder": [
+              "SP = MP × (1 − discount/100).",
+              "500 × 0.8."
+            ]
+          },
+          "branches": [
+            "₹400",
+            "₹480"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "Two successive discounts of 10% then 10% on ₹1000 — is the total discount exactly 20%?",
+            "answer": "No, it is 19%",
+            "hintLadder": [
+              "The second 10% is taken off the already-discounted price.",
+              "1000 × 0.9 × 0.9 = 810, a 19% total discount."
+            ]
+          },
+          "branches": [
+            "No, it is 19%",
+            "Yes, exactly 20%"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

@@ -14,14 +14,29 @@
     "SSC / Bank / Railway quantitative aptitude questions"
   ],
   "vocabulary": [
-    { "term": "odd days", "meaning": "The remainder of days after taking out whole weeks (days mod 7)." },
-    { "term": "ordinary year", "meaning": "365 days = 52 weeks + 1 odd day." },
-    { "term": "leap year", "meaning": "366 days = 52 weeks + 2 odd days (Feb has 29 days)." },
-    { "term": "mod 7", "meaning": "Only the remainder after dividing by 7 decides the weekday." }
+    {
+      "term": "odd days",
+      "meaning": "The remainder of days after taking out whole weeks (days mod 7)."
+    },
+    {
+      "term": "ordinary year",
+      "meaning": "365 days = 52 weeks + 1 odd day."
+    },
+    {
+      "term": "leap year",
+      "meaning": "366 days = 52 weeks + 2 odd days (Feb has 29 days)."
+    },
+    {
+      "term": "mod 7",
+      "meaning": "Only the remainder after dividing by 7 decides the weekday."
+    }
   ],
   "story": {
     "title": "Which Day Is My Birthday Next Year?",
-    "characters": ["Diya", "her brother"],
+    "characters": [
+      "Diya",
+      "her brother"
+    ],
     "text": "Diya's birthday is on a Wednesday this year. 'What day next year?' Her brother explains: 'A year has 365 days. Take out 52 full weeks (364 days) and 1 day is left over — that's the 1 odd day. So your birthday jumps forward by one weekday, to Thursday. But if a leap year (366 days) falls in between, there are 2 odd days, so it jumps by two.' Diya loves that she only needs the leftover day, never all 365.",
     "extractedProblem": "If a date is a Wednesday this year, what weekday is the same date next ordinary year?",
     "answerInStory": "Thursday — an ordinary year has 1 odd day, so the date shifts forward by one weekday."
@@ -30,9 +45,44 @@
     "component": "BarModel",
     "props": {
       "bars": [
-        { "label": "365 days = 52 weeks + 1 odd day", "parts": [ { "value": 364, "label": "52 weeks" }, { "value": 1, "label": "odd" } ], "showTotal": false },
-        { "label": "366 (leap) = 52 weeks + 2 odd days", "parts": [ { "value": 364, "label": "52 weeks" }, { "value": 2, "label": "odd" } ], "showTotal": false },
-        { "label": "Only the odd days shift the weekday", "parts": [ { "value": 1, "label": "+1 day" } ], "showTotal": false }
+        {
+          "label": "365 days = 52 weeks + 1 odd day",
+          "parts": [
+            {
+              "value": 364,
+              "label": "52 weeks"
+            },
+            {
+              "value": 1,
+              "label": "odd"
+            }
+          ],
+          "showTotal": false
+        },
+        {
+          "label": "366 (leap) = 52 weeks + 2 odd days",
+          "parts": [
+            {
+              "value": 364,
+              "label": "52 weeks"
+            },
+            {
+              "value": 2,
+              "label": "odd"
+            }
+          ],
+          "showTotal": false
+        },
+        {
+          "label": "Only the odd days shift the weekday",
+          "parts": [
+            {
+              "value": 1,
+              "label": "+1 day"
+            }
+          ],
+          "showTotal": false
+        }
       ]
     },
     "caption": "Weeks repeat, so full weeks change nothing. Only the ODD DAYS (days mod 7) move the weekday forward: +1 per ordinary year, +2 per leap year."
@@ -42,8 +92,50 @@
       "title": "Count odd days, add mod 7",
       "note": "365 → 1 odd day, 366 → 2 odd days. Any number of days shifts the weekday by (days mod 7).",
       "examples": [
-        { "component": "BarModel", "props": { "bars": [ { "label": "10 days = 1 week + 3 odd", "parts": [ { "value": 7, "label": "week" }, { "value": 3, "label": "odd" } ], "showTotal": false } ] }, "caption": "10 mod 7 = 3 → shift 3 weekdays." },
-        { "component": "BarModel", "props": { "bars": [ { "label": "100 days mod 7 = 2", "parts": [ { "value": 98, "label": "14 weeks" }, { "value": 2, "label": "odd" } ], "showTotal": false } ] }, "caption": "100 = 14×7 + 2 → shift 2 weekdays." }
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "10 days = 1 week + 3 odd",
+                "parts": [
+                  {
+                    "value": 7,
+                    "label": "week"
+                  },
+                  {
+                    "value": 3,
+                    "label": "odd"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "10 mod 7 = 3 → shift 3 weekdays."
+        },
+        {
+          "component": "BarModel",
+          "props": {
+            "bars": [
+              {
+                "label": "100 days mod 7 = 2",
+                "parts": [
+                  {
+                    "value": 98,
+                    "label": "14 weeks"
+                  },
+                  {
+                    "value": 2,
+                    "label": "odd"
+                  }
+                ],
+                "showTotal": false
+              }
+            ]
+          },
+          "caption": "100 = 14×7 + 2 → shift 2 weekdays."
+        }
       ]
     }
   ],
@@ -104,10 +196,54 @@
     "trick": "Odd days = days mod 7",
     "intro": "Divide the day count by 7 and keep the remainder — that's how many weekdays to jump.",
     "questions": [
-      { "id": "apt12-trick-1", "type": "number", "q": "Odd days in 366 days?", "answer": "2", "hintLadder": ["366 ÷ 7 = 52 r 2.", "Leap year.", "= 2."], "explain": "2 odd days." },
-      { "id": "apt12-trick-2", "type": "number", "q": "Odd days in 14 days?", "answer": "0", "hintLadder": ["14 ÷ 7 = 2 r 0.", "Exactly 2 weeks.", "= 0."], "explain": "0 — same weekday." },
-      { "id": "apt12-trick-3", "type": "number", "q": "Odd days in 100 days?", "answer": "2", "hintLadder": ["100 ÷ 7 = 14 r 2.", "= 2.", "Shift 2."], "explain": "2 odd days." },
-      { "id": "apt12-trick-4", "type": "number", "q": "Odd days in 30 days?", "answer": "2", "hintLadder": ["30 ÷ 7 = 4 r 2.", "= 2.", "Shift 2."], "explain": "2 odd days." }
+      {
+        "id": "apt12-trick-1",
+        "type": "number",
+        "q": "Odd days in 366 days?",
+        "answer": "2",
+        "hintLadder": [
+          "366 ÷ 7 = 52 r 2.",
+          "Leap year.",
+          "= 2."
+        ],
+        "explain": "2 odd days."
+      },
+      {
+        "id": "apt12-trick-2",
+        "type": "number",
+        "q": "Odd days in 14 days?",
+        "answer": "0",
+        "hintLadder": [
+          "14 ÷ 7 = 2 r 0.",
+          "Exactly 2 weeks.",
+          "= 0."
+        ],
+        "explain": "0 — same weekday."
+      },
+      {
+        "id": "apt12-trick-3",
+        "type": "number",
+        "q": "Odd days in 100 days?",
+        "answer": "2",
+        "hintLadder": [
+          "100 ÷ 7 = 14 r 2.",
+          "= 2.",
+          "Shift 2."
+        ],
+        "explain": "2 odd days."
+      },
+      {
+        "id": "apt12-trick-4",
+        "type": "number",
+        "q": "Odd days in 30 days?",
+        "answer": "2",
+        "hintLadder": [
+          "30 ÷ 7 = 4 r 2.",
+          "= 2.",
+          "Shift 2."
+        ],
+        "explain": "2 odd days."
+      }
     ]
   },
   "commonMistakes": [
@@ -124,25 +260,171 @@
   ],
   "practice": {
     "easy": [
-      { "id": "e1", "type": "number", "q": "Odd days in 7 days?", "answer": "0", "hintLadder": ["7 ÷ 7 = 1 r 0.", "Exactly one week.", "= 0."] },
-      { "id": "e2", "type": "mcq", "q": "An ordinary year (365 days) has how many odd days?", "options": [ { "label": "1" }, { "label": "0", "mistakeTag": "counted-all-days" } ], "answer": "1", "hintLadder": ["365 = 52×7 + 1.", "One left over.", "= 1 odd day."] }
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "Odd days in 7 days?",
+        "answer": "0",
+        "hintLadder": [
+          "7 ÷ 7 = 1 r 0.",
+          "Exactly one week.",
+          "= 0."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "An ordinary year (365 days) has how many odd days?",
+        "options": [
+          {
+            "label": "1"
+          },
+          {
+            "label": "0",
+            "mistakeTag": "counted-all-days"
+          }
+        ],
+        "answer": "1",
+        "hintLadder": [
+          "365 = 52×7 + 1.",
+          "One left over.",
+          "= 1 odd day."
+        ]
+      }
     ],
     "medium": [
-      { "id": "m1", "type": "number", "q": "Odd days in 50 days?", "answer": "1", "hintLadder": ["50 ÷ 7 = 7 r 1.", "= 1.", "Shift 1."] },
-      { "id": "m2", "type": "mcq", "q": "If today is Sunday, 7 days later it is…", "options": [ { "label": "Sunday" }, { "label": "Monday", "mistakeTag": "counted-all-days" } ], "answer": "Sunday", "hintLadder": ["7 days = 1 week.", "0 odd days.", "Same weekday."] }
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "Odd days in 50 days?",
+        "answer": "1",
+        "hintLadder": [
+          "50 ÷ 7 = 7 r 1.",
+          "= 1.",
+          "Shift 1."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "If today is Sunday, 7 days later it is…",
+        "options": [
+          {
+            "label": "Sunday"
+          },
+          {
+            "label": "Monday",
+            "mistakeTag": "counted-all-days"
+          }
+        ],
+        "answer": "Sunday",
+        "hintLadder": [
+          "7 days = 1 week.",
+          "0 odd days.",
+          "Same weekday."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "c1", "type": "number", "q": "Odd days in 2 ordinary years (365 + 365)?", "answer": "2", "hintLadder": ["Each year = 1 odd day.", "1 + 1.", "= 2."] },
-      { "id": "c2", "type": "mcq", "q": "A leap year has how many odd days?", "options": [ { "label": "2" }, { "label": "1", "mistakeTag": "leap-one-odd" } ], "answer": "2", "hintLadder": ["366 = 52×7 + 2.", "Two left over.", "= 2."] }
+      {
+        "id": "c1",
+        "type": "number",
+        "q": "Odd days in 2 ordinary years (365 + 365)?",
+        "answer": "2",
+        "hintLadder": [
+          "Each year = 1 odd day.",
+          "1 + 1.",
+          "= 2."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "A leap year has how many odd days?",
+        "options": [
+          {
+            "label": "2"
+          },
+          {
+            "label": "1",
+            "mistakeTag": "leap-one-odd"
+          }
+        ],
+        "answer": "2",
+        "hintLadder": [
+          "366 = 52×7 + 2.",
+          "Two left over.",
+          "= 2."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "mc1", "type": "number", "q": "Odd days in 21 days?", "answer": "0", "hintLadder": ["21 ÷ 7 = 3 r 0.", "Whole weeks.", "= 0."] },
-      { "id": "mc2", "type": "number", "q": "Odd days in 365 days?", "answer": "1", "hintLadder": ["365 ÷ 7.", "52 r 1.", "= 1."] },
-      { "id": "mc3", "type": "mcq", "q": "To find a weekday after many days, you use…", "options": [ { "label": "Days mod 7 (the remainder)" }, { "label": "The full number of days", "mistakeTag": "counted-all-days" } ], "answer": "Days mod 7 (the remainder)", "hintLadder": ["Weeks repeat.", "Only the remainder shifts.", "Days mod 7."] },
-      { "id": "mc4", "type": "number", "q": "Odd days in 366 days?", "answer": "2", "hintLadder": ["Leap year.", "366 ÷ 7 = 52 r 2.", "= 2."] },
-      { "id": "mc5", "type": "number", "q": "Odd days in 45 days?", "answer": "3", "hintLadder": ["45 ÷ 7 = 6 r 3.", "= 3.", "Shift 3."] }
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "Odd days in 21 days?",
+        "answer": "0",
+        "hintLadder": [
+          "21 ÷ 7 = 3 r 0.",
+          "Whole weeks.",
+          "= 0."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "Odd days in 365 days?",
+        "answer": "1",
+        "hintLadder": [
+          "365 ÷ 7.",
+          "52 r 1.",
+          "= 1."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "To find a weekday after many days, you use…",
+        "options": [
+          {
+            "label": "Days mod 7 (the remainder)"
+          },
+          {
+            "label": "The full number of days",
+            "mistakeTag": "counted-all-days"
+          }
+        ],
+        "answer": "Days mod 7 (the remainder)",
+        "hintLadder": [
+          "Weeks repeat.",
+          "Only the remainder shifts.",
+          "Days mod 7."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "number",
+        "q": "Odd days in 366 days?",
+        "answer": "2",
+        "hintLadder": [
+          "Leap year.",
+          "366 ÷ 7 = 52 r 2.",
+          "= 2."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "number",
+        "q": "Odd days in 45 days?",
+        "answer": "3",
+        "hintLadder": [
+          "45 ÷ 7 = 6 r 3.",
+          "= 3.",
+          "Shift 3."
+        ]
+      }
     ],
     "passThreshold": 0.8,
     "requireTeachBack": true
@@ -150,7 +432,11 @@
   "teachBackPrompt": "Teach a friend odd days: divide the number of days by 7 and keep the remainder. Show that 365 days = 1 odd day (birthday shifts one weekday) and a leap year = 2 odd days, and explain why full weeks don't matter.",
   "revisionCard": {
     "summary": "Odd days = days mod 7 (remainder after whole weeks). Ordinary year = 1 odd day; leap year = 2 odd days. Add up odd days and shift the weekday forward. Full weeks never change the day — only the remainder does.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "gameMission": {
     "world": "Measurement Island (Ganita Grove)",
@@ -172,11 +458,96 @@
     "unpack": "Ordinary year +1, leap year +2. Full weeks don't matter — only the remainder shifts the weekday."
   },
   "formulas": [
-    { "name": "Odd days", "formula": "odd days = total days mod 7", "remember": "remainder after whole weeks", "whenToUse": "Finding a weekday after N days." },
-    { "name": "Year shift", "formula": "ordinary +1, leap +2 (mod 7)", "remember": "leap counts double", "whenToUse": "Same date, different year." }
+    {
+      "name": "Odd days",
+      "formula": "odd days = total days mod 7",
+      "remember": "remainder after whole weeks",
+      "whenToUse": "Finding a weekday after N days."
+    },
+    {
+      "name": "Year shift",
+      "formula": "ordinary +1, leap +2 (mod 7)",
+      "remember": "leap counts double",
+      "whenToUse": "Same date, different year."
+    }
   ],
   "studentQuestions": [
-    { "q": "Why does my birthday move forward each year?", "a": "A year is 365 days = 52 whole weeks plus 1 extra day, so the date lands one weekday later (two later if a leap year is in between)." },
-    { "q": "Why only the remainder?", "a": "Every 7 days brings you back to the same weekday, so full weeks cancel out — only the leftover days (mod 7) change the day." }
-  ]
+    {
+      "q": "Why does my birthday move forward each year?",
+      "a": "A year is 365 days = 52 whole weeks plus 1 extra day, so the date lands one weekday later (two later if a leap year is in between)."
+    },
+    {
+      "q": "Why only the remainder?",
+      "a": "Every 7 days brings you back to the same weekday, so full weeks cancel out — only the leftover days (mod 7) change the day."
+    }
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Calendars",
+      "instructions": "Match each calendar term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "odd days",
+          "right": "Remainder when days are divided by 7"
+        },
+        {
+          "id": "p2",
+          "left": "ordinary year",
+          "right": "365 days = 1 odd day"
+        },
+        {
+          "id": "p3",
+          "left": "leap year",
+          "right": "366 days = 2 odd days"
+        },
+        {
+          "id": "p4",
+          "left": "mod 7",
+          "right": "Only the remainder decides the weekday"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Weekday Detective Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "Weekday detective — solved!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "How many odd days does an ordinary (non-leap) year have?",
+            "answer": "1",
+            "hintLadder": [
+              "365 = 52 weeks + 1 extra day.",
+              "365 ÷ 7 leaves a remainder of 1."
+            ]
+          },
+          "branches": [
+            "1 odd day",
+            "2 odd days"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "How many odd days does a leap year have?",
+            "answer": "2",
+            "hintLadder": [
+              "366 = 52 weeks + 2 extra days.",
+              "Leap years have an extra day in February."
+            ]
+          },
+          "branches": [
+            "2 odd days",
+            "1 odd day"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

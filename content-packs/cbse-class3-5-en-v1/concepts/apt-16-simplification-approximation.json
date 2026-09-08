@@ -13,14 +13,29 @@
     "Reading and simplifying formulas in science and finance"
   ],
   "vocabulary": [
-    { "term": "BODMAS", "meaning": "Brackets, Of, Division, Multiplication, Addition, Subtraction — the order to solve a mixed expression in." },
-    { "term": "Vinculum", "meaning": "A bar drawn over a group of terms (like a fraction bar) — solved first, even before brackets." },
-    { "term": "Approximation (≈)", "meaning": "Rounding each number to a nearby convenient value to estimate the answer quickly." },
-    { "term": "'Of'", "meaning": "Means multiply, but is solved right after brackets — before division and multiplication signs." }
+    {
+      "term": "BODMAS",
+      "meaning": "Brackets, Of, Division, Multiplication, Addition, Subtraction — the order to solve a mixed expression in."
+    },
+    {
+      "term": "Vinculum",
+      "meaning": "A bar drawn over a group of terms (like a fraction bar) — solved first, even before brackets."
+    },
+    {
+      "term": "Approximation (≈)",
+      "meaning": "Rounding each number to a nearby convenient value to estimate the answer quickly."
+    },
+    {
+      "term": "'Of'",
+      "meaning": "Means multiply, but is solved right after brackets — before division and multiplication signs."
+    }
   ],
   "story": {
     "title": "The Left-to-Right Trap",
-    "characters": ["Kavya", "her tutor"],
+    "characters": [
+      "Kavya",
+      "her tutor"
+    ],
     "text": "Kavya solves 8 + 4 × 2 by going left to right: '8 + 4 is 12, times 2 is 24!' Her tutor stops her: 'Multiplication comes before addition — always. Do the 4 × 2 first: that's 8. THEN add: 8 + 8 = 16.' Kavya is startled — same numbers, two totally different answers, just because of the order. 'BODMAS isn't a suggestion,' says her tutor, 'it's the one rule that makes sure everyone gets the same answer from the same expression.'",
     "extractedProblem": "Simplify 8 + 4 × 2.",
     "answerInStory": "16 — multiply first (4×2=8), then add (8+8=16), not left-to-right."
@@ -29,8 +44,24 @@
     "component": "BarModel",
     "props": {
       "bars": [
-        { "label": "Left-to-right (wrong)", "parts": [{ "value": 24, "label": "24" }] },
-        { "label": "BODMAS (correct)", "parts": [{ "value": 16, "label": "16" }] }
+        {
+          "label": "Left-to-right (wrong)",
+          "parts": [
+            {
+              "value": 24,
+              "label": "24"
+            }
+          ]
+        },
+        {
+          "label": "BODMAS (correct)",
+          "parts": [
+            {
+              "value": 16,
+              "label": "16"
+            }
+          ]
+        }
       ]
     },
     "caption": "Same expression, 8 + 4 × 2 — going left-to-right gives 24, but the correct BODMAS order gives 16."
@@ -42,10 +73,28 @@
       "examples": [
         {
           "component": "BarModel",
-          "props": { "bars": [
-            { "label": "18 − 2 × 3 (wrong: 16×3=48)", "parts": [{ "value": 48, "label": "48" }] },
-            { "label": "18 − 2 × 3 (correct)", "parts": [{ "value": 12, "label": "12" }] }
-          ] },
+          "props": {
+            "bars": [
+              {
+                "label": "18 − 2 × 3 (wrong: 16×3=48)",
+                "parts": [
+                  {
+                    "value": 48,
+                    "label": "48"
+                  }
+                ]
+              },
+              {
+                "label": "18 − 2 × 3 (correct)",
+                "parts": [
+                  {
+                    "value": 12,
+                    "label": "12"
+                  }
+                ]
+              }
+            ]
+          },
           "caption": "Multiply first: 2×3=6, then subtract: 18−6=12 — not (18−2) first."
         }
       ]
@@ -126,10 +175,54 @@
     "trick": "One letter of BODMAS per pass",
     "intro": "Don't jump around — clear ALL of one operation type before moving to the next letter of BODMAS.",
     "questions": [
-      { "id": "apt16-trick-1", "type": "number", "q": "Simplify: 6 + 2 × 5", "answer": "16", "hintLadder": ["× first: 2×5=10.", "Then add.", "6+10=16."], "explain": "6+2×5 = 6+10 = 16." },
-      { "id": "apt16-trick-2", "type": "number", "q": "Simplify: 20 − 12 ÷ 4", "answer": "17", "hintLadder": ["÷ first: 12÷4=3.", "Then subtract.", "20−3=17."], "explain": "20−12÷4 = 20−3 = 17." },
-      { "id": "apt16-trick-3", "type": "number", "q": "Simplify: 1/4 of 20 + 5", "answer": "10", "hintLadder": ["'Of' first: 1/4 of 20=5.", "Then add.", "5+5=10."], "explain": "1/4 of 20 = 5, then +5 = 10." },
-      { "id": "apt16-trick-4", "type": "number", "q": "Approximate: 401 + 199 − 100 (round to nearest 100 first)", "answer": "500", "hintLadder": ["400+200−100.", "600−100.", "= 500."], "explain": "Rounded: 400+200−100=500 (actual 500 too)." }
+      {
+        "id": "apt16-trick-1",
+        "type": "number",
+        "q": "Simplify: 6 + 2 × 5",
+        "answer": "16",
+        "hintLadder": [
+          "× first: 2×5=10.",
+          "Then add.",
+          "6+10=16."
+        ],
+        "explain": "6+2×5 = 6+10 = 16."
+      },
+      {
+        "id": "apt16-trick-2",
+        "type": "number",
+        "q": "Simplify: 20 − 12 ÷ 4",
+        "answer": "17",
+        "hintLadder": [
+          "÷ first: 12÷4=3.",
+          "Then subtract.",
+          "20−3=17."
+        ],
+        "explain": "20−12÷4 = 20−3 = 17."
+      },
+      {
+        "id": "apt16-trick-3",
+        "type": "number",
+        "q": "Simplify: 1/4 of 20 + 5",
+        "answer": "10",
+        "hintLadder": [
+          "'Of' first: 1/4 of 20=5.",
+          "Then add.",
+          "5+5=10."
+        ],
+        "explain": "1/4 of 20 = 5, then +5 = 10."
+      },
+      {
+        "id": "apt16-trick-4",
+        "type": "number",
+        "q": "Approximate: 401 + 199 − 100 (round to nearest 100 first)",
+        "answer": "500",
+        "hintLadder": [
+          "400+200−100.",
+          "600−100.",
+          "= 500."
+        ],
+        "explain": "Rounded: 400+200−100=500 (actual 500 too)."
+      }
     ]
   },
   "commonMistakes": [
@@ -151,28 +244,195 @@
   ],
   "practice": {
     "easy": [
-      { "id": "e1", "type": "number", "q": "Simplify: 5 + 3 × 4", "answer": "17", "hintLadder": ["× first: 3×4=12.", "Then add.", "5+12=17."] },
-      { "id": "e2", "type": "number", "q": "Simplify: 30 − 4 × 5", "answer": "10", "hintLadder": ["× first: 4×5=20.", "Then subtract.", "30−20=10."] },
-      { "id": "e3", "type": "mcq", "q": "In BODMAS, which comes first: Division or Addition?", "options": [ { "label": "Division" }, { "label": "Addition", "mistakeTag": "left-to-right-error" } ], "answer": "Division", "hintLadder": ["D comes before A in BODMAS.", "÷ and × before + and −.", "Division."] }
+      {
+        "id": "e1",
+        "type": "number",
+        "q": "Simplify: 5 + 3 × 4",
+        "answer": "17",
+        "hintLadder": [
+          "× first: 3×4=12.",
+          "Then add.",
+          "5+12=17."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "number",
+        "q": "Simplify: 30 − 4 × 5",
+        "answer": "10",
+        "hintLadder": [
+          "× first: 4×5=20.",
+          "Then subtract.",
+          "30−20=10."
+        ]
+      },
+      {
+        "id": "e3",
+        "type": "mcq",
+        "q": "In BODMAS, which comes first: Division or Addition?",
+        "options": [
+          {
+            "label": "Division"
+          },
+          {
+            "label": "Addition",
+            "mistakeTag": "left-to-right-error"
+          }
+        ],
+        "answer": "Division",
+        "hintLadder": [
+          "D comes before A in BODMAS.",
+          "÷ and × before + and −.",
+          "Division."
+        ]
+      }
     ],
     "medium": [
-      { "id": "m1", "type": "number", "q": "Simplify: 2/5 of 25 − 3 + 6", "answer": "13", "hintLadder": ["Of first: 2/5 of 25=10.", "10−3+6.", "= 13."] },
-      { "id": "m2", "type": "number", "q": "Simplify: 36 ÷ 6 × 3 − 2", "answer": "16", "hintLadder": ["÷,× left to right: 36÷6=6, 6×3=18.", "18−2.", "= 16."] },
-      { "id": "m3", "type": "number", "q": "Approximate: 249.9 × 4.02", "answer": "1000", "hintLadder": ["Round: 250 × 4.", "= 1000.", "Close estimate."] }
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "Simplify: 2/5 of 25 − 3 + 6",
+        "answer": "13",
+        "hintLadder": [
+          "Of first: 2/5 of 25=10.",
+          "10−3+6.",
+          "= 13."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "number",
+        "q": "Simplify: 36 ÷ 6 × 3 − 2",
+        "answer": "16",
+        "hintLadder": [
+          "÷,× left to right: 36÷6=6, 6×3=18.",
+          "18−2.",
+          "= 16."
+        ]
+      },
+      {
+        "id": "m3",
+        "type": "number",
+        "q": "Approximate: 249.9 × 4.02",
+        "answer": "1000",
+        "hintLadder": [
+          "Round: 250 × 4.",
+          "= 1000.",
+          "Close estimate."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "c1", "type": "number", "q": "Simplify: [20 − {3 + (2 × 2)}] × 2", "answer": "26", "hintLadder": ["Innermost: 2×2=4.", "{3+4}=7, [20−7]=13.", "13×2=26."] },
-      { "id": "c2", "type": "number", "q": "Simplify: 3/4 of 60 ÷ 5 + 2 × 3", "answer": "15", "hintLadder": ["Of: 3/4 of 60=45.", "÷: 45÷5=9. ×: 2×3=6.", "9+6=15."] },
-      { "id": "c3", "type": "mcq", "q": "Approximate 5999 ÷ 149.7 to the nearest whole option:", "options": [ { "label": "40" }, { "label": "60", "mistakeTag": "over-rounding" } ], "answer": "40", "hintLadder": ["Round: 6000 ÷ 150.", "= 40.", "40."] }
+      {
+        "id": "c1",
+        "type": "number",
+        "q": "Simplify: [20 − {3 + (2 × 2)}] × 2",
+        "answer": "26",
+        "hintLadder": [
+          "Innermost: 2×2=4.",
+          "{3+4}=7, [20−7]=13.",
+          "13×2=26."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "number",
+        "q": "Simplify: 3/4 of 60 ÷ 5 + 2 × 3",
+        "answer": "15",
+        "hintLadder": [
+          "Of: 3/4 of 60=45.",
+          "÷: 45÷5=9. ×: 2×3=6.",
+          "9+6=15."
+        ]
+      },
+      {
+        "id": "c3",
+        "type": "mcq",
+        "q": "Approximate 5999 ÷ 149.7 to the nearest whole option:",
+        "options": [
+          {
+            "label": "40"
+          },
+          {
+            "label": "60",
+            "mistakeTag": "over-rounding"
+          }
+        ],
+        "answer": "40",
+        "hintLadder": [
+          "Round: 6000 ÷ 150.",
+          "= 40.",
+          "40."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "mc1", "type": "number", "q": "Simplify: 7 + 2 × 6", "answer": "19", "hintLadder": ["× first: 2×6=12.", "Then add.", "7+12=19."] },
-      { "id": "mc2", "type": "number", "q": "Simplify: 40 ÷ 8 + 3 × 2", "answer": "11", "hintLadder": ["÷: 40÷8=5. ×: 3×2=6.", "5+6.", "= 11."] },
-      { "id": "mc3", "type": "number", "q": "Simplify: 1/3 of 30 − 4", "answer": "6", "hintLadder": ["Of first: 1/3 of 30=10.", "Then subtract.", "10−4=6."] },
-      { "id": "mc4", "type": "mcq", "q": "'Of' is solved…", "options": [ { "label": "Right after brackets, before ÷ and ×" }, { "label": "After division", "mistakeTag": "of-after-division" } ], "answer": "Right after brackets, before ÷ and ×", "hintLadder": ["O comes before D in BODMAS.", "So of before division.", "Right after brackets."] },
-      { "id": "mc5", "type": "number", "q": "Approximate: 601 − 199 + 100 (round to nearest 100)", "answer": "500", "hintLadder": ["600−200+100.", "400+100.", "= 500."] }
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "Simplify: 7 + 2 × 6",
+        "answer": "19",
+        "hintLadder": [
+          "× first: 2×6=12.",
+          "Then add.",
+          "7+12=19."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "number",
+        "q": "Simplify: 40 ÷ 8 + 3 × 2",
+        "answer": "11",
+        "hintLadder": [
+          "÷: 40÷8=5. ×: 3×2=6.",
+          "5+6.",
+          "= 11."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "number",
+        "q": "Simplify: 1/3 of 30 − 4",
+        "answer": "6",
+        "hintLadder": [
+          "Of first: 1/3 of 30=10.",
+          "Then subtract.",
+          "10−4=6."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "'Of' is solved…",
+        "options": [
+          {
+            "label": "Right after brackets, before ÷ and ×"
+          },
+          {
+            "label": "After division",
+            "mistakeTag": "of-after-division"
+          }
+        ],
+        "answer": "Right after brackets, before ÷ and ×",
+        "hintLadder": [
+          "O comes before D in BODMAS.",
+          "So of before division.",
+          "Right after brackets."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "number",
+        "q": "Approximate: 601 − 199 + 100 (round to nearest 100)",
+        "answer": "500",
+        "hintLadder": [
+          "600−200+100.",
+          "400+100.",
+          "= 500."
+        ]
+      }
     ],
     "passThreshold": 0.8,
     "requireTeachBack": true
@@ -180,7 +440,11 @@
   "teachBackPrompt": "Teach a friend why 8 + 4 × 2 equals 16 and not 24, walking through BODMAS one letter at a time.",
   "revisionCard": {
     "summary": "BODMAS: Brackets, Of, Division, Multiplication, Addition, Subtraction — clear one letter completely (left to right) before moving to the next. 'Of' is a multiply but comes right after brackets. For approximation, round each number sensibly (nearest 1/10/100 depending on size) and compute the rounded expression for a fast, close estimate.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "gameMission": {
     "world": "Number Jungle (Ganita Grove)",
@@ -202,7 +466,82 @@
     "unpack": "Brackets, Of, Division, Multiplication, Addition, Subtraction — clear each fully before the next."
   },
   "studentQuestions": [
-    { "q": "Why does 'of' come before division if both are just multiplying?", "a": "It's a fixed convention (Brackets, Of, Division, Multiplication...) so that everyone reading the same expression gets the same answer — without an agreed order, the same expression could mean different things to different people." },
-    { "q": "How do I know how much to round during approximation?", "a": "Round to a size that matches the numbers involved — nearest 1 for numbers under 10, nearest 10 for numbers in the hundreds, nearest 100 for numbers in the thousands. The goal is a close estimate, not perfect accuracy." }
-  ]
+    {
+      "q": "Why does 'of' come before division if both are just multiplying?",
+      "a": "It's a fixed convention (Brackets, Of, Division, Multiplication...) so that everyone reading the same expression gets the same answer — without an agreed order, the same expression could mean different things to different people."
+    },
+    {
+      "q": "How do I know how much to round during approximation?",
+      "a": "Round to a size that matches the numbers involved — nearest 1 for numbers under 10, nearest 10 for numbers in the hundreds, nearest 100 for numbers in the thousands. The goal is a close estimate, not perfect accuracy."
+    }
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — BODMAS",
+      "instructions": "Match each simplification term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "BODMAS",
+          "right": "Brackets, Of, Division, Multiplication, Addition, Subtraction"
+        },
+        {
+          "id": "p2",
+          "left": "Vinculum",
+          "right": "A bar over terms — solved FIRST, before brackets"
+        },
+        {
+          "id": "p3",
+          "left": "Approximation (≈)",
+          "right": "Rounding numbers to estimate quickly"
+        },
+        {
+          "id": "p4",
+          "left": "'Of'",
+          "right": "Means multiply — solved right after brackets"
+        }
+      ]
+    },
+    "maze": {
+      "title": "BODMAS Speed Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "BODMAS speed unlocked!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Simplify 10 + 2 × 3 using BODMAS.",
+            "answer": "16",
+            "hintLadder": [
+              "Multiply before you add.",
+              "2 × 3 = 6, then 10 + 6."
+            ]
+          },
+          "branches": [
+            "16",
+            "36"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "Simplify (4 + 2) × 3.",
+            "answer": "18",
+            "hintLadder": [
+              "Solve inside the brackets first.",
+              "4 + 2 = 6, then 6 × 3."
+            ]
+          },
+          "branches": [
+            "18",
+            "10"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }
