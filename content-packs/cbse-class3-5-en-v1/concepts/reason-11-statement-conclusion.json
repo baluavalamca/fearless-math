@@ -3,7 +3,9 @@
   "name": "Statement and Conclusion — What MUST Be True",
   "grade": 13,
   "strand": "numbers",
-  "prerequisites": ["reason-08-syllogisms"],
+  "prerequisites": [
+    "reason-08-syllogisms"
+  ],
   "whatIsIt": "In statement-and-conclusion questions, you're given one or more statements taken as fact, plus a few numbered conclusions. Your job is to decide which conclusions definitely follow from the statements — not which ones sound reasonable, and not which ones you'd guess are true, but only what is logically forced to be true.",
   "whyNeeded": "This is the single most common trap in verbal reasoning: picking a conclusion because it 'feels right' rather than checking if it's actually guaranteed. Mastering it means learning to separate certain logic from plausible-sounding guesses — a skill useful far beyond exams.",
   "realLifeUses": [
@@ -13,25 +15,54 @@
     "Legal and scientific reasoning, where 'sounds true' and 'is proven' are very different"
   ],
   "vocabulary": [
-    { "term": "statement", "meaning": "The fact(s) given, which you must accept as true even if they sound unusual." },
-    { "term": "conclusion", "meaning": "A claim that either does or doesn't logically follow from the statement." },
-    { "term": "follows", "meaning": "A conclusion 'follows' only if the statement makes it certainly true — not just likely or possible." },
-    { "term": "transitivity", "meaning": "If A relates to B, and B relates to the same way to C, then A relates to C too (e.g. taller-than chains)." }
+    {
+      "term": "statement",
+      "meaning": "The fact(s) given, which you must accept as true even if they sound unusual."
+    },
+    {
+      "term": "conclusion",
+      "meaning": "A claim that either does or doesn't logically follow from the statement."
+    },
+    {
+      "term": "follows",
+      "meaning": "A conclusion 'follows' only if the statement makes it certainly true — not just likely or possible."
+    },
+    {
+      "term": "transitivity",
+      "meaning": "If A relates to B, and B relates to the same way to C, then A relates to C too (e.g. taller-than chains)."
+    }
   ],
   "story": {
     "title": "Ravi, Sohan and Mohan",
-    "characters": ["Meher", "her cousin Dev"],
+    "characters": [
+      "Meher",
+      "her cousin Dev"
+    ],
     "text": "Meher reads Dev two facts: 'Ravi is taller than Sohan. Sohan is taller than Mohan.' Then two claims: 'I. Ravi is taller than Mohan. II. Sohan is taller than Ravi.' Dev says both sound like they could be about the same people, so maybe both are true. Meher stops him: 'Only check what the statements actually force. Ravi > Sohan > Mohan means Ravi > Mohan for sure — conclusion I follows. But conclusion II says Sohan is taller than Ravi, which directly contradicts what we were told. It does NOT follow.' Dev realises 'sounds plausible' and 'is proven' are two very different things.",
     "extractedProblem": "Statement: Ravi is taller than Sohan. Sohan is taller than Mohan. Conclusions: I. Ravi is taller than Mohan. II. Sohan is taller than Ravi. Which follow?",
     "answerInStory": "Only conclusion I follows (by transitivity); II contradicts the statement."
   },
   "visual": {
     "component": "ReasoningFigure",
-    "props": { "panels": [
-      { "kind": "text", "text": "R", "label": "Ravi (tallest)" },
-      { "kind": "text", "text": "S", "label": "Sohan" },
-      { "kind": "text", "text": "M", "label": "Mohan (shortest)" }
-    ] },
+    "props": {
+      "panels": [
+        {
+          "kind": "text",
+          "text": "R",
+          "label": "Ravi (tallest)"
+        },
+        {
+          "kind": "text",
+          "text": "S",
+          "label": "Sohan"
+        },
+        {
+          "kind": "text",
+          "text": "M",
+          "label": "Mohan (shortest)"
+        }
+      ]
+    },
     "caption": "Think of a taller-than chain as a ladder: Ravi above Sohan above Mohan. Anything the ladder's order guarantees follows; anything it contradicts does not."
   },
   "teachingGallery": [
@@ -41,7 +72,18 @@
       "examples": [
         {
           "component": "NumberTrack",
-          "props": { "tracks": [ { "terms": [1, 2, 3], "jump": 1 } ] },
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  2,
+                  3
+                ],
+                "jump": 1
+              }
+            ]
+          },
           "caption": "A > B > C guarantees A > C (follows) but does NOT guarantee anything about a D who was never mentioned (does not follow)."
         }
       ]
@@ -95,10 +137,77 @@
     "trick": "Only what MUST be true follows",
     "intro": "Ignore what sounds likely. Check only what the statement guarantees with certainty.",
     "questions": [
-      { "id": "reason11-trick-1", "type": "mcq", "q": "Statement: A is older than B. B is older than C. Conclusion: A is older than C. Does it follow?", "options": [ { "label": "Yes, it follows" }, { "label": "No, it does not follow", "mistakeTag": "ignored-transitivity" } ], "answer": "Yes, it follows", "hintLadder": ["A > B > C is a ladder.", "A > C matches top-to-bottom order.", "It follows."] },
-      { "id": "reason11-trick-2", "type": "mcq", "q": "Statement: All pens are tools. Conclusion: All tools are pens. Does it follow?", "options": [ { "label": "Yes, it follows", "mistakeTag": "assumed-extra-info" }, { "label": "No, it does not follow" } ], "answer": "No, it does not follow", "hintLadder": ["'All pens are tools' means pens are inside tools.", "It says nothing about tools outside pens.", "Reversing 'all' is not valid — does not follow."] },
-      { "id": "reason11-trick-3", "type": "mcq", "q": "Statement: Some fruits are sweet. Conclusion: Some sweet things are fruits. Does it follow?", "options": [ { "label": "Yes, it follows" }, { "label": "No, it does not follow", "mistakeTag": "over-generalized-some" } ], "answer": "Yes, it follows", "hintLadder": ["'Some' just means at least one shared member.", "That works in both directions.", "It follows."] },
-      { "id": "reason11-trick-4", "type": "text", "q": "Statement: X scored more than Y. Y scored more than Z. Who definitely scored the most?", "answer": "X", "hintLadder": ["X > Y > Z is a ladder.", "Top of the ladder = highest score.", "X."] }
+      {
+        "id": "reason11-trick-1",
+        "type": "mcq",
+        "q": "Statement: A is older than B. B is older than C. Conclusion: A is older than C. Does it follow?",
+        "options": [
+          {
+            "label": "Yes, it follows"
+          },
+          {
+            "label": "No, it does not follow",
+            "mistakeTag": "ignored-transitivity"
+          }
+        ],
+        "answer": "Yes, it follows",
+        "hintLadder": [
+          "A > B > C is a ladder.",
+          "A > C matches top-to-bottom order.",
+          "It follows."
+        ]
+      },
+      {
+        "id": "reason11-trick-2",
+        "type": "mcq",
+        "q": "Statement: All pens are tools. Conclusion: All tools are pens. Does it follow?",
+        "options": [
+          {
+            "label": "Yes, it follows",
+            "mistakeTag": "assumed-extra-info"
+          },
+          {
+            "label": "No, it does not follow"
+          }
+        ],
+        "answer": "No, it does not follow",
+        "hintLadder": [
+          "'All pens are tools' means pens are inside tools.",
+          "It says nothing about tools outside pens.",
+          "Reversing 'all' is not valid — does not follow."
+        ]
+      },
+      {
+        "id": "reason11-trick-3",
+        "type": "mcq",
+        "q": "Statement: Some fruits are sweet. Conclusion: Some sweet things are fruits. Does it follow?",
+        "options": [
+          {
+            "label": "Yes, it follows"
+          },
+          {
+            "label": "No, it does not follow",
+            "mistakeTag": "over-generalized-some"
+          }
+        ],
+        "answer": "Yes, it follows",
+        "hintLadder": [
+          "'Some' just means at least one shared member.",
+          "That works in both directions.",
+          "It follows."
+        ]
+      },
+      {
+        "id": "reason11-trick-4",
+        "type": "text",
+        "q": "Statement: X scored more than Y. Y scored more than Z. Who definitely scored the most?",
+        "answer": "X",
+        "hintLadder": [
+          "X > Y > Z is a ladder.",
+          "Top of the ladder = highest score.",
+          "X."
+        ]
+      }
     ]
   },
   "commonMistakes": [
@@ -120,28 +229,258 @@
   ],
   "practice": {
     "easy": [
-      { "id": "e1", "type": "mcq", "q": "Statement: P is taller than Q. Q is taller than R. Conclusion: P is taller than R. Follows?", "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "ignored-transitivity" } ], "answer": "Yes", "hintLadder": ["P>Q>R is a ladder.", "P>R matches the order.", "Yes."] },
-      { "id": "e2", "type": "mcq", "q": "Statement: All cats are animals. Conclusion: All animals are cats. Follows?", "options": [ { "label": "Yes", "mistakeTag": "assumed-extra-info" }, { "label": "No" } ], "answer": "No", "hintLadder": ["Cats are inside animals.", "Nothing said about all other animals.", "No."] },
-      { "id": "e3", "type": "text", "q": "Statement: A > B, B > C. Who is definitely the smallest?", "answer": "C", "hintLadder": ["Ladder: A top, B middle, C bottom.", "Bottom = smallest.", "C."] }
+      {
+        "id": "e1",
+        "type": "mcq",
+        "q": "Statement: P is taller than Q. Q is taller than R. Conclusion: P is taller than R. Follows?",
+        "options": [
+          {
+            "label": "Yes"
+          },
+          {
+            "label": "No",
+            "mistakeTag": "ignored-transitivity"
+          }
+        ],
+        "answer": "Yes",
+        "hintLadder": [
+          "P>Q>R is a ladder.",
+          "P>R matches the order.",
+          "Yes."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "Statement: All cats are animals. Conclusion: All animals are cats. Follows?",
+        "options": [
+          {
+            "label": "Yes",
+            "mistakeTag": "assumed-extra-info"
+          },
+          {
+            "label": "No"
+          }
+        ],
+        "answer": "No",
+        "hintLadder": [
+          "Cats are inside animals.",
+          "Nothing said about all other animals.",
+          "No."
+        ]
+      },
+      {
+        "id": "e3",
+        "type": "text",
+        "q": "Statement: A > B, B > C. Who is definitely the smallest?",
+        "answer": "C",
+        "hintLadder": [
+          "Ladder: A top, B middle, C bottom.",
+          "Bottom = smallest.",
+          "C."
+        ]
+      }
     ],
     "medium": [
-      { "id": "m1", "type": "mcq", "q": "Statement: Some books are old. Conclusion: Some old things are books. Follows?", "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "over-generalized-some" } ], "answer": "Yes", "hintLadder": ["'Some' reverses safely.", "At least one shared member either way.", "Yes."] },
-      { "id": "m2", "type": "mcq", "q": "Statement: X is heavier than Y. Y is heavier than Z. Conclusion: Z is heavier than X. Follows?", "options": [ { "label": "Yes", "mistakeTag": "ignored-transitivity" }, { "label": "No" } ], "answer": "No", "hintLadder": ["Ladder: X>Y>Z.", "Z heavier than X reverses the whole ladder.", "No."] },
-      { "id": "m3", "type": "text", "q": "Statement: All squares are rectangles. Some rectangles are red. Conclusion 'Some squares are red' — does it follow (yes/no)?", "answer": "No", "hintLadder": ["Squares sit inside rectangles.", "We don't know WHICH rectangles are red.", "No."] }
+      {
+        "id": "m1",
+        "type": "mcq",
+        "q": "Statement: Some books are old. Conclusion: Some old things are books. Follows?",
+        "options": [
+          {
+            "label": "Yes"
+          },
+          {
+            "label": "No",
+            "mistakeTag": "over-generalized-some"
+          }
+        ],
+        "answer": "Yes",
+        "hintLadder": [
+          "'Some' reverses safely.",
+          "At least one shared member either way.",
+          "Yes."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "Statement: X is heavier than Y. Y is heavier than Z. Conclusion: Z is heavier than X. Follows?",
+        "options": [
+          {
+            "label": "Yes",
+            "mistakeTag": "ignored-transitivity"
+          },
+          {
+            "label": "No"
+          }
+        ],
+        "answer": "No",
+        "hintLadder": [
+          "Ladder: X>Y>Z.",
+          "Z heavier than X reverses the whole ladder.",
+          "No."
+        ]
+      },
+      {
+        "id": "m3",
+        "type": "text",
+        "q": "Statement: All squares are rectangles. Some rectangles are red. Conclusion 'Some squares are red' — does it follow (yes/no)?",
+        "answer": "No",
+        "hintLadder": [
+          "Squares sit inside rectangles.",
+          "We don't know WHICH rectangles are red.",
+          "No."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "c1", "type": "mcq", "q": "Statement: All engineers are graduates. All graduates are literate. Conclusion: All engineers are literate. Follows?", "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "ignored-transitivity" } ], "answer": "Yes", "hintLadder": ["Engineers ⊆ Graduates ⊆ Literate.", "Chaining 'all' statements is valid.", "Yes."] },
-      { "id": "c2", "type": "text", "q": "Statement: M is older than N. N is older than O. O is older than P. Who is definitely the oldest?", "answer": "M", "hintLadder": ["Ladder: M>N>O>P.", "Top = oldest.", "M."] },
-      { "id": "c3", "type": "mcq", "q": "Statement: Some teachers are strict. All strict people are respected. Conclusion: Some teachers are respected. Follows?", "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "assumed-extra-info" } ], "answer": "Yes", "hintLadder": ["Some teachers overlap with strict.", "All strict are respected, so that overlap is respected too.", "Yes."] }
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Statement: All engineers are graduates. All graduates are literate. Conclusion: All engineers are literate. Follows?",
+        "options": [
+          {
+            "label": "Yes"
+          },
+          {
+            "label": "No",
+            "mistakeTag": "ignored-transitivity"
+          }
+        ],
+        "answer": "Yes",
+        "hintLadder": [
+          "Engineers ⊆ Graduates ⊆ Literate.",
+          "Chaining 'all' statements is valid.",
+          "Yes."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "text",
+        "q": "Statement: M is older than N. N is older than O. O is older than P. Who is definitely the oldest?",
+        "answer": "M",
+        "hintLadder": [
+          "Ladder: M>N>O>P.",
+          "Top = oldest.",
+          "M."
+        ]
+      },
+      {
+        "id": "c3",
+        "type": "mcq",
+        "q": "Statement: Some teachers are strict. All strict people are respected. Conclusion: Some teachers are respected. Follows?",
+        "options": [
+          {
+            "label": "Yes"
+          },
+          {
+            "label": "No",
+            "mistakeTag": "assumed-extra-info"
+          }
+        ],
+        "answer": "Yes",
+        "hintLadder": [
+          "Some teachers overlap with strict.",
+          "All strict are respected, so that overlap is respected too.",
+          "Yes."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "mc1", "type": "mcq", "q": "Statement: A > B > C. Conclusion: A > C. Follows?", "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "ignored-transitivity" } ], "answer": "Yes", "hintLadder": ["Ladder A>B>C.", "A>C matches order.", "Yes."] },
-      { "id": "mc2", "type": "mcq", "q": "Statement: All roses are flowers. Conclusion: All flowers are roses. Follows?", "options": [ { "label": "Yes", "mistakeTag": "assumed-extra-info" }, { "label": "No" } ], "answer": "No", "hintLadder": ["Roses ⊆ flowers only.", "Can't reverse 'all'.", "No."] },
-      { "id": "mc3", "type": "mcq", "q": "Statement: Some pens are blue. Conclusion: Some blue things are pens. Follows?", "options": [ { "label": "Yes" }, { "label": "No", "mistakeTag": "over-generalized-some" } ], "answer": "Yes", "hintLadder": ["'Some' reverses safely.", "Same shared members.", "Yes."] },
-      { "id": "mc4", "type": "text", "q": "Statement: P is faster than Q. Q is faster than R. Who is definitely the slowest?", "answer": "R", "hintLadder": ["Ladder: P>Q>R.", "Bottom = slowest.", "R."] },
-      { "id": "mc5", "type": "mcq", "q": "Statement: All doctors are educated. Some educated are rich. Conclusion: Some doctors are rich. Follows?", "options": [ { "label": "Yes", "mistakeTag": "assumed-extra-info" }, { "label": "No" } ], "answer": "No", "hintLadder": ["Doctors ⊆ educated.", "Unknown which educated are rich.", "No."] }
+      {
+        "id": "mc1",
+        "type": "mcq",
+        "q": "Statement: A > B > C. Conclusion: A > C. Follows?",
+        "options": [
+          {
+            "label": "Yes"
+          },
+          {
+            "label": "No",
+            "mistakeTag": "ignored-transitivity"
+          }
+        ],
+        "answer": "Yes",
+        "hintLadder": [
+          "Ladder A>B>C.",
+          "A>C matches order.",
+          "Yes."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "Statement: All roses are flowers. Conclusion: All flowers are roses. Follows?",
+        "options": [
+          {
+            "label": "Yes",
+            "mistakeTag": "assumed-extra-info"
+          },
+          {
+            "label": "No"
+          }
+        ],
+        "answer": "No",
+        "hintLadder": [
+          "Roses ⊆ flowers only.",
+          "Can't reverse 'all'.",
+          "No."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "Statement: Some pens are blue. Conclusion: Some blue things are pens. Follows?",
+        "options": [
+          {
+            "label": "Yes"
+          },
+          {
+            "label": "No",
+            "mistakeTag": "over-generalized-some"
+          }
+        ],
+        "answer": "Yes",
+        "hintLadder": [
+          "'Some' reverses safely.",
+          "Same shared members.",
+          "Yes."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "text",
+        "q": "Statement: P is faster than Q. Q is faster than R. Who is definitely the slowest?",
+        "answer": "R",
+        "hintLadder": [
+          "Ladder: P>Q>R.",
+          "Bottom = slowest.",
+          "R."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "mcq",
+        "q": "Statement: All doctors are educated. Some educated are rich. Conclusion: Some doctors are rich. Follows?",
+        "options": [
+          {
+            "label": "Yes",
+            "mistakeTag": "assumed-extra-info"
+          },
+          {
+            "label": "No"
+          }
+        ],
+        "answer": "No",
+        "hintLadder": [
+          "Doctors ⊆ educated.",
+          "Unknown which educated are rich.",
+          "No."
+        ]
+      }
     ],
     "passThreshold": 0.8,
     "requireTeachBack": true
@@ -149,7 +488,11 @@
   "teachBackPrompt": "Teach a friend the difference between a conclusion that 'sounds true' and one that 'follows', using the Ravi/Sohan/Mohan height example.",
   "revisionCard": {
     "summary": "A conclusion follows only if the statement guarantees it with certainty — not if it merely sounds plausible. Chain comparisons ('taller than', 'more than') into a ladder: anything matching the ladder's order follows, anything reversing it doesn't. Never reverse a strict 'all' statement, but 'some' statements can always be safely reversed.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "gameMission": {
     "world": "Number Jungle (Ganita Grove)",
@@ -171,7 +514,82 @@
     "unpack": "A conclusion only follows if the statement makes it certain — not just likely."
   },
   "studentQuestions": [
-    { "q": "What if BOTH conclusions seem to follow?", "a": "That's allowed — sometimes both, one, or neither conclusion follows. Check each conclusion completely independently against the statement." },
-    { "q": "What if the statement itself sounds false in real life?", "a": "Doesn't matter — always accept the statement as true for the purpose of the question, even if it contradicts what you know about the real world. This is exactly why the skill is useful: pure logic, not outside knowledge." }
-  ]
+    {
+      "q": "What if BOTH conclusions seem to follow?",
+      "a": "That's allowed — sometimes both, one, or neither conclusion follows. Check each conclusion completely independently against the statement."
+    },
+    {
+      "q": "What if the statement itself sounds false in real life?",
+      "a": "Doesn't matter — always accept the statement as true for the purpose of the question, even if it contradicts what you know about the real world. This is exactly why the skill is useful: pure logic, not outside knowledge."
+    }
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Statement & Conclusion",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "statement",
+          "right": "The fact(s) given, accepted as true"
+        },
+        {
+          "id": "p2",
+          "left": "conclusion",
+          "right": "A claim that either does or doesn't logically follow"
+        },
+        {
+          "id": "p3",
+          "left": "follows",
+          "right": "True only if the statement makes it certainly true"
+        },
+        {
+          "id": "p4",
+          "left": "transitivity",
+          "right": "If A relates to B and B relates to C, then A relates to C"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Statement & Conclusion Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You judge every conclusion correctly!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Statement: All pens in the box are red. Conclusion: This pen (from the box) is red. Does it follow?",
+            "answer": "Yes",
+            "hintLadder": [
+              "The statement says every single pen in the box is red.",
+              "Since the pen is from the box, it must be red — it follows."
+            ]
+          },
+          "branches": [
+            "Yes",
+            "No"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "A is taller than B. B is taller than C. Conclusion: A is taller than C. Does it follow?",
+            "answer": "Yes",
+            "hintLadder": [
+              "This is a chain of 'taller than' relations.",
+              "By transitivity, A must be taller than C — it follows."
+            ]
+          },
+          "branches": [
+            "Yes",
+            "No"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

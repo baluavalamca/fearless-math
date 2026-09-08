@@ -13,13 +13,25 @@
     "Building the same 'find the constant step' instinct used in number sequences"
   ],
   "vocabulary": [
-    { "term": "rotation series", "meaning": "A figure series where each shape turns by the same fixed angle from the one before it." },
-    { "term": "counting series", "meaning": "A figure series where the number of small shapes increases or decreases by the same fixed amount each step." },
-    { "term": "clockwise / counter-clockwise", "meaning": "The two possible directions of rotation — always check which direction the series is turning before predicting the next step." }
+    {
+      "term": "rotation series",
+      "meaning": "A figure series where each shape turns by the same fixed angle from the one before it."
+    },
+    {
+      "term": "counting series",
+      "meaning": "A figure series where the number of small shapes increases or decreases by the same fixed amount each step."
+    },
+    {
+      "term": "clockwise / counter-clockwise",
+      "meaning": "The two possible directions of rotation — always check which direction the series is turning before predicting the next step."
+    }
   ],
   "story": {
     "title": "The Spinning Triangle",
-    "characters": ["Yusuf", "his coding-club friend Simi"],
+    "characters": [
+      "Yusuf",
+      "his coding-club friend Simi"
+    ],
     "text": "Simi shows Yusuf 3 triangles in a row: the first points straight up, the second is turned 90° clockwise, the third is turned 180° (pointing straight down). 'What's next?' she asks. Yusuf checks the pattern: 0° → 90° → 180° — each step adds exactly 90° clockwise. So the fourth triangle should be at 270°. He draws it, and it matches perfectly — pointing to the left.",
     "extractedProblem": "A triangle series shows rotations of 0°, 90°, 180°. What is the rotation of the 4th triangle in the series?",
     "answerInStory": "270° — each step adds a fixed 90° clockwise rotation."
@@ -28,10 +40,31 @@
     "component": "ReasoningFigure",
     "props": {
       "panels": [
-        { "kind": "shape", "shapeKind": "triangle", "rotate": 0, "label": "0°" },
-        { "kind": "shape", "shapeKind": "triangle", "rotate": 90, "label": "90°" },
-        { "kind": "shape", "shapeKind": "triangle", "rotate": 180, "label": "180°" },
-        { "kind": "shape", "shapeKind": "triangle", "rotate": 270, "label": "270° (next)", "dashed": true }
+        {
+          "kind": "shape",
+          "shapeKind": "triangle",
+          "rotate": 0,
+          "label": "0°"
+        },
+        {
+          "kind": "shape",
+          "shapeKind": "triangle",
+          "rotate": 90,
+          "label": "90°"
+        },
+        {
+          "kind": "shape",
+          "shapeKind": "triangle",
+          "rotate": 180,
+          "label": "180°"
+        },
+        {
+          "kind": "shape",
+          "shapeKind": "triangle",
+          "rotate": 270,
+          "label": "270° (next)",
+          "dashed": true
+        }
       ]
     },
     "caption": "Each triangle adds a fixed 90° clockwise turn from the one before it — the dashed triangle is the predicted next figure in the series."
@@ -45,9 +78,24 @@
           "component": "ReasoningFigure",
           "props": {
             "panels": [
-              { "kind": "shape", "shapeKind": "star", "count": 1, "label": "1 star" },
-              { "kind": "shape", "shapeKind": "star", "count": 2, "label": "2 stars" },
-              { "kind": "shape", "shapeKind": "star", "count": 3, "label": "3 stars" }
+              {
+                "kind": "shape",
+                "shapeKind": "star",
+                "count": 1,
+                "label": "1 star"
+              },
+              {
+                "kind": "shape",
+                "shapeKind": "star",
+                "count": 2,
+                "label": "2 stars"
+              },
+              {
+                "kind": "shape",
+                "shapeKind": "star",
+                "count": 3,
+                "label": "3 stars"
+              }
             ]
           },
           "caption": "The number of stars increases by exactly 1 each step — the 4th figure in this series would show 4 stars."
@@ -101,9 +149,48 @@
     "trick": "Find the fixed step, confirm it twice, then apply it once more",
     "intro": "Never predict from a single comparison — always confirm the same fixed rotation or count-change holds between at least two consecutive pairs first.",
     "questions": [
-      { "id": "reason19-trick-1", "type": "text", "q": "Rotation series: 0°, 45°, 90°. What is the 4th rotation?", "answer": "135°", "hintLadder": ["Fixed step: +45° each time.", "90° + 45°.", "135°."] },
-      { "id": "reason19-trick-2", "type": "text", "q": "Counting series: 2 circles, 4 circles, 6 circles. How many in the 4th figure?", "answer": "8", "hintLadder": ["Fixed step: +2 each time.", "6 + 2.", "8."] },
-      { "id": "reason19-trick-3", "type": "mcq", "q": "Before predicting the next figure, you should confirm the fixed step using how many consecutive comparisons?", "options": [ { "label": "At least two" }, { "label": "Just one is enough", "mistakeTag": "confirmed-only-once" } ], "answer": "At least two", "hintLadder": ["One comparison could be a coincidence.", "Two confirms a real fixed pattern.", "At least two comparisons."] }
+      {
+        "id": "reason19-trick-1",
+        "type": "text",
+        "q": "Rotation series: 0°, 45°, 90°. What is the 4th rotation?",
+        "answer": "135°",
+        "hintLadder": [
+          "Fixed step: +45° each time.",
+          "90° + 45°.",
+          "135°."
+        ]
+      },
+      {
+        "id": "reason19-trick-2",
+        "type": "text",
+        "q": "Counting series: 2 circles, 4 circles, 6 circles. How many in the 4th figure?",
+        "answer": "8",
+        "hintLadder": [
+          "Fixed step: +2 each time.",
+          "6 + 2.",
+          "8."
+        ]
+      },
+      {
+        "id": "reason19-trick-3",
+        "type": "mcq",
+        "q": "Before predicting the next figure, you should confirm the fixed step using how many consecutive comparisons?",
+        "options": [
+          {
+            "label": "At least two"
+          },
+          {
+            "label": "Just one is enough",
+            "mistakeTag": "confirmed-only-once"
+          }
+        ],
+        "answer": "At least two",
+        "hintLadder": [
+          "One comparison could be a coincidence.",
+          "Two confirms a real fixed pattern.",
+          "At least two comparisons."
+        ]
+      }
     ]
   },
   "commonMistakes": [
@@ -130,28 +217,204 @@
   ],
   "practice": {
     "easy": [
-      { "id": "e1", "type": "text", "q": "Rotation series: 0°, 90°, 180°. What is the 4th rotation?", "answer": "270°", "hintLadder": ["Fixed step: +90°.", "180°+90°.", "270°."] },
-      { "id": "e2", "type": "text", "q": "Counting series: 1, 2, 3 squares. How many in the 4th figure?", "answer": "4", "hintLadder": ["Fixed step: +1.", "3+1.", "4."] },
-      { "id": "e3", "type": "mcq", "q": "What are the two most common types of figure series?", "options": [ { "label": "Rotation series and counting series" }, { "label": "Color series and size series", "mistakeTag": "wrong-series-type" } ], "answer": "Rotation series and counting series", "hintLadder": ["Shapes either turn or multiply.", "Two classic patterns.", "Rotation and counting."] }
+      {
+        "id": "e1",
+        "type": "text",
+        "q": "Rotation series: 0°, 90°, 180°. What is the 4th rotation?",
+        "answer": "270°",
+        "hintLadder": [
+          "Fixed step: +90°.",
+          "180°+90°.",
+          "270°."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "text",
+        "q": "Counting series: 1, 2, 3 squares. How many in the 4th figure?",
+        "answer": "4",
+        "hintLadder": [
+          "Fixed step: +1.",
+          "3+1.",
+          "4."
+        ]
+      },
+      {
+        "id": "e3",
+        "type": "mcq",
+        "q": "What are the two most common types of figure series?",
+        "options": [
+          {
+            "label": "Rotation series and counting series"
+          },
+          {
+            "label": "Color series and size series",
+            "mistakeTag": "wrong-series-type"
+          }
+        ],
+        "answer": "Rotation series and counting series",
+        "hintLadder": [
+          "Shapes either turn or multiply.",
+          "Two classic patterns.",
+          "Rotation and counting."
+        ]
+      }
     ],
     "medium": [
-      { "id": "m1", "type": "text", "q": "Rotation series: 0°, 60°, 120°. What is the 4th rotation?", "answer": "180°", "hintLadder": ["Fixed step: +60°.", "120°+60°.", "180°."] },
-      { "id": "m2", "type": "text", "q": "Counting series: 10, 8, 6 dots (decreasing). How many in the 4th figure?", "answer": "4", "hintLadder": ["Fixed step: −2.", "6−2.", "4."] },
-      { "id": "m3", "type": "mcq", "q": "A rotation series shows 0°, 90°, and then what looks like 270° for the third figure. What should you suspect?", "options": [ { "label": "The direction may have reversed (counter-clockwise), not a +180° step" }, { "label": "It's just a bigger fixed step of +180°", "mistakeTag": "ignored-direction" } ], "answer": "The direction may have reversed (counter-clockwise), not a +180° step", "hintLadder": ["0° to 90° is +90°.", "90° to 270° could be +180° OR a −180°(reverse direction) interpretation.", "Always double-check direction, not just angle size."] }
+      {
+        "id": "m1",
+        "type": "text",
+        "q": "Rotation series: 0°, 60°, 120°. What is the 4th rotation?",
+        "answer": "180°",
+        "hintLadder": [
+          "Fixed step: +60°.",
+          "120°+60°.",
+          "180°."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "text",
+        "q": "Counting series: 10, 8, 6 dots (decreasing). How many in the 4th figure?",
+        "answer": "4",
+        "hintLadder": [
+          "Fixed step: −2.",
+          "6−2.",
+          "4."
+        ]
+      },
+      {
+        "id": "m3",
+        "type": "mcq",
+        "q": "A rotation series shows 0°, 90°, and then what looks like 270° for the third figure. What should you suspect?",
+        "options": [
+          {
+            "label": "The direction may have reversed (counter-clockwise), not a +180° step"
+          },
+          {
+            "label": "It's just a bigger fixed step of +180°",
+            "mistakeTag": "ignored-direction"
+          }
+        ],
+        "answer": "The direction may have reversed (counter-clockwise), not a +180° step",
+        "hintLadder": [
+          "0° to 90° is +90°.",
+          "90° to 270° could be +180° OR a −180°(reverse direction) interpretation.",
+          "Always double-check direction, not just angle size."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "c1", "type": "text", "q": "Rotation series: 0°, 45°, 90°, 135°. What is the 5th rotation?", "answer": "180°", "hintLadder": ["Fixed step: +45°.", "135°+45°.", "180°."] },
-      { "id": "c2", "type": "text", "q": "Counting series: 3, 6, 9 triangles. How many in the 5th figure?", "answer": "15", "hintLadder": ["Fixed step: +3.", "9+3=12 (4th), 12+3=15 (5th).", "15."] },
-      { "id": "c3", "type": "mcq", "q": "A series shows rotations 0°, 90°, 180°, 270°. What would the 5th rotation be?", "options": [ { "label": "0° (back to the start, since 270°+90°=360°=0°)" }, { "label": "360°", "mistakeTag": "confirmed-only-once" } ], "answer": "0° (back to the start, since 270°+90°=360°=0°)", "hintLadder": ["270°+90°=360°.", "360° is a full turn, same as 0°.", "0°, back to start."] }
+      {
+        "id": "c1",
+        "type": "text",
+        "q": "Rotation series: 0°, 45°, 90°, 135°. What is the 5th rotation?",
+        "answer": "180°",
+        "hintLadder": [
+          "Fixed step: +45°.",
+          "135°+45°.",
+          "180°."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "text",
+        "q": "Counting series: 3, 6, 9 triangles. How many in the 5th figure?",
+        "answer": "15",
+        "hintLadder": [
+          "Fixed step: +3.",
+          "9+3=12 (4th), 12+3=15 (5th).",
+          "15."
+        ]
+      },
+      {
+        "id": "c3",
+        "type": "mcq",
+        "q": "A series shows rotations 0°, 90°, 180°, 270°. What would the 5th rotation be?",
+        "options": [
+          {
+            "label": "0° (back to the start, since 270°+90°=360°=0°)"
+          },
+          {
+            "label": "360°",
+            "mistakeTag": "confirmed-only-once"
+          }
+        ],
+        "answer": "0° (back to the start, since 270°+90°=360°=0°)",
+        "hintLadder": [
+          "270°+90°=360°.",
+          "360° is a full turn, same as 0°.",
+          "0°, back to start."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "mc1", "type": "text", "q": "Rotation series: 0°, 90°, 180°. 4th rotation?", "answer": "270°", "hintLadder": ["Fixed step +90°.", "180+90.", "270°."] },
-      { "id": "mc2", "type": "text", "q": "Counting series: 2, 4, 6 shapes. 4th figure's count?", "answer": "8", "hintLadder": ["Fixed step +2.", "6+2.", "8."] },
-      { "id": "mc3", "type": "mcq", "q": "How many consecutive comparisons should you check before trusting a fixed step?", "options": [ { "label": "At least two" }, { "label": "One is always enough", "mistakeTag": "confirmed-only-once" } ], "answer": "At least two", "hintLadder": ["One could be coincidence.", "Two confirms the pattern.", "At least two."] },
-      { "id": "mc4", "type": "text", "q": "Rotation series: 0°, 60°, 120°. 4th rotation?", "answer": "180°", "hintLadder": ["Fixed step +60°.", "120+60.", "180°."] },
-      { "id": "mc5", "type": "text", "q": "Counting series: 12, 9, 6 dots (decreasing). 4th figure's count?", "answer": "3", "hintLadder": ["Fixed step −3.", "6−3.", "3."] }
+      {
+        "id": "mc1",
+        "type": "text",
+        "q": "Rotation series: 0°, 90°, 180°. 4th rotation?",
+        "answer": "270°",
+        "hintLadder": [
+          "Fixed step +90°.",
+          "180+90.",
+          "270°."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "text",
+        "q": "Counting series: 2, 4, 6 shapes. 4th figure's count?",
+        "answer": "8",
+        "hintLadder": [
+          "Fixed step +2.",
+          "6+2.",
+          "8."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "How many consecutive comparisons should you check before trusting a fixed step?",
+        "options": [
+          {
+            "label": "At least two"
+          },
+          {
+            "label": "One is always enough",
+            "mistakeTag": "confirmed-only-once"
+          }
+        ],
+        "answer": "At least two",
+        "hintLadder": [
+          "One could be coincidence.",
+          "Two confirms the pattern.",
+          "At least two."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "text",
+        "q": "Rotation series: 0°, 60°, 120°. 4th rotation?",
+        "answer": "180°",
+        "hintLadder": [
+          "Fixed step +60°.",
+          "120+60.",
+          "180°."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "text",
+        "q": "Counting series: 12, 9, 6 dots (decreasing). 4th figure's count?",
+        "answer": "3",
+        "hintLadder": [
+          "Fixed step −3.",
+          "6−3.",
+          "3."
+        ]
+      }
     ],
     "passThreshold": 0.8,
     "requireTeachBack": true
@@ -159,7 +422,11 @@
   "teachBackPrompt": "Teach a friend how to predict the 4th figure in a 0°, 90°, 180° rotation series by confirming the fixed 90° step twice before applying it again.",
   "revisionCard": {
     "summary": "A figure series changes by the SAME fixed step each time — either a rotation (fixed angle and direction) or a count change (fixed number added/removed). Confirm the fixed step using at least two consecutive comparisons before predicting the next figure. Always track rotation direction explicitly (clockwise vs counter-clockwise), and remember 270°+90°=360°=0° wraps back to the start.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "gameMission": {
     "world": "Number Jungle (Ganita Grove)",
@@ -181,7 +448,77 @@
     "unpack": "Rotation series and counting series both work the same way as a number pattern — spot the constant, extend it."
   },
   "studentQuestions": [
-    { "q": "What if a series changes BOTH rotation and count at the same time?", "a": "Treat each change independently — find the fixed rotation step AND the fixed count step separately, then apply both together to the next figure." },
-    { "q": "How do I know which direction a shape is rotating?", "a": "Track a single distinctive point or corner of the shape (like the top point of a triangle) across the given figures — watching where that ONE point moves tells you the direction unambiguously." }
-  ]
+    {
+      "q": "What if a series changes BOTH rotation and count at the same time?",
+      "a": "Treat each change independently — find the fixed rotation step AND the fixed count step separately, then apply both together to the next figure."
+    },
+    {
+      "q": "How do I know which direction a shape is rotating?",
+      "a": "Track a single distinctive point or corner of the shape (like the top point of a triangle) across the given figures — watching where that ONE point moves tells you the direction unambiguously."
+    }
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Figure Series",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "rotation series",
+          "right": "Each shape turns by the same fixed angle from the one before"
+        },
+        {
+          "id": "p2",
+          "left": "counting series",
+          "right": "The number of small shapes changes by the same fixed amount each step"
+        },
+        {
+          "id": "p3",
+          "left": "clockwise / counter-clockwise",
+          "right": "The two possible directions of rotation"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Figure Series Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've predicted every next figure!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "A figure rotates 90° clockwise each step starting from pointing UP: after 1 step it points RIGHT, after 2 steps it points DOWN. Where does it point after 3 steps?",
+            "answer": "Left",
+            "hintLadder": [
+              "Keep rotating 90° clockwise from DOWN.",
+              "One more 90° clockwise turn from DOWN points LEFT."
+            ]
+          },
+          "branches": [
+            "Left",
+            "Up"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "A counting series shows 1 dot, 3 dots, 5 dots. How many dots come next?",
+            "answer": "7",
+            "hintLadder": [
+              "Find the fixed increase between terms: 3−1=2, 5−3=2.",
+              "Add 2 more to 5 to get 7."
+            ]
+          },
+          "branches": [
+            "7",
+            "6"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

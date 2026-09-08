@@ -13,14 +13,29 @@
     "General 3D spatial visualization"
   ],
   "vocabulary": [
-    { "term": "standard die", "meaning": "A regular die (like the ones used in board games) where opposite faces always add up to 7: 1-6, 2-5, 3-4." },
-    { "term": "adjacent face", "meaning": "A face that touches (shares an edge with) another face — adjacent faces can NEVER be opposite each other." },
-    { "term": "opposite face", "meaning": "The face directly across the cube from a given face — the two faces you'd see if you sliced straight through the cube." },
-    { "term": "common face", "meaning": "A face that appears in the same view (e.g. on top) in two different pictures of the same die." }
+    {
+      "term": "standard die",
+      "meaning": "A regular die (like the ones used in board games) where opposite faces always add up to 7: 1-6, 2-5, 3-4."
+    },
+    {
+      "term": "adjacent face",
+      "meaning": "A face that touches (shares an edge with) another face — adjacent faces can NEVER be opposite each other."
+    },
+    {
+      "term": "opposite face",
+      "meaning": "The face directly across the cube from a given face — the two faces you'd see if you sliced straight through the cube."
+    },
+    {
+      "term": "common face",
+      "meaning": "A face that appears in the same view (e.g. on top) in two different pictures of the same die."
+    }
   ],
   "story": {
     "title": "Two Photos of One Die",
-    "characters": ["Ishaan", "his uncle who collects puzzles"],
+    "characters": [
+      "Ishaan",
+      "his uncle who collects puzzles"
+    ],
     "text": "Ishaan's uncle shows two photos of the same die. In photo 1: top=2, and the visible side faces show 3 and 4. In photo 2, the die has been rolled, but 2 is STILL on top — this time the visible sides show 5 and 6. 'Which face is opposite 2?' asks his uncle. Ishaan lists every face he's seen next to 2 across both photos: 3, 4, 5, 6 — four different faces, none of them opposite. Since a die only has 6 faces, and 1 has never appeared next to 2 in either photo, 1 must be the one directly opposite 2.",
     "extractedProblem": "Photo 1 of a die: top=2, sides show 3 and 4. Photo 2 (same die, re-rolled): top=2, sides show 5 and 6. The die has faces 1-6. Which face is opposite 2?",
     "answerInStory": "1 is opposite 2 — every other face (3,4,5,6) was seen adjacent to 2 across the two photos, leaving only 1 unaccounted for."
@@ -29,8 +44,18 @@
     "component": "DiceViews",
     "props": {
       "dice": [
-        { "top": 2, "left": 3, "right": 4, "label": "Position 1" },
-        { "top": 2, "left": 5, "right": 6, "label": "Position 2" }
+        {
+          "top": 2,
+          "left": 3,
+          "right": 4,
+          "label": "Position 1"
+        },
+        {
+          "top": 2,
+          "left": 5,
+          "right": 6,
+          "label": "Position 2"
+        }
       ]
     },
     "caption": "Face 2 is on top in both positions. Faces 3, 4, 5 and 6 all appear adjacent to it across the two views — only face 1 is never seen next to 2, so 1 must be opposite it."
@@ -42,7 +67,16 @@
       "examples": [
         {
           "component": "DiceViews",
-          "props": { "dice": [ { "top": 3, "left": 1, "right": 2, "label": "Standard die: opposite of 3 is 4" } ] },
+          "props": {
+            "dice": [
+              {
+                "top": 3,
+                "left": 1,
+                "right": 2,
+                "label": "Standard die: opposite of 3 is 4"
+              }
+            ]
+          },
           "caption": "On a standard die, 3's opposite face is always 4, because 3 + 4 = 7 — no second view needed."
         }
       ]
@@ -96,9 +130,48 @@
     "trick": "The face NEVER seen next to it, across all views, is the opposite",
     "intro": "Combine adjacency information from every view given — the single leftover face is always the answer.",
     "questions": [
-      { "id": "reason20-trick-1", "type": "text", "q": "Standard die shows 5 on top. What's on the bottom?", "answer": "2", "hintLadder": ["Opposite faces sum to 7.", "7 − 5.", "2."] },
-      { "id": "reason20-trick-2", "type": "mcq", "q": "Does the sum-to-7 shortcut work for a die with letters instead of numbers?", "options": [ { "label": "No — only standard 1-6 numbered dice" }, { "label": "Yes, always", "mistakeTag": "assumed-standard-sum7-always" } ], "answer": "No — only standard 1-6 numbered dice", "hintLadder": ["Sum-to-7 is specific to standard numbering.", "Letter/custom dice need the two-view method instead.", "No, only standard dice."] },
-      { "id": "reason20-trick-3", "type": "text", "q": "Die faces 1-6. Position 1: top=4, sides 1,2. Position 2: top=4, sides 3,5. Which face is opposite 4?", "answer": "6", "hintLadder": ["Adjacent to 4 across both views: 1,2,3,5.", "Only 6 never appears.", "6 is opposite 4."] }
+      {
+        "id": "reason20-trick-1",
+        "type": "text",
+        "q": "Standard die shows 5 on top. What's on the bottom?",
+        "answer": "2",
+        "hintLadder": [
+          "Opposite faces sum to 7.",
+          "7 − 5.",
+          "2."
+        ]
+      },
+      {
+        "id": "reason20-trick-2",
+        "type": "mcq",
+        "q": "Does the sum-to-7 shortcut work for a die with letters instead of numbers?",
+        "options": [
+          {
+            "label": "No — only standard 1-6 numbered dice"
+          },
+          {
+            "label": "Yes, always",
+            "mistakeTag": "assumed-standard-sum7-always"
+          }
+        ],
+        "answer": "No — only standard 1-6 numbered dice",
+        "hintLadder": [
+          "Sum-to-7 is specific to standard numbering.",
+          "Letter/custom dice need the two-view method instead.",
+          "No, only standard dice."
+        ]
+      },
+      {
+        "id": "reason20-trick-3",
+        "type": "text",
+        "q": "Die faces 1-6. Position 1: top=4, sides 1,2. Position 2: top=4, sides 3,5. Which face is opposite 4?",
+        "answer": "6",
+        "hintLadder": [
+          "Adjacent to 4 across both views: 1,2,3,5.",
+          "Only 6 never appears.",
+          "6 is opposite 4."
+        ]
+      }
     ]
   },
   "commonMistakes": [
@@ -120,28 +193,222 @@
   ],
   "practice": {
     "easy": [
-      { "id": "e1", "type": "text", "q": "Standard die shows 1 on top. What's opposite (on the bottom)?", "answer": "6", "hintLadder": ["Sum to 7.", "7−1.", "6."] },
-      { "id": "e2", "type": "text", "q": "Standard die shows 6 on top. What's opposite?", "answer": "1", "hintLadder": ["Sum to 7.", "7−6.", "1."] },
-      { "id": "e3", "type": "mcq", "q": "Can two adjacent faces of a cube ever be opposite each other?", "options": [ { "label": "No, never" }, { "label": "Yes, sometimes", "mistakeTag": "confused-adjacent-with-opposite" } ], "answer": "No, never", "hintLadder": ["Adjacent means sharing an edge.", "Opposite faces never touch.", "No, never."] }
+      {
+        "id": "e1",
+        "type": "text",
+        "q": "Standard die shows 1 on top. What's opposite (on the bottom)?",
+        "answer": "6",
+        "hintLadder": [
+          "Sum to 7.",
+          "7−1.",
+          "6."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "text",
+        "q": "Standard die shows 6 on top. What's opposite?",
+        "answer": "1",
+        "hintLadder": [
+          "Sum to 7.",
+          "7−6.",
+          "1."
+        ]
+      },
+      {
+        "id": "e3",
+        "type": "mcq",
+        "q": "Can two adjacent faces of a cube ever be opposite each other?",
+        "options": [
+          {
+            "label": "No, never"
+          },
+          {
+            "label": "Yes, sometimes",
+            "mistakeTag": "confused-adjacent-with-opposite"
+          }
+        ],
+        "answer": "No, never",
+        "hintLadder": [
+          "Adjacent means sharing an edge.",
+          "Opposite faces never touch.",
+          "No, never."
+        ]
+      }
     ],
     "medium": [
-      { "id": "m1", "type": "text", "q": "Die faces 1-6. Position 1: top=3, sides 1,2. Position 2: top=3, sides 4,5. Which face is opposite 3?", "answer": "6", "hintLadder": ["Adjacent to 3: 1,2,4,5.", "Only 6 never appears.", "6 is opposite 3."] },
-      { "id": "m2", "type": "mcq", "q": "Two views of a die both show 3 different faces adjacent to a common top face. How many faces total are adjacent to any face on a cube?", "options": [ { "label": "4" }, { "label": "5", "mistakeTag": "confused-adjacent-with-opposite" } ], "answer": "4", "hintLadder": ["A cube has 6 faces total.", "1 is the face itself, 1 is opposite.", "6−1−1=4 adjacent faces."] },
-      { "id": "m3", "type": "text", "q": "Standard die shows 4 on top. What's opposite?", "answer": "3", "hintLadder": ["Sum to 7.", "7−4.", "3."] }
+      {
+        "id": "m1",
+        "type": "text",
+        "q": "Die faces 1-6. Position 1: top=3, sides 1,2. Position 2: top=3, sides 4,5. Which face is opposite 3?",
+        "answer": "6",
+        "hintLadder": [
+          "Adjacent to 3: 1,2,4,5.",
+          "Only 6 never appears.",
+          "6 is opposite 3."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "Two views of a die both show 3 different faces adjacent to a common top face. How many faces total are adjacent to any face on a cube?",
+        "options": [
+          {
+            "label": "4"
+          },
+          {
+            "label": "5",
+            "mistakeTag": "confused-adjacent-with-opposite"
+          }
+        ],
+        "answer": "4",
+        "hintLadder": [
+          "A cube has 6 faces total.",
+          "1 is the face itself, 1 is opposite.",
+          "6−1−1=4 adjacent faces."
+        ]
+      },
+      {
+        "id": "m3",
+        "type": "text",
+        "q": "Standard die shows 4 on top. What's opposite?",
+        "answer": "3",
+        "hintLadder": [
+          "Sum to 7.",
+          "7−4.",
+          "3."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "c1", "type": "text", "q": "Die faces 1-6. Position 1: top=5, sides 1,3. Position 2: top=5, sides 2,4. Which face is opposite 5?", "answer": "6", "hintLadder": ["Adjacent to 5: 1,3,2,4.", "Only 6 never appears.", "6 is opposite 5."] },
-      { "id": "c2", "type": "mcq", "q": "A die shows letters A-F instead of numbers. Two views both show A on top, with B,C adjacent in view 1 and D,E adjacent in view 2. Which letter is opposite A?", "options": [ { "label": "F" }, { "label": "Cannot be determined", "mistakeTag": "missed-a-view" } ], "answer": "F", "hintLadder": ["Adjacent to A across both views: B,C,D,E.", "Only F never appears.", "F is opposite A."] },
-      { "id": "c3", "type": "mcq", "q": "You're told a die is 'non-standard' but you still use the sum-to-7 shortcut. What's the risk?", "options": [ { "label": "It could give a completely wrong answer, since sum-to-7 only applies to standard dice" }, { "label": "No risk, it always works", "mistakeTag": "assumed-standard-sum7-always" } ], "answer": "It could give a completely wrong answer, since sum-to-7 only applies to standard dice", "hintLadder": ["Non-standard dice don't follow that rule.", "Only two-view adjacency works reliably there.", "Risk of a wrong answer."] }
+      {
+        "id": "c1",
+        "type": "text",
+        "q": "Die faces 1-6. Position 1: top=5, sides 1,3. Position 2: top=5, sides 2,4. Which face is opposite 5?",
+        "answer": "6",
+        "hintLadder": [
+          "Adjacent to 5: 1,3,2,4.",
+          "Only 6 never appears.",
+          "6 is opposite 5."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "A die shows letters A-F instead of numbers. Two views both show A on top, with B,C adjacent in view 1 and D,E adjacent in view 2. Which letter is opposite A?",
+        "options": [
+          {
+            "label": "F"
+          },
+          {
+            "label": "Cannot be determined",
+            "mistakeTag": "missed-a-view"
+          }
+        ],
+        "answer": "F",
+        "hintLadder": [
+          "Adjacent to A across both views: B,C,D,E.",
+          "Only F never appears.",
+          "F is opposite A."
+        ]
+      },
+      {
+        "id": "c3",
+        "type": "mcq",
+        "q": "You're told a die is 'non-standard' but you still use the sum-to-7 shortcut. What's the risk?",
+        "options": [
+          {
+            "label": "It could give a completely wrong answer, since sum-to-7 only applies to standard dice"
+          },
+          {
+            "label": "No risk, it always works",
+            "mistakeTag": "assumed-standard-sum7-always"
+          }
+        ],
+        "answer": "It could give a completely wrong answer, since sum-to-7 only applies to standard dice",
+        "hintLadder": [
+          "Non-standard dice don't follow that rule.",
+          "Only two-view adjacency works reliably there.",
+          "Risk of a wrong answer."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "mc1", "type": "text", "q": "Standard die shows 2 on top. What's opposite?", "answer": "5", "hintLadder": ["Sum to 7.", "7−2.", "5."] },
-      { "id": "mc2", "type": "text", "q": "Die faces 1-6. Position 1: top=6, sides 1,4. Position 2: top=6, sides 2,3. Which face is opposite 6?", "answer": "5", "hintLadder": ["Adjacent to 6: 1,4,2,3.", "Only 5 never appears.", "5 is opposite 6."] },
-      { "id": "mc3", "type": "mcq", "q": "Does the sum-to-7 rule apply to a die with colors instead of numbers?", "options": [ { "label": "No" }, { "label": "Yes", "mistakeTag": "assumed-standard-sum7-always" } ], "answer": "No", "hintLadder": ["Sum-to-7 needs standard 1-6 numbering.", "Colors have no numeric sum.", "No, it doesn't apply."] },
-      { "id": "mc4", "type": "mcq", "q": "How many faces are adjacent to any single face of a cube?", "answer": "4", "options": [ { "label": "4" }, { "label": "3", "mistakeTag": "confused-adjacent-with-opposite" } ], "hintLadder": ["6 total faces.", "Minus itself and its opposite.", "6−1−1=4."] },
-      { "id": "mc5", "type": "text", "q": "Standard die shows 3 on top. What's opposite?", "answer": "4", "hintLadder": ["Sum to 7.", "7−3.", "4."] }
+      {
+        "id": "mc1",
+        "type": "text",
+        "q": "Standard die shows 2 on top. What's opposite?",
+        "answer": "5",
+        "hintLadder": [
+          "Sum to 7.",
+          "7−2.",
+          "5."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "text",
+        "q": "Die faces 1-6. Position 1: top=6, sides 1,4. Position 2: top=6, sides 2,3. Which face is opposite 6?",
+        "answer": "5",
+        "hintLadder": [
+          "Adjacent to 6: 1,4,2,3.",
+          "Only 5 never appears.",
+          "5 is opposite 6."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "Does the sum-to-7 rule apply to a die with colors instead of numbers?",
+        "options": [
+          {
+            "label": "No"
+          },
+          {
+            "label": "Yes",
+            "mistakeTag": "assumed-standard-sum7-always"
+          }
+        ],
+        "answer": "No",
+        "hintLadder": [
+          "Sum-to-7 needs standard 1-6 numbering.",
+          "Colors have no numeric sum.",
+          "No, it doesn't apply."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "How many faces are adjacent to any single face of a cube?",
+        "answer": "4",
+        "options": [
+          {
+            "label": "4"
+          },
+          {
+            "label": "3",
+            "mistakeTag": "confused-adjacent-with-opposite"
+          }
+        ],
+        "hintLadder": [
+          "6 total faces.",
+          "Minus itself and its opposite.",
+          "6−1−1=4."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "text",
+        "q": "Standard die shows 3 on top. What's opposite?",
+        "answer": "4",
+        "hintLadder": [
+          "Sum to 7.",
+          "7−3.",
+          "4."
+        ]
+      }
     ],
     "passThreshold": 0.8,
     "requireTeachBack": true
@@ -149,7 +416,11 @@
   "teachBackPrompt": "Teach a friend the two-view method for finding a die's opposite face, using the top=2, sides 3/4 then sides 5/6 example, and explain why 1 must be opposite 2.",
   "revisionCard": {
     "summary": "Standard numbered dice: opposite faces always sum to 7 (1-6, 2-5, 3-4). For non-standard dice, compare two views sharing a common face — every face seen adjacent to it across both views is ruled out; the one face never seen adjacent is the opposite. Every cube face has exactly 4 adjacent faces and exactly 1 opposite face.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "gameMission": {
     "world": "Number Jungle (Ganita Grove)",
@@ -171,7 +442,82 @@
     "unpack": "Adjacent faces are ruled out; the one face never seen next to it across all views is opposite."
   },
   "studentQuestions": [
-    { "q": "What if only ONE view of a non-standard die is given?", "a": "With just one view, you usually can't determine the exact opposite face uniquely — you need a second view (or other given clues) revealing more adjacency information to narrow it down to exactly one leftover face." },
-    { "q": "Does this two-view method work for finding ADJACENT faces too, not just opposite ones?", "a": "Yes — any face you directly see next to the target face in any view is confirmed adjacent to it immediately; you don't need to wait for a second view for that part." }
-  ]
+    {
+      "q": "What if only ONE view of a non-standard die is given?",
+      "a": "With just one view, you usually can't determine the exact opposite face uniquely — you need a second view (or other given clues) revealing more adjacency information to narrow it down to exactly one leftover face."
+    },
+    {
+      "q": "Does this two-view method work for finding ADJACENT faces too, not just opposite ones?",
+      "a": "Yes — any face you directly see next to the target face in any view is confirmed adjacent to it immediately; you don't need to wait for a second view for that part."
+    }
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Dice & Cubes",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "standard die",
+          "right": "Opposite faces always add up to 7"
+        },
+        {
+          "id": "p2",
+          "left": "adjacent face",
+          "right": "A face that touches another — can never be its opposite"
+        },
+        {
+          "id": "p3",
+          "left": "opposite face",
+          "right": "The face directly across the cube from a given face"
+        },
+        {
+          "id": "p4",
+          "left": "common face",
+          "right": "A face that appears in the same view in two different pictures"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Dice & Cubes Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've found every opposite face!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "On a standard die, which number is opposite 2?",
+            "answer": "5",
+            "hintLadder": [
+              "On a standard die, opposite faces add up to 7.",
+              "7 − 2 = 5."
+            ]
+          },
+          "branches": [
+            "5",
+            "4"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "On a standard die, which number is opposite 6?",
+            "answer": "1",
+            "hintLadder": [
+              "Opposite faces on a standard die always sum to 7.",
+              "7 − 6 = 1."
+            ]
+          },
+          "branches": [
+            "1",
+            "2"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

@@ -14,14 +14,29 @@
     "Robotics and grid-movement puzzles"
   ],
   "vocabulary": [
-    { "term": "cardinal directions", "meaning": "North, South, East, West — draw N at the top, E to the right." },
-    { "term": "net displacement", "meaning": "How far you end up from the start after cancelling opposite moves." },
-    { "term": "right turn / left turn", "meaning": "Turning 90° clockwise (right) or anticlockwise (left) from the way you face." },
-    { "term": "shortest distance", "meaning": "The straight line from start to finish — the hypotenuse of the E–W and N–S legs." }
+    {
+      "term": "cardinal directions",
+      "meaning": "North, South, East, West — draw N at the top, E to the right."
+    },
+    {
+      "term": "net displacement",
+      "meaning": "How far you end up from the start after cancelling opposite moves."
+    },
+    {
+      "term": "right turn / left turn",
+      "meaning": "Turning 90° clockwise (right) or anticlockwise (left) from the way you face."
+    },
+    {
+      "term": "shortest distance",
+      "meaning": "The straight line from start to finish — the hypotenuse of the E–W and N–S legs."
+    }
   ],
   "story": {
     "title": "Draw the Map, Don't Just Read It",
-    "characters": ["Dev", "his friend"],
+    "characters": [
+      "Dev",
+      "his friend"
+    ],
     "text": "Dev reads: 'Walk 3 km East, then 4 km North. How far from start?' He tries to imagine it and gets confused. His friend says 'DRAW it — N at top.' Dev draws 3 East, then 4 North. The two legs make a right angle. 'That's a 3-4-5 triangle — the straight line back is 5 km!' Rule learned: always sketch the path with North up, then add E–W and N–S separately.",
     "extractedProblem": "Walk 3 km East, then 4 km North — straight-line distance from start?",
     "answerInStory": "5 km — the East leg (3) and North leg (4) form a right triangle, so the hypotenuse is 5."
@@ -30,7 +45,10 @@
     "component": "GeometryCanvas",
     "props": {
       "shapes": [
-        { "kind": "triangle", "label": "3 East, 4 North → 5 km straight line" }
+        {
+          "kind": "triangle",
+          "label": "3 East, 4 North → 5 km straight line"
+        }
       ]
     },
     "caption": "Draw the path with North up. 3 East and 4 North are the two legs; the straight-line distance is the hypotenuse = 5 km (a 3-4-5 triangle)."
@@ -40,8 +58,30 @@
       "title": "Sketch with N up; add E–W and N–S separately",
       "note": "Opposite moves cancel. Straight distance uses the right-triangle rule on the two net legs.",
       "examples": [
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "triangle", "label": "6 E, 8 N → 10" } ] }, "caption": "6-8-10 is a 3-4-5 triangle scaled ×2 → 10 km." },
-        { "component": "GeometryCanvas", "props": { "shapes": [ { "kind": "square", "label": "Go and return → net 0" } ] }, "caption": "Equal opposite moves cancel to zero net displacement." }
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "triangle",
+                "label": "6 E, 8 N → 10"
+              }
+            ]
+          },
+          "caption": "6-8-10 is a 3-4-5 triangle scaled ×2 → 10 km."
+        },
+        {
+          "component": "GeometryCanvas",
+          "props": {
+            "shapes": [
+              {
+                "kind": "square",
+                "label": "Go and return → net 0"
+              }
+            ]
+          },
+          "caption": "Equal opposite moves cancel to zero net displacement."
+        }
       ]
     }
   ],
@@ -92,10 +132,54 @@
     "trick": "Draw N-up, then use 3-4-5",
     "intro": "A sketch plus the 3-4-5 triangle solves most of these.",
     "questions": [
-      { "id": "reason05-trick-1", "type": "number", "q": "3 km East then 4 km North — straight distance (km)?", "answer": "5", "hintLadder": ["Legs 3 and 4.", "3-4-5 triangle.", "5 km."], "explain": "3-4-5 → 5." },
-      { "id": "reason05-trick-2", "type": "text", "q": "Face North, turn right. New facing?", "answer": "East", "hintLadder": ["Right = clockwise.", "N → E.", "East."], "explain": "Right of N is E." },
-      { "id": "reason05-trick-3", "type": "number", "q": "5 km North then 5 km South — distance from start (km)?", "answer": "0", "hintLadder": ["Opposite moves.", "They cancel.", "0."], "explain": "Cancels → 0." },
-      { "id": "reason05-trick-4", "type": "text", "q": "Face South, turn left. New facing?", "answer": "East", "hintLadder": ["Left = anticlockwise.", "S → E.", "East."], "explain": "Left of S is E." }
+      {
+        "id": "reason05-trick-1",
+        "type": "number",
+        "q": "3 km East then 4 km North — straight distance (km)?",
+        "answer": "5",
+        "hintLadder": [
+          "Legs 3 and 4.",
+          "3-4-5 triangle.",
+          "5 km."
+        ],
+        "explain": "3-4-5 → 5."
+      },
+      {
+        "id": "reason05-trick-2",
+        "type": "text",
+        "q": "Face North, turn right. New facing?",
+        "answer": "East",
+        "hintLadder": [
+          "Right = clockwise.",
+          "N → E.",
+          "East."
+        ],
+        "explain": "Right of N is E."
+      },
+      {
+        "id": "reason05-trick-3",
+        "type": "number",
+        "q": "5 km North then 5 km South — distance from start (km)?",
+        "answer": "0",
+        "hintLadder": [
+          "Opposite moves.",
+          "They cancel.",
+          "0."
+        ],
+        "explain": "Cancels → 0."
+      },
+      {
+        "id": "reason05-trick-4",
+        "type": "text",
+        "q": "Face South, turn left. New facing?",
+        "answer": "East",
+        "hintLadder": [
+          "Left = anticlockwise.",
+          "S → E.",
+          "East."
+        ],
+        "explain": "Left of S is E."
+      }
     ]
   },
   "commonMistakes": [
@@ -112,25 +196,162 @@
   ],
   "practice": {
     "easy": [
-      { "id": "e1", "type": "text", "q": "Face North, turn right. New facing?", "answer": "East", "hintLadder": ["Right = clockwise.", "N → E.", "East."] },
-      { "id": "e2", "type": "mcq", "q": "Walk 2 km East then 2 km West. Distance from start?", "options": [ { "label": "0 km (they cancel)" }, { "label": "4 km (add them)", "mistakeTag": "added-legs-instead-of-hypotenuse" } ], "answer": "0 km (they cancel)", "hintLadder": ["Opposite moves.", "Cancel out.", "0."] }
+      {
+        "id": "e1",
+        "type": "text",
+        "q": "Face North, turn right. New facing?",
+        "answer": "East",
+        "hintLadder": [
+          "Right = clockwise.",
+          "N → E.",
+          "East."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "Walk 2 km East then 2 km West. Distance from start?",
+        "options": [
+          {
+            "label": "0 km (they cancel)"
+          },
+          {
+            "label": "4 km (add them)",
+            "mistakeTag": "added-legs-instead-of-hypotenuse"
+          }
+        ],
+        "answer": "0 km (they cancel)",
+        "hintLadder": [
+          "Opposite moves.",
+          "Cancel out.",
+          "0."
+        ]
+      }
     ],
     "medium": [
-      { "id": "m1", "type": "number", "q": "6 km East then 8 km North — straight distance (km)?", "answer": "10", "hintLadder": ["6-8-10.", "It's 3-4-5 ×2.", "10."] },
-      { "id": "m2", "type": "text", "q": "Face East, turn right, turn right. New facing?", "answer": "West", "hintLadder": ["E→S→W.", "Two rights = half turn.", "West."] }
+      {
+        "id": "m1",
+        "type": "number",
+        "q": "6 km East then 8 km North — straight distance (km)?",
+        "answer": "10",
+        "hintLadder": [
+          "6-8-10.",
+          "It's 3-4-5 ×2.",
+          "10."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "text",
+        "q": "Face East, turn right, turn right. New facing?",
+        "answer": "West",
+        "hintLadder": [
+          "E→S→W.",
+          "Two rights = half turn.",
+          "West."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "c1", "type": "number", "q": "Walk 4 km North, 3 km East, 4 km South — straight distance from start (km)?", "answer": "3", "hintLadder": ["N and S (4,4) cancel.", "Only 3 East left.", "3 km."] },
-      { "id": "c2", "type": "mcq", "q": "For straight-line distance across two perpendicular legs you should…", "options": [ { "label": "Use the hypotenuse (3-4-5)" }, { "label": "Add the two legs", "mistakeTag": "added-legs-instead-of-hypotenuse" } ], "answer": "Use the hypotenuse (3-4-5)", "hintLadder": ["Right angle between legs.", "Straight line = hypotenuse.", "a²+b²=c²."] }
+      {
+        "id": "c1",
+        "type": "number",
+        "q": "Walk 4 km North, 3 km East, 4 km South — straight distance from start (km)?",
+        "answer": "3",
+        "hintLadder": [
+          "N and S (4,4) cancel.",
+          "Only 3 East left.",
+          "3 km."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "For straight-line distance across two perpendicular legs you should…",
+        "options": [
+          {
+            "label": "Use the hypotenuse (3-4-5)"
+          },
+          {
+            "label": "Add the two legs",
+            "mistakeTag": "added-legs-instead-of-hypotenuse"
+          }
+        ],
+        "answer": "Use the hypotenuse (3-4-5)",
+        "hintLadder": [
+          "Right angle between legs.",
+          "Straight line = hypotenuse.",
+          "a²+b²=c²."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "mc1", "type": "number", "q": "3 km West then 4 km South — straight distance (km)?", "answer": "5", "hintLadder": ["Legs 3,4.", "3-4-5.", "5."] },
-      { "id": "mc2", "type": "text", "q": "Face North, turn right twice. New facing?", "answer": "South", "hintLadder": ["N→E→S.", "Half turn.", "South."] },
-      { "id": "mc3", "type": "mcq", "q": "The best first step in a direction puzzle is…", "options": [ { "label": "Draw the path with North up" }, { "label": "Solve it in your head", "mistakeTag": "solved-in-head" } ], "answer": "Draw the path with North up", "hintLadder": ["Sketch beats memory.", "N at top.", "Then total the legs."] },
-      { "id": "mc4", "type": "number", "q": "9 km East then 12 km North — straight distance (km)?", "answer": "15", "hintLadder": ["9-12-15.", "3-4-5 ×3.", "15."] },
-      { "id": "mc5", "type": "text", "q": "Face West, turn left. New facing?", "answer": "South", "hintLadder": ["Left = anticlockwise.", "W → S.", "South."] }
+      {
+        "id": "mc1",
+        "type": "number",
+        "q": "3 km West then 4 km South — straight distance (km)?",
+        "answer": "5",
+        "hintLadder": [
+          "Legs 3,4.",
+          "3-4-5.",
+          "5."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "text",
+        "q": "Face North, turn right twice. New facing?",
+        "answer": "South",
+        "hintLadder": [
+          "N→E→S.",
+          "Half turn.",
+          "South."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "The best first step in a direction puzzle is…",
+        "options": [
+          {
+            "label": "Draw the path with North up"
+          },
+          {
+            "label": "Solve it in your head",
+            "mistakeTag": "solved-in-head"
+          }
+        ],
+        "answer": "Draw the path with North up",
+        "hintLadder": [
+          "Sketch beats memory.",
+          "N at top.",
+          "Then total the legs."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "number",
+        "q": "9 km East then 12 km North — straight distance (km)?",
+        "answer": "15",
+        "hintLadder": [
+          "9-12-15.",
+          "3-4-5 ×3.",
+          "15."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "text",
+        "q": "Face West, turn left. New facing?",
+        "answer": "South",
+        "hintLadder": [
+          "Left = anticlockwise.",
+          "W → S.",
+          "South."
+        ]
+      }
     ],
     "passThreshold": 0.8,
     "requireTeachBack": true
@@ -138,7 +359,11 @@
   "teachBackPrompt": "Teach a friend to solve '3 km East, 4 km North → how far?' by sketching the path (North up) and using the 3-4-5 triangle to get 5 km. Explain why you don't just add 3 + 4.",
   "revisionCard": {
     "summary": "Direction sense: draw the route with North up, E right. Total N–S and E–W moves separately (opposites cancel). Final direction comes from the leftover legs. Straight-line distance = hypotenuse of the two net legs (3-4-5, or a²+b²=c²) — never the sum of the legs. Right turn = clockwise 90°, left = anticlockwise 90°.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "gameMission": {
     "world": "Number Jungle (Ganita Grove)",
@@ -160,7 +385,82 @@
     "unpack": "Total N–S and E–W separately; opposites cancel; distance is the hypotenuse, not the sum."
   },
   "studentQuestions": [
-    { "q": "How do I handle lots of turns quickly?", "a": "Track only your FACING with each turn (right = clockwise 90°, left = anticlockwise 90°). Draw the moves for distance, but for 'which way are you facing' just rotate step by step." },
-    { "q": "When can I use the 3-4-5 shortcut?", "a": "Whenever the two net legs are 3 and 4 (or multiples like 6-8, 9-12). Otherwise use a² + b² = c² directly." }
-  ]
+    {
+      "q": "How do I handle lots of turns quickly?",
+      "a": "Track only your FACING with each turn (right = clockwise 90°, left = anticlockwise 90°). Draw the moves for distance, but for 'which way are you facing' just rotate step by step."
+    },
+    {
+      "q": "When can I use the 3-4-5 shortcut?",
+      "a": "Whenever the two net legs are 3 and 4 (or multiples like 6-8, 9-12). Otherwise use a² + b² = c² directly."
+    }
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Direction Sense",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "cardinal directions",
+          "right": "North, South, East, West"
+        },
+        {
+          "id": "p2",
+          "left": "net displacement",
+          "right": "How far you end up from the start after cancelling opposite moves"
+        },
+        {
+          "id": "p3",
+          "left": "right turn / left turn",
+          "right": "Turning 90° clockwise or anticlockwise from the way you face"
+        },
+        {
+          "id": "p4",
+          "left": "shortest distance",
+          "right": "The straight line from start to finish"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Direction Sense Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You always find your way!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Raju walks 3 km North, then 4 km East. What is his shortest distance from the start?",
+            "answer": "5 km",
+            "hintLadder": [
+              "The North leg and East leg form a right angle.",
+              "Use the 3-4-5 right-triangle rule: the shortest distance is 5 km."
+            ]
+          },
+          "branches": [
+            "5 km",
+            "7 km"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "Facing North, Meena turns right. Which direction does she face now?",
+            "answer": "East",
+            "hintLadder": [
+              "A right turn is 90° clockwise from the way you face.",
+              "Turning clockwise from North lands you facing East."
+            ]
+          },
+          "branches": [
+            "East",
+            "West"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

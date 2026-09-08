@@ -13,20 +13,45 @@
     "Scientific classification and pattern recognition generally"
   ],
   "vocabulary": [
-    { "term": "shared property", "meaning": "The one rule that four of the five numbers all follow (e.g. 'is a perfect square', 'is prime')." },
-    { "term": "odd one out", "meaning": "The single number that does NOT follow the shared property found in the rest." },
-    { "term": "surface property", "meaning": "An obvious but often wrong pattern (like odd/even) that happens to fit by coincidence, not the actual designed rule." }
+    {
+      "term": "shared property",
+      "meaning": "The one rule that four of the five numbers all follow (e.g. 'is a perfect square', 'is prime')."
+    },
+    {
+      "term": "odd one out",
+      "meaning": "The single number that does NOT follow the shared property found in the rest."
+    },
+    {
+      "term": "surface property",
+      "meaning": "An obvious but often wrong pattern (like odd/even) that happens to fit by coincidence, not the actual designed rule."
+    }
   ],
   "story": {
     "title": "The Square Numbers Game",
-    "characters": ["Divya", "her classmate Rohan"],
+    "characters": [
+      "Divya",
+      "her classmate Rohan"
+    ],
     "text": "Rohan says: '4, 9, 16, 20, 25 — 20 looks odd because it's the only one not ending in the same pattern.' Divya checks more carefully: 4=2×2, 9=3×3, 16=4×4, 25=5×5 — all perfect squares! But 20 isn't 2×2, 3×3, 4×4, or 5×5 of anything whole. 'It's not about how the number LOOKS,' Divya says, 'it's about whether it fits the actual rule — being a perfect square. 20 is the odd one out because it breaks that rule, not because of a hunch.'",
     "extractedProblem": "Find the odd one out: 4, 9, 16, 20, 25.",
     "answerInStory": "20 — the other four (4, 9, 16, 25) are all perfect squares (2², 3², 4², 5²), but 20 is not."
   },
   "visual": {
     "component": "NumberTrack",
-    "props": { "tracks": [ { "terms": [4, 9, 16, 20, 25], "jump": 1 } ] },
+    "props": {
+      "tracks": [
+        {
+          "terms": [
+            4,
+            9,
+            16,
+            20,
+            25
+          ],
+          "jump": 1
+        }
+      ]
+    },
     "caption": "Test each number against a hidden shared rule — the perfect squares (4, 9, 16, 25) all fit; 20 is the one that breaks the pattern."
   },
   "teachingGallery": [
@@ -36,7 +61,20 @@
       "examples": [
         {
           "component": "NumberTrack",
-          "props": { "tracks": [ { "terms": [2, 3, 5, 9, 11], "jump": 1 } ] },
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  2,
+                  3,
+                  5,
+                  9,
+                  11
+                ],
+                "jump": 1
+              }
+            ]
+          },
           "caption": "All look 'small and odd-ish', but the real shared rule here is 'prime number' — 2, 3, 5, 11 are prime, while 9 = 3×3 is not."
         }
       ]
@@ -88,9 +126,48 @@
     "trick": "Find the shared rule among four first, not the odd one directly",
     "intro": "Never guess the odd one from a hunch — confirm the rule that the OTHER four numbers share, then test the fifth against it.",
     "questions": [
-      { "id": "reason15-trick-1", "type": "text", "q": "Find the odd one out: 9, 16, 22, 25, 36. (Hint: check perfect squares)", "answer": "22", "hintLadder": ["9=3², 16=4², 25=5², 36=6².", "22 is not a perfect square.", "22 is the odd one out."] },
-      { "id": "reason15-trick-2", "type": "text", "q": "Find the odd one out: 3, 5, 7, 12, 13. (Hint: check prime numbers)", "answer": "12", "hintLadder": ["3, 5, 7, 13 are all prime.", "12 = 2×2×3, has extra divisors.", "12 is the odd one out."] },
-      { "id": "reason15-trick-3", "type": "mcq", "q": "What is the first step in solving a classification question?", "options": [ { "label": "Find the property shared by (at least) four numbers" }, { "label": "Guess the odd one out by how it looks", "mistakeTag": "focused-on-odd-one-first" } ], "answer": "Find the property shared by (at least) four numbers", "hintLadder": ["Always find the rule of the majority first.", "Then test the last number against it.", "Find the shared property first."] }
+      {
+        "id": "reason15-trick-1",
+        "type": "text",
+        "q": "Find the odd one out: 9, 16, 22, 25, 36. (Hint: check perfect squares)",
+        "answer": "22",
+        "hintLadder": [
+          "9=3², 16=4², 25=5², 36=6².",
+          "22 is not a perfect square.",
+          "22 is the odd one out."
+        ]
+      },
+      {
+        "id": "reason15-trick-2",
+        "type": "text",
+        "q": "Find the odd one out: 3, 5, 7, 12, 13. (Hint: check prime numbers)",
+        "answer": "12",
+        "hintLadder": [
+          "3, 5, 7, 13 are all prime.",
+          "12 = 2×2×3, has extra divisors.",
+          "12 is the odd one out."
+        ]
+      },
+      {
+        "id": "reason15-trick-3",
+        "type": "mcq",
+        "q": "What is the first step in solving a classification question?",
+        "options": [
+          {
+            "label": "Find the property shared by (at least) four numbers"
+          },
+          {
+            "label": "Guess the odd one out by how it looks",
+            "mistakeTag": "focused-on-odd-one-first"
+          }
+        ],
+        "answer": "Find the property shared by (at least) four numbers",
+        "hintLadder": [
+          "Always find the rule of the majority first.",
+          "Then test the last number against it.",
+          "Find the shared property first."
+        ]
+      }
     ]
   },
   "commonMistakes": [
@@ -112,28 +189,204 @@
   ],
   "practice": {
     "easy": [
-      { "id": "e1", "type": "text", "q": "Find the odd one out: 4, 8, 15, 16, 20. (Hint: multiples of 4)", "answer": "15", "hintLadder": ["4,8,16,20 are all multiples of 4.", "15 is not a multiple of 4.", "15 is the odd one out."] },
-      { "id": "e2", "type": "text", "q": "Find the odd one out: 1, 4, 9, 10, 16. (Hint: perfect squares)", "answer": "10", "hintLadder": ["1=1², 4=2², 9=3², 16=4².", "10 is not a perfect square.", "10 is the odd one out."] },
-      { "id": "e3", "type": "mcq", "q": "Should you check for 'odd/even' first, or check for deeper patterns like squares/primes first?", "options": [ { "label": "Check multiple properties before deciding" }, { "label": "Odd/even is always the answer", "mistakeTag": "assumed-wrong-property" } ], "answer": "Check multiple properties before deciding", "hintLadder": ["Odd/even is often a coincidence, not the real rule.", "Try squares, primes, multiples too.", "Check multiple properties."] }
+      {
+        "id": "e1",
+        "type": "text",
+        "q": "Find the odd one out: 4, 8, 15, 16, 20. (Hint: multiples of 4)",
+        "answer": "15",
+        "hintLadder": [
+          "4,8,16,20 are all multiples of 4.",
+          "15 is not a multiple of 4.",
+          "15 is the odd one out."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "text",
+        "q": "Find the odd one out: 1, 4, 9, 10, 16. (Hint: perfect squares)",
+        "answer": "10",
+        "hintLadder": [
+          "1=1², 4=2², 9=3², 16=4².",
+          "10 is not a perfect square.",
+          "10 is the odd one out."
+        ]
+      },
+      {
+        "id": "e3",
+        "type": "mcq",
+        "q": "Should you check for 'odd/even' first, or check for deeper patterns like squares/primes first?",
+        "options": [
+          {
+            "label": "Check multiple properties before deciding"
+          },
+          {
+            "label": "Odd/even is always the answer",
+            "mistakeTag": "assumed-wrong-property"
+          }
+        ],
+        "answer": "Check multiple properties before deciding",
+        "hintLadder": [
+          "Odd/even is often a coincidence, not the real rule.",
+          "Try squares, primes, multiples too.",
+          "Check multiple properties."
+        ]
+      }
     ],
     "medium": [
-      { "id": "m1", "type": "text", "q": "Find the odd one out: 2, 3, 5, 7, 8. (Hint: primes)", "answer": "8", "hintLadder": ["2,3,5,7 are all prime.", "8 = 2×2×2, has extra factors.", "8 is the odd one out."] },
-      { "id": "m2", "type": "text", "q": "Find the odd one out: 6, 12, 18, 20, 24. (Hint: multiples of 6)", "answer": "20", "hintLadder": ["6,12,18,24 are all multiples of 6.", "20 is not a multiple of 6.", "20 is the odd one out."] },
-      { "id": "m3", "type": "mcq", "q": "In 9, 16, 22, 25, 36 — why is 22 the odd one out?", "options": [ { "label": "The others are perfect squares; 22 is not" }, { "label": "22 is the only even number", "mistakeTag": "assumed-wrong-property" } ], "answer": "The others are perfect squares; 22 is not", "hintLadder": ["9,16,25,36 are 3²,4²,5²,6².", "22 fits no square.", "Perfect-square rule, not odd/even."] }
+      {
+        "id": "m1",
+        "type": "text",
+        "q": "Find the odd one out: 2, 3, 5, 7, 8. (Hint: primes)",
+        "answer": "8",
+        "hintLadder": [
+          "2,3,5,7 are all prime.",
+          "8 = 2×2×2, has extra factors.",
+          "8 is the odd one out."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "text",
+        "q": "Find the odd one out: 6, 12, 18, 20, 24. (Hint: multiples of 6)",
+        "answer": "20",
+        "hintLadder": [
+          "6,12,18,24 are all multiples of 6.",
+          "20 is not a multiple of 6.",
+          "20 is the odd one out."
+        ]
+      },
+      {
+        "id": "m3",
+        "type": "mcq",
+        "q": "In 9, 16, 22, 25, 36 — why is 22 the odd one out?",
+        "options": [
+          {
+            "label": "The others are perfect squares; 22 is not"
+          },
+          {
+            "label": "22 is the only even number",
+            "mistakeTag": "assumed-wrong-property"
+          }
+        ],
+        "answer": "The others are perfect squares; 22 is not",
+        "hintLadder": [
+          "9,16,25,36 are 3²,4²,5²,6².",
+          "22 fits no square.",
+          "Perfect-square rule, not odd/even."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "c1", "type": "text", "q": "Find the odd one out: 12, 15, 21, 22, 27. (Hint: digit sums divisible by 3)", "answer": "22", "hintLadder": ["Digit sums: 3,6,3,4,9.", "3,6,3,9 are divisible by 3; 4 is not.", "22 is the odd one out."] },
-      { "id": "c2", "type": "text", "q": "Find the odd one out: 8, 27, 30, 64, 125. (Hint: perfect cubes)", "answer": "30", "hintLadder": ["8=2³, 27=3³, 64=4³, 125=5³.", "30 is not a perfect cube.", "30 is the odd one out."] },
-      { "id": "c3", "type": "mcq", "q": "You find a property that fits only 3 of the 5 numbers. What should you do?", "options": [ { "label": "Look for a different property that fits four" }, { "label": "Pick one of the two remaining as the odd one out anyway", "mistakeTag": "skipped-verification" } ], "answer": "Look for a different property that fits four", "hintLadder": ["A true rule must fit exactly four numbers.", "Three fitting means the wrong property was tried.", "Look for a different property."] }
+      {
+        "id": "c1",
+        "type": "text",
+        "q": "Find the odd one out: 12, 15, 21, 22, 27. (Hint: digit sums divisible by 3)",
+        "answer": "22",
+        "hintLadder": [
+          "Digit sums: 3,6,3,4,9.",
+          "3,6,3,9 are divisible by 3; 4 is not.",
+          "22 is the odd one out."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "text",
+        "q": "Find the odd one out: 8, 27, 30, 64, 125. (Hint: perfect cubes)",
+        "answer": "30",
+        "hintLadder": [
+          "8=2³, 27=3³, 64=4³, 125=5³.",
+          "30 is not a perfect cube.",
+          "30 is the odd one out."
+        ]
+      },
+      {
+        "id": "c3",
+        "type": "mcq",
+        "q": "You find a property that fits only 3 of the 5 numbers. What should you do?",
+        "options": [
+          {
+            "label": "Look for a different property that fits four"
+          },
+          {
+            "label": "Pick one of the two remaining as the odd one out anyway",
+            "mistakeTag": "skipped-verification"
+          }
+        ],
+        "answer": "Look for a different property that fits four",
+        "hintLadder": [
+          "A true rule must fit exactly four numbers.",
+          "Three fitting means the wrong property was tried.",
+          "Look for a different property."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "mc1", "type": "text", "q": "Find the odd one out: 5, 10, 14, 20, 25. (Hint: multiples of 5)", "answer": "14", "hintLadder": ["5,10,20,25 are multiples of 5.", "14 is not.", "14 is the odd one out."] },
-      { "id": "mc2", "type": "text", "q": "Find the odd one out: 4, 9, 15, 25, 49. (Hint: perfect squares)", "answer": "15", "hintLadder": ["4=2²,9=3²,25=5²,49=7².", "15 is not a perfect square.", "15 is the odd one out."] },
-      { "id": "mc3", "type": "text", "q": "Find the odd one out: 2, 5, 9, 11, 13. (Hint: primes)", "answer": "9", "hintLadder": ["2,5,11,13 are prime.", "9=3×3 is not.", "9 is the odd one out."] },
-      { "id": "mc4", "type": "mcq", "q": "What should you find FIRST when solving a classification question?", "options": [ { "label": "The property shared by four of the numbers" }, { "label": "Which number looks strangest", "mistakeTag": "focused-on-odd-one-first" } ], "answer": "The property shared by four of the numbers", "hintLadder": ["Rule of the majority comes first.", "Then test the fifth against it.", "Shared property first."] },
-      { "id": "mc5", "type": "text", "q": "Find the odd one out: 8, 27, 45, 64, 125. (Hint: perfect cubes)", "answer": "45", "hintLadder": ["8=2³,27=3³,64=4³,125=5³.", "45 is not a perfect cube.", "45 is the odd one out."] }
+      {
+        "id": "mc1",
+        "type": "text",
+        "q": "Find the odd one out: 5, 10, 14, 20, 25. (Hint: multiples of 5)",
+        "answer": "14",
+        "hintLadder": [
+          "5,10,20,25 are multiples of 5.",
+          "14 is not.",
+          "14 is the odd one out."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "text",
+        "q": "Find the odd one out: 4, 9, 15, 25, 49. (Hint: perfect squares)",
+        "answer": "15",
+        "hintLadder": [
+          "4=2²,9=3²,25=5²,49=7².",
+          "15 is not a perfect square.",
+          "15 is the odd one out."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "text",
+        "q": "Find the odd one out: 2, 5, 9, 11, 13. (Hint: primes)",
+        "answer": "9",
+        "hintLadder": [
+          "2,5,11,13 are prime.",
+          "9=3×3 is not.",
+          "9 is the odd one out."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "What should you find FIRST when solving a classification question?",
+        "options": [
+          {
+            "label": "The property shared by four of the numbers"
+          },
+          {
+            "label": "Which number looks strangest",
+            "mistakeTag": "focused-on-odd-one-first"
+          }
+        ],
+        "answer": "The property shared by four of the numbers",
+        "hintLadder": [
+          "Rule of the majority comes first.",
+          "Then test the fifth against it.",
+          "Shared property first."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "text",
+        "q": "Find the odd one out: 8, 27, 45, 64, 125. (Hint: perfect cubes)",
+        "answer": "45",
+        "hintLadder": [
+          "8=2³,27=3³,64=4³,125=5³.",
+          "45 is not a perfect cube.",
+          "45 is the odd one out."
+        ]
+      }
     ],
     "passThreshold": 0.8,
     "requireTeachBack": true
@@ -141,7 +394,11 @@
   "teachBackPrompt": "Teach a friend how to solve 4, 9, 16, 20, 25 by first confirming the perfect-square rule among four numbers before naming 20 as the odd one out.",
   "revisionCard": {
     "summary": "Find the property shared by four of the five numbers FIRST (perfect square, prime, multiple, digit sum) — never guess the odd one out from a first impression. Test the fifth number against the confirmed rule; if it breaks that exact rule, it's the true odd one out. Always verify with real calculation, not a hunch.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "gameMission": {
     "world": "Number Jungle (Ganita Grove)",
@@ -163,7 +420,77 @@
     "unpack": "Confirm the shared property among four numbers before naming the fifth as the odd one out."
   },
   "studentQuestions": [
-    { "q": "What if two different properties both seem to almost work?", "a": "Check both against ALL five numbers carefully — a properly designed question has exactly one property that fits four numbers perfectly and fails for exactly one; if two properties both seem to fit, you likely haven't checked all five numbers against each one yet." },
-    { "q": "Are there other properties besides squares, primes, and multiples?", "a": "Yes — digit sums, cubes, numbers one more/less than a square, or even patterns like 'each number is double the previous' can all be the hidden rule. Keep a mental checklist and test methodically." }
-  ]
+    {
+      "q": "What if two different properties both seem to almost work?",
+      "a": "Check both against ALL five numbers carefully — a properly designed question has exactly one property that fits four numbers perfectly and fails for exactly one; if two properties both seem to fit, you likely haven't checked all five numbers against each one yet."
+    },
+    {
+      "q": "Are there other properties besides squares, primes, and multiples?",
+      "a": "Yes — digit sums, cubes, numbers one more/less than a square, or even patterns like 'each number is double the previous' can all be the hidden rule. Keep a mental checklist and test methodically."
+    }
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Classification",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "shared property",
+          "right": "The one rule that four of the five numbers all follow"
+        },
+        {
+          "id": "p2",
+          "left": "odd one out",
+          "right": "The single number that does NOT follow the shared property"
+        },
+        {
+          "id": "p3",
+          "left": "surface property",
+          "right": "An obvious but often wrong pattern that fits by coincidence"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Classification Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've spotted every hidden rule!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Which is the odd one out: 9, 16, 25, 30, 49?",
+            "answer": "30",
+            "hintLadder": [
+              "Check which numbers are perfect squares: 9=3², 16=4², 25=5², 49=7².",
+              "30 is not a perfect square, so it's the odd one out."
+            ]
+          },
+          "branches": [
+            "30",
+            "25"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "Which is the odd one out: 2, 3, 5, 9, 7?",
+            "answer": "9",
+            "hintLadder": [
+              "Check which numbers are prime: 2, 3, 5, 7 are all prime.",
+              "9 = 3 × 3 is not prime, so it's the odd one out."
+            ]
+          },
+          "branches": [
+            "9",
+            "7"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

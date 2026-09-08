@@ -3,7 +3,9 @@
   "name": "Coded Inequalities — Chaining Symbols to Find What's Certain",
   "grade": 13,
   "strand": "numbers",
-  "prerequisites": ["reason-11-statement-conclusion"],
+  "prerequisites": [
+    "reason-11-statement-conclusion"
+  ],
   "whatIsIt": "Coded inequality questions replace >, <, =, ≥, ≤ with made-up symbols (like @, $, %, &, #), give you a legend explaining what each symbol means, then chain several coded statements together. You decode the chain into a single combined relationship and check which conclusions definitely follow.",
   "whyNeeded": "Once decoded, these questions are pure chain-comparison logic (just like statement-conclusion), but the disguise trips people up. Learning to decode calmly, then chain the real symbols, makes these some of the fastest-scoring questions once practiced.",
   "realLifeUses": [
@@ -12,20 +14,43 @@
     "General comfort with symbolic/algebraic chains of relationships"
   ],
   "vocabulary": [
-    { "term": "legend / code key", "meaning": "The list at the start of the question defining what each made-up symbol means (e.g. '@ means greater than')." },
-    { "term": "chaining", "meaning": "Combining two or more coded relations that share a middle term into one overall relation." },
-    { "term": "either-or case", "meaning": "When the combined relation is uncertain between two possibilities (e.g. could be > or =), and those two possibilities exactly match two given conclusions — then neither conclusion follows alone, but 'either conclusion I or II follows' is true." }
+    {
+      "term": "legend / code key",
+      "meaning": "The list at the start of the question defining what each made-up symbol means (e.g. '@ means greater than')."
+    },
+    {
+      "term": "chaining",
+      "meaning": "Combining two or more coded relations that share a middle term into one overall relation."
+    },
+    {
+      "term": "either-or case",
+      "meaning": "When the combined relation is uncertain between two possibilities (e.g. could be > or =), and those two possibilities exactly match two given conclusions — then neither conclusion follows alone, but 'either conclusion I or II follows' is true."
+    }
   ],
   "story": {
     "title": "The Secret Symbol Code",
-    "characters": ["Ira", "her tutor Uncle Ben"],
+    "characters": [
+      "Ira",
+      "her tutor Uncle Ben"
+    ],
     "text": "Uncle Ben shows Ira a legend: '@ means greater than, % means greater than or equal to.' Then the statement: 'A @ B, B % C.' Ira first rewrites it in plain symbols: A > B, and B ≥ C. 'Now chain them,' says Uncle Ben. 'A is bigger than B, and B is at least as big as C — so no matter what, A must be bigger than C too.' Ira writes A > C confidently — the code was just a costume over ordinary logic.",
     "extractedProblem": "Legend: @ = greater than, % = greater than or equal to. Statement: A @ B, B % C. What is the definite relationship between A and C?",
     "answerInStory": "A > C, always — decode first, then chain exactly like a normal comparison."
   },
   "visual": {
     "component": "NumberTrack",
-    "props": { "tracks": [ { "terms": [1, 2, 3], "jump": 1 } ] },
+    "props": {
+      "tracks": [
+        {
+          "terms": [
+            1,
+            2,
+            3
+          ],
+          "jump": 1
+        }
+      ]
+    },
     "caption": "Decode every coded symbol into a real >, <, =, ≥, or ≤ first, then chain them along a number-track exactly like an ordinary comparison ladder."
   },
   "teachingGallery": [
@@ -35,7 +60,18 @@
       "examples": [
         {
           "component": "NumberTrack",
-          "props": { "tracks": [ { "terms": [1, 2, 3], "jump": 1 } ] },
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  2,
+                  3
+                ],
+                "jump": 1
+              }
+            ]
+          },
           "caption": "A > B ≥ C chains to A > C for certain. A ≥ B ≥ C only chains to A ≥ C — which could be > or =, so it's an 'either-or' case."
         }
       ]
@@ -91,9 +127,57 @@
     "trick": "Decode first, chain second",
     "intro": "Never reason in the made-up symbols. Convert to real >,<,=,≥,≤ before doing anything else.",
     "questions": [
-      { "id": "reason12-trick-1", "type": "text", "q": "Legend: $ = less than (<). Statement: X $ Y. In plain symbols, what is X compared to Y?", "answer": "X < Y", "hintLadder": ["$ decodes to less than.", "X $ Y becomes X < Y.", "X < Y."] },
-      { "id": "reason12-trick-2", "type": "mcq", "q": "A > B, B ≥ C — is the combined relation between A and C strict (>) or loose (≥, either-or)?", "options": [ { "label": "Strict (A > C)" }, { "label": "Loose / either-or", "mistakeTag": "missed-strict-rule" } ], "answer": "Strict (A > C)", "hintLadder": ["One link is strict (>).", "Strict beats loose when chained.", "Strict: A > C."] },
-      { "id": "reason12-trick-3", "type": "mcq", "q": "A ≥ B, B ≥ C — is the combined relation strict or an either-or case?", "options": [ { "label": "Strict (A > C)", "mistakeTag": "missed-either-or" }, { "label": "Either-or (A > C or A = C)" } ], "answer": "Either-or (A > C or A = C)", "hintLadder": ["Both links are loose (≥).", "No strict link anywhere.", "Either-or case."] }
+      {
+        "id": "reason12-trick-1",
+        "type": "text",
+        "q": "Legend: $ = less than (<). Statement: X $ Y. In plain symbols, what is X compared to Y?",
+        "answer": "X < Y",
+        "hintLadder": [
+          "$ decodes to less than.",
+          "X $ Y becomes X < Y.",
+          "X < Y."
+        ]
+      },
+      {
+        "id": "reason12-trick-2",
+        "type": "mcq",
+        "q": "A > B, B ≥ C — is the combined relation between A and C strict (>) or loose (≥, either-or)?",
+        "options": [
+          {
+            "label": "Strict (A > C)"
+          },
+          {
+            "label": "Loose / either-or",
+            "mistakeTag": "missed-strict-rule"
+          }
+        ],
+        "answer": "Strict (A > C)",
+        "hintLadder": [
+          "One link is strict (>).",
+          "Strict beats loose when chained.",
+          "Strict: A > C."
+        ]
+      },
+      {
+        "id": "reason12-trick-3",
+        "type": "mcq",
+        "q": "A ≥ B, B ≥ C — is the combined relation strict or an either-or case?",
+        "options": [
+          {
+            "label": "Strict (A > C)",
+            "mistakeTag": "missed-either-or"
+          },
+          {
+            "label": "Either-or (A > C or A = C)"
+          }
+        ],
+        "answer": "Either-or (A > C or A = C)",
+        "hintLadder": [
+          "Both links are loose (≥).",
+          "No strict link anywhere.",
+          "Either-or case."
+        ]
+      }
     ]
   },
   "commonMistakes": [
@@ -115,28 +199,240 @@
   ],
   "practice": {
     "easy": [
-      { "id": "e1", "type": "text", "q": "Legend: @ = greater than (>). Statement: M @ N. In plain symbols?", "answer": "M > N", "hintLadder": ["@ decodes to greater than.", "M @ N becomes M > N.", "M > N."] },
-      { "id": "e2", "type": "mcq", "q": "A > B, B > C — combined relation between A and C?", "options": [ { "label": "A > C" }, { "label": "Either-or", "mistakeTag": "missed-either-or" } ], "answer": "A > C", "hintLadder": ["Both links strict.", "Strict chain stays strict.", "A > C."] },
-      { "id": "e3", "type": "text", "q": "Legend: # = equal to (=). Statement: X # Y. In plain symbols?", "answer": "X = Y", "hintLadder": ["# decodes to equal to.", "X # Y becomes X = Y.", "X = Y."] }
+      {
+        "id": "e1",
+        "type": "text",
+        "q": "Legend: @ = greater than (>). Statement: M @ N. In plain symbols?",
+        "answer": "M > N",
+        "hintLadder": [
+          "@ decodes to greater than.",
+          "M @ N becomes M > N.",
+          "M > N."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "A > B, B > C — combined relation between A and C?",
+        "options": [
+          {
+            "label": "A > C"
+          },
+          {
+            "label": "Either-or",
+            "mistakeTag": "missed-either-or"
+          }
+        ],
+        "answer": "A > C",
+        "hintLadder": [
+          "Both links strict.",
+          "Strict chain stays strict.",
+          "A > C."
+        ]
+      },
+      {
+        "id": "e3",
+        "type": "text",
+        "q": "Legend: # = equal to (=). Statement: X # Y. In plain symbols?",
+        "answer": "X = Y",
+        "hintLadder": [
+          "# decodes to equal to.",
+          "X # Y becomes X = Y.",
+          "X = Y."
+        ]
+      }
     ],
     "medium": [
-      { "id": "m1", "type": "mcq", "q": "P ≥ Q, Q > R — combined relation between P and R?", "options": [ { "label": "P > R (strict)" }, { "label": "Either-or", "mistakeTag": "missed-strict-rule" } ], "answer": "P > R (strict)", "hintLadder": ["One link strict (>), one loose (≥).", "Strict wins when chained.", "P > R."] },
-      { "id": "m2", "type": "mcq", "q": "X ≤ Y, Y ≤ Z — combined relation between X and Z?", "options": [ { "label": "X < Z (strict)", "mistakeTag": "missed-either-or" }, { "label": "X ≤ Z (either-or)" } ], "answer": "X ≤ Z (either-or)", "hintLadder": ["Both links loose (≤).", "No strict link.", "X ≤ Z, either-or."] },
-      { "id": "m3", "type": "text", "q": "Legend: & = less than or equal to (≤). Statement: A & B. In plain symbols?", "answer": "A ≤ B", "hintLadder": ["& decodes to less-or-equal.", "A & B becomes A ≤ B.", "A ≤ B."] }
+      {
+        "id": "m1",
+        "type": "mcq",
+        "q": "P ≥ Q, Q > R — combined relation between P and R?",
+        "options": [
+          {
+            "label": "P > R (strict)"
+          },
+          {
+            "label": "Either-or",
+            "mistakeTag": "missed-strict-rule"
+          }
+        ],
+        "answer": "P > R (strict)",
+        "hintLadder": [
+          "One link strict (>), one loose (≥).",
+          "Strict wins when chained.",
+          "P > R."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "X ≤ Y, Y ≤ Z — combined relation between X and Z?",
+        "options": [
+          {
+            "label": "X < Z (strict)",
+            "mistakeTag": "missed-either-or"
+          },
+          {
+            "label": "X ≤ Z (either-or)"
+          }
+        ],
+        "answer": "X ≤ Z (either-or)",
+        "hintLadder": [
+          "Both links loose (≤).",
+          "No strict link.",
+          "X ≤ Z, either-or."
+        ]
+      },
+      {
+        "id": "m3",
+        "type": "text",
+        "q": "Legend: & = less than or equal to (≤). Statement: A & B. In plain symbols?",
+        "answer": "A ≤ B",
+        "hintLadder": [
+          "& decodes to less-or-equal.",
+          "A & B becomes A ≤ B.",
+          "A ≤ B."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "c1", "type": "mcq", "q": "Legend: @ = > , % = ≥. Statement: A @ B, B % C. Conclusions I: A@C(A>C), II: A#C(A=C). Which is correct?", "options": [ { "label": "Only I follows" }, { "label": "Only II follows", "mistakeTag": "missed-strict-rule" } ], "answer": "Only I follows", "hintLadder": ["A>B, B≥C: strict + loose = strict.", "A>C is guaranteed.", "Only I follows."] },
-      { "id": "c2", "type": "mcq", "q": "Legend: % = ≥. Statement: P%Q, Q%R. Conclusions I: P>R, II: P=R. Which is correct?", "options": [ { "label": "Either I or II follows" }, { "label": "Neither follows", "mistakeTag": "missed-either-or" } ], "answer": "Either I or II follows", "hintLadder": ["Both links loose (≥).", "P≥R could be > or =.", "Either-or case."] },
-      { "id": "c3", "type": "text", "q": "Legend: $ = <, & = ≤. Statement: X $ Y, Y & Z. What is the combined relation between X and Z (use < or ≤)?", "answer": "X < Z", "hintLadder": ["X<Y, Y≤Z.", "Strict + loose = strict.", "X < Z."] }
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "Legend: @ = > , % = ≥. Statement: A @ B, B % C. Conclusions I: A@C(A>C), II: A#C(A=C). Which is correct?",
+        "options": [
+          {
+            "label": "Only I follows"
+          },
+          {
+            "label": "Only II follows",
+            "mistakeTag": "missed-strict-rule"
+          }
+        ],
+        "answer": "Only I follows",
+        "hintLadder": [
+          "A>B, B≥C: strict + loose = strict.",
+          "A>C is guaranteed.",
+          "Only I follows."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "Legend: % = ≥. Statement: P%Q, Q%R. Conclusions I: P>R, II: P=R. Which is correct?",
+        "options": [
+          {
+            "label": "Either I or II follows"
+          },
+          {
+            "label": "Neither follows",
+            "mistakeTag": "missed-either-or"
+          }
+        ],
+        "answer": "Either I or II follows",
+        "hintLadder": [
+          "Both links loose (≥).",
+          "P≥R could be > or =.",
+          "Either-or case."
+        ]
+      },
+      {
+        "id": "c3",
+        "type": "text",
+        "q": "Legend: $ = <, & = ≤. Statement: X $ Y, Y & Z. What is the combined relation between X and Z (use < or ≤)?",
+        "answer": "X < Z",
+        "hintLadder": [
+          "X<Y, Y≤Z.",
+          "Strict + loose = strict.",
+          "X < Z."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "mc1", "type": "text", "q": "Legend: @ = >. Statement: R @ S. In plain symbols?", "answer": "R > S", "hintLadder": ["@ decodes to greater than.", "Direct substitution.", "R > S."] },
-      { "id": "mc2", "type": "mcq", "q": "A > B, B ≥ C — strict or either-or?", "options": [ { "label": "Strict (A > C)" }, { "label": "Either-or", "mistakeTag": "missed-strict-rule" } ], "answer": "Strict (A > C)", "hintLadder": ["One strict link is enough.", "Strict wins.", "A > C."] },
-      { "id": "mc3", "type": "mcq", "q": "M ≥ N, N ≥ O — strict or either-or?", "options": [ { "label": "Strict", "mistakeTag": "missed-either-or" }, { "label": "Either-or (M > O or M = O)" } ], "answer": "Either-or (M > O or M = O)", "hintLadder": ["Both loose links.", "No strict anchor.", "Either-or."] },
-      { "id": "mc4", "type": "text", "q": "Legend: & = ≤. Statement: J & K. In plain symbols?", "answer": "J ≤ K", "hintLadder": ["& decodes to less-or-equal.", "Direct substitution.", "J ≤ K."] },
-      { "id": "mc5", "type": "mcq", "q": "P%Q, Q%R (both %= ≥). Conclusions I: P>R, II: P=R. Correct answer?", "options": [ { "label": "Either I or II follows" }, { "label": "Both follow together", "mistakeTag": "missed-either-or" } ], "answer": "Either I or II follows", "hintLadder": ["Loose+loose = either-or.", "Only one can be true at a time.", "Either I or II follows."] }
+      {
+        "id": "mc1",
+        "type": "text",
+        "q": "Legend: @ = >. Statement: R @ S. In plain symbols?",
+        "answer": "R > S",
+        "hintLadder": [
+          "@ decodes to greater than.",
+          "Direct substitution.",
+          "R > S."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "A > B, B ≥ C — strict or either-or?",
+        "options": [
+          {
+            "label": "Strict (A > C)"
+          },
+          {
+            "label": "Either-or",
+            "mistakeTag": "missed-strict-rule"
+          }
+        ],
+        "answer": "Strict (A > C)",
+        "hintLadder": [
+          "One strict link is enough.",
+          "Strict wins.",
+          "A > C."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "M ≥ N, N ≥ O — strict or either-or?",
+        "options": [
+          {
+            "label": "Strict",
+            "mistakeTag": "missed-either-or"
+          },
+          {
+            "label": "Either-or (M > O or M = O)"
+          }
+        ],
+        "answer": "Either-or (M > O or M = O)",
+        "hintLadder": [
+          "Both loose links.",
+          "No strict anchor.",
+          "Either-or."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "text",
+        "q": "Legend: & = ≤. Statement: J & K. In plain symbols?",
+        "answer": "J ≤ K",
+        "hintLadder": [
+          "& decodes to less-or-equal.",
+          "Direct substitution.",
+          "J ≤ K."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "mcq",
+        "q": "P%Q, Q%R (both %= ≥). Conclusions I: P>R, II: P=R. Correct answer?",
+        "options": [
+          {
+            "label": "Either I or II follows"
+          },
+          {
+            "label": "Both follow together",
+            "mistakeTag": "missed-either-or"
+          }
+        ],
+        "answer": "Either I or II follows",
+        "hintLadder": [
+          "Loose+loose = either-or.",
+          "Only one can be true at a time.",
+          "Either I or II follows."
+        ]
+      }
     ],
     "passThreshold": 0.8,
     "requireTeachBack": true
@@ -144,7 +440,11 @@
   "teachBackPrompt": "Teach a friend the 'strict beats loose' chaining rule using A > B ≥ C (strict result) versus A ≥ B ≥ C (either-or result).",
   "revisionCard": {
     "summary": "Always decode coded symbols into real >, <, =, ≥, ≤ first using the legend. Chain relations sharing a middle term: if any link is strict, the combined result is strict; if all links are loose (≥ or ≤), the result is loose too — an either-or case between the strict and equal versions. Match each conclusion against the combined relation exactly.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "gameMission": {
     "world": "Number Jungle (Ganita Grove)",
@@ -166,7 +466,77 @@
     "unpack": "Convert every made-up symbol to real >,<,=,≥,≤ before comparing anything."
   },
   "studentQuestions": [
-    { "q": "How do I remember 'strict beats loose'?", "a": "Think of it like a relay race baton: as soon as one runner (link) proves a strict gap, that gap can never shrink back to equal — so the whole chain stays strict." },
-    { "q": "Why does 'either-or' count as a valid answer?", "a": "Because it's still a completely certain fact — you're 100% sure ONE of the two conclusions must be true, even without knowing which. That certainty is exactly what these questions test." }
-  ]
+    {
+      "q": "How do I remember 'strict beats loose'?",
+      "a": "Think of it like a relay race baton: as soon as one runner (link) proves a strict gap, that gap can never shrink back to equal — so the whole chain stays strict."
+    },
+    {
+      "q": "Why does 'either-or' count as a valid answer?",
+      "a": "Because it's still a completely certain fact — you're 100% sure ONE of the two conclusions must be true, even without knowing which. That certainty is exactly what these questions test."
+    }
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Coded Inequalities",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "legend / code key",
+          "right": "The list defining what each made-up symbol means"
+        },
+        {
+          "id": "p2",
+          "left": "chaining",
+          "right": "Combining two coded relations that share a middle term"
+        },
+        {
+          "id": "p3",
+          "left": "either-or case",
+          "right": "When the combined relation matches exactly two given conclusions"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Coded Inequality Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've decoded every inequality chain!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "If @ means '>' and A @ B, B @ C, what is the relation between A and C?",
+            "answer": "A > C",
+            "hintLadder": [
+              "Chain the two relations through the shared term B.",
+              "A > B and B > C combine to give A > C."
+            ]
+          },
+          "branches": [
+            "A > C",
+            "A < C"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "If $ means '=' and @ means '>': P $ Q, Q @ R. Is P > R?",
+            "answer": "Yes",
+            "hintLadder": [
+              "Since P = Q, you can substitute Q for P.",
+              "Q > R, and P = Q, so P > R is true."
+            ]
+          },
+          "branches": [
+            "Yes",
+            "No"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

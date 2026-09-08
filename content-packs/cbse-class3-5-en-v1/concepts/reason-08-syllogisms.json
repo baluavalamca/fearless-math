@@ -13,21 +13,47 @@
     "Careful, evidence-based thinking in everyday arguments"
   ],
   "vocabulary": [
-    { "term": "premise", "meaning": "One of the two given statements (the facts you're told to accept as true)." },
-    { "term": "conclusion", "meaning": "The 'therefore' statement you're checking — does it definitely follow from the premises?" },
-    { "term": "Venn circles", "meaning": "Overlapping circles, one per group, used to check every possible arrangement that fits the premises." },
-    { "term": "converse", "meaning": "Reversing a statement (e.g. 'All B are A' from 'All A are B') — usually NOT automatically true." }
+    {
+      "term": "premise",
+      "meaning": "One of the two given statements (the facts you're told to accept as true)."
+    },
+    {
+      "term": "conclusion",
+      "meaning": "The 'therefore' statement you're checking — does it definitely follow from the premises?"
+    },
+    {
+      "term": "Venn circles",
+      "meaning": "Overlapping circles, one per group, used to check every possible arrangement that fits the premises."
+    },
+    {
+      "term": "converse",
+      "meaning": "Reversing a statement (e.g. 'All B are A' from 'All A are B') — usually NOT automatically true."
+    }
   ],
   "story": {
     "title": "The Cat and the Pet Shop",
-    "characters": ["Nisha", "her brother Dev"],
+    "characters": [
+      "Nisha",
+      "her brother Dev"
+    ],
     "text": "Nisha says: 'All cats are animals. Some animals are pets.' Dev quickly says, 'So some cats are pets!' Nisha stops him. 'Draw it,' she says. She sketches a big circle for Animals, a smaller circle for Cats fully inside it — that part's certain. But 'some animals are pets' could be pets that are dogs, birds, anything — the Pets circle could overlap Animals anywhere, even nowhere near Cats. 'We can't be SURE any cat is a pet,' she says. 'It's possible, but not guaranteed — so it doesn't follow.'",
     "extractedProblem": "All cats are animals. Some animals are pets. Does 'Some cats are pets' definitely follow?",
     "answerInStory": "No — the 'pets' circle can be drawn overlapping Animals without touching Cats at all, so the conclusion isn't guaranteed."
   },
   "visual": {
     "component": "ReasoningFigure",
-    "props": { "panels": [ { "kind": "venn", "vennLabels": ["Animals", "Cats", "Pets"] } ] },
+    "props": {
+      "panels": [
+        {
+          "kind": "venn",
+          "vennLabels": [
+            "Animals",
+            "Cats",
+            "Pets"
+          ]
+        }
+      ]
+    },
     "caption": "Picture three overlapping circles — draw every way they COULD overlap that still fits both sentences; only trust a conclusion true in every single drawing."
   },
   "teachingGallery": [
@@ -35,9 +61,54 @@
       "title": "The five memorable patterns",
       "note": "These five combinations cover almost every syllogism you'll see — learn the shape of each, not just the words.",
       "examples": [
-        { "component": "ReasoningFigure", "props": { "panels": [ { "kind": "venn", "vennLabels": ["C", "B", "A"] } ] }, "caption": "All A are B + All B are C → All A are C (a full chain — A sits entirely inside C)." },
-        { "component": "ReasoningFigure", "props": { "panels": [ { "kind": "venn", "vennLabels": ["A", "B", "C"] } ] }, "caption": "All A are B + No B are C → No A are C (A is inside B, B and C never touch, so A and C never touch)." },
-        { "component": "ReasoningFigure", "props": { "panels": [ { "kind": "venn", "vennLabels": ["A", "B", "C"] } ] }, "caption": "Some A are B + All B are C → Some A are C (the overlapping slice of A and B is entirely inside C too)." }
+        {
+          "component": "ReasoningFigure",
+          "props": {
+            "panels": [
+              {
+                "kind": "venn",
+                "vennLabels": [
+                  "C",
+                  "B",
+                  "A"
+                ]
+              }
+            ]
+          },
+          "caption": "All A are B + All B are C → All A are C (a full chain — A sits entirely inside C)."
+        },
+        {
+          "component": "ReasoningFigure",
+          "props": {
+            "panels": [
+              {
+                "kind": "venn",
+                "vennLabels": [
+                  "A",
+                  "B",
+                  "C"
+                ]
+              }
+            ]
+          },
+          "caption": "All A are B + No B are C → No A are C (A is inside B, B and C never touch, so A and C never touch)."
+        },
+        {
+          "component": "ReasoningFigure",
+          "props": {
+            "panels": [
+              {
+                "kind": "venn",
+                "vennLabels": [
+                  "A",
+                  "B",
+                  "C"
+                ]
+              }
+            ]
+          },
+          "caption": "Some A are B + All B are C → Some A are C (the overlapping slice of A and B is entirely inside C too)."
+        }
       ]
     }
   ],
@@ -97,10 +168,86 @@
     "trick": "Match the shape, not the words",
     "intro": "Recognize which of the five patterns you're looking at, then apply its known result instantly.",
     "questions": [
-      { "id": "reason08-trick-1", "type": "mcq", "q": "All A are B. All B are C. Conclusion: All A are C.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "assumed-converse" } ], "answer": "Follows", "hintLadder": ["Chain pattern.", "A inside B inside C.", "Follows."] },
-      { "id": "reason08-trick-2", "type": "mcq", "q": "All A are B. Conclusion: All B are A.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "assumed-converse" } ], "answer": "Does not follow", "hintLadder": ["This reverses the statement.", "B could be bigger than A.", "Does not follow."] },
-      { "id": "reason08-trick-3", "type": "mcq", "q": "Some A are B. No B are C. Conclusion: Some A are not C.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "ignored-some-not" } ], "answer": "Follows", "hintLadder": ["The A-B overlap avoids C entirely.", "So that overlapping part of A is definitely outside C.", "Some A are not C — follows."] },
-      { "id": "reason08-trick-4", "type": "mcq", "q": "No A are B. No B are C. Conclusion: No A are C.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "two-negatives-error" } ], "answer": "Does not follow", "hintLadder": ["Two negative premises.", "A and C aren't pinned down at all.", "Does not follow."] }
+      {
+        "id": "reason08-trick-1",
+        "type": "mcq",
+        "q": "All A are B. All B are C. Conclusion: All A are C.",
+        "options": [
+          {
+            "label": "Follows"
+          },
+          {
+            "label": "Does not follow",
+            "mistakeTag": "assumed-converse"
+          }
+        ],
+        "answer": "Follows",
+        "hintLadder": [
+          "Chain pattern.",
+          "A inside B inside C.",
+          "Follows."
+        ]
+      },
+      {
+        "id": "reason08-trick-2",
+        "type": "mcq",
+        "q": "All A are B. Conclusion: All B are A.",
+        "options": [
+          {
+            "label": "Follows"
+          },
+          {
+            "label": "Does not follow",
+            "mistakeTag": "assumed-converse"
+          }
+        ],
+        "answer": "Does not follow",
+        "hintLadder": [
+          "This reverses the statement.",
+          "B could be bigger than A.",
+          "Does not follow."
+        ]
+      },
+      {
+        "id": "reason08-trick-3",
+        "type": "mcq",
+        "q": "Some A are B. No B are C. Conclusion: Some A are not C.",
+        "options": [
+          {
+            "label": "Follows"
+          },
+          {
+            "label": "Does not follow",
+            "mistakeTag": "ignored-some-not"
+          }
+        ],
+        "answer": "Follows",
+        "hintLadder": [
+          "The A-B overlap avoids C entirely.",
+          "So that overlapping part of A is definitely outside C.",
+          "Some A are not C — follows."
+        ]
+      },
+      {
+        "id": "reason08-trick-4",
+        "type": "mcq",
+        "q": "No A are B. No B are C. Conclusion: No A are C.",
+        "options": [
+          {
+            "label": "Follows"
+          },
+          {
+            "label": "Does not follow",
+            "mistakeTag": "two-negatives-error"
+          }
+        ],
+        "answer": "Does not follow",
+        "hintLadder": [
+          "Two negative premises.",
+          "A and C aren't pinned down at all.",
+          "Does not follow."
+        ]
+      }
     ]
   },
   "commonMistakes": [
@@ -132,28 +279,285 @@
   ],
   "practice": {
     "easy": [
-      { "id": "e1", "type": "mcq", "q": "All dogs are animals. All animals are living things. Conclusion: All dogs are living things.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "assumed-converse" } ], "answer": "Follows", "hintLadder": ["Chain pattern.", "Dogs inside Animals inside Living things.", "Follows."] },
-      { "id": "e2", "type": "mcq", "q": "All squares are rectangles. Conclusion: All rectangles are squares.", "options": [ { "label": "Follows", "mistakeTag": "assumed-converse" }, { "label": "Does not follow" } ], "answer": "Does not follow", "hintLadder": ["This is the converse.", "Rectangles can be non-square.", "Does not follow."] },
-      { "id": "e3", "type": "mcq", "q": "Some birds are parrots. All parrots can talk (in this puzzle). Conclusion: Some birds can talk.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "ignored-some-not" } ], "answer": "Follows", "hintLadder": ["Some A are B, All B are C pattern.", "Overlap of birds/parrots is inside 'can talk'.", "Follows."] }
+      {
+        "id": "e1",
+        "type": "mcq",
+        "q": "All dogs are animals. All animals are living things. Conclusion: All dogs are living things.",
+        "options": [
+          {
+            "label": "Follows"
+          },
+          {
+            "label": "Does not follow",
+            "mistakeTag": "assumed-converse"
+          }
+        ],
+        "answer": "Follows",
+        "hintLadder": [
+          "Chain pattern.",
+          "Dogs inside Animals inside Living things.",
+          "Follows."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "mcq",
+        "q": "All squares are rectangles. Conclusion: All rectangles are squares.",
+        "options": [
+          {
+            "label": "Follows",
+            "mistakeTag": "assumed-converse"
+          },
+          {
+            "label": "Does not follow"
+          }
+        ],
+        "answer": "Does not follow",
+        "hintLadder": [
+          "This is the converse.",
+          "Rectangles can be non-square.",
+          "Does not follow."
+        ]
+      },
+      {
+        "id": "e3",
+        "type": "mcq",
+        "q": "Some birds are parrots. All parrots can talk (in this puzzle). Conclusion: Some birds can talk.",
+        "options": [
+          {
+            "label": "Follows"
+          },
+          {
+            "label": "Does not follow",
+            "mistakeTag": "ignored-some-not"
+          }
+        ],
+        "answer": "Follows",
+        "hintLadder": [
+          "Some A are B, All B are C pattern.",
+          "Overlap of birds/parrots is inside 'can talk'.",
+          "Follows."
+        ]
+      }
     ],
     "medium": [
-      { "id": "m1", "type": "mcq", "q": "All pens are tools. No tools are toys. Conclusion: No pens are toys.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "two-negatives-error" } ], "answer": "Follows", "hintLadder": ["All A are B, No B are C pattern.", "Pens fully inside Tools, Tools avoids Toys.", "Follows."] },
-      { "id": "m2", "type": "mcq", "q": "Some teachers are singers. No singers are shy. Conclusion: Some teachers are not shy.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "ignored-some-not" } ], "answer": "Follows", "hintLadder": ["Some A are B, No B are C pattern.", "The teacher-singer overlap avoids 'shy'.", "Some teachers are not shy — follows."] },
-      { "id": "m3", "type": "mcq", "q": "No apples are vegetables. Some vegetables are green. Conclusion: No apples are green.", "options": [ { "label": "Follows", "mistakeTag": "two-negatives-error" }, { "label": "Does not follow" } ], "answer": "Does not follow", "hintLadder": ["Apples avoid Vegetables entirely, that's separate from 'green'.", "Apples could still be green through another path.", "Does not follow."] }
+      {
+        "id": "m1",
+        "type": "mcq",
+        "q": "All pens are tools. No tools are toys. Conclusion: No pens are toys.",
+        "options": [
+          {
+            "label": "Follows"
+          },
+          {
+            "label": "Does not follow",
+            "mistakeTag": "two-negatives-error"
+          }
+        ],
+        "answer": "Follows",
+        "hintLadder": [
+          "All A are B, No B are C pattern.",
+          "Pens fully inside Tools, Tools avoids Toys.",
+          "Follows."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "mcq",
+        "q": "Some teachers are singers. No singers are shy. Conclusion: Some teachers are not shy.",
+        "options": [
+          {
+            "label": "Follows"
+          },
+          {
+            "label": "Does not follow",
+            "mistakeTag": "ignored-some-not"
+          }
+        ],
+        "answer": "Follows",
+        "hintLadder": [
+          "Some A are B, No B are C pattern.",
+          "The teacher-singer overlap avoids 'shy'.",
+          "Some teachers are not shy — follows."
+        ]
+      },
+      {
+        "id": "m3",
+        "type": "mcq",
+        "q": "No apples are vegetables. Some vegetables are green. Conclusion: No apples are green.",
+        "options": [
+          {
+            "label": "Follows",
+            "mistakeTag": "two-negatives-error"
+          },
+          {
+            "label": "Does not follow"
+          }
+        ],
+        "answer": "Does not follow",
+        "hintLadder": [
+          "Apples avoid Vegetables entirely, that's separate from 'green'.",
+          "Apples could still be green through another path.",
+          "Does not follow."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "c1", "type": "mcq", "q": "All A are B. Some B are C. Conclusion: Some A are C.", "options": [ { "label": "Follows", "mistakeTag": "all-some-chain-error" }, { "label": "Does not follow" } ], "answer": "Does not follow", "hintLadder": ["A is inside B, but the B-C overlap could sit in the part of B without any A.", "So A and C might never touch.", "Does not follow."] },
-      { "id": "c2", "type": "mcq", "q": "Some A are B. Some B are C. Conclusion: Some A are C.", "options": [ { "label": "Follows", "mistakeTag": "chained-different-somes" }, { "label": "Does not follow" } ], "answer": "Does not follow", "hintLadder": ["Two 'Some' premises about different overlaps.", "The A-B overlap and B-C overlap need not be the same slice of B.", "Does not follow."] },
-      { "id": "c3", "type": "text", "q": "All A are B. No B are C. What is the strongest valid conclusion about A and C (one word: 'No' or 'Some')?", "answer": "No", "hintLadder": ["A sits fully inside B.", "B never touches C.", "So A never touches C: 'No A are C'."] }
+      {
+        "id": "c1",
+        "type": "mcq",
+        "q": "All A are B. Some B are C. Conclusion: Some A are C.",
+        "options": [
+          {
+            "label": "Follows",
+            "mistakeTag": "all-some-chain-error"
+          },
+          {
+            "label": "Does not follow"
+          }
+        ],
+        "answer": "Does not follow",
+        "hintLadder": [
+          "A is inside B, but the B-C overlap could sit in the part of B without any A.",
+          "So A and C might never touch.",
+          "Does not follow."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "mcq",
+        "q": "Some A are B. Some B are C. Conclusion: Some A are C.",
+        "options": [
+          {
+            "label": "Follows",
+            "mistakeTag": "chained-different-somes"
+          },
+          {
+            "label": "Does not follow"
+          }
+        ],
+        "answer": "Does not follow",
+        "hintLadder": [
+          "Two 'Some' premises about different overlaps.",
+          "The A-B overlap and B-C overlap need not be the same slice of B.",
+          "Does not follow."
+        ]
+      },
+      {
+        "id": "c3",
+        "type": "text",
+        "q": "All A are B. No B are C. What is the strongest valid conclusion about A and C (one word: 'No' or 'Some')?",
+        "answer": "No",
+        "hintLadder": [
+          "A sits fully inside B.",
+          "B never touches C.",
+          "So A never touches C: 'No A are C'."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "mc1", "type": "mcq", "q": "All mangoes are fruits. All fruits are food. Conclusion: All mangoes are food.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "assumed-converse" } ], "answer": "Follows", "hintLadder": ["Chain pattern.", "Mangoes inside Fruits inside Food.", "Follows."] },
-      { "id": "mc2", "type": "mcq", "q": "All cats are pets. Conclusion: All pets are cats.", "options": [ { "label": "Follows", "mistakeTag": "assumed-converse" }, { "label": "Does not follow" } ], "answer": "Does not follow", "hintLadder": ["Converse of the statement.", "Pets could include dogs too.", "Does not follow."] },
-      { "id": "mc3", "type": "mcq", "q": "Some pens are red. All red things are bright. Conclusion: Some pens are bright.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "two-negatives-error" } ], "answer": "Follows", "hintLadder": ["Some A are B, All B are C pattern.", "The pen-red overlap is inside 'bright'.", "Follows."] },
-      { "id": "mc4", "type": "mcq", "q": "No snakes are birds. No birds are fish. Conclusion: No snakes are fish.", "options": [ { "label": "Follows", "mistakeTag": "two-negatives-error" }, { "label": "Does not follow" } ], "answer": "Does not follow", "hintLadder": ["Two negative premises.", "Snakes and fish are left unpinned.", "Does not follow."] },
-      { "id": "mc5", "type": "mcq", "q": "Some doctors are writers. No writers are lazy. Conclusion: Some doctors are not lazy.", "options": [ { "label": "Follows" }, { "label": "Does not follow", "mistakeTag": "ignored-some-not" } ], "answer": "Follows", "hintLadder": ["Some A are B, No B are C pattern.", "The doctor-writer overlap avoids 'lazy'.", "Some doctors are not lazy — follows."] }
+      {
+        "id": "mc1",
+        "type": "mcq",
+        "q": "All mangoes are fruits. All fruits are food. Conclusion: All mangoes are food.",
+        "options": [
+          {
+            "label": "Follows"
+          },
+          {
+            "label": "Does not follow",
+            "mistakeTag": "assumed-converse"
+          }
+        ],
+        "answer": "Follows",
+        "hintLadder": [
+          "Chain pattern.",
+          "Mangoes inside Fruits inside Food.",
+          "Follows."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "mcq",
+        "q": "All cats are pets. Conclusion: All pets are cats.",
+        "options": [
+          {
+            "label": "Follows",
+            "mistakeTag": "assumed-converse"
+          },
+          {
+            "label": "Does not follow"
+          }
+        ],
+        "answer": "Does not follow",
+        "hintLadder": [
+          "Converse of the statement.",
+          "Pets could include dogs too.",
+          "Does not follow."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "mcq",
+        "q": "Some pens are red. All red things are bright. Conclusion: Some pens are bright.",
+        "options": [
+          {
+            "label": "Follows"
+          },
+          {
+            "label": "Does not follow",
+            "mistakeTag": "two-negatives-error"
+          }
+        ],
+        "answer": "Follows",
+        "hintLadder": [
+          "Some A are B, All B are C pattern.",
+          "The pen-red overlap is inside 'bright'.",
+          "Follows."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "No snakes are birds. No birds are fish. Conclusion: No snakes are fish.",
+        "options": [
+          {
+            "label": "Follows",
+            "mistakeTag": "two-negatives-error"
+          },
+          {
+            "label": "Does not follow"
+          }
+        ],
+        "answer": "Does not follow",
+        "hintLadder": [
+          "Two negative premises.",
+          "Snakes and fish are left unpinned.",
+          "Does not follow."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "mcq",
+        "q": "Some doctors are writers. No writers are lazy. Conclusion: Some doctors are not lazy.",
+        "options": [
+          {
+            "label": "Follows"
+          },
+          {
+            "label": "Does not follow",
+            "mistakeTag": "ignored-some-not"
+          }
+        ],
+        "answer": "Follows",
+        "hintLadder": [
+          "Some A are B, No B are C pattern.",
+          "The doctor-writer overlap avoids 'lazy'.",
+          "Some doctors are not lazy — follows."
+        ]
+      }
     ],
     "passThreshold": 0.8,
     "requireTeachBack": true
@@ -161,7 +565,11 @@
   "teachBackPrompt": "Teach a friend why 'All cats are animals, some animals are pets' does NOT guarantee 'some cats are pets' — draw the three circles and show a valid arrangement where it's false.",
   "revisionCard": {
     "summary": "Trust only what's true in EVERY possible Venn-circle drawing of the premises, not just the 'obvious' one. Five patterns to memorize: All+All chains (All A are C); All+No stays No (No A are C); Some+All chains partly (Some A are C); Some+No gives a negative (Some A are not C); two negatives (or All+Some the wrong way round) usually give no valid conclusion. Never assume 'All A are B' reverses to 'All B are A'.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "gameMission": {
     "world": "Number Jungle (Ganita Grove)",
@@ -183,7 +591,82 @@
     "unpack": "A conclusion is valid only if it holds in EVERY possible Venn-circle arrangement of the premises."
   },
   "studentQuestions": [
-    { "q": "Why can't I just trust the conclusion that 'sounds right'?", "a": "Because syllogisms are about logical certainty, not likelihood — an answer that's merely probable, but not guaranteed by the premises, is a trap exams deliberately include." },
-    { "q": "Is there a shortcut once I know the five patterns?", "a": "Yes — once you can instantly recognize which of the five shapes (All+All, All+No, Some+All, Some+No, or the two 'no-conclusion' cases) a question matches, you can answer in seconds without redrawing circles every time." }
-  ]
+    {
+      "q": "Why can't I just trust the conclusion that 'sounds right'?",
+      "a": "Because syllogisms are about logical certainty, not likelihood — an answer that's merely probable, but not guaranteed by the premises, is a trap exams deliberately include."
+    },
+    {
+      "q": "Is there a shortcut once I know the five patterns?",
+      "a": "Yes — once you can instantly recognize which of the five shapes (All+All, All+No, Some+All, Some+No, or the two 'no-conclusion' cases) a question matches, you can answer in seconds without redrawing circles every time."
+    }
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Syllogisms",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "premise",
+          "right": "One of the two given statements, taken as true"
+        },
+        {
+          "id": "p2",
+          "left": "conclusion",
+          "right": "The 'therefore' statement you're checking"
+        },
+        {
+          "id": "p3",
+          "left": "Venn circles",
+          "right": "Overlapping circles used to check every arrangement that fits the premises"
+        },
+        {
+          "id": "p4",
+          "left": "converse",
+          "right": "Reversing a statement — usually NOT automatically true"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Syllogism Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You reason through every syllogism!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Statements: All cats are animals. All animals are living things. Conclusion: All cats are living things. Does it follow?",
+            "answer": "Yes",
+            "hintLadder": [
+              "Draw circles: cats inside animals, animals inside living things.",
+              "Since cats are inside animals, and animals are inside living things, cats must be inside living things too — it follows."
+            ]
+          },
+          "branches": [
+            "Yes",
+            "No"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "Statement: All A are B. Conclusion: All B are A. Does this converse definitely follow?",
+            "answer": "No",
+            "hintLadder": [
+              "'All A are B' only says A is inside B — B could be bigger.",
+              "The converse isn't guaranteed, so it does not follow."
+            ]
+          },
+          "branches": [
+            "No",
+            "Yes"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

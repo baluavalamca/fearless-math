@@ -13,20 +13,45 @@
     "Careful, systematic problem-solving in general"
   ],
   "vocabulary": [
-    { "term": "direct clue", "meaning": "A clue that places one fact immediately, with no reasoning needed (e.g. 'C lives on floor 3')." },
-    { "term": "elimination", "meaning": "Ruling out an option because a clue makes it impossible, even without knowing the final answer yet." },
-    { "term": "grid / table", "meaning": "Rows and columns used to track every person against every attribute, ticking or crossing out as clues are applied." }
+    {
+      "term": "direct clue",
+      "meaning": "A clue that places one fact immediately, with no reasoning needed (e.g. 'C lives on floor 3')."
+    },
+    {
+      "term": "elimination",
+      "meaning": "Ruling out an option because a clue makes it impossible, even without knowing the final answer yet."
+    },
+    {
+      "term": "grid / table",
+      "meaning": "Rows and columns used to track every person against every attribute, ticking or crossing out as clues are applied."
+    }
   ],
   "story": {
     "title": "The Five-Floor Building",
-    "characters": ["Tara", "her neighbor Aakash"],
+    "characters": [
+      "Tara",
+      "her neighbor Aakash"
+    ],
     "text": "Tara is told: 'C lives on floor 3. A lives immediately above C. E lives on the topmost floor. B lives immediately below D.' She sketches 5 floors as boxes. C goes straight into floor 3. A must be floor 4 (right above C). E takes floor 5 (the top). Only floors 1 and 2 are left, for B and D — and B must be immediately below D, so B is floor 1, D is floor 2. 'Every clue placed someone or ruled something out,' Tara tells Aakash. 'No guessing needed at all.'",
     "extractedProblem": "5 people A-E live on floors 1-5. C is on floor 3. A is immediately above C. E is on the topmost floor. B is immediately below D. Find everyone's floor.",
     "answerInStory": "B=1, D=2, C=3, A=4, E=5 — each clue fixed a floor directly, leaving only one possible arrangement."
   },
   "visual": {
     "component": "NumberTrack",
-    "props": { "tracks": [ { "terms": [1, 2, 3, 4, 5], "jump": 1 } ] },
+    "props": {
+      "tracks": [
+        {
+          "terms": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "jump": 1
+        }
+      ]
+    },
     "caption": "Picture the floors as a stacked number track — fill in every direct clue first, then use 'immediately above/below' clues to lock in the rest."
   },
   "teachingGallery": [
@@ -36,7 +61,19 @@
       "examples": [
         {
           "component": "NumberTrack",
-          "props": { "tracks": [ { "terms": [1, 2, 3, 4], "jump": 1 } ] },
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "jump": 1
+              }
+            ]
+          },
           "caption": "4 friends, 4 fruits: place every 'X likes Y' direct clue into the table first, then use 'doesn't like' clues to eliminate the rest."
         }
       ]
@@ -92,10 +129,59 @@
     "trick": "Direct clues first, always",
     "intro": "Fill in every 'X is Y' fact before touching a single relative or negative clue.",
     "questions": [
-      { "id": "reason10-trick-1", "type": "text", "q": "4 floors. X is on floor 2. Y is immediately above X. Y's floor?", "answer": "3", "hintLadder": ["X is on floor 2.", "Immediately above = +1.", "Floor 3."] },
-      { "id": "reason10-trick-2", "type": "text", "q": "3 friends like tea, coffee, or juice. A likes tea. B doesn't like juice. What does B like?", "answer": "Coffee", "hintLadder": ["A has tea.", "B doesn't like juice.", "Only coffee is left for B."] },
-      { "id": "reason10-trick-3", "type": "text", "q": "5 floors. E is on the topmost floor (floor 5). D is immediately below E. D's floor?", "answer": "4", "hintLadder": ["E is on floor 5.", "Immediately below = −1.", "Floor 4."] },
-      { "id": "reason10-trick-4", "type": "mcq", "q": "In a grid puzzle, which type of clue should you apply FIRST?", "options": [ { "label": "Direct clues (X is Y)" }, { "label": "Negative clues (X is not Y)", "mistakeTag": "negative-clue-first" } ], "answer": "Direct clues (X is Y)", "hintLadder": ["Direct clues need no reasoning.", "They anchor the whole grid.", "Direct clues first."] }
+      {
+        "id": "reason10-trick-1",
+        "type": "text",
+        "q": "4 floors. X is on floor 2. Y is immediately above X. Y's floor?",
+        "answer": "3",
+        "hintLadder": [
+          "X is on floor 2.",
+          "Immediately above = +1.",
+          "Floor 3."
+        ]
+      },
+      {
+        "id": "reason10-trick-2",
+        "type": "text",
+        "q": "3 friends like tea, coffee, or juice. A likes tea. B doesn't like juice. What does B like?",
+        "answer": "Coffee",
+        "hintLadder": [
+          "A has tea.",
+          "B doesn't like juice.",
+          "Only coffee is left for B."
+        ]
+      },
+      {
+        "id": "reason10-trick-3",
+        "type": "text",
+        "q": "5 floors. E is on the topmost floor (floor 5). D is immediately below E. D's floor?",
+        "answer": "4",
+        "hintLadder": [
+          "E is on floor 5.",
+          "Immediately below = −1.",
+          "Floor 4."
+        ]
+      },
+      {
+        "id": "reason10-trick-4",
+        "type": "mcq",
+        "q": "In a grid puzzle, which type of clue should you apply FIRST?",
+        "options": [
+          {
+            "label": "Direct clues (X is Y)"
+          },
+          {
+            "label": "Negative clues (X is not Y)",
+            "mistakeTag": "negative-clue-first"
+          }
+        ],
+        "answer": "Direct clues (X is Y)",
+        "hintLadder": [
+          "Direct clues need no reasoning.",
+          "They anchor the whole grid.",
+          "Direct clues first."
+        ]
+      }
     ]
   },
   "commonMistakes": [
@@ -117,28 +203,204 @@
   ],
   "practice": {
     "easy": [
-      { "id": "e1", "type": "text", "q": "4 floors. X is on floor 1. Y is immediately above X. Y's floor?", "answer": "2", "hintLadder": ["X on floor 1.", "Immediately above = +1.", "Floor 2."] },
-      { "id": "e2", "type": "text", "q": "3 friends like red, blue, or green. A likes red. B doesn't like green. B's colour?", "answer": "Blue", "hintLadder": ["A has red.", "B doesn't like green.", "Only blue is left."] },
-      { "id": "e3", "type": "mcq", "q": "A puzzle clue says 'C lives on floor 3.' This is a…", "options": [ { "label": "Direct clue" }, { "label": "Relative clue", "mistakeTag": "negative-clue-first" } ], "answer": "Direct clue", "hintLadder": ["It states a fact outright.", "No comparison to another person.", "Direct clue."] }
+      {
+        "id": "e1",
+        "type": "text",
+        "q": "4 floors. X is on floor 1. Y is immediately above X. Y's floor?",
+        "answer": "2",
+        "hintLadder": [
+          "X on floor 1.",
+          "Immediately above = +1.",
+          "Floor 2."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "text",
+        "q": "3 friends like red, blue, or green. A likes red. B doesn't like green. B's colour?",
+        "answer": "Blue",
+        "hintLadder": [
+          "A has red.",
+          "B doesn't like green.",
+          "Only blue is left."
+        ]
+      },
+      {
+        "id": "e3",
+        "type": "mcq",
+        "q": "A puzzle clue says 'C lives on floor 3.' This is a…",
+        "options": [
+          {
+            "label": "Direct clue"
+          },
+          {
+            "label": "Relative clue",
+            "mistakeTag": "negative-clue-first"
+          }
+        ],
+        "answer": "Direct clue",
+        "hintLadder": [
+          "It states a fact outright.",
+          "No comparison to another person.",
+          "Direct clue."
+        ]
+      }
     ],
     "medium": [
-      { "id": "m1", "type": "text", "q": "5 floors. C is on floor 3. A is immediately above C. A's floor?", "answer": "4", "hintLadder": ["C = 3.", "Immediately above = +1.", "Floor 4."] },
-      { "id": "m2", "type": "text", "q": "4 friends P,Q,R,S like cricket, football, tennis, or chess. Q likes chess. S likes football. P doesn't like tennis. What does P like?", "answer": "Cricket", "hintLadder": ["Q=chess, S=football.", "Remaining: cricket, tennis for P,R.", "P doesn't like tennis → P=cricket."] },
-      { "id": "m3", "type": "mcq", "q": "If two placements both seem possible, what should you do?", "options": [ { "label": "Re-read unused clues to find the deciding one" }, { "label": "Pick either one" , "mistakeTag": "guessed-instead-of-eliminated" } ], "answer": "Re-read unused clues to find the deciding one", "hintLadder": ["A well-formed puzzle has one answer.", "An unused clue must decide it.", "Re-read the clues."] }
+      {
+        "id": "m1",
+        "type": "text",
+        "q": "5 floors. C is on floor 3. A is immediately above C. A's floor?",
+        "answer": "4",
+        "hintLadder": [
+          "C = 3.",
+          "Immediately above = +1.",
+          "Floor 4."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "text",
+        "q": "4 friends P,Q,R,S like cricket, football, tennis, or chess. Q likes chess. S likes football. P doesn't like tennis. What does P like?",
+        "answer": "Cricket",
+        "hintLadder": [
+          "Q=chess, S=football.",
+          "Remaining: cricket, tennis for P,R.",
+          "P doesn't like tennis → P=cricket."
+        ]
+      },
+      {
+        "id": "m3",
+        "type": "mcq",
+        "q": "If two placements both seem possible, what should you do?",
+        "options": [
+          {
+            "label": "Re-read unused clues to find the deciding one"
+          },
+          {
+            "label": "Pick either one",
+            "mistakeTag": "guessed-instead-of-eliminated"
+          }
+        ],
+        "answer": "Re-read unused clues to find the deciding one",
+        "hintLadder": [
+          "A well-formed puzzle has one answer.",
+          "An unused clue must decide it.",
+          "Re-read the clues."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "c1", "type": "text", "q": "5 floors. E is topmost (5). B is immediately below D. C is on floor 3. A is immediately above C. Only floors 1,2 remain for B,D. B's floor?", "answer": "1", "hintLadder": ["E=5, C=3, A=4.", "Floors 1,2 left for B,D.", "B immediately below D → B=1, D=2."] },
-      { "id": "c2", "type": "text", "q": "4 friends like mango, apple, banana, grape. P doesn't like mango or apple. Q likes banana. S likes mango. What does P like?", "answer": "Grape", "hintLadder": ["Q=banana, S=mango.", "Remaining: apple, grape for P,R.", "P doesn't like apple → P=grape."] },
-      { "id": "c3", "type": "mcq", "q": "After completing a puzzle grid, the smart next step is to…", "options": [ { "label": "Check every clue against the finished grid" }, { "label": "Move on immediately", "mistakeTag": "no-final-check" } ], "answer": "Check every clue against the finished grid", "hintLadder": ["A full grid can still be wrong.", "Only a re-check confirms it.", "Check every clue."] }
+      {
+        "id": "c1",
+        "type": "text",
+        "q": "5 floors. E is topmost (5). B is immediately below D. C is on floor 3. A is immediately above C. Only floors 1,2 remain for B,D. B's floor?",
+        "answer": "1",
+        "hintLadder": [
+          "E=5, C=3, A=4.",
+          "Floors 1,2 left for B,D.",
+          "B immediately below D → B=1, D=2."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "text",
+        "q": "4 friends like mango, apple, banana, grape. P doesn't like mango or apple. Q likes banana. S likes mango. What does P like?",
+        "answer": "Grape",
+        "hintLadder": [
+          "Q=banana, S=mango.",
+          "Remaining: apple, grape for P,R.",
+          "P doesn't like apple → P=grape."
+        ]
+      },
+      {
+        "id": "c3",
+        "type": "mcq",
+        "q": "After completing a puzzle grid, the smart next step is to…",
+        "options": [
+          {
+            "label": "Check every clue against the finished grid"
+          },
+          {
+            "label": "Move on immediately",
+            "mistakeTag": "no-final-check"
+          }
+        ],
+        "answer": "Check every clue against the finished grid",
+        "hintLadder": [
+          "A full grid can still be wrong.",
+          "Only a re-check confirms it.",
+          "Check every clue."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "mc1", "type": "text", "q": "4 floors. X is on floor 2. Y is immediately below X. Y's floor?", "answer": "1", "hintLadder": ["X on floor 2.", "Immediately below = −1.", "Floor 1."] },
-      { "id": "mc2", "type": "text", "q": "5 floors. C is on floor 3. A is immediately above C. E is topmost. A's floor?", "answer": "4", "hintLadder": ["C=3.", "Immediately above = +1.", "Floor 4."] },
-      { "id": "mc3", "type": "text", "q": "3 friends like tea, coffee, juice. A likes juice. B doesn't like tea. B's drink?", "answer": "Coffee", "hintLadder": ["A=juice.", "B doesn't like tea.", "Only coffee left."] },
-      { "id": "mc4", "type": "mcq", "q": "Which clue type should always be applied first in a grid puzzle?", "options": [ { "label": "Direct clues" }, { "label": "Negative clues", "mistakeTag": "negative-clue-first" } ], "answer": "Direct clues", "hintLadder": ["They're free, guaranteed facts.", "They anchor everything else.", "Direct clues."] },
-      { "id": "mc5", "type": "text", "q": "4 friends like mango, apple, banana, grape. Q likes banana, S likes mango, P doesn't like apple. R's fruit?", "answer": "Apple", "hintLadder": ["Q=banana, S=mango.", "P doesn't like apple → P=grape.", "Only apple is left for R."] }
+      {
+        "id": "mc1",
+        "type": "text",
+        "q": "4 floors. X is on floor 2. Y is immediately below X. Y's floor?",
+        "answer": "1",
+        "hintLadder": [
+          "X on floor 2.",
+          "Immediately below = −1.",
+          "Floor 1."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "text",
+        "q": "5 floors. C is on floor 3. A is immediately above C. E is topmost. A's floor?",
+        "answer": "4",
+        "hintLadder": [
+          "C=3.",
+          "Immediately above = +1.",
+          "Floor 4."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "text",
+        "q": "3 friends like tea, coffee, juice. A likes juice. B doesn't like tea. B's drink?",
+        "answer": "Coffee",
+        "hintLadder": [
+          "A=juice.",
+          "B doesn't like tea.",
+          "Only coffee left."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "Which clue type should always be applied first in a grid puzzle?",
+        "options": [
+          {
+            "label": "Direct clues"
+          },
+          {
+            "label": "Negative clues",
+            "mistakeTag": "negative-clue-first"
+          }
+        ],
+        "answer": "Direct clues",
+        "hintLadder": [
+          "They're free, guaranteed facts.",
+          "They anchor everything else.",
+          "Direct clues."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "text",
+        "q": "4 friends like mango, apple, banana, grape. Q likes banana, S likes mango, P doesn't like apple. R's fruit?",
+        "answer": "Apple",
+        "hintLadder": [
+          "Q=banana, S=mango.",
+          "P doesn't like apple → P=grape.",
+          "Only apple is left for R."
+        ]
+      }
     ],
     "passThreshold": 0.8,
     "requireTeachBack": true
@@ -146,7 +408,11 @@
   "teachBackPrompt": "Teach a friend how to solve the 5-floor puzzle (C=3, A above C, E on top, B below D) by filling direct clues first and only then the relative ones.",
   "revisionCard": {
     "summary": "Draw a table or floor-stack for every person/item against every attribute/position. Apply direct clues first (they're free facts), then relative clues (immediately above/below/next to) using what's already fixed, then negative clues to eliminate remaining options. Always re-check the finished grid against every original clue before answering.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "gameMission": {
     "world": "Number Jungle (Ganita Grove)",
@@ -168,7 +434,77 @@
     "unpack": "Free facts go in immediately; relative and negative clues do the eliminating afterward."
   },
   "studentQuestions": [
-    { "q": "What if a puzzle seems to have two possible answers?", "a": "Re-read every clue slowly — a properly written logic puzzle always has exactly one valid solution, so an unused or misread clue is the reason two seem to fit." },
-    { "q": "Is there a faster way than drawing a full table every time?", "a": "For small puzzles (4-5 items), yes — many people can track it mentally once they're fast at direct-clues-first. But for anything with 5+ items and multiple attributes, a table prevents careless errors even for experienced solvers." }
-  ]
+    {
+      "q": "What if a puzzle seems to have two possible answers?",
+      "a": "Re-read every clue slowly — a properly written logic puzzle always has exactly one valid solution, so an unused or misread clue is the reason two seem to fit."
+    },
+    {
+      "q": "Is there a faster way than drawing a full table every time?",
+      "a": "For small puzzles (4-5 items), yes — many people can track it mentally once they're fast at direct-clues-first. But for anything with 5+ items and multiple attributes, a table prevents careless errors even for experienced solvers."
+    }
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Logical Puzzles",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "direct clue",
+          "right": "A clue that places one fact immediately"
+        },
+        {
+          "id": "p2",
+          "left": "elimination",
+          "right": "Ruling out an option because a clue makes it impossible"
+        },
+        {
+          "id": "p3",
+          "left": "grid / table",
+          "right": "Rows and columns used to track every person against every attribute"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Puzzle Grid Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've solved the whole puzzle grid!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Three friends live on floors 1, 2, 3. Amit does not live on floor 1 or 2. Which floor is Amit on?",
+            "answer": "Floor 3",
+            "hintLadder": [
+              "Cross out the floors the clue rules out for Amit.",
+              "Only floor 3 remains for Amit."
+            ]
+          },
+          "branches": [
+            "Floor 3",
+            "Floor 1"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "When a clue directly places one fact, what should you do first?",
+            "answer": "Fill it in immediately",
+            "hintLadder": [
+              "A direct clue needs no extra reasoning.",
+              "Fill it into the grid right away, before working on harder clues."
+            ]
+          },
+          "branches": [
+            "Fill it in immediately",
+            "Skip it for later"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

@@ -13,25 +13,54 @@
     "Any 'who goes where' scheduling problem"
   ],
   "vocabulary": [
-    { "term": "immediate neighbor", "meaning": "The person in the very next seat, with no one between." },
-    { "term": "facing the center", "meaning": "In a circle, seated so your right hand points clockwise around the circle." },
-    { "term": "facing outward", "meaning": "In a circle, seated backward to the center — left and right are reversed compared to facing the center." },
-    { "term": "second to the right/left", "meaning": "Two seats away in that direction, not the very next seat." }
+    {
+      "term": "immediate neighbor",
+      "meaning": "The person in the very next seat, with no one between."
+    },
+    {
+      "term": "facing the center",
+      "meaning": "In a circle, seated so your right hand points clockwise around the circle."
+    },
+    {
+      "term": "facing outward",
+      "meaning": "In a circle, seated backward to the center — left and right are reversed compared to facing the center."
+    },
+    {
+      "term": "second to the right/left",
+      "meaning": "Two seats away in that direction, not the very next seat."
+    }
   ],
   "story": {
     "title": "The Round Table Mix-Up",
-    "characters": ["Farah", "her friend Ibrahim"],
+    "characters": [
+      "Farah",
+      "her friend Ibrahim"
+    ],
     "text": "Six friends sit around a round table facing the center. Farah says: 'I'm sitting between Ibrahim and Zoya.' Ibrahim adds: 'Zoya is second to my right.' Farah is confused until she sketches a quick circle: she places herself, puts Ibrahim on one side. Since Zoya is second to Ibrahim's right (two seats clockwise from him), and Farah is between Ibrahim and Zoya, Farah must be the ONE seat directly clockwise from Ibrahim — exactly between him and Zoya. 'It's just dot-to-dot,' Farah laughs, 'once you draw the circle instead of imagining it.'",
     "extractedProblem": "6 friends sit in a circle facing the center. Farah is between Ibrahim and Zoya. Zoya is second to Ibrahim's right. Where does Farah sit relative to Ibrahim?",
     "answerInStory": "Farah sits immediately to Ibrahim's right (one seat clockwise) — exactly halfway between Ibrahim and Zoya, who is two seats clockwise from Ibrahim."
   },
   "visual": {
     "component": "ReasoningFigure",
-    "props": { "panels": [
-      { "kind": "text", "text": "I", "label": "Ibrahim" },
-      { "kind": "text", "text": "F", "label": "Farah (between)" },
-      { "kind": "text", "text": "Z", "label": "Zoya" }
-    ] },
+    "props": {
+      "panels": [
+        {
+          "kind": "text",
+          "text": "I",
+          "label": "Ibrahim"
+        },
+        {
+          "kind": "text",
+          "text": "F",
+          "label": "Farah (between)"
+        },
+        {
+          "kind": "text",
+          "text": "Z",
+          "label": "Zoya"
+        }
+      ]
+    },
     "caption": "Sketch the seats as a circle of dots first — place the person with the richest clue, then add each new clue as a dot relative to the ones already placed."
   },
   "teachingGallery": [
@@ -41,7 +70,19 @@
       "examples": [
         {
           "component": "NumberTrack",
-          "props": { "tracks": [ { "terms": [1, 2, 3, 4], "jump": 1 } ] },
+          "props": {
+            "tracks": [
+              {
+                "terms": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "jump": 1
+              }
+            ]
+          },
           "caption": "4 people in a row: place the person mentioned in 3 clues first, then slot in the rest one at a time."
         }
       ]
@@ -96,10 +137,59 @@
     "trick": "Anchor first, then build outward",
     "intro": "Always seat the most-constrained person first — everyone else locks into place relative to them.",
     "questions": [
-      { "id": "reason09-trick-1", "type": "text", "q": "In a circle facing the center, if A is at seat 1 (of 8, numbered clockwise) and B is 3rd to A's right, which seat number is B at?", "answer": "4", "hintLadder": ["Right = clockwise, facing center.", "1 + 3 = 4.", "Seat 4."] },
-      { "id": "reason09-trick-2", "type": "text", "q": "8 people sit in a circle. If X is directly opposite Y, how many seats apart are they?", "answer": "4", "hintLadder": ["8 seats total.", "Opposite = half way round.", "8 ÷ 2 = 4."] },
-      { "id": "reason09-trick-3", "type": "mcq", "q": "In a circle facing OUTWARD (away from center), a person's right hand points…", "options": [ { "label": "Anticlockwise" }, { "label": "Clockwise", "mistakeTag": "wrong-facing-direction" } ], "answer": "Anticlockwise", "hintLadder": ["Facing outward reverses everything.", "So right becomes anticlockwise.", "Anticlockwise."] },
-      { "id": "reason09-trick-4", "type": "text", "q": "5 people in a row. P is at one end, Q is immediately right of P. Which position is Q at (1=leftmost)?", "answer": "2", "hintLadder": ["P is at position 1 (an end).", "Immediately right = next seat.", "Position 2."] }
+      {
+        "id": "reason09-trick-1",
+        "type": "text",
+        "q": "In a circle facing the center, if A is at seat 1 (of 8, numbered clockwise) and B is 3rd to A's right, which seat number is B at?",
+        "answer": "4",
+        "hintLadder": [
+          "Right = clockwise, facing center.",
+          "1 + 3 = 4.",
+          "Seat 4."
+        ]
+      },
+      {
+        "id": "reason09-trick-2",
+        "type": "text",
+        "q": "8 people sit in a circle. If X is directly opposite Y, how many seats apart are they?",
+        "answer": "4",
+        "hintLadder": [
+          "8 seats total.",
+          "Opposite = half way round.",
+          "8 ÷ 2 = 4."
+        ]
+      },
+      {
+        "id": "reason09-trick-3",
+        "type": "mcq",
+        "q": "In a circle facing OUTWARD (away from center), a person's right hand points…",
+        "options": [
+          {
+            "label": "Anticlockwise"
+          },
+          {
+            "label": "Clockwise",
+            "mistakeTag": "wrong-facing-direction"
+          }
+        ],
+        "answer": "Anticlockwise",
+        "hintLadder": [
+          "Facing outward reverses everything.",
+          "So right becomes anticlockwise.",
+          "Anticlockwise."
+        ]
+      },
+      {
+        "id": "reason09-trick-4",
+        "type": "text",
+        "q": "5 people in a row. P is at one end, Q is immediately right of P. Which position is Q at (1=leftmost)?",
+        "answer": "2",
+        "hintLadder": [
+          "P is at position 1 (an end).",
+          "Immediately right = next seat.",
+          "Position 2."
+        ]
+      }
     ]
   },
   "commonMistakes": [
@@ -121,28 +211,204 @@
   ],
   "practice": {
     "easy": [
-      { "id": "e1", "type": "text", "q": "In a row of 5 (seats 1-5 left to right), A is at seat 1 and B is immediately right of A. B's seat number?", "answer": "2", "hintLadder": ["Immediately right = next seat.", "A is at 1.", "B is at 2."] },
-      { "id": "e2", "type": "text", "q": "In a circle of 8 facing the center, A is at seat 1. B is second to A's right. B's seat number?", "answer": "3", "hintLadder": ["Right = clockwise, facing center.", "1 + 2 = 3.", "Seat 3."] },
-      { "id": "e3", "type": "mcq", "q": "'Immediate neighbor' means the person is…", "options": [ { "label": "In the very next seat" }, { "label": "Two seats away", "mistakeTag": "confused-second-with-immediate" } ], "answer": "In the very next seat", "hintLadder": ["Immediate = right next to.", "No one in between.", "Very next seat."] }
+      {
+        "id": "e1",
+        "type": "text",
+        "q": "In a row of 5 (seats 1-5 left to right), A is at seat 1 and B is immediately right of A. B's seat number?",
+        "answer": "2",
+        "hintLadder": [
+          "Immediately right = next seat.",
+          "A is at 1.",
+          "B is at 2."
+        ]
+      },
+      {
+        "id": "e2",
+        "type": "text",
+        "q": "In a circle of 8 facing the center, A is at seat 1. B is second to A's right. B's seat number?",
+        "answer": "3",
+        "hintLadder": [
+          "Right = clockwise, facing center.",
+          "1 + 2 = 3.",
+          "Seat 3."
+        ]
+      },
+      {
+        "id": "e3",
+        "type": "mcq",
+        "q": "'Immediate neighbor' means the person is…",
+        "options": [
+          {
+            "label": "In the very next seat"
+          },
+          {
+            "label": "Two seats away",
+            "mistakeTag": "confused-second-with-immediate"
+          }
+        ],
+        "answer": "In the very next seat",
+        "hintLadder": [
+          "Immediate = right next to.",
+          "No one in between.",
+          "Very next seat."
+        ]
+      }
     ],
     "medium": [
-      { "id": "m1", "type": "text", "q": "6 people sit in a circle facing the center. A is at seat 1. D is opposite A. D's seat number?", "answer": "4", "hintLadder": ["6 seats, opposite = halfway.", "6 ÷ 2 = 3 seats away.", "1 + 3 = seat 4."] },
-      { "id": "m2", "type": "text", "q": "In a circle of 10 facing OUTWARD, A is at seat 1. B is 2nd to A's right. Since facing outward reverses direction, B's seat number (numbering stays clockwise 1-10)?", "answer": "9", "hintLadder": ["Facing outward: right = anticlockwise.", "Anticlockwise 2 from seat 1.", "Seat 1 − 2 = seat 9 (wrapping)."] },
-      { "id": "m3", "type": "mcq", "q": "You've placed everyone in a puzzle. What should you do before finalizing the answer?", "options": [ { "label": "Re-check every original clue against the diagram" }, { "label": "Stop as soon as the diagram looks full", "mistakeTag": "skipped-recheck" } ], "answer": "Re-check every original clue against the diagram", "hintLadder": ["A full diagram isn't necessarily correct.", "Every clue must still hold.", "Re-check them all."] }
+      {
+        "id": "m1",
+        "type": "text",
+        "q": "6 people sit in a circle facing the center. A is at seat 1. D is opposite A. D's seat number?",
+        "answer": "4",
+        "hintLadder": [
+          "6 seats, opposite = halfway.",
+          "6 ÷ 2 = 3 seats away.",
+          "1 + 3 = seat 4."
+        ]
+      },
+      {
+        "id": "m2",
+        "type": "text",
+        "q": "In a circle of 10 facing OUTWARD, A is at seat 1. B is 2nd to A's right. Since facing outward reverses direction, B's seat number (numbering stays clockwise 1-10)?",
+        "answer": "9",
+        "hintLadder": [
+          "Facing outward: right = anticlockwise.",
+          "Anticlockwise 2 from seat 1.",
+          "Seat 1 − 2 = seat 9 (wrapping)."
+        ]
+      },
+      {
+        "id": "m3",
+        "type": "mcq",
+        "q": "You've placed everyone in a puzzle. What should you do before finalizing the answer?",
+        "options": [
+          {
+            "label": "Re-check every original clue against the diagram"
+          },
+          {
+            "label": "Stop as soon as the diagram looks full",
+            "mistakeTag": "skipped-recheck"
+          }
+        ],
+        "answer": "Re-check every original clue against the diagram",
+        "hintLadder": [
+          "A full diagram isn't necessarily correct.",
+          "Every clue must still hold.",
+          "Re-check them all."
+        ]
+      }
     ],
     "challenge": [
-      { "id": "c1", "type": "text", "q": "7 people sit in a row. The person in the middle seat is P. How many people sit on each side of P?", "answer": "3", "hintLadder": ["7 seats, middle is seat 4.", "3 seats on the left, 3 on the right.", "3 each side."] },
-      { "id": "c2", "type": "text", "q": "In a circle of 6 facing the center, A is 2nd to the right of B, and C is immediately left of A. If B is at seat 1, what seat is C at?", "answer": "2", "hintLadder": ["B=1, A is 2nd right of B → A=3.", "C is immediately left of A (facing center, left = anticlockwise) → C=2.", "Seat 2."] },
-      { "id": "c3", "type": "mcq", "q": "In a row-facing-each-other puzzle (two rows), 'immediately opposite' refers to…", "options": [ { "label": "The person in the same column, facing them" }, { "label": "The person two seats away in the same row", "mistakeTag": "confused-second-with-immediate" } ], "answer": "The person in the same column, facing them", "hintLadder": ["Opposite means across, not along.", "Same position, other row.", "Facing them directly."] }
+      {
+        "id": "c1",
+        "type": "text",
+        "q": "7 people sit in a row. The person in the middle seat is P. How many people sit on each side of P?",
+        "answer": "3",
+        "hintLadder": [
+          "7 seats, middle is seat 4.",
+          "3 seats on the left, 3 on the right.",
+          "3 each side."
+        ]
+      },
+      {
+        "id": "c2",
+        "type": "text",
+        "q": "In a circle of 6 facing the center, A is 2nd to the right of B, and C is immediately left of A. If B is at seat 1, what seat is C at?",
+        "answer": "2",
+        "hintLadder": [
+          "B=1, A is 2nd right of B → A=3.",
+          "C is immediately left of A (facing center, left = anticlockwise) → C=2.",
+          "Seat 2."
+        ]
+      },
+      {
+        "id": "c3",
+        "type": "mcq",
+        "q": "In a row-facing-each-other puzzle (two rows), 'immediately opposite' refers to…",
+        "options": [
+          {
+            "label": "The person in the same column, facing them"
+          },
+          {
+            "label": "The person two seats away in the same row",
+            "mistakeTag": "confused-second-with-immediate"
+          }
+        ],
+        "answer": "The person in the same column, facing them",
+        "hintLadder": [
+          "Opposite means across, not along.",
+          "Same position, other row.",
+          "Facing them directly."
+        ]
+      }
     ]
   },
   "masteryCheck": {
     "questions": [
-      { "id": "mc1", "type": "text", "q": "In a row of 6, A is at seat 1 and B is immediately right of A. B's seat?", "answer": "2", "hintLadder": ["Immediately right = next seat.", "A at 1.", "B at 2."] },
-      { "id": "mc2", "type": "text", "q": "In a circle of 8 facing the center, A is at seat 1. B is 3rd to A's right. B's seat?", "answer": "4", "hintLadder": ["Right = clockwise.", "1 + 3.", "Seat 4."] },
-      { "id": "mc3", "type": "text", "q": "6 people sit in a circle. X is opposite Y. How many seats apart are they?", "answer": "3", "hintLadder": ["6 seats.", "Opposite = half way.", "6 ÷ 2 = 3."] },
-      { "id": "mc4", "type": "mcq", "q": "Facing the center in a circle, a person's LEFT hand points…", "options": [ { "label": "Anticlockwise" }, { "label": "Clockwise", "mistakeTag": "wrong-facing-direction" } ], "answer": "Anticlockwise", "hintLadder": ["Right is clockwise facing center.", "Left is the opposite.", "Anticlockwise."] },
-      { "id": "mc5", "type": "text", "q": "In a row of 5, P is at an end (seat 1) and Q is 2nd to P's right. Q's seat?", "answer": "3", "hintLadder": ["2nd = two seats away, not one.", "1 + 2.", "Seat 3."] }
+      {
+        "id": "mc1",
+        "type": "text",
+        "q": "In a row of 6, A is at seat 1 and B is immediately right of A. B's seat?",
+        "answer": "2",
+        "hintLadder": [
+          "Immediately right = next seat.",
+          "A at 1.",
+          "B at 2."
+        ]
+      },
+      {
+        "id": "mc2",
+        "type": "text",
+        "q": "In a circle of 8 facing the center, A is at seat 1. B is 3rd to A's right. B's seat?",
+        "answer": "4",
+        "hintLadder": [
+          "Right = clockwise.",
+          "1 + 3.",
+          "Seat 4."
+        ]
+      },
+      {
+        "id": "mc3",
+        "type": "text",
+        "q": "6 people sit in a circle. X is opposite Y. How many seats apart are they?",
+        "answer": "3",
+        "hintLadder": [
+          "6 seats.",
+          "Opposite = half way.",
+          "6 ÷ 2 = 3."
+        ]
+      },
+      {
+        "id": "mc4",
+        "type": "mcq",
+        "q": "Facing the center in a circle, a person's LEFT hand points…",
+        "options": [
+          {
+            "label": "Anticlockwise"
+          },
+          {
+            "label": "Clockwise",
+            "mistakeTag": "wrong-facing-direction"
+          }
+        ],
+        "answer": "Anticlockwise",
+        "hintLadder": [
+          "Right is clockwise facing center.",
+          "Left is the opposite.",
+          "Anticlockwise."
+        ]
+      },
+      {
+        "id": "mc5",
+        "type": "text",
+        "q": "In a row of 5, P is at an end (seat 1) and Q is 2nd to P's right. Q's seat?",
+        "answer": "3",
+        "hintLadder": [
+          "2nd = two seats away, not one.",
+          "1 + 2.",
+          "Seat 3."
+        ]
+      }
     ],
     "passThreshold": 0.8,
     "requireTeachBack": true
@@ -150,7 +416,11 @@
   "teachBackPrompt": "Teach a friend the difference between 'immediately to the right' and 'second to the right', and show how facing-outward circles reverse left and right compared to facing-center circles.",
   "revisionCard": {
     "summary": "Sketch the seats first (line for a row, circle for round tables). Seat the most-constrained person first as an anchor, then add each clue one at a time. Facing the center: right = clockwise. Facing outward: right = anticlockwise (reversed). 'Immediate' = 1 seat away; 'second to the right/left' = 2 seats away. Always re-check every clue against the finished diagram.",
-    "reviewAfterDays": [3, 7, 21]
+    "reviewAfterDays": [
+      3,
+      7,
+      21
+    ]
   },
   "gameMission": {
     "world": "Number Jungle (Ganita Grove)",
@@ -172,7 +442,82 @@
     "unpack": "Seat the most-constrained person first, then place everyone else clue by clue."
   },
   "studentQuestions": [
-    { "q": "Why does 'facing outward' flip left and right?", "a": "Because left/right are always from the seated person's own point of view — when they turn to face away from the center, their right hand now points the opposite way around the circle compared to someone facing in." },
-    { "q": "What's the single best habit for seating puzzles?", "a": "Sketch as you read, don't just imagine it — draw the seats as empty dots immediately, and fill them in clue by clue instead of trying to hold the whole picture in your head." }
-  ]
+    {
+      "q": "Why does 'facing outward' flip left and right?",
+      "a": "Because left/right are always from the seated person's own point of view — when they turn to face away from the center, their right hand now points the opposite way around the circle compared to someone facing in."
+    },
+    {
+      "q": "What's the single best habit for seating puzzles?",
+      "a": "Sketch as you read, don't just imagine it — draw the seats as empty dots immediately, and fill them in clue by clue instead of trying to hold the whole picture in your head."
+    }
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Seating Arrangement",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "immediate neighbor",
+          "right": "The person in the very next seat"
+        },
+        {
+          "id": "p2",
+          "left": "facing the center",
+          "right": "In a circle, your right hand points clockwise around it"
+        },
+        {
+          "id": "p3",
+          "left": "facing outward",
+          "right": "In a circle, left and right are reversed compared to facing the center"
+        },
+        {
+          "id": "p4",
+          "left": "second to the right/left",
+          "right": "Two seats away in that direction"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Seating Puzzle Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "Everyone is seated correctly!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "5 friends sit in a row. Rahul is in seat 2. Sita sits immediately to his right. Which seat is Sita in?",
+            "answer": "Seat 3",
+            "hintLadder": [
+              "'Immediately to his right' means the very next seat over.",
+              "Seat 2 + 1 = Seat 3."
+            ]
+          },
+          "branches": [
+            "Seat 3",
+            "Seat 1"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "In a circle, all people face the center. Ravi is to Meena's immediate right. Is Meena to Ravi's immediate left?",
+            "answer": "Yes",
+            "hintLadder": [
+              "When facing the center, being to someone's right is a two-way relationship.",
+              "If Ravi is to Meena's right, Meena must be to Ravi's left."
+            ]
+          },
+          "branches": [
+            "Yes",
+            "No"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }
