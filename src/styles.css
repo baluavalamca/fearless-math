@@ -1017,7 +1017,7 @@ input[type=range] { accent-color: #2f6bff; }
 
 /* ---- World menu tabs ---- */
 /* ---------------- Ask Robo (maths tutor chat) ---------------- */
-.fm-askrobo { max-width: 860px; margin: 0 auto; padding: 18px 20px 8px; display: flex; flex-direction: column; min-height: calc(100vh - 190px); }
+.fm-askrobo { max-width: clamp(760px, 94vw, 1360px); width: 100%; margin: 0 auto; padding: 18px clamp(16px, 3vw, 32px) 8px; display: flex; flex-direction: column; min-height: calc(100vh - 190px); }
 .fm-ar-head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
 .fm-ar-head h1 { margin: 0; font-size: 24px; }
 .fm-ar-voice-toggle {
@@ -1043,7 +1043,7 @@ input[type=range] { accent-color: #2f6bff; }
 .fm-ar-row { display: flex; gap: 10px; align-items: flex-end; }
 .fm-ar-row.user { justify-content: flex-end; }
 .fm-ar-botavatar { width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center; font-size: 19px; background: var(--grad-brand); flex: none; }
-.fm-ar-bubble { max-width: 78%; border-radius: 18px; padding: 12px 15px; line-height: 1.5; box-shadow: var(--shadow-sm); }
+.fm-ar-bubble { max-width: min(80%, 800px); border-radius: 18px; padding: 12px 15px; line-height: 1.5; box-shadow: var(--shadow-sm); }
 .fm-ar-bubble.user { background: var(--accent); color: var(--on-accent, #fff); border-bottom-right-radius: 6px; font-weight: 600; }
 .fm-ar-bubble.bot { background: var(--card); color: var(--ink); border: 1px solid var(--line); border-bottom-left-radius: 6px; }
 .fm-ar-bubble.bot.err { background: color-mix(in srgb, var(--accent) 8%, var(--card)); }
@@ -1056,6 +1056,14 @@ input[type=range] { accent-color: #2f6bff; }
 .fm-ar-tag { display: inline-block; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--accent-dark); margin-right: 6px; }
 .fm-ar-lesson { display: inline-block; margin-top: 10px; border: 1.5px solid var(--accent); background: transparent; color: var(--accent-dark); border-radius: 999px; padding: 7px 14px; font-size: 13.5px; font-weight: 700; cursor: pointer; }
 .fm-ar-lesson:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+/* "Picture it" — same AI-illustrated concept poster the concept page offers,
+   surfaced inline on a grounded chat answer (see ConceptImageModal). */
+.fm-ar-picture { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; margin-left: 8px;
+  border: 1.5px solid color-mix(in srgb, var(--good) 55%, var(--line)); background: color-mix(in srgb, var(--good) 10%, transparent);
+  color: var(--ink); border-radius: 999px; padding: 5px 12px 5px 5px; font-size: 13.5px; font-weight: 700; cursor: pointer; }
+.fm-ar-picture:hover { background: color-mix(in srgb, var(--good) 20%, transparent); }
+.fm-ar-picture-thumb { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; flex: none; }
+.fm-ar-picture-icon { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--good); flex: none; font-size: 14px; }
 .fm-ar-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
 .fm-ar-actions button { border: 1px solid var(--line); background: var(--glass); color: var(--muted); border-radius: 999px; padding: 5px 11px; font-size: 12.5px; font-weight: 600; cursor: pointer; }
 .fm-ar-actions button:hover:not(:disabled) { color: var(--accent-dark); border-color: var(--accent); }

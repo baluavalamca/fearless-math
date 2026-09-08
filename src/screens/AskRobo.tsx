@@ -12,12 +12,13 @@
  *  • If the AI Tutor is off, a friendly note points to Parents' Corner.
  */
 import { useEffect, useRef, useState } from "react";
-import { AiStatus, ConceptCard, MediaStatus, Profile, aiUsable, api, sarvamUsable } from "../api";
+import { AiStatus, Concept, ConceptCard, MediaStatus, Profile, aiUsable, api, imageUsable, sarvamUsable } from "../api";
 import { autoSpeak, currentSpeechLang, speak, stopSpeaking } from "../speech";
 import { RoboAvatar } from "../components/RoboAvatar";
 import { TutorText } from "../components/Math";
 import { StepCards } from "../components/ResponseWidgets";
 import { VisualRenderer, VisualSpec } from "../components/VisualRenderer";
+import { ConceptImageModal } from "../components/ConceptImageModal";
 import { buildHomeworkVisual } from "../homeworkAids";
 import { matchLesson } from "../lessonMatch";
 import { Recorder, micSupported, startRecording } from "../voice";
@@ -41,6 +42,29 @@ type Msg = {
 function botSpokenText(m: Msg): string {
   const body = m.steps && m.steps.length ? m.steps.join(". ") : m.text;
   return body + (m.tryYourself ? ". Now you try: " + m.tryYourself : "");
+}
+
+/** Inline "✨ Picture it" button on a grounded chat answer — same AI-illustrated
+ *  poster feature the concept page offers (see ConceptImageModal), just
+ *  surfaced right in the chat. Shows the concept's cached picture as a small
+ *  round thumbnail if one's already been drawn (instant, no re-generation);
+ *  otherwise a plain icon. Tapping either opens the full picture modal. */
+function ConceptPictureButton({ conceptId, name, onOpen }: { conceptId: string; name: string; onOpen: (id: string) => void }) {
+  const [thumb, setThumb] = useState<string | null>(null);
+  useEffect(() => {
+    let alive = true;
+    setThumb(null);
+    api.getCachedImage({ conceptId, style: "story" }).then((r) => {
+      if (alive && r.ok && r.dataUrl) setThumb(r.dataUrl);
+    }).catch(() => { /* no cached picture yet -- that's fine */ });
+    return () => { alive = false; };
+  }, [conceptId]);
+  return (
+    <button type="button" className="fm-ar-picture" onClick={() => onOpen(conceptId)} title={`See a picture for ${name}`}>
+      {thumb ? <img src={thumb} alt="" className="fm-ar-picture-thumb" /> : <span className="fm-ar-picture-icon">✨</span>}
+      {thumb ? "View picture" : "Picture it"}
+    </button>
+  );
 }
 
 /** Grade-appropriate starter prompts so kids aren't staring at a blank box. */
@@ -71,6 +95,10 @@ export function AskRobo({ profile, concepts, onOpen, seed, onSeedConsumed }: {
   const [voiceMode, setVoiceMode] = useState(() => typeof localStorage !== "undefined" && localStorage.getItem(VOICE_MODE_KEY) === "1");
   const [rec, setRec] = useState<Recorder | null>(null);
   const [transcribing, setTranscribing] = useState(false);
+  // "Picture it" — the concept whose AI-illustrated poster is currently open
+  // (same modal the concept page uses; fetched lazily since AskRobo only
+  // otherwise holds the lightweight ConceptCard list, not full concepts).
+  const [pictureConcept, setPictureConcept] = useState<Concept | null>(null);
   const endRef = useRef<HTMLDivElement | null>(null);
   const seededRef = useRef<string | null>(null);
 
@@ -83,6 +111,10 @@ export function AskRobo({ profile, concepts, onOpen, seed, onSeedConsumed }: {
 
   const usable = aiUsable(ai);
   const micReady = micSupported() && sarvamUsable(media);
+
+  function openPicture(conceptId: string) {
+    api.getConcept(conceptId).then(setPictureConcept).catch(() => { /* soft-fail -- just don't open the modal */ });
+  }
 
   function toggleVoiceMode() {
     setVoiceMode((v) => {
@@ -223,6 +255,9 @@ export function AskRobo({ profile, concepts, onOpen, seed, onSeedConsumed }: {
                 {m.lesson && (
                   <button className="fm-ar-lesson" onClick={() => onOpen(m.lesson!.id)}>📚 Open the lesson: {m.lesson.name} →</button>
                 )}
+                {m.lesson && imageUsable(media) && (
+                  <ConceptPictureButton conceptId={m.lesson.id} name={m.lesson.name} onOpen={openPicture} />
+                )}
                 {!m.error && (
                   <div className="fm-ar-actions">
                     <button onClick={() => speak(botSpokenText(m))} title="Read aloud">🔊 Read</button>
@@ -263,6 +298,10 @@ export function AskRobo({ profile, concepts, onOpen, seed, onSeedConsumed }: {
         <button className="fm-primary" type="submit" disabled={!usable || busy || !input.trim() || !!rec || transcribing}>Ask →</button>
       </form>
       <p className="fm-ar-foot">Robo only answers maths, keeps it kind, and never sees your name — just your question.</p>
+
+      {pictureConcept && (
+        <ConceptImageModal concept={pictureConcept} initialStyle="story" onClose={() => setPictureConcept(null)} />
+      )}
     </div>
   );
 }
