@@ -82,6 +82,17 @@
       "example": "[10 − {2 + (3 × 2)}] = [10 − {2+6}] = [10 − 8] = 2."
     }
   ],
+  "mentalMathMethod": {
+    "name": "Running-Tally Method",
+    "whenToUse": "For quick MENTAL (no-paper) BODMAS — skip rewriting the whole expression after clearing each operation type; keep one running total in your head instead.",
+    "steps": [
+      "Scan the expression left to right. The moment you hit a × or ÷ sign, resolve just that one operation with its two neighbours right away.",
+      "Keep a single running total in your head, starting from the first resolved chunk.",
+      "As each ×/÷ chunk collapses into one number, immediately add or subtract it into the running total using the sign written in front of it.",
+      "By the time you reach the end of the expression, the running total already IS the final answer — no second pass or rewritten line needed."
+    ],
+    "example": "24 ÷ 4 × 2 + 6 − 3: resolve 24 ÷ 4 × 2 = 12 first (running total = 12), then +6 → 18, then −3 → 15 — one pass, answer 15."
+  },
   "workedExamples": [
     {
       "problem": "Simplify: 24 ÷ 4 × 2 + 6 − 3",

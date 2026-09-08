@@ -68,6 +68,17 @@
       "example": "20% then 25% off ₹1000 → 0.8 × 0.75 × 1000 = ₹600."
     }
   ],
+  "mentalMathMethod": {
+    "name": "Single Effective Discount Shortcut",
+    "whenToUse": "When you need to COMPARE two discount schemes (e.g. 'flat 25% off' vs '20% + 10% off') and just want the single combined discount percent — not the actual selling price.",
+    "steps": [
+      "For two successive discounts d₁% and d₂%, the single equivalent discount is d₁ + d₂ − (d₁ × d₂) ÷ 100.",
+      "This one number lets you compare directly against a flat discount without picking a marked price.",
+      "The combined discount is always LESS than the simple sum d₁ + d₂ (because the second discount bites into a smaller base).",
+      "Once you have this combined %, treat it exactly like a single discount for any further working."
+    ],
+    "example": "20% off, then a further 10% off. Combined discount = 20 + 10 − (20×10)/100 = 30 − 2 = 28%. So '20% + 10%' beats a flat 25% off, but loses to a flat 30% off."
+  },
   "workedExamples": [
     {
       "problem": "A bag is marked ₹1,500 with a 20% discount. Find the selling price.",

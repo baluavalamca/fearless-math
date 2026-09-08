@@ -68,6 +68,17 @@
       "example": "₹2000 @ 6% → ₹120/year → 4 years = ₹480."
     }
   ],
+  "mentalMathMethod": {
+    "name": "100-Rule Quick Rate/Time Shortcut",
+    "whenToUse": "For 'a sum becomes n times itself' style SI questions (e.g. 'money doubles in 5 years, find the rate') — get R×T in one line without writing the full PRT/100 formula.",
+    "steps": [
+      "If the amount becomes n times the principal, the interest earned is (n − 1) times the principal.",
+      "Since SI = P×R×T/100, and interest = (n−1)×P, this simplifies to R×T = 100×(n − 1).",
+      "If either R or T is known, divide it out to instantly get the other.",
+      "This skips writing P at all — P cancels out completely."
+    ],
+    "example": "A sum becomes 3 times itself in 8 years at simple interest. Find the rate. R×T = 100×(3−1) = 200. T = 8, so R = 200 ÷ 8 = 25%."
+  },
   "workedExamples": [
     {
       "problem": "Find the simple interest on ₹8,000 at 5% per annum for 4 years.",

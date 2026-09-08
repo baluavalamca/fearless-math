@@ -69,6 +69,17 @@
       "example": "boat 10, stream 2 → down 12, up 8."
     }
   ],
+  "mentalMathMethod": {
+    "name": "Average Speed for a Round Trip (Harmonic Mean)",
+    "whenToUse": "When a boat (or anything) travels the SAME distance downstream and upstream and you need the AVERAGE speed for the whole round trip — do NOT just average the two speeds.",
+    "steps": [
+      "Do not use (D + U) ÷ 2 for the round-trip average — that only gives the still-water boat speed, not the true average speed.",
+      "The correct round-trip average speed is the harmonic mean: 2 × D × U ÷ (D + U).",
+      "Plug in the downstream speed D and upstream speed U directly.",
+      "This is always LESS than the simple average, because more time is spent at the slower (upstream) speed."
+    ],
+    "example": "Downstream 12 km/h, upstream 8 km/h, same distance both ways. Average speed = 2×12×8 ÷ (12+8) = 192 ÷ 20 = 9.6 km/h — not 10 km/h (the simple average)."
+  },
   "workedExamples": [
     {
       "problem": "A boat rows 15 km/h downstream and 9 km/h upstream. Find the still-water speed.",

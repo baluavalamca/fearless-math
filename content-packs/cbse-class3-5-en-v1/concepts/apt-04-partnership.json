@@ -68,6 +68,17 @@
       "example": "₹5000 & ₹3000 for a full year → 5 : 3."
     }
   ],
+  "mentalMathMethod": {
+    "name": "Share-Difference Shortcut",
+    "whenToUse": "When the question gives the DIFFERENCE between two partners' shares (e.g. 'A got ₹500 more than B') instead of the total profit — skip finding the total profit first.",
+    "steps": [
+      "Find the ratio of capital × time as usual (or just the capital ratio if the time is the same for both).",
+      "Subtract the smaller ratio number from the larger to get the 'difference in parts'.",
+      "Divide the given rupee difference by this parts-difference — that instantly gives the value of ONE part.",
+      "Multiply each partner's ratio number by that one-part value to get their individual shares."
+    ],
+    "example": "A : B capitals are in ratio 3 : 2 (same time). A's share is ₹500 more than B's. Difference in parts = 3 − 2 = 1 part = ₹500. So one part = ₹500 → A = 3 × 500 = ₹1500, B = 2 × 500 = ₹1000 (the total profit, ₹2500, was never directly given)."
+  },
   "workedExamples": [
     {
       "problem": "A invests ₹6000 and B invests ₹4000 for the same time. Profit ₹2500. Find B's share.",

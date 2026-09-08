@@ -68,6 +68,17 @@
       "example": "A 0.5 km train at 30 km/h past a pole → 0.5 ÷ 30 h = 1 minute."
     }
   ],
+  "mentalMathMethod": {
+    "name": "Equal-Length Trains Shortcut",
+    "whenToUse": "When two trains have the SAME length L each and cross each other — a very common exam pattern — skip writing out separate lengths and speeds.",
+    "steps": [
+      "If both trains have length L, the total crossing distance is simply 2L (L + L).",
+      "Find the relative speed as usual: add if moving opposite ways, subtract if moving the same way.",
+      "Time to cross = 2L ÷ relative speed.",
+      "This single '2L' shortcut skips writing (L₁ + L₂) as two separate terms."
+    ],
+    "example": "Two trains, each 150 m long, cross each other (opposite directions) in 10 seconds. Combined distance = 2 × 150 = 300 m, so relative speed = 300 ÷ 10 = 30 m/s."
+  },
   "workedExamples": [
     {
       "problem": "A 180 m train runs at 54 km/h. How many seconds to pass a pole?",

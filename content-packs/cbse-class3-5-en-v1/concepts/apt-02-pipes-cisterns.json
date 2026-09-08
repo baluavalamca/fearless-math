@@ -69,6 +69,17 @@
       "example": "Fill 6h, leak 12h → 1/6 − 1/12 = 1/12 → 12 hours."
     }
   ],
+  "mentalMathMethod": {
+    "name": "Alternate-Turns Cycle Shortcut",
+    "whenToUse": "When pipes are opened in ALTERNATE TURNS (not simultaneously) — e.g. pipe A works for 1 hour, then B for 1 hour, repeating — skip building a full hour-by-hour timeline.",
+    "steps": [
+      "Compute how much each pipe fills alone in one turn (its rate × the turn length).",
+      "Add the two turns together to get the fill completed per full cycle.",
+      "Divide the tank capacity by the fill-per-cycle to count the number of full cycles needed.",
+      "For the leftover fraction of the tank, apply the next pipe in the sequence at its own rate to finish."
+    ],
+    "example": "A fills in 2h, B fills in 4h; capacity = LCM(2,4) = 4 units, so A = 2 units/h, B = 1 unit/h. Opened on alternate hours starting with A: each 2-hour cycle fills 2 + 1 = 3 units. After one cycle (2h) only 1 unit is left, and it's A's turn again at 2 units/h → 1 ÷ 2 = 0.5h more. Total = 2.5 hours."
+  },
   "workedExamples": [
     {
       "problem": "Pipe A fills a tank in 4 hours, pipe B in 6 hours. Both open — how long to fill?",

@@ -70,6 +70,17 @@
       "example": "Mar is clearly the tallest, so it's the highest month without any addition."
     }
   ],
+  "mentalMathMethod": {
+    "name": "Percentage Estimation via Friendly Fractions",
+    "whenToUse": "When a DI question asks for a percentage but exact precision isn't needed (or the answer options are far apart) — swap the awkward percent for its nearest friendly fraction to compute in your head.",
+    "steps": [
+      "Convert the percentage to the nearest 'friendly' fraction: 25% ≈ 1/4, 33% ≈ 1/3, 10% ≈ 1/10, 20% ≈ 1/5, 50% = 1/2.",
+      "Multiply the total by that friendly fraction instead of doing a ×%÷100 calculation.",
+      "This is much faster mentally than multiplying by an awkward decimal.",
+      "Only use exact percentage multiplication when the answer options are close together and need precision."
+    ],
+    "example": "Roughly what is 33% of 210? Use 1/3 instead of 0.33: 210 ÷ 3 = 70 (the exact value, 69.3, is close enough to pick the right option instantly)."
+  },
   "workedExamples": [
     {
       "problem": "From Jan 20, Feb 40, Mar 60, Apr 50, May 30 — find the total units sold.",

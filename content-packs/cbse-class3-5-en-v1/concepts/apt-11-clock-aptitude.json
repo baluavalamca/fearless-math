@@ -82,6 +82,17 @@
       "example": "At 3:30 the minute hand is at 180°, hour hand at 90 + 15 = 105° → gap 75°."
     }
   ],
+  "mentalMathMethod": {
+    "name": "Right-Angle/Straight-Line Times Shortcut",
+    "whenToUse": "For 'how many times in 12 (or 24) hours do the hands...' questions — recall the fixed counts instead of computing every single instance.",
+    "steps": [
+      "Memorize the three fixed counts in a 12-hour period: hands COINCIDE (0°) 11 times; hands are at RIGHT ANGLES (90°) 22 times; hands are OPPOSITE (180°) 11 times.",
+      "These counts come from the minute hand 'lapping' the hour hand 11 times every 12 hours — coincide and opposite each happen once per lap, right angles happen twice per lap.",
+      "For a 24-hour period, simply double every one of these counts.",
+      "No need to compute individual angle values at all for a pure 'how many times' question."
+    ],
+    "example": "How many times are the hands at right angles in a day (24 hours)? 22 times in 12 hours → 22 × 2 = 44 times in 24 hours."
+  },
   "workedExamples": [
     {
       "problem": "Find the angle between the hands at 3:00.",

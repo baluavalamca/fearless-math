@@ -79,6 +79,17 @@
       "example": "6 masons × 4 days = 24 man-days → 8 masons take 24 ÷ 8 = 3 days."
     }
   ],
+  "mentalMathMethod": {
+    "name": "Efficiency-Ratio Shortcut",
+    "whenToUse": "When the question gives a RATIO or comparison of speeds (e.g. 'A is twice as efficient as B') instead of separate day-counts — skip the LCM step entirely.",
+    "steps": [
+      "Assign efficiency numbers straight from the ratio (e.g. A twice as fast as B → A=2, B=1 units/day).",
+      "Add the efficiency numbers to get the combined rate.",
+      "If a joint time is given, total work = combined rate × joint time.",
+      "Each person's solo time = total work ÷ their own efficiency number."
+    ],
+    "example": "A is thrice as efficient as B; together they finish in 6 days. A alone? Efficiencies A=3, B=1 → combined 4 units/day → total work = 4×6 = 24 units → A alone = 24÷3 = 8 days."
+  },
   "workedExamples": [
     {
       "problem": "A does a job in 12 days, B in 6 days. How many days together?",

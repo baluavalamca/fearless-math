@@ -69,6 +69,17 @@
       "example": "c=80, d=100, m=85 → x:y = 15 : 5 = 3 : 1."
     }
   ],
+  "mentalMathMethod": {
+    "name": "Repeated Removal-Replacement Formula",
+    "whenToUse": "When a portion of a mixture is removed and replaced with the other ingredient MULTIPLE times in a row (e.g. removing milk and topping up with water, done n times) — skip running the alligation cross again and again.",
+    "steps": [
+      "Let r = (amount removed each time) ÷ (total volume) — the fraction taken out per round.",
+      "The amount of the original ingredient left after n rounds = initial amount × (1 − r)ⁿ.",
+      "Multiply straight through in one line — no need to redo a ratio calculation for every round.",
+      "This works because each round removes the SAME fraction of whatever remains, so the leftover shrinks geometrically."
+    ],
+    "example": "10 L of milk has 1 L removed and replaced with water, 3 times in a row. r = 1/10 = 0.1. Milk left = 10 × (0.9)³ = 10 × 0.729 = 7.29 L."
+  },
   "workedExamples": [
     {
       "problem": "In what ratio must rice at ₹60/kg be mixed with rice at ₹90/kg to get a mixture worth ₹70/kg?",

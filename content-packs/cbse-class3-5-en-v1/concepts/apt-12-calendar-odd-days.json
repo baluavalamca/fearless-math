@@ -67,6 +67,17 @@
       "example": "Across one ordinary year: +1 weekday."
     }
   ],
+  "mentalMathMethod": {
+    "name": "Century Odd-Days Table Shortcut",
+    "whenToUse": "When the year gap is very large (100+ years) — recall the fixed century odd-days table instead of counting every single year's odd days one by one.",
+    "steps": [
+      "Memorize the odd days for full centuries: 100 years → 5 odd days; 200 years → 3 odd days; 300 years → 1 odd day; 400 years (or any multiple of 400) → 0 odd days (the cycle resets).",
+      "Break the year gap into whole centuries plus a leftover number of years.",
+      "Look up the century part from the table; count the leftover years' odd days normally (1 per ordinary year, 2 per leap year).",
+      "Add the two parts together and take mod 7 for the total odd days."
+    ],
+    "example": "Odd days in exactly 300 years? Straight from the table: 1 odd day — no need to add up 300 individual years."
+  },
   "workedExamples": [
     {
       "problem": "How many odd days are in 365 days?",

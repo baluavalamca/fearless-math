@@ -67,6 +67,17 @@
       "example": "Ages 3:4 now, 5:6 later — the constant gap pins down the actual ages."
     }
   ],
+  "mentalMathMethod": {
+    "name": "Future/Past Ratio Instant-t Formula",
+    "whenToUse": "When asked 'in how many years' (or 'how many years ago') the ratio of two known PRESENT ages will equal (or equalled) a specific target ratio — skip trial-and-error guessing.",
+    "steps": [
+      "Let the two present ages be a and b, and the target ratio be p : q (in the same order as a : b).",
+      "Set up (a + t) : (b + t) = p : q, using +t for years ahead or −t for years ago.",
+      "Cross-multiply and solve directly: t = (p×b − q×a) ÷ (q − p).",
+      "A positive t means years from now; a negative t means the ratio actually held that many years ago."
+    ],
+    "example": "A is 20, B is 10 now. In how many years will A : B = 3 : 2? t = (3×10 − 2×20) ÷ (2 − 3) = (30 − 40) ÷ (−1) = 10 years. Check: then A = 30, B = 20 → 30 : 20 = 3 : 2. ✓"
+  },
   "workedExamples": [
     {
       "problem": "A father is 4 times his son's age. The son is 8. How old is the father?",

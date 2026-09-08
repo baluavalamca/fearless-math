@@ -67,6 +67,17 @@
       "example": "2³ × 2² = (2·2·2)(2·2) = five 2's = 2⁵ = 32."
     }
   ],
+  "mentalMathMethod": {
+    "name": "Common Base Matching Shortcut",
+    "whenToUse": "When the bases in an equation LOOK different (4, 8, 16, 32, 9, 27, etc.) but are all powers of the same small prime — rewrite everything with that prime as the base first, then just equate exponents.",
+    "steps": [
+      "Spot the smallest prime that every base is built from (e.g. 4, 8, 16, 32 are all powers of 2).",
+      "Rewrite every term using that prime as the base, using (aᵐ)ⁿ = aᵐⁿ to convert.",
+      "Once both sides share the same base, the equation collapses to just its exponents.",
+      "Solve the simple exponent equation for the unknown."
+    ],
+    "example": "Solve 8ˣ = 16. Rewrite both as powers of 2: 8 = 2³, 16 = 2⁴, so (2³)ˣ = 2⁴ → 2³ˣ = 2⁴ → 3x = 4 → x = 4/3."
+  },
   "workedExamples": [
     {
       "problem": "Simplify 5³ × 5² and give its value.",

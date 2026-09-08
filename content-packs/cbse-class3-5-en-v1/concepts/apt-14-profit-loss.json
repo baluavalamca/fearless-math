@@ -90,6 +90,17 @@
       "example": "Claims to sell 1000 g for the price of 1000 g, but the weight used is only 800 g → profit% = (1000−800)/800 × 100 = 25%."
     }
   ],
+  "mentalMathMethod": {
+    "name": "Successive Profit/Loss Combine Shortcut",
+    "whenToUse": "When an item is sold with TWO successive profit/loss events one after another (e.g. sold at a profit, then resold at a loss) — combine them in one line instead of computing each sale's rupee value separately.",
+    "steps": [
+      "Write each percent with its own sign: profit is positive, loss is negative.",
+      "Combined net % = a + b + (a × b) ÷ 100, using the signed values for a and b.",
+      "A positive result is a net profit; a negative result is a net loss.",
+      "This mirrors the successive-discount formula — the second event always acts on the ALREADY-changed price, which the cross term (a×b)/100 accounts for."
+    ],
+    "example": "An item is sold at 20% profit, then resold at 10% loss. Net % = 20 + (−10) + (20 × −10)/100 = 20 − 10 − 2 = 8% net profit overall."
+  },
   "workedExamples": [
     {
       "problem": "A book costs a shop ₹250 and is sold for ₹300. Find the profit percent.",
