@@ -117,12 +117,36 @@
     "kind": "shape2d",
     "shape": "rectangle",
     "sliders": [
-      { "key": "w", "label": "Width (w)", "min": 1, "max": 8, "step": 1, "default": 4, "unit": "units" },
-      { "key": "h", "label": "Height (h)", "min": 1, "max": 8, "step": 1, "default": 3, "unit": "units" }
+      {
+        "key": "w",
+        "label": "Width (w)",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "default": 4,
+        "unit": "units"
+      },
+      {
+        "key": "h",
+        "label": "Height (h)",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "default": 3,
+        "unit": "units"
+      }
     ],
     "formulas": [
-      { "name": "Area (w × h)", "expr": "w*h", "unit": "sq units" },
-      { "name": "Boundary (2(w + h))", "expr": "2*(w+h)", "unit": "units" }
+      {
+        "name": "Area (w × h)",
+        "expr": "w*h",
+        "unit": "sq units"
+      },
+      {
+        "name": "Boundary (2(w + h))",
+        "expr": "2*(w+h)",
+        "unit": "units"
+      }
     ],
     "color": "good"
   },
@@ -357,5 +381,69 @@
       "q": "Which uses square units?",
       "a": "Area (the region). Boundary/perimeter uses plain length units like m or cm."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Area & Boundary",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "area",
+          "right": "The space inside a shape, in square units"
+        },
+        {
+          "id": "p2",
+          "left": "boundary (perimeter)",
+          "right": "The total distance around the edge"
+        },
+        {
+          "id": "p3",
+          "left": "square unit",
+          "right": "The unit for area, like sq cm or sq m"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Area & Boundary Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You tell area and boundary apart perfectly!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "A rectangle is 5 cm by 3 cm. Which measures the space inside it: area or boundary?",
+            "answer": "Area",
+            "hintLadder": [
+              "Think about which measure is about the INSIDE of the shape.",
+              "Area measures the space inside; boundary measures the distance around."
+            ]
+          },
+          "branches": [
+            "Area",
+            "Boundary"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "A rectangle is 5 cm by 3 cm. What is its boundary (perimeter)?",
+            "answer": "16 cm",
+            "hintLadder": [
+              "Use P = 2 × (length + breadth).",
+              "2 × (5 + 3) = 2 × 8 = 16 cm."
+            ]
+          },
+          "branches": [
+            "16 cm",
+            "15 cm"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

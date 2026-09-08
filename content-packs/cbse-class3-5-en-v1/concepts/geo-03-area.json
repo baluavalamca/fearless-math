@@ -499,5 +499,69 @@
       "q": "Why 'square' units?",
       "a": "Because we count how many unit SQUARES fit inside - so cm^2, m^2, etc."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Area",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "area",
+          "right": "The amount of flat space inside a shape's boundary"
+        },
+        {
+          "id": "p2",
+          "left": "unit square",
+          "right": "A 1-by-1 square used to count area"
+        },
+        {
+          "id": "p3",
+          "left": "square units",
+          "right": "Area's units, like square cm or square m"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Area Tiling Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've tiled every shape!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "A rectangle is 6 cm long and 4 cm wide. What is its area?",
+            "answer": "24 sq cm",
+            "hintLadder": [
+              "Area of a rectangle = length × breadth.",
+              "6 × 4 = 24 square cm."
+            ]
+          },
+          "branches": [
+            "24 sq cm",
+            "20 sq cm"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "A square has side 5 cm. What is its area?",
+            "answer": "25 sq cm",
+            "hintLadder": [
+              "Area of a square = side × side.",
+              "5 × 5 = 25 square cm."
+            ]
+          },
+          "branches": [
+            "25 sq cm",
+            "20 sq cm"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

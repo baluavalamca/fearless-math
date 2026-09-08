@@ -639,5 +639,74 @@
       "q": "What do angles on a straight line add up to?",
       "a": "180 degrees - a half turn. So if one is 120, the other is 60."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Angles",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "angle",
+          "right": "The amount of turn between two arms meeting at a point"
+        },
+        {
+          "id": "p2",
+          "left": "vertex",
+          "right": "The corner point where the two arms meet"
+        },
+        {
+          "id": "p3",
+          "left": "acute angle",
+          "right": "Smaller than a right angle (less than 90°)"
+        },
+        {
+          "id": "p4",
+          "left": "obtuse angle",
+          "right": "Bigger than a right angle but less than a straight line"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Angle Types Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've named every angle correctly!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "An angle measures 40°. Is it acute or obtuse?",
+            "answer": "Acute",
+            "hintLadder": [
+              "A right angle is 90°. Compare 40° to that.",
+              "40° is smaller than 90°, so it's acute."
+            ]
+          },
+          "branches": [
+            "Acute",
+            "Obtuse"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "An angle measures 120°. Is it acute or obtuse?",
+            "answer": "Obtuse",
+            "hintLadder": [
+              "Compare 120° to a right angle (90°) and a straight angle (180°).",
+              "120° is between 90° and 180°, so it's obtuse."
+            ]
+          },
+          "branches": [
+            "Obtuse",
+            "Acute"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

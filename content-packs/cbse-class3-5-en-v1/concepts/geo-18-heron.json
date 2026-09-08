@@ -320,5 +320,69 @@
       "formula": "Area = sqrt(s(s-a)(s-b)(s-c))",
       "remember": "Find s first; no height required"
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Heron's Formula",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "semi-perimeter (s)",
+          "right": "Half the perimeter: s = (a + b + c) ÷ 2"
+        },
+        {
+          "id": "p2",
+          "left": "scalene triangle",
+          "right": "A triangle with all three sides different lengths"
+        },
+        {
+          "id": "p3",
+          "left": "Heron's formula",
+          "right": "Area = √(s(s−a)(s−b)(s−c))"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Heron's Formula Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've measured every triangle without a height!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "A triangle has sides 3, 4, 5. What is the semi-perimeter s?",
+            "answer": "6",
+            "hintLadder": [
+              "Use s = (a + b + c) ÷ 2.",
+              "(3 + 4 + 5) ÷ 2 = 12 ÷ 2 = 6."
+            ]
+          },
+          "branches": [
+            "6",
+            "12"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "Using s = 6 for the 3-4-5 triangle, what is Area = √(s(s−a)(s−b)(s−c))?",
+            "answer": "6",
+            "hintLadder": [
+              "Compute s−a=6−3=3, s−b=6−4=2, s−c=6−5=1.",
+              "√(6×3×2×1) = √36 = 6."
+            ]
+          },
+          "branches": [
+            "6",
+            "9"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

@@ -108,11 +108,31 @@
     "kind": "shape2d",
     "shape": "triangle",
     "sliders": [
-      { "key": "b", "label": "Base (b)", "min": 2, "max": 20, "step": 1, "default": 10, "unit": "cm" },
-      { "key": "h", "label": "Height (h)", "min": 2, "max": 20, "step": 1, "default": 6, "unit": "cm" }
+      {
+        "key": "b",
+        "label": "Base (b)",
+        "min": 2,
+        "max": 20,
+        "step": 1,
+        "default": 10,
+        "unit": "cm"
+      },
+      {
+        "key": "h",
+        "label": "Height (h)",
+        "min": 2,
+        "max": 20,
+        "step": 1,
+        "default": 6,
+        "unit": "cm"
+      }
     ],
     "formulas": [
-      { "name": "Area (½ × base × height)", "expr": "0.5*b*h", "unit": "sq cm" }
+      {
+        "name": "Area (½ × base × height)",
+        "expr": "0.5*b*h",
+        "unit": "sq cm"
+      }
     ],
     "color": "good"
   },
@@ -345,5 +365,69 @@
       "formula": "A = pi x r^2",
       "remember": "'Pie are squared' - pi times radius squared"
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Area Formulas",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "base and height",
+          "right": "The base is a side; height is the straight distance to it"
+        },
+        {
+          "id": "p2",
+          "left": "π r²",
+          "right": "The area of a circle: π times the radius squared"
+        },
+        {
+          "id": "p3",
+          "left": "square units",
+          "right": "The unit for area, like sq cm or sq m"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Area Formulas Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You know every area formula!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "A triangle has base 8 cm and height 5 cm. What is its area?",
+            "answer": "20 sq cm",
+            "hintLadder": [
+              "Use A = ½ × base × height.",
+              "½ × 8 × 5 = 20 square cm."
+            ]
+          },
+          "branches": [
+            "20 sq cm",
+            "40 sq cm"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "A circle has radius 3 cm. Using A = πr² with π ≈ 3.14, what is its area?",
+            "answer": "28.26 sq cm",
+            "hintLadder": [
+              "Use A = π × r².",
+              "3.14 × 3² = 3.14 × 9 = 28.26 square cm."
+            ]
+          },
+          "branches": [
+            "28.26 sq cm",
+            "18.84 sq cm"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

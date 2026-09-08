@@ -395,5 +395,74 @@
       "q": "What's the difference between a rhombus and a kite?",
       "a": "A rhombus has all FOUR sides equal. A kite has two PAIRS of adjacent (touching) sides equal, but the two pairs can be different lengths from each other."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Polygons & Quadrilaterals",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "polygon",
+          "right": "A closed flat shape made of straight sides"
+        },
+        {
+          "id": "p2",
+          "left": "interior angle sum",
+          "right": "(n − 2) × 180°"
+        },
+        {
+          "id": "p3",
+          "left": "exterior angle",
+          "right": "All exterior angles of a convex polygon add to 360°"
+        },
+        {
+          "id": "p4",
+          "left": "rhombus",
+          "right": "A parallelogram with all 4 sides equal"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Polygon Angles Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've summed the angles of every polygon!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "A pentagon has 5 sides. What is its interior angle sum, using (n − 2) × 180°?",
+            "answer": "540°",
+            "hintLadder": [
+              "Substitute n = 5 into (n − 2) × 180°.",
+              "(5 − 2) × 180° = 3 × 180° = 540°."
+            ]
+          },
+          "branches": [
+            "540°",
+            "450°"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "What is the sum of the exterior angles of any convex polygon?",
+            "answer": "360°",
+            "hintLadder": [
+              "This total is the same no matter how many sides the polygon has.",
+              "The exterior angles of any convex polygon always add to 360°."
+            ]
+          },
+          "branches": [
+            "360°",
+            "180°"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

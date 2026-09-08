@@ -541,5 +541,69 @@
       "q": "Do all shapes have symmetry?",
       "a": "No. A scalene triangle has none; a circle has infinitely many."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Symmetry",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "symmetry",
+          "right": "Two halves matching exactly when folded"
+        },
+        {
+          "id": "p2",
+          "left": "line of symmetry",
+          "right": "The fold line where halves become twins"
+        },
+        {
+          "id": "p3",
+          "left": "mirror half",
+          "right": "One side is the flipped reflection of the other"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Symmetry Fold Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've found every line of symmetry!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "How many lines of symmetry does a square have?",
+            "answer": "4",
+            "hintLadder": [
+              "Try folding a square in half in different ways: straight across, straight down, and along both diagonals.",
+              "A square has 4 lines of symmetry."
+            ]
+          },
+          "branches": [
+            "4",
+            "1"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "Does the letter F have any line of symmetry?",
+            "answer": "No",
+            "hintLadder": [
+              "Try folding the letter F in half any way you can imagine.",
+              "No fold makes the two halves of F match — it has no line of symmetry."
+            ]
+          },
+          "branches": [
+            "No",
+            "Yes"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

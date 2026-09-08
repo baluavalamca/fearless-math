@@ -112,12 +112,32 @@
     "kind": "graph2d",
     "shape": "linear",
     "sliders": [
-      { "key": "m", "label": "Slope (m)", "min": -4, "max": 4, "step": 0.5, "default": 2 },
-      { "key": "c", "label": "y-intercept (c)", "min": -6, "max": 6, "step": 1, "default": 0 }
+      {
+        "key": "m",
+        "label": "Slope (m)",
+        "min": -4,
+        "max": 4,
+        "step": 0.5,
+        "default": 2
+      },
+      {
+        "key": "c",
+        "label": "y-intercept (c)",
+        "min": -6,
+        "max": 6,
+        "step": 1,
+        "default": 0
+      }
     ],
     "formulas": [
-      { "name": "Slope (m)", "expr": "m" },
-      { "name": "y-intercept (c)", "expr": "c" }
+      {
+        "name": "Slope (m)",
+        "expr": "m"
+      },
+      {
+        "name": "y-intercept (c)",
+        "expr": "c"
+      }
     ],
     "color": "accent"
   },
@@ -347,5 +367,74 @@
       "formula": "y = m x + c",
       "remember": "m = slope, c = y-intercept"
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Straight Lines",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "slope (m)",
+          "right": "Steepness = rise ÷ run"
+        },
+        {
+          "id": "p2",
+          "left": "y-intercept (c)",
+          "right": "Where the line crosses the y-axis"
+        },
+        {
+          "id": "p3",
+          "left": "slope-intercept form",
+          "right": "y = mx + c"
+        },
+        {
+          "id": "p4",
+          "left": "rise over run",
+          "right": "How much a line goes up for how much it goes across"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Slope & Intercept Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've plotted every line!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Find the slope between points (1, 2) and (3, 8).",
+            "answer": "3",
+            "hintLadder": [
+              "Use m = (y₂ − y₁)/(x₂ − x₁).",
+              "(8 − 2)/(3 − 1) = 6/2 = 3."
+            ]
+          },
+          "branches": [
+            "3",
+            "6"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "A line is y = 4x + 5. What is its y-intercept?",
+            "answer": "5",
+            "hintLadder": [
+              "In y = mx + c, c is the y-intercept.",
+              "Here c = 5, so the y-intercept is 5."
+            ]
+          },
+          "branches": [
+            "5",
+            "4"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

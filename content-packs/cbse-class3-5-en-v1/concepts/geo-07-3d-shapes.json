@@ -400,5 +400,69 @@
       "q": "Does a sphere have edges?",
       "a": "No - it is one smooth curved surface, no flat faces, edges, or corners."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — 3D Shapes",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "face",
+          "right": "A flat (or curved) surface of a solid"
+        },
+        {
+          "id": "p2",
+          "left": "edge",
+          "right": "The line where two faces meet"
+        },
+        {
+          "id": "p3",
+          "left": "vertex (corner)",
+          "right": "A point where edges meet"
+        }
+      ]
+    },
+    "maze": {
+      "title": "3D Shapes Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You know your solids!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Which solid is fully round with no faces or edges: a sphere or a cube?",
+            "answer": "Sphere",
+            "hintLadder": [
+              "Think of a ball versus a dice.",
+              "A sphere (ball) is fully round with no flat faces or straight edges."
+            ]
+          },
+          "branches": [
+            "Sphere",
+            "Cube"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "Which solid has both flat and curved surfaces: a cylinder or a cube?",
+            "answer": "Cylinder",
+            "hintLadder": [
+              "Think of a tin can — it has flat circles at top and bottom, plus a curved side.",
+              "A cylinder has both flat (circle) and curved surfaces."
+            ]
+          },
+          "branches": [
+            "Cylinder",
+            "Cube"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

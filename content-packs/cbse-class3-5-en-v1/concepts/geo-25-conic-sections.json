@@ -329,5 +329,74 @@
       "q": "Where do I see these?",
       "a": "Orbits are ellipses; a thrown ball and a satellite dish are parabolas; a circle is everywhere."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Conic Sections",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "conic section",
+          "right": "A curve made by slicing a cone: circle, ellipse, parabola, or hyperbola"
+        },
+        {
+          "id": "p2",
+          "left": "circle x² + y² = r²",
+          "right": "All points at distance r from the centre"
+        },
+        {
+          "id": "p3",
+          "left": "parabola",
+          "right": "A single U-shaped curve, y² = 4ax"
+        },
+        {
+          "id": "p4",
+          "left": "ellipse",
+          "right": "A squashed circle, x²/a² + y²/b² = 1"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Conic Sections Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've sliced every cone correctly!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Which conic section is the shape of a thrown ball's path: a parabola or a circle?",
+            "answer": "A parabola",
+            "hintLadder": [
+              "A parabola is the classic U-shaped curve of projectile motion.",
+              "The path of a thrown object is a parabola."
+            ]
+          },
+          "branches": [
+            "A parabola",
+            "A circle"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "The equation x² + y² = 25 is a circle. What is its radius?",
+            "answer": "5",
+            "hintLadder": [
+              "Compare to x² + y² = r².",
+              "r² = 25, so r = 5."
+            ]
+          },
+          "branches": [
+            "5",
+            "25"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

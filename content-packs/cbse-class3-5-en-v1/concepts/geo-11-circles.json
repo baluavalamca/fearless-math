@@ -104,12 +104,34 @@
     "kind": "shape2d",
     "shape": "circle",
     "sliders": [
-      { "key": "r", "label": "Radius (r)", "min": 1, "max": 8, "step": 0.5, "default": 3, "unit": "cm" }
+      {
+        "key": "r",
+        "label": "Radius (r)",
+        "min": 1,
+        "max": 8,
+        "step": 0.5,
+        "default": 3,
+        "unit": "cm"
+      }
     ],
     "formulas": [
-      { "name": "Diameter (d = 2r)", "expr": "2*r", "unit": "cm" },
-      { "name": "Circumference (2πr)", "expr": "2*PI*r", "unit": "cm", "decimals": 1 },
-      { "name": "Area (πr²)", "expr": "PI*r^2", "unit": "sq cm", "decimals": 1 }
+      {
+        "name": "Diameter (d = 2r)",
+        "expr": "2*r",
+        "unit": "cm"
+      },
+      {
+        "name": "Circumference (2πr)",
+        "expr": "2*PI*r",
+        "unit": "cm",
+        "decimals": 1
+      },
+      {
+        "name": "Area (πr²)",
+        "expr": "PI*r^2",
+        "unit": "sq cm",
+        "decimals": 1
+      }
     ],
     "color": "good"
   },
@@ -337,5 +359,69 @@
       "formula": "A = pi r^2",
       "remember": "'Pie are squared'"
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Circles",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "radius",
+          "right": "The distance from the centre to the edge"
+        },
+        {
+          "id": "p2",
+          "left": "diameter",
+          "right": "The distance across through the centre; = 2 × radius"
+        },
+        {
+          "id": "p3",
+          "left": "circumference",
+          "right": "The distance all the way around the circle"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Circle Facts Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've gone all the way around the circle!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "A circle has radius 7 cm. What is its diameter?",
+            "answer": "14 cm",
+            "hintLadder": [
+              "Diameter = 2 × radius.",
+              "2 × 7 = 14 cm."
+            ]
+          },
+          "branches": [
+            "14 cm",
+            "7 cm"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "A circle has diameter 10 cm. Using C = πd with π ≈ 3.14, what is its circumference?",
+            "answer": "31.4 cm",
+            "hintLadder": [
+              "Circumference = π × diameter.",
+              "3.14 × 10 = 31.4 cm."
+            ]
+          },
+          "branches": [
+            "31.4 cm",
+            "20 cm"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

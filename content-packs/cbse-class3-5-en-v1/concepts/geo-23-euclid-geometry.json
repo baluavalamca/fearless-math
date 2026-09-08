@@ -337,5 +337,74 @@
       "q": "Axiom vs theorem?",
       "a": "An axiom is assumed true; a theorem is PROVED true using axioms and logic."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Euclid's Geometry",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "axiom",
+          "right": "A self-evident truth assumed without proof, used across all of maths"
+        },
+        {
+          "id": "p2",
+          "left": "postulate",
+          "right": "A basic assumption specific to geometry"
+        },
+        {
+          "id": "p3",
+          "left": "theorem",
+          "right": "A statement PROVED true using axioms, postulates, and earlier theorems"
+        },
+        {
+          "id": "p4",
+          "left": "point / line",
+          "right": "A point has no size; a line has length only and extends endlessly"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Euclid's Axioms Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've built geometry from the ground up!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "\"Things equal to the same thing are equal to one another\" — is this an axiom or a theorem?",
+            "answer": "Axiom",
+            "hintLadder": [
+              "An axiom is accepted as true without proof; a theorem is proved.",
+              "This is a self-evident truth used across all of maths — an axiom."
+            ]
+          },
+          "branches": [
+            "Axiom",
+            "Theorem"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "\"Two points determine a unique line\" — is this a general axiom or a geometry-specific postulate?",
+            "answer": "Postulate",
+            "hintLadder": [
+              "Postulates are basic assumptions specific to geometry.",
+              "This statement is only about geometry, so it's a postulate."
+            ]
+          },
+          "branches": [
+            "Postulate",
+            "Axiom"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

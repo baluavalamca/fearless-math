@@ -387,5 +387,69 @@
       "q": "What are vertically opposite angles?",
       "a": "The equal angles opposite each other where two lines cross - always equal."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Lines & Angles",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "parallel lines",
+          "right": "Lines that stay the same distance apart and never meet"
+        },
+        {
+          "id": "p2",
+          "left": "perpendicular lines",
+          "right": "Lines that cross at a right angle"
+        },
+        {
+          "id": "p3",
+          "left": "ray / segment",
+          "right": "A ray goes one way from a point; a segment has two endpoints"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Lines & Angles Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've mastered lines and angles!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Railway tracks never meet. Are they parallel or perpendicular?",
+            "answer": "Parallel",
+            "hintLadder": [
+              "Parallel lines never meet; perpendicular lines cross at 90°.",
+              "Railway tracks never meet, so they're parallel."
+            ]
+          },
+          "branches": [
+            "Parallel",
+            "Perpendicular"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "Two lines cross forming a 90° angle. Are they parallel or perpendicular?",
+            "answer": "Perpendicular",
+            "hintLadder": [
+              "Perpendicular lines meet at exactly a right angle.",
+              "A 90° crossing means the lines are perpendicular."
+            ]
+          },
+          "branches": [
+            "Perpendicular",
+            "Parallel"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

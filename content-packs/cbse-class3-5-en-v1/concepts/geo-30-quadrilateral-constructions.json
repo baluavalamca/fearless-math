@@ -376,5 +376,69 @@
       "q": "What's the very first thing to draw when constructing a quadrilateral from 4 sides + 1 diagonal?",
       "a": "The diagonal itself — it becomes the shared side of the two triangles you'll build, one on each side of it."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Quadrilateral Constructions",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "diagonal",
+          "right": "A line joining two opposite corners, splitting the shape into two triangles"
+        },
+        {
+          "id": "p2",
+          "left": "SSS construction",
+          "right": "Building a triangle from its three side lengths using compass arcs"
+        },
+        {
+          "id": "p3",
+          "left": "independent measurements",
+          "right": "The minimum facts needed to fix a shape exactly — 3 for a triangle, 5 for a quadrilateral"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Quadrilateral Construction Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've constructed every quadrilateral exactly!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "How many independent measurements are needed to construct a quadrilateral exactly?",
+            "answer": "5",
+            "hintLadder": [
+              "A triangle needs 3; a quadrilateral splits into 2 triangles sharing one diagonal.",
+              "A quadrilateral needs 5 independent measurements."
+            ]
+          },
+          "branches": [
+            "5",
+            "4"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "A diagonal splits a quadrilateral into how many triangles?",
+            "answer": "2",
+            "hintLadder": [
+              "Draw one diagonal across a four-sided shape and see what forms.",
+              "One diagonal splits a quadrilateral into 2 triangles."
+            ]
+          },
+          "branches": [
+            "2",
+            "4"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

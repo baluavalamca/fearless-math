@@ -326,5 +326,69 @@
       "q": "What do a quadrilateral's angles add to?",
       "a": "360 degrees - it splits into two triangles, 180 + 180."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Triangles & Quadrilaterals",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "equilateral / isosceles / scalene",
+          "right": "Triangles with 3 / 2 / 0 equal sides"
+        },
+        {
+          "id": "p2",
+          "left": "angle sum",
+          "right": "Triangle angles add to 180°; quadrilateral angles add to 360°"
+        },
+        {
+          "id": "p3",
+          "left": "parallelogram",
+          "right": "A quadrilateral with both pairs of opposite sides parallel"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Triangles & Quads Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've named every shape correctly!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "A triangle has angles 60°, 60°, and 60°. Is it equilateral or scalene?",
+            "answer": "Equilateral",
+            "hintLadder": [
+              "Equilateral triangles have all 3 sides (and angles) equal.",
+              "All three angles are equal (60°), so it's equilateral."
+            ]
+          },
+          "branches": [
+            "Equilateral",
+            "Scalene"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "A quadrilateral has three angles of 90°, 90°, and 90°. What is the fourth angle?",
+            "answer": "90°",
+            "hintLadder": [
+              "Quadrilateral angles always add to 360°.",
+              "360° − 90° − 90° − 90° = 90°."
+            ]
+          },
+          "branches": [
+            "90°",
+            "80°"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

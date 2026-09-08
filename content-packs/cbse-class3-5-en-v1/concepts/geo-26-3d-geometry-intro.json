@@ -329,5 +329,74 @@
       "q": "How far is (2,3,6) from the origin?",
       "a": "sqrt(4+9+36) = sqrt(49) = 7 - Pythagoras with three squares."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — 3D Geometry Intro",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "coordinate (x, y, z)",
+          "right": "Three numbers that fix a point in space"
+        },
+        {
+          "id": "p2",
+          "left": "octant",
+          "right": "One of the 8 regions the three axes split space into"
+        },
+        {
+          "id": "p3",
+          "left": "distance from origin",
+          "right": "√(x² + y² + z²)"
+        },
+        {
+          "id": "p4",
+          "left": "axes",
+          "right": "The three number lines that meet at right angles at the origin"
+        }
+      ]
+    },
+    "maze": {
+      "title": "3D Coordinates Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've navigated 3D space!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "How many numbers are needed to fix a point in 3D space?",
+            "answer": "3",
+            "hintLadder": [
+              "A 2D point needs (x, y); 3D adds one more axis.",
+              "A 3D point needs 3 numbers: (x, y, z)."
+            ]
+          },
+          "branches": [
+            "3",
+            "2"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "Find the distance from the origin to the point (3, 4, 0) using √(x² + y² + z²).",
+            "answer": "5",
+            "hintLadder": [
+              "√(3² + 4² + 0²) = √(9 + 16 + 0).",
+              "√25 = 5."
+            ]
+          },
+          "branches": [
+            "5",
+            "7"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

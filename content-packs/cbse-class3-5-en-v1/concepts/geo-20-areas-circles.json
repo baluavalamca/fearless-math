@@ -304,5 +304,74 @@
       "q": "Sector vs segment?",
       "a": "Sector = slice between two radii (pizza slice). Segment = the piece cut off by a chord (the crust)."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Areas Related to Circles",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "sector",
+          "right": "A pizza-slice part of a circle bounded by two radii and an arc"
+        },
+        {
+          "id": "p2",
+          "left": "arc length",
+          "right": "The curved edge of a sector: (θ/360) × 2πr"
+        },
+        {
+          "id": "p3",
+          "left": "segment",
+          "right": "The region between a chord and its arc"
+        },
+        {
+          "id": "p4",
+          "left": "central angle (θ)",
+          "right": "The angle the sector makes at the centre"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Sectors & Segments Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've sliced every circle correctly!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "A sector has central angle 90° in a circle of radius 7 cm (use π ≈ 22/7). What fraction of the whole circle is the sector?",
+            "answer": "1/4",
+            "hintLadder": [
+              "Sector fraction = θ/360.",
+              "90/360 = 1/4 of the whole circle."
+            ]
+          },
+          "branches": [
+            "1/4",
+            "1/2"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "Is a segment the region between a chord and its arc, or between two radii and an arc?",
+            "answer": "Between a chord and its arc",
+            "hintLadder": [
+              "A sector uses two radii; a segment uses a chord instead.",
+              "A segment is the region between a chord and its arc."
+            ]
+          },
+          "branches": [
+            "Between a chord and its arc",
+            "Between two radii and an arc"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

@@ -110,13 +110,45 @@
     "kind": "solid3d",
     "shape": "cuboid",
     "sliders": [
-      { "key": "l", "label": "Length (l)", "min": 1, "max": 6, "step": 1, "default": 4, "unit": "units" },
-      { "key": "w", "label": "Width (w)", "min": 1, "max": 6, "step": 1, "default": 3, "unit": "units" },
-      { "key": "h", "label": "Height (h)", "min": 1, "max": 6, "step": 1, "default": 2, "unit": "units" }
+      {
+        "key": "l",
+        "label": "Length (l)",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 4,
+        "unit": "units"
+      },
+      {
+        "key": "w",
+        "label": "Width (w)",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 3,
+        "unit": "units"
+      },
+      {
+        "key": "h",
+        "label": "Height (h)",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 2,
+        "unit": "units"
+      }
     ],
     "formulas": [
-      { "name": "Volume (l × w × h)", "expr": "l*w*h", "unit": "cubic units" },
-      { "name": "Surface area (2(lw+wh+hl))", "expr": "2*(l*w+w*h+h*l)", "unit": "sq units" }
+      {
+        "name": "Volume (l × w × h)",
+        "expr": "l*w*h",
+        "unit": "cubic units"
+      },
+      {
+        "name": "Surface area (2(lw+wh+hl))",
+        "expr": "2*(l*w+w*h+h*l)",
+        "unit": "sq units"
+      }
     ],
     "color": "cool"
   },
@@ -353,5 +385,69 @@
       "formula": "V = 1/3 x pi x r^2 x h",
       "remember": "One-third of a cylinder of the same base and height"
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Surface Area & Volume",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "volume",
+          "right": "Space inside a solid, in cubic units"
+        },
+        {
+          "id": "p2",
+          "left": "surface area",
+          "right": "Total area of all outside faces, in square units"
+        },
+        {
+          "id": "p3",
+          "left": "cubic units",
+          "right": "The unit for volume, made of unit cubes"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Surface Area & Volume Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've filled and wrapped every solid!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "A cuboid is 4 cm × 3 cm × 2 cm. What is its volume?",
+            "answer": "24 cubic cm",
+            "hintLadder": [
+              "Use V = length × breadth × height.",
+              "4 × 3 × 2 = 24 cubic cm."
+            ]
+          },
+          "branches": [
+            "24 cubic cm",
+            "18 cubic cm"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "A cube has side 5 cm. What is its surface area (6 × side²)?",
+            "answer": "150 sq cm",
+            "hintLadder": [
+              "A cube has 6 equal square faces: surface area = 6 × side².",
+              "6 × 5² = 6 × 25 = 150 square cm."
+            ]
+          },
+          "branches": [
+            "150 sq cm",
+            "125 sq cm"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

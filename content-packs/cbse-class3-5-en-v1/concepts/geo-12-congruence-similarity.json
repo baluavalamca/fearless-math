@@ -380,5 +380,69 @@
       "q": "What is a congruence rule?",
       "a": "A shortcut proving two triangles identical: SSS, SAS, ASA, or RHS - without checking all six measurements."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Congruence & Similarity",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "congruent",
+          "right": "Same shape and same size — an exact match"
+        },
+        {
+          "id": "p2",
+          "left": "similar",
+          "right": "Same shape, different size — a scaled copy"
+        },
+        {
+          "id": "p3",
+          "left": "corresponding parts",
+          "right": "Matching sides or angles in the two shapes"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Congruence & Similarity Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You spot congruent and similar shapes every time!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Two triangles are exact copies, same shape and same size. Are they congruent or similar?",
+            "answer": "Congruent",
+            "hintLadder": [
+              "Congruent means an exact match in both shape AND size.",
+              "Exact copies of the same size are congruent."
+            ]
+          },
+          "branches": [
+            "Congruent",
+            "Similar"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "A photo is enlarged to a poster — same shape, different size. Are they congruent or similar?",
+            "answer": "Similar",
+            "hintLadder": [
+              "Similar means same shape but a different size (a scaled copy).",
+              "An enlarged photo keeps the shape but changes size, so it's similar."
+            ]
+          },
+          "branches": [
+            "Similar",
+            "Congruent"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

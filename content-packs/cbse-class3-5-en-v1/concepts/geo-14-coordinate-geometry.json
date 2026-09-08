@@ -379,5 +379,69 @@
       "formula": "((x1+x2)/2, (y1+y2)/2)",
       "remember": "Average the x's and the y's"
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Coordinate Geometry",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "coordinates (x, y)",
+          "right": "A point's address: x across, then y up"
+        },
+        {
+          "id": "p2",
+          "left": "origin",
+          "right": "Where the axes cross, the point (0, 0)"
+        },
+        {
+          "id": "p3",
+          "left": "quadrant",
+          "right": "One of the four regions the axes split the plane into"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Coordinate Plane Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You navigate the coordinate plane like a pro!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "What are the coordinates of the point 3 steps right and 2 steps up from the origin?",
+            "answer": "(3, 2)",
+            "hintLadder": [
+              "Go x steps across first, then y steps up.",
+              "3 right and 2 up gives the point (3, 2)."
+            ]
+          },
+          "branches": [
+            "(3, 2)",
+            "(2, 3)"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "Find the distance between (0, 0) and (3, 4) using the distance formula.",
+            "answer": "5",
+            "hintLadder": [
+              "Use d = √((x₂−x₁)² + (y₂−y₁)²).",
+              "√((3−0)² + (4−0)²) = √(9+16) = √25 = 5."
+            ]
+          },
+          "branches": [
+            "5",
+            "7"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

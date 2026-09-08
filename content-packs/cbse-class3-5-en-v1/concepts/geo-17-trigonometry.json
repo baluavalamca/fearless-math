@@ -100,13 +100,41 @@
     "kind": "shape2d",
     "shape": "angle-triangle",
     "sliders": [
-      { "key": "angle", "label": "Angle", "min": 10, "max": 80, "step": 1, "default": 30, "unit": "°" },
-      { "key": "adj", "label": "Adjacent side", "min": 10, "max": 100, "step": 5, "default": 50, "unit": "units" }
+      {
+        "key": "angle",
+        "label": "Angle",
+        "min": 10,
+        "max": 80,
+        "step": 1,
+        "default": 30,
+        "unit": "°"
+      },
+      {
+        "key": "adj",
+        "label": "Adjacent side",
+        "min": 10,
+        "max": 100,
+        "step": 5,
+        "default": 50,
+        "unit": "units"
+      }
     ],
     "formulas": [
-      { "name": "sin(angle)", "expr": "sin(angle)", "unit": "" },
-      { "name": "cos(angle)", "expr": "cos(angle)", "unit": "" },
-      { "name": "tan(angle)", "expr": "tan(angle)", "unit": "" }
+      {
+        "name": "sin(angle)",
+        "expr": "sin(angle)",
+        "unit": ""
+      },
+      {
+        "name": "cos(angle)",
+        "expr": "cos(angle)",
+        "unit": ""
+      },
+      {
+        "name": "tan(angle)",
+        "expr": "tan(angle)",
+        "unit": ""
+      }
     ],
     "color": "accent"
   },
@@ -367,5 +395,69 @@
       "formula": "tan A = Opposite / Adjacent",
       "remember": "TOA (also tan = sin/cos)"
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Trigonometry",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "opposite / adjacent",
+          "right": "The side facing the angle / the side next to it"
+        },
+        {
+          "id": "p2",
+          "left": "SOH-CAH-TOA",
+          "right": "sin=O/H, cos=A/H, tan=O/A"
+        },
+        {
+          "id": "p3",
+          "left": "trigonometric ratio",
+          "right": "A fixed ratio of two sides for a given angle"
+        }
+      ]
+    },
+    "maze": {
+      "title": "SOH-CAH-TOA Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've mastered the trig ratios!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "In a right triangle, which ratio is sin A?",
+            "answer": "Opposite/Hypotenuse",
+            "hintLadder": [
+              "Remember SOH-CAH-TOA: S is for sine.",
+              "sin A = Opposite ÷ Hypotenuse (SOH)."
+            ]
+          },
+          "branches": [
+            "Opposite/Hypotenuse",
+            "Adjacent/Hypotenuse"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "In a right triangle, which ratio is tan A?",
+            "answer": "Opposite/Adjacent",
+            "hintLadder": [
+              "Remember SOH-CAH-TOA: T is for tangent.",
+              "tan A = Opposite ÷ Adjacent (TOA)."
+            ]
+          },
+          "branches": [
+            "Opposite/Adjacent",
+            "Adjacent/Opposite"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

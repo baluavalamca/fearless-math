@@ -315,5 +315,74 @@
       "q": "How do I bisect a line?",
       "a": "Open the compass past halfway, draw arcs from both ends above and below, join where they cross."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Constructions",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "perpendicular bisector",
+          "right": "A line that cuts a segment into two equal halves at 90°"
+        },
+        {
+          "id": "p2",
+          "left": "angle bisector",
+          "right": "A ray that splits an angle into two equal angles"
+        },
+        {
+          "id": "p3",
+          "left": "straightedge",
+          "right": "A ruler used only to draw straight lines, not to measure"
+        },
+        {
+          "id": "p4",
+          "left": "arc",
+          "right": "Part of a circle drawn by the compass to find exact points"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Compass & Straightedge Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've constructed every shape exactly!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Which tool measures angles in a true compass-and-straightedge construction: a protractor or the compass?",
+            "answer": "The compass",
+            "hintLadder": [
+              "True constructions use only a compass and an unmarked straightedge — no protractor.",
+              "The compass does all the measuring, through arcs."
+            ]
+          },
+          "branches": [
+            "The compass",
+            "A protractor"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "What does a perpendicular bisector do to a line segment?",
+            "answer": "Cuts it into two equal halves at 90°",
+            "hintLadder": [
+              "Think about both words: 'perpendicular' (90°) and 'bisector' (cuts in half).",
+              "It cuts the segment into two equal halves, at a right angle."
+            ]
+          },
+          "branches": [
+            "Cuts it into two equal halves at 90°",
+            "Doubles its length"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

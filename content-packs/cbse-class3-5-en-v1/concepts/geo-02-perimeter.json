@@ -499,5 +499,69 @@
       "name": "Square perimeter",
       "formula": "P = 4 x side"
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Perimeter",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "perimeter",
+          "right": "The total distance around a shape's boundary"
+        },
+        {
+          "id": "p2",
+          "left": "boundary",
+          "right": "The edge line of a shape"
+        },
+        {
+          "id": "p3",
+          "left": "length and breadth",
+          "right": "A rectangle's long side and short side"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Perimeter Path Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've walked every perimeter!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "A rectangle has length 8 cm and breadth 5 cm. What is its perimeter?",
+            "answer": "26 cm",
+            "hintLadder": [
+              "Use P = 2 × (length + breadth).",
+              "2 × (8 + 5) = 2 × 13 = 26 cm."
+            ]
+          },
+          "branches": [
+            "26 cm",
+            "13 cm"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "A square has side 7 cm. What is its perimeter?",
+            "answer": "28 cm",
+            "hintLadder": [
+              "Use P = 4 × side for a square.",
+              "4 × 7 = 28 cm."
+            ]
+          },
+          "branches": [
+            "28 cm",
+            "14 cm"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

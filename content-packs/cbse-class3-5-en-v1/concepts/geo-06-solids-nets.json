@@ -601,5 +601,79 @@
       "q": "How many faces does a cube have?",
       "a": "6 - one per square in its net. Also 12 edges and 8 corners."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Solids & Nets",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "solid (3D shape)",
+          "right": "A shape with length, breadth and height"
+        },
+        {
+          "id": "p2",
+          "left": "face",
+          "right": "A flat surface of a solid"
+        },
+        {
+          "id": "p3",
+          "left": "edge",
+          "right": "The line where two faces meet"
+        },
+        {
+          "id": "p4",
+          "left": "vertex",
+          "right": "A corner where edges meet"
+        },
+        {
+          "id": "p5",
+          "left": "net",
+          "right": "A solid unfolded into a flat shape"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Solids & Nets Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've counted every face, edge, and vertex!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "How many faces does a cube have?",
+            "answer": "6",
+            "hintLadder": [
+              "Picture a dice — count the flat sides you can see, plus the hidden ones.",
+              "A cube has 6 faces (like a dice)."
+            ]
+          },
+          "branches": [
+            "6",
+            "4"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "How many edges does a cube have?",
+            "answer": "12",
+            "hintLadder": [
+              "Count the lines where faces meet: 4 on top, 4 on bottom, 4 connecting them.",
+              "A cube has 12 edges."
+            ]
+          },
+          "branches": [
+            "12",
+            "8"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

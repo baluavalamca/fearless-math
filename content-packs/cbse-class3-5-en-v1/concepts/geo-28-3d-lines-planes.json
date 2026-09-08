@@ -322,5 +322,74 @@
       "q": "How is a line written in 3D?",
       "a": "Start point plus a multiple of a direction vector: r = a + t d, where t slides you along the line."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — 3D Lines & Planes",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "direction cosines (l, m, n)",
+          "right": "The cosines of angles a line makes with the x, y, z axes"
+        },
+        {
+          "id": "p2",
+          "left": "line in space",
+          "right": "Fixed by one point on it and a direction vector"
+        },
+        {
+          "id": "p3",
+          "left": "plane ax + by + cz = d",
+          "right": "A flat surface; (a, b, c) is its normal"
+        },
+        {
+          "id": "p4",
+          "left": "normal vector",
+          "right": "The direction perpendicular to a plane"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Lines & Planes Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've mapped every line and plane in space!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "A plane has equation 2x + 3y + z = 6. What is its normal vector?",
+            "answer": "(2, 3, 1)",
+            "hintLadder": [
+              "The normal vector is read straight from the coefficients of x, y, z.",
+              "The coefficients are 2, 3, 1, so the normal is (2, 3, 1)."
+            ]
+          },
+          "branches": [
+            "(2, 3, 1)",
+            "(6, 6, 6)"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "What two things fix a unique line in 3D space?",
+            "answer": "A point and a direction",
+            "hintLadder": [
+              "Think about what you need to draw a specific line, not just any line.",
+              "A point on the line plus a direction vector fixes it exactly."
+            ]
+          },
+          "branches": [
+            "A point and a direction",
+            "Two angles"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

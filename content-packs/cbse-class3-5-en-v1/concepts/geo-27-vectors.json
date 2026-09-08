@@ -326,5 +326,74 @@
       "q": "What does a dot product of 0 mean?",
       "a": "The two vectors are perpendicular (at right angles)."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Vectors",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "vector",
+          "right": "A quantity with magnitude AND direction, drawn as an arrow"
+        },
+        {
+          "id": "p2",
+          "left": "magnitude",
+          "right": "The length/size of a vector: √(a² + b²)"
+        },
+        {
+          "id": "p3",
+          "left": "vector addition",
+          "right": "Add matching components: (1,2) + (3,4) = (4,6)"
+        },
+        {
+          "id": "p4",
+          "left": "dot product",
+          "right": "a₁b₁ + a₂b₂ — zero means the vectors are perpendicular"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Vector Arrows Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've mastered vectors!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "Add the vectors (2, 3) and (4, 1).",
+            "answer": "(6, 4)",
+            "hintLadder": [
+              "Add matching components: x with x, y with y.",
+              "(2+4, 3+1) = (6, 4)."
+            ]
+          },
+          "branches": [
+            "(6, 4)",
+            "(2, 3)"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "Find the magnitude of the vector (3, 4).",
+            "answer": "5",
+            "hintLadder": [
+              "Use |(a, b)| = √(a² + b²).",
+              "√(9 + 16) = √25 = 5."
+            ]
+          },
+          "branches": [
+            "5",
+            "7"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

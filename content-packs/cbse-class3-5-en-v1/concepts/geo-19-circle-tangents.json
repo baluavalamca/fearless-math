@@ -313,5 +313,74 @@
       "q": "Two tangents from one point?",
       "a": "They are equal in length - the point is the same distance along each."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Circle Tangents",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "tangent",
+          "right": "A line touching the circle at exactly one point"
+        },
+        {
+          "id": "p2",
+          "left": "chord",
+          "right": "A straight line joining two points on the circle"
+        },
+        {
+          "id": "p3",
+          "left": "point of contact",
+          "right": "The single point where a tangent touches the circle"
+        },
+        {
+          "id": "p4",
+          "left": "equal tangents",
+          "right": "The two tangents from one external point have the same length"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Tangent & Chord Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've mastered tangents and chords!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "A tangent touches a circle at point P. What angle does it make with the radius drawn to P?",
+            "answer": "90°",
+            "hintLadder": [
+              "A tangent is always perpendicular to the radius at the point of contact.",
+              "The angle is 90°."
+            ]
+          },
+          "branches": [
+            "90°",
+            "45°"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "From an external point, one tangent to a circle is 8 cm long. How long is the other tangent from the same point?",
+            "answer": "8 cm",
+            "hintLadder": [
+              "The two tangents drawn from the same external point are always equal.",
+              "The other tangent is also 8 cm."
+            ]
+          },
+          "branches": [
+            "8 cm",
+            "4 cm"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }

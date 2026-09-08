@@ -103,11 +103,31 @@
     "kind": "shape2d",
     "shape": "right-triangle",
     "sliders": [
-      { "key": "a", "label": "Side a", "min": 3, "max": 12, "step": 1, "default": 3, "unit": "units" },
-      { "key": "b", "label": "Side b", "min": 3, "max": 12, "step": 1, "default": 4, "unit": "units" }
+      {
+        "key": "a",
+        "label": "Side a",
+        "min": 3,
+        "max": 12,
+        "step": 1,
+        "default": 3,
+        "unit": "units"
+      },
+      {
+        "key": "b",
+        "label": "Side b",
+        "min": 3,
+        "max": 12,
+        "step": 1,
+        "default": 4,
+        "unit": "units"
+      }
     ],
     "formulas": [
-      { "name": "Hypotenuse (c = √(a² + b²))", "expr": "sqrt(a^2+b^2)", "unit": "units" }
+      {
+        "name": "Hypotenuse (c = √(a² + b²))",
+        "expr": "sqrt(a^2+b^2)",
+        "unit": "units"
+      }
     ],
     "color": "accent"
   },
@@ -338,5 +358,69 @@
       "remember": "Subtract when the side you want is NOT the hypotenuse",
       "whenToUse": "When the hypotenuse and one leg are known."
     }
-  ]
+  ],
+  "activityBook": {
+    "matchUp": {
+      "title": "Match It Up — Pythagoras' Theorem",
+      "instructions": "Match each term to its meaning.",
+      "pairs": [
+        {
+          "id": "p1",
+          "left": "hypotenuse",
+          "right": "The longest side of a right triangle, opposite the right angle"
+        },
+        {
+          "id": "p2",
+          "left": "right-angled triangle",
+          "right": "A triangle with one 90° angle"
+        },
+        {
+          "id": "p3",
+          "left": "a² + b² = c²",
+          "right": "The two short sides squared add to the hypotenuse squared"
+        }
+      ]
+    },
+    "maze": {
+      "title": "Pythagoras Maze",
+      "instructions": "Solve each question to find the path to the finish.",
+      "goalLabel": "You've mastered the Pythagorean rule!",
+      "forks": [
+        {
+          "q": {
+            "id": "m1",
+            "type": "text",
+            "q": "A right triangle has legs 3 cm and 4 cm. What is the hypotenuse?",
+            "answer": "5 cm",
+            "hintLadder": [
+              "Use a² + b² = c²: 3² + 4² = c².",
+              "9 + 16 = 25, and √25 = 5 cm."
+            ]
+          },
+          "branches": [
+            "5 cm",
+            "7 cm"
+          ],
+          "correctBranch": 0
+        },
+        {
+          "q": {
+            "id": "m2",
+            "type": "text",
+            "q": "A right triangle has hypotenuse 13 cm and one leg 5 cm. What is the other leg?",
+            "answer": "12 cm",
+            "hintLadder": [
+              "Use a = √(c² − b²) for a missing shorter side.",
+              "√(13² − 5²) = √(169 − 25) = √144 = 12 cm."
+            ]
+          },
+          "branches": [
+            "12 cm",
+            "8 cm"
+          ],
+          "correctBranch": 0
+        }
+      ]
+    }
+  }
 }
